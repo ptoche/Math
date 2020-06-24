@@ -1,31 +1,7 @@
 \documentclass[12pt]{article}
-\usepackage[margin=0.5in]{geometry}
-\usepackage{etoolbox}
-\newtoggle{showAnswers}
-\togglefalse{showAnswers}
-%\toggletrue{showAnswers}% toggle this line to show/hide answers
-\iftoggle{showAnswers}{ 
-    \newenvironment{answer}{\vspace{1em}\color{blue!90!black}}{}
-}{%
-    \usepackage{verbatim}
-    \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
-}%
-\usepackage{xcolor}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-\usepackage[singlelinecheck=false]{caption}
-\renewcommand\labelitemi{}% no bullets
-\usepackage{sectsty}% smaller font for \section
-    \sectionfont{\fontsize{12}{15}\selectfont}
-\setlength\parindent{0pt}% no indents
-\usepackage[colorlinks = true,
-            linkcolor = black,
-            urlcolor  = blue,
-            citecolor = black,
-            anchorcolor = black]{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-
+\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+%\toggletrue{showAnswers}% comment out this line to show/hide answers
+\usepackage{preamble}
 
 
 \title{Ask Math Anything}
@@ -43,7 +19,7 @@ Reference:~
 \end{abstract}
 \end{minipage}
 
-\section*{2020/06/23}
+
 \section{A Sum Problem}
 Find $a$ and $b$ for
 \begin{align*}
