@@ -1,0 +1,19 @@
+\documentclass[border=2mm]{standalone} 
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=5]
+  \def\phi{1.618034}
+    \draw[very thick, yellow] (1,0) -- (1,1);
+    \draw[very thick,orange] (0,0) rectangle (\phi,1);
+    \draw (0,0.5) node[right] {1};
+    \draw (1,0.5) node[left] {1};
+    \draw (0.5,0) node[above] {1};
+    \draw (0.5,1) node[below] {1};
+    \draw (\phi,0.5) node[right] {1};
+    \draw [<->, yshift=0.1cm] (0,1) -- (\phi,1) node[midway, fill=white] {$x$};
+    \draw [<->, yshift=-0.1cm] (1,0) -- (\phi,0) node[midway, fill=white] {$x-1$};
+\end{tikzpicture}
+
+\end{document}
