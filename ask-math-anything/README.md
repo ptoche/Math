@@ -13,3 +13,7 @@ https://github.com/ptoche/Math
 Patrick TOCHE,
 
 June 2020.
+
+## Warning
+
+I am not associated in any way with Professor Po-Shen Loh, whom I have never met. I'm just a big fan of his __Ask Math Anything__. 
