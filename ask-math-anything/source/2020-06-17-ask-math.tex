@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+\toggletrue{showAnswers}% comment out this line to show/hide answers
+\usepackage{preamble}
+\usepackage{xlop}% multiplications/divisions
+
+\title{Ask Math Anything}
+\author{Daily Challenge with Po-Shen Loh}
+\date{17 June 2020}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+Professor Po-Shen Loh solves problems on his YouTube channel. A selection for practice. 
+
+Reference:~ 
+\href{https://www.youtube.com/channel/UCf78EJOm4wQ4xXwSS15PuxQ}{Ask Math Anything - Daily Challenge with Po-Shen Loh}
+\end{abstract}
+\end{minipage}
+
+
+\section*{Squaring Large Numbers}
+Calculate:
+\begin{align*}
+(111,111,111)^{2}
+\end{align*}
+
+\begin{answer}
+Try with smaller numbers, say $(111)^{2}$:
+\begin{center}
+\opmul{111}{111}\qquad
+\end{center}
+and $(1,111)^{2}$:
+\begin{center}
+\opmul{1111}{1111}\qquad
+\end{center}
+See the pattern? Yes, the answer is:
+\begin{align*}
+(111,111,111)^{2} = 12,345,678,987,654,321
+\end{align*}
+\end{answer}
+
+Calculate the even larger $11$-digit square of ones:
+\begin{align*}
+(11,111,111,111)^{2}
+\end{align*}
+
+\begin{answer}
+We could write it out:
+\begin{center}
+\opmul{11111111111}{11111111111}\qquad
+\end{center}
+but that's a little insane.
+
+Instead, we can exploit the pattern we noticed:
+\begin{align*}
+(11,111,111,111)^{2}
+& = 123456789\\
+& \hspace{5.3em} 10\\
+& \hspace{5.9em} 11\\
+& \hspace{6.9em} 0987654321 \\
+& = 123456790120987654321 
+\end{align*}
+The digits that are written within the same column are carried from the 
+
+\end{answer}
+
+
+%\includegraphics[width=0.4\textwidth]{}
+
+
+
+\end{document}
