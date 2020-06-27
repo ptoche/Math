@@ -1,5 +1,13 @@
 \documentclass[12pt]{article}
 \usepackage{preamble2}
+\usepackage[most]{tcolorbox}
+\usepackage{empheq}
+\newtcbox{\mymath}{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=black!30,
+    colback=gray!10, boxrule=0.5pt}
+\newenvironment{alignbox*}{%
+    \empheq[box=\mymath]{align*}}{\endempheq}
 
 \title{Slopes of Perpendicular Lines}
 \author{Patrick Toche}
@@ -18,7 +26,7 @@ In a cartesian coordinate system, a line has slope $a$. Can you calculate the sl
 
 \bigskip
 
-[In mathematics, perpendicular lines are more commonly called orthogonal lines. On a plane, the two concepts are equivalent: orthogonality is an extension of perpendicularity to spaces of higher dimension than the plane] The situation is depicted in Figure~\ref{fig:slopes:01}. Note that $a<0$ and $b>0$ in this example. Are the slopes always of opposite signs?
+In mathematics, perpendicular lines are more commonly called orthogonal lines. On a plane, the two concepts are equivalent: orthogonality is an extension of perpendicularity to spaces of higher dimension than the plane. The situation is depicted in Figure~\ref{fig:slopes:01}. Note that $a<0$ and $b>0$ in this example. Are the slopes always of opposite signs?
 \begin{figure}[hpbt]
 \begin{minipage}[b]{\textwidth}
 \centering
@@ -29,16 +37,21 @@ In a cartesian coordinate system, a line has slope $a$. Can you calculate the sl
 \end{minipage}
 \end{figure}
 
-We have very little information to go by. Can we infer the slope $b$ from $a$? Note that since only the slope matters in this problem, we can consider two lines that intersect at the origin. Figure~\ref{fig:slopes:02} shows that we can also represent the slopes graphically. As we are now considering two lines that intersect at the origin, their equations are simply $y=ax$ and $y=bx$. And so for $x=1$, say, we have $y=a$ on line $OA$ and $y=b$ on line $OB$. Can we find an expression for $b$ in terms of $a$? Amazingly we can! Thanks to several right triangles and the Pythagoras theorem.
+We have very little information to go by. Can we infer the slope $b$ from $a$? Consider a special case. Take the $45^{\circ}$ line and consider the line orthogonal to it that goes through the origin. The orthogonal line is clearly the $-45^{\circ}$ line --- or equivalently the $315^{\circ}$ line ($360-45$). In radians, the $45^{\circ}$ line has angle $\frac{\pi}{4}$, while the $-45^{\circ}$ line has angle $\frac{-\pi}{4}=\frac{7\pi}{8}\bmod2\pi$. By inspection and considerations of symmetry, the slope of the $-45^{\circ}$ line is clearly $-1$. So is the answer simply $b=-a$? No! Read on.
+
 \begin{figure}[hpbt]
 \begin{minipage}[b]{\textwidth}
 \centering
 \includegraphics[width=0.6\textwidth]
 {coordinates-and-slopes-2}
-\caption{\textbf{Two Orthogonal Lines form Three Pythagorean Triangles}. 
+\caption{\textbf{Simple Example: The $45^{\circ}$ line}. 
 \label{fig:slopes:02}}
 \end{minipage}
 \end{figure}
+
+Consider now the general case. Since only the slope matters in this problem, we can take two lines that intersect at the origin. Figure~\ref{fig:slopes:02} shows that we can also represent the slopes graphically. As we are now considering two lines that intersect at the origin, their equations are simply $y=ax$ and $y=bx$. And so for $x=1$, say, we have $y=a$ on line $OA$ and $y=b$ on line $OB$. Can we find an expression for $b$ in terms of $a$? Amazingly we can! Thanks to several right triangles and the Pythagoras theorem.
+
+\bigskip
 
 Triangle $AOB$ yields:
 \begin{align*}
@@ -55,6 +68,16 @@ Triangle $ObB$ yields:
 OB^2 = 1^2 + b^2
 \end{align*}
 
+\begin{figure}[hpbt]
+\begin{minipage}[b]{\textwidth}
+\centering
+\includegraphics[width=0.6\textwidth]
+{coordinates-and-slopes-3}
+\caption{\textbf{Two Orthogonal Lines form Three Pythagorean Triangles}. 
+\label{fig:slopes:02}}
+\end{minipage}
+\end{figure}
+
 Putting it all together gives:
 \begin{align*}
 (b-a)^2 
@@ -63,8 +86,12 @@ Putting it all together gives:
 b^2 - 2ab + a^2 
   & = a^2 + b^2 + 2 \\
 -2ab & = 2\\
-b & = -\frac{1}{a}
+ab & = -1
 \end{align*}
 
-The slope of any perpendicular line is therefore equal to the opposite of the inverse slope --- or minus the inverse: \fbox{$b = -1/a$}. The special case $a=1$ (the $45^\circ$ degree line) is well known. 
+The slope of any perpendicular line is therefore equal to \textbf{minus the inverse} slope:
+\begin{alignbox*}
+b = -\frac{1}{a}
+\end{alignbox*}
+
 \end{document}
