@@ -1,0 +1,97 @@
+\documentclass[border=3mm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newenvironment{standalonepage}{}{}%keep pictures on same page
+\standaloneenv{standalonepage}
+
+\newcommand{\base}{16cm}
+\newcommand{\mbase}{8cm}
+\newcommand{\height}{15cm}
+\newcommand{\side}{17cm}
+\newcommand{\radius}{7.05cm}% radius set by trial and error (!)
+
+% START basic figure
+% no empty line between \tikzset and myfige/.pic={
+\tikzset{% 
+    myfig/.pic={%
+    
+      \begin{scope}[scale=0.5]% must match scale in tikzpicture below
+
+      % coordinates of triangle
+      \coordinate (O) at (0,0);
+      \coordinate (A) at (0,\height);
+      \coordinate (B) at (-\mbase,0);
+      \coordinate (C) at (+\mbase,0);
+      
+      % triangle
+      \draw (A) -- (B) -- (C) -- cycle;
+        
+      % semi-circle
+      \coordinate (D) at (\radius,0);
+      \draw (D) arc[start angle=0, end angle=180, radius=\radius];
+      
+      \end{scope}
+
+    }%
+}%
+% END basic figure
+
+
+\begin{document}
+
+
+\begin{standalonepage}
+\begin{tikzpicture}
+
+  \pic {myfig};
+
+\end{tikzpicture}
+\end{standalonepage}
+
+
+\begin{standalonepage}
+\begin{tikzpicture}[scale=0.5]% must match scope in myfig
+
+  \pic (original) {myfig};
+
+  % coordinates of tangency point
+  \path (A) --  (C) node[pos=0.78] (D) {};
+
+  % path to tangency point
+  \newcommand{\PathA}{%
+    ($(D)!0!270:(A)$) -- ($(D)!0.53!90:(A)$);}    
+  \draw [shorten >=0cm, shorten <=0cm, red] \PathA;
+
+  % mark the tangency right angles
+   \begin{scope}[rotate=29]
+     \draw [red] (D) +(-3mm,0) |- +(0,3mm);
+   \end{scope}
+
+  % mark the right angles
+  \draw [red] (O) +(-3mm,0) |- +(0,3mm);
+
+  % label segments of size r
+  \coordinate (Cr) at (\radius,0);
+  \coordinate (Ar) at (0,\radius);
+  \path (O) -- (D) node[red, above, midway] {$r$};
+  \draw[red] (O) -- (Cr) node[red, below, midway] {$r$};
+  \draw[red] (O) -- (Ar) node[red, left, midway] {$r$};
+  \draw [red] (A) -- (Ar);
+  
+  % label points
+  \node [red, above] at (A) {$A$};
+  \node [red, below right] at (C) {$C$};
+  \node [red, above right] at (D) {$D$};
+  \node [red, below] at (O) {$B$};
+  \path (D) -- (C) node [red, midway, above right] {$x$};  
+  
+  % known lengths
+  \draw [<->, red] (9,0) -- (9,15) node[red, midway, right] {$15$};
+  \draw [<->, red] (0,-1) -- (8,-1) node[red, midway, below] {$8$};
+  \draw [<->, red, transform canvas={xshift=0.8cm,yshift=0.3cm}] (A) -- (D) node[red, midway, above right] {$17-x$};
+      
+\end{tikzpicture}
+\end{standalonepage}
+
+\end{document}

@@ -36,7 +36,7 @@
 \setlength{\@fptop}{0pt}
 \makeatother
 % mark angles
-\usetikzlibrary{quotes,angles}% 
+\usetikzlibrary{quotes,angles}%
 \tikzset{%
   mark angle/.style={%
       every pic quotes/.append style={text=cyan},
@@ -45,12 +45,4 @@
   }%
 }%
 
-
 \newenvironment{question}{\vspace{1em}\bfseries}{}%
-\iftoggle{showAnswers}{ 
-    \newenvironment{answer}{\vspace{1em}\color{blue!90!black}}{}
-}{%
-    \usepackage{verbatim}
-    \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
-}%
-

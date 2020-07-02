@@ -1,0 +1,91 @@
+\documentclass[border=3mm]{standalone} 
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections,angles,quotes}
+
+\begin{document}
+
+\newcommand{\basic}{%
+
+  \begin{tikzpicture}[scale=2]
+  
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-1,0);
+  \coordinate (B) at (+1,0);
+  \coordinate (C) at (-3,0);
+  \coordinate (D) at (3,0);
+  
+  \draw [name path=CircA] (A) circle (2cm);
+  \draw [name path=CircB] (B) circle (2cm);
+  
+  \draw [name intersections={of=CircA and CircB}, fill=black]  
+    {(intersection-1) circle [radius=1pt]};
+  
+  \draw (-3.5,0) -- (3.5,0);
+  
+  \node[below left] at (A) {A};
+  \node[below right] at (B) {B};
+  \node[below left] at (C) {C};
+  \node[below right] at (D) {D};
+  
+  \node[above] at (intersection-1) {E};
+  
+  \draw (C) -- (intersection-1) -- (D);
+  
+  \end{tikzpicture}
+
+}%
+
+
+\begin{tabular}{@{}c@{}}
+
+\begin{tikzpicture}
+
+  \node at (0,0) (pic1) {\basic};
+  
+  \pic [draw,angle radius=0.5cm,"$\theta$"] at (0,0) {angle = C--intersection-1--D};
+  
+\end{tikzpicture}
+
+\vspace{1cm} \\
+
+\begin{tikzpicture}
+
+  \node at (0,0) (pic2) {\basic};
+
+  \draw [blue] (A) -- (intersection-1) -- (B);
+  
+  \pic [draw=blue, text=blue, angle radius=1cm, below, "$60\circ$"]%
+    {angle=A--intersection-1--B};
+
+  \pic [draw=blue, text=blue, angle radius=1cm, "$60\circ$"]%
+    {angle=intersection-1--B--A};
+  
+  \pic [draw=blue, text=blue, angle radius=1cm, "$60\circ$"]%
+    {angle=B--A--intersection-1};
+  
+\end{tikzpicture}
+
+\vspace{1cm} \\
+
+\begin{tikzpicture}
+
+  \node at (0,0) (pic3) {\basic};
+
+  \draw [blue] (A) -- (intersection-1) -- (B);
+    
+  \pic [draw=blue, text=blue, angle radius=1cm, "$60\circ$"] {angle=B--A--intersection-1};
+  
+  \pic [draw=red, text=red, angle radius=1cm, "$120\circ$"] {angle=intersection-1--A--C};
+  
+  \pic [draw=red, text=red, angle radius=2cm, "$30\circ$"] {angle=A--C--intersection-1};
+
+  \pic [draw=red, text=red, below, angle radius=2cm, "$30\circ$"] {angle=C--intersection-1--A};
+
+  \pic [draw=black!60!green, text=black!60!green, below right, angle radius=2cm, "$30\circ$"] {angle=B--intersection-1--D};
+
+\end{tikzpicture}
+
+
+\end{tabular}
+
+\end{document}
