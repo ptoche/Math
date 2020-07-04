@@ -1,23 +1,25 @@
 \documentclass[12pt]{article}
 \usepackage{../preamble2}
+\setenumerate{label=\Alph*,itemjoin={\quad},before={\mbox{}\bigskip\\},after={\bigskip\\}}
+\usepackage{epigraph}
 
-\title{Slopes of Perpendicular Lines}
-\author{James Toche (with help)}
+\title{UCLA Math Circle}
+\author{James Toche (and family)}
 \date{28 June 2020}
 
 \begin{document}
+\epigraph{An invitation to enjoy the beauty of mathematics with Professor Olga Radko}{}
 \begin{minipage}{\textwidth}
 \maketitle
 \begin{abstract}
-Notes on some of the problems from the UCLA Math Circle Intermediate-2 Assessment. Warning: May contain serious errors, not to mention typos. Comments and corrections welcome. 
+Notes on some problems from the UCLA Math Circle Intermediate-2 Assessment for Summer Session 2020. Comments and corrections welcome. 
 \end{abstract}
 \end{minipage}
 
 \section*{1. Random Integer}
 \begin{question}
 Sarah chose a random integer between 1000 and 9999, inclusive. What is the probability that the integer is odd and all of its digits are distinct?
-
-\begin{enumerate*}[label=\Alph*,itemjoin={\quad}]
+\begin{enumerate*}
   \item $\frac{14}{75}$
   \item $\frac{56}{225}$
   \item $\frac{107}{400}$
@@ -37,13 +39,16 @@ The total number of possible $4$-digit integers is readily calculated. The first
 \end{align*}
 
 The number of ways to pick $4$ distinct integers to form a $4$-digit number is $9\times9\times8\times7=4,536$. It is also clear that half of these are odd, so the probability we are looking for is about $25.2\%$ ($2,268/9,000$) give or take a couple of percents. We have:
-\begin{align*}
-\frac{14}{75} \simeq 19\%, \hspace{3em} 
-\frac{56}{225} \simeq 25\%, \hspace{3em} 
-\frac{107}{400} \simeq 27\%, \hspace{3em} 
-\frac{7}{25} \simeq 28\%, \hspace{3em} 
-\frac{9}{25} \simeq 36\%
-\end{align*}
+\begin{question}
+\begin{enumerate*}
+  \item $\frac{14}{75} \simeq 19\%$
+  \item $\frac{56}{225} \simeq 25\%$
+  \item $\frac{107}{400} \simeq 27\%$
+  \item $\frac{7}{25} \simeq 28\%$
+  \item $\frac{9}{25} \simeq 36\%$
+\end{enumerate*}
+\end{question}
+
 Right away we can rule out answers A and E and we are particularly attracted to B. But let's do the math.
 
 A $4$-digit integer may be represented by the $4$ boxes below, with the letters $a$, $b$, $c$, $d$ placeholders for the first, second, third, and fourth digits.
@@ -84,7 +89,7 @@ P & = \frac{5 \times 8 \times 8 \times 7}{9 \times 10 \times 10 \times 10} \\
   & \simeq 24.9\%
 \end{align*}
 
-The correct answer is B. Our rough estimate of $25.2\%$, it turns out, was pretty accurate. 
+\fbox{The correct answer is B.} Our rough estimate of $25.2\%$, it turns out, was pretty accurate. 
 
 
 
@@ -92,8 +97,7 @@ The correct answer is B. Our rough estimate of $25.2\%$, it turns out, was prett
 \section*{2. No Sport Days!}
 \begin{question}
 John plays soccer once every three days, plays basketball once every four days and plays volleyball every five days. He played all three sports on December 31st, 2018. How many days in 2019 did John not play any of the sports?
-
-\begin{enumerate*}[label=\Alph*,itemjoin={\quad}]
+\begin{enumerate*}
   \item $78$
   \item $146$
   \item $144$
@@ -134,12 +138,14 @@ However, multiples of $3 \times 4=12$ have been counted twice. And so have multi
 \frac{360}{15} & = 24 \\
 \frac{360}{20} & = 18 \\
 \end{align*}
-If we add up the first three numbers and subtract the last three, we are getting closer, but there is still one problem. Consider $3 \times 4 \times 5=60$. $60$ is included among the $121$ multiples of $3$, among the $91$ multiples of $4$, and among the $73$ multiples of $5$. It is also among the $30$ multiples of $12$, among the $24$ multiples of $15$, and among the $18$ multiples of $20$. Thus by adding and subtracted we have in effect removed all the multiples of $60$. Since $360/60=6$, we must add those $6$ back in. In total,
+If we add up the first three numbers and subtract the last three, we are getting closer, but there is still one problem. Consider $3 \times 4 \times 5=60$. The number $60$ is included among the $121$ multiples of $3$, among the $91$ multiples of $4$, and among the $73$ multiples of $5$. It is also among the $30$ multiples of $12$, among the $24$ multiples of $15$, and among the $18$ multiples of $20$. Thus by adding and subtracting we have in effect removed all the multiples of $60$. Since $360/60=6$, we must add those $6$ back in. In total,
 \begin{align*}
 121 + 91 + 73 - 30 - 24 - 18 + 6 & = 219 \\
 365 - 219 & = 146
 \end{align*}
-The correct answer is B. 
+as we had found earlier by a direct counting method.
+
+\fbox{The correct answer is B.}
 
 
 
@@ -147,28 +153,28 @@ The correct answer is B.
 \section*{3. Congruent Circles and Angle}
 \begin{question}
 Two congruent circles centered at points $A$ and $B$ each pass through the other circle's center. The line containing both $A$ and $B$ is extended to intersect the circles at points $C$ and $D$. The circles intersect at two points, one of which is $E$. What is the degree measure of $\angle CED$?
-\begin{enumerate*}[label=\Alph*,itemjoin={\quad}]
-  \item $100\circ$
-  \item $120\circ$
-  \item $130\circ$
-  \item $135\circ$
-  \item $150\circ$
+\begin{enumerate*}
+  \item $100^{\circ}$
+  \item $120^{\circ}$
+  \item $130^{\circ}$
+  \item $135^{\circ}$
+  \item $150^{\circ}$
 \end{enumerate*}
 \end{question}
-
-Refer to the figures on the next page. Triangle $AEB$ is equilateral, so $\angle AEB=60\circ$. Angle $\angle CAE$ is the complement of $\angle BAE$, so $\angle CAE=180-60=120\circ$. Triangle $CAE$ is isosceles, so $\angle CEA=30\circ$. Putting it together,
+Refer to the figures. Triangle $AEB$ is equilateral, so $\angle AEB=60^{\circ}$. Angle $\angle CAE$ is the complement of $\angle BAE$, so $\angle CAE=180-60=120^{\circ}$. Triangle $CAE$ is isosceles, so $\angle CEA=30^{\circ}$. Putting it together,
 \begin{align*}
 \angle CED 
   & = \angle CEA + \angle AEB + \angle BED \\
-  & = 30\circ + 60\circ + 30\circ \\
-  & = 120\circ
+  & = 30^{\circ} + 60^{\circ} + 30^{\circ} \\
+  & = 120^{\circ}
 \end{align*}
-The correct answer is B. 
+
+\fbox{The correct answer is B.}
 
 \begin{figure}[hptb]
 \begin{minipage}[b]{\textwidth}
 \centering
-\includegraphics[height=0.9\textheight]%
+\includegraphics[height=0.6\textheight]%
 {congruent-circles}
 %\caption{\textbf{Two Congruent Circles}.
 %\label{fig:congruent-circles}}
@@ -185,7 +191,7 @@ A semicircle is inscribed in an isosceles triangle with base $16$ and height $15
 \includegraphics[height=0.15\textheight]%
 {semi-circle-triangle-1}
 \end{center}
-\begin{enumerate*}[label=\Alph*,itemjoin={\quad}]
+\begin{enumerate*}
   \item $4\sqrt{3}$
   \item $17\sqrt{2}$
   \item $17\sqrt{3}$
@@ -205,7 +211,7 @@ A semicircle is inscribed in an isosceles triangle with base $16$ and height $15
 \end{figure}
 
 
-Refer to Figure~\ref{fig:semi:circle:triangle}. Triangles $ADB$ and $BDC$ are right-angled, i.e. $\angle ADB=90\circ$ and $\angle BDC=90\circ$. The known lengths are $AB=15$ and $BC=8$. Applying Pythagoras to $ABC$ yields:
+Refer to Figure~\ref{fig:semi:circle:triangle}. Triangles $ADB$ and $BDC$ are right-angled, i.e. $\angle ADB=90^{\circ}$ and $\angle BDC=90\circ$. The known lengths are $AB=15$ and $BC=8$. Applying Pythagoras to $ABC$ yields:
 \begin{align*}
 AC = \sqrt{15^2 + 8^2} = \sqrt{289} = 17
 \end{align*}
@@ -236,6 +242,315 @@ r^2 & = 8^2 - \left(\frac{17^2 - 15^2 + 8^2}{2 \cdot 17}\right)^2 \\
 r = \sqrt{r^2} & = \frac{8 \cdot 15}{17} \\
   & = \frac{120}{17}
 \end{align*}
-The correct answer is E. 
+
+\fbox{The correct answer is E.}
+
+This was a long and tedious calculation. There may be a shorter way \ldots 
+
+
+
+
+
+\newpage
+\section*{5. Ordering Big Numbers}
+\begin{question}
+What is the correct ordering of the three numbers $10^{8}$, $5^{12}$, and $2^{24}$.
+\begin{enumerate*}
+  \item $2^{24} < 10^{8} < 5^{12}$
+  \item $2^{24} < 5^{12} < 10^{8}$
+  \item $5^{12} < 2^{24} < 10^{8}$
+  \item $10^{8} < 5^{12} < 2^{24}$
+  \item $10^{8} < 2^{24} < 5^{12}$
+\end{enumerate*}
+\end{question}
+
+We have $10 = 2 \times 5$, so we can rewrite $10^{8}$ in terms of $2^{24}$ and $5^{12}$ and check whether the multiplier is greater or smaller than $1$.
+\begin{align*}
+10^{8} & = 5^{8}2^{-16} \times 2^{24} \\
+       & = \left(\frac{5}{4}\right)^{8} \times 2^{24} \\
+       & > \hspace{3.9em} 2^{24}
+\end{align*}
+since $\frac{5}{4}>1$ (any number greater than $1$ raised to some positive power is greater than $1$). 
+
+Similarly,
+\begin{align*}
+10^{8} & = 2^{8}5^{-4} \times 5^{12} \\
+       & = \left(\frac{4}{5}\right)^{4} \times 5^{12} \\
+       & < \hspace{3.9em} 5^{12}
+\end{align*}
+since $\frac{5}{4}<1$ (the inverse of the fraction above). 
+
+
+Putting it together,
+\begin{align*}
+2^{24} < 10^{8} < 5^{12}
+\end{align*}
+
+\fbox{The correct answer is A.}
+
+A trick we learned at the \textit{UCLA Math Cirle} that simplifies the problem is to note that the exponents are all multiples of $4$:
+\begin{align*}
+ 8 & = 2 \times 4 \\
+12 & = 3 \times 4 \\
+24 & = 6 \times 4
+\end{align*}
+For any $0<a<b$, we have
+\begin{align*}
+0 < a < b
+~\Longleftrightarrow~
+0 < a^4 < b^4
+\end{align*}
+Thus the question reduces to comparing $10^{2}=100$, $5^{3}=125$, and $2^{6}=64$, which is straightforward!
+
+
+
+\newpage
+\section*{6. Moduli}
+\begin{question}
+What is the tens digit of $7^{2011}$ 
+\begin{enumerate*}
+  \item $0$
+  \item $1$
+  \item $3$
+  \item $4$
+  \item $7$
+\end{enumerate*}
+\end{question}
+
+If you have access to a computer/calculator, you can make the following table. However, try $7^{2011}$ and it most likely will give you either an error or something like \texttt{Inf}. That is because the number $7^{2011}$ is large beyond imagination. The largest power of $7$ we were able to compute/estimate was $7^{364} \simeq 4.1 \times 10^{307}$, which doesn't help with the tens digit!
+\begin{center}
+\begin{tabular}{lll}
+    \hline
+    Exponent  &  Number &  $10$-Digit \\
+    \hline
+    $0$  &  $1$ &  $0$ \\
+    $1$  &  $7$ &  $0$ \\
+    $2$  &  $49$ &  $4$ \\
+    $3$  &  $343$ &  $4$ \\
+    $4$  &  $2,401$ &  $0$ \\
+    $5$  &  $16,807$ &  $0$ \\
+    $6$  &  $117,649$ &  $4$ \\
+    $7$  &  $823,543$ &  $4$ \\
+    $8$  &  $5,764,801$ &  $0$ \\
+    $9$  &  $40,353,607$ &  $0$ \\
+    \hline
+    \end{tabular}
+\end{center}
+without a calculator and no special tricks, the largest powers we can compute are the first $5$ or $6$. It's a bit of a stretch from that to guess that the tens digits come in sequences of $0,0,4,4,0,0,4,4,\ldots$ At this point, you're faced with a toss-up between $0$ and $4$ or you can work out whether $2011$ maps to exponent $0$, $1$, $2$, or $3$.
+
+\begin{definition*}[Modular Arithmetic]
+\begin{align*}
+a\Mod{b} = \texttt{remainder of}~a/b
+\end{align*}
+\end{definition*}
+In general, we have $a\Mod{b}\in[0,b-1]$. For instance, 
+\begin{align*}
+11\Mod{3} \equiv 2
+\end{align*}
+which may be read ``eleven mod three is congruent to two.'' The word comes from the latin ``modulus'', whose plural form is ``moduli.'' 
+
+An analogy to give intuition about modular arithmetic is the hour system. Some countries in Europe use a $24$ hour clock, while other countries like the United States more commonly use a $12$ hour clock (except the military, who also use the $24$ hour clock!). Thus $8{:}00$pm would be equivalent to $20{:}00$ (In France, the popular evening news slot is called ``the twenty-hour'' --- ``le vingt-heure''). In modular arithmetic, that is
+\begin{align*}
+20\Mod{12} \equiv 8
+\end{align*}
+
+We all do modular arithmetic without thinking (too hard). For instance, if it takes about $50$ hours to watch all James Bond movies, what time will it be when you finish, if you start at $10$pm? The answer is midnight because
+\begin{align*}
+50\Mod{24} \equiv 2
+\end{align*}
+
+In \texttt{Python} and the \texttt{C} languages, the \texttt{mod} command is the percentage sign, that is the first line returns the second:
+\begin{align*}
+& \texttt{50 \% 24}\\
+& \texttt{2}
+\end{align*}
+There are online modulo calculators that you can play with too.
+
+From the pattern detected above, it is clear that $7^{n}$ has a tens digit of $0$ whenever $n$ is a multiple of $4$. A candidate for a multiple of $4$ near $2011$ is $2010$, but it is easily verified that it's not. It follows immediately that $2008$ is a multiple of $4$, which can also be verified easily. To sum up,
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % centered 'p' col.
+\begin{tabular}{*{5}{C{0.17\linewidth}}}
+  \toprule
+  ten digit $=$
+    &     $0$ &     $0$ &    $4$ & \circletext{$4$} \\
+  \midrule
+  modulo value $=$ 
+    &     $0$ &     $1$ &   $2$  & \circletext{$3$}\\
+    &  \ldots &  \ldots &              \ldots &  \ldots \\
+  other values of $n$ 
+    &  $2004$ &  $2005$ &              $2006$ &  $2007$ \\
+    &  $2008$ &  $2009$ & $2010$ & \circletext{$2011$} \\
+    &  $2012$ &  $2013$ & $2014$ & $2015$ \\
+  \bottomrule
+  \end{tabular}
+\renewcommand{\arraystretch}{1}
+\end{center}
+In \texttt{mod} notation,
+\begin{align*}
+7^{2008}\Mod{4} \equiv 0 \\
+7^{2011}\Mod{4} \equiv 3
+\end{align*}
+which implies that the digit is $4$. 
+
+\fbox{The correct answer is D.}
+
+\newpage
+\section*{7. Area of Triangle in Cartesian Coordinates}
+\begin{question}
+What is the area of the triangle with vertices $A=(1,3)$, $B=(5,1)$, $C=(4,4)$.
+\begin{enumerate*}
+  \item $5$
+  \item $3\sqrt{2}$
+  \item $\frac{4}{3}\sqrt{2}$
+  \item $3\sqrt{3}$
+  \item $6$
+\end{enumerate*}
+\end{question}
+
+\begin{figure}[hptb]
+\begin{minipage}[b]{\textwidth}
+\centering
+\includegraphics[height=0.5\textheight]%
+{triangle-cartesian-area}
+\caption{\textbf{Area of Triangle in a Cartesian Coordinate System}.
+\label{fig:triangle:cartesian:area}}
+\end{minipage}
+\end{figure}
+
+Refer to Figure~\ref{fig:triangle:cartesian:area}. Before you draw a figure in a Cartesian coordinate system, check the largest and smallest values for each axis, to ensure that your figure will fit. Here all the coordinates are positive, ranging on $[1,5]$ on $x$ and $[1,4]$ on $y$. Since $1$ is close enough to $0$, we will include the origin and, for symmetry, we'll set the limits to $[0,5]$ along both axes. 
+
+With an accurately drawn triangle, a few properties are immediately apparent. (1)~The triangle is isosceles: length $CA$ equals length $CB$. To see this, note that length $CA$ spans three units horizontally for one unit vertically, while length $CB$ spans three units vertically for one unit horizontally. (2)~The angle $\angle ACB$ is a right angle. This can be seen by rotating the triangle around point $C$, moving point $A$ by one unit vertically and point $B$ by one unit horizontally. Once you see this, you also see that the area of the triangle is a little more than half of $3 \times 3$, since the lengths $CA$ and $CB$ are a little longer than $3$. So we are looking for an area approximately equal to $5$. 
+
+It pays to know that $\sqrt{2}\simeq1.414$ and $\sqrt{3}\simeq1.732$. From this we have the approximations: 
+\begin{question}
+\begin{enumerate*}
+  \item $5$
+  \item $3\sqrt{2}\simeq 4.24$
+  \item $\frac{4}{3}\sqrt{2} \simeq 1.89$
+  \item $3\sqrt{3} \simeq 5.20$
+  \item $6$
+\end{enumerate*}
+\end{question}
+From this, we can rule out $B$, $C$, $E$. We lean towards A, but let's do the math. We can apply Pythagoras. 
+
+Length $AC$ may be computed from the triangle formed by points $A$, $(1,4)$, and $C$:
+\begin{align*}
+AC^2 = (4-1)^2 + (4-3)^2 = 10
+\end{align*}
+
+Length $CB$ may be computed from the triangle formed by points $C$, $(5,4)$, and $B$.
+\begin{align*}
+CB^2 = (5-4)^2 + (4-1)^2 = 10
+\end{align*}
+
+Length $AB$ may be computed from the triangle formed by points $A$, $(1,1)$, and $B$.
+\begin{align*}
+AB^2 = (3-1)^2 + (5-1)^2 = 20
+\end{align*}
+
+We can verify that the angle is a right angle by checking the Pythagoras relation:
+\begin{align*}
+(\sqrt{10})^2 + (\sqrt{10})^2  = 20 = (\sqrt{20})^2 
+\end{align*}
+
+Finally, the area is given by:
+\begin{align*}
+\frac{1}{2} \sqrt{10} \times \sqrt{10}  = 5
+\end{align*}
+as we suspected. 
+
+\fbox{The correct answer is A.}
+
+
+
+\newpage
+\section*{8. A Quartic Equation!}
+\begin{question}
+How many different real numbers satisfy the equation $(x^2-5)^2=16$~?
+\begin{enumerate*}
+  \item $0$
+  \item $1$
+  \item $2$
+  \item $4$
+  \item $8$
+\end{enumerate*}
+\end{question}
+This is a polynomial of degree $4$ since $(x^2-5)^2=x^4-10x^2+25$. This is also called a quartic equation. 
+\begin{theorem*}[Fundamental Theorem of Algebra]
+Every polynomial of degree $n$ with complex coefficients has exactly $n$ complex roots. That is, every equation of the form
+\begin{align*}
+a_{n}x^{n} + a_{n-1}x^{n-1} + \ldots + a_{2}x^{2} + a_{1}x^{1} + a_{0}x^{0}
+= 0,
+\end{align*}
+with $a_{n}\neq 0$, has exactly $n$ roots. There is a catch: roots are counted with multiplicity. Example: The polynomial $x^2=0$ has two roots, $0$ and $0$. 
+\end{theorem*}
+The Fundamental Theorem of Algebra implies that we can rule out answer E, because there can be at most $4$ distinct real roots. 
+\begin{theorem*}[Complex Conjugate Root Theorem]
+If a polynomial with real coefficients has a complex root $a+bi$ ($a$ and $b$ are real numbers, with $b\neq0$, and $i$ is the imaginary unit), then the complex conjugate $a-bi$ is also a root. In short, \textbf{complex roots come in pairs.}
+\end{theorem*}
+It follows that if the degree of a real polynomial is odd, it must have at least one real root. Since the polynomial has degree $4$, it may have $0$, $2$ or $4$ complex roots, implying that we can rule out answer B. 
+
+The above considerations become automatic once you are familiar with polynomials. Moreover inspection immediately suggests the existence of two real roots, $1$ and $-1$. So now the remaining possibilities are C and D. 
+In this example, we can actually solve the quartic equation by reducing it to a pair of quadratic equations: 
+\begin{align*}
+(x^2-5)^2 & = 16 
+\Longrightarrow
+  \begin{cases}
+  ~~(x^2-5) = 4 
+    \Rightarrow x^2 = 9
+      \Rightarrow 
+        \begin{cases}
+        x = 3 \\
+        x = -3
+        \end{cases} \\ \\
+  -(x^2-5) = 4 
+    \Rightarrow x^2 = 1
+      \Rightarrow 
+        \begin{cases}
+        x = 1 \\
+        x = -1
+        \end{cases} \\
+  \end{cases} 
+\end{align*}
+So there are $4$ real roots. 
+
+\fbox{The correct answer is D.}
+
+
+
+\newpage
+\section*{9. Sharing Markers}
+\begin{question}
+Ann has $24$ markers. In how many ways can she share them with Bob and Chris so that each of the three has at least two markers?
+\begin{enumerate*}
+  \item $105$
+  \item $114$
+  \item $190$
+  \item $210$
+  \item $380$
+\end{enumerate*}
+\end{question}
+If Ann has $2$ markers, there remain $22$ to share among Bob and Chris. 
+
+\fbox{The correct answer is C.}
+
+
+
+\newpage
+\section*{10. Shopping for Socks}
+\begin{question}
+Ralph went to the store and bought $12$ pairs of socks for a total of $\$24$. Some of the socks he bought cost $\$1$ a pair, some of the socks he bought cost $\$3$ a pair, and some of the socks he bought cost $\$4$ a pair. If he bought at least one pair of each type, how many pairs of $\$1$ socks did Ralph buy?
+\begin{enumerate*}
+  \item $4$
+  \item $5$
+  \item $6$
+  \item $7$
+  \item $8$
+\end{enumerate*}
+\end{question}
+
+\fbox{The correct answer is D.}
+
 
 \end{document}

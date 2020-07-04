@@ -1,9 +1,15 @@
 \usepackage[margin=0.5in]{geometry}
 \usepackage{xcolor}
-\usepackage{amsfonts}
-\usepackage{mathtools}
 \usepackage{graphicx}
 \graphicspath{{figures/}}
+\usepackage{inconsolata}
+\usepackage{booktabs}
+\usepackage{amssymb,amsmath,amsthm}
+\newtheorem{definition}{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\usepackage{mathtools}
 \usepackage[singlelinecheck=false]{caption}
 \usepackage[inline]{enumitem}
 \setlist{before=\vspace{\baselineskip},after=\vspace{\baselineskip}}
@@ -20,6 +26,18 @@
             anchorcolor = black]{hyperref}
 \usepackage{tikz}
 \def\tikzname{Ti\emph{k}Z}
+\usetikzlibrary{fit,shapes.geometric}
+\newcounter{nodemarkers}
+\newcommand\circletext[1]{%
+    \tikz[overlay,remember picture] 
+        \node (marker-\arabic{nodemarkers}-a) at (0,1.5ex) {};%
+    #1%
+    \tikz[overlay,remember picture]
+        \node (marker-\arabic{nodemarkers}-b) at (0,0){};%
+    \tikz[overlay,remember picture,inner sep=2pt]
+        \node[draw,ellipse,fit=(marker-\arabic{nodemarkers}-a.center) (marker-\arabic{nodemarkers}-b.center)] {};%
+    \stepcounter{nodemarkers}%
+}%
 \usetikzlibrary{calc}
 \usepackage{tkz-euclide}
 \usepackage[most]{tcolorbox}
@@ -44,8 +62,7 @@
       angle radius=1cm,
   }%
 }%
-
-
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 \newenvironment{question}{\vspace{1em}\bfseries}{}%
 \iftoggle{showAnswers}{ 
     \newenvironment{answer}{\vspace{1em}\color{blue!90!black}}{}
