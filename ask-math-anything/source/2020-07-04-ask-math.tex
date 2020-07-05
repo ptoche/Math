@@ -21,9 +21,15 @@ Reference:~
 
 
 \section*{A Triangle Puzzle}
+A triangle has side lengths $7$, $7$, and $x$. Its area is the same as a different triangle with sides $7$, $7$, and $10$. Find x.
 
-\begin{answer}
-Heron's Formula:
+\textbf{Hint~1:} Area of a triangle:
+\begin{align*}
+\text{Area}~ 
+= \frac{1}{2} \times \text{base} \times \text{height}
+\end{align*}
+
+\textbf{Hint~2:} Heron's Formula:
 \begin{align*}
 \text{Area}~ 
 = \sqrt{s(s-a)(s-b)(s-c)}
@@ -32,6 +38,15 @@ where $a$, $b$, $c$ are the lengths of the three sides of the triangle, and $s$ 
 \begin{align*}
 s = \frac{a+b+c}{2}
 \end{align*}
+
+\begin{answer}
+\begin{minipage}[b]{\textwidth}
+\centering
+\includegraphics[width=0.45\textwidth]%
+{triangle-area-1}%
+\includegraphics[height=0.4\textheight]%
+{triangle-area-2}
+\end{minipage}
 
 Consider the first triangle. The semi-perimeter is:
 \begin{align*}

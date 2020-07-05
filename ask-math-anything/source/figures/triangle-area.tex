@@ -1,0 +1,30 @@
+\documentclass[border=3mm]{standalone}
+\usepackage{tikz}
+\newenvironment{standalonepage}{}{}%keep pictures on same page
+\standaloneenv{standalonepage}
+
+
+\begin{document}
+
+\begin{standalonepage}
+\begin{tikzpicture}
+
+ % (-5,0) -- (5,0) -- (0, h)
+ % h = sqrt(7^2+5^2) = 8.60
+ \draw (-5,0) -- (5,0) node[midway, below]{$10$} -- ++(-5,8.6) node[midway, above right] {$7$} -- ++(-5,-8.6) node[midway,above left] {$7$};
+    
+\end{tikzpicture}
+\end{standalonepage}
+
+\begin{standalonepage}
+\begin{tikzpicture}
+
+ % (-5,0) -- (5,0) -- (0, h)
+ % h = 4*sqrt(6) = 9.798
+ \draw (-5,0) -- (5,0) node[midway, below]{$x$} -- ++(-5,9.8) node[midway, above right] {$7$} -- ++(-5,-9.8) node[midway,above left] {$7$};
+    
+\end{tikzpicture}
+\end{standalonepage}
+
+
+\end{document}
