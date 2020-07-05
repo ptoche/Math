@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+\toggletrue{showAnswers}% comment out this line to show/hide answers
+\usepackage{preamble}
+\usepackage{xlop}% multiplications/divisions
+
+\title{Ask Math Anything}
+\author{Study at Home with Po-Shen Loh}
+\date{4 July 2020}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+Professor Po-Shen Loh solves problems on his YouTube channel. A selection for practice. 
+
+Reference:~ 
+\href{https://www.youtube.com/channel/UCf78EJOm4wQ4xXwSS15PuxQ}{Ask Math Anything - Daily Challenge with Po-Shen Loh}
+\end{abstract}
+\end{minipage}
+
+
+\section*{A Triangle Puzzle}
+
+\begin{answer}
+Heron's Formula:
+\begin{align*}
+\text{Area}~ 
+= \sqrt{s(s-a)(s-b)(s-c)}
+\end{align*}
+where $a$, $b$, $c$ are the lengths of the three sides of the triangle, and $s$ is the semi-perimeter,
+\begin{align*}
+s = \frac{a+b+c}{2}
+\end{align*}
+
+Consider the first triangle. The semi-perimeter is:
+\begin{align*}
+s = \frac{a+b+c}{2} = \frac{7+7+10}{2} = 12
+\end{align*}
+Applying Heron's formula yields:
+\begin{align*}
+\text{Area}~ 
+& = = \sqrt{s(s-a)(s-b)(s-c)} \\
+& = \sqrt{12(12-7)(12-7)(12-10)} \\
+& = \sqrt{12 \times 5 \times 5 \times 2}
+\end{align*}
+We may not need to calculate this square-root, so let's now consider the second triangle:
+\begin{align*}
+\text{Area}~ 
+& = \sqrt{s(s-a)(s-b)(s-c)} \\
+& = \sqrt{\left(7+\frac{x}{2}\right)\left(\frac{x}{2}\right)\left(\frac{x}{2}\right)\left(7-\frac{x}{2}\right)} \\
+& = \sqrt{\left(\frac{x}{2}\right)^2  \left(49-\left(\frac{x}{2}\right)^2\right)}
+\end{align*}
+
+In the above, let $u=\left(\frac{x}{2}\right)^2$, we can rewrite the area as:
+\begin{align*}
+\text{Area}~ = \sqrt{u(49-u)}
+\end{align*}
+
+Now set the two areas equal to each other:
+\begin{align*}
+\text{Area}~ = \sqrt{12 \times 5 \times 5 \times 2} = \sqrt{u(49-u)} 
+\end{align*}
+
+Squaring both sides of the equality:
+\begin{align*}
+12 \times 5 \times 5 \times 2 & = u (49 -u) \\
+u^2 - 49 u + 12 \times 5 \times 5 \times 2 & = 0\\
+(u-25)(u-24) & = 0
+\end{align*}
+And thus we get $u=24$, or
+\begin{align*}
+u = \left(\frac{x}{2}\right)^2 & = 24 \\
+x & = 2 \sqrt{24} \\
+  & = 4 \sqrt{6}
+\end{align*}
+
+\end{answer}
+
+\end{document}
