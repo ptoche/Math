@@ -359,14 +359,14 @@ We all do modular arithmetic without thinking (too hard). For instance, if it ta
 50\Mod{24} \equiv 2
 \end{align*}
 
-In \texttt{Python} and the \texttt{C} languages, the \texttt{mod} command is the percentage sign, that is the first line returns the second:
+In \texttt{Python} and the \texttt{C} languages, the \texttt{mod} command is the percentage sign. A typical command is the first line, a typical return is the second line:
 \begin{align*}
 & \texttt{50 \% 24}\\
 & \texttt{2}
 \end{align*}
-There are online modulo calculators that you can play with too.
+You can check this calculation in an online \texttt{Python} emulator. There are online modulo calculators that you can play with too.
 
-From the pattern detected above, it is clear that $7^{n}$ has a tens digit of $0$ whenever $n$ is a multiple of $4$. A candidate for a multiple of $4$ near $2011$ is $2010$, but it is easily verified that it's not. It follows immediately that $2008$ is a multiple of $4$, which can also be verified easily. To sum up,
+From the pattern detected above, it is clear that $7^{n}$ has a tens digit of $0$ whenever $n$ is a multiple of $4$. A candidate for a multiple of $4$ near $2011$ is $2010$, but it is easily verified that it's not a multiple of $4$. It follows immediately that $2008$ is a multiple of $4$, which can also be verified easily by dividing by $2$ twice. To sum up,
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % centered 'p' col.
@@ -531,13 +531,143 @@ Ann has $24$ markers. In how many ways can she share them with Bob and Chris so 
   \item $380$
 \end{enumerate*}
 \end{question}
-If Ann has $2$ markers, there remain $22$ to share among Bob and Chris. 
+
+If Ann, Bob, and Chris each have $2$ markers, there remain $18$ to share among all three. How can exactly $18$ markers be split in $3$ groups? One way to understand the math behind this is to first analyze simpler problems. And pictures (mental visualizations or scribbles) help see what divisions are possible. The ``stars and bars'' visualization is useful in cases where a fixed number of objects (stars) are split into groups (by bars). The bars are dividers that can be placed between stars to form groups of different sizes. For $k$ groups, $k-1$ dividers are needed (one less). Thus, to divide $18$ stars into $3$ groups, only $2$ bars are needed.  
+
+How can $1$ marker be split in $3$ groups? In the language of the stars-and-bars: How many ways can $1$ star and $2$ bars be arranged? Answer: $3$ ways. In simple cases, the stars-and-bars representation is immediate. And yes, you can place two bars next to each other and at the extremities too. 
+\begin{figure}[hptb]
+\begin{minipage}[b]{\textwidth}
+\centering
+\begin{tikzpicture}[framed]
+  \def\total{1} % i+j+k = total
+  \xdef\y{0}
+  \foreach \i in {0,...,\total}{
+    \pgfmathsetmacro{\maxj}{int(\total-\i)}
+    \foreach \j in {0,...,\maxj}{
+      \pgfmathparse{int(\y+1)}\xdef\y{\pgfmathresult}
+      \pgfmathsetmacro{\k}{int(\total-\i-\j)}
+      \foreach \i in {1,...,\total}
+        \node at (\i,\y){$\star$};
+      \node at (.45+\j+\i,\y) {$\big|$};
+      \node at (.55+\i,\y) {$\big|$};
+      \node[left] at (-1,\y){(\i,\j,\k)};
+    }
+  }
+\end{tikzpicture}
+\caption{\textbf{Stars and Bars: $1$ star and $2$ bars}.
+\label{fig:stars:bars:1}}
+\end{minipage}
+\end{figure}
+
+How can $2$ markers be split in $3$ groups? How many ways can $2$ stars and $2$ bars be arranged? Answer: $6$. Easy to visualize mentally.
+\begin{figure}[hptb]
+\begin{minipage}[b]{\textwidth}
+\centering
+\begin{tikzpicture}[framed]
+  \def\total{2} % i+j+k = total
+  \xdef\y{0}
+  \foreach \i in {0,...,\total}{
+    \pgfmathsetmacro{\maxj}{int(\total-\i)}
+    \foreach \j in {0,...,\maxj}{
+      \pgfmathparse{int(\y+1)}\xdef\y{\pgfmathresult}
+      \pgfmathsetmacro{\k}{int(\total-\i-\j)}
+      \foreach \i in {1,...,\total}
+        \node at (\i,\y){$\star$};
+      \node at (.45+\j+\i,\y) {$\big|$};
+      \node at (.55+\i,\y) {$\big|$};
+      \node[left] at (-1,\y){(\i,\j,\k)};
+    }
+  }
+\end{tikzpicture}
+\caption{\textbf{Stars and Bars: $2$ stars and $2$ bars}.
+\label{fig:stars:bars:2}}
+\end{minipage}
+\end{figure}
+
+
+\clearpage
+How can $3$ markers be split in $3$ groups? That is, How many ways can $3$ stars and $2$ bars be arranged? Answer: $10$. This one may be a little harder to visualize without pen and paper. But you can still count the cases with your fingers. There are $3$ ways to have $(3,0,0)$. There are $6$ ways to have $(2,1,0)$. There is $1$ way to have $(1,1,1)$.
+\begin{figure}[hptb]
+\begin{minipage}[b]{\textwidth}
+\centering
+\begin{tikzpicture}[framed]
+  \def\total{3} % i+j+k = total
+  \xdef\y{0}
+  \foreach \i in {0,...,\total}{
+    \pgfmathsetmacro{\maxj}{int(\total-\i)}
+    \foreach \j in {0,...,\maxj}{
+      \pgfmathparse{int(\y+1)}\xdef\y{\pgfmathresult}
+      \pgfmathsetmacro{\k}{int(\total-\i-\j)}
+      \foreach \i in {1,...,\total}
+        \node at (\i,\y){$\star$};
+      \node at (.45+\j+\i,\y) {$\big|$};
+      \node at (.55+\i,\y) {$\big|$};
+      \node[left] at (-1,\y){(\i,\j,\k)};
+    }
+  }
+\end{tikzpicture}
+\caption{\textbf{Stars and Bars: $3$ stars and $2$ bars}.
+\label{fig:stars:bars:3}}
+\end{minipage}
+\end{figure}
+
+
+\clearpage
+How can $4$ markers be split in $3$ groups? Answer: $15$.
+\begin{figure}[hptb]
+\begin{minipage}[b]{\textwidth}
+\centering
+\begin{tikzpicture}[framed]
+  \def\total{4} % i+j+k = total
+  \xdef\y{0}
+  \foreach \i in {0,...,\total}{
+    \pgfmathsetmacro{\maxj}{int(\total-\i)}
+    \foreach \j in {0,...,\maxj}{
+      \pgfmathparse{int(\y+1)}\xdef\y{\pgfmathresult}
+      \pgfmathsetmacro{\k}{int(\total-\i-\j)}
+      \foreach \i in {1,...,\total}
+        \node at (\i,\y){$\star$};
+      \node at (.45+\j+\i,\y) {$\big|$};
+      \node at (.55+\i,\y) {$\big|$};
+      \node[left] at (-1,\y){(\i,\j,\k)};
+    }
+  }
+\end{tikzpicture}
+\caption{\textbf{Stars and Bars: $4$ stars and $2$ bars}.
+\label{fig:stars:bars:4}}
+\end{minipage}
+\end{figure}
+
+
+\subsubsection*{General Case}
+The mathematical formula associated with $s$ stars and $b$ bars is:
+\begin{align*}
+\binom{s + b}{b} = \frac{(s+b)!}{b!\,s!}
+\end{align*}
+And so for $s=18$ and $b=2$,
+\begin{align*}
+\binom{18 + 2}{2} 
+  = \frac{20!}{18!\,2!} 
+  = \frac{20 \times 19}{2} 
+  = 190 
+\end{align*}
 
 \fbox{The correct answer is C.}
 
+\clearpage
+The case of $18$ markers would take up a lot of space to represent graphically. However, you can generate one with special software. Here are the first few lines:
+\begin{figure}[hptb]
+\begin{minipage}[b]{\textwidth}
+\centering
+\fbox{\includegraphics[trim=0 115cm 0 0,clip]%
+{stars-and-bars-18}}
+\caption{\textbf{Stars and Bars: $18$ stars and $2$ bars (only a few cases displayed)}.
+\label{fig:stars:bars:18:cropped}}
+\end{minipage}
+\end{figure}
 
 
-\newpage
+\clearpage
 \section*{10. Shopping for Socks}
 \begin{question}
 Ralph went to the store and bought $12$ pairs of socks for a total of $\$24$. Some of the socks he bought cost $\$1$ a pair, some of the socks he bought cost $\$3$ a pair, and some of the socks he bought cost $\$4$ a pair. If he bought at least one pair of each type, how many pairs of $\$1$ socks did Ralph buy?
@@ -550,7 +680,50 @@ Ralph went to the store and bought $12$ pairs of socks for a total of $\$24$. So
 \end{enumerate*}
 \end{question}
 
+This question may be reduced by some intuitive consideration. Or it may be solved mechanically by converting it to a system of questions. 
+
+\subsubsection*{Intuitive Approach}
+The average cost of per pair is:
+\begin{align*}
+\text{average cost of one pair of socks}~ 
+  = \frac{\$ 24}{12} 
+  = \$ 2
+\end{align*}
+An average cost of $\$2$ could result from a ``bundle'' made of two pairs at $\$1$ and one pair at $\$4$ (bundle $x$):
+\begin{align*}
+\frac{(2 \times \$1) + (1 \times \$4)}{2+1} = \frac{\$6}{3}  = \$2
+\end{align*}
+Or from a bundle made of one pair at $\$1$ and one pair at $\$3$ (bundle $y$):
+\begin{align*}
+\frac{(1 \times \$1) + (1 \times \$3)}{1+1} = \frac{\$4}{2}  = \$2
+\end{align*}
+Or from any combination of these bundles:
+\begin{align*}
+6x + 4y = 24
+\end{align*}
+The problem has been reduced to finding the correct combination of bundles $(x,y)$, where $x$ and $y$ are positive integers. A quick check yields $x=2$ and $y=3$:
+\begin{align*}
+6 \times 2 + 4 \times 3 = 24
+\end{align*}
+Two bundles of two pairs at $\$1$ and one pair at $\$4$ combined with three bundles of one pair at $\$1$ and one pair at $\$3$ represent $7$ pairs at $\$1$, $3$ pairs at $\$3$, and $2$ pairs at $\$4$. That is indeed $12$ pairs and does add up to $\$24$:
+\begin{align*}
+7 \times 1 + 3 \times 3 + 2 \times 4 = 24
+\end{align*}
+
 \fbox{The correct answer is D.}
 
+\subsubsection*{Systematic Approach}
+A systematic approach starts with defining the unknowns. Let $x$ be the number of $\$1$ pairs. Let $y$ be the number of $\$3$ pairs. Let $z$ be the number of $\$4$ pairs. These are not the same $x$ and $y$ used in the ``intuitive'' approach! The following equations follow from applying the constraints of the problem:
+\begin{align*}
+x + y + z & = 12 \\
+1x + 3y + 4z & = 24
+\end{align*}
+The first line represents the total number of pairs. The second line represents the total cost, where $1$, $3$, and $4$ are the unit prices for $x$, $y$, and $z$. 
+
+By subtracting the first from the second equation, we can ``eliminate'' $x$:
+\begin{align*}
+2y + 3z = 12
+\end{align*}
+Since we are looking for integer solutions, and since $12$ has prime factors $2$ and $3$ ($12=2^2 \cdot 3)$, we must have $y$ a multiple of $3$ and $z$ a multiple of $2$. Thus $y=3$ and $z=2$ are the solutions, which implies $x=12-y-z=12-3-2=7$. The solution is $(x,y,z)=(7,3,2)$. So $7$ is the correct answer.
 
 \end{document}
