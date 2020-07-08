@@ -76,7 +76,7 @@ with the following constraints:
 & a \in \{1,2,3,4,5,6,7,8,9\} \\
 & b \in \{0,1,2,3,4,5,6,7,8,9\} \\
 & c \in \{0,1,2,3,4,5,6,7,8,9\} \\
-& a \in \{1,3,5,7,9\} \\
+& d \in \{1,3,5,7,9\} \\
 \end{align*}
 
 To randomly draw an odd number $abcd$ from $[1000,9999]$ is like drawing $a$ from $\{1,2,\ldots,9\}$, drawing $b,c$ from $\{0,1,\ldots,9\}$, with replacement, and drawing $d$ from $\{1,3,5,7,9\}$. Without the requirement of distinct digits, you could imagine drawing from the $4$ sets simultaneously. But the requirement of distinct digits puts a constraint on the drawing. You can no longer think of it as a simultaneous draw. But with some care, you can think of it as a sequential draw of the $4$ digits. Care is needed. If you first pick the last digit, $d$, then whichever digit you draw is no longer ``available'' when you go on to draw, say, the second digit $b$. On the other hand, if you draw $b$ first, it may or may not impact the probability of drawing $d$. That is, if you draw a $0$ for $b$, you still have $5$ choices for $d$, but if you draw a $1$ for $b$, you are left with only $4$ choices for $d$. Similarly, if you draw a $0$ for the third digit, $c$, say, it still leaves $9$ choices for the first digit $a$, whereas if you draw a $1$, it leaves only $8$ choices for $a$. Thus, to get the calculation right, you have to imagine a predetermined order of digit selection that ``works''. An order that works is $d,a,b,c$. Equivalently $d,a,c,b$. For the analogy with a sequential draw to work, you must draw $d$ first and $a$ second. So let's suppose you are drawing $d$ first ($5$ choices), that leaves one less digit for $a$ ($8$ choices), and subsequently one less digit for $b$ ($8$ choices), and lastly one less digit for $c$ ($7$ choices).
@@ -171,16 +171,40 @@ Refer to the figures. Triangle $AEB$ is equilateral, so $\angle AEB=60^{\circ}$.
 
 \fbox{The correct answer is B.}
 
-\begin{figure}[hptb]
 \begin{minipage}[b]{\textwidth}
+\subsubsection*{Step~1: Draw the figure}
 \centering
-\includegraphics[height=0.6\textheight]%
-{congruent-circles}
-%\caption{\textbf{Two Congruent Circles}.
-%\label{fig:congruent-circles}}
+\includegraphics[width=\textwidth]%
+{congruent-circles-1}
 \end{minipage}
-\end{figure}
 
+\begin{minipage}[b]{\textwidth}
+\subsubsection*{Step~2: Identify common lengths}
+\centering
+\includegraphics[width=\textwidth]%
+{congruent-circles-2}
+\end{minipage}
+
+\begin{minipage}[b]{\textwidth}
+\subsubsection*{Step~3: Identify the equilateral triangle}
+\centering
+\includegraphics[width=\textwidth]%
+{congruent-circles-3}
+\end{minipage}
+
+\begin{minipage}[b]{\textwidth}
+\subsubsection*{Step~4: Identify the isosceles triangle}
+\centering
+\includegraphics[width=\textwidth]%
+{congruent-circles-4}
+\end{minipage}
+
+\begin{minipage}[b]{\textwidth}
+\subsubsection*{Step~5: Putting it together}
+\centering
+\includegraphics[width=\textwidth]%
+{congruent-circles-5}
+\end{minipage}
 
 
 \newpage
@@ -188,7 +212,7 @@ Refer to the figures. Triangle $AEB$ is equilateral, so $\angle AEB=60^{\circ}$.
 \begin{question}
 A semicircle is inscribed in an isosceles triangle with base $16$ and height $15$ so that the diameter of the semicircle is contained in the base of the triangle as shown. What is the radius of the semicircle?
 \begin{center}
-\includegraphics[height=0.15\textheight]%
+\includegraphics[height=0.2\textheight]%
 {semi-circle-triangle-1}
 \end{center}
 \begin{enumerate*}
@@ -203,7 +227,7 @@ A semicircle is inscribed in an isosceles triangle with base $16$ and height $15
 \begin{figure}[hptb]
 \begin{minipage}[b]{\textwidth}
 \centering
-\includegraphics[height=0.3\textheight]%
+\includegraphics[height=0.5\textheight]%
 {semi-circle-triangle-2}
 \caption{\textbf{Semi-Circle Inscribed in a Triangle}.
 \label{fig:semi:circle:triangle}}
