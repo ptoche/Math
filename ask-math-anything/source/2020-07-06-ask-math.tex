@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+\toggletrue{showAnswers}% comment out this line to show/hide answers
+\usepackage{preamble}
+\usepackage{xlop}% multiplications/divisions
+
+% https://tex.stackexchange.com/questions/89250/
+\makeatletter
+\renewenvironment{cases}[1][\lbrace]{%
+  \matrix@check\cases\env@cases{#1}
+}{%
+  \endarray\right.%
+}
+
+\def\env@cases#1{%
+  \let\@ifnextchar\new@ifnextchar
+  \left#1
+  \def\arraystretch{1.2}%
+  \array{@{}l@{\quad}l@{}}%
+}
+\makeatother
+
+% calculator/keypad design:
+\usepackage{tcolorbox}
+\usepackage{menukeys}
+
+
+\title{Ask Math Anything}
+\author{Study at Home with Po-Shen Loh}
+\date{6 July 2020}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+Professor Po-Shen Loh solves problems on his YouTube channel. A selection for practice. 
+
+Reference:~ 
+\href{https://www.youtube.com/channel/UCf78EJOm4wQ4xXwSS15PuxQ}{Ask Math Anything - Daily Challenge with Po-Shen Loh}
+\end{abstract}
+\end{minipage}
+
+
+\section*{Sum of Digits}
+Sum the digits of 
+\begin{align*}
+\underbrace{999\,\ldots\,9}_{94~\text{times}} ~\times~ \underbrace{777\,\ldots\,7}_{95~\text{times}}
+\end{align*}
+
+
+\begin{answer}
+Let's start by rewriting the multiplication
+\begin{align*}
+\underbrace{999\,\ldots\,9}_{94~\text{times}} ~\times~ \underbrace{777\,\ldots\,7}_{95~\text{times}}~ 
+& = ~(10^{94}-1) \times~ \underbrace{777\,\ldots\,7}_{95~\text{times}} \\
+& = ~\underbrace{777\,\ldots\,7}_{95~\text{times}} \underbrace{000\,\ldots\,0}_{94~\text{times}} ~-~ \underbrace{777\,\ldots\,7}_{95~\text{times}} 
+\end{align*}
+
+This last subtraction is manageable, as patterns appear:
+\begin{center}
+\opsub[carrysub,lastcarry]{777770000}{77777}\qquad
+\end{center}
+Carefully counting the number of occurrences gives:
+\begin{align*} 
+\underbrace{777\,\ldots\,7}_{93~\text{times}} 69 \underbrace{222\,\ldots\,2}_{93~\text{times}} 3
+\end{align*}
+So now to the sum of digits:
+\begin{align*} 
+95 \times 9 = 950 - 100 + 5 = 855
+\end{align*}
+
+\fbox{Answer: $855$}
+\end{answer}
+
+
+
+\section*{A Mysterious Sequence}
+Complete the sequence
+\begin{align*} 
+325, 263, 642, 436, 374, 753, 547, 485, \ldots
+\end{align*}
+
+\begin{answer}
+The first pattern we notice is that the middle digit of a number in the sequence is used as the leading digit for the next number. Since the middle digit of the last number in the sequence is $8$, the leading digit for the next number is $8$. The second pattern we notice is that the trailing digit of a number in the sequence, plus one, is used as the middle digit for the next number. Since the trailing digit of the last number in the sequence is $5$, the middle digit of the next number is $5+1=6$. The other pattern we notice is that the sum of the digits of each number in the sequence increases by one unit as we move forward, as follows:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % centered 'p' col.
+\begin{tabular}{*{3}{C{0.25\linewidth}}}
+\toprule
+  $u_{n}$ & sum of digits & $v_{n}$ \\
+\midrule
+  $325$   & 3+2+5 = 10 & 1 \\
+  $263$   & 2+6+3 = 11 & 2 \\
+  $642$   & 6+4+2 = 12 & 3 \\
+  $436$   & 4+3+6 = 13 & 4 \\
+  $374$   & 3+7+4 = 14 & 5 \\
+  $753$   & 7+5+3 = 15 & 6 \\
+  $547$   & 5+4+7 = 16 & 7 \\
+  $485$   & 4+8+5 = 17 & 8 \\
+  $864$   & 8+6+4 = 18 & 9 \\
+  $658$   & 6+5+8 = 19 & 1 \\
+  $596$   & 5+9+6 = 20 & 2 \\
+  $975$   & 9+7+5 = 21 & 3 \\
+  $769$   & 7+6+9 = 22 & 4 \\
+ $6107$\ldots ?   & 6+10+7 = 23 & 5 \\
+\bottomrule
+\end{tabular} 
+\end{center}
+We have added a few more terms in the sequence for good measure. It is not immediately clear what rules to follow to go beyond the term $769$, since $9+1=10$. Perhaps $6107$. It is coherent as it gives a sum of $23\rightarrow 5$. But after that, does $1$ become the new ``middle digit''? Some more general rules are needed. Oh but wait, another interpretation of the rules are simply: The first digit of a number in the sequence becomes the last digit of the next number. This rule is clearly valid too. At the current time this sequence is not referenced in \href{https://oeis.org/search?q=325%2C+263%2C+642%2C+436%2C+374%2C+753%2C+547%2C+485&language=english&go=Search}{\textbf{The On-Line Encyclopedia of Integer Sequences}}!
+
+\fbox{Answer: $864$} 
+
+\end{answer}
+
+
+\section*{An Absolute Equation}
+Find the values of $x$ that solve
+\begin{align*} 
+|x-1| |2x-4| = 5
+\end{align*}
+
+
+\begin{answer}
+We can bring the absolute-value operation outside of the product:
+\begin{align*} 
+|(x-1)(2x-4)| = 5
+\end{align*}
+This can be broken down into two parts:
+\begin{align*} 
+2(x-1)(x-2) & = 5 \\
+- 2(x-1)(x-2) & = 5
+\end{align*}
+These are two quadratic equations:
+\begin{align*} 
+2x^2-6x-1 & = 0 \\
+2x^2-6x+9 & = 0
+\end{align*}
+
+The four solutions are:
+\begin{align*} 
+x & = \frac{6 \pm \sqrt{36+8}}{4} = \frac{3 \pm \sqrt{11}}{2} \\
+x & = \frac{6 \pm \sqrt{36-72}}{4} = \frac{3 \pm 3i}{2} \\
+\end{align*}
+
+\fbox{Answer: \hspace{1em} $\frac{3 \pm \sqrt{11}}{2}, \hspace{1em} \frac{3 \pm 3i}{2}$ } 
+\end{answer}
+
+
+\section*{Dancing Knight on a Calculator!}
+Using the chess rules for the Knight, can you stop at every number on the keypad exactly once?
+\begin{center}
+\begin{minipage}{8em}
+\tcbset{colback=red!5!white,colframe=red!75!black,coltitle=blue!50!black,
+fonttitle=\bfseries}
+\begin{tcolorbox}
+[boxrule=.3mm,bottomrule=.75mm,rightrule=.75mm,
+colframe=black!65!white, colback=blue!15!white,
+width=(\linewidth),before=\hfill,after=\hfill,
+interior style={left color=gray!40!white,right color=blue!10!white}]
+\keys{7} \keys{8} \keys{9}\\
+\keys{4} \keys{5} \keys{6}\\
+\keys{1} \keys{2} \keys{3} \\
+\keys{0}
+\end{tcolorbox}
+\end{minipage} 
+\end{center}
+\begin{answer}
+The middle number, $5$ is special. Clearly we need to either start or finish with $5$.
+Starting from $5$, two paths are possible:
+\begin{align*}
+  5, 0, 3, 
+  \begin{cases}[\langle]
+    4, 9, 2, 7, 6, 1, 8 \\
+    8, 1, 6, 7, 2, 9, 4
+  \end{cases}
+\end{align*}
+
+The reverse paths also work, ending at $5$.
+\end{answer}
+
+\end{document}
