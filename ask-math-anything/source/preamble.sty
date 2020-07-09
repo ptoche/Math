@@ -19,12 +19,16 @@
 \setlength\parindent{0pt}% no indents
 \usepackage{parskip}
 \setlength{\parskip}{0.75\baselineskip plus 2pt}
+\definecolor{myblue}{rgb}{0.0,0.2,0.4}%
 \usepackage[colorlinks = true,
             linkcolor = black,
-            urlcolor  = blue,
+            urlcolor  = myblue,
             citecolor = black,
             anchorcolor = black]{hyperref}
 \usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+\tikzset{>=stealth}
 \def\tikzname{Ti\emph{k}Z}
 \usetikzlibrary{fit,shapes.geometric}
 \usetikzlibrary{backgrounds}% option [framed]
@@ -64,9 +68,13 @@
   }%
 }%
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+% Permutations/Combinations
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
 \newenvironment{question}{\vspace{1em}\bfseries}{}%
 \iftoggle{showAnswers}{ 
-    \newenvironment{answer}{\vspace{1em}\color{blue!90!black}}{}
+    \newenvironment{answer}{\vspace{1em}\color{myblue}}{}
 }{%
     \usepackage{verbatim}
     \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
