@@ -72,6 +72,21 @@
 \newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
 \newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
 \newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+% crossing-out digits
+\newcommand{\crossout}[2][1]{%
+  \vphantom{\rslash}%
+  {\ooalign{\hidewidth$\crosses{#1}$\hidewidth\cr$#2$\cr}}%
+}
+\newcommand{\crosses}[1]{%
+  \ifcase#1\relax
+    \or
+    \rslash\or
+    \rslash\mskip-5.5mu\rslash\or
+    \rslash\mskip-5.5mu\rslash\mskip-5.5mu\rslash%
+  \fi
+}
+\newcommand{\rslash}{\raisebox{.15ex}{/}}
+% question/answer environments
 \newenvironment{question}{\vspace{1em}\bfseries}{}%
 \iftoggle{showAnswers}{ 
     \newenvironment{answer}{\vspace{1em}\color{myblue}}{}

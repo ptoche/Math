@@ -5,7 +5,7 @@
 
 \title{UCLA Math Circle}
 \author{James Toche (and family)}
-\date{28 June 2020}
+\date{28 June 2020 \\(Last revision: \today)}
 
 \begin{document}
 \epigraph{An invitation to enjoy the beauty of mathematics with Professor Olga Radko}{}
@@ -73,24 +73,75 @@ A $4$-digit integer may be represented by the $4$ boxes below, with the letters 
 \end{center}
 with the following constraints:
 \begin{align*}
-& a \in \{1,2,3,4,5,6,7,8,9\} \\
-& b \in \{0,1,2,3,4,5,6,7,8,9\} \\
-& c \in \{0,1,2,3,4,5,6,7,8,9\} \\
-& d \in \{1,3,5,7,9\} \\
+a & \in \{1,2,3,4,5,6,7,8,9\} \\
+b,c & \in \{0,1,2,3,4,5,6,7,8,9\} \\
+d & \in \{1,3,5,7,9\} \\
 \end{align*}
+To randomly draw an odd number $abcd$ from $[1000,9999]$ is like drawing $a$ from $\{1,2,\ldots,9\}$, drawing $b,c$ from $\{0,1,\ldots,9\}$, with replacement, and drawing $d$ from $\{1,3,5,7,9\}$. Without the requirement of distinct digits, you could imagine drawing from the $4$ sets simultaneously. But the requirement of distinct digits puts a constraint on the drawing. You can no longer think of it as a simultaneous draw. But with some care, you can think of it as a sequential draw of the $4$ digits. 
 
-To randomly draw an odd number $abcd$ from $[1000,9999]$ is like drawing $a$ from $\{1,2,\ldots,9\}$, drawing $b,c$ from $\{0,1,\ldots,9\}$, with replacement, and drawing $d$ from $\{1,3,5,7,9\}$. Without the requirement of distinct digits, you could imagine drawing from the $4$ sets simultaneously. But the requirement of distinct digits puts a constraint on the drawing. You can no longer think of it as a simultaneous draw. But with some care, you can think of it as a sequential draw of the $4$ digits. Care is needed. If you first pick the last digit, $d$, then whichever digit you draw is no longer ``available'' when you go on to draw, say, the second digit $b$. On the other hand, if you draw $b$ first, it may or may not impact the probability of drawing $d$. That is, if you draw a $0$ for $b$, you still have $5$ choices for $d$, but if you draw a $1$ for $b$, you are left with only $4$ choices for $d$. Similarly, if you draw a $0$ for the third digit, $c$, say, it still leaves $9$ choices for the first digit $a$, whereas if you draw a $1$, it leaves only $8$ choices for $a$. Thus, to get the calculation right, you have to imagine a predetermined order of digit selection that ``works''. An order that works is $d,a,b,c$. Equivalently $d,a,c,b$. For the analogy with a sequential draw to work, you must draw $d$ first and $a$ second. So let's suppose you are drawing $d$ first ($5$ choices), that leaves one less digit for $a$ ($8$ choices), and subsequently one less digit for $b$ ($8$ choices), and lastly one less digit for $c$ ($7$ choices).
-
-And thus, the probability is:
+Enforcing distinct digits can be done by imagining drawing without replacement. If you first pick the last digit, $d$, then whichever digit you draw is no longer ``available'' when you go on to draw, say, the second digit $b$. On the other hand, if you draw $b$ first, it may or may not impact the probability of drawing $d$. That is, if you draw a $0$ for $b$, you still have $5$ choices for $d$, but if you draw a $1$ for $b$, you are left with only $4$ choices for $d$. Similarly, if you draw a $0$ for the third digit, $c$, say, it still leaves $9$ choices for the first digit $a$, whereas if you draw a $1$, it leaves only $8$ choices for $a$. Thus, to get the calculation right, you have to imagine a predetermined order of digit selection that ``works''. These work:
 \begin{align*}
-P & = \frac{5 \times 8 \times 8 \times 7}{9 \times 10 \times 10 \times 10} \\
-  & = \frac{8 \times 7}{9 \times 5 \times 5} \\
-  & = \frac{56}{225} \\
-  & \simeq 24.9\%
+& d \rightarrow a \rightarrow b \rightarrow c \\
+& d \rightarrow a \rightarrow c \rightarrow b
+\end{align*}
+The section \textbf{Why Selection Order Matters} (below) goes over this point again. For now, consider a sequential draw $d \rightarrow a \rightarrow b \rightarrow c$. If you draw $d$ first ($5$ choices), that leaves one less digit for $a$ ($8$ choices), and subsequently one less digit for $b$ ($8$ choices), and lastly one less digit for $c$ ($7$ choices). And thus, the probability is:
+\begin{align*}
+P = \frac{5 \times 8 \times 8 \times 7}{9 \times 10 \times 10 \times 10} 
+  = \frac{8 \times 7}{9 \times 5 \times 5} 
+  = \frac{56}{225} 
+  \simeq 24.9\%
 \end{align*}
 
 \fbox{The correct answer is B.} Our rough estimate of $25.2\%$, it turns out, was pretty accurate. 
 
+
+\subsubsection*{Why Selection Order Matters}
+Consider the problem of selecting a two-digit number with distinct digits taken from $\{0,1,2\}$. Here are all the two-digit combinations that can be formed:
+\begin{align*}
+00, 01, 02, 10, 11, 12, 20, 21, 22
+\end{align*}
+To keep only two-digit numbers, we remove $00$, $01$, and $02$. And to keep distinct digits, we remove $11$ and $22$. This leaves: 
+\begin{align*}
+\crossout[3]{00}, \crossout[3]{01}, \crossout[3]{02}, 
+10, \crossout[3]{11}, 12, 20, 21, \crossout[3]{22}
+\end{align*}
+Thus $4$ numbers out of $9$ satisfy the criteria. 
+
+How can we calculate this systematically? The total number of possibilities is $3$ choices for the first position and $3$ choices for the second position:
+\begin{align*}
+3 \times 3 = 9
+\end{align*}
+It helps to draw boxes to visualize the problem: we want to fill the boxes with the available digits, while satisfying the constraints of the problem.
+\begin{center}
+\begin{tikzpicture}[%
+  node distance=2cm,
+  nodestyle/.style={%
+    rectangle,
+    minimum width=2em,
+    text centered,
+    minimum height=2em,
+    draw=black!50,
+    ultra thick,
+  }
+]
+  \node [nodestyle] (a) {a};
+  \node [nodestyle, right of=a] (b) {b};
+\end{tikzpicture}
+\end{center}
+Box $a$ stores the tens digit, while box $b$ stores the unit digit. We can think of the digits as being selected sequentially, either in order $a \rightarrow b$ or in order $b \rightarrow a$.
+
+Case \fbox{$a \rightarrow b$} Suppose we select the tens digit first, followed by the unit digit. There are $2$ choices for the tens digit ($1$ and $2$, since $0$ is ruled out). Once the tens digit has been selected, there are only $2$ choices left for the unit digit ($3-1=2$), since one of the digits has been used already:
+\begin{align*}
+2 \times 2 = 4
+\end{align*}
+Case \fbox{$b \rightarrow a$} Suppose instead that we select the unit digit first, followed by the tens digit. There are $3$ choices for the unit digit ($0$, $1$, and $2$). Once the unit digit has been selected, how many choices for the tens digit? That depends. If the unit digit was $0$, we still have $2$ choices left for the tens digit ($1$ and $2$ are both still available), but if the unit digit was not $0$, then we have only one choice left for the tens digit (if the unit digit was $1$, that leaves only $2$ for the tens digit, while if the unit digit was $2$, that leaves only $1$ for the tens digit). Thus, if we select the unit digit first, followed by the tens digit, the correct calculation is:
+\begin{align*}
+3 \times \left(\frac{1}{3}\times2 + \frac{2}{3}\times1\right)
+= 4
+\end{align*}
+We get the same answer, of course, but the calculation is more complicated.
+
+Conclusion: it is much easier to calculate the cases if we select the tens digit before the unit digit. 
 
 
 \newpage
@@ -224,22 +275,57 @@ A semicircle is inscribed in an isosceles triangle with base $16$ and height $15
 \end{enumerate*}
 \end{question}
 
+
+\subsubsection*{Approach I: Area of Triangle}
+Refer to Figure~\ref{fig:semi:circle:triangle:1}.
 \begin{figure}[hptb]
 \begin{minipage}[b]{\textwidth}
 \centering
-\includegraphics[height=0.5\textheight]%
+\includegraphics[height=0.4\textheight]%
 {semi-circle-triangle-2}
-\caption{\textbf{Semi-Circle Inscribed in a Triangle}.
-\label{fig:semi:circle:triangle}}
+\caption{\label{fig:semi:circle:triangle:1}}
+\end{minipage}
+\end{figure}
+The known lengths are $AB=15$ and $BC=8$. Applying Pythagoras to $ABC$ yields:
+\begin{align*}
+AC = \sqrt{15^2 + 8^2} = \sqrt{289} = 17
+\end{align*}
+The area of triangle $ABC$ is given by the formula $(1/2)\times \text{height}\times\text{base}$:
+\begin{align*}
+\text{Area of}~ABC 
+  = \frac{BD \times AC}{2} 
+  = \frac{17r}{2} 
+\end{align*}
+
+Another way to compute this area is to consider $ABC$ as half of a rectangle:
+\begin{align*}
+\text{Area of}~ABC 
+  = \frac{AB \times BC}{2} 
+  = \frac{15 \times 8}{2} 
+\end{align*}
+
+Equating the two expressions gives:
+\begin{align*}
+\frac{17r}{2} & = \frac{15 \times 8}{2}  \\
+r & = \frac{120}{17}
+\end{align*}
+
+\fbox{The correct answer is E.}
+
+\clearpage
+\subsubsection*{Approach II: Pythagoras \& System of Equations}
+The approach detailed here was our first attempt. It is unnecessarily complicated. 
+\begin{figure}[hptb]
+\begin{minipage}[b]{\textwidth}
+\centering
+\includegraphics[height=0.4\textheight]%
+{semi-circle-triangle-3}
+\caption{\label{fig:semi:circle:triangle:2}}
 \end{minipage}
 \end{figure}
 
 
-Refer to Figure~\ref{fig:semi:circle:triangle}. Triangles $ADB$ and $BDC$ are right-angled, i.e. $\angle ADB=90^{\circ}$ and $\angle BDC=90\circ$. The known lengths are $AB=15$ and $BC=8$. Applying Pythagoras to $ABC$ yields:
-\begin{align*}
-AC = \sqrt{15^2 + 8^2} = \sqrt{289} = 17
-\end{align*}
-Applying Pythagoras to $ADB$ yields:
+Refer to Figure~\ref{fig:semi:circle:triangle:2}. Triangles $ADB$ and $BDC$ are right-angled, i.e. $\angle ADB=90^{\circ}$ and $\angle BDC=90\circ$. We have seen earlier that $AC=17$ follows from an application of the Pythagoras relation to triangle $ABC$. Applying Pythagoras to $ADB$ yields:
 \begin{align*}
 (17-x)^2 + r^2 = 15^2
 \end{align*}
@@ -269,7 +355,7 @@ r = \sqrt{r^2} & = \frac{8 \cdot 15}{17} \\
 
 \fbox{The correct answer is E.}
 
-This was a long and tedious calculation. There may be a shorter way \ldots 
+This was a long and tedious calculation. There may be a shorter way \ldots [Update: There is a shorter way! See the previous section.]
 
 
 

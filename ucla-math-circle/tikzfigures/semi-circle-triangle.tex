@@ -90,6 +90,43 @@
        \draw [blue,thick] (D) +(-5mm,0) |- +(0,5mm);
      \end{scope}
 
+    % draw and label the radius
+    \draw[blue,thick] (B)--(D) node[blue,above,midway] {$r$};
+
+    % mark the tangency right angles
+     \begin{scope}[rotate=0]
+       \draw [blue,thick] (B) +(-5mm,0) |- +(0,5mm);
+     \end{scope}
+
+    % draw triangle height
+    \draw[blue,thick] (A)--(B);
+
+
+    % label points
+    \node [black, above] at (A) {$A$};
+    \node [black, below right] at (C) {$C$};
+    \node [black, above right] at (D) {$D$};
+    \node [black, below] at (B) {$B$};
+    
+    % known lengths
+    \draw [<->, green!50!black,thick] (10,0) -- (10,15) node[green!50!black, midway, right] {$15$};
+    \draw [<->, green!50!black,thick] (0,-1) -- (8,-1) node[green!50!black, midway, below] {$8$};
+    \draw [<->, green!50!black,thick] (-8,-2) -- (8,-2) node[green!50!black, midway, below] {$16$};
+    \draw [<->, blue,thick, transform canvas={xshift=0.8cm,yshift=0.3cm}] (A) -- (C) node[blue,midway, above right] {$17$};
+  \end{tikzpicture}
+\end{standalonepage}
+
+
+\begin{standalonepage}
+  \begin{tikzpicture}[scale=\scale]% must match scope in myfig
+  
+    \pic (original) {myfig};
+    
+    % mark the tangency right angles
+     \begin{scope}[rotate=29]
+       \draw [blue,thick] (D) +(-5mm,0) |- +(0,5mm);
+     \end{scope}
+
     % mark the tangency right angles
      \begin{scope}[rotate=119]
        \draw [red,thick] (D) +(-5mm,0) |- +(0,5mm);
