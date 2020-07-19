@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{../preamble2}
+\usepackage{../../preamble2}
 \setenumerate{label=\Alph*,itemjoin={\quad},before={\mbox{}\bigskip\\},after={\bigskip\\}}
 \usepackage{epigraph}
 
@@ -429,7 +429,9 @@ What is the tens digit of $7^{2011}$
 
 If you have access to a computer/calculator, you can make the following table. However, try $7^{2011}$ and it most likely will give you either an error or something like \texttt{Inf}. That is because the number $7^{2011}$ is large beyond imagination. The largest power of $7$ we were able to compute/estimate was $7^{364} \simeq 4.1 \times 10^{307}$, which doesn't help with the tens digit!
 \begin{center}
-\begin{tabular}{lll}
+\renewcommand{\arraystretch}{1.5}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % centered 'p' col.
+\begin{tabular}{*{3}{C{0.17\linewidth}}}
     \hline
     Exponent  &  Number &  $10$-Digit \\
     \hline

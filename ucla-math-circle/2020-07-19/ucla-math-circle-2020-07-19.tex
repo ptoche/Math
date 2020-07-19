@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{../../preamble2}
+
+\title{UCLA Math Circle}
+\author{James Toche (and family)}
+\date{19 June 2020 \\(Last revision: \today)}
+
+\begin{document}
+\section*{Lines \& Regions}
+\begin{question}
+Suppose there are $n$ lines drawn in the plane such that no two lines are parallel and no three lines intersect at the same point. Find a closed formula for the number of regions that the lines split into.
+\end{question}
+
+For small values of $n$, it is easy to sketch intersecting lines and count regions. Let $n$ denote the number of lines and $r$ the number regions. We have:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % centered 'p' col.
+\begin{tabular}{*{2}{C{0.12\linewidth}}}
+    \toprule
+    n  &  r \\
+    \midrule
+    $0$  &  $1$ \\
+    $1$  &  $2$ \\
+    $2$  &  $4$ \\
+    $3$  &  $7$ \\
+    $4$  &  $11$ \\
+    \bottomrule
+    \end{tabular}
+\end{center}
+The case $n=0$ is obvious: with no lines crossing the plane, there is one region --- the entire plane. 
+
+The case $n=1$ is equally obvious: a single line divides the plane into two regions, each being a half-plane. 
+
+The case $n=2$ is easy to explain: At the intersection of the two lines, there are four angles that sum to $360^{\circ}$, and each angle defines a region. 
+
+The case $n=3$ can be explained by extending the previous idea: The intersection of the three lines forms a triangle. This triangle defines one region. Now move the lines such as to shrink the triangle to a single point. The resulting figure has three lines intersecting at a single point (see figure below). These lines define $6$ regions, for a total of $7$ regions when the triangle is included. 
+\begin{center}
+\begin{tikzpicture}
+  \draw [black, thick] (0.4,0.4) -- +(0:1.4) -- +(180:2.2); 
+  \draw [black, thick] (-0.2:-0.2) -- +(120:2) -- +(300:2); 
+  \draw [black, thick] (0.2:0.2) -- +(240:2) -- +(60:2); 
+\begin{scope}[xshift=8cm]
+  \draw [black, thick] (0:0) -- +(0:2) -- +(180:2); 
+  \draw [black, thick] (0:0) -- +(120:2) -- +(300:2); 
+  \draw [black, thick] (0:0) -- +(240:2) -- +(60:2); 
+\end{scope}
+\end{tikzpicture}
+\end{center}
+The case $n=4$ can be understood by considering what happens when a line is added to the previous case. The fourth line intersects the other three lines at $3$ points, and so goes through $4$ ``existing'' regions, dividing each into two parts, thus adding $4$ ``new'' regions, $7+4=11$. 
+
+In general, the $n$th line intersects with $n-1$ lines, creating $n$ news regions. This suggests a method for calculating the number of regions based on the previous value:
+\begin{align*}
+r(n) = r(n-1) + n
+\end{align*}
+This is a linear recurrence. A linear recurrence admits a unique solution, which may be found, for instance, by repeated substitution. 
+\begin{align*}
+  r(n) & = r(n-1) + n \\
+r(n-1) & = r(n-2) + (n-1) \\
+r(n-2) & = r(n-3) + (n-2) \\
+       & \vdotswithin{=} \\
+  r(3) & = r(2) + 3 \\
+  r(2) & = r(1) + 2 \\
+  r(1) & = r(0) + 1 
+\end{align*}
+Adding these equalities column-wise gives:
+\begin{align*}
+r(n) = n + (n-1) + (n-2) + \ldots + 3 + 2 + 1 + r(0)
+\end{align*}
+where $r(0)=1$ (as noted in the table above). Thus,
+\begin{align*}
+r(n) = (1 + 2 + 3 + \ldots + n) + 1 
+\end{align*}
+In words, the number of regions delimited by the intersection of $n$ lines that intersect at $n-1$ distinct points is equal to one plus the sum of the integers up to $n$. There is, of course, a famous formula for the sum of the first $n$ integers: 
+\begin{align*}
+1 + 2 + 3 + \ldots + n = \frac{n(n+1)}{2}
+\end{align*}
+Substituting into the formula for $r(n)$ gives:
+\begin{align*}
+r(n) 
+ & = \frac{n(n+1)}{2} + 1 \\
+ & = \frac{n^2 + n + 2}{2}
+\end{align*}
+
+For peace of mind, you may check that the formula generates the values computed in the table above:
+\begin{align*}
+r(0) & = \frac{0^2 + 0 + 2}{2} = \frac{2}{2} = 1 \\
+r(1) & = \frac{1^2 + 1 + 2}{2} = \frac{4}{2} = 2 \\
+r(2) & = \frac{2^2 + 2 + 2}{2} = \frac{8}{2} = 4 \\
+r(3) & = \frac{3^2 + 3 + 2}{2} = \frac{14}{2} = 7 \\
+r(4) & = \frac{4^2 + 4 + 2}{2} = \frac{22}{2} = 11
+\end{align*}
+
+
+\end{document}
