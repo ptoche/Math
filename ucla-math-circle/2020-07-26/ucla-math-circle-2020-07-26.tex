@@ -1,0 +1,140 @@
+\documentclass[12pt]{article}
+\usepackage{../../preamble2}
+\setenumerate{label=\Alph*,itemjoin={\quad},before={\mbox{}\bigskip\\},after={\bigskip\\}}
+\usepackage{epigraph}
+
+\title{UCLA Math Circle}
+\author{James Toche (and family)}
+\date{26 July 2020 \\(Last revision: \today)}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+Notes on homework problems from the UCLA Math Circle Intermediate-2 for Summer Session 2020, July 26th. 
+\end{abstract}
+\end{minipage}
+
+\newpage
+\section*{1. Show by Induction that}
+\begin{question}
+  \begin{align*}
+  F_{n-1}F_{n+1} - F_{n}^{2} = (-1)^{n} \qquad \forall n\geq 1
+  \end{align*}
+\end{question}
+Recall the following definition of the Fibonacci numbers:
+\begin{align*}
+F(0) & = 0 \\
+F(1) & = 1 \\
+F(n) & = F(n-1) + F(n-2) \qquad \forall n\geq 2
+\end{align*}
+Let $P(n)$ denote	the equality for \textit{some} fixed value $n\in\mathbb{N}$. We have:
+\begin{align*}
+P(n+1): \quad
+  F_{n}F_{n+2} - F_{n+1}^{2} = (-1)^{n+1}
+\end{align*}
+\underline{Base Cases:}
+\begin{align*}
+P(1): \quad
+  F_{0}F_{2} - F_{1}^{2} = 0 \cdot 1 - 1^{2} = (-1)^{1} &= -1 \qquad \cmark \\
+P(2): \quad
+  F_{1}F_{3} - F_{2}^{2} = 1 \cdot 2 - 1^{2} = (-1)^{2} &= +1 \qquad \cmark 
+\end{align*}
+\underline{Induction Step:}
+As usual, we start with the left-hand side of $P(n+1)$ and aim to equate it to the right-hand side after substituting $P(n)$, perhaps also $P(n-1)$, the definition of Fibonacci numbers, and inspired manipulations. With the right inspiration, you can get from the left-hand side to the right-hand side in about three steps, but off the direct path it can take longer. Below is the derivation followed by details and comments. 
+\begin{align*}
+\texttt{lhs}
+  & = F_{n} F_{n+2} - F_{n+1}^{2} \\
+  & = F_{n} (F_{n+1}+F_{n}) - F_{n+1}^{2} \\
+  & = F_{n} F_{n+1} + F_{n}^{2} - F_{n+1}^{2} \\
+  & = F_{n+1} (F_{n}-F_{n+1}) + F_{n}^{2} \\
+  & = -F_{n-1} F_{n+1} + F_{n}^{2} \\
+  & = -(-1)^{n} \\
+  & = (-1)^{n+1} \\
+  & = \texttt{rhs} \quad \qed 
+\end{align*}
+
+\subsubsection*{Comments}
+The same derivation with comments:
+\begin{alignat*}{7}
+\texttt{lhs} \quad
+ &=& \quad & F_{n} \quad &\times& \quad \makebox[5em]{$F_{n+2}$} \quad&-\quad F_{n+1}^{2} & \\
+ &=& \quad & F_{n} \quad &\times& \quad (\overbrace{F_{n+1}+F_{n}}) \quad&-\quad F_{n+1}^{2} 
+ & \qquad\text{by definition of $F_{n+2}$} \\
+ &=& \quad & F_{n} \quad \times \quad F_{n+1} \quad&+&\quad \makebox[2em]{$F_{n}^{2}$} \quad &-\quad F_{n+1}^{2} \\
+ &=& \quad & (\underbrace{F_{n}-F_{n+1}}) \quad &\times& \quad  F_{n+1} \quad+\quad F_{n}^{2} \\
+ &=& \quad & \makebox[6em]{$-F_{n-1}$} \quad &\times& \quad F_{n+1} \quad+\quad F_{n}^{2} &
+ & \qquad\text{by definition of $F_{n+1}$} \\
+ &=& \quad & - \underbrace{(F_{n-1}F_{n+1} - F_{n}^{2})} & \\ 
+ &=& \quad & - \makebox[7em]{$(-1)^{n}$} &&&
+ & \qquad\text{by proposition $P(n)$} \\
+ &=& \quad & (-1)^{1}\times(-1)^{n} \\
+ &=& \quad & (-1)^{n+1} \\
+ &=& \quad & \texttt{rhs} \qed 
+\end{alignat*}
+
+The derivation above is easy enough to follow, much less to discover. The first insight in the induction step is to note that the \texttt{lhs} of $P(n+1)$ contains the ``future'' term $F_{n+2}$, which appears neither on the \texttt{rhs} of $P(n+1)$ nor in $P(n)$, and is therefore a strong candidate for a substitution. The second insight is to note that, after the substitution, the term $F_{n}^{2}$, present in $P(n)$, has appeared, while the term $F_{n+1}$ may be factorized. The third insight is to note that the left-hand side of $P(n)$ has almost appeared, except for the term multiplying $F_{n+1}$, which it turns out can be simplified by using the definition of the Fibonacci number $F_{n+1}$: 
+\begin{align*}
+F_{n+1} & = F_{n} + F_{n-1} \\
+\implies 
+-F_{n-1} & = F_{n} - F_{n+1}
+\end{align*}
+
+If you hadn't noticed that $F_{n+1}$ could be factorized, you would have been stuck here:
+\begin{align*}
+F_{n} F_{n+1} + F_{n}^{2} - F_{n+1}^{2}
+\end{align*}
+How to get unstuck? In order to use $P(n)$ in our proof, we seek to replace the product $F_{n}F_{n+1}$ by $F_{n-1}F_{n+1}$. This suggests using a definition of the Fibonacci numbers to write $F_{n}$ in terms of $F_{n-1}$. A natural temptation here is to use: 
+\begin{align*}
+F_{n} = F_{n-1} + F_{n-2}
+\end{align*}
+which gives $F_{n-1}F_{n+1}+F_{n}^{2}+$~etc.. The problem with this is that the sign is wrong. What we would have needed instead is $-F_{n-1}F_{n+1}+F_{n}^{2}+$~etc.. This definition of the Fibonacci numbers delivers:
+\begin{align*}
+F_{n+1} & = F_{n} + F_{n-1} \\
+\implies 
+F_{n} & = F_{n+1} - F_{n-1}
+\end{align*}
+so that:
+\begin{alignat*}{2}
+\quad &\makebox[6em]{$F_{n}$}& F_{n+1} + F_{n}^{2} - F_{n+1}^{2} \\
+= \quad &\overbrace{(F_{n+1} - F_{n-1})}& F_{n+1} + F_{n}^{2} - F_{n+1}^{2} \\
+= \quad & - F_{n-1}F_{n+1} + F_{n}^{2} 
+\end{alignat*}
+as before.
+
+The key takeaway of this exercise is that we typically need to make $P(n)$ appear out of the left-hand side of $P(n+1)$. In simpler problems involving sums, we usually simply truncate the sum at the $n$th term and substitute it with the right-hand side of $P(n)$. In this problem, we need to use definitions of the Fibonacci numbers and some factorization to make the left-hand side of $P(n)$ appear. 
+
+
+\clearpage
+\section*{2. Show by Induction that}
+\begin{question}
+  \begin{align*}
+  \left(1-\frac{1}{2^{2}}\right) \left(1-\frac{1}{3^{2}}\right) \ldots \left(1-\frac{1}{n^{2}}\right) 
+  = \frac{n+1}{2n} \qquad \forall n\geq 2
+  \end{align*}
+\end{question}
+Let $P(n)$ denote	the equality for \textit{some} fixed value $n\in\mathbb{N}$. We have:
+\begin{align*}
+P(n+1): \quad
+\left(1-\frac{1}{2^{2}}\right) \left(1-\frac{1}{3^{2}}\right) \ldots \left(1-\frac{1}{n^{2}}\right) \left(1-\frac{1}{(n+1)^{2}}\right) = \frac{n+2}{2(n+1)}
+\end{align*}
+\underline{Base Case:}
+\begin{align*}
+P(2): \quad
+  \left(1-\frac{1}{2^{2}}\right) = \frac{2+1}{2\cdot2} = \frac{3}{4} \qquad \cmark
+\end{align*}
+\underline{Induction Step:}
+As usual, we start with the left-hand side of $P(n+1)$ and aim to equate it to the right-hand side after substituting $P(n)$ and some manipulations. 
+\begin{align*}
+\texttt{lhs} \quad
+  & = \quad \underbrace{\left(1-\frac{1}{2^{2}}\right) \ldots \left(1-\frac{1}{n^{2}}\right)} \left(1-\frac{1}{(n+1)^{2}}\right)\\
+  & = \quad \hspace{3em}\left(\frac{n+1}{2n}\right)\hspace{3.3em} \left(1-\frac{1}{(n+1)^{2}}\right)\\
+  & = \quad \frac{n+1}{2n} \cdot \frac{(n+1)^{2}-1}{(n+1)^{2}} \\
+  & = \quad \frac{n+1}{2n} \cdot \frac{(n+1+1)(n+1-1)}{(n+1)^{2}} \\
+  & = \quad \frac{n+1}{2n} \cdot \frac{(n+2)n}{(n+1)^{2}} \\
+  & = \quad \frac{n+2}{2(n+1)} \\
+  & = \quad \texttt{rhs} \quad \qed 
+\end{align*}
+\underline{Conclusion:} $P(n)$ implies $P(n+1)$ and $P(1)$ is true, so $P(n)$ true for all $n\geq2$.
+
+\end{document}
