@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \graphicspath{{../figures/}}
 \usepackage{inconsolata}
+\usepackage{bm}%\bm
 \usepackage{booktabs}
 \usepackage{amssymb,amsmath,amsthm}
 \newtheorem{definition}{Definition}
@@ -11,6 +12,7 @@
 \newtheorem*{theorem*}{Theorem}
 \usepackage{mathtools}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage{array}% e.g. \newcolumntype{L}{>{$}l<{$}}
 \usepackage{pifont}% \ding
 \newcommand{\cmark}{\text{\ding{51}}}%
 \newcommand{\xmark}{\text{\ding{55}}}%
@@ -90,5 +92,7 @@
   \fi
 }
 \newcommand{\rslash}{\raisebox{.15ex}{/}}
+% bold/underline command
+\newcommand\underbold[1]{\underline{\bfseries\boldmath#1}}
 % question environment
-\newenvironment{question}{\vspace{1em}\bfseries}{}%
+\newenvironment{question}{\vspace{1em}\bfseries\boldmath}{\medskip}%
