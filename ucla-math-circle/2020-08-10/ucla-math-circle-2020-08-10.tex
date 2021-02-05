@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage{../../preamble2}
+
+\newcommand{\modulo}[1]{~(\mathrm{mod}~#1)}
+%\newcommand{\modulo}[1]{~\%#1}
+
+\newcolumntype{C}{>{$}c<{$}}% \usepackage{array}
+
+\setenumerate{label=(\roman*),itemjoin={\quad},before={\mbox{}\bigskip\\},after={\bigskip\\}}
+
+\usepackage[explicit]{titlesec}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}% Numbering without sub-numbers
+\titleformat{\subsubsection}{\normalfont\Large\bfseries}{}{0em}{#1\ \thesubsubsection}
+
+\title{UCLA Math Circle}
+\author{James Toche (and family)}
+\date{10 August 2020 \\(Last revision: \today)}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+More problems on modular arithmetic to accompany the UCLA Math Circle Intermediate-2 for Summer Session 2020, August 9nd. 
+\end{abstract}
+\end{minipage}
+
+\section*{More Problems on Modular Arithmetic}
+
+\subsubsection{Problem}
+\begin{question}
+Calculate $3^{31}\modulo{7}$. 
+\end{question}
+
+
+\subsubsection{Problem}
+\begin{question}
+Calculate $2^{35}\modulo{7}$
+\end{question}
+
+
+\subsubsection{Problem}
+\begin{question}
+The remainder of $2^{1000}$ divided by $13$.
+\end{question}
+
+
+
+\subsubsection{Problem}
+\begin{question}
+Solve $x^{103} \equiv 4\modulo{11}$. 
+\end{question}
+
+
+\subsubsection{Problem}
+\begin{question}
+If a googolplex is $10^{10^{100}}$, what day of the week will it be a googolplex days from now? (Today is Sunday)
+\end{question}
+
+
+
+\subsubsection{Problem}
+\begin{question}
+Find all positive integers $x$ such that $2^{2^{x}+1}+2$ is divisible by $17$.
+\end{question}
+
+
+
+
+\end{document}

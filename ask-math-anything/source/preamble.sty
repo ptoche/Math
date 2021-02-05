@@ -25,6 +25,17 @@
 \setlength\parindent{0pt}% no indents
 \usepackage{parskip}
 \setlength{\parskip}{0.75\baselineskip plus 2pt}
+% minipagex correctly applies paragraph skip preferences
+\newlength{\currentparskip}
+\newlength{\currentparindent}
+\newenvironment{minipagex}[2][]
+  {\setlength{\currentparskip}{\parskip}% save the value
+    \setlength{\currentparindent}{\parindent}%
+   \begin{minipage}[#1]{#2}% open the minipage
+   \setlength{\parskip}{\currentparskip}% restore the value
+   \setlength{\parindent}{\currentparindent}% restore the value
+  }
+  {\end{minipage}}
 \definecolor{myblue}{rgb}{0.0,0.2,0.4}%
 \usepackage[colorlinks = true,
             linkcolor = black,

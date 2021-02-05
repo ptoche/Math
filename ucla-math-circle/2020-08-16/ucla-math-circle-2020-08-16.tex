@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{../../preamble2}
+
+\newcommand{\modulo}[1]{~(\mathrm{mod}~#1)}
+%\newcommand{\modulo}[1]{~\%#1}
+
+\newcolumntype{C}{>{$}c<{$}}% \usepackage{array}
+
+\setenumerate{label=(\roman*),itemjoin={\quad},before={\mbox{}\bigskip\\},after={\bigskip\\}}
+
+\usepackage[explicit]{titlesec}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}% Numbering without sub-numbers
+\titleformat{\subsubsection}{\normalfont\Large\bfseries}{}{0em}{#1\ \thesubsubsection}
+
+\title{UCLA Math Circle}
+\author{James Toche (and family)}
+\date{16 August 2020 \\(Last revision: \today)}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+More problems on modular arithmetic to accompany the UCLA Math Circle Intermediate-2 for Summer Session 2020, August 16th. 
+\end{abstract}
+\end{minipage}
+
+
+\section*{Diophantine Equations}
+
+\section*{Problem~1}
+\begin{question}
+Find integer solutions to the Diophantine equation $2x+3y = 0$. What about $2x+3y = 1$? And $2x+3y = 31$? Think about how you can get the third equation from the second equation.
+\end{question}
+
+\begin{align*}
+aaa
+\end{align*}
+
+
+\section*{Problem~2}
+\begin{question}
+Suppose we have a solution $(x_{0},y_{0})$ to the Diophantine equation $ax+by=1$. Let $n$ be an arbitrary integer. Show there is a solution to the Diophantine equation $ax+by=n$. Find a solution.
+\end{question}
+
+
+\end{document}

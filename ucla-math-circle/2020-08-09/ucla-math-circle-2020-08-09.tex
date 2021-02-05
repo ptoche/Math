@@ -1,0 +1,236 @@
+\documentclass[12pt]{article}
+\usepackage{../../preamble2}
+
+\newcommand{\modulo}[1]{~(\mathrm{mod}~#1)}
+%\newcommand{\modulo}[1]{~\%#1}
+
+\newcolumntype{C}{>{$}c<{$}}% \usepackage{array}
+
+\setenumerate{label=(\roman*),itemjoin={\quad},before={\mbox{}\bigskip\\},after={\bigskip\\}}
+
+\title{UCLA Math Circle}
+\author{James Toche (and family)}
+\date{9 August 2020 \\(Last revision: \today)}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+Notes on modular arithmetic from the UCLA Math Circle Intermediate-2 for Summer Session 2020, August 9nd. 
+\end{abstract}
+\end{minipage}
+
+%\newpage
+\section*{Fermat's Little Theorem}
+Fermat's little theorem may be stated in two ways. The easiest to remember: For any prime number $p$,
+\begin{align*}
+a^{p} \equiv a \modulo{p}, \quad \forall a\in\mathbb{N}
+\end{align*}
+Typically more useful is the equivalent statement:
+\begin{align*}
+a^{p-1} \equiv 1 \modulo{p}
+\end{align*}
+
+
+\section*{Problem~1}
+\begin{question}
+Calculate $128^{129}\modulo{17}$
+\end{question}
+
+With a view to applying Fermat's little theorem, we seek to write $128^{129}$ in the form $\ldots^{17}$ or $\ldots^{16}$. To this end, consider $16\times8=128$ and $17\times7=119$. 
+\begin{align*}
+128^{129} 
+ & = 128^{16\times8+1} \\
+ & = 128 \cdot (128^{8})^{16} \\
+ & \equiv 128 \\
+ & \equiv 17 \times 7 + 9 \modulo{17} \\
+ & \equiv 9 \modulo{17}
+\end{align*}
+
+
+\clearpage
+\section*{Problem~2}
+\begin{question}
+Calculate the remainder of $2^{20}+3^{30}+4^{40}+5^{50}+6^{60}$ divided by $7$. 
+\end{question}
+Consider each power separately:
+\begin{align*}
+2^{20} 
+ & = (2^{3})^{6} \cdot 2^{2} 
+   \equiv 4 \modulo{7} \\
+3^{30} 
+ & = (3^{5})^{6}
+   \equiv 1 \modulo{7} \\
+4^{40} 
+ & = 2^{80}
+   = (2^{13})^{6} \cdot 2^{2}
+   \equiv 4 \modulo{7} \\
+5^{50} 
+ & = (5^{8})^{6} 5^{2}
+   \equiv 25 \modulo{7} 
+   \equiv 7 \cdot 3 + 4 \modulo{7} 
+   \equiv 4 \modulo{7} \\
+6^{60} 
+ & = (6^{10})^{6}
+   \equiv 1 \modulo{7} \\
+\end{align*}
+Add up:
+\begin{align*}
+2^{20}+3^{30}+4^{40}+5^{50}+6^{60} 
+ & \equiv 4 + 1 + 4 + 4 + 1 \modulo{7} \\
+ &  \equiv 2 \cdot 7  \modulo{7} \\
+ & \equiv 0 \modulo{7} \\
+\end{align*}
+
+
+\clearpage
+\section*{Problem~3}
+\begin{question}
+Let the sequence $a_{n}$ be defined by $a_{n}=4^{a_{n-1}}$ and $a_{0}=1$. Show by induction that $a_{n}\equiv4\modulo{7}$, for all $n\in\mathbb{N}$ and $n\geq1$.
+\end{question}
+
+Suppose the following holds for some fixed $n\in\mathbb{N}$.
+\begin{align*}
+\mathllap{P(n): \hspace{2em}}
+  a_{n} \equiv 4 \modulo{7}
+\end{align*}
+
+\underbold{Base Case:}
+\begin{align*}
+\mathllap{P(1): \hspace{2em}}
+a_{1} 
+  & = 4^{a_{0}} \\
+  & = 4^{1} \\
+  & \equiv 4 \modulo{7}
+\end{align*}
+
+\underbold{Induction Step:}
+
+Show that the left-hand side of $P(n+1)$ is congruent to $4$ modulo $7$. 
+\begin{align*}
+\mathllap{P(n+1): \hspace{2em}}
+  a_{n+1} \equiv 4 \modulo{7}
+\end{align*}
+A very natural way to start is to use the property that $a_{n}$ is congruent to $4$ modulo $7$, which may be written as $a_{n}=7k+4$ for some $k\in\mathbb{N}$. Unfortunately, that does not lead directly to a proof:
+\begin{align*}
+\texttt{lhs} 
+  = a_{n+1} 
+  = 4^{a_{n}} 
+  = 4^{7k+4} 
+  = (4^{k})^{7} \cdot 2^{6} \cdot 2^{2} 
+  \equiv 4^{k} \cdot 4 \modulo{7}
+\end{align*}
+and there is no obvious way to deal with the $4^{k}$ term.
+
+The above steps suggest that if $a_{n}$ were written as a multiple of $6$ instead of $7$, the $4^{k}$ term would be made to vanish. So this is what we seek. The result below delivers.
+\begin{align*}
+4^{a} \equiv 4 \modulo{6}, \quad \forall a \in\mathbb{N}
+\end{align*}
+implies that $4^{a_{n}}\equiv4\modulo{6}$. This congruence may be used as follows:
+\begin{align*}
+\mathllap{
+\texttt{lhs} 
+  = a_{n+1} 
+  = 4^{a_{n}} 
+  = 4^{6k+4} 
+}
+  & = (4^{k})^{6} \cdot 4^{4} \\
+  & \equiv 4^{4} \modulo{7} \\
+  & \equiv 4 \modulo{7} \\
+  & = \texttt{rhs} \mathrlap{\quad \qed}
+\end{align*}
+
+The difficult step in the above demonstration was to see that $4^{a} \equiv 4 \modulo{6}$ for all $a\in\mathbb{N}$. This too can be shown by induction. The base case ($a=1$) is obvious. The induction step goes:
+\begin{align*}
+4^{a+1} 
+  & = 4 \cdot 4^{a} \\
+  & \equiv 4 \cdot 4 \modulo{6} \\
+  & \equiv 16 - 2 \cdot 6 \\
+  & \equiv 4 \modulo{6} \mathrlap{\quad \qed}
+\end{align*}
+
+
+\clearpage
+\section*{Problem~4}
+\begin{question}
+Find all integers such that $x^{86}\equiv6\modulo{29}$.
+\end{question}
+
+Since $29$ is prime, we can apply Fermat's little theorem to reduce the exponent on $x$. Using $28 \times 3 = 84$ yields
+\begin{align*}
+x^{86} 
+  & = (x^{3})^{28} \cdot x^{2} \\
+  & \equiv x^{2} \modulo{29} 
+\end{align*}
+We now write $6$ as a square modulo $29$ (by adding $29$ to $6$ repeatedly until we get a perfect square). 
+\begin{align*}
+6 & \equiv 6 + 2 \times 29 \modulo{29} \\
+  & \equiv 64 \modulo{29} \\
+  & \equiv 8^{2} \modulo{29}   
+\end{align*}
+
+Putting it together yields the equation:
+\begin{align*}
+x^{2} 
+  & \equiv 8^{2} \modulo{29} 
+\end{align*}
+with solutions:
+\begin{align*}
+\begin{cases}
+x \equiv 8 \modulo{29} \\
+x \equiv -8 \modulo{29} \equiv 21 \modulo{29} 
+\end{cases}
+\end{align*}
+Thus the equation has two integer solutions modulo $29$: $8$ and $21$.
+
+
+
+\clearpage
+\section*{Problem~5}
+\begin{question}
+Show by induction that $x^{p}\equiv x\modulo{p}$, for all $x\in\mathbb{N}$, where $p$ is any prime number. Hint: Use $(x+1)^{p}\equiv x^{p}=1\modulo{p}$ in the inductive step. 
+\end{question}
+
+Recall that for any $a,b$, the binomial expansion formula is:
+\begin{align*}
+(a + b)^{n} 
+ = a^{n} + n a^{n-1}b + \ldots + \binom{n}{k} a^{n-k}b^{k}  + \ldots + n ab^{n-1} + b^{n} 
+\end{align*}
+where the binomial coefficient is:
+\begin{align*}
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\end{align*}
+
+Let $p$ denote any prime number. Suppose the following holds for some fixed $n\in\mathbb{N}$.
+\begin{align*}
+\mathllap{P(n): \hspace{2em}}
+  n^{p}\equiv n\modulo{p}
+\end{align*}
+\underbold{Base Case:}
+\begin{align*}
+\mathllap{P(1): \hspace{2em}}
+1^{p} \equiv 1 \modulo{p}
+\end{align*}
+
+\underbold{Induction Step:}
+\begin{align*}
+\mathllap{P(n+1): \hspace{2em}}
+  (n+1)^{p}\equiv (n+1)\modulo{p}
+\end{align*}
+Show that the left-hand side of $P(n+1)$ is congruent to the right-hand side:
+\begin{align*}
+\texttt{lhs} 
+  = (n+1)^{p}
+  & = n^{p} + p\ n^{p-1} + \ldots + \binom{p}{k} n^{p-k}  + \ldots + p + 1 \\
+  & = n^{p} + p ~\underbrace{\left(n^{p-2} + \ldots + p^{-1}\frac{p!}{k!(p-k)!} + \ldots + 1\right)}_{\in\mathbb{N}}~ +1 \\
+  & \equiv n^{p} + 1 \modulo{p} \\
+  & \equiv n + 1 \modulo{p} \\
+  & = \texttt{rhs} \mathrlap{\quad \qed}
+\end{align*}
+
+In the above we used the well-known result that
+\begin{align*}
+  n^{k} \equiv n \modulo{k} \quad \forall n,k\in\mathbb{N}^{2}
+\end{align*}
+
+\end{document}

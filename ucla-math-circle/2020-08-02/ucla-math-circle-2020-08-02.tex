@@ -8,13 +8,13 @@
 
 \title{UCLA Math Circle}
 \author{James Toche (and family)}
-\date{19 June 2020 \\(Last revision: \today)}
+\date{2 August 2020 \\(Last revision: \today)}
 
 \begin{document}
 \begin{minipage}{\textwidth}
 \maketitle
 \begin{abstract}
-Notes on modular arithmetic from the UCLA Math Circle Intermediate-2 for Summer Session 2020, July 19th. 
+Notes on modular arithmetic from the UCLA Math Circle Intermediate-2 for Summer Session 2020, August 2nd. 
 \end{abstract}
 \end{minipage}
 
@@ -59,8 +59,10 @@ If $a\equiv b\modulo{m}$ and $b\equiv c\modulo{m}$, then $a\equiv c\modulo{m}$.
 
 The starting point is:
 \begin{align*}
-\exists k\in\mathbb{N}: a & = km + b \\
-\exists l\in\mathbb{N}: b & = lm + c 
+\mathllap{\exists k\in\mathbb{N}:\quad} 
+  a & = km + b \\
+\mathllap{\exists l\in\mathbb{N}:\quad} 
+  b & = lm + c 
 \end{align*}
 for $a,b,c$ in $\mathbb{N}$. By simple substitution,
 \begin{align*}
@@ -82,8 +84,10 @@ If $a\equiv b\modulo{m}$ and $c\equiv d\modulo{m}$, then $(a+c)\equiv (b+d)\modu
 
 The starting point is:
 \begin{align*}
-\exists k\in\mathbb{N}: a & = km + b \\
-\exists l\in\mathbb{N}: c & = lm + d
+\mathllap{\exists k\in\mathbb{N}:\hspace{2em}}
+  a & = km + b \\
+\mathllap{\exists l\in\mathbb{N}:\hspace{2em}}
+  c & = lm + d
 \end{align*}
 for $a,b,c,d$ in $\mathbb{N}$. 
 
@@ -118,20 +122,23 @@ If $a\equiv b\modulo{m}$ then $a^{k}\equiv b^{k}\modulo{m}$ for all $k\geq1$.
 
 Suppose the following is true for $k=1$ and some $k>1$:
 \begin{align*}
-P(1):\quad~ a & = lm + b \quad~\text{for some}~l\in\mathbb{N}\\
-P(k):\quad a^{k} & = qm + b^{k} \quad\text{for some}~q\in\mathbb{N}\\
+\mathllap{P(1): \hspace{2em}}
+  a & = lm + b 
+  \mathrlap{\quad~\text{for some}~l\in\mathbb{N}} \\
+\mathllap{P(k): \hspace{2em}}
+  a^{k} & = qm + b^{k} 
+  \mathrlap{\quad\text{for some}~q\in\mathbb{N}} \\
 \end{align*}
 for $a,b,m,k$ in $\mathbb{N}$. The factor $q$ is ``unimportant'' and will typically vary with $k$. We also assume that $b<m$, that is the remainder has been reduced to its ``standard representation'' for modulus $m$. However, the remainder $b^{k}$ could be greater than $m$ (only for $b=0$ or $b=1$ is $b^{k}<m$ guaranteed). 
 
 \underbold{Base Case:}
-
-$P(2)$:
 \begin{align*}
+\mathllap{P(2): \hspace{2em}}
 a^{2} 
   & = (lm + b)^{2} \\
   & = (lm)^{2} + 2 lmb + b^{2} \\
   & = m (l^{2}m + 2lb) + b^{2} \\
-  & \equiv b^{2} \modulo{m}
+  & \equiv b^{2} \modulo{m}  \mathrlap{\qquad \cmark}
 \end{align*}
 This immediately suggests a direct proof based on the binomial expansion formula. 
 
@@ -184,8 +191,8 @@ Show that the left-hand side of $P(k+1)$ is congruent to $b^{k+1}$ modulo $m$:
 \begin{align*}
 \texttt{lhs} 
   & = (qm + b)^{k+1} \\
-  & = \underbrace{(qm + b)^{k}}\quad(qm + b) \\
-  & = \makebox[4em]{$(mp+b^{k})$}\quad~(qm + b) \\
+  & = \underbrace{(qm + b)^{k}}~(qm + b) \\
+  & = \makebox[4em]{$(mp+b^{k})$}~~(qm + b) \\
   & = mpqm + mpb + b^{k}qm + b^{k}b \\
   & = m (\underbrace{pqm + pb + b^{k}q}_{\in\mathbb{N}}) +b^{k+1} \\
   & \equiv b^{k+1} \modulo{m} \\
@@ -204,8 +211,8 @@ $3\nmid x$ reads as ``$3$ does not divide $x$.'' In words, ``if $3$ divides neit
 
 The ``does-not-divide'' property may be stated as:
 \begin{align*}
-x & = 3k + r, r\neq 0 \\
-y & = 3l + s, s\neq 0
+x & = 3k + r, \mathrlap{\quad r\neq 0} \\
+y & = 3l + s, \mathrlap{\quad s\neq 0}
 \end{align*}
 In words, ``$3$ is not a factor of $x$ if the remainder is non-zero.'' Same goes for $y$. Combining these two properties yields:
 \begin{align*}
@@ -234,7 +241,7 @@ Prove that for all integers $n$, either $n^{2}\equiv 0\modulo{4}$ or $n^{2}\equi
 
 It is convenient to split the proof between even and odd integers. For any $n\in\mathbb{N}$ (even or odd), we can write the integer as a sum of a multiple of $4$ and a remainder $r$:
 \begin{align*}
-n = 4k + r \quad\text{for some}~k,r~\text{in}~\mathbb{N}
+n = 4k + r \mathrlap{\quad\text{for some}~k,r~\text{in}~\mathbb{N}}
 \end{align*}
 \underbold{Even Integers:}
 

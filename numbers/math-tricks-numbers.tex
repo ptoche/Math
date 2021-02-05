@@ -1,0 +1,430 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, centering, height=250mm, width=180mm, noheadfoot]{geometry}
+\usepackage{amsfonts}
+\usepackage[fleqn]{amsmath}
+\usepackage{mathtools}
+\usepackage{array}% \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}}
+\usepackage{bm}% \boldsymbol
+\setlength\parindent{0pt}% no indents
+\usepackage{parskip}
+\setlength{\parskip}{0.75\baselineskip plus 2pt}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},remember picture] \node[draw=red,thick,circle,inner sep=0.5pt,minimum width=3ex] (#1) {$#1$};}
+\tikzset{connect/.style={
+    red,in=225,out=315,thick}}
+
+\pagenumbering{gobble}
+
+\title{Math Competition Tricks}
+\author{Clairbourn School Grade 7/8}
+
+\begin{document}
+\maketitle
+\begin{minipage}{\textwidth}
+\maketitle
+\begin{abstract}
+This note reviews a selection of tricks that may be useful in math competitions.
+\end{abstract}
+\end{minipage}
+
+\newpage
+\section*{Mental Arithmetic}
+It is useful to add/multiply/divide fast. There are too many tricks to review, but here are a few basic ones. With practice you will be able to use these tricks while calculating in your head. 
+
+Add numbers by grouping them:
+
+\begin{minipage}{\textwidth}
+\begin{align*}
+  \tikzmark{1} + \tikzmark{2} + \tikzmark{3} + \tikzmark{4} + 5 + \tikzmark{6} + \tikzmark{7} + \tikzmark{8} + \tikzmark{9}
+  \begin{tikzpicture}[overlay,remember picture]
+    \draw[-,connect] (1) to (9);
+    \draw[-,connect] (2) to (8);
+    \draw[-,connect] (3) to (7);
+    \draw[-,connect] (4) to (6);
+  \end{tikzpicture}
+= 4 \times 10 + 5
+= 45
+\end{align*}
+\vspace{4ex}
+\end{minipage}
+
+Add numbers by rounding them:
+\begin{align*}
+978 + 237 = (980-2) + (220+17) = 1200 + 15 = 1215
+\end{align*}
+
+
+Multiply by $5$:
+\begin{align*}
+978 \times 5 
+ = (1000-20-2) \times \frac{10}{2} 
+ = \frac{500-10-1}{2} \times 10
+ = 4890
+\end{align*}
+where we have also decomposed $978$ to make the division by $2$ even easier (skip this step if you can quickly halve $978$).
+
+
+Multiply numbers by decomposing them:
+\begin{align*}
+14 \times 16
+ & = (15-1) \times (15+1) \\
+ & = 15^2 -1 = 224
+\end{align*}
+where we have used $15^2=225$ and the difference-of-squares formula:
+\begin{align*}
+(a+b) (a-b) = a^2 - b^2
+\end{align*}
+
+Similarly, $13 \times 17$ $=$ $15^2 -4$ $=$ $221$ (if hesitant, check that the last digit matches: $3\times7=21$, so the last digit $1$ is indeed correct).
+The difference-of-squares formula can always be applied when multiplying numbers that differ by a multiple of $2$ (multiplying two even numbers or multiplying two odd numbers). 
+
+Multiply numbers by rounding up:
+\begin{align*}
+19 \times 18
+ & = 20 \times 18 - 18\\
+ & = 360 - 18 = 342
+\end{align*}
+
+Multiply numbers by rounding up and down:
+\begin{align*}
+19 \times 23
+ & = (20-1) \times (20+3) \\
+ & = 20^2 + (3-1) \times 20 -3 = 400 + 40 - 3 = 437
+\end{align*}
+
+Square numbers by rounding up:
+\begin{align*}
+99^2 
+ & = (100-1)^2 \\
+ & = 10000 - 200 + 1 = 9801
+\end{align*}
+where we have used:
+\begin{align*}
+(a + b)^2 = a^2 + 2ab + b^2
+\end{align*}
+
+Square numbers by rounding up or down:
+\begin{align*}
+13^2 
+ & = (15-2)^2 \\
+ & = 200 + 25 - 60 + 4 = 140 + 29 = 169
+\end{align*}
+where we suppose you have memorized $15^2=225=200+25$ (but forgotten $13^2$). Because it is easier to subtract $60$ from $200$ than from $225$, we also split $225$ as $200+25$. These manipulations are to be done in your head or very quickly on a scrap of paper. 
+
+\section*{Useful Sums}
+The sum of the first $n$ natural numbers:
+\begin{align*}
+& 1+2+3+\ldots+n = \frac{n(n+1)}{2} \\
+& 1+2+3+\ldots+10 = 55 \\
+& 1+2+3+\ldots+100 = 505
+\end{align*}
+
+The sum of the first $(2n-1)$ odd numbers:
+\begin{align*}
+& 1+3+5+\ldots+(2n-1) = n^2 \\
+& 1+3+5+\ldots+9 = 1+3+5+\ldots+(2\times5-1) = 5^2 = 25 \\
+& 1+3+5+\ldots+99 = 1+3+5+\ldots+(2\times50-1) = 50^2 =  2500
+\end{align*}
+
+The sum of the first $2n$ even numbers:
+\begin{align*}
+& 2+4+6+\ldots+(2n) = n(n+1) \\
+& 2+4+6+\ldots+10 = 2+4+6+\ldots+(2\times5) = 5 \times 6 = 30 \\
+& 2+4+6+\ldots+100 = 2+4+6+\ldots+(2\times50) = 50\times51 = 2550
+\end{align*}
+
+The sum of the first $n$ squares formula and first ten sums:
+\begin{align*}
+& 1^2+2^2+\ldots+n^2 = \frac{n(n+1)(2n+1)}{6} \\
+& 1, 5, 14, 30, 55, 91, 140, 204, 285, 385.
+\end{align*}
+
+The sum of the first $n$ cubes formula and first ten sums:
+\begin{align*}
+& 1^3+2^3+\ldots+n^3 = \left(\frac{n(n+1)}{2}\right)^{3} \\
+& 1, 9, 36, 100, 225, 441, 784, 1296, 2025, 3025.
+\end{align*}
+
+
+The sum of $n$ terms of a geometric series:
+\begin{align*}
+1 + a + a^2 + \ldots + a^n
+ = \frac{1-a^n}{1-a}
+\end{align*}
+
+
+The Fibonacci numbers are the sum of the two preceding numbers in the Fibonacci sequence:
+\begin{align*}
+F_{n} = F_{n-1} + F_{n-2}
+\end{align*}
+where the first two numbers in the sequence are typically $0$ and $1$:
+\begin{align*}
+0, 1 , 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \ldots
+\end{align*}
+The Lucas numbers are Fibonacci numbers with starting values $2$ and $0$:
+\begin{align*}
+2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, \ldots
+\end{align*}
+
+
+\section*{Useful Products}
+These factorial products are worth remembering:
+\begin{align*}
+ 3! & = 6 \\
+ 4! & = 24 \\
+ 5! & = 120 \\
+ 6! & = 720 \\
+ 7! & = 5040 \\
+ 8! & = 40320 \\
+ 9! & = 362880 \\
+10! & = 3628800 
+\end{align*}
+
+
+\section*{Prime Numbers}
+The first $25$ prime numbers are:
+\begin{align*}
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+\end{align*}
+Prime numbers of the twentieth and twenty-first centuries (problems involving numbers close to the current year are popular: the closest prime numbers to $2020$ are $2017$ and $2027$):
+\begin{align*}
+& 1901, 1907, 1913, 1931, 1933, 1949, 1951, 1973, 1979, 1987, 1993, 1997, 1999, \\ 
+& 2003, 2011, 2017, 2027, 2029, 2039, 2053, 2063, 2069, 2081, 2083, 2087, 2089, 2099
+\end{align*}
+Mersenne primes are prime numbers of the form $2^{p}-1$, for some prime number $p$. The first few Mersenne primes are:
+\begin{center}
+\begin{tabular}{L|LLLLLLLLL}
+p       & 2 & 3 & 5  & 7   & 11   & 13   & 17     & 19     & 31 \\
+2^{p}-1 & 3 & 7 & 31 & 127 & 8191 & 131071 & 524287 & 2147483647 \\
+\end{tabular}
+\end{center}
+
+Some Mersenne numbers that are not prime include:
+\begin{center}
+\begin{tabular}{L|LLL}
+p       & 11                  & 23                          & 29 \\
+2^{p}-1 & 2047 = 23 \times 89 & 8388607  = 47 \times 178481 & 536870911 = 233 \times 1103 \times 2089 \\
+\end{tabular}
+\end{center}
+     
+Fermat primes are prime numbers of the form $2^{2^{n}}+1$. There are only five known Fermat primes:
+\begin{center}
+\begin{tabular}{L|LLLLLLLLL}
+n           & 0 & 1 & 2  & 3   & 4 \\
+2^{2^{n}}+1 & 3 & 5 & 17 & 257 & 65537 \\
+\end{tabular}
+\end{center}
+The famous mathematician Euler showed that
+\begin{align*}
+2^{2^{5}}+1 = 2^{32}+1 = 4294967297 = 641 \times 6700417
+\end{align*}
+
+Some Fibonacci numbers are prime. Here are the first few:
+\begin{align*}
+2, 3, 5, 13, 89, 233, 1597, 28657
+\end{align*}
+
+\section*{Useful Squares}
+These are the first ten squares: $1, 4, 9, 16, 25, 36, 49, 64, 81, 100$. Here are a few more:
+\begin{align*}
+11^2  & = 121\\
+12^2  & = 144\\
+13^2  & = 169\\
+14^2  & = 196\\
+15^2  & = 225\\
+16^2  & = 256\\
+17^2  & = 289\\
+18^2  & = 324\\
+19^2  & = 361\\
+20^2  & = 400\\
+21^2  & = 441\\
+22^2  & = 484\\
+23^2  & = 529\\
+24^2  & = 576\\
+25^2  & = 625\\
+30^2  & = 900\\
+35^2  & = 1225\\
+40^2  & = 1600\\
+45^2  & = 2025\\
+50^2  & = 2500\\
+55^2  & = 3025\\
+60^2  & = 3600 \\
+65^2  & = 4225\\
+70^2  & = 4900\\
+75^2  & = 5625\\
+80^2  & = 6400\\
+85^2  & = 7225\\
+90^2  & = 8100\\
+95^2  & = 9025\\
+100^2 & = 10000
+\end{align*}
+
+\newpage
+\section*{Useful Cubes}
+\begin{align*}
+2^3  & = 8\\
+3^3  & = 27\\
+4^3  & = 64\\
+5^3  & = 125\\
+6^3  & = 216\\
+7^3  & = 343\\
+8^3  & = 512\\
+9^3  & = 729\\
+10^3 & = 1000\\
+11^3 & = 1331\\
+12^3 & = 1728\\
+13^3 & = 2197\\
+14^3 & = 2744\\
+15^3 & = 3375\\
+16^3 & = 4096\\
+17^3 & = 4913\\
+18^3 & = 5832\\
+19^3 & = 6859\\
+20^3 & = 8000
+\end{align*}
+
+\section*{Useful Fourth Powers}
+\begin{align*}
+2^4  & = 16\\
+3^4  & = 81\\
+4^4  & = 256\\
+5^4  & = 625\\
+6^4  & = 1296\\
+7^4  & = 2401\\
+8^4  & = 4096\\
+9^4  & = 6561\\
+10^4 & = 10000
+\end{align*}
+
+\section*{More Useful Powers}
+Memorizing powers can come in handy:
+\begin{align*}
+2^2    & = 4\\
+2^3    & = 8\\
+2^4    & = 16\\
+2^5    & = 32\\
+2^6    & = 64\\
+2^7    & = 128\\
+2^8    & = 256\\
+2^9    & = 512\\
+2^{10} & = 1024\\
+2^{11} & = 2048\\
+2^{12} & = 4096\\
+2^{13} & = 8192\\
+2^{14} & = 16384\\
+2^{15} & = 32768
+\end{align*}
+
+Powers of $3$:
+\begin{align*}
+3^2    & = 9\\
+3^3    & = 27\\
+3^4    & = 81\\
+3^5    & = 243\\
+3^6    & = 729\\
+3^7    & = 2187\\
+3^8    & = 6561\\
+3^9    & = 19683\\
+3^{10} & = 59049
+\end{align*}
+
+Powers of $5$:
+\begin{align*}
+5^2    & = 25\\
+5^3    & = 125\\
+5^4    & = 625\\
+5^5    & = 3125\\
+5^6    & = 15625\\
+5^7    & = 78125\\
+5^8    & = 390625
+\end{align*}
+
+Powers of $6$:
+\begin{align*}
+6^2    & = 36\\
+6^3    & = 216\\
+6^4    & = 1296\\
+6^5    & = 7776
+\end{align*}
+
+Powers of $7$:
+\begin{align*}
+7^2    & = 49\\
+7^3    & = 343\\
+7^4    & = 2401\\
+7^5    & = 16807
+\end{align*}
+
+Powers of $11$:
+\begin{align*}
+11^2    & = 121\\
+11^3    & = 1331\\
+11^4    & = 14641\\
+11^5    & = 161051
+\end{align*}
+
+\newpage
+\section*{Highly Composite Numbers}
+A positive integer that has more divisors than any smaller positive integer. A selection:
+\begin{align*}
+& 2            &&	2\\
+& 4 	         && 2^{2}\\
+& 6            && 2 \cdot 3\\
+& 12           && 2^{2} \cdot 3\\
+& 24 	         && 2^{3} \cdot 3 \\
+& 36 	         && 2^{2} \cdot 3^{2} \\
+& 48 	         && 2^{4} \cdot 3 \\
+& 60	         && 2^{2} \cdot 3 \cdot 5\\
+& 120          && 2^{3} \cdot 3 \cdot 5\\
+& 180          && 2^{2} \cdot 3^{2} \cdot 5\\
+& 240 	       && 2^{4} \cdot 3 \cdot 5\\
+& 360          && 2^{3} \cdot 3^{2} \cdot 5\\
+& 720 	       && 2^{4} \cdot 3^{2} \cdot 5\\
+& 840 	       && 2^{3} \cdot 3 \cdot 5 \cdot 7\\
+& 1,260 	     && 2^{2} \cdot 3^{2} \cdot 5 \cdot 7\\
+& 1,680 	     && 2^{4} \cdot 3^{1} \cdot 5 \cdot 7\\
+& 2,520        && 2^{3} \cdot 3^{2} \cdot 5 \cdot 7\\
+& 5,040        && 2^{4} \cdot 3^{2} \cdot 5 \cdot 7\\
+\end{align*}
+
+
+\section*{Pythagorean Triples}
+Famous Pythagorean triples: 
+\begin{align*}
+(3, 4, 5)~~
+(5, 12, 13)~~
+(8, 15, 17)~~
+(7, 24, 25)\\
+(20, 21, 29)~~	
+(12, 35, 37)~~	
+(9, 40, 41)\\ 	
+(28, 45, 53)~~
+(11, 60, 61)~~ 
+(16, 63, 65)\\
+(33, 56, 65)~~ 	
+(48, 55, 73)~~
+(13, 84, 85)\\
+(36, 77, 85)~~
+(39, 80, 89)~~
+(65, 72, 97) 
+\end{align*}
+
+\subsection*{Useful Irrational Numbers}
+\begin{align*}
+     \pi & \approx 3.14159 \ldots \\
+ \varphi & \approx 1.61803 \ldots \\
+\sqrt{2} & \approx 1.41421 \ldots \\
+\sqrt{3} & \approx 1.73205 \ldots \\
+\sqrt{5} & \approx 2.23607 \ldots \\
+\sqrt{6} & \approx 2.44949 \ldots \\
+\sqrt{7} & \approx 2.64575 \ldots \\
+\sqrt{8} & \approx 2.82843 \ldots \\
+       e & \approx 2.71828 \ldots \\
+  \gamma & \approx 0.57722 \ldots \\
+\end{align*}
+
+
+\end{document}
