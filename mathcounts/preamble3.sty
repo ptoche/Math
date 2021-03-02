@@ -1,0 +1,53 @@
+\usepackage[a4paper, centering, height=250mm, width=180mm, noheadfoot]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{booktabs, cellspace, multirow}
+\usepackage{array}% \newcolumntype macro
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{amsfonts}
+\usepackage[fleqn]{amsmath}
+\usepackage{mathtools}
+\usepackage{xfrac}% \sfrac
+\usepackage{bm}% \boldsymbol
+\usepackage[parfill]{parskip}% no indents, lineskip
+
+% load tikz and libraries
+\usepackage{tikz}
+\usetikzlibrary{intersections,angles,quotes,arrows.meta,decorations.markings,shapes,shapes.misc}
+
+% answer show/hide toggle
+\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+\toggletrue{showAnswers}% comment out this line to show/hide answers
+
+% define answer environment
+\iftoggle{showAnswers}{ 
+    \newenvironment{answer}{\vspace{1em}}{}
+}{%
+    \usepackage{verbatim}
+    \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
+}%
+
+% math box
+\usepackage{empheq}
+\usepackage[most]{tcolorbox}
+\newtcbox{\mathbox}[1][]{%
+    nobeforeafter, math upper, tcbox raise base, enhanced, sharp corners, colframe=black, colback=white, boxrule=1pt, #1}
+    
+% text box with tikz
+\tikzstyle{textbox} = [draw=blue!80!black, fill=blue!2, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+
+% minipagex correctly applies paragraph skip preferences
+\newlength{\currentparskip}
+\newlength{\currentparindent}
+\newenvironment{minipagex}[2][]
+  {\setlength{\currentparskip}{\parskip}% save the value
+    \setlength{\currentparindent}{\parindent}%
+   \begin{minipage}[#1]{#2}% open the minipage
+   \setlength{\parskip}{\currentparskip}% restore the value
+   \setlength{\parindent}{\currentparindent}% restore the value
+  }
+  {\end{minipage}}
