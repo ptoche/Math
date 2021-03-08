@@ -1,0 +1,7 @@
+\documentclass[tikz,border=2mm]{standalone}
+
+\begin{document}
+  \begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(4,4)foreach[count=~]\l in{1,...,16}{({.5+mod(~-1,4},{3.5-div(~-1,4})node{\l}};
+  \end{tikzpicture}
+\end{document}

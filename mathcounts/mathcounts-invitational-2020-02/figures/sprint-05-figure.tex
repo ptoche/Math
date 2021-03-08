@@ -1,0 +1,25 @@
+\documentclass[tikz,border=2mm]{standalone}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplots}
+
+\begin{document}
+  \begin{tikzpicture}
+  \begin{axis}[
+    axis lines=middle,
+    axis line style={Stealth-Stealth,very thick},
+    x label style={at={(axis cs:7.5,0)},anchor=east},
+    y label style={at={(axis cs:0,7.5)},anchor=north},
+    xmin=-2.5,xmax=6.5,ymin=-2.5,ymax=6.5,
+    xtick distance=2,
+    ytick distance=2,
+    xlabel=$x$,
+    ylabel=$y$,
+    grid=major,
+    grid style={densely dotted,black!50}]
+    \node[label={0:{A}},circle,fill,inner sep=2pt] at (axis cs:0,3) {};
+    \node[label={90:{B}},circle,fill,inner sep=2pt] at (axis cs:4,0) {};
+  \end{axis}
+  \end{tikzpicture}
+\end{document}
+
+

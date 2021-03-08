@@ -1,0 +1,12 @@
+\documentclass[a4paper,class=article,border=5pt,tikz]{standalone}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{tikzpicture}
+\path (180:6) coordinate (P) (120:6) coordinate (U) (70:6) coordinate (T) (0:6) coordinate (S);
+\draw[thick,fill=blue!5] (P) node[left]{$P$} -- (U) node[above left]{$U$} -- (T) node[above right]{$T$} -- (S) node[right]{$S$} -- cycle;
+\draw[thin] (P) -- (S) arc(0:180:6) --cycle;
+\draw[dashed] (-3,0) node[below]{$Q$} -- (-3,{3*sqrt(3)});
+\draw[dashed] (+2,0) node[below]{$R$} -- (+2,{4*sqrt(2)});
+\end{tikzpicture}
+\end{document}

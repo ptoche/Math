@@ -1,0 +1,15 @@
+\documentclass[a4paper,class=article,border=5pt,tikz]{standalone}
+\usetikzlibrary{shapes.geometric,calc}
+
+\tikzset{unit square/.style={regular polygon, regular polygon sides=4, draw=black, thick, minimum width=5cm, inner sep=0pt, outer sep=0pt}}
+
+% define angle of rotation in degrees
+\def\alpha{26.565}% in degrees
+\pgfmathsetmacro\shrink{sin(45)/sin(45+\alpha)}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[unit square] (A) at (0,0){};
+    \node[unit square, rotate around={\alpha: (0,0)}, scale=\shrink] (A) at (0,0){};
+\end{tikzpicture}
+\end{document}
