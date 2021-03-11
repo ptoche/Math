@@ -51,10 +51,9 @@ Max is buying hot dogs and buns for dinner. If hot dogs are sold in packages of 
 \subsection*{2.}
 The square card shown in Figure~A, with area $16$ units$^2$, is folded twice along the dashed lines to get the square shown in Figure~B. Then, scissors are used to cut through the folded square, and one-fourth of the folded card, shown shaded in Figure~C, is removed. When unfolded, what is the area of what remains of the card after the removal? 
 
-\begin{minipagex}[b]{\linewidth}
-\centering
+\begin{center}
 \includegraphics[height=6cm]{target-02-figure}
-\end{minipagex}
+\end{center}
 
 \nopagebreak
 
@@ -195,7 +194,7 @@ A U.S. quarter is $0.069$ inches thick. Clayton Kershaw earned $33$ million doll
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{6.}
-In rectangle $ABCD$ the length of side $AB$ is less than the length of side $BC$. When diagonal $AC$ is drawn, and a line segment from vertex $B$ to diagonal $AC$ is drawn so that the segment meets $AC$ at a right angle, rectangle $ABCD$ is divided into three regions whose areas form an arithmetic progression. The ratio $AB{:}BC$, expressed as a common fraction in simplest radical form is $\dfrac{\sqrt{a}}{b}$. What is the value of $ab$? 
+In rectangle ABCD the length of side AB is less than the length of side BC. When diagonal AC is drawn, and a line segment from vertex B to diagonal $AC$ is drawn so that the segment meets AC at a right angle, rectangle ABCD is divided into three regions whose areas form an arithmetic progression. The ratio AB{:}BC, expressed as a common fraction in simplest radical form is $\dfrac{\sqrt{a}}{b}$. What is the value of $ab$? 
 
 \nopagebreak
 
@@ -204,24 +203,76 @@ In rectangle $ABCD$ the length of side $AB$ is less than the length of side $BC$
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
-        TO DO: COPY MY NOTES
-        Applying the Pythagorean theorem,
+        \begin{center}
+        \includegraphics[width=\linewidth]{target-06-figure}
+        \end{center}
+        The rectangle is divided into three regions with the following property:
         \begin{align*}
-        = \sqrt{\frac{1}{2}} 
-          = \frac{1}{\sqrt{2}}
-          \frac{\sqrt{2}}{2} 
+        r + 2d = 2r + d 
+        \Rightarrow r = d
         \end{align*}
-        It follows that
+        where $r$ denotes the area (region) of the smaller triangle and $d$ the increment (difference) in the arithmetic progression. It follows that the areas are given by $r$, $2r$, $3r$. The progression is thus both geometric and arithmetic! The geometry of the problem yields a straightforward solution. The ratio of the areas of triangle BEA and BEC is $1{:}2$ and the same is obviously true of the rectangles marked by the dashed lines (the area of each rectangle is twice the area of the triangle). These rectangles have diagonals BA and BC. Since the areas of the rectangles are in the ratio $1{:}2$, the squares of their diagonals are also in that ratio, that is
         \begin{align*}
-        \frac{\sqrt{a}}{b} = \frac{\sqrt{2}}{2} 
-        \Rightarrow
-          a = b = 2 
-        \Rightarrow 
-          ab = 4
+        \frac{\text{AB}^2}{\text{BC}^2} = \frac{1}{2}
         \end{align*}
+        which yields the ratio: 
+        \begin{align*}
+        \frac{\text{AB}}{\text{BC}} = \frac{1}{\sqrt{2}}
+          = \frac{\sqrt{2}}{2}
+        \end{align*}
+        The values of $a$ and $b$ follows immediately: 
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            4
-        \end{empheq} 
+            \frac{\sqrt{a}}{b} = \frac{\sqrt{2}}{2}
+            \Rightarrow ab = 4
+        \end{empheq}
+
+    \end{minipagex}
+    };
+\end{tikzpicture}%
+
+% second part of the answer
+\begin{tikzpicture}\node[textbox]{%
+    \begin{minipagex}{\dimexpr\textwidth-20pt}
+        A less inspired solution involves calculating areas and manipulating expressions. Denote E the intersection of AC and the perpendicular line segment, denote $x$ the distance BE, $y$ the distance AE, and $z$ the distance CE. From the area triangle AEB, we have
+        \begin{align*}
+        xy & = 2r \\
+        xz & = 4r
+        \end{align*}
+        implying $z=2y$. In words, the perpendicular segment cuts the diagonal at the one-third point. Applying the Pythagoras theorem to segments AB and BC yields:
+        \begin{align*}
+        \frac{\text{AB}^2}{\text{BC}^2} 
+          = \frac{x^2 + y^2}{x^2 + z^2}
+          = \frac{x^2 + y^2}{x^2 + (2y)^2}
+          = \frac{x^2 + 4y^2 - 3y^2}{x^2 + 4y^2}
+          = 1 - \frac{3y^2}{x^2 + 4y^2}
+          = 1 - \frac{3}{(x/y)^2 + 4}
+        \end{align*}
+        In addition, setting the area of rectangle ABCD to the sum of the areas of triangle BEA and triangle BEC yields:
+        \begin{align*}
+        \sqrt{x^2+y^2} \times \sqrt{x^2+4y^2} = xy + 2xy
+        \end{align*}
+        Squaring both sides of the equality and distributing the product:
+        \begin{align*}
+        (x^2 + y^2) (x^2 + 4y^2) & = (3xy)^2 \\
+        x^4 + 4x^2y^2 + x^2y^2 + 4y^4 & = 9x^2y^2 \\
+        x^4 - 4x^2y^2 + 4y^4 & = 0 \\
+        (x/y)^4 - 4(x/y)^2 + 4 & = 0 
+        \end{align*}
+        This is a quadratic equation in $(x/y)^2$. To see this, let $u=x/y$
+        \begin{align*}
+        u^2 - 4u + 4 & = 0 \\
+        (u - 2)^2 & = 0
+        \end{align*}
+        and therefore
+        \begin{align*}
+        (x/y)^2 = 2
+        \end{align*}
+        Plugging that back in the expression for the ratio, we recover the earlier result:
+        \begin{align*}
+        \left(\frac{\text{AB}}{\text{BC}}\right)^2
+          = 1 - \frac{3}{2 + 4} = \frac{1}{2}
+        \end{align*} 
+        These manipulations are prone to errors, especially under time constraints, so the more intuitive approach is clearly superior. 
     \end{minipagex}
     };
 \end{tikzpicture}%
@@ -270,10 +321,9 @@ If C is the temperature in degrees Celsius, the temperature in degrees Farenheit
 \subsection*{8.}
 How many ways are there to color the $4 \times 4$ grid shown, so that each unit square is red, blue, green, or yellow, and so that each square is the same color as exactly two of the squares that share a side with it?
 
-\begin{minipagex}[b]{\linewidth}
-\centering
-\includegraphics[height=4cm]{target-08-figure}
-\end{minipagex}
+\begin{center}
+\includegraphics[height=4cm]{target-08-figure-A}
+\end{center}
 
 \nopagebreak
 
@@ -282,7 +332,52 @@ How many ways are there to color the $4 \times 4$ grid shown, so that each unit 
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
-        TO DO: COPY MY NOTES
+        Let A, B, C, D denote the four possible color choices. Here is one way to color the grid:
+        \begin{center}
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-1}
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-2}
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-3}\\
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-4}
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-5}
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-6}\\
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-7}
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-8}
+        \includegraphics[width=0.3\linewidth]{target-08-figure-B-9}
+        \end{center}
+        At step~$3$, both A and B are valid choices at coordinates $(2,3)$. If we change the $B$ into an $A$, we obtain a second configuration. The circles in red show where the divergence occurs. 
+        \begin{center}
+        \includegraphics[height=5cm]{target-08-figure-C}
+        \end{center}
+    \end{minipagex}
+    };
+\end{tikzpicture}%
+
+\begin{tikzpicture}\node[textbox]{%
+    \begin{minipagex}{\dimexpr\textwidth-20pt}
+        In the second configuration above, color D could also be replaced with color A. And color B and C could be the same. So in effect, we have four possible colorings: 
+        \begin{center}
+        \includegraphics[width=\linewidth]{target-08-figure-D}
+        \end{center}
+        Since A, B, C, and D are placeholders for the colors, we now count the permutations for each case. In the first case, there are $4$ choices for color A and thereafter $3$ choices for color B:
+        \begin{align*}
+        4 \times 3 = 12 
+        \end{align*}
+        In the second case, there are $4$ choices for color A, $3$ choices for B, $2$ choices for C:
+        \begin{align*}
+        4 \times 3 \times 2 = 24
+        \end{align*}
+        In the third case, there are $4$ choices for color A, $3$ choices for B, and $2$ choices for $C$:
+        \begin{align*}
+        4 \times 3 \times 2 = 24
+        \end{align*}
+        In the fourth case, there are $4$ choices for color A, $3$ choices for B, and $3$ choices for $C$:
+        \begin{align*}
+        4 \times 3 \times 3 = 36
+        \end{align*}
+        The total number of colorings is therefore:
+        \begin{align*}
+        12 + 24 + 24 + 36 = 96
+        \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             96 ~\text{ways}
         \end{empheq} 

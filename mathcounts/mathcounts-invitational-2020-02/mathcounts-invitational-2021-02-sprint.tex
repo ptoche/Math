@@ -475,6 +475,10 @@ Let $a\&b=ab+b+a-1$. If $a\&7=70$, what is $a\&3$?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\begin{answer}
+\newpage
+\end{answer}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{17.}
 Kody's alarm rings every $11$ minutes, and his dad calls upstairs every $15$ minutes to wake him up. But Kody will only wake up if his alarm rings and his dad calls him at the same time. If his alarm first rings at $7{:}00$am and his dad first calls him at $7{:}05$a.m., at what time will Kody wake up?
@@ -489,7 +493,20 @@ Kody's alarm rings every $11$ minutes, and his dad calls upstairs every $15$ min
       \begin{minipage}[b]{\linewidth}
         \centering
         \includegraphics[height=3cm]{sprint-17-figure}
-      \end{minipage}                
+      \end{minipage}              
+        We are looking for the ``smallest'' pair of integers $(u,v)$ such that:
+        \begin{align*}
+        7\,\text{hours} + (11u)\,\text{minutes} = 7\,\text{hours} + (5 + 15v)\,\text{minutes}
+        \end{align*}
+        or equivalently:
+        \begin{align*}
+        11u = 5(1 + 3v)
+        \end{align*}
+        It follows that $u$ must be a multiple of $5$, while $1+3v$ must be a multiple of $11$. The latter condition implies that we seek an integer $m$ such that $v=(11m-1)/3$ is an integer. We can start guessing. For $m=2$, we have $v=7$ and $u=10$:
+        \begin{align*}
+        11u = 5(1 + 3v) = 110
+        \end{align*}
+        implying that Kody wakes up at $7\,\text{hours}$ and $110\,\text{minutes}$ or, equivalently $8\,\text{hours}$ and $50\,\text{minutes}$. 
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             8{:}50 ~\text{a.m.}
         \end{empheq}
@@ -499,6 +516,9 @@ Kody's alarm rings every $11$ minutes, and his dad calls upstairs every $15$ min
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{18.}
@@ -506,7 +526,7 @@ The largest rectangular region shown is partitioned into three rectangular regio
 
 \begin{minipagex}[b]{\linewidth}
 \centering
-\includegraphics[height=3cm]{sprint-18-figure}
+\includegraphics[height=4cm]{sprint-18-figure}
 \end{minipagex}
 
 \nopagebreak
@@ -530,22 +550,17 @@ The largest rectangular region shown is partitioned into three rectangular regio
         where the last step follows from $25+4\times84=25+336=361=19^2$.
         To complete the square, recall that $a^2-b^2=(a-b)(a+b)$. Thus,
         \begin{align*}
-           \left(n+\frac{5}{2}\right)^2-\left(\frac{19}{2}\right)^2 & = 0 \\
            \left(n+\frac{5}{2}-\frac{19}{2}\right)  \left(n+\frac{5}{2}+\frac{19}{2}\right) & = 0 \\
-\left(n+\frac{5}{2}+\frac{19}{2}\right) & = 0 
+           (n-7)(n+12) & = 0 
         \end{align*}
-        Since $n$ must be positive, we have
-        \begin{align*}
-           n = -\frac{5}{2}+\frac{19}{2}
-             = \frac{14}{2}
-             7
-        \end{align*}         
+        (This solution could have been guessed if we had had good reasons to believe that the solutions were integers)
+        Since $n$ must be positive, $n=7$. 
         The perimeter of the largest rectangle is 
         \begin{align*}
         2 \times [n + (n+3) + (n+5) + (n-2)] 
-          = 2 (3n+6) 
-          = 6(n+2)
-          = 6...
+          = 2 (4n+6) 
+          = 2 (28+6)
+          = 68
         \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             68 ~\text{inches}
@@ -556,6 +571,9 @@ The largest rectangular region shown is partitioned into three rectangular regio
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{19.}
@@ -563,7 +581,7 @@ What is the length of the longest diagonal of the rectangular prism shown, which
 
 \begin{minipagex}[b]{\linewidth}
 \centering
-\includegraphics[height=5cm]{sprint-19-figure}
+\includegraphics[height=4cm]{sprint-19-figure-1}
 \end{minipagex}
 
 \nopagebreak
@@ -573,6 +591,21 @@ What is the length of the longest diagonal of the rectangular prism shown, which
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
+        The longest diagonal along the surface of the prism is clearly \begin{align*}
+        \sqrt{9^2+12^2} = \sqrt{81+144} = \sqrt{225} = 15
+        \end{align*}
+        But it is readily apparent that the ``inner'' diagonal --- the red line in the figure below --- is longer. The length of the red, dotted diagonal is:
+        \begin{align*}
+        \sqrt{9^2+8^2} = \sqrt{81+64} = \sqrt{145} ~~(\approx 12)
+        \end{align*}
+        \begin{minipagex}[b]{\linewidth}
+        \centering
+        \includegraphics[height=4cm]{sprint-19-figure-2}
+        \end{minipagex}
+        Putting it together yields:
+        \begin{align*}
+        \sqrt{145+144} = \sqrt{289} = 17
+        \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             17 ~\text{cm}
         \end{empheq}
@@ -582,6 +615,9 @@ What is the length of the longest diagonal of the rectangular prism shown, which
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{20.}
@@ -594,9 +630,13 @@ Suppose there is an $80\%$ chance of rain each day. On days that it rains, Kathy
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
-        A
+        On a random day, the probability of being late can be broken down into rainy and dry days:
         \begin{align*}
-        0
+        \underbrace{0.8 \quad\times\quad 0.45}_{\text{rainy day}} 
+        \quad + \quad
+        \underbrace{0.2 \quad\times\quad 0.3}_{\text{dry day}}
+          \quad=\quad 0.42
+        % 0.8 * 0.45 + (1-0.8) * 0.3
         \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             42 \%
@@ -607,6 +647,9 @@ Suppose there is an $80\%$ chance of rain each day. On days that it rains, Kathy
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{21.}
@@ -619,10 +662,44 @@ Triangle $ABC$ has sides of length $11$ inches, $15$ inches and $16$ inches. Wha
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
-        A
+        We start by drawing the basic figure:
+        \begin{center}
+        \includegraphics[height=6cm]{sprint-21-figure-1}
+        \end{center}
+        We add the projection of $A$ onto segment $BC$ and label the unknown lengths $x$ and $y$. 
+        \begin{center}
+        \includegraphics[height=6cm]{sprint-21-figure-2}
+        \end{center}
+    \end{minipagex}
+    };
+\end{tikzpicture}%
+
+\begin{tikzpicture}\node[textbox]{%
+    \begin{minipagex}{\dimexpr\textwidth-20pt}
+        Applying the Pythagoras theorem to triangles $APC$ and $APB$ yields a system of two equations in two unknowns:
         \begin{align*}
-        0
+        x^2 + y^2 & = 16^2 \\
+        x^2 + (15-y)^2 & = 11^2
         \end{align*}
+        While the system appears to be non-linear, it may be simplified. Developing the square:
+        \begin{align*}
+        x^2 + y^2 & = 16^2 \\
+        x^2 + y^2 & = 11^2 - (15^2 - 2 \times 15 y)
+        \end{align*}
+        Substitute the first equation into the second one:
+        \begin{align*}
+        30 y & = 16^2 - 11^2 + 15^2\\
+        y & = 12
+        \end{align*}
+        With $y$ we can now find $x$:
+        \begin{align*}
+        x^2 & = 16^2 - y^2 = 16^2 - 12^2 = 112 \\
+          x & = \sqrt{112} = 4 \sqrt{7}
+        \end{align*}
+        Putting the solution into the figure:
+        \begin{center}
+        \includegraphics[height=6cm]{sprint-21-figure-3}
+        \end{center}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             4\sqrt{7}
         \end{empheq}
@@ -632,6 +709,9 @@ Triangle $ABC$ has sides of length $11$ inches, $15$ inches and $16$ inches. Wha
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{22.}
@@ -644,9 +724,18 @@ Julie is packing marbles into boxes. She needs to pack away $815$ marbles. She h
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
-        A
+        Starting with the maximal feasible number of the larger boxes --- $5$ items per box --- and going down from there, we get close but not quite there: 
         \begin{align*}
-        0
+        5 \times 100 \quad+\quad 5 \times 50 \quad+\quad 2 \times 25 \quad+\quad 1 \times 10 \quad=\quad 810 \quad<\quad 815
+        \end{align*}
+        The total number of boxes must be at least $14$.
+        If we remove one $25$-box and complement with several $10$-box, we now get to $815$ marbles:
+        \begin{align*}
+        5 \times 100 \quad+\quad 5 \times 50 \quad+\quad 1 \times 25 \quad+\quad 4 \times 10 \quad=\quad 815
+        \end{align*}
+        for a total number of boxes:
+        \begin{align*}
+        5 + 5 + 1 + 4 = 15
         \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             15 ~\text{boxes}
@@ -669,6 +758,16 @@ What positive number $x$ has the property that $\sqrt[6]{x^7}-6\sqrt[3]{x^2}=0$?
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
+        It is easier to manipulate fractional exponents:
+        \begin{align*}
+        \sqrt[6]{x^7} & \,=\, 6\sqrt[3]{x^2} \\
+        x^{\frac{7}{6}} & \,=\, 6x^{\frac{2}{3}} \\
+        x^{\frac{7}{6}-\frac{2}{3}} & \,=\, 6 \\
+        x^{\frac{3}{6}} & \,=\, 6 \\
+        x^{\frac{1}{2}} & \,=\, 6 \\
+        x & \,=\, 6^2 \\
+        x & \,=\, 36
+        \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             36
         \end{empheq}
@@ -695,6 +794,14 @@ What fraction is equivalent to $0.7\overline{12}$? Express your answer as a comm
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
+        \begin{align*}
+           x & \,=\, 0.7\overline{12} \\
+        100x & \,=\, 71.\overline{21} \\
+         99x & \,=\, 71.2\overline{12} - 0.7\overline{12} \\
+             & \,=\, 71.2 - 0.7 \,=\, 70.5\\
+           x & \,=\, \frac{705}{990} \,=\, \frac{47}{66}
+        \end{align*}
+        We can easily see that $705$ and $990$ are both divisible by three. In other cases reducing the fraction may be a little more challenging. 
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             \frac{47}{66}
         \end{empheq}
@@ -704,6 +811,9 @@ What fraction is equivalent to $0.7\overline{12}$? Express your answer as a comm
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{25.}
@@ -711,7 +821,7 @@ In the figure, two circles of radius $1$ inch are internally tangent to a circle
 
 \begin{minipagex}[b]{\linewidth}
 \centering
-\includegraphics[height=7cm]{sprint-25-figure}
+\includegraphics[height=7cm]{sprint-25-figure-1}
 \end{minipagex}
 
 \nopagebreak
@@ -725,6 +835,16 @@ In the figure, two circles of radius $1$ inch are internally tangent to a circle
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
+        Consider the right triangle connecting the centers of one small circle, the medium (shaded) circle and the large circle. The hypotenuse has length $1+r$ since its length is the sum of the radius of the large circle, $r$ and of the radius of one of the small circles, $1$. The longer leg of the triangle has length equal to the difference between the radius of the large and medium circle, or $5-r$. The shorter leg of the triangle has length equal to the difference between the radius of the large circle and one of the small circles, or $5-1=4$. These lengths are represented in the figure
+        \begin{minipagex}[b]{\linewidth}
+        \centering
+        \includegraphics[height=5cm]{sprint-25-figure-2}
+        \end{minipagex}
+        \begin{align*}
+        4^2 + (5-r)^2 & = (r + 1)^2 \\
+        16 + 25 + r^2 - 10r & = r^2 + 2r + 1 \\
+        r & = \frac{40}{12} = \frac{10}{3}
+        \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             \frac{10}{3}
         \end{empheq}
@@ -734,6 +854,9 @@ In the figure, two circles of radius $1$ inch are internally tangent to a circle
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{26.}
@@ -746,6 +869,43 @@ The greatest of three nonnegative integers is one more than twice the sum of the
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
+        Let $a \leq b \leq c$. We have (we guess strict inequalities because of the reference to ``rounding'', but rounding is consistent with one binding inequality):
+        \begin{align*}
+        & c \,=\, 1 + 2 (a + b) \\
+        & b - 1 \quad<\quad \frac{a + b + c}{3} \quad<\quad b + 1
+        \end{align*}
+        Eliminating $(a+b)=(c-1)/2$ by substitution yields: 
+        \begin{alignat*}{4}
+        b - 1 
+            \quad & <
+            \quad & 
+                \frac{1}{3}\left(\frac{c-1}{2} + c\right) 
+            \quad & < 
+            \quad & \quad 
+                b + 1 \\
+        \frac{6(b-1)+1}{3}
+            \quad & <
+            \quad & 
+                c \quad\quad\;
+            \quad & <
+            \quad & \quad 
+                \frac{6(b+1)+1}{3} \\
+        2b-1-\frac{2}{3}
+            \quad & <
+            \quad & 
+                c \quad\quad\;
+            \quad & <
+            \quad & \quad 
+                2b+2+\frac{1}{3}
+        \end{alignat*}
+        Since $2b-1$ and $2b+2$ are integers, we can simplify the inequality as:
+        \begin{align*}
+        2b-1 \quad\leq\quad c \quad\leq\quad 2b+2
+        \end{align*}
+        This inequality implies that $c$ could be equal to $2b-1$, $2b$, $2b+1$, or $2b+2$. But from $c=1+2(a+b)$, we can narrow down the guess to either $c=2b+1$ or $c=2b+2$. The first case implies $a=0$, which is not ruled out by the condition that the integers be ``nonnegative''. However we clearly must have $b>0$. The simplest guess is then $a=0$ and $b=1$, which yields $c=3$ and the inequality becomes $2 \leq 3 \leq  4$, which holds. This guess satisfies the conditions of the problem and the product of the integers is therefore
+        \begin{align*}
+        abc = 0 \times 1 \times 3 = 0
+        \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             0
         \end{empheq}
@@ -755,6 +915,9 @@ The greatest of three nonnegative integers is one more than twice the sum of the
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{27.}
@@ -767,12 +930,30 @@ Suppose $p(x)$ is a polynomial such that $p(x) = p(1) + p(2) \cdot x + x^2$ for 
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
-        A
+        Setting $x=1$ yields:
         \begin{align*}
-        0
+        p(1) = p(1) + p(2) \cdot 1 + 1^2
+          \quad\Rightarrow\quad
+        p(2) = -1
+        \end{align*}
+        Setting $x=2$ yields:
+        \begin{align*}
+        p(2) = p(1) + p(2) \cdot 2 + 2^2
+          \quad\Rightarrow\quad
+        -1 = p(1) - 2 + 4
+          \quad\Rightarrow\quad
+        p(1) = -3
+        \end{align*}
+        The polynomial is therefore:
+        \begin{align*}
+        p(x) = -3 - x + x^2
+        \end{align*}
+        Setting $x=5$ yields:
+        \begin{align*}
+        p(5) = -3 - 5 + 5^2 = 17
         \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            x ~\text{y}
+            17
         \end{empheq}
     \end{minipagex}
     };
@@ -780,10 +961,13 @@ Suppose $p(x)$ is a polynomial such that $p(x) = p(1) + p(2) \cdot x + x^2$ for 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{28.}
-Let $FLOOR n$ be defined as the greatest integer less than or equal to $n$. What is the value of $n$ if $FLOOR n \times n = 3$? Express your answer as a decimal to the nearest tenth. 
+Let $\floor*{n}$ be defined as the greatest integer less than or equal to $n$. What is the value of $n$ if $\floor*{n} \times n = 3$? Express your answer as a decimal to the nearest tenth. 
 
 \nopagebreak
 
@@ -792,6 +976,18 @@ Let $FLOOR n$ be defined as the greatest integer less than or equal to $n$. What
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
+        If $n$ were an integer, the condition would reduce to $\floor*{n} \times n = n^2$ and
+        \begin{align*}
+         n^2 = 3 \quad\Rightarrow\quad n \approx \pm 1.7
+        \end{align*}
+        The contradiction confirms that $n$ cannot be an integer. Furthermore it is clear that 
+        \begin{align*}
+         1.0 < |n| < 1.7
+        \end{align*}
+        Since $\floor*{+1.x}=1$ for all digits $x$, it follows that $n$ must be negative. Since $\floor*{-1.x}=-2$, we have 
+        \begin{align*}
+         \floor*{n} \times n = -2n = 3 \quad\Rightarrow\quad n = -1.5
+        \end{align*}
         \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
             -1.5
         \end{empheq}
@@ -801,6 +997,9 @@ Let $FLOOR n$ be defined as the greatest integer less than or equal to $n$. What
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{29.}
@@ -832,6 +1031,9 @@ Square $ABCD$, shown here, has side length $6$ units. Points $P$ and $Q$ are loc
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{answer}
+\newpage
+\end{answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{30.}
@@ -844,11 +1046,33 @@ How many ordered triples of positive integers $(a,b,c)$ have $GCF(a,b,c)=2020$ a
 \begin{answer}
 \begin{tikzpicture}\node[textbox]{%
     \begin{minipagex}{\dimexpr\textwidth-20pt}
+        TODO WRITEUP UNFINISHED
+        
+        The $GCF$ implies that the smallest one must be $2$. The $LCM$ implies that the largest one must be $4$. While the third one could be any of $2$, $3$, or $4$. This gives three choices for the powers of $2$, namely
         \begin{align*}
-        XXXX
+        2^2, 2^2, 2^4 \quad\text{or}\quad 
+        2^2, 2^3, 2^4 \quad\text{or}\quad 
+        2^2, 2^4, 2^4
         \end{align*}
+        How many ways are there to assign the powers of $2$ to $a$, $b$, $c$?
+        There are $3$ ways to assign $2^2$, $2^2$, $2^4$. Likewise, there are $3$ ways to assign $2^2$, $2^4$, $2^4$. However, there are $6$ ways to assign $2^2$, $2^3$, $2^4$. Thus, there are $6+3+3=12$ ways to assign the powers of $2$. 
+        
+        Now turn to the exponents of $5$. We have
+        \begin{align*}
+        GCF(a,b,c) & = 2^2 \cdot 5 \cdot 101 \\
+        LCM(a,b,c) & = 2^4 \cdot 5^2 \cdot 101^2
+        \end{align*}
+        
+        The $GCF$ implies that $a$, $b$, $c$ are all divisible by $2$, $5$, $101$. The $LCM$ implies that they do not have any other prime factor --- the prime factors can only include $2$, $5$, and $101$. Thus, we have
+        \begin{align*}
+        a = 2^x_a 5^y_a 101^z_a \\
+        b = 2^x_b 5^y_b 101^z_b \\
+        c = 2^x_c 5^y_c 101^z_c
+        \end{align*}
+        for some integer powers to be determined. How many possibilities are there for the exponents? 
+        
         They each have to be $5^1$ or $5^2$.
-        So the powers of $5$ can be $5^1$, $5^1$, $5^2$ or $5^1$, $5^2$, $5^2$. IN how many ways can we assign each of those to $a$, $b$, and $c$? We can assign each pattern to $a$, $b$, $c$ in $3$ different ways, that is: choose whichever of the exponents is different from the other two. This gives $6$ ways to assign the powers of $5$. How about the powers of $101$? Likewise, there are $6$ ways to assign the powers of $101$. The total number of ways is obtained by multiplying the three cases, since the choice of the exponents for each prime are independent of each other:  
+        So the powers of $5$ can be $5^1$, $5^1$, $5^2$ or $5^1$, $5^2$, $5^2$. In how many ways can we assign each of those to $a$, $b$, and $c$? We can assign each pattern to $a$, $b$, $c$ in $3$ different ways, that is: choose whichever of the exponents is different from the other two. This gives $6$ ways to assign the powers of $5$. How about the powers of $101$? Likewise, there are $6$ ways to assign the powers of $101$. The total number of ways is obtained by multiplying the three cases, since the choice of the exponents for each prime are independent of each other:  
         \begin{align*}
         12 \times 6 \times 6 = 432
         \end{align*}
