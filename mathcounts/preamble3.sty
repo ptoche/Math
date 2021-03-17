@@ -1,4 +1,4 @@
-\usepackage[a4paper, centering, height=250mm, width=180mm, noheadfoot]{geometry}
+\usepackage[a4paper, centering, height=250mm, width=180mm]{geometry}
 \usepackage[table]{xcolor}
 \definecolor{myblue}{rgb}{0.0,0.2,0.4}%
 \usepackage[colorlinks = true,
@@ -25,41 +25,6 @@
 \usepackage{bm}% \boldsymbol
 \usepackage[parfill]{parskip}% no indents, lineskip
 
-% Permutations/Combinations
-\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
-\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
-\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
-
-% load tikz and libraries
-\usepackage{tikz}
-\usetikzlibrary{intersections,positioning,angles,quotes,arrows.meta,decorations.markings,shapes,shapes.misc}
-
-% load pgfplots and library for coordinate system 
-\usepackage{pgfplots}
-\usetikzlibrary{arrows.meta}
-
-% answer show/hide toggle
-\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
-\toggletrue{showAnswers}% comment out this line to show/hide answers
-
-% define answer environment
-\iftoggle{showAnswers}{ 
-    \newenvironment{answer}{\vspace{1em}}{}
-}{%
-    \usepackage{verbatim}
-    \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
-}%
-
-% math box
-\usepackage{empheq}
-\usepackage[most]{tcolorbox}
-\newtcbox{\mathbox}[1][]{%
-    nobeforeafter, math upper, tcbox raise base, enhanced, sharp corners, colframe=black, colback=white, boxrule=1pt, #1}
-    
-% text box with tikz
-\tikzstyle{textbox} = [draw=blue!80!black, fill=blue!2, very thick,
-    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
-
 % minipagex correctly applies paragraph skip preferences
 \newlength{\currentparskip}
 \newlength{\currentparindent}
@@ -71,3 +36,49 @@
    \setlength{\parindent}{\currentparindent}% restore the value
   }
   {\end{minipage}}
+
+
+% Permutations/Combinations
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+% load tikz and libraries
+\usepackage{tikz}
+\usetikzlibrary{intersections,positioning,angles,quotes,arrows.meta,decorations.markings,shapes,shapes.misc,backgrounds}
+
+% load pgfplots and library for coordinate system 
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta}
+
+% math box with empheq+tcolorbox
+\usepackage{empheq}
+\usepackage[most]{tcolorbox}
+\newtcbox{\mathbox}[1][]{%
+    nobeforeafter, math upper, tcbox raise base, enhanced, sharp corners, colframe=black, colback=white, boxrule=1pt, #1}
+
+% answer show/hide toggle
+\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+\toggletrue{showAnswers}% comment out this line to show/hide answers
+
+% define answer environment
+\iftoggle{showAnswers}{
+    \newtcolorbox{answer}{%
+      breakable, 
+      enhanced, 
+      width=\textwidth,
+      parbox=false, % normal paragraph spacing
+      colback=blue!2, 
+      colframe=blue!80!black
+    }
+    %\newenvironment{answer}{\vspace{1em}}{}
+}{%
+    \usepackage{verbatim}
+    \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
+}%
+
+    
+% text box with tikz, to use inside a node
+\tikzstyle{textbox} = [draw=blue!80!black, fill=blue!2, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+

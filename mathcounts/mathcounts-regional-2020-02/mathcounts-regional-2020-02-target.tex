@@ -33,24 +33,19 @@ If there are $0.624782$ lugs in a pique, then how many piques are in $200$ lugs?
 \nopagebreak
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        $0.624782$ is to $1$ as $200$ is to $x$:
-        \begin{align*}
-        x = \frac{200}{0.624782} 
-          = 320.1117
-          \approx 320
-        \end{align*}
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            320 ~\text{piques}
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+$0.624782$ is to $1$ as $200$ is to $x$:
+\begin{align*}
+x = \frac{200}{0.624782} 
+  = 320.1117
+  \approx 320
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    320 ~\text{piques}
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{2.}
@@ -76,32 +71,27 @@ Consecutive integers are arranged in three columns in the pattern shown. What nu
 \fbox{\phantom{ANSWER}}
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        This is a `boustrophedon' arrangement. We are interested in an even row, so we can start from the second row and ignore the `boustrophedon' arrangement by focusing on even rows only. 
-        \begin{center}
-        \begin{tabular}{@{}C{3cm}C{2cm}@{}} 
-           Row number & Column C \\
-                    2 &        4 \\
-                    4 &       10 \\
-                    6 &       16 \\
-             $\vdots$ & $\vdots$ \\
-        \end{tabular}
-        \end{center}
-        This is an arithmetic sequence with common difference $6$. For even terms, we have
-        \begin{align*}
-        S_{2n} = 4 + 6(n-1) \Rightarrow S_{22} = 4 + 6 (11-1) = 64
-        \end{align*}
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            64
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+This is a `boustrophedon' arrangement. We are interested in an even row, so we can start from the second row and ignore the `boustrophedon' arrangement by focusing on even rows only. 
+\begin{center}
+\begin{tabular}{@{}C{3cm}C{2cm}@{}} 
+   Row number & Column C \\
+            2 &        4 \\
+            4 &       10 \\
+            6 &       16 \\
+     $\vdots$ & $\vdots$ \\
+\end{tabular}
+\end{center}
+This is an arithmetic sequence with common difference $6$. For even terms, we have
+\begin{align*}
+S_{2n} = 4 + 6(n-1) \Rightarrow S_{22} = 4 + 6 (11-1) = 64
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    64
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{3.}
@@ -114,33 +104,28 @@ Jamie makes $120$ slices of toast and puts at most one spread (jam, butter or av
 \nopagebreak
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        Let $j$, $b$ and $a$ stand for `jam', `butter', `avocado', and $x$ stand for `no spread'. The question statement implies:
-        \begin{align*}
-        j & = \frac{1}{3} (j+b+a+x) \\
-        b & = 15 \\
-        a & = \frac{1}{2} (j+b+a+x) \\
-        j+b+a+x & = 120
-        \end{align*}
-        From the first and third equation, $3j=2a$, which may be substituted into the first equation, so that all things considered:
-        \begin{align*}
-        j & = 40 \\
-        b & = 15 \\
-        a & = 60 \\
-        40 + 15 + 60 + x & = 120
-        \end{align*}
-        which yields $x=5$.
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            5 ~\text{slices}
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+Let $j$, $b$ and $a$ stand for `jam', `butter', `avocado', and $x$ stand for `no spread'. The question statement implies:
+\begin{align*}
+j & = \frac{1}{3} (j+b+a+x) \\
+b & = 15 \\
+a & = \frac{1}{2} (j+b+a+x) \\
+j+b+a+x & = 120
+\end{align*}
+From the first and third equation, $3j=2a$, which may be substituted into the first equation, so that all things considered:
+\begin{align*}
+j & = 40 \\
+b & = 15 \\
+a & = 60 \\
+40 + 15 + 60 + x & = 120
+\end{align*}
+which yields $x=5$.
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    5 ~\text{slices}
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{4.}
@@ -153,81 +138,36 @@ Segment $AB$ is $2808$ units long. Point $X$ is the midpoint of segment $AB$. Po
 \nopagebreak
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        It pays to draw a picture.
-        \begin{center}
-        \begin{tikzpicture}[thick, scale=10]
-            \draw %[every node/.style={thick, draw=gray, cross out, inner sep=0pt, minimum width=4pt, minimum height=4pt}]
-                (0,0) node [below] {$A$} --
-                (0.5,0) node [below] {$X$} --
-                (0.708,0) node [below] {$S$} --
-                (0.875,0) node [below] {$R$} --
-                (1,0) node [below] {$B$} ;
-            % tickmarks
-            \draw (0,-0.025) -- (0,0.025);
-            \draw (0.5,-0.025) -- (0.5,0.025);
-            \draw (0.708,-0.025) -- (0.708,0.025);
-            \draw (0.875,-0.025) -- (0.875,0.025);
-            \draw (1,-0.025) -- (1,0.025);
-            % arrows
-            \draw [<->] (0,0.2) -- (1,0.2) node[midway,above=-18pt]{2808}; 
-            \draw [<->] (0.5,0.1) -- (1,0.1) node[midway,above=-18pt]{1404}; 
-            \draw [<->] (0.5,-0.25) -- (0.875,-0.25) node[midway,below=-18pt]{$\sfrac{3}{4}XB$}; 
-            \draw [<->] (0.5,-0.15) -- (0.708,-0.15) node[midway,below=-18pt]{$\sfrac{5}{9}XR$}; 
-        \end{tikzpicture}
-        \end{center}
-        The distance from $X$ to $R$ is:
-        \begin{align*}
-        \frac{3}{4} \times \frac{2808}{2} = 1053
-        \end{align*}
-        The distance from $X$ to $S$ is:
-        \begin{align*}
-        \frac{5}{9} \times 1053 = 585
-        \end{align*}
-        The length of segment $RS$ is equal to the difference between $XR$ and $XS$:
-        \begin{align*}
-        1053 - 585 = 468
-        \end{align*}
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            468 ~\text{units}
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+It pays to draw a picture.
+\begin{center}
+\includegraphics[height=6cm]{target-04-figure}
+\end{center}
+The distance from $X$ to $R$ is:
+\begin{align*}
+\frac{3}{4} \times \frac{2808}{2} = 1053
+\end{align*}
+The distance from $X$ to $S$ is:
+\begin{align*}
+\frac{5}{9} \times 1053 = 585
+\end{align*}
+The length of segment $RS$ is equal to the difference between $XR$ and $XS$:
+\begin{align*}
+1053 - 585 = 468
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    468 ~\text{units}
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{5.}
 Twenty toothpicks, each $6$cm long, form a figure consisting of six equilateral triangles and a rectangle as shown. What is the total area of the figure? Express your answer as a decimal to the nearest hundredth.
 
 \begin{center}
-\begin{tikzpicture}[very thick, line width=2pt, line cap=round, line join=round, >={Stealth[length=5pt]}, color=gray, scale=2]
-%\tikzset{>={Stealth[length=6pt]}}
-\draw [<->] (0,0) -- (1,0); 
-\draw [<->] (1,0) -- (2,0); 
-\draw [<->] (2,0) -- (3,0); 
-\draw [<->] (3,0) -- (3,1); 
-\draw [<->] (3,1) -- (2,1); 
-\draw [<->] (2,1) -- (1,1);
-\draw [<->] (1,1) -- (0,1);
-\draw [<->] (0,1) -- (0,0);
-\draw [<->] (0,1) -- (0.5,1.866);
-\draw [<->] (0.5,1.866) -- (1,1);
-\draw [<->] (2,1) -- (2.5,1.866);
-\draw [<->] (2.5,1.866) -- (3,1);
-\draw [<->] (0,0) -- (0.5,-0.866);
-\draw [<->] (0.5,-0.866) -- (1,0);
-\draw [<->] (2,0) -- (2.5,-0.866);
-\draw [<->] (2.5,-0.866) -- (3,0);
-\draw [<->] (0,0) -- (-0.866,0.5);
-\draw [<->] (-0.866,0.5) -- (0,1);
-\draw [<->] (3,0) -- (3.866,0.5);
-\draw [<->] (3.866,0.5) -- (3,1);
-\end{tikzpicture}
+\includegraphics[height=6cm,page=1]{target-05-figure}
 \end{center}
 
 \nopagebreak
@@ -235,36 +175,28 @@ Twenty toothpicks, each $6$cm long, form a figure consisting of six equilateral 
 \fbox{\phantom{ANSWER}}~cm$^2$
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        The area of the central rectangle is $3$ times the area of a square with side length $6$\,cm, or $108$\,cm$^2$. The area of one triangle is equal to $3h$ (one-half of the product of the base $6$ and height $h$), where the height $h$ can be calculated by the Pythagoras theorem, as follows. Split the triangle vertically down the middle into two halves. Thus,the hypotenuse has length $6$ and the known leg has length $3$, as shown:
-        \begin{center}
-        \begin{tikzpicture}[thick, sharp corners, inner sep=1mm, outer sep =1mm, scale=4]
-        \draw (0,0) -- (0.5,0) node[midway,below]{$3$} -- (1,0) -- (0.5, 0.866) -- cycle node[midway,left]{$6$}; 
-        \draw[dashed] (0.5,0) -- (0.5,0.866) node[midway,right]{$h$};
-        \end{tikzpicture}
-        \end{center}
-        We have
-        \begin{align*}
-        h^2 + 3^2 & = 6^2 \\
-        \Rightarrow h & = \sqrt{36-9} = 3\sqrt{3}
-        \end{align*}
-        The total area is therefore
-        \begin{align*}
-        3 \times 6^2 + 6 \times 3 \times 3\sqrt{3} 
-          = 108 + 54\sqrt{3})
-        \approx 201.53
-        \end{align*}
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            201.53 ~\text{cm}^2
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+The area of the central rectangle is $3$ times the area of a square with side length $6$\,cm, or $108$\,cm$^2$. The area of one triangle is equal to $3h$ (one-half of the product of the base $6$ and height $h$), where the height $h$ can be calculated by the Pythagoras theorem, as follows. Split the triangle vertically down the middle into two halves. Thus,the hypotenuse has length $6$ and the known leg has length $3$, as shown:
+\begin{center}
+\includegraphics[height=6cm,page=2]{target-05-figure}
+\end{center}
+We have
+\begin{align*}
+h^2 + 3^2 & = 6^2 \\
+\Rightarrow h & = \sqrt{36-9} = 3\sqrt{3}
+\end{align*}
+The total area is therefore
+\begin{align*}
+3 \times 6^2 + 6 \times 3 \times 3\sqrt{3} 
+  = 108 + 54\sqrt{3})
+\approx 201.53
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    201.53 ~\text{cm}^2
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{6.}
@@ -275,102 +207,17 @@ There are $10$ coins on a table heads side up. Noah wants them all to be tails s
 \fbox{\phantom{ANSWER}}~moves
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        To get a handle on this problem, consider some simple examples. Things get interesting after the second flipping. It is obvious that coins that were flipped at the first round from $H$ to $T$ will now be flipped back to $H$. It is also obvious that we exercise some control over how many coins will be flipped. Below we show several possibilities for the second move. In Move $\#2a$, we grabbed all four $H$ coins, together with two $T$ coins, with the result that two $H$ coins remain. In Move $\#2b$, we grabbed three of the four $H$ coins, together with three $T$ coins, with the result that four $H$ coins remain. It is clear that at this stage there can be $2$, $4$, $6$, and $8$ $H$ coins (this last case returns to the initial state and is not shown). And now a solution pops up: After Move $\#2c$, there are six $H$ coins that may be flipped to $T$ on the third (and last) move. 
-        \begin{center}
-        \begin{tikzpicture}[thick, scale=1,
-            every node/.style = {circle, minimum size=10mm, inner sep=0mm, outer sep=0mm,
-                                 font=\sffamily\large, text=black},
-                  head/.style = {draw, fill=red!20, 
-                                 label=center:\textsf{\Large H}},
-                  tail/.style = {draw, fill=blue!20, 
-                                 label=center:\textsf{\Large T}},]%
-          % 1st layout
-          \node         at (-3,0) {Initial State};
-          \node [head]  at (0,0) {};
-          \node [head]  at (1,0) {};
-          \node [head]  at (2,0) {};
-          \node [head]  at (3,0) {};
-          \node [head]  at (4,0) {};
-          \node [head]  at (5,0) {};
-          \node [head]  at (6,0) {};
-          \node [head]  at (7,0) {};
-          \node [head]  at (8,0) {};
-          \node [head]  at (9,0) {};
-          % 2nd layout
-          \node         at (-3,-2) {Move $\# 1$};
-          \node [head]  at (0,-2) {};
-          \node [head]  at (1,-2) {};
-          \node [head]  at (2,-2) {};
-          \node [head]  at (3,-2) {};
-          \node [tail]  at (4,-2) {};
-          \node [tail]  at (5,-2) {};
-          \node [tail]  at (6,-2) {};
-          \node [tail]  at (7,-2) {};
-          \node [tail]  at (8,-2) {};
-          \node [tail]  at (9,-2) {};
-          % 3rd layout
-          \node         at (-3,-4) {Move $\# 2a$};
-          \node [tail]  at (0,-4) {};
-          \node [tail]  at (1,-4) {};
-          \node [tail]  at (2,-4) {};
-          \node [tail]  at (3,-4) {};
-          \node [head]  at (4,-4) {};
-          \node [head]  at (5,-4) {};
-          \node [tail]  at (6,-4) {};
-          \node [tail]  at (7,-4) {};
-          \node [tail]  at (8,-4) {};
-          \node [tail]  at (9,-4) {};
-          % 4th layout
-          \node         at (-3,-6) {Move $\# 2b$};
-          \node [head]  at (0,-6) {};
-          \node [tail]  at (1,-6) {};
-          \node [tail]  at (2,-6) {};
-          \node [tail]  at (3,-6) {};
-          \node [head]  at (4,-6) {};
-          \node [head]  at (5,-6) {};
-          \node [head]  at (6,-6) {};
-          \node [tail]  at (7,-6) {};
-          \node [tail]  at (8,-6) {};
-          \node [tail]  at (9,-6) {};
-          % 5th layout
-          \node [draw=red, ultra thick, ellipse]
-                        at (-3,-8) {Move $\# 2c$};
-          \node [head]  at (0,-8) {};
-          \node [head]  at (1,-8) {};
-          \node [tail]  at (2,-8) {};
-          \node [tail]  at (3,-8) {};
-          \node [head]  at (4,-8) {};
-          \node [head]  at (5,-8) {};
-          \node [head]  at (6,-8) {};
-          \node [head]  at (7,-8) {};
-          \node [tail]  at (8,-8) {};
-          \node [tail]  at (9,-8) {};
-          % 4th layout
-          \node         at (-3,-10) {Move $\# 2d$};
-          \node [head]  at (0,-10) {};
-          \node [head]  at (1,-10) {};
-          \node [head]  at (2,-10) {};
-          \node [tail]  at (3,-10) {};
-          \node [head]  at (4,-10) {};
-          \node [head]  at (5,-10) {};
-          \node [head]  at (6,-10) {};
-          \node [head]  at (7,-10) {};
-          \node [head]  at (8,-10) {};
-          \node [tail]  at (9,-10) {};
-        \end{tikzpicture}
-        \end{center}
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            3 ~\text{moves}
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+To get a handle on this problem, consider some simple examples. Things get interesting after the second flipping. It is obvious that coins that were flipped at the first round from $H$ to $T$ will now be flipped back to $H$. It is also obvious that we exercise some control over how many coins will be flipped. Below we show several possibilities for the second move. In Move $\#2a$, we grabbed all four $H$ coins, together with two $T$ coins, with the result that two $H$ coins remain. In Move $\#2b$, we grabbed three of the four $H$ coins, together with three $T$ coins, with the result that four $H$ coins remain. It is clear that at this stage there can be $2$, $4$, $6$, and $8$ $H$ coins (this last case returns to the initial state and is not shown). And now a solution pops up: After Move $\#2c$, there are six $H$ coins that may be flipped to $T$ on the third (and last) move. 
+\begin{center}
+\includegraphics[height=6cm]{target-06-figure}
+\end{center}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    3 ~\text{moves}
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{7.}
@@ -381,60 +228,49 @@ Suppose that $n$ is a positive integer for which the product $35n$ is divisible 
 \fbox{\phantom{ANSWER}}
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        The factors of $35$ are $5$ and $7$, of which only $5$ is a factor of $60$, with $60=5\times12$, so that $n=12$:
-        \begin{align*}
-        35n & = 5 \times 7 \times n \\
-            & = 5 \times 7 \times 12 \\
-            & = 7 \times 60
-        \end{align*}
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            12
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+The factors of $35$ are $5$ and $7$, of which only $5$ is a factor of $60$, with $60=5\times12$, so that $n=12$:
+\begin{align*}
+35n & = 5 \times 7 \times n \\
+    & = 5 \times 7 \times 12 \\
+    & = 7 \times 60
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    12
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{8.}
 Tim has a collection of square tiles of various sizes, each of which has an etched quarter circle with radius equal to the side length of the tile. Tim arranges eight tiles as shown. If the two smallest tiles each have side length $10$cm, what is the length of the resulting spiral formed by the tiles' etchings? Express your answer in terms of $\pi$?
 
-\begin{minipage}[b]{\linewidth}
-\centering
-\includegraphics[height=5cm]{target-08-figure}
-\end{minipage}
+\begin{center}
+\includegraphics[height=6cm]{target-08-figure}
+\end{center}
 
 \nopagebreak
 
 \fbox{\phantom{ANSWER}}~cm
 
 \begin{answer}
-\begin{tikzpicture}\node[textbox]{%
-    \begin{minipagex}{\dimexpr\textwidth-20pt}
-        Consider any square. Its side is also the radius of that portion of the spiral inscribed in it, which spans a quarter-circle. The length of the quarter-circle is $r\pi/2$, where $r$ is the length of the square's side. The total length of the spiral is the sum of the eight quarter-circles. But what are the side lengths of these squares? We recognize the Fibonacci pattern: The side of the largest square has length equal to the sum of the two smaller squares next to it. And this pattern holds for all squares except the squares in the center of the figure. Thus, the Fibonacci sequence starts with the two central squares at the center and grows outwards. The standard Fibonacci sequence is obtained by adding two consecutive terms in the sequence to obtain the next, starting with initial values $1$, and $1$. Thus,
-        \begin{align*}
-        1, 1, 2, 3, 5, 8, 13, 21
-        \end{align*} 
-        However, here, instead of $1$ and $1$, the starting values are $10$ and $10$. It is apparent that the modified sequence is simply scaled up by a factor of $10$:
-        \begin{align*}
-        10, 10, 20, 30, 50, 80, 130, 210
-        \end{align*}
-        Starting from the smallest square and going up:
-        \begin{align*}
-        \left(10+10+20+30+50+80+130+210\right)\pi/2
-        = 270 \pi
-        \end{align*}
-        \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-            270\pi ~\text{cm}
-        \end{empheq} 
-    \end{minipagex}
-    };
-\end{tikzpicture}%
+Consider any square. Its side is also the radius of that portion of the spiral inscribed in it, which spans a quarter-circle. The length of the quarter-circle is $r\pi/2$, where $r$ is the length of the square's side. The total length of the spiral is the sum of the eight quarter-circles. But what are the side lengths of these squares? We recognize the Fibonacci pattern: The side of the largest square has length equal to the sum of the two smaller squares next to it. And this pattern holds for all squares except the squares in the center of the figure. Thus, the Fibonacci sequence starts with the two central squares at the center and grows outwards. The standard Fibonacci sequence is obtained by adding two consecutive terms in the sequence to obtain the next, starting with initial values $1$, and $1$. Thus,
+\begin{align*}
+1, 1, 2, 3, 5, 8, 13, 21
+\end{align*} 
+However, here, instead of $1$ and $1$, the starting values are $10$ and $10$. It is apparent that the modified sequence is simply scaled up by a factor of $10$:
+\begin{align*}
+10, 10, 20, 30, 50, 80, 130, 210
+\end{align*}
+Starting from the smallest square and going up:
+\begin{align*}
+\left(10+10+20+30+50+80+130+210\right)\pi/2
+= 270 \pi
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    270\pi ~\text{cm}
+\end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
