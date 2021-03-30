@@ -1,0 +1,225 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\usepackage{amsmath}% \text{}
+\usetikzlibrary{calc,intersections,through,backgrounds}
+\usetikzlibrary{angles,quotes,arrows.meta}
+
+% draw + save basic figure
+\tikzset{fig/.pic={code={%
+
+      % define height for convenience
+      \pgfmathsetmacro{\h}{sqrt(3)/2}
+
+      % coordinates to be reused
+      \coordinate (X1) at (1,0);
+      \coordinate (X2) at (2,0);
+      \coordinate (X3) at (3,0);
+      \coordinate (X4) at (4,0);
+      \coordinate (X5) at (5,0);
+      \coordinate (Y0) at (0.5,\h);
+      \coordinate (Ym) at (1.0,\h);
+      \coordinate (Y1) at (1.5,\h);
+      \coordinate (Y2) at (2.5,\h);
+      \coordinate (Y3) at (3.5,\h);
+      \coordinate (Y4) at (4.5,\h);
+      \path [name path=XY] (X1) -- (Y4);
+      \path [name path=P1] (Y1) -- (X2);
+      \path [name path=P2] (X2) -- (Y2);
+      \path [name path=P3] (Y2) -- (X3);
+      \path [name path=P4] (X3) -- (Y3);
+      \path [name path=P5] (Y3) -- (X4);
+      \path [name intersections={of=P1 and XY, by=I1}];
+      \path [name intersections={of=P2 and XY, by=I2}];
+      \path [name intersections={of=P3 and XY, by=I3}];
+      \path [name intersections={of=P4 and XY, by=I4}];
+      \path [name intersections={of=P5 and XY, by=I5}];
+      \pgfresetboundingbox% clears unwanted white space
+            
+      % draw figure
+      \begin{scope}
+      \draw (X1) -- (Y1) -- (X2) -- (Y2) -- (X3) -- (Y3) -- (X4) -- (Y4) -- (X5) -- cycle;
+      \draw (X1) -- (Y4);
+      \end{scope}
+}}}%
+
+
+% draw + save figure 1
+\tikzset{%
+  fig1/.pic={%
+    \pic{fig};
+}}% 
+
+
+% draw + save figure 2
+\tikzset{%
+  fig2/.pic={%
+    % draw clipped figure
+    \draw               (X1) -- (Y1);
+    \draw               (Y1) -- (I1);
+    \draw [gray,dashed] (I1) -- (X2); 
+    \draw [gray,dashed] (X2) -- (I2); 
+    \draw               (I2) -- (Y2);
+    \draw               (Y2) -- (I3);
+    \draw [gray,dashed] (I3) -- (X3);
+    \draw [gray,dashed] (X3) -- (I4); 
+    \draw               (I4) -- (Y3); 
+    \draw               (Y3) -- (I5); 
+    \draw [gray,dashed] (I5) -- (X4);
+    \draw [gray,dashed] (X4) -- (Y4);
+    \draw [gray,dashed] (Y4) -- (X5);
+    \draw [gray,dashed] (X1) -- (X5);
+    % draw triangle outline
+    \draw [red]  (Ym) -- (Y4) -- (X1) -- cycle;
+    % add labels for lengths
+    \path [red]  (Ym) -- (Y1) node [midway,above] {$\frac{a}{2}$}; 
+    \path [red]  (Y1) -- (Y2) node [midway,above] {$a$}; 
+    \path [red]  (Y2) -- (Y3) node [midway,above] {$a$}; 
+    \path [red]  (Y3) -- (Y4) node [midway,above] {$a$}; 
+    \path [red]  (X1) -- (Ym) node [midway,left] {$\frac{\sqrt{3}}{2}$}; 
+    \path [red]  (X1) -- (Y4) node [midway,below] {$\delta$}; 
+    % add shade
+    \begin{pgfonlayer}{background}% background otherwise it 'leaks'
+      \fill [blue!5!white] (X1) -- (Y1) -- (I1); 
+      \fill [blue!5!white] (I2) -- (Y2) -- (I3); 
+      \fill [blue!5!white] (I4) -- (Y3) -- (I5); 
+    \end{pgfonlayer}
+}}% 
+
+
+% draw + save figure 3
+\tikzset{%
+  fig3/.pic={%
+    % draw clipped figure
+    \draw               (Y1) -- (I1);
+    \draw [gray,dashed] (I1) -- (X2); 
+    \draw [gray,dashed] (X2) -- (Y2); 
+    \draw               (Y2) -- (I3);
+    \draw [gray,dashed] (I3) -- (X3);
+    \draw [gray,dashed] (X3) -- (Y3); 
+    \draw               (Y3) -- (I5); 
+    \draw [gray,dashed] (I5) -- (X4);
+    \draw [gray,dashed] (X4) -- (Y4);
+    \draw [gray,dashed] (X1) -- (X4);
+    % draw triangle outline
+    \draw [red] (Y1) -- (Y4) -- (X1) -- cycle;
+    \draw [gray, dashed] (X1) -- (Y0) -- (Y1);
+    % add labels for lengths
+    \path [gray] (Y0) -- (Y1) node [midway,above] {$a$}; 
+    \path [red]  (Y1) -- (Y2) node [midway,above] {$a$}; 
+    \path [red]  (Y2) -- (Y3) node [midway,above] {$a$}; 
+    \path [red]  (Y3) -- (Y4) node [midway,above] {$a$}; 
+    \path [gray] (X1) -- (Y1) node [midway,left] {$a$}; 
+    \path [gray] (X1) -- (Y0) node [midway,left] {$a$}; 
+    \path [red]  (X1) -- (I1) node [midway,below] {$\frac{\delta}{4}$}; 
+    \path [red]  (I1) -- (I3) node [midway,below] {$\frac{\delta}{4}$}; 
+    \path [red]  (I3) -- (I4) node [midway,below] {$\frac{\delta}{4}$}; 
+    \path [red]  (I4) -- (Y4) node [midway,below] {$\frac{\delta}{4}$}; 
+    % add shade
+    \begin{pgfonlayer}{background}% background otherwise it 'leaks'
+      \fill [blue!5!white] (X1) -- (Y1) -- (I1); 
+      \fill [blue!5!white] (I2) -- (Y2) -- (I3); 
+      \fill [blue!5!white] (I4) -- (Y3) -- (I5); 
+    \end{pgfonlayer}
+}}% 
+
+
+% draw + save figure 4
+\tikzset{%
+  fig4/.pic={%
+    \pic{fig3};
+    \draw [blue]  (X1) -- (Y0);
+    \draw [blue]  (I1) -- (Y1);
+    \draw [blue]  (I3) -- (Y2);
+    \draw [blue]  (I5) -- (Y3);
+    \path [blue]  (X1) -- (Y0) node [midway,left] {$a$};
+    \path [blue]  (Y1) -- (I1) node [midway,right] {$\frac{3a}{4}$};
+    \path [blue]  (Y2) -- (I3) node [midway,right] {$\frac{a}{2}$};
+    \path [blue]  (Y3) -- (I5) node [midway,right] {$\frac{a}{4}$};
+}}% 
+
+
+% draw + save figure 5
+\tikzset{%
+  fig5/.pic={%
+    \pic{fig3};
+    \draw [blue]  (X1) -- (Y1);
+    \path [blue]  (X1) -- (Y1) node [midway,left] {$a$}; 
+    \draw [blue]  (I2) -- (Y2);
+    \path [blue]  (I2) -- (Y2) node [midway,left] {$\frac{2a}{3}$}; 
+    \draw [blue]  (I4) -- (Y3);
+    \path [blue]  (I4) -- (Y3) node [midway,left] {$\frac{a}{3}$}; 
+}}% 
+
+
+% draw + save figure 6
+\tikzset{%
+  fig6/.pic={%
+    \pic{fig1};
+    \path [blue]  (X1) -- (Y1) node [midway,left] {$a$}; 
+    \path [blue]  (Y1) -- (I1) node [midway,right] {$\frac{3a}{4}$};
+    \path [blue]  (X1) -- (I1) node [shift={(-10pt,-10pt)}] {$\frac{\delta}{4}$}; 
+    \node [blue,font=\boldmath\large] at (1.5,0.5) {$A$};
+    \node [blue,font=\boldmath\large] at (2.5,0.5) {$\frac{4A}{9}$};
+    \node [blue,font=\boldmath\large] at (3.5,0.5) {$\frac{A}{9}$};
+    % add shade
+    \begin{pgfonlayer}{background}% background otherwise it 'leaks'
+      \fill [blue!5!white] (X1) -- (Y1) -- (I1); 
+      \fill [blue!5!white] (I2) -- (Y2) -- (I3); 
+      \fill [blue!5!white] (I4) -- (Y3) -- (I5); 
+    \end{pgfonlayer}
+}}% 
+
+
+
+% draw + save figure 7
+\tikzset{%
+  fig7/.pic={%
+    \draw (X1) -- (Y1) -- (I1) -- (X1) -- (X2) -- (I1);
+    \path (X1) -- (Y1) node [midway,left] {$a$}; 
+    \path (X1) -- (X2) node [midway,below] {$a$}; 
+    \path (Y1) -- (I1) node [midway,right] {$\frac{3a}{4}$};
+    \path (I1) -- (X2) node [midway,right] {$\frac{a}{4}$};
+    % add shade
+    \begin{pgfonlayer}{background}% background otherwise it 'leaks'
+      \fill [blue!5!white] (X1) -- (Y1) -- (I1); 
+    \end{pgfonlayer}
+}}% 
+
+
+\begin{document}
+
+% print saved figures
+\begin{tikzpicture}[thick, x=2cm, y=2cm]
+  \pic{fig1};
+  % add shade
+  \begin{pgfonlayer}{background}% background otherwise it 'leaks'
+    \fill [blue!20!white] (X1) -- (Y1) -- (I1); 
+    \fill [blue!20!white] (I2) -- (Y2) -- (I3); 
+    \fill [blue!20!white] (I4) -- (Y3) -- (I5); 
+  \end{pgfonlayer}
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick, x=2cm, y=2cm]
+  \pic{fig2};
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick, x=2cm, y=2cm]
+  \pic{fig3};
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick, x=2cm, y=2cm]
+  \pic{fig4};
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick, x=2cm, y=2cm]
+  \pic{fig5};
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick, x=3cm, y=3cm]
+  \pic{fig6};
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick, x=3cm, y=3cm]
+  \pic{fig7};
+\end{tikzpicture}
+
+\end{document}

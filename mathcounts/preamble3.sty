@@ -1,7 +1,8 @@
 \usepackage[a4paper, centering, height=250mm, width=180mm]{geometry}
 \usepackage[table]{xcolor}
 \definecolor{myblue}{rgb}{0.0,0.2,0.4}%
-\usepackage[colorlinks = true,
+\usepackage[pdfpagelabels,
+            colorlinks = true,
             linkcolor = black,
             urlcolor  = myblue,
             citecolor = black,
@@ -68,7 +69,8 @@
       enhanced, 
       width=\textwidth,
       parbox=false, % normal paragraph spacing
-      colback=blue!2, 
+      colback=blue!2!white,
+      opacityback=0.5,enhanced jigsaw,
       colframe=blue!80!black
     }
     %\newenvironment{answer}{\vspace{1em}}{}
@@ -79,6 +81,6 @@
 
     
 % text box with tikz, to use inside a node
-\tikzstyle{textbox} = [draw=blue!80!black, fill=blue!2, very thick,
+\tikzstyle{textbox} = [draw=blue!80!black, fill=blue!1!white, very thick,
     rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 

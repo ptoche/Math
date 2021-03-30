@@ -852,45 +852,47 @@ Square ABCD, shown here, has side length $6$ units. Points P and Q are located o
 
 
 \begin{answer}
-For clarity, add labels to the shaded quadrilateral: 
+The area of a quadrilateral is equal to half the product of its diagonals. 
+To see this, consider the figure below. The area of the kite-shaped quadrilateral is half of the area of the four rectangles marked by dashed lines:
 \begin{center}
-\includegraphics[height=5cm,page=2]{sprint-29-figure}
+\includegraphics[height=6cm,page=2]{sprint-29-figure}
 \end{center}
-
-In general, the area of a quadrilateral is equal to half the product of its diagonals. If we denote by $h$ the vertical diagonal, or `height', and by $w$ the horizontal diagonal, or `width', the area is equal to:
+If we denote by $h$ the vertical diagonal, or `height', and by $w$ the horizontal diagonal, or `width', the area is:
 \begin{align*}
 \frac{wh}{2}
 \end{align*}
-as can be seen from the figure (the area is half of the area of the four rectangles marked by dashed lines):
-\begin{center}
-\includegraphics[height=8cm,page=4]{sprint-29-figure}
-\end{center}
-Here the height is the distance OT, where O (`Origin') is the center of the square, and T is the intersection of CP and DQ. 
 
-The height of the quadrilateral follows immediately from the ``Intercept theorem'' (known in France as Thales's theorem, but distinct from another theorem attributed to Thales that states that the triangle formed by the diameter of a circle and any other point on the circle has a right angle!). The Intercept theorem states that Given two parallel lines BD and CE and two non-parallel lines AC and AE, the following ratios hold:
+For clarity, add labels to the shaded quadrilateral: 
+\begin{center}
+\includegraphics[height=5cm,page=3]{sprint-29-figure}
+\end{center}
+With this notation, $h=\text{NS}$ and $w=\text{EW}$, where S is the intersection of the diagonals of the square ABCD (the center of the square), and N is the intersection of the diagonals of the rectangle CDPQ.
+
+
+The height of the quadrilateral follows immediately from the ``Intercept theorem'' (known in France and elsewhere as Thales's theorem, but distinct from the theorem known as Thales's theorem in anglophone countries!). The Intercept theorem states that Given two parallel lines BD and CE and two non-parallel lines AC and AE, the following ratios hold:
 \begin{align*}
 \frac{\text{AC}}{\text{AB}} 
   = \frac{\text{AE}}{\text{AD}} 
   = \frac{\text{CE}}{\text{BD}} 
 \end{align*} 
 \begin{center}
-\includegraphics[height=8cm,page=5]{sprint-29-figure}
+\includegraphics[height=5cm,page=5]{sprint-29-figure}
 \end{center}
 
-Applying the Intercept Theorem to lines DB and DQ gives the height of the quadrilateral:
+Applying the Intercept Theorem to lines DB and DQ will give the height of the quadrilateral as follows. We have:
 \begin{align*}
-\frac{\text{DQ}}{\text{DT}} 
-  = \frac{\text{DB}}{\text{DO}} 
-  = \frac{\text{BQ}}{\text{OT}} 
+\frac{\text{DQ}}{\text{DN}} 
+  = \frac{\text{DB}}{\text{DW}} 
+  = \frac{\text{QB}}{\text{NS}} 
 \end{align*}
-From $\text{DB}=2\text{DO}$ (the center of the square O cuts the diagonal DB in half) and $\text{BQ}=1$ (as stated in the question), it follows that the height of the quadrilateral is $\text{OT}=1/2$, or
+and since $\text{DB}=2\text{DS}$ (the center of the square S cuts the diagonal DB in half) and $\text{QB}=1$ (as stated in the question), it follows that the height of the quadrilateral is $\text{NS}=1/2$, or
 \begin{align*}
 h = \frac{1}{2}
 \end{align*}
 \begin{center}
-\includegraphics[height=8cm,page=3]{sprint-29-figure}
+\includegraphics[height=10cm,page=4]{sprint-29-figure}
 \end{center}
-Next, we calculate the width of the quadrilateral $w$. A simple method shown by Prof. Po Shen Loh is to consider the coordinate system centered at A and formed by an $x$-axis along AB and a $y$-axis along AD. In this system, the $x$-coordinate of the intersection of AC with DQ (point S) can be used to calculate distance RS (i.e. the width $w$). Namely, subtract the $x$-coordinate of O from the $x$-coordinate of S to get half the distance RS (i.e. $w/2$). 
+Next, we calculate the width of the quadrilateral $w$. A simple method shown by Prof. Po Shen Loh is to consider the coordinate system centered at A and formed by an $x$-axis along AB and a $y$-axis along AD. In this system, the $x$-coordinate of the intersection of AC with DQ (point E) can be used to calculate distance EW. Let $x_{\text{E}}$ denotes the $x$-coordinate of E. The width is then $w=2(x_{\text{E}}-3)$ (since the square has side length $6$, the $x$-coordinate of the midpoint of EW is $3$). There are other ways to calculate the width, but none that I found were simpler. 
 
 In the coordinate system (AB, AD), the equations of AC and DQ are:
 \begin{align*}
@@ -906,7 +908,7 @@ x = 6 - \frac{5}{6}x
 \quad\Rightarrow\quad 
 x = \frac{36}{11}
 \end{align*}
-Since the $x$-coordinate of O is $3$, we get
+Since the $x$-coordinate of S is $3$, we get
 \begin{align*}
 \frac{w}{2} = \frac{36}{11} - 3 = \frac{3}{11}
 \end{align*}

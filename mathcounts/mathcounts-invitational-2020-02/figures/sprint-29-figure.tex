@@ -1,5 +1,7 @@
 \documentclass[class=article,border=5pt,tikz]{standalone}
+\usepackage{amsmath}% \text{}
 \usetikzlibrary{calc,intersections,through,backgrounds}
+\usetikzlibrary{angles,quotes}
 \usetikzlibrary{spy}
 
 \tikzset{fig/.pic={code={%
@@ -15,10 +17,10 @@
       \path [name path=CP] (C) -- (P);
       \path [name path=DQ] (D) -- (Q);
       \path [name path=CA] (C) -- (A);
-      \path [name intersections={of=CA and DB, by=a}];
-      \path [name intersections={of=DB and CP, by=b}];
-      \path [name intersections={of=DQ and CP, by=c}];
-      \path [name intersections={of=CA and DQ, by=d}];
+      \path [name intersections={of=CA and DB, by=S}];
+      \path [name intersections={of=DB and CP, by=W}];
+      \path [name intersections={of=DQ and CP, by=N}];
+      \path [name intersections={of=CA and DQ, by=E}];
       
       % draw figure
       \begin{scope}
@@ -44,38 +46,8 @@
 \begin{tikzpicture}[thick, x=6cm, y=6cm]
     \path (0,0) pic {fig};
     \begin{pgfonlayer}{background}% background otherwise it 'leaks'
-      \draw [fill=gray!20] (a) -- (b) -- (c) -- (d);
+      \draw [fill=gray!20] (S) -- (W) -- (N) -- (E);
     \end{pgfonlayer}
-\end{tikzpicture}
-
-\begin{tikzpicture}[thick, x=6cm, y=6cm, spy using outlines={circle, magnification=4, size=7cm, connect spies}]
-    \path (1.5,0) pic {fig};
-    \begin{pgfonlayer}{background}% background otherwise it 'leaks'
-      \draw [fill=gray!20] (a) -- (b) -- (c) -- (d);
-    \end{pgfonlayer}
-    % add labels
-    \node [below,font=\scriptsize] at (a) {$O$};
-    \node [left, font=\scriptsize] at (b) {$R$};
-    \node [above,font=\scriptsize] at (c) {$T$};
-    \node [right,font=\scriptsize] at (d) {$S$};
-    \spy on (a) in node [fill=white] at (A);
-\end{tikzpicture}
-
-\begin{tikzpicture}[thick, x=8cm, y=8cm]
-    \path (0,0) pic[lightgray] {fig};
-    \draw (D) -- (B);
-    \draw (D) -- (Q);
-    \draw [red] (B) -- (Q);
-    \draw [red] (a) -- (c);
-    \node [above left] at (D) {D};
-    \node [below right] at (B) {B};
-    \node [right] at (Q) {Q};
-    \node [below] at (a) {$O$};
-    \node [left,lightgray] at (b) {$R$};
-    \node [above] at (c) {$T$};
-    \node [right,lightgray] at (d) {$S$};
-    \path (a) -- (B) node [midway,rotate=-44] {$||$};
-    \path (D) -- (a) node [midway,rotate=-44] {$||$};
 \end{tikzpicture}
 
 
@@ -88,6 +60,40 @@
     \draw [dashed,lightgray] (-1,0) -- (1,0) -- (1,3) -- (-1,3) -- cycle;
 \end{tikzpicture}
 
+
+\begin{tikzpicture}[thick, x=6cm, y=6cm, spy using outlines={circle, magnification=4, size=7cm, connect spies}]
+    \path (1.5,0) pic {fig};
+    \begin{pgfonlayer}{background}% background otherwise it 'leaks'
+      \draw [fill=gray!20] (S) -- (W) -- (N) -- (E);
+    \end{pgfonlayer}
+    % add labels
+    \node [below,font=\scriptsize] at (S) {S};
+    \node [left, font=\scriptsize] at (W) {W};
+    \node [above,font=\scriptsize] at (N) {N};
+    \node [right,font=\scriptsize] at (E) {E};
+    \spy on (S) in node [fill=white] at (A);
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[thick, x=8cm, y=8cm]
+    \path (0,0) pic[lightgray] {fig};
+    \draw (D) -- (B);
+    \draw (D) -- (Q);
+    \coordinate (xE) at (36/11/6,0);
+    \draw [dashed,lightgray] (E) -- (xE) node [shift={(0,-8pt)},lightgray] {$x_{\text{E}}$};
+    \draw [dashed,lightgray] (S) -- (0.5,0) node [below,lightgray] {$3$};
+    \draw [red,very thick] (B) -- (Q) node [midway, right,font=\boldmath] {$1$};
+    \draw [red,very thick] (S) -- (N) node [font=\boldmath,shift={(15pt,-23pt)},fill=white,inner sep=0] {$\frac{1}{2}$};
+    \node [above left] at (D) {D};
+    \node [below right] at (B) {B};
+    \node [right] at (Q) {Q};
+    \node [shift={(0,-10pt)},fill=white,inner sep=1pt] at (S) {S};
+    \node [shift={(-10pt,0)}] at (W) {W};
+    \node [shift={(0,10pt)}] at (N) {N};
+    \node [shift={(10pt,0)}] at (E) {E};
+    \path (S) -- (B) node [midway,rotate=-44] {$||$};
+    \path (D) -- (S) node [midway,rotate=-44] {$||$};
+\end{tikzpicture}
 
 
 \begin{tikzpicture}[thick,x=2cm, y=2cm]
@@ -122,9 +128,9 @@
     \node [below left,shift={(-5pt,-1pt)}] at (E) {E};
 \end{tikzpicture}
 
+\end{document}
+
 
 \begin{tikzpicture}
 \node[font=\huge]{TO DO};
 \end{tikzpicture}
-
-\end{document}
