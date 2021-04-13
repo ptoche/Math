@@ -69,7 +69,7 @@
 
 
 \begin{tikzpicture}[thick, x=8cm, y=8cm]
-    \path (0,0) pic[lightgray] {fig};
+    \path (0,0) pic[gray] {fig};
     \draw (D) -- (B);
     \draw (D) -- (Q);
     \draw [red,very thick] (B) -- (Q) node [midway, right,font=\boldmath] {$b$};
@@ -87,34 +87,67 @@
 
 
 \begin{tikzpicture}[thick, x=8cm, y=8cm,double arc/.style={double,double distance=2pt}]
-    \draw [lightgray] (E) -- (S) -- (D) -- (P) -- (C);
+    \draw [gray] (B) -- (D) -- (A) -- (E);
+    \draw [gray] (A) -- (B) -- (Q);
+    \draw [gray] (C) -- (P);
     % calculate intersection of EW and CQ
     \path [name path=CQ] (C) -- (Q);
     \path [name path=EW] (E) -- (W);
     \path [name intersections={of=EW and CQ, by=E2}];
     \coordinate (E2) at (1,0.625); % above failed, so cheated by guessing E2
     \node [right] at (E2) {E$^{\prime}$};
-    \draw [lightgray,dashed] (E2) -- (W);
+    \draw [gray,dashed] (E2) -- (W);
     \coordinate (E3) at (0.625,1);
     \node [above] at (E3) {E$^{\prime\prime}$};
-    \draw [lightgray,dashed] (E3) -- (E); 
+    \draw [gray,dashed] (E3) -- (E);     
     \draw pic [draw=red,thick,double arc, angle radius=0.6cm] {angle=E--C--Q};
     \draw pic [draw=red,thick,double arc, angle radius=0.6cm] {angle=D--C--E};
-    \draw (C) -- (D) -- (Q) -- cycle;
-    \draw (C) -- (E);
+    \draw (D) -- (Q) -- (C) -- (E);
+    % add labels
+    \node [gray, below left] at (A) {A};
+    \node [gray, below right] at (B) {B};
     \node [above right] at (C) {C};
     \node [above left] at (D) {D};
-    \node [lightgray,left] at (P) {P};
+    \node [gray,left] at (P) {P};
     \node [right] at (Q) {Q};
     \node [below] at (S) {S};
     \node [left] at (W) {W\;};
     \node [above] at (N) {N};
     \node [shift={(12pt,0)},fill=white,inner sep=1pt] at (E) {E};
     % tickmarks
-    \draw (W|-P) --++(0,-5pt);
-    \draw (E|-P) --++(0,-5pt);
+    \draw (W|-D) --++(0,3pt);
+    \draw (E|-D) --++(0,3pt);
     % (p-|q) = the intersection of a vertical line through p and a horizontal line through q
-    \draw (P) -- (W|-P) node [midway, below] {x} -- (E|-P) node [midway, below] {w}-- (Q|-P) node [midway, below] {x}; 
+    \draw (D) -- (W|-D) node [midway,above] {x} -- (E|-D) node [midway,above] {w}-- (Q|-D) node [midway,above] {x}; 
+    % add labels for w and w
+    \coordinate (W2) at (0.375,1);
+    \draw [gray,dashed] (W) -- (W2);
+    \coordinate (E4) at (0.625,1);
+    \draw [gray,dashed] (E) -- (E4);
+    
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[thick, x=8cm, y=8cm]
+    % define coordinates (again, for clarity)
+    \coordinate (E2) at (1,0.625);
+    \coordinate (E3) at (0.625,1);    
+    % label points
+    \node [above right] at (C) {C};
+    \node [above left] at (D) {D};
+    \node [below right] at (Q) {Q};
+    \node [below] at (E) {E};
+    \node [below right] at (E2) {E$^{\prime}$};
+    \node [above] at (E3) {E$^{\prime\prime}$}; 
+    % draw lines, label distances
+    \draw [blue,very thick] (D) -- (E3) node [midway,above,font=\boldmath] {$a-x$};
+    \draw [blue,very thick] (E3) -- (C) node [midway,above,font=\boldmath] {$x$};
+    \draw (D) -- (Q);
+    \draw [red,very thick] (C) -- (Q);    
+    \draw [red,very thick] (E) -- (E3);
+    \draw [gray,dashed] (E) -- (E2)  node [midway,below] {$x$};
+    \path (C) -- (Q) node [midway,shift={(20pt,0pt)},font=\boldmath,red] {$a-b$};
+    \path (E) -- (E3) node [midway,right,font=\boldmath,red] {$x$};
 \end{tikzpicture}
 
 
@@ -151,7 +184,24 @@
     \draw [thick,red] (A) -- (C) --++(1cm,1cm) node [right,font=\boldmath] {$y=x$};
     \draw [thick,red] (D) -- (Q)--++(1cm,-0.6cm) node [right,font=\boldmath] {$y=a-\dfrac{a-b}{a}x$};
     \coordinate (xE) at (0.625,0);
-    \draw [dashed,lightgray] (E) -- (xE) node [shift={(2pt,-8pt)},black] {$x_{\text{E}}$};
+    \draw [dashed,gray] (E) -- (xE) node [shift={(2pt,-8pt)},black] {$x_{\text{E}}$};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[thick, x=8cm, y=8cm]
+    \path (0,0) pic[gray] {fig};
+%    \coordinate (N2) at (0.5,1);
+%    \draw [blue,very thick] (S) -- (N2);
+    \draw [blue,very thick] (D) -- (S) -- (C);
+    \draw [red,very thick] (W) -- (E) node [midway, below,font=\boldmath,fill=white] {$w$};
+    \draw [red,very thick] (D) -- (C) node [midway, above,fill=white,font=\boldmath] {$a$};
+%    \node [above] at (N2) {N$^{\prime}$};
+    \node [above left] at (D) {D};
+    \node [above right] at (C) {C};
+    \node [shift={(0,-14pt)}] at (S) {S};
+    \node [shift={(-14pt,0)}] at (W) {W};
+    \node [shift={(0,14pt)},fill=white] at (N) {N};
+    \node [shift={(14pt,0)}] at (E) {E};
 \end{tikzpicture}
 
 
