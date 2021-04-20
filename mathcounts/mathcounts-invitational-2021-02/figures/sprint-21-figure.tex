@@ -1,0 +1,68 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\usepackage{tkz-euclide}
+
+\newcommand*{\AB}{16}
+\newcommand*{\BC}{15}
+\newcommand*{\CA}{11}
+
+\begin{document}
+
+\begin{tikzpicture}[thick,scale=0.6]
+  \tkzDefPoint(0,0){A} 
+  \tkzDefPoint(\AB,0){B}
+  \tkzInterCC[R](A,\CA cm)(B,\BC cm) 
+  \tkzGetPoints{C}{D}
+  \tkzDrawPolygon(A,B,C)
+  \tkzLabelPoints[below left](A)
+  \tkzLabelPoints[below right](B)
+  \tkzLabelPoints[above left](C)
+  \tkzLabelSegment[below](A,B){$16$\,in}
+  \tkzLabelSegment[above right](B,C){$15$\,in}
+  \tkzLabelSegment[above left](C,A){$11$\,in}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[thick,scale=0.6]
+  \tkzDefPoint(0,0){A} 
+  \tkzDefPoint(\AB,0){B}
+  \tkzInterCC[R](A,\CA cm)(B,\BC cm) 
+  \tkzGetPoints{C}{D}
+  \tkzDrawPolygon(A,B,C)
+  \tkzLabelPoints[below left](A)
+  \tkzLabelPoints[below right](B)
+  \tkzLabelPoints[above left](C)
+  \tkzDefPointBy[projection=onto B--C](A)
+  \tkzGetPoint{P}
+  \tkzLabelPoints[above right](P)
+  \tkzDrawSegment(A,P)
+  \tkzMarkRightAngle(A,P,C)
+  \tkzLabelSegment[below](A,B){$16$}
+  \tkzLabelSegment[above left](C,A){$11$}
+  \tkzLabelSegment[above right](P,B){$15-y$}
+  \tkzLabelSegment[above right](C,P){$y$}
+  \tkzLabelSegment[below right](A,P){$x$}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[thick,scale=0.6]
+  \tkzDefPoint(0,0){A} 
+  \tkzDefPoint(\AB,0){B}
+  \tkzInterCC[R](A,\CA cm)(B,\BC cm) 
+  \tkzGetPoints{C}{D}
+  \tkzDrawPolygon(A,B,C)
+  \tkzLabelPoints[below left](A)
+  \tkzLabelPoints[below right](B)
+  \tkzLabelPoints[above left](C)
+  \tkzDefPointBy[projection=onto B--C](A)
+  \tkzGetPoint{P}
+  \tkzDrawSegment(A,P)
+  \tkzMarkRightAngle(A,P,C)
+  \tkzLabelSegment[below](A,B){$16$}
+  \tkzLabelSegment[above left](C,A){$11$}
+  \tkzLabelSegment[below right](A, P){$4\sqrt{7}$}  
+  \tkzLabelSegment[above right](P,B){$12$}
+  \tkzLabelSegment[above right](C,P){$3$}
+\end{tikzpicture}
+\end{document}
+
+

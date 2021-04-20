@@ -1,0 +1,132 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\tikzset{lab/.style={circle,fill=gray!30,inner sep=0.1em,anchor=north east}}
+
+\pgfmathtruncatemacro{\n}{4}
+\pgfmathsetmacro{\o}{.5}
+
+\begin{document}
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node [lab] at (\n+0.29,\n+0.29) {1};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-1-\o) {A};
+  \node [lab] at (\n+0.29,\n+0.29) {2};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-\o-1) {A};
+  \node at (\o+1, \n-\o-1) {B};
+  \node [lab] at (\n+0.29,\n+0.29) {3};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-\o-1) {A};
+  \node at (\o+1, \n-\o-1) {B};
+  \node at (\o+2, \n-\o) {A};
+  \node [lab] at (\n+0.29,\n+0.29) {4};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-\o-1) {A};
+  \node at (\o+1, \n-\o-1) {B};
+  \node at (\o+2, \n-\o) {A};
+  \node at (\o+3, \n-\o) {A};
+  \node at (\o+3, \n-\o-1) {A};
+  \node [lab] at (\n+0.29,\n+0.29) {5};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-\o-1) {A};
+  \node at (\o+1, \n-\o-1) {B};
+  \node at (\o+2, \n-\o) {A};
+  \node at (\o+3, \n-\o) {A};
+  \node at (\o+3, \n-\o-1) {A};
+  \node at (\o+2, \n-\o-1) {B};
+  \node at (\o+1, \n-\o-2) {B};
+  \node [lab] at (\n+0.29,\n+0.29) {6};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-\o-1) {A};
+  \node at (\o+1, \n-\o-1) {B};
+  \node at (\o+2, \n-\o) {A};
+  \node at (\o+3, \n-\o) {A};
+  \node at (\o+3, \n-\o-1) {A};
+  \node at (\o+2, \n-\o-1) {B};
+  \node at (\o+1, \n-\o-2) {B};
+  \node at (\o+1, \n-\o-2) {B};
+  \node at (\o+2, \n-\o-2) {B};
+  \node [lab] at (\n+0.29,\n+0.29) {7};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-\o-1) {A};
+  \node at (\o+1, \n-\o-1) {B};
+  \node at (\o+2, \n-\o) {A};
+  \node at (\o+3, \n-\o) {A};
+  \node at (\o+3, \n-\o-1) {A};
+  \node at (\o+2, \n-\o-1) {B};
+  \node at (\o+1, \n-\o-2) {B};
+  \node at (\o+1, \n-\o-2) {B};
+  \node at (\o+2, \n-\o-2) {B};
+  \node at (\o, \n-\o-2) {A};
+  \node at (\o+3, \n-\o-2) {A};
+  \node [lab] at (\n+0.29,\n+0.29) {8};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[line cap=rect, thick] 
+  grid(\n,\n);
+  \node at (\o, \n-\o) {A};
+  \node at (\o+1, \n-\o) {A};
+  \node at (\o, \n-\o-1) {A};
+  \node at (\o+1, \n-\o-1) {B};
+  \node at (\o+2, \n-\o) {A};
+  \node at (\o+3, \n-\o) {A};
+  \node at (\o+3, \n-\o-1) {A};
+  \node at (\o+2, \n-\o-1) {B};
+  \node at (\o+1, \n-\o-2) {B};
+  \node at (\o+1, \n-\o-2) {B};
+  \node at (\o+2, \n-\o-2) {B};
+  \node at (\o, \n-\o-2) {A};
+  \node at (\o+3, \n-\o-2) {A};
+  \node at (\o, \n-\o-3) {A};
+  \node at (\o+1, \n-\o-3) {A};
+  \node at (\o+2, \n-\o-3) {A};
+  \node at (\o+3, \n-\o-3) {A};
+  \node [lab] at (\n+0.29,\n+0.29) {9};
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,57 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+
+\begin{document}
+\tikzset{
+  mynode/.style={
+    minimum height=1cm,
+    minimum width=1cm,
+    draw,
+    anchor=center
+  }
+}
+
+\begin{tikzpicture}[x=1cm, y=1cm]
+% highlight multiples of 4
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (1cm,-1cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (5cm,-1cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (4cm,-2cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (3cm,-3cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (2cm,-4cm) {};
+% highlight multiples of 5
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-1cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-1cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-2cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-3cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-4cm) {};
+\ExplSyntaxOn
+\int_step_inline:nn {4} {
+  \int_step_inline:nn {5} {
+    \node[mynode] at (##1cm, -#1cm) {\int_eval:n {(#1 - 1) * 5 + ##1 -1}};
+  }
+}
+\ExplSyntaxOff
+\end{tikzpicture}
+
+\begin{tikzpicture}[x=1cm, y=1cm]
+% highlight multiples of 4
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (1cm,-1cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (5cm,-1cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (4cm,-2cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (3cm,-3cm) {};
+\node[circle,draw=red, ultra thick, inner sep=0.28cm] at (2cm,-4cm) {};
+% highlight multiples of 5
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-1cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-1cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-2cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-3cm) {};
+\node[circle,draw=blue, ultra thick, inner sep=0.32cm] at (1cm,-4cm) {};
+\ExplSyntaxOn
+\int_step_inline:nn {4} {
+  \int_step_inline:nn {5} {
+    \node[mynode] at (##1cm, -#1cm) {\int_eval:n {20 + (#1 - 1) * 5 + ##1 -1}};
+  }
+}
+\ExplSyntaxOff
+\end{tikzpicture}
+\end{document}
+

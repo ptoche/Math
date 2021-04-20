@@ -1,0 +1,52 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\usetikzlibrary{angles,quotes}
+
+% measures for (90,60,30) triangle
+% short leg = BE
+\pgfmathsetmacro{\a}{1}
+% long leg = AE
+\pgfmathsetmacro{\c}{sqrt(3)}
+% hypotenuse = AB
+\pgfmathsetmacro{\b}{2}
+
+\begin{document}
+\begin{tikzpicture}[thick,x=2cm,y=2cm]
+\coordinate (A) at (0,0);
+\coordinate (B) at (\c,\a);
+\coordinate (C) at (\c+\b,\a);
+\coordinate (D) at (\b,0);
+\coordinate (E) at (\c,0);
+\coordinate (F) at (\c,\a/2);
+\draw (B) -- (E) -- (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (C);
+\path (A) node[below] {A} -- (B) node[above] {B} -- (C) node[above] {C} -- (D) node[below] {D} -- (E) node[below] {E} -- (F) node[left] {F};
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick,x=3cm,y=3cm]
+\coordinate (A) at (0,0);
+\coordinate (B) at (\c,\a);
+\coordinate (C) at (\c+\b,\a);
+\coordinate (D) at (\b,0);
+\coordinate (E) at (\c,0);
+\coordinate (F) at (\c,\a/2);
+\draw (B) -- (E) -- (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (C);
+\path (A) node[below] {A} -- (B) node[above] {B} -- (C) node[above] {C} -- (D) node[below] {D} -- (E) node[below] {E} -- (F) node[left] {F};
+\path (B) -- (C) node[midway, above,red] {$6$};
+\path (A) -- (B) node[midway, above left,red] {$6$};
+\path (B) -- (F) node[midway, right,red] {$\frac{3}{2}$};
+\path (F) -- (C) node[midway, below,red] {$\frac{3\sqrt{17}}{2}$};
+\draw pic ["$60^{\circ}$",font=\scriptsize,draw=red,red,thick,angle radius=0.9cm] {angle = A--B--E};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[thick,x=4cm,y=4cm]
+\coordinate (B) at (0,0);
+\coordinate (C) at (-\c,\a);
+\coordinate (A) at (-\c,0);
+\draw (A) -- (B) node[blue,midway,below] {$\sqrt{3}$} -- (C) node[blue,midway,above] {$2$} -- (A) node[blue,midway,left] {$1$};
+\path (A) node[below left] {A} -- (B) node[below right] {B} -- (C) node[above left] {C};
+\draw pic ["$90^{\circ}$",font=\scriptsize,blue,draw,thick,angle radius=7mm] {right angle = B--A--C};
+\draw pic ["$60^{\circ}$",font=\scriptsize,blue,draw,thick,angle radius=9mm] {angle = A--C--B};
+\draw pic ["$30^{\circ}$",font=\scriptsize,blue,draw,thick,angle radius=12mm] {angle = C--B--A};
+\end{tikzpicture}
+\end{document}
+

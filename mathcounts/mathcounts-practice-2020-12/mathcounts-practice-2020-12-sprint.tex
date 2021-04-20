@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
-\usepackage{../../preamble3}
+\newif\ifanswer%\answertrue% comment out \answertrue to show/hide answers
+\usepackage{../../preamble3}% preamble always after \newif\ifanswer
 %\pagenumbering{gobble}
 \title{MathCounts Competition Practice III, December 2020 \\ Sprint Round}
 \author{Patrick \& James Toche}
@@ -17,7 +18,6 @@ Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/
 
 \thispagestyle{empty}
 \clearpage
-\addtocounter{page}{-1}
 
 \section*{Sprint Round}
 
@@ -514,14 +514,14 @@ In the figure, the hexagon with the ``R'' is colored red, and each of the other 
 \fbox{\phantom{ANSWER}}~ways
 
 \begin{center}
-\includegraphics[height=3cm]{sprint-22-figure-1}
+\includegraphics[height=3cm,page=1]{sprint-22-figure}
 \end{center}
 
 \begin{answer}
 There are $2$ choices at the first node. Beyond that, the choice of colors is unique. The two solutions are:
 \begin{center}
-\includegraphics[height=3cm]{sprint-22-figure-2}
-\includegraphics[height=3cm]{sprint-22-figure-3}
+\includegraphics[height=3cm,page=2]{sprint-22-figure}
+\includegraphics[height=3cm,page=3]{sprint-22-figure}
 \end{center}
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
     2~\text{ways}
@@ -707,7 +707,7 @@ In the figure shown, the sequence of integers in the row of squares and in each 
 \fbox{\phantom{ANSWER}}
 
 \begin{center}
-\includegraphics[height=5cm]{sprint-29-figure-1}
+\includegraphics[height=5cm,page=1]{sprint-29-figure}
 \end{center}
 
 \begin{answer}
@@ -717,7 +717,7 @@ N = -9 + 2 = -7
 \end{align*}
 Complete solution: \newline
 \begin{center}
-\includegraphics[height=5cm]{sprint-29-figure-2}
+\includegraphics[height=5cm,page=2]{sprint-29-figure}
 \end{center}
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
     -7

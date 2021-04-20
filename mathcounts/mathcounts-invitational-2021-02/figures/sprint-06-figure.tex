@@ -1,0 +1,14 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\usetikzlibrary{shapes}
+
+\begin{document}
+  \begin{tikzpicture}[scale=3]  
+  \node (pol) [draw,thick,rotate=0,minimum size=6cm,regular polygon, regular polygon sides=6] at (0,0) {};
+  \foreach \i/\j in {1/B, 2/A, 3/F, 4/E, 5/D, 6/C}{
+    \node[anchor=(\i-3)*(360/6)] at (pol.corner \i){$\j$};
+  }
+  \draw[dashed,thick] (pol.corner 1) -- (pol.corner 4) {};
+  \end{tikzpicture}
+\end{document}
+
+

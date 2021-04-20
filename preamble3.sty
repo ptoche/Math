@@ -25,6 +25,7 @@
 \usepackage{xfrac}% \sfrac
 \usepackage{bm}% \boldsymbol
 \usepackage[parfill]{parskip}% no indents, lineskip
+\usepackage{scalerel}% \scaleleftright[1.75ex]{<}
 
 % minipagex correctly applies paragraph skip preferences
 \newlength{\currentparskip}
@@ -60,8 +61,9 @@
 
 % answer show/hide toggle
 \usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
-\toggletrue{showAnswers}% comment out this line to show/hide answers
-
+\ifanswer
+  \toggletrue{showAnswers}% default is false
+\fi
 % define answer environment
 \iftoggle{showAnswers}{
     \newtcolorbox{answer}{%
@@ -84,3 +86,15 @@
 \tikzstyle{textbox} = [draw=blue!80!black, fill=blue!1!white, very thick,
     rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
 
+
+% angled brackets to use as an option to \begin{cases} \end{cases}
+% does not stretch if linespacing is increased
+\makeatletter
+\renewenvironment{cases}[1][\lbrace]{%
+  \def\@ldelim{#1}
+  \matrix@check\cases\env@cases
+}{%
+  \endarray\right.%
+}
+\patchcmd{\env@cases}{\lbrace}{\@ldelim}{}{}
+\makeatother
