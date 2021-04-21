@@ -1,0 +1,56 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\usetikzlibrary{angles,quotes}
+
+\tikzset{
+  semicircle/.style args={#1:#2}{
+    insert path={+(#1:#2) arc (#1:#1+180:#2)}
+  }
+}
+
+% diagonal of the square
+\pgfmathsetmacro{\d}{sqrt(2)}
+
+% radius of the large circle
+\pgfmathsetmacro{\r}{3*\d+2)/7}
+
+\begin{document}
+\begin{tikzpicture}[thick,x=5cm,y=5cm]
+  % small inscribed semi-circles:
+  \draw [fill=pink!50] (+\d/4,3*\d/4) [semicircle=-45:0.5];
+  \draw [fill=pink!50] (-\d/4,3*\d/4) [semicircle=+45:0.5];
+  % square
+  \draw [fill=pink!50] (0,0)--(\d/2,\d/2)--(0,\d)--(-\d/2,\d/2)--cycle;
+  % large inscribing circle:
+  \draw (0,\r) circle (\r);
+  % labels
+  \path (0,0)--(\d/2,\d/2) node[midway,below right] {$1$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[thick,x=5cm,y=5cm]
+  % small inscribed semi-circles:
+  \draw (+\d/4,3*\d/4) [semicircle=-45:0.5];
+  \draw (-\d/4,3*\d/4) [semicircle=+45:0.5];
+  % square
+  \draw (0,0)--(\d/2,\d/2)--(0,\d)--(-\d/2,\d/2)--cycle;
+  % large inscribing circle:
+  \draw (0,\r) circle (\r);
+  % labels
+  \path (0,0)--(\d/2,\d/2) node[midway,below right] {$1$};
+  % line + label: couldn't be bothered to calculate exact points
+  \draw [blue] (0,\r) 
+    -- (-\d/4,3*\d/4) node [midway,below left] {$r-\frac{1}{2}$}
+    --++ (-1.27*\d/4,0.62*\d/4) node [midway,below left] {$\frac{1}{2}$};
+  \draw [blue] (-\d/4,3*\d/4) --++ (\d/4,\d/4) node [midway,above left] {$\frac{1}{2}$};
+  \draw [blue] (0,\r)--++(0,\d/4/0.68) node [midway,right] {$\scriptstyle\sqrt{2}-r$};
+  \draw [blue] (0,0)-- (0,\r) node [midway,right] {$r$};
+  % label the angle
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (0,{\r+\d/4/0.68});
+  \coordinate (C) at (-\d/4,\r+\d/8);
+  \draw pic ["$45^{\circ}$",font=\scriptsize,blue,draw,thick,angle radius=9mm] {angle = C--B--A};
+\end{tikzpicture}
+
+\end{document}
+
+
+

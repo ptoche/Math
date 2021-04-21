@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
-\usepackage{../preamble3}
+\newif\ifanswer\answertrue% comment out \answertrue to show/hide answers
+\usepackage{../preamble3}% preamble always after \newif\ifanswer
 %\pagenumbering{gobble}
 \title{Math Miscellani}
 \author{James \& Patrick}
@@ -189,10 +190,10 @@ Since we want to solve for $n$, we'll substitute $s$ from the first equation int
 \subsection*{Rotated Square}
 The vertices of the smaller square in the figure are at trisection points of the sides of the larger square. What is the ratio of the area of the smaller square to the area of the larger square? Express your answer as a common fraction.
 
-\begin{minipage}[b]{\linewidth}
+\begin{center}
 \centering
 \includegraphics[height=5cm]{square-rotated}
-\end{minipage}
+\end{center}
 
 
 \begin{answer}
@@ -214,16 +215,17 @@ x^2 = \left(\frac{a}{3}\right)^2 + \left(\frac{2a}{3}\right)^2
 \subsection*{Area of a Quadrilateral}
 Quadrilateral $PSTU$ is inscribed in semicircle $O$, as shown, with $PQ=3$ units, $QR=5$ units and $RS=4$ units. What is the area of quadrilateral $PSTU$? Express your answer as a decimal to the nearest tenth. 
 
-\begin{minipage}[b]{\linewidth}
+\begin{center}
 \centering
 \includegraphics[height=4cm]{quadrilateral-inscribed}
-\end{minipage}
+\end{center}
+
 \begin{answer}
 One approach to calculating the area of quadrilateral $PUTS$ is to divide it into triangle $PQU$, triangle $SRT$, and trapezoid $QUTR$. A trapezoid is a quadrilateral with only one pair of parallel sides. To compute these areas, we need the heights $h_1$ and $h_2$. To calculate $h_1$, apply the Pythagoras theorem to triangle $OQU$. And likewise $h_2$ with triangle $ORT$. 
-\begin{minipage}[b]{\linewidth}
+\begin{center}
 \centering
 \includegraphics[height=5cm]{quadrilateral-inscribed-labeled}
-\end{minipage}
+\end{center}
 \begin{align*}
 h_1 & = \sqrt{6^2 -3^2} = \sqrt{27} = 3\sqrt{3} \approx 5.196 \\
 h_2 & = \sqrt{6^2 -2^2} =\sqrt{32} = 4\sqrt{2} \approx 5.657
@@ -412,7 +414,6 @@ It is easier to calculate $x$ than $w$, because the existence of a square of sid
 \includegraphics[height=10cm,page=8]{quadrilateral-area-shaded}
 \end{center} 
 
-
 Consider triangle CDQ. Because CE is on the diagonal of square ABCD, it is a bisector of DCQ, and therefore it is the diagonal of square $\text{C}\text{E}^{\prime}\text{E}\text{E}^{\prime\prime}$. Thus, the lengths of $\text{C}\text{E}^{\prime\prime}$ and $\text{E}\text{E}^{\prime}$ are equal, implying that triangles CDQ and  $\text{E}^{\prime\prime}\text{D}\text{E}$ are similar. For two similar triangles, the ratio of their legs are equal, for instance:
 \begin{align*}
 \frac{\text{C}\text{D}}{\text{C}\text{Q}} 
@@ -571,7 +572,7 @@ and so in this special case the total area is $7$ units$^2$:
 \end{align*}
 
 \end{answer}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \iftoggle{showAnswers}{\newpage}
 
@@ -580,7 +581,6 @@ and so in this special case the total area is $7$ units$^2$:
 The problem presented here was originally proposed by Batsui Mitsunao, a fifteen-year-old boy, and written on a tablet hung in 1812 at the Nishihirokami Hachiman shrine in Izumi city, Toyama prefecture, Japan (Fukagawa Hidetoshi and Tony Rothman, \textit{Sacred Mathematics: Japanese Temple Geometry}, Princeton University Press, 2008). 
 
 Several circles of radius $r$ are packed to form a pyramid, using $n$ circles along each side, as shown in the figure below in the special case $n=4$. A larger circle circumscribes the pyramid. Express the radius of the larger circle in terms of $r$ and $n$. Express the ratio of the areas of the $n$ smaller circles to the area of the larger circle in terms of $n$. Calculate the limit of the ratio as $n\rightarrow\infty$. 
-
 
 \begin{center}
 \includegraphics[height=6cm,page=1]{circles-in-pyramid}
@@ -679,8 +679,87 @@ Apply the Pythagorean theorem and eliminate $y$ by substituting $y=h-x$:
 & x = \frac{\sqrt{3}a}{3}
 \end{align*}
 With $h$ and $x$, we can also calculate $y = \dfrac{\sqrt{3}a}{6}$.
-
 \end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{A Hidden Gold Nugget}
+Solve for the real values of $x$ in the equation:
+\begin{align*}
+\left(x-\frac{1}{x}\right)^{\tfrac{1}{2}} 
+  + \left(1-\frac{1}{x}\right)^{\tfrac{1}{2}} 
+  = x
+\end{align*}
+\begin{answer}
+We want to get rid of the square-roots. Gather one square-root on one side and square both sides of the equation: 
+\begin{align*}
+\left(x-\frac{1}{x}\right)^{\tfrac{1}{2}} 
+  & = x - \left(1-\frac{1}{x}\right)^{\tfrac{1}{2}} \\
+\left(x-\frac{1}{x}\right) 
+  & = x^2 
+      - 2x\left(1-\frac{1}{x}\right)^{\tfrac{1}{2}} 
+      + \left(1-\frac{1}{x}\right) 
+\end{align*}
+Gather the square-root to one side and square again:
+\begin{align*}
+2x \left(1-\frac{1}{x}\right)^{\tfrac{1}{2}} 
+  & = x^2 - x + 1 \\
+4x^2 \left(1-\frac{1}{x}\right)
+  & = (x^2 - x + 1)^2 \\
+4 (x^2-x)
+  & = (x^2 - x + 1)^2 
+\end{align*}
+Now we notice a substitution and solve for the new variable $a$:
+\begin{align*}
+ a & = x^2 - x \\
+4a & = (a + 1)^2 \\
+4a & = a^2 + 2a + 1 \\
+a^2 - 2a + 1 & = 0 \\
+(a-1)^2 & = 0
+\end{align*}
+Of course $a=1$ and therefore:
+\begin{align*}
+x^2 - x - 1 = 0
+\end{align*}
+a very famous quadratic equation, with one positive and one negative real root. The positive root is the valid root for the original problem since the sum of square-roots must be positive, and thus:
+\begin{align*}
+x = \varphi = \frac{1+\sqrt{5}}{2}
+\end{align*}
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Radius of a Heart}
+Calculate the radius of the circle the heart is inscribed in.
+\begin{center}
+\centering
+\includegraphics[height=5cm,page=1]{radius-of-a-heart}
+\end{center}
+
+\begin{answer}
+Set up some lines and labels:
+\begin{center}
+\centering
+\includegraphics[height=10cm,page=2]{radius-of-a-heart}
+\end{center}
+Get the equations:
+\begin{align*}
+\left(r-\frac{1}{2}\right)^2 
+  & = \left(\frac{1}{2}\right)^2
+    + \left(\sqrt{2}-r\right)^2
+    - 2 \left(\frac{1}{2}\right) (\sqrt{2}-r) \cos{\left(\frac{\pi}{4}\right)} \\
+\Rightarrow \quad 
+r & = \frac{2}{3\sqrt{2}-2} \\[2ex]
+r & = \frac{2(3\sqrt{2}+2)}{(3\sqrt{2}-2)(3\sqrt{2}+2)} \\[2ex]
+r & = \frac{3\sqrt{2}+2}{7} 
+\end{align*}
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}
