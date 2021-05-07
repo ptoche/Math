@@ -52,6 +52,7 @@
 
 % load pgfplots and library for coordinate system 
 \usepackage{pgfplots}
+\pgfplotsset{compat=newest}% use bleeding edge version: risky
 \usetikzlibrary{arrows.meta}
 
 % math box with empheq+tcolorbox
@@ -59,6 +60,8 @@
 \usepackage[most]{tcolorbox}
 \newtcbox{\mathbox}[1][]{%
     nobeforeafter, math upper, tcbox raise base, enhanced, sharp corners, colframe=black, colback=white, boxrule=1pt, #1}
+\newtcbox{\alignbox}[1][]{%
+    nobeforeafter, math upper, tcbox raise base, enhanced, colframe=black, colback=white, boxrule=1pt, #1}
 
 % answer show/hide toggle
 \usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
