@@ -2,7 +2,7 @@
 \newif\ifanswer\answertrue% comment out \answertrue to show/hide answers
 \usepackage{../preamble3}% preamble always after \newif\ifanswer
 %\pagenumbering{gobble}
-\title{Art Of Problem Solving - AMC 10 \\ June 5, 2021}
+\title{Art Of Problem Solving - AMC 10 \\ June 11, 2021}
 \author{Patrick \& James Toche}
 \date{Revised:~\today}
 
@@ -10,7 +10,7 @@
 \maketitle
 \begin{minipage}{\textwidth}
 \begin{abstract}\setlength{\parindent}{0pt}%
-Notes on the AMC-10 Course by Art Of Problem Solving (AOPS).
+Homework for the AMC-10 Course by Art Of Problem Solving (AOPS).
 Copyright restrictions may apply. Written for personal use. 
 Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/master/aops}. 
 \end{abstract}
@@ -28,7 +28,7 @@ Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/
 The number of real values of $x$ that satisfy the equation
 
 \begin{align*}
-\left(2^{6x+3}\right) \left(4^{3x+6}\right) = \left(8^{4x+5}\right)
+\left(2^{6x+3}\right) \left(4^{3x+6}\right) = 8^{4x+5}
 \end{align*}
 
 is:
@@ -38,10 +38,9 @@ is:
 \begin{answer}
 We bring all exponentials to the same basis:
 \begin{align*}
-\left(2^{6x+3}\right) \left(2^{2(3x+6)}\right) 
-  & = \left(2^{3(4x+5)}\right) \\[1em]
-6x+3 + 2(3x+6) & = 3(4x+5) \\[1em]
-      12x + 15 & = 12x + 15
+2^{6x+3} \cdot 2^{2(3x+6)} & = 2^{3(4x+5)} \\[1em]
+            6x+3 + 2(3x+6) & = 3(4x+5) \\[1em]
+                  12x + 15 & = 12x + 15
 \end{align*}
 which is always true. Thus, there are an infinity of solutions. And since $\infty>3$
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
@@ -73,12 +72,7 @@ We immediately note that the case $k=1$ is special. Substituting $k=1$ yields:
 \begin{align*}
 \frac{x-1}{x-2} = \frac{x-1}{x-6}
 \end{align*}
-If we rearrange and simplify, we get a contradiction:
-\begin{align*}
-x - 6 & = x - 2 \\ 
-    6 & = 2
-\end{align*}
-Is that it? No! We ought to have noticed that $x=1$ is a solution of the above. There was no need to waste time with rearranging and simplifying. So we can rule out $k=1$. There are four more cases to consider.
+At this point it is tempting to cancel out the $x-1$. But remember the question: when is there \textit{no} solution? Thus if we find one solution for some $k$, we can move on to the next value of $k$. We do not need to find all the solutions! And since $x=1$ is a solution of the above, we can rule out $k=1$. There are still four more cases to consider. 
 
 We could go on substituting each possible value of $k$ and looking for solutions. Let's do it for one more case, as an exercise. Let $k=2$.
 \begin{align*}
@@ -90,18 +84,19 @@ We could go on substituting each possible value of $k$ and looking for solutions
 \end{align*}
 Thus, there is a valid solution for $k=2$ (that solution is $x=4/3$). 
 
-The other cases could be resolved with similar steps. But trying five cases will take a lot of work. So is there a quicker method? What could be the cause of non-existence? Well if the system above yielded either $x=2$ or $x=6$, we would have a contradiction because the the denominator is not allowed to be zero. So how could that happen? Solve for $k$ and try $x=2$ and $x=6$:
-
+The other cases could be resolved with similar steps. But trying five cases will take a lot of work. So is there a quicker method? Let's be general:
 \begin{align*}
 \frac{x-1}{x-2} & = \frac{x-k}{x-6} \\
      (x-1)(x-6) & = (x-2)(x-k) \\
-   x^2 - 7x + 6 & = x^2 - (2+k)x + 2k \\ 
-         (5-k)x & = 6-2k
+   x^2 - 7x + 6 & = x^2 - (2+k)x + 2k \\
+       - 7x + 6 & = - (2+k)x + 2k
 \end{align*}
-Oh we can stop here. Since $k=5$ annuls the lhs, we have a contradiction:
+Now note that if $7=2+k$, the $x$ term cancels out of the equation. And thus, there is no solution (the equation is impossible) if the following holds: 
 \begin{align*}
-         0 = -4
+         7 & = 2 + k \\
+         6 & \neq 2k
 \end{align*}
+which is true for $k=5$. 
 
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
     k = 5
@@ -149,7 +144,7 @@ By symmetry, we also have $b=\pm1$, $c=\pm1$. So the candidate unordered-triples
 
 \nopagebreak
 
-Two non-zero real numbers, $a$ and $b$, satisfy $ab = a - b$. Which of the following is a possible value of $\frac{a}{b} + \frac{b}{a} - ab$?
+Two non-zero real numbers, $a$ and $b$, satisfy $ab = a - b$. Which of the following is a possible value of $\dfrac{a}{b} + \dfrac{b}{a} - ab$?
 
 \fbox{$-2,\quad -1/2,\quad 1/3,\quad 1/2,\quad 2$}
 
@@ -160,11 +155,15 @@ Addition/subtraction is typically simpler than multiplication, so we are tempted
 \end{align*}
 The appearance of $a^2 + b^2$ is not very encouraging. However since we know something about $a-b$, we are reminded that $(a-b)^2$ generates $a^2 + b^2$. So we take it from here:
 \begin{align*}
-                  (a-b)^2 & = a^2 + b^2 -2ab \\[1em]
-       \frac{(a-b)^2}{ab} & = \frac{a^2 + b^2 -2ab}{ab} \\[1em]
-        \frac{(ab)^2}{ab} & = \frac{a^2 + b^2}{ab} - \frac{2ab}{ab} \\[1em]
-                       ab & = \frac{a^2 + b^2}{ab} - 2 \\[1em]
-\frac{a^2 + b^2}{ab} - ab & =  2 
+       (a-b)^2 & = a^2 + b^2 -2ab \\
+     a^2 + b^2 & = (a-b)^2 + 2ab \\
+     a^2 + b^2 & = (ab)^2 + 2ab 
+\end{align*}
+Substituting back in:
+\begin{align*}
+\frac{a}{b} + \frac{b}{a} & = \frac{a^2 + b^2}{ab} \\
+                          & = \frac{(ab)^2 + 2ab}{ab} \\
+                          & = ab + 2
 \end{align*}
 And thus
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
@@ -211,18 +210,18 @@ where the last equation comes from:
 \begin{center}
 \newcolumntype{z}{>{$}c<{$}}%
 \begin{tabular}{@{}zzzzzzzzzzz@{}}
-\delta & = &      a & + &     b & + &      c & + &      d & + & 5 \\
-       & = &  (a+1) & + & (b+2) & + &  (c+3) & + &  (d+4) & + & 5-1-2-3-4 \\
+\delta & = &      a & + &     b & + &      c & + &      d & + & 5 \\[1ex]
+       & = &  (a+1) & + & (b+2) & + &  (c+3) & + &  (d+4) & + & 5-1-2-3-4 \\[1ex]
        & = & \alpha & + & \beta & + & \gamma & + & \delta & - & 5 \\
 \end{tabular}
 \end{center}
 Now we have a reasonably simple way to get the answer. Since $\alpha$ $=$ $\beta$ $=$ $\gamma$ $=$ $\delta$,
 \begin{align*}
-\alpha + \beta + \gamma & = 5 \\
-               3 \delta & = 5 \\
-                 \delta & = 5/3 \\
-                      s & = 5/3 -5 \\
-                        & = -10/3
+\delta & = \alpha + \beta + \gamma + \delta - 5 \\
+\delta & = \delta + \delta + \delta + \delta - 5 \\
+                 \delta & = 5/3 \\[1ex]
+\Rightarrow \quad
+                      s & = 5/3 -5 = -10/3
 \end{align*}
 
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
