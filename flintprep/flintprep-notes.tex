@@ -359,9 +359,291 @@ The height of the water is more than three times greater than the fence.
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\iftoggle{showAnswers}{\newpage}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{6.}
 
+\nopagebreak
 
+A fence that is $9$ feet tall is situated $8$ feet from the side of a wall. A ladder is leaning against the wall, with its base outside the fence, just touching the top of the fence. The ladder is leaning at an angle of $t$ degrees relative to the ground. Find the length of the ladder. Find the length of the shortest ladder that could reach the building from outside the fence. 
+
+\begin{answer}
+\begin{center}
+  \colorbox{white}{\includegraphics[height=6cm,page=1]{flintprep-problem-514}}
+\end{center}
+
+The line traced by the ladder is colored blue. The wall against which the ladder rests is colored gray. The distance marked $x$ is missing. Note that the ladder does not reach to the top of the wall. 
+
+Recall the following rules of trigonometry:
+\begin{align*}
+\sin(t) & = \frac{\text{opposite}}{\text{hypotenuse}} \\
+\cos(t) & = \frac{\text{adjacent}}{\text{hypotenuse}} \\
+\tan(t) & = \frac{\text{opposite}}{\text{adjacent}}
+\end{align*}
+
+Since we know the angle and the length of the opposite leg of the short triangle, we can find $x$ from the tangent formula:
+\begin{align*}
+\tan(t) & = \frac{9}{x} 
+\quad\Rightarrow\quad
+x = \frac{9}{\tan(t)}
+\end{align*}
+
+Since the leg of the large triangle is $x+8$, we can now find the length of the ladder $l$ -- the hypotenuse of the large triangle -- from the cosine formula:
+\begin{align*}
+\cos(t) & = \frac{x+8}{l} 
+\quad\Rightarrow\quad
+l = \frac{x+8}{\cos(t)}
+\end{align*}
+
+Substituting the value of $x$ found earlier yields
+\begin{align*}
+l = \frac{\frac{9}{\tan(t)}+8}{\cos(t)} 
+  = \frac{8}{\cos(t)} + \frac{9}{\cos(t)\tan(t)}
+\end{align*}
+But by definition $\cos(t)\tan(t)=\sin(t)$, so the expression simplifies to:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+l = \frac{8}{\cos(t)} + \frac{9}{\sin(t)}
+\end{empheq}
+
+The shortest ladder is the one that minimizes the length of the hypotenuse. Thus, we select $t$ to minimize the length of the hypotenuse:
+\begin{align*}
+\frac{8}{\cos(t)} + \frac{9}{\sin(t)}
+\end{align*}
+
+If we knew calculus, we would set the derivative of this expression to zero. To compute the derivative, we need the following differentiation rules:
+\begin{align*}
+\frac{d}{dt} \frac{1}{f(t)} 
+  & = \frac{-\frac{d}{dt}f(t)}{f^2(t)} \\
+\frac{d}{dt} \cos(t)
+  & = -\sin(t) \\
+\frac{d}{dt} \sin(t)
+  & = +\cos(t) 
+\end{align*}
+Combining these two facts yields:
+\begin{align*}
+\frac{d}{dt} \frac{1}{\cos(t)} 
+  & = \frac{\sin(t)}{\cos^2(t)} \\
+\frac{d}{dt} \frac{1}{\sin(t)} 
+  & = \frac{-\cos(t)}{\sin^2(t)} 
+\end{align*}
+
+We can now differentiate $l(t)$ with respect to $t$:
+\begin{align*}
+\frac{d}{dt} l(t) 
+  = 
+  \frac{8\sin(t)}{\cos^2(t)} 
+  - \frac{9\cos(t)}{\sin^2(t)} 
+  = 
+  \frac{8\sin^{3}(t) - 9\cos^{3}(t)}{\cos^2(t)\sin^2(t)} 
+\end{align*}
+And thus 
+\begin{align*}
+\frac{d}{dt} l(t) = 0
+\quad\Rightarrow\quad
+   8\sin^{3}(t) & = 9\cos^{3}(t) \\
+    \tan^{3}(t) & = \frac{9}{8} \\[1ex]
+        \tan(t) & = \frac{\sqrt[3]{9}}{2} 
+                  \approx 1.04 
+                  \quad\Rightarrow\quad
+                t \approx 46.12^{\circ} 
+\end{align*}
+
+In general, if the distance to the wall is $d$ and the height of the fence $h$, the shortest ladder has a tangent equal to:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+  \tan(t) = \sqrt[3]{h/d}
+\end{empheq} 
+
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{7.}
+
+\nopagebreak
+
+A ball is dropped from a height of $h$ feet and left to bounce forever. The rebound ratio of the ball is $r$. The time required to fall from a height of $h$ feet (or to rise to that height after a bounce) is $\sqrt{h}/4$ seconds.  Find a formula for the total distance traveled by the ball, and for the total time needed to cover that distance. 
+
+\begin{answer}
+Let $n$ denote the index associated with a point of contact with the ground. At index $0$, the ball makes the first contact with the ground, after dropping from height $h$. At index $1$, the ball makes the second contact, after rising to height $rh$ and dropping all the way back. With this notation, the ball has bounced $n$ times at index $n-1$. 
+
+Let $a_{n}$ denote the heights starting from index $1$, in other words not including the initial drop from height $h$, and let $s_{n}$ denote the sum of the heights of $n$ bounces, that is
+\begin{align*}
+s_{n} = \sum_{k=1}^{k=n} a_{k}
+\end{align*}
+where the height of the bounces are given by
+\begin{align*}
+a_{k} & = a_{1} r^{k-1} \\
+a_{1} & = hr
+\end{align*}
+
+Let $d_{n}$ denote the total distance traveled by the ball after $n$ bounces. We have:
+\begin{align*}
+d_{n} = h + 2s_{n-1}
+\end{align*}
+Here the first bounce is associated with index $0$, the second bounce with index $1$, etc..
+\begin{align*}
+s_{n} 
+  = \sum_{k=1}^{k=n} a_{k}
+  = a_{1} \sum_{k=1}^{k=n} r^{k-1} 
+  = a_{1} \frac{1-r^{n}}{1-r} 
+  = hr \frac{1-r^{n}}{1-r} 
+\end{align*}
+Substitute $s_{n-1}$ back into $d_{n}$ yields:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+  d_{n} = h + 2hr \frac{1-r^{n-1}}{1-r}
+\end{empheq} 
+
+For an infinite number of bounces, let $n\rightarrow\infty$,
+\begin{align*}
+d_{n} \longrightarrow h + \frac{2hr}{1-r}
+\quad\text{as}\quad n\longrightarrow\infty
+\end{align*}
+and the time it takes to bounce infinitely many times is:
+\begin{align*}
+\frac{1}{4} \, \sqrt{h + 2hr/(1-r)}
+\end{align*}
+
+While the total number of bounces is infinite, the distance traveled by the ball is finite and it stops bouncing in finite time. 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{8.}
+
+\nopagebreak
+
+Let $A_{0}$ be a loan to be repaid in full after $t$ payments. Let $A_{n}$ be the amount owed after $n$ payments. The bank charges a monthly interest on the outstanding balance at rate $r$. The loan contract states that a (constant) monthly payment $P$ is due until full repayment. The first payment is due at the end of the first month. Express $A_{n}$ in terms of $A_{n-1}$. Express $A_{n}$ in terms of $A_{0}$. Solve for the constant payment $P$ that achieves a full repayment after $t$ years. 
+
+\begin{answer}
+The monthly recursion is
+\begin{align*}
+A_{n} = (1+r) A_{n-1} - P
+\end{align*}
+
+This is an algebraic series, which may be solved in terms of $A_{0}$ by repeated substitution:
+\begin{align*}
+A_{n} 
+  & = (1+r) A_{n-1} - P \\
+  & = (1+r) [(1+r) A_{n-2} - P] - P \\
+  & = (1+r)^{2} A_{n-2} - (1+r) P - P \\
+  & = (1+r)^{k} A_{n-k} - (1+r)^{k-1} P -\ldots -(1+r)^{1} P - (1+r)^{0} P \\
+\text{set $k=n$:}  \qquad\quad
+  & = (1+r)^{n} A_{0} - (1+r)^{n-1} P -\ldots -(1+r)^{1} P - (1+r)^{0} P \\
+  & = (1+r)^{n} A_{0} - P \, [1 + (1+r) + \ldots + (1+r)^{n-1}] \\[1ex]
+  & = (1+r)^{n} A_{0} - P \, \frac{(1+r)^{n}-1}{(1+r)-1}
+\end{align*}
+The balance after $t$ payments is:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+A_{t} = (1+r)^{t} A_{0} - P \, \frac{(1+r)^{t}-1}{r} 
+\end{empheq} 
+
+To see that the formula is correct, check the first few cases:
+\begin{align*}
+A_{1} 
+  & = (1+r)^{1} A_{0} - P \, \frac{(1+r)^{1}-1}{r} 
+    = (1+r) A_{0} - P \qquad\cmark \\
+A_{2} 
+  & = (1+r)^{2} A_{0} - P \, \frac{(1+r)^{2}-1}{r} \\
+  & = (1+r)^{2} A_{0} - P \, \frac{r^{2}+2r}{r} \\
+  & = (1+r)^{2} A_{0} - P(1+r) - P \qquad\cmark 
+\end{align*}
+
+Full repayment is achieved for $P$ such that $A_{t}=0$,
+\begin{align*}
+(1+r)^{t} A_{0} 
+  & = P \, \frac{(1+r)^{t}-1}{r} \\[1ex]
+P 
+  & = \frac{(1+r)^{t}}{(1+r)^{t}-1} \, rA_{0} \\[1ex]
+  & = rA_{0} + \frac{rA_{0}}{(1+r)^{t}-1} 
+\end{align*}
+Note that for a perpetual loan, as $t\rightarrow\infty$, the perpetuity payment is simply:
+\begin{align*}
+P \longrightarrow rA_{0} \quad\text{as}\quad t\longrightarrow\infty
+\end{align*}
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{9.}
+
+\nopagebreak
+
+An NBA center recently signed a seven-year contract for $\$121$ million. What is the present value of this contract, given a $9\%$ interest rate? In other words, how much must the ball club invest when the contract is signed, so that it can make seven equal payments of $\$17,285,714.29$, the first one due immediately? 
+
+\begin{answer}
+Let $B_{t}$ denote the cash balance at the start of period $t$. Let $P$ denote the annual payment, that is  $P = \$17,285,714.29$. Let $r$ denote the interest rate on the bank balance, $r = 0.09$. The bank balance evolves as follows:
+\begin{align*}
+t & = 0 \qquad B_{0} = I - P\\
+t & = 1 \qquad B_{1} = (1+r)B_{0} - P\\
+  &\vdotswithin{=} \\
+t & = n \qquad B_{n} = (1+r)B_{n-1} - P
+\end{align*}
+The initial investment $I$ and the first payment $P$ occur at the \underline{start} of the first year. The initial balance $B_{0}$ is then placed in an interest-paying account where it grows to $(1+r)B_{0}$ by the \underline{end} of the first year, indexed $t=1$, when the second payment $P$ takes place. The process continues like that until the seventh payment at index $t=7$ (the end of the seventh year). 
+
+Note! In some problems the first payment and accrued interest occur simultaneously at the end of the first period, but here the first payment is due one period before the interest accrues. The difference is that $B_{0}$ would be $I$ instead of $I-P$. 
+
+To express the final balance $B_{n}$ in terms of the initial investment $I$, we repeatedly substitute, rearrange, and deduce the general pattern:
+\begin{align*}
+B_{n} & = (1+r)B_{n-1} - P\\
+      & = (1+r)(\, (1+r)B_{n-2} - P \,) - P\\
+      & = (1+r)(\,(1+r)(\,(1+r)B_{n-3} - P \,) - P \,) - P\\
+      &\vdotswithin{=}\\
+      & = (1+r)^{k}B_{n-k} - (1+r)^{k-1}P - \ldots  - (1+r)P - P
+\end{align*}
+To check the correctness of the formula, set $n=1$ and $k=1$, say, and check that the formula returns the same expressions calculated earlier. 
+
+The payments part of the formula can be simplified by recognizing that the $(1+r)^{k}P$ terms form a geometric sum:
+\begin{align*}
+B_{n} & = (1+r)^{k}B_{n-k} - (1+r)^{k-1}P - \ldots  - (1+r)P - P \\
+      & = (1+r)^{k}B_{n-k} - (\, (1+r)^{k-1} + \ldots  + (1+r) +1 \,)  \, P \\
+      & = (1+r)^{k}B_{n-k} - \frac{(1+r)^{k}-1}{(1+r)-1\hfill}  \, P \\
+      & = (1+r)^{k}B_{n-k} - \frac{(1+r)^{k}-1}{r}  \, P
+\end{align*}
+Set $k=n$
+\begin{align*}
+B_{n} = (1+r)^{n}B_{0} - \frac{(1+r)^{n}-1}{r} \, P
+\end{align*}
+
+Thus, the balance at time $n$ may be expressed in terms of the initial investment $I$ as
+\begin{align*}
+B_{n} = (1+r)^{n}(I - P) - \frac{(1+r)^{n}-1}{r} \, P
+\end{align*}
+
+In the special case $n=7$, we get the final balance:
+\begin{align*}
+B_{7} = (1+r)^{7}(I-P) - \frac{(1+r)^{7}-1}{r} \, P
+\end{align*}
+The first term includes the first payment, while the second term includes the effect of the next $6$ payments. 
+
+To cover the contract, the club should invest exactly enough to cover the seven payments, so that the balance should be zero after the seventh payment, $B_{7}=0$, implying
+\begin{align*}
+(1+r)^{7} (I-P)
+     & = \frac{(1+r)^{7}-1}{r}  \, P \\
+   I & = P + \frac{1-(1+r)^{-7}}{r} \, P
+\end{align*}
+Plug in the data, 
+\begin{align*}
+I & = \frac{121,000,000}{7} \left(1 + \frac{1-(1.09)^{-7}}{0.09} \right) \\
+  & \approx 104,283,899
+\end{align*}
+%% (121000000/7) * (1 + (1-(1.09)^(-7))/0.09)
+%% 104283899
+where $P=\$17,285,714.29$ is calculated as one-seventh of $\$121$ million. 
+The $121$ million dollar contrat can be financed with a little over $104$ million dollars. That means the bank balances return a total of $\$16,716,101$ interest over the seven-year period.
+
+The initial investment needed to honor the contract is:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    I \approx \$  104,283,899
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -369,100 +651,3 @@ The height of the water is more than three times greater than the fence.
 \iftoggle{showAnswers}{\newpage}
 
 \end{document}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{1.}
-
-\nopagebreak
-
-a
-\begin{answer}
-a
-\begin{align*}
-x
-\end{align*}
-\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-    x
-\end{empheq} 
-\end{answer}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\iftoggle{showAnswers}{\newpage}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%% TO DO TO DO TO DO TO DO TO DO
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{4. Inspired by Problem 293}
-
-\nopagebreak
-
-The Prep Ski club is planning a trip to Mammoth during semester break. They have $40$ skiers signed up to go, and the ski resort is charging $\$120$ for each person. The resort manager needs at least $10$ new skiers to sign up to make the trip profitable. He offers to reduce the individual rate of $\$120$ per person by $\$2$ for each new registrant, as long as the revenue continues to increase. For example, the $41$st skier to sign up would pay $\$118$, the $42$nd skier would pay $\$116$. See the table:
-
-\begin{center}
-\renewcommand{\arraystretch}{1.5}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % centered 'p' col.
-\begin{tabular}{*{4}{C{0.2\linewidth}}}
-    \hline
-    extras & persons & cost/person & revenue \\
-    \hline
-    $0$    &   $40$  &      $120$  &   $4800$\\
-    $1$    &   $41$  &      $118$  &  \\
-    $2$    &   $42$  &      $116$  &  \\
-    $3$    &   $43$  &             &  \\
-    $4$    &   $44$  &             &  \\
-    $5$    &   $45$  &             &  \\
-    $6$    &   $46$  &             &  \\
-    $7$    &   $47$  &             &  \\
-    $8$    &   $48$  &             &  \\
-    $9$    &   $49$  &             &  \\
-    $10$   &   $50$  &             &  \\
-    $11$   &   $51$  &             &  \\
-    $12$   &   $52$  &             &  \\
-    \hline
-    \end{tabular}
-\end{center}
-
-\begin{enumerate}
-
-\item 
-Fill in the table for the manager. 
-
-\begin{answer}
-\begin{center}
-  \colorbox{white}{\includegraphics[width=0.95\linewidth]{flintprep-293-variant-1}}
-\end{center}
-\begin{center}
-  \colorbox{white}{\includegraphics[width=0.95\linewidth]{flintprep-293-variant-2}}
-\end{center}
-\end{answer}
-
-\item 
-Let $n$ be the total number of registrants. Write an expression for revenue in terms of $n$ and plot it. 
-
-\begin{answer}
-\end{answer}
-
-\item
-For the resort to take in at least $\$4900$, how many skiers must go on the trip?
-
-\begin{answer}
-\end{answer}
-
-\end{enumerate}
-
-\iftoggle{showAnswers}{\newpage}
