@@ -1,0 +1,41 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\usepackage{tkz-euclide}
+
+\newcommand*{\AB}{9}
+\newcommand*{\BC}{6}
+\newcommand*{\CA}{5}
+
+\begin{document}
+
+\begin{tikzpicture}[thick,scale=1]
+  \tkzDefPoint(0,0){A} 
+  \tkzDefPoint(\AB,0){B}
+  \tkzInterCC[R](A,\CA cm)(B,\BC cm) 
+  \tkzGetPoints{C}{D}
+  \tkzDrawPolygon(A,B,C)
+  \tkzLabelPoints[below left](A)
+  \tkzLabelPoints[below right](B)
+  \tkzLabelPoints[above left](C)
+%  \tkzLabelSegment[below](A,B){$b$}
+  \tkzLabelSegment[above right](B,C){$c$}
+  \tkzLabelSegment[above left](C,A){$a$}
+  % project height from C onto AB
+  \tkzDefPointBy[projection=onto A--B](C)
+  \tkzGetPoint{P}
+%  \tkzLabelPoints[below right](P)
+  \tkzDrawSegment(C,P)
+  \tkzMarkRightAngle(A,P,C)
+  \tkzLabelSegment[below](A,P){$x$}
+  \tkzLabelSegment[below](P,B){$b-x$}
+  \tkzLabelSegment[right](C,P){$h$}
+  % mark angles
+  \tkzMarkAngle[size=0.7cm,mark=none](B,A,C)
+  \tkzLabelAngle[pos=1](B,A,C){$\alpha$}
+  \tkzMarkAngle[size=0.7cm,mark=none](C,B,A)
+  \tkzLabelAngle[pos=1](C,B,A){$\beta$}
+%  \tkzMarkAngle[size=0.7cm,mark=none](A,C,B)
+%  \tkzLabelAngle[pos=1](A,C,B){$\gamma$}
+\end{tikzpicture}
+
+\end{document}
+

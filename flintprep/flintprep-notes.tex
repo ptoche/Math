@@ -22,7 +22,7 @@ Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{1. (Problem Solving)}
+\section{Problem Solving}
 
 \nopagebreak
 
@@ -51,7 +51,7 @@ We can solve for $G$ and $A$ by substitution:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{2.}
+\section{Cartesian Coordinates}
 
 \nopagebreak
 
@@ -98,7 +98,7 @@ The top-left corner, at the $y$-coordinate $d$, is the intercept of the line wit
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{3.}
+\section{Speed, Distance, Time}
 
 \nopagebreak
 
@@ -135,7 +135,7 @@ Solution:
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{4. Problem 293}
+\section{Problem 293}
 
 \nopagebreak
 
@@ -166,8 +166,8 @@ The resort manager offers to reduce the group rate of $\$120$ per person by $\$2
     $1$    &   $41$  &         &  \\
     $2$    &   $42$  &         &  \\
     $3$    &   $43$  &         &  \\
-    $4$    &   $44$  &  $110$  & $4950$\\
-    $5$    &   $45$  &         &  \\
+    $4$    &   $44$  &         &  \\
+    $5$    &   $45$  &  $110$  & $4950$\\
     $6$    &   $46$  &         &  \\
     $7$    &   $47$  &         &  \\
     $8$    &   $48$  &         &  \\
@@ -271,7 +271,7 @@ Any value in between generates even greater revenue. Thus, the resort can take i
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{5. Question 11 of MidTerm Test}
+\section{Question 11 of MidTerm Test}
 
 \nopagebreak
 
@@ -282,49 +282,17 @@ After high school, N. gets a job at the fire department, and is in charge of ope
 \item What is the quadratic equation that models the path of the water?
 
 \begin{answer}
-The general equation is
+One of the roots is at $x=58$. Since the maximum height occurs at $28$ feet, the vertex is located at $x=28$. This gives the second root as $x=58-2\times(58-28)=-2$. This gives a quadratic equation of the form:
 \begin{align*}
-y = a x^2 + b x + c
-\end{align*} 
-where $a$, $b$, $c$ are constants to be determined. Obviously $a<0$ since the path of the water is up then down. The $y$ intercept is at $4.5$ feet, so $c=4.5$. One of the roots is at $x=58$, giving the condition
-\begin{align*}
-58^2 \cdot a + 58 \cdot b + 4.5 = 0
+y = a(x+2)(x-58)
 \end{align*}
-a linear equation in the parameters $a$ and $b$. Since the maximum height occurs at $28$ feet, the vertex is located at $x=28$,
+where $a$ is determined as follows. The $y$ intercept is at $4.5$ feet, so
 \begin{align*}
-y & = a x^2 + b x + c \\
-  & = a (x^2 + \frac{b}{a} x +  \frac{c}{a}) \\
-  & = a \left[\left(x + \frac{b}{2a}\right)^2 - \left(\frac{b}{2a}\right)^2  + \frac{c}{a}\right] 
+4.5 = a(0+2)(0-58) 
+\quad\Rightarrow\quad
+a = -\frac{9}{232} \approx 0.0043
 \end{align*}
-The vertex condition gives:
-\begin{align*}
-x = - \frac{b}{2a} = 28
-\quad\Rightarrow\quad 
-b = -56a
-\end{align*}
-
-The parameters $a$ and $b$ satisfy the system:
-\begin{align*}
-58^2a + 58b + 4.5 & = 0 \\
-56a + b & = 0 
-\end{align*}
-Subtracting $58$ times the second equation from the first eliminates $b$:
-\begin{align*}
-(58^2 - 58 \cdot 56) a + 4.5 & = 0 \\
-\quad\Rightarrow\quad 
-a & = -\frac{4.5}{116} 
-  \approx 0.0043\\[1ex]
-b & = \frac{56 \times 4.5}{116}
-  = \frac{252}{116}
-  = \frac{63}{29}
-  \approx 2.1724
-\end{align*}
-
-The quadratic equation is:
-\begin{align*}
-y = -\frac{45}{1160} \cdot x^2 + \frac{63}{29} \cdot x + 4.5 
-\end{align*}
-
+Obviously $a<0$ since the path of the water is up then down. 
 \end{answer}
 
 \item Graph the function.
@@ -340,7 +308,9 @@ y = -\frac{45}{1160} \cdot x^2 + \frac{63}{29} \cdot x + 4.5
 \begin{answer}
 The maximum height occurs for $x=28$:
 \begin{align*}
-y = -\frac{45}{1160} \cdot 28^2 + \frac{63}{29} \cdot 28 + 4.5 
+y = -\frac{9}{232} \, (28+2)(28-58) 
+  = \frac{9 \times 30^2}{232}
+  = \frac{2025}{58} 
   \approx 34.9
 \end{align*} 
 \end{answer}
@@ -350,7 +320,8 @@ y = -\frac{45}{1160} \cdot 28^2 + \frac{63}{29} \cdot 28 + 4.5
 \begin{answer}
 The question is whether $y>6$ for $x=48$:
 \begin{align*}
-y = -\frac{45}{1160} \cdot 48^2 + \frac{63}{29} \cdot 48 + 4.5 
+y = -\frac{9}{232} \, (48+2)(48-58) 
+  = \frac{1125}{58}
   \approx 19.4
 \end{align*} 
 The height of the water is more than three times greater than the fence. 
@@ -362,7 +333,7 @@ The height of the water is more than three times greater than the fence.
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{6.}
+\section*{The Shortest Fence}
 
 \nopagebreak
 
@@ -460,7 +431,7 @@ In general, if the distance to the wall is $d$ and the height of the fence $h$, 
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{7.}
+\section{A Bouncing Ball}
 
 \nopagebreak
 
@@ -513,7 +484,7 @@ While the total number of bounces is infinite, the distance traveled by the ball
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{8.}
+\section{Loan Repayment}
 
 \nopagebreak
 
@@ -571,23 +542,69 @@ P \longrightarrow rA_{0} \quad\text{as}\quad t\longrightarrow\infty
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{9.}
+\section{Present Value Calculation}
 
 \nopagebreak
 
-An NBA center recently signed a seven-year contract for $\$121$ million. What is the present value of this contract, given a $9\%$ interest rate? In other words, how much must the ball club invest when the contract is signed, so that it can make seven equal payments of $\$17,285,714.29$, the first one due immediately? 
+An NBA center recently signed a seven-year contract for $\$121$ million. What is the present value of this contract, given a $9\%$ interest rate?
 
 \begin{answer}
-Let $B_{t}$ denote the cash balance at the start of period $t$. Let $P$ denote the annual payment, that is  $P = \$17,285,714.29$. Let $r$ denote the interest rate on the bank balance, $r = 0.09$. The bank balance evolves as follows:
+Let $r$ denote the interest rate on the bank balance, $r=0.09$. Let $P$ denote the annual payment, 
 \begin{align*}
-t & = 0 \qquad B_{0} = I - P\\
-t & = 1 \qquad B_{1} = (1+r)B_{0} - P\\
+P = \frac{121,000,000}{7}
+\end{align*}
+The present discounted value of the seven payments is:
+\begin{align*}
+\text{Present Value}~ =
+P + \frac{P}{1+r} + \frac{P}{(1+r)^2} + \ldots + \frac{P}{(1+r)^6}
+\end{align*}
+To clarify the derivation, let $a =\dfrac{1}{1+r}$. 
+\begin{align*}
+\text{Present Value}~ =
+P \, (1 + a + a^2 + \ldots + a^6)
+ & = P \cdot \frac{1-a^7}{1-a}
+\end{align*}
+Substituting $r$ back into the expression,
+\begin{align*}
+\text{Present Value}~
+ & = P \cdot \frac{1-\left(\frac{1}{1+r}\right)^7}{1-\frac{1}{1+r}} \\
+ & = P \cdot \frac{(1+r)^7-1}{(1+r)^7} \cdot \frac{1+r}{r} \\
+ & = P \cdot \frac{(1+r)^7-1}{r(1+r)^6} \\
+ & = \frac{121,000,000}{7} \cdot \frac{(1.09)^7-1}{0.09(1.09)^6} \\
+ & \approx 94,828,021
+\end{align*}
+%% 121000000/7 * ((1.09)^7-1) / 0.09 / (1.09)^6 
+%% 94828021
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+ \text{Present Value}~ \approx 94,828,021
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contract Valuation}
+
+\nopagebreak
+
+An NBA center recently signed a seven-year contract for $\$121$ million. How much must the club invest when the contract is signed, so that it can make seven equal payments, the first one due immediately, given a $9\%$ interest rate? 
+
+\begin{answer}
+Let $r$ denote the interest rate on the bank balance, $r=0.09$. Let $P$ denote the annual payment, 
+\begin{align*}
+P = \frac{121,000,000}{7}
+\end{align*}
+Let $B_{t}$ denote the cash balance at the start of period $t$. The bank balance evolves as:
+\begin{align*}
+t & = 1 \qquad B_{1} = I - P\\
+t & = 2 \qquad B_{2} = (1+r)B_{1} - P\\
   &\vdotswithin{=} \\
 t & = n \qquad B_{n} = (1+r)B_{n-1} - P
 \end{align*}
-The initial investment $I$ and the first payment $P$ occur at the \underline{start} of the first year. The initial balance $B_{0}$ is then placed in an interest-paying account where it grows to $(1+r)B_{0}$ by the \underline{end} of the first year, indexed $t=1$, when the second payment $P$ takes place. The process continues like that until the seventh payment at index $t=7$ (the end of the seventh year). 
+The initial investment $I$ and the first payment $P$ occur at the \underline{start} of the contract ($t=1$). The initial balance $B_{1}$ is immediately placed in an interest-paying account. By the \underline{start} of the second year, the balance has grown to $(1+r)B_{1}$, and the second payment $P$ is made. The process continues until the seventh payment is completed.
 
-Note! In some problems the first payment and accrued interest occur simultaneously at the end of the first period, but here the first payment is due one period before the interest accrues. The difference is that $B_{0}$ would be $I$ instead of $I-P$. 
+Note! In some problems the first payment and accrued interest occur simultaneously at the end of the first period, but here the first payment is due one period before the interest accrues. The difference is that $B_{1}$ would be $I$ instead of $I-P$. 
 
 To express the final balance $B_{n}$ in terms of the initial investment $I$, we repeatedly substitute, rearrange, and deduce the general pattern:
 \begin{align*}
@@ -597,7 +614,7 @@ B_{n} & = (1+r)B_{n-1} - P\\
       &\vdotswithin{=}\\
       & = (1+r)^{k}B_{n-k} - (1+r)^{k-1}P - \ldots  - (1+r)P - P
 \end{align*}
-To check the correctness of the formula, set $n=1$ and $k=1$, say, and check that the formula returns the same expressions calculated earlier. 
+The formula, returns the same expressions calculated earlier for e.g. $n=1,2$. 
 
 The payments part of the formula can be simplified by recognizing that the $(1+r)^{k}P$ terms form a geometric sum:
 \begin{align*}
@@ -606,46 +623,171 @@ B_{n} & = (1+r)^{k}B_{n-k} - (1+r)^{k-1}P - \ldots  - (1+r)P - P \\
       & = (1+r)^{k}B_{n-k} - \frac{(1+r)^{k}-1}{(1+r)-1\hfill}  \, P \\
       & = (1+r)^{k}B_{n-k} - \frac{(1+r)^{k}-1}{r}  \, P
 \end{align*}
-Set $k=n$
+Set $k=n-1$
 \begin{align*}
-B_{n} = (1+r)^{n}B_{0} - \frac{(1+r)^{n}-1}{r} \, P
+B_{n} = (1+r)^{n-1}B_{1} - \frac{(1+r)^{n-1}-1}{r} \, P
+\end{align*}
+Thus, the balance after $n$ payments, expressed in terms of the initial investment $I$, is
+\begin{align*}
+B_{n} = (1+r)^{n-1}(I - P) - \frac{(1+r)^{n-1}-1}{r} \, P
 \end{align*}
 
-Thus, the balance at time $n$ may be expressed in terms of the initial investment $I$ as
+In the special case $n=7$ (seven payments), we get the final balance:
 \begin{align*}
-B_{n} = (1+r)^{n}(I - P) - \frac{(1+r)^{n}-1}{r} \, P
-\end{align*}
-
-In the special case $n=7$, we get the final balance:
-\begin{align*}
-B_{7} = (1+r)^{7}(I-P) - \frac{(1+r)^{7}-1}{r} \, P
+B_{7} = (1+r)^{6}(I-P) - \frac{(1+r)^{6}-1}{r} \, P
 \end{align*}
 The first term includes the first payment, while the second term includes the effect of the next $6$ payments. 
 
 To cover the contract, the club should invest exactly enough to cover the seven payments, so that the balance should be zero after the seventh payment, $B_{7}=0$, implying
 \begin{align*}
-(1+r)^{7} (I-P)
-     & = \frac{(1+r)^{7}-1}{r}  \, P \\
-   I & = P + \frac{1-(1+r)^{-7}}{r} \, P
+(1+r)^{6} (I-P)
+     & = \frac{(1+r)^{6}-1}{r}  \, P \\
+   I & = P + \frac{1-(1+r)^{-6}}{r} \, P
 \end{align*}
-Plug in the data, 
+Plug in the data into the Initial Investment $I$,
 \begin{align*}
-I & = \frac{121,000,000}{7} \left(1 + \frac{1-(1.09)^{-7}}{0.09} \right) \\
-  & \approx 104,283,899
+I & = \frac{121,000,000}{7} \left(1 + \frac{1-(1.09)^{-6}}{0.09} \right) \\
+  & \approx 94,828,021
 \end{align*}
-%% (121000000/7) * (1 + (1-(1.09)^(-7))/0.09)
-%% 104283899
-where $P=\$17,285,714.29$ is calculated as one-seventh of $\$121$ million. 
-The $121$ million dollar contrat can be financed with a little over $104$ million dollars. That means the bank balances return a total of $\$16,716,101$ interest over the seven-year period.
+%% (121000000/7) * (1 + (1-(1.09)^(-6))/0.09)
+%% 94828021
+The $121$ million dollar contrat can be financed with a little less than $95$ million dollars. That means the bank balances return a total of about $\$26,171,979$ in interest payments over the seven-year period. But note that the initial investment needed to honor the contract is equal to the present value of $121$ million dollars divided into seven annual payments! A simpler approach that yields the same answer is therefore:
+\begin{align*}
+I = P \cdot \frac{1-a^7}{1-a}
+      \qquad \text{where}~ a =\dfrac{1}{1+r}
+\end{align*}
 
-The initial investment needed to honor the contract is:
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-    I \approx \$  104,283,899
-\end{empheq} 
+    \text{Initial Investment}~ =
+    \text{Present Value}~ \approx ~ \$ 94,828,021
+\end{empheq}
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Algebraic Series}
+
+\nopagebreak
+
+Let $a_{n}$ denote the $n$th term in the algebraic sequence with common difference $d$, and let $s_{n}$ denote the sum of the first $n$ terms, starting with $a_{1}$. Express $s_{n}$ in terms of $a_{1}$, $d$, and $n$. Express $s_{n}$ in terms of $a_{n}$, $d$, and $n$. Express $s_{n}$ in terms of $a_{1}$, $a_{n}$, and $n$ (no $d$).  
+
+\begin{answer}
+The algebraic sequence $a_{m}$ satisfies the recursion
+\begin{align*}
+a_{m} = a_{m-1} + d
+\end{align*}
+By repeated substitution (at the last step, substitute $k=m-1$),
+\begin{align*}
+a_{m} & = a_{m-1} + d \\
+      & = a_{m-2} + 2d \\
+      & = a_{m-k} + kd \\
+      & = a_{1} + (m-1)d 
+\end{align*}
+
+The algebraic sequence $a_{m}$ also satisfies the recursion
+\begin{align*}
+a_{m} = a_{m+1} - d
+\end{align*}
+By repeated substitution (at the last step, substitute $k=n-m$),
+\begin{align*}
+a_{m} & = a_{m+1} - d \\
+      & = a_{m+2} - 2d \\
+      & = a_{m+k} - kd \\
+      & = a_{n} - (n-m)d 
+\end{align*}
+
+We have written the sequence in two ways, which we can use to obtain a third expression:
+\begin{align*}
+a_{m} & = \frac{1}{2} (a_{1} + (m-1)d) + \frac{1}{2} (a_{n} - (n-m)d) \\
+      & = \frac{a_{1} + a_{n}}{2} + \frac{d}{2} (2m-1-n) \\
+\quad\Rightarrow\quad
+a_{n} & = \frac{a_{1} + a_{n}}{2} + \frac{d(n-1)}{2} 
+\end{align*}
+The arithmetic sum series is then
+\begin{align*}
+& s_{n} = \sum_{m=1}^{m=n} a_{m} 
+  = \sum_{m=1}^{m=n}\frac{a_{1} + a_{n}}{2} + \frac{d}{2}\sum_{m=1}^{m=n} (2m-1-n)
+  = \frac{n(a_{1} + a_{n})}{2} \\
+& \text{where}\quad \sum_{m=1}^{m=n} (2m-1-n) 
+  = (1-n) + (3-n) + \ldots + (n-3) + (n-1)
+  = 0
+\end{align*}
+
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+a_{m} = \frac{a_{1} + a_{n}}{2}
+\qquad 
+s_{n} = \frac{n(a_{1} + a_{n})}{2}
+\end{empheq} 
+
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trigonometry}
+
+\nopagebreak
+
+Calculate the angles of a triangle with side lengths $5$, $6$, $9$. Calculate its area. 
+
+\begin{answer}
+Refer to the figure. Let $a$, $b$, $c$ denote the side lengths and $\alpha$, $\beta$, $\gamma$ the angles. 
+\begin{center}
+  \colorbox{white}{\includegraphics[height=6cm,page=1]{flintprep-triangle}}
+\end{center}
+If we know one height of the triangle, we can calculate two angles and deduce the third:
+\begin{align*}
+\sin(\alpha) & = \frac{h}{a} \\
+ \sin(\beta) & = \frac{h}{c} \\
+      \gamma & = 180 - \alpha - \beta
+\end{align*}
+where $\alpha$ is the angle at vertex $A$, $\beta$ is the angle at vertex $B$, and $\gamma$ is the angle at vertex $C$ (not shown), with the given distances $AC=a=5$, $AB=b=9$, $BC=c=6$.
+
+To calculate the height, apply the Pythagoras theorem to each half right-triangle:
+\begin{align*}
+h^2 + x^2 & = a^2 \\
+h^2 + (b-x)^2 & = c^2
+\end{align*}
+Subtract the second equation from the first to eliminate $h^2$, and solve for $x$:
+\begin{align*}
+(b-x)^2 - x^2 =
+b^2 - 2bx = c^2 - a^2 
+\quad\Rightarrow\quad
+x = \frac{a^2+b^2-c^2}{2b}
+\end{align*}
+Substitute back to solve for $h$:
+\begin{align*}
+     h & = \sqrt{a^2-x^2} = \sqrt{a^2 - \left(\frac{a^2+b^2-c^2}{2b}\right)^2}
+         \quad \approx 3.142696805 \\
+   h/a & \approx 0.628539361 
+  \quad\Rightarrow\quad
+  \alpha \approx 38.94^{\circ}, \quad 
+   \beta \approx 20.44^{\circ}, \quad
+  \gamma \approx 120.62^{\circ} 
+\end{align*}
+
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+ 38.94^{\circ} \quad 20.44^{\circ} \quad 120.62^{\circ} 
+\end{empheq} 
+
+A general formula for the area of the triangle in terms of the side lengths follows:
+\begin{align*}
+\frac{bh}{2} 
+= \frac{1}{4} \sqrt{(2ab)^2 - \left(a^2+b^2-c^2\right)^2}
+\quad \approx 14.14213562
+\end{align*}
+%% a = 5
+%% b = 9
+%% c = 6
+%% 1/4 * sqrt( (2*a*b)^2 - (a^2+b^2-c^2)^2 )
+%% 14.14214
+\end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \iftoggle{showAnswers}{\newpage}

@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\newif\ifanswer\answertrue%\answerfalse% comment out to show/hide answers
+\usepackage{../preamble3}% preamble always after \newif\ifanswer
+\renewcommand{\theenumi}{\alph{enumi}}
+%\pagenumbering{gobble}
+\title{Flintridge Prep Summer School, Algebra II \\ June-July 2021}
+\author{Patrick \& James Toche}
+\date{Revised:~\today}
+
+\begin{document}
+\subsubsection*{Linear Equations}
+\begin{align*}
+  ax + bx & = c \\
+        y & = \alpha + \beta x \\
+y - y_{0} & = \beta (x - x_{0})
+\end{align*} 
+
+\subsubsection*{Quadratic Equations}
+\begin{align*}
+y & = a x^2 + b x + c \\
+y & = a (x-h)^2 + k \\
+y & = a (x-r_{1}) (x-r_{2}) \\[1ex]
+r_{1}, r_{2}
+  & = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\
+h & = - \frac{b}{2a}, \quad k = - \frac{b^2-4ac}{4a^2}
+\end{align*} 
+
+\subsubsection*{Completing the Square}
+\begin{align*}
+y & = a x^2 + b x + c \\
+  & = a \left(x^2 + \frac{b}{a} x +  \frac{c}{a}\right) \\[1ex]
+  & = a \left[\left(x + \frac{b}{2a}\right)^2 - \left(\frac{b}{2a}\right)^2  + \frac{c}{a}\right] \\[1ex] 
+  & = a \left[\left(x + \frac{b}{2a}\right)^2 - \frac{b^2-4ac}{(2a)^2}\right] \\[1ex] 
+  & = a \left(x-\frac{-b - \sqrt{b^2 - 4ac}}{2a}\right) \left(x-\frac{-b + \sqrt{b^2 - 4ac}}{2a}\right)
+\end{align*}
+
+\subsubsection*{Ellipses}
+\begin{align*}
+& \text{major axis:} \;\qquad 2a = V_{1}V_{2} \\
+& \text{minor axis:} \;\qquad 2b = coV_{1}coV_{2}\\
+& \text{focal distance:} \quad 2c = F_{1}F_{2}\\
+& a^2 = b^2 + c^2 \\
+& \text{x-major:}\qquad \frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1 \\
+& \text{y-major:}\qquad \frac{(x-h)^2}{b^2} + \frac{(y-k)^2}{a^2} = 1 
+\end{align*}
+
+\subsubsection*{Hyperbolas}
+\begin{align*}
+\text{x-major:}\quad \frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1 
+\qquad\text{asymptotes:}\quad y = \pm \frac{b}{a}x \\
+\text{y-major:}\quad \frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1 
+\qquad\text{asymptotes:}\quad y = \pm \frac{a}{b}x \\
+\end{align*}
+
+\subsubsection*{Circles}
+\begin{align*}
+(x-h)^2 + (y-k)^2 = r^2
+\end{align*}
+
+
+\subsubsection*{Arithmetic Series}
+\begin{align*}
+a_{k} & = a_{1} + (k-1)d \\
+      & = a_{n} - (n-k)d \\[1ex]
+s_{n} & = na_{1} +\frac{n(n-1)d}{2} \\
+      & = na_{n} -\frac{n(n-1)d}{2} \\
+      & = \frac{n(a_{1}+a_{n})}{2} \\[1ex]
+1 + 2 + 3 + \ldots + n & = \frac{n(n+1)}{2}
+\end{align*}
+
+\subsubsection*{Geometric Series}
+\begin{align*}
+a_{n} & = a_{1} r^{n-1} \\[1ex]
+s_{n} & = a_{1} \frac{1-r^{n+1}}{1-r} 
+\qquad\longrightarrow\qquad
+s_{\infty} = \frac{a_{1}}{1-r} 
+\end{align*}
+
+\subsubsection*{Binomial Expansion}
+\begin{align*}
+(a+b)^{n} 
+  & = 
+  \binom{n}{0} a^{n}b^{0} 
++ \binom{n}{1} a^{n-1}b^{1} 
++ \binom{n}{2} a^{n-2}b^{2} 
++ \ldots 
+%+ \binom{n}{n-2} a^{2}b^{n-2} 
++ \binom{n}{n-1} a^{1}b^{n-1} 
++ \binom{n}{n} a^{0}b^{n} \\[1ex]
+\binom{n}{k} 
+  & = \frac{n!}{k!(n-k)!} \\
+\end{align*}
+
+\subsubsection*{Law of Cosines}
+\begin{align*}
+a^2 = b^2 + c^2 - 2bc\, \cos(\alpha)
+\end{align*}
+
+\subsubsection*{Law of Sines}
+\begin{align*}
+\frac{\sin(\alpha)}{a} = \frac{\sin(\beta)}{b} 
+\end{align*}
+
+\subsubsection*{Triangles}
+Area of a triangle with side lengths $a$, $b$, $c$:
+\begin{align*}
+\frac{1}{4} \sqrt{(2ab)^2 - \left(a^2+b^2-c^2\right)^2}
+\end{align*}
+
+\end{document}
