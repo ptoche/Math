@@ -20,7 +20,7 @@ Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{1.}
+\section{Equation with Fractional Powers}
 
 \nopagebreak
 
@@ -57,7 +57,7 @@ Find the value of $x$ that satisfies the equation
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{2.}
+\section{Equation with Absolute Values}
 
 \nopagebreak
 
@@ -125,7 +125,7 @@ What is the sum of all the solutions of $x = |2x-|60-2x||$~?
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{3.}
+\section{Product of Roots and Absolute Values}
 
 \nopagebreak
 
@@ -188,9 +188,8 @@ We have two cases:
 
 \iftoggle{showAnswers}{\newpage}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{4.}
+\section{Integer Inequalities}
 
 \nopagebreak
 
@@ -217,9 +216,8 @@ $100$ and $200$ are multiples of $50$, so:
 
 \iftoggle{showAnswers}{\newpage}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{5.}
+\section{System with Unknown Powers}
 
 \nopagebreak
 
@@ -253,7 +251,7 @@ Substituting:
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{6.}
+\section{Sum from System of Products}
 
 \nopagebreak
 
@@ -285,7 +283,7 @@ Other approaches are possible. For instance, we notice that since $72=3\times24$
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{7.}
+\section{Sum of Squares of System}
 
 \nopagebreak
 
@@ -319,7 +317,7 @@ x^2 + 2xy + y^2 & = 9^2 \\
 \iftoggle{showAnswers}{\newpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{8.}
+\section{System of Exponentials}
 
 \nopagebreak
 
@@ -352,6 +350,60 @@ With $8=2^{3}$ and $4=2^{2}$, we have:
 \end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+\begin{comment}% THIS SOLUTION DOES NOT WORK!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quadrilateral with Unknown Side}
+
+\nopagebreak
+
+In quadrilateral $ABCD$, $AB = 5$, $BC = 17$, $CD = 5$, $DA = 9$, and $BD$ is an integer. Calculate $BD$.
+
+\bigskip
+\begin{center}
+  \includegraphics[height=4cm,page=1]{aops-amc10-figure-1}
+\end{center}
+\bigskip
+
+\begin{answer}
+%Project $D$ onto $CB$ to point $D^{\prime}$. 
+Project $A$ onto $BD$ to point $A^{\prime}$. 
+Let $x$ denote the unknown $BD$, $y$ the segment $BA^{\prime}$, and let $h$ denote the height $AA^{\prime}$. 
+%Likewise, let $z$ denote the segment $CD^{\prime}$, and let $k$ denote the height $DD^{\prime}$. 
+\bigskip
+\begin{center}
+  \includegraphics[height=8cm,page=2]{aops-amc10-figure-1}
+\end{center}
+\bigskip
+Applying the Pythagoras theorem to triangles 
+% $DD^{\prime}C$, $DD^{\prime}B$, 
+$AA^{\prime}B$, and $AA^{\prime}D$ yields:
+\begin{align*}
+        h^2 + y^2 & = 5^2 
+ \\ h^2 + (x-y)^2 & = 9^2 
+%     \\ k^2 + z^2 & = 5^2 
+%\\ k^2 + (17-z)^2 & = x^2 
+\end{align*}
+The first equation may be subtracted from the first to eliminate $h$ and get an expression in $x$ and $y$. 
+%And likewise with the other two equations.
+\begin{align*}
+    (x-y)^2 - y^2 & = 9^2 - 5^2
+%\\ (17-z)^2 - z^2 & = x^2 - 5^2 
+\\      x^2 - 2yx & = 56 
+%\\ x^2 + 34z & = 314
+\end{align*}
+Since we know that $x$ is an integer, we can guess its value as follows. Factor $x$ and write $56$ as the product of its prime factors. 
+\begin{align*}
+x(x - 2y) = 2^3 \times 7
+\end{align*}
+We guess $x=2^3$ and $x-2y=7$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+\end{comment}
 
 
 \end{document}

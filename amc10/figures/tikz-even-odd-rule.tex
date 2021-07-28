@@ -1,0 +1,23 @@
+\documentclass[border=3pt,tikz]{standalone}
+
+% define the angle theta = pi/7
+\def\theta{25.71}
+\def\shapeA{(0,0) circle (1cm)}
+\def\shapeB{(0,0) circle (2cm)}
+\def\shapeC{(0,0) circle (3cm)}
+
+\def\shapeD{(-\theta:3.5cm) -- (0,0) -- (\theta:3.5cm)}
+\def\shapeE{(180+\theta:3.5cm) -- (0,0) -- (180-\theta:3.5cm)}
+
+\begin{document}
+
+\begin{tikzpicture}[thick]
+    \begin{scope}
+        \clip \shapeC;
+        \fill[fill=lightgray, even odd rule]  \shapeE \shapeB \shapeD \shapeA;
+    \end{scope}
+  
+  \draw \shapeA \shapeB \shapeC \shapeD \shapeE;
+\end{tikzpicture}
+
+\end{document}

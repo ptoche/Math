@@ -29,6 +29,13 @@
 \usepackage{scalerel}% \scaleleftright[1.75ex]{<}
 \usepackage{nccmath}% medium-sized fraction \mfrac
 
+% Triangle and Arc/Sector hat symbols
+%\usepackage{amsmath}
+\DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\trianglehat}{\mathord}{yhlargesymbols}{"E6}
+\DeclareMathAccent{\sectorhat}{\mathord}{yhlargesymbols}{"F3}
+
+
 % minipagex correctly applies paragraph skip preferences
 \newlength{\currentparskip}
 \newlength{\currentparindent}
