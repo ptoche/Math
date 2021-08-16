@@ -1,10 +1,10 @@
 \documentclass[12pt]{article}
-\newif\ifanswer\answertrue%\answerfalse% comment out to show/hide answers
+\newif\ifanswer\answertrue\answerfalse% comment out to show/hide answers
 \usepackage{../preamble3}% preamble always after \newif\ifanswer
 %\pagenumbering{gobble}
-\title{Art Of Problem Solving - AMC 10 \\ August 7, 2021}
+\title{Art Of Problem Solving - AMC 10 \\ Week 9}
 \author{Patrick \& James Toche}
-\date{Revised:~\today}
+\date{August 7, 2021}
 
 \begin{document}
 \maketitle
@@ -46,8 +46,9 @@ There are $8$ choices of condiments which may be combined in any way. Thus, for 
 
 At an inter-species dance party, each cat danced with exactly three dogs and each dog danced with exactly two cats. No one danced with anyone of their own species, and twelve cats attended the party. How many dogs attended the party?
 
-\fbox{(A) $8$ \quad (B) $12$ \quad (C) $16$ \quad (D) $18$ \quad (E) $24$}
+\nopagebreak
 
+\fbox{(A) $8$ \quad (B) $12$ \quad (C) $16$ \quad (D) $18$ \quad (E) $24$}
 
 \begin{answer}
 Let $c$ denote the number of cats and $d$ the number of dogs. The total number of pairs is:
@@ -55,7 +56,7 @@ Let $c$ denote the number of cats and $d$ the number of dogs. The total number o
 3 c & = 2d \\
 \text{where}~
   c & = 12 \\
-\quad\Rightarrow\quad
+\implies
          d & = \frac{3 \times 12}{2} = 18
 \end{align*}
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
@@ -73,8 +74,9 @@ Let $c$ denote the number of cats and $d$ the number of dogs. The total number o
 
 A restaurant offers three desserts, and exactly twice as many appetizers as main courses. A dinner consists of an appetizer, a main course, and a dessert. What is the least number of main courses that the restaurant should offer so that a customer could have a different dinner each night in the year 2003?
 
-\fbox{(A) $4$ \quad (B) $5$ \quad (C) $6$ \quad (D) $7$ \quad (E) $8$}
+\nopagebreak
 
+\fbox{(A) $4$ \quad (B) $5$ \quad (C) $6$ \quad (D) $7$ \quad (E) $8$}
 
 \begin{answer}
 There are $365$ dinners in the year. Let $n$ denote the number of main courses to be offered during the year. We want to be able to select $1$ dessert from $3$, together with $1$ appetizers from $2n$, and $1$ main course from $n$, so that
@@ -101,6 +103,8 @@ Thus, $8$ main courses are required at least.
 
 A license plate in a certain state consists of 4 digits, not necessarily distinct, and 2 letters, also not necessarily distinct. These six characters may appear in any order, except that the two letters must appear next to each other. How many distinct license plates are possible?
 
+\nopagebreak
+
 \fbox{(A) $10^{4}\cdot26^{2}$ \quad (B) $10^{3}\cdot26^{3}$ \quad (C) $5\cdot10^{4}\cdot26^{2}$ \quad (D) $10^{2}\cdot26^{4}$ \quad (E) $5 \cdot 10^{3}\cdot26^{3}$}
 
 \begin{answer}
@@ -120,6 +124,8 @@ There are $10^4$ possible combinations of digits and $26^2$ possible combination
 
 A set of 25 square blocks is arranged into a $5 \times 5$ square. How many different combinations of 3 blocks can be selected from that set so that no two are in the same row or column?
 
+\nopagebreak
+
 \fbox{(A) $100$ \quad (B) $125$ \quad (C) $600$ \quad (D) $2300$ \quad (E) $3600$}
 
 \begin{answer}
@@ -127,7 +133,7 @@ Consider placing the blocks sequentially. There are $25$ choices for the first b
 \begin{align*}
 25 \cdot 16 \cdot 9 = 3600
 \end{align*}
-But since there is no way to distinguish these blocks, we are overcounting. We have overcounted the first square by a factor of $3$ and the second square by a factor of $2$. The required correction is therefore $3!$.
+But since there is no way to distinguish these blocks, we are overcounting. We have overcounted the first square by a factor of $3$ and the second square by a factor of $2$. The required correction is therefore $3 \times 2 = 3!$
 \begin{align*}
 \frac{25 \cdot 16 \cdot 9}{3!} = \frac{3600}{6} = 600
 \end{align*}
@@ -162,6 +168,8 @@ Thus the total number of ways to position $b$ blocks on an $mn$ grid is:
 
 Pat is to select six cookies from a tray containing only chocolate chip, oatmeal, and peanut butter cookies. There are at least six of each of these three kinds of cookies on the tray. How many different assortments of six cookies can be selected?
 
+\nopagebreak
+
 \fbox{(A) $22$ \quad (B) $25$ \quad (C) $27$ \quad (D) $28$ \quad (E) $729$}
 
 \begin{answer}
@@ -184,16 +192,18 @@ There are enough cookies to select $6$ of one (and any) kind only. There are $3$
 
 Seven distinct pieces of candy are to be distributed among three bags. The red bag and the blue bag must each receive at least one piece of candy; the white bag may remain empty. How many arrangements are possible?
 
+\nopagebreak
+
 \fbox{(A) $1930$ \quad (B) $1931$ \quad (C) $1932$ \quad (D) $1933$ \quad (E) $1934$}
 
 \begin{answer}
-There are $3^{7}$ ways to place $7$ pieces into $3$ bags, neglecting restrictions. The first restriction is that the red bag cannot be empty: there are $2^{7}$ ways to place $7$ candies into $2$ bags only, leaving the red bag empty, so we must subtract these cases. Likewise for the blue bag. However, the case where both the red and blue bags are empty is included in both counts. Putting it together,
+There are $3^{7}$ ways to place $7$ pieces into $3$ bags, neglecting restrictions. The first restriction is that the red bag cannot be empty: there are $2^{7}$ ways to place $7$ candies into $2$ bags only, leaving the red bag empty, so we must subtract these cases. Likewise for the blue bag. However, the case where both the red and blue bags are empty is included in both counts, and therefore over-counted. Subtracting the forbidden cases and correcting for the overcount yields
 \begin{align*}
 3^{7} - 2 \cdot 2^{7} + 1
 = 1932
 \end{align*}
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
-    x
+    1932 ~\text{arrangements}
 \end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -207,10 +217,12 @@ There are $3^{7}$ ways to place $7$ pieces into $3$ bags, neglecting restriction
 
 Two subsets of the set $S = \{a,b,c,d,e\}$ are to be chosen so that their union is $S$ and their intersection contains exactly two elements. In how many ways can this be done, assuming that the order in which the subsets are chosen does not matter?
 
+\nopagebreak
+
 \fbox{(A) $20$ \quad (B) $40$ \quad (C) $60$ \quad (D) $160$ \quad (E) $320$}
 
 \begin{answer}
-An example of two subsets that fit the criteria are $\{a,b,c,d,e\}$ and $\{a,b\}$. Another example is $\{a,b,c,d\}$ and $\{a,b,e\}$. Yet another example is $\{a,b,c,e\}$ and $\{a,b,d\}$. And lastly, $\{a,b,c\}$ and $\{a,b,d,e\}$. How many pairs of subsets have intersection $\{a,b\}$? We have enumerated $4$. This can be explained as follows. Since $a$ and $b$ must appear in both subsets and the other elements $c$, $d$, $e$ must appear exactly once in any of the subsets, that gives $2^{3}/2=4$ ways to split the $3$ elements two ways (we divide by two because identical subsets are indistinguishable). There are $\binom{5}{2}$ ways to select pairs from $5$ elements. 
+An example of two subsets that fit the criteria are $\{a,b,c,d,e\}$ and $\{a,b\}$. Another example is $\{a,b,c,d\}$ and $\{a,b,e\}$. Yet another example is $\{a,b,c,e\}$ and $\{a,b,d\}$. And lastly, $\{a,b,c\}$ and $\{a,b,d,e\}$. How many pairs of subsets have intersection $\{a,b\}$? We have enumerated $4$. This can be explained as follows. Since $a$ and $b$ must appear in both subsets and the other elements $c$, $d$, $e$ must appear exactly once in any of the subsets, that gives $2^{3}/2=4$ ways to split the $3$ elements two ways (we divide by two because identical subsets are indistinguishable). There are $\binom{5}{2}$ ways to select pairs from $5$ elements. And thus,
 \begin{align*}
 4 \cdot \binom{5}{2}
 = 4 \cdot \frac{5!}{2!3!} = 40
@@ -230,6 +242,8 @@ An example of two subsets that fit the criteria are $\{a,b,c,d,e\}$ and $\{a,b\}
 
 The entries in a $3 \times 3$ array include all the digits from 1 through 9, arranged so that the entries in every row and column are in increasing order. How many such arrays are there?
 
+\nopagebreak
+
 \fbox{(A) $18$ \quad (B) $24$ \quad (C) $36$ \quad (D) $42$ \quad (E) $60$}
 
 \begin{answer}
@@ -237,7 +251,7 @@ One approach is to fill the grid with admissible numbers, subdividing cases into
 \begin{center}
   \includegraphics[width=\linewidth,page=1]{2021-08-07-figure-09}
 \end{center}
-Going down the branch on the left-hand side, we count $3$ cases on the left and $2$ cases on the right. Going down on the right-hand side, we count $5$ cases on the left, $6$ cases down the middle, and $5$ cases on the right, for a total of $3+2+5+6+5=21$. Since there were two possibilities for placing $2$ in the first square, the total number of cases is double $21$.
+Going down the branch on the left-hand side, to the configuration at the end of the branch, we count $3$ cases on the left and $2$ cases on the right. Going down on the right-hand side, we count $5$ cases on the left, $6$ cases down the middle, and $5$ cases on the right, for a total of $3+2+5+6+5=21$. Since there were two possibilities for placing $2$ in the first square, the total number of cases is twice that:
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
     42
 \end{empheq} 
@@ -253,12 +267,14 @@ Going down the branch on the left-hand side, we count $3$ cases on the left and 
 
 A subset $B$ of the set of integers from 1 to 100, inclusive, has the property that no two elements of $B$ sum to 125. What is the maximum possible number of elements in $B$?
 
+\nopagebreak
+
 \fbox{(A) $50$ \quad (B) $51$ \quad (C) $62$ \quad (D) $65$ \quad (E) $68$}
 
 \begin{answer}
 Since the largest admissible integer is $100$, the integers from $1$ to $24$ cannot be paired to add up to $125$. Integers greater than $24$ can always be paired with an integer between $1$ and $100$, so we must exclude one of the numbers in the pair. Since there are $76$ such integers, we exclude half  of them, or $76/2=38$. The maximum possible number of elements is therefore $24+38=62$.
 
-Which integer between $25$ and $100$ we choose to exclude has no incidence. For instance, consider the pair $(25, 100)$, which adds up to $125$. Whether we exclude $25$ or $100$, we get the same answer. 
+Which integers between $25$ and $100$ we choose to exclude has no incidence, as long as we exclude one of a pair. For instance, consider the pair $(25, 100)$, which adds up to $125$. Whether we exclude $25$ or $100$, the count is the same. 
 \begin{empheq}[box={\mathbox[colback=white]}]{equation*}
     62
 \end{empheq} 

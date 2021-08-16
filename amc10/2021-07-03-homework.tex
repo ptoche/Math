@@ -2,9 +2,9 @@
 \newif\ifanswer\answertrue%\answerfalse% comment out to show/hide answers
 \usepackage{../preamble3}% preamble always after \newif\ifanswer
 %\pagenumbering{gobble}
-\title{Art Of Problem Solving - AMC 10 \\ July 2nd, 2021}
+\title{Art Of Problem Solving - AMC 10 \\ Week 4}
 \author{Patrick \& James Toche}
-\date{Revised:~\today}
+\date{July 2nd, 2021}
 
 \begin{document}
 \maketitle
@@ -26,6 +26,8 @@ Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/
 \nopagebreak
 
 For how many integers $n$ between 1 and 100 does $x^2 + x - n$ factor into the product of two linear factors with integer coefficients?
+
+\nopagebreak
 
 \fbox{(A) $0$ \quad (B) $1$ \quad (C) $2$ \quad (D) $9$ \quad (E) $10$}
 
@@ -54,11 +56,11 @@ are even integers. Equivalently, if there is an integer $k$ such that
 \begin{align*}
 \sqrt{1+4n} 
   & = 2k + 1 \\
-\quad\Rightarrow\quad
+\implies
 1+4n 
   & = (2k + 1)^2 \\
   & = 4k^2 + 4k + 1 \\
-\quad\Rightarrow\quad
+\implies
 4n 
   & = 4k^2 + 4k \\
 n & = k(k+1)
@@ -82,6 +84,8 @@ since $10\times11=110>100$. Thus, there are $1\rightarrow9$ cases:
 \nopagebreak
 
 Suppose that $a$ and $b$ are nonzero real numbers, and that the equation $x^2 + ax + b = 0$ has solutions $a$ and $b$. Then the pair $(a,b)$ is
+
+\nopagebreak
 
 \fbox{(A) $(-2,1)$ \quad (B) $(-1,2)$ \quad (C) $(1,-2)$ \quad (D) $(2,-1)$ \quad (E) $(4,4)$}
 
@@ -114,14 +118,16 @@ With solution $(1,-2)$ and $(0,0)$, but only non-zero solutions are acceptable.
 
 Let $f$ be the function defined by $f(x) = ax^2 - \sqrt{2}$ for some positive $a$. If $f(f(\sqrt{2})) = -\sqrt{2}$, then $a=$
 
-\fbox{(A) $\frac{2-\sqrt{2}}{2}$ \quad (B) $\frac{1}{2}$ \quad (C) $2-\sqrt{2}$ \quad (D) $\frac{\sqrt{2}}{2}$ \quad (E) $\frac{2+\sqrt{2}}{2}$}
+\nopagebreak
+
+\fbox{(A) $\dfrac{2-\sqrt{2}}{2}$ \quad (B) $\dfrac{1}{2}$ \quad (C) $2-\sqrt{2}$ \quad (D) $\dfrac{\sqrt{2}}{2}$ \quad (E) $\dfrac{2+\sqrt{2}}{2}$}
 
 \begin{answer}
 Apply function $f$ twice to the $\sqrt{2}$ argument:
 \begin{align*}
 f(x) 
   & = ax^2 - \sqrt{2} \\
-\quad\Rightarrow\quad
+\implies
 f(\sqrt{2})
   & = a(\sqrt{2})^2 - \sqrt{2} = 2a - \sqrt{2} \\
 f(f(\sqrt{2})) 
@@ -132,7 +138,7 @@ f(f(\sqrt{2}))
 We equate with the given value:
 \begin{align*}
 4a^3 - 4\sqrt{2}a^2 + 2a - \sqrt{2} = -\sqrt{2} \\
-\quad\Rightarrow\quad
+\implies
 4a^3 - 4\sqrt{2}a^2 + 2a & = 0 \\
 a \left(a^2 - \sqrt{2}a + \frac{1}{2} \right) & = 0 \\
 \left(a - \frac{\sqrt{2}}{2}\right)^2 - \left(\frac{\sqrt{2}}{2}\right)^2 + \frac{1}{2} & = 0 \qquad\text{because}~a>0\\
@@ -153,6 +159,8 @@ a \left(a^2 - \sqrt{2}a + \frac{1}{2} \right) & = 0 \\
 \nopagebreak
 
 Both roots of the quadratic equation $x^2 - 63x + k = 0$ are prime numbers. The number of possible values of $k$ is
+
+\nopagebreak
 
 \fbox{(A) $0$ \quad (B) $1$ \quad (C) $2$ \quad (D) $4$ \quad (E) more than four}
 
@@ -177,12 +185,13 @@ In the present case, the implication is that the sum of the roots is $63$ and th
 \nopagebreak
 
 Let $@$ denote the ``averaged with'' operation: $a @ b = \frac{a + b}{2}$. Which of the following distributive laws holds for all numbers $x$, $y$, and $z$?
-
 \begin{align*}
 \text{I}.  \qquad & x @ (y + z) = (x @ y) + (x @ z) \\
 \text{III}.\qquad & x + (y @ z) = (x + y) @ (x + z) \\
 \text{III}.\qquad & x @ (y @ z) = (x @ y) @ (x @ z)
 \end{align*}
+
+\nopagebreak
 
 \fbox{(A) I only \quad (B) II only (C) \quad III only (D) \quad I and III only (E) \quad II and III only }
 
@@ -231,6 +240,7 @@ so III is true.
 
 If $f(x) = ax^4 - bx^2 + x + 5$ and $f(-3) = 2$, then $f(3) =$
 
+\nopagebreak
 
 \fbox{(A) $-5$ \quad (B) $-2$ \quad (C) $1$ \quad (D) $3$ \quad (E) $8$}
 
@@ -265,7 +275,9 @@ What is the sum of the reciprocals of the roots of the equation
 \frac{2003}{2004} x + 1 + \frac{1}{x} = 0?
 \end{align*}
 
-\fbox{(A) $-\frac{2004}{2003}$ \quad (B) $-1$  \quad (C) $\frac{2003}{2004}$ \quad (D) 1 \quad (E) $\frac{2004}{2003}$}
+\nopagebreak
+
+\fbox{(A) $-\dfrac{2004}{2003}$ \quad (B) $-1$  \quad (C) $\dfrac{2003}{2004}$ \quad (D) 1 \quad (E) $\dfrac{2004}{2003}$}
 
 \begin{answer}
 Let $r,s$ denote the roots. The sum of the reciprocals is:
@@ -281,7 +293,7 @@ The roots must satisfy
 \begin{align*}
 r + s & = -\frac{2004}{\hfill2003}\\[1ex]
   r s & = +\frac{2004}{\hfill2003} \\[1ex]
-\quad\Rightarrow\quad
+\implies
 \frac{r+s}{rs} 
       & = -1
 \end{align*}
@@ -306,13 +318,15 @@ f(x^2 + 1) = x^4 + 5x^2 + 3
 \end{align*}
 For all real $x$, $f(x^2 - 1)$ is
 
+\nopagebreak
+
 \fbox{(A) $x^4 + 5x^2 + 1$ \quad (B) $x^4 + x^2 - 3$ \quad (C) $x^4 - 5x^2 + 1$ \quad (D) $x^4 + x^2 + 3$ \quad (E) none of these }
 
 \begin{answer}
 Let $X=x^2+1$ for any real $x$. This implies:
 \begin{align*}
 x^2 = X - 1 
-\quad\Rightarrow\quad
+\implies
    x^4 = (X - 1)^2
 \end{align*}
 Substituting these back into the polynomial function gives:
@@ -341,6 +355,8 @@ f(x^2-1) & = (x^2-1)^2 + 3(x^2-1) - 1 \\
 \nopagebreak
 
 The polynomial $x^3 - ax^2 + bx - 2010$ has three positive integer roots. What is the smallest possible value of $a$?
+
+\nopagebreak
 
 \fbox{(A) $78$ \quad (B) $88$ \quad (C) $98$ \quad (D) $108$ \quad (E) $118$}
 
@@ -380,13 +396,15 @@ We seek the smallest possible sum formed by any three combinations of these fact
 
 Let $f$ be a function for which $f(x/3) = x^2 + x + 1$. Find the sum of all values of $z$ for which $f(3z) = 7$.
 
+\nopagebreak
+
 \fbox{(A) $-1/3$ \quad (B) $-1/9$ \quad (C) $0$ \quad (D) $5/9$ \quad (E) $5/3$}
 
 \begin{answer}
 Let $x=9z$ and substitute:
 \begin{align*}
  f(x/3) & = x^2 + x + 1 \\
-\quad\Rightarrow\quad
+\implies
 f(9z/3) & = (9z)^2 + 9z + 1 \\
   f(3z) & = 81z^2 + 9z + 1 
 \end{align*}
@@ -403,6 +421,5 @@ By Vi\`{e}te's formula, the sum of the roots is $-1/9$.
 \end{empheq} 
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \end{document}
