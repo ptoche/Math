@@ -913,30 +913,103 @@ With the equation written in this way, it is obvious that $x=1/4$ annuls the squ
 \subsection*{Square inscribed inside a square}
 The shaded square region is created by connecting each vertex to a midpoint. What fraction of square $ABCD$ is shaded?
 \begin{center}
-\centering
-\includegraphics[height=5cm,page=1]{area-of-squares-inside-square}
+\includegraphics[page=1,height=8cm]%
+{square-inscribed}
 \end{center}
 
 \begin{answer}
-Consider the labeled figure:
+Add labels to the figure:
+
 \begin{center}
-\centering
-\includegraphics[height=5cm,page=1]{area-of-squares-inside-square-labeled}
+\includegraphics[page=2,height=8cm]%
+{square-inscribed}
 \end{center}
+
 The smaller triangles with vertices corresponding with the corners of the larger square are congruent: 
-Since $EB=FC=GD=HA$, triangles $\triangle EIB$, $\triangle FJC$, $\triangle GKD$, and $\triangle HLA$ are congruent. 
+That is, since $EB=FC=GD=HA$, triangles $\triangle EIB$, $\triangle FJC$, $\triangle GKD$, and $\triangle HLA$ are congruent. 
 
 The larger triangles with side length corresponding to a side of the larger square are also congruent:
-Since $EI=FJ=GK=HL$, triangles $\triangle ALB$, $\triangle BIC$, $\triangle CJD$, and $\triangle DKA$ are congruent. 
+That is, since $EI=FJ=GK=HL$, triangles $\triangle ALB$, $\triangle BIC$, $\triangle CJD$, and $\triangle DKA$ are congruent. 
 
-By symmetry it follows that the four trapezoids are also congruent. It is now clear that the smaller triangle and the trapezoids have the same area as the inscribed square. For instance, $\triangle HLA$ and trapezoid $HLKD$ combine to form a square. 
+By symmetry it follows that the four trapezoids are also congruent. It is now clear that the smaller triangle and the trapezoids have the same area as the inscribed square. That is, for instance, $\triangle EBI$ and trapezoid $AEIL$ combine to form a square congruent with the shaded square. 
+
+\begin{center}
+\includegraphics[page=3,height=8cm]%
+{square-inscribed}
+\end{center}
 
 There are five such squares, so the shaded square covers a fraction $1/5$ of square $ABCD$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Another way to see this is:
-\begin{center}
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Inscribed Squares and Circles}
+Calculate the shaded area as a percentage of the area of the largest geometric figure.
+
+\begin{figure}
 \centering
-\includegraphics[height=5cm,page=1]{area-of-squares-inside-square-rotations}
+\includegraphics[page=1,height=8cm]%
+{square-circle-inscribed}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[page=2,height=8cm]%
+{square-circle-inscribed}
+\end{figure}
+
+\begin{answer}
+The shaded area is exactly half of the largest area. 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Annual Coincidences}
+Mrs. Sanders has three grandchildren, who call her regularly. One calls her every three days, one calls her every four days, and one calls her every five days. All three called her on December 31, 2016. On how many days during the next year did she not receive a phone call from any of her grandchildren? 
+
+\begin{answer}
+The least common multiple of $3$,$4$, $5$ is $60$, implying that a cycle repeats every $60$ days. The year 2017 has $365$ days, or $6$ cycles of $60$ days and $5$ days from the start of the next cycle. The first five days have $2$ days without phone calls, to be added. If $k$ is the number of days without phone calls in one cycle of $60$ days, the total number of days without phone calls is
+\begin{align*}
+6 k + 2
+\end{align*}
+Let the first day be numbered $0$ and a cycle run from $0$ to $59$. 
+To calculate $k$, we list all the days that are not multiples of $3$, $4$, $5$. That includes $1$; all the prime numbers except $3$ and $5$; and all the multiples of these prime numbers that are less than $59$.
+
+The prime numbers less than $60$, except $3$ and $5$, are:
+\begin{align*}
+2, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59
+\end{align*}
+and number $15$. 
+
+The multiples of the prime numbers less than $60$ are:
+\begin{align*}
+14 (2 \cdot 7), 22 (2 \cdot 11), 26 (2 \cdot 13), 34 (2 \cdot 17), 38 (2 \cdot 19), 46 (2 \cdot 23), 48 (2 \cdot 29), 49 (7 \cdot 7)
+\end{align*}
+and number $8$. 
+
+The total count is thus 
+\begin{align*}
+1 + 15 + 8 = 24
+\end{align*}
+which gives 
+\begin{align*}
+6 \cdot 24 + 2 = 146
+\end{align*}
+
+The first figure shows all the multiples of $3$, $4$, and $5$. 
+\begin{center}
+\includegraphics[page=1,height=8cm]%
+{grid-numbers-colors}
+\end{center}
+
+The second figure also shows the multiples of the prime numbers. 
+\begin{center}
+\includegraphics[page=2,height=8cm]%
+{grid-numbers-colors}
 \end{center}
 \end{answer}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -945,8 +1018,13 @@ Another way to see this is:
 \end{document}
 
 
+\iftoggle{showAnswers}{\newpage}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{}
+\begin{answer}
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
