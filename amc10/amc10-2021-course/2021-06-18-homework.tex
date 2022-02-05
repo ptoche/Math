@@ -1,0 +1,388 @@
+\documentclass[12pt]{article}
+\newif\ifanswer\answertrue%\answerfalse% comment out to show/hide answers
+\usepackage{../preamble3}% preamble always after \newif\ifanswer
+%\pagenumbering{gobble}
+\title{Art Of Problem Solving - AMC 10 \\ Week 2}
+\author{Patrick \& James Toche}
+\date{June 18, 2021}
+
+\begin{document}
+\maketitle
+\begin{minipage}{\textwidth}
+\begin{abstract}\setlength{\parindent}{0pt}%
+Notes on the AMC-10 Course by Art Of Problem Solving (AOPS).
+Copyright restrictions may apply. Written for personal use. 
+Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/master/aops}. 
+\end{abstract}
+\end{minipage}
+
+\thispagestyle{empty}
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{1.}
+
+\nopagebreak
+
+Yan is somewhere between his home and the stadium. To get to the stadium he can walk directly to the stadium, or else he can walk home and then ride his bicycle to the stadium. He rides $7$ times as fast as he walks, and both choices require the same amount of time. What is the ratio of Yan's distance from his home to his distance from the stadium?
+
+\nopagebreak
+
+\fbox{$\dfrac{2}{3}$, \quad $\dfrac{3}{4}$, \quad $\dfrac{4}{5}$, \quad $\dfrac{5}{6}$, \quad $\dfrac{6}{7}$}
+
+\begin{answer}
+Let $d_a$ denote the distance to the stadium and $t_a$ the time it takes to walk. Let $d_b$ denote the distance to his home and $t_b$ the time it takes to walk. Let $d_c$ denote the distance from home to the stadium and $t_c$ the time it takes to ride. We want to calculate $\dfrac{d_b}{d_a}$. 
+
+The times for the trips are equal:
+\begin{align*}
+t_a = t_b + t_c
+\end{align*}
+The speed of riding is $7$ times greater than walking, meaning the ratios of $d/t$ satisfy:
+\begin{align*}
+\frac{d_c}{t_c} = 7\frac{d_a}{t_a} = 7\frac{d_b}{t_b}
+\implies
+\frac{d_b}{d_a} = \frac{t_b}{t_a}
+\end{align*}
+The available information is not sufficient to make further progress, unless we interpret the statement ``Yan is somewhere between his home and the stadium'' to mean that the distance from home to the stadium $d_c$ is equal to the sum of the distances from the current position to home and from the current position to the stadium:
+\begin{align*}
+d_c = d_a + d_b
+\end{align*}
+This allows us to eliminate $d_c$ and $t_c$,
+\begin{align*}
+\frac{d_c}{t_c} = 7\frac{d_a}{t_a}
+\implies
+\frac{d_a+d_b}{t_a-t_b} = 7\frac{d_a}{t_a}
+\implies
+1+\frac{d_b}{d_a} = 7\left(1-\frac{t_b}{t_a}\right)
+\end{align*}
+We have a linear system of two equations in two variables:
+\begin{align*}
+\frac{d_b}{d_a} & = \frac{t_b}{t_a}
+\\
+1+\frac{d_b}{d_a} & = 7\left(1-\frac{t_b}{t_a}\right) 
+\end{align*}
+We can solve for $\dfrac{d_b}{d_a}$ by eliminating $\dfrac{t_b}{t_a}$:
+\begin{align*}
+1+\frac{d_b}{d_a} = 7\left(1-\frac{d_b}{d_a}\right) 
+\implies
+\frac{d_b}{d_a} = \frac{7-1}{1+7} = \frac{6}{8} 
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    \frac{d_b}{d_a} = \frac{3}{4} 
+\end{empheq}
+If a similar question comes up again, here's a quick way to get the solution. We equate the time it takes to walk straight to the stadium to the time it takes to walk home and then walk to the stadium. Let $x$ denote the distance from Yan to home and $y$ the distance from Yan to the stadium. We are looking for the ratio $x/y$ and we assume the distance from home to the stadium is $x+y$. Let $v$ denote the walking speed (velocity), with the riding speed equal to $7v$. 
+\begin{align*}
+\frac{y}{v} = \frac{x}{v} + \frac{x+y}{7v}
+\end{align*}
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2.}
+
+\nopagebreak
+
+Angelina drove at an average rate of 80 kph and then stopped 20 minutes for gas. After the stop, she drove at an average rate of 100 kph. Altogether she drove 250 km in a total trip time of 3 hours including the stop. Which equation could be used to solve for the time $t$ in hours that she drove before her stop?
+
+\nopagebreak
+
+\fbox{$80t+100(8/3-t)=250$, \quad $80t=250$, \quad $100t=250$, \quad $90t=250$, \quad $80(8/3-t)+100t=250$}
+
+\begin{answer}
+Let $d_1,t_1,v_1$ denote the distance, time, speed for the first part of the trip, and $d_2,t_2,v_2$ for the second part (not including the twenty minute stop, or one-third of one hour). We have:
+\begin{align*}
+d_1 + d_2 & = 250 \\
+t_1 + t_2 + \frac{1}{3} & = 3 
+\end{align*}
+The velocities are known and give a relation between the time and distance:
+\begin{align*}
+v_1 = \frac{d_1}{t_1} = 80 
+\implies 
+d_1 & = 80 t_1
+\\
+v_2 = \frac{d_2}{t_2} = 100
+\implies 
+d_2 & = 100 t_2
+\end{align*}
+We can now eliminate $d_1,d_2$ and obtain a linear system of two equations in $t_1,t_2$:
+\begin{align*}
+80 t_1 + 100 t_2 & = 250 \\
+t_1 + t_2 & = 3 - \frac{1}{3} = \frac{8}{3}
+\end{align*}
+Substituting $t_2=8/3-t_1$ into the first equation, and denoting $t=t_1$ yields:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    80t + 100(8/3-t) = 250
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{3.}
+
+\nopagebreak
+
+When a bucket is two-thirds full of water, the bucket and water weigh $a$ kilograms. When the bucket is one-half full of water the total weight is $b$ kilograms. In terms of $a$ and $b$, what is the total weight in kilograms when the bucket is full of water?
+
+\nopagebreak
+
+\fbox{$\dfrac{2}{3}a+\dfrac{1}{3}b$, \quad $\dfrac{3}{2}a-\dfrac{1}{2}a$, \quad $\dfrac{3}{2}a+b$, \quad $\dfrac{3}{2}a+2b$, \quad $3a-2b$}
+
+\begin{answer}
+Let $w$ denote the weight of the water and $k$ the weight of the bucket:
+\begin{align*}
+\frac{2}{3} w + k & = a \\
+\frac{1}{2} w + k & = b 
+\end{align*}
+A linear system in two equations, which may be solved for $w+k$. For instance, treat $(w+k)$ and $w$ as the unknown and eliminate $w$:
+\begin{align*}
+(w + k) - \frac{1}{3} w & = a \\
+(w + k) - \frac{1}{2} w & = b \\
+\implies
+w + k & = 3a - 2b
+\end{align*}
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    3a - 2b
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{4.}
+
+\nopagebreak
+
+On a $50$-question multiple choice math contest, students receive $4$ points for a correct answer, $0$ points for an answer left blank, and $-1$ point for an incorrect answer. Jesse's total score on the contest was $99$. What is the maximum number of questions that Jesse could have answered correctly?
+
+\nopagebreak
+
+\fbox{$25$, \quad $27$, \quad $29$, \quad $31$, \quad $33$}
+
+\begin{answer}
+The total number of points on the test is $4 \times 50 = 200$. To maximize the number of correct answers given a total of $99$ point, we attempt to maximize the number of incorrect answers, subject to the constraints. Let $m$ denote the number of correct answers, and $n$ the number of incorrect answers. 
+\begin{align*}
+4m -n & = 99 \\
+m + n & \leq 50 \\
+    m & \approx \frac{149}{5} \approx 29.8
+\end{align*}
+$m=30$ yields too many points, since $4 \times 30 - 1 \times 20 = 100 > 99$. The solution is thus $m=29, n=17$ and $4$ unanswered questions. 
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    29
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{5.}
+
+\nopagebreak
+
+Roy bought a new battery-gasoline hybrid car. On a trip the car ran exclusively on its battery for the first $40$ miles, then ran exclusively on gasoline for the rest of the trip, using gasoline at a rate of $0.02$ gallons per mile. On the whole trip he averaged $55$ miles per gallon. How long was the trip in miles?
+
+\nopagebreak
+
+\fbox{$140$, \quad $240$, \quad $440$, \quad $640$, \quad $840$}
+
+\begin{answer}
+Let $d$ denote the distance covered on gasoline only. 
+The total amount of gasoline consumed is therefore $0.02d$. 
+The total distance covered is $40+d$. 
+Average fuel consumption in miles per gallon is therefore:
+\begin{align*}
+\frac{40+d}{0.02d} = 55
+\implies
+(0.02 \times 55 - 1) d = 40
+\implies
+d = 400
+\end{align*}
+and so the total distance is:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    440
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{6.}
+
+\nopagebreak
+
+Sarah pours four ounces of coffee into an eight-ounce cup and four ounces of cream into a second cup of the same size. She then transfers half the coffee from the first cup to the second and, after stirring thoroughly, transfers half the liquid in the second cup back to the first. What fraction of the liquid in the first cup is now cream?
+
+\nopagebreak
+
+\fbox{$1/4$, \quad $1/3$, \quad $3/8$, \quad $2/5$, \quad $1/2$}
+
+\begin{answer}
+The cup size does not matter. Sarah pours half of four ounces of coffee into four ounces of cream to produce six ounces of a $2/4$ mix. Of these six ounces, three are transferred back, that is exactly one ounce of coffee and two ounces of cream. The first cup now contains two ounces of unmixed coffee, one ounce of mixed coffee and two ounces of cream, for a total weight of $5$ ounces.
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    \frac{2}{5}
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{7.}
+
+\nopagebreak
+
+Andrea and Lauren are $20$ kilometers apart. They bike toward one another with Andrea traveling three times as fast as Lauren, and the distance between them decreasing at a rate of $1$ kilometer per minute. After $5$ minutes, Andrea stops biking because of a flat tire and waits for Lauren. After how many minutes from the time they started to bike does Lauren reach Andrea?
+
+\nopagebreak
+
+\fbox{$20$, \quad $30$, \quad $55$, \quad $65$, \quad $80$}
+
+\begin{answer}
+Let $v_A$ and $v_L$ denote Andrea's and Lauren's speeds. Andrea's speed is three times greater:
+\begin{align*}
+v_A = 3 v_L
+\end{align*}
+The speed at which the distance decreases is $1\text{km/m}=60\text{km/h}$, and that is the sum of their speeds:
+\begin{align*}
+v_A + v_L = 60
+\end{align*}
+We can solve for the speeds:
+\begin{align*}
+v_A = 45, \quad v_L = 15
+\end{align*}
+As the distance shrinks at a rate of $1$km per minute, after $5$ minutes the distance between Andrea and Lauren is $20-5=15$km. 
+To ride the $15$km at a speed of $15$km/h, Lauren needs exactly $1$ hour:
+\begin{align*}
+\frac{15}{15} = 1
+\end{align*}
+And thus the time elapsed from the moment she left is $1$ hour and $5$ minutes:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    65~\text{minutes}
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{8.}
+
+\nopagebreak
+
+Andy's lawn has twice as much area as Beth's lawn and three times as much area as Carlos' lawn. Carlos' lawn mower cuts half as fast as Beth's mower and one third as fast as Andy's mower. If they all start to mow their lawns at the same time, who will finish first?
+
+\nopagebreak
+
+\fbox{Andy, \quad Beth, \quad Carlos, \quad Andy and Carlos tie for first, \quad All three tie.}
+
+\begin{answer}
+The time it takes to mow the lawn is given by the area divided by the rate. If we denote Andy's area as one unit of area and Andy's lawn mower's rate as one unit of speed, we have
+\begin{align*}
+& \text{Andy:}\hspace{28pt}       \frac{1}{1} \quad=\quad 1\\[1ex]
+& \text{Beth:}\hspace{20pt}   \frac{1/2}{2/3} \quad=\quad \frac{3}{4}\\[1ex]
+& \text{Carlos:}\hspace{11pt} \frac{1/3}{1/3} \quad=\quad 1
+\end{align*}
+Beth finishes first.  
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    \text{Beth}
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{9.}
+
+\nopagebreak
+
+It takes $A$ algebra books (all the same thickness) and $H$ geometry books (all the same thickness, which is greater than that of an algebra book) to completely fill a certain shelf. Also, $S$ of the algebra books and $M$ of the geometry books would fill the same shelf. Finally, $E$ of the algebra books alone would fill this shelf. Given that $A$, $H$, $S$, $M$, and $E$ are distinct positive integers, it follows that $E$ is
+
+\nopagebreak
+
+\fbox{$\dfrac{AM+SH}{M+H}$, \quad $\dfrac{AM^2+SH^2}{M^2+H^2}$, \quad $\dfrac{AH-SM}{M-H}$, \quad $\dfrac{AM-SH}{M-H}$, \quad $\dfrac{AM^2-SH^2}{M^2-H^2}$}
+
+\begin{answer}
+Let $x$ and $y$ be the thicknesses of an algebra book and geometry book, respectively. Let $z$ be the length of the shelf. We have:
+\begin{align*}
+Ax + Hy & = z \\
+Sx + My & = z \\ 
+     Ex & = z
+\end{align*}
+Substitute the third equation into the first two, 
+\begin{align*}
+\frac{A}{E} z + Hy & = z \\
+\frac{S}{E} z + My & = z
+\end{align*}
+From the first equation, 
+\begin{align*}
+Hy & = z - \frac{A}{E} \\
+ z & = \frac{E - A}{E} z \\
+\implies
+\frac{y}{z} & = \frac{E - A}{EH}
+\end{align*}
+From the second equation, 
+\begin{align*}
+My & = z - \frac{S}{E} \\
+ z & = \frac{E - S}{E} z \\
+\implies 
+\frac{y}{z} & = \frac{E - S}{ME}
+\end{align*}
+Putting it together:
+\begin{align*}
+\frac{E - A}{EH} = \frac{E - S}{ME}
+\end{align*}
+Multiplying both sides by $HME$, 
+\begin{align*}
+ME - AM = HE - HS
+\implies 
+(M - H)E = AM - HS
+\end{align*}
+And thus:
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    \frac{AM - SH}{M-H}
+\end{empheq} 
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{10.}
+
+\nopagebreak
+
+One morning each member of Angela's family drank an $8$-ounce mixture of coffee with milk. The amounts of coffee and milk varied from cup to cup, but were never zero. Angela drank a quarter of the total amount of milk and a sixth of the total amount of coffee. How many people are in the family?
+
+\nopagebreak
+
+\fbox{$3$, \quad $4$, \quad $5$, \quad $6$, \quad $7$}
+
+\begin{answer}
+Let $c$ be the total amount of coffee, $m$ the amount of milk, and $N$ the number of people. Each person drinks the same total amount of coffee and milk ($8$ ounces), so 
+\begin{align*}
+\text{Angela:}\quad
+& 8 = N \left(\frac{c}{6} + \frac{m}{4}\right) \\
+\text{Family:}\quad
+& 8 = c + m \\[1ex]
+\implies 
+N(2c + 3m) & = 12(c + m) \\[1ex]
+\implies 
+2c(6-N) & = 3m(N-4)
+\end{align*}
+Since both $c$ and $m$ are positive, $6-N$ and $N-4$ must be positive. It follows that 
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    N = 5
+\end{empheq} 
+Another way is to replace $N$ by the suggested values until the only feasible value is found.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

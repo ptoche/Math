@@ -1,0 +1,48 @@
+\documentclass[class=article,border=5pt,tikz]{standalone}
+\usetikzlibrary{calc}
+
+\newcommand\pgfmathsinandcos[3]{% 
+  \pgfmathsetmacro#1{sin(#3)}% 
+  \pgfmathsetmacro#2{cos(#3)}% 
+}
+\tikzset{point/.style = {fill=gray,circle,inner sep=2pt}}
+
+\begin{document}
+
+\pgfmathsetmacro\angFuite{30}
+\pgfmathsetmacro\coeffReduc{0.5}
+\pgfmathsetmacro\clen{2}
+
+\begin{tikzpicture}[scale=2,thick]% thick, scale=4 = prettier
+
+\pgfmathsinandcos\sint\cost{\angFuite} %  
+
+\begin{scope}
+  \draw (0,0) coordinate (A)  -- (\clen,0)     coordinate (B) 
+                              -- (\clen,\clen) coordinate (B1) 
+                              -- (0,\clen)     coordinate (A1) 
+                              -- (A);
+\end{scope}
+
+\begin{scope}[cm={1,0,\coeffReduc*\cost,\coeffReduc*\sint,(0,0)}]
+  \draw          (B)          -- (\clen,\clen) coordinate (C);
+  \draw[dashed]  (A)          -- (0,\clen)     coordinate (D) 
+                              -- (C) ;
+\end{scope}
+
+\begin{scope}[cm={1,0,0,1,(2*\coeffReduc*\cost,2*\coeffReduc*\sint)}]
+  \draw[dashed] (D)           -- (0,\clen)     coordinate (D1);
+  \draw         (\clen,0)     -- (\clen,\clen) coordinate (C1) 
+                              -- (D1) -- (A1);
+  \draw (B1) -- (C1);
+\end{scope}
+   
+   % add labels
+   \foreach \pt in {A,...,D} \node[below=6pt] at (\pt) {$\pt$};
+   \foreach \pt in {A,...,D} \node[above=6pt] at (\pt1) {$\pt^{\prime}$};
+ \end{tikzpicture}
+
+\end{document}
+
+
+
