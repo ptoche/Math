@@ -1,0 +1,422 @@
+\documentclass[12pt]{article}
+\newif\ifanswer\answertrue
+%\answerfalse% comment out to show answers
+\usepackage{../../preamble3}% preamble always after \newif\ifanswer
+%\pagenumbering{gobble}
+\title{MathCounts 2021 \\ Art of Problem Solving \\ Mock National Competition}
+\author{James \& Patrick}
+\date{Revised:~\today}
+
+
+\begin{document}
+\maketitle
+\begin{abstract}\setlength{\parindent}{0pt}%
+Answers collected in 2021 from \url{https://artofproblemsolving.com/community/}. 
+\end{abstract}
+
+\thispagestyle{empty}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-01}
+What is the value of $\dfrac{2021}{20}$, rounded to the nearest whole number?
+\begin{answer}
+$\dfrac{2020}{21}$ is quite close to $\frac{2020}{20}=101$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-02}
+Grizz can type $2500$ characters per minute, and Kre can type $1000$ characters per minute. After $1$ hour of typing, how many more characters does Grizz type than Kre?
+\begin{answer}
+G types $2500\cdot 60$ characters and K types $1000\cdot 60$ characters. The difference is $1500\cdot 60=90000$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-03}
+Define the operation $a\%b$ to be $ab + a + b$. What is the value of $(3\%3) + (5\%5)$.
+\begin{answer}
+$3\%3=15, 5\%5=35$. The answer is $50$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-04}
+All of the birds in a tree are sparrows or chickadees. If there were three more sparrows, the number of sparrows would be twice the number of chickadees. If there were six more chickadees, the number of chickadees would be twice the number of sparrows. How many birds are in the tree?
+\begin{answer}
+Let $S,C$ be the number of sparrows, chickadees, respectively. Then $S+3=2C, C+6=2S$. Add the two equations to get $S+C+9=2(S+C)$ and therefore $S+C=9$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-05}
+Pengu writes the number $8$ on a chalkboard. Every minute, Pengu either subtracts $1$ from his current number or divides his current number by $2$, each with equal probability. What is the probability that the number on the chalkboard will be $1$ after exactly four minutes? Express your answer as a common fraction.
+\begin{answer}
+It is necessary and sufficient for the number to be $2$ after three operations. It is possible to check the possibilities to see that there is only one way to do this, $8\rightarrow 4\rightarrow 3\rightarrow 2$, so the probability of $2$ after three operations is $\frac{1}{8}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-06}
+A $2021$-digit positive integer is chosen at random. What is the probability that it begins with the digits $2$, $0$, $2$, and $1$, not necessarily in that order? Express your answer as a common fraction.
+\begin{answer}
+We only need to know the first 4 digits. There are $9 \cdot 10 \cdot 10 \cdot 10 = 9000$ configurations of the first 4 digits. For 2021, we have $\frac{4!}{2!} - \frac{3!}{2!} = 9$ configurations, because 0 cannot be the leading digit. So the probability is just $\frac{1}{1000}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-07}
+In a set of five positive integers, the median is twice the mode and the mean is twice the median. Given that the mode is unique, what is the minimum possible range?
+\begin{answer}
+Let the smallest element be $x$. Because the median is twice the mode, we must have the next two elements be $x$ and $2x$. Because the mean is twice the median, the mean must be $4x$, so that the sum of all the elements is $20x$. The sum of the remaining elements is forced to be $16x$. To attain the minimum possible range here, we should use $8x-1$ and $8x+1$. Hence, the range is $7x+1$, which is minimal at $x=1$, so the answer is $\boxed{8}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-08}
+What is the sum of all positive integers $x$ less than $100$ such that the base $2$ and base $3$ representations of $x$ end in $0$ and $1$, respectively?
+\begin{answer}
+Compute the sum of all positive integers $x$ less than $100$ such that $x \equiv -2 \pmod{6}$. This is the sum from $4$ to $94$, inclusive, which is $16\cdot 49 = \boxed{784}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-09}
+For a positive integer $x$, let $f(x)$ denote the absolute difference between $x$ and the closest perfect square to $x$. For how many positive integers $n$ less than $1000$ is $f(n)\le 2$?
+\begin{answer}
+Each perfect square covers $5$ valid $n$, with the exception of $n=1$. There are $31$ perfect squares less than $1000$, and $961$ and $1024$ are far enough away from $1000$. Hence, the answer is $1+5\cdot 30 = \boxed{151}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-10}
+An increasing arithmetic sequence of $10$ positive integers sums to $145$ times the first term. What is the ratio of the ninth term to the second term? Express your answer as a common fraction.
+\begin{answer}
+It is not that hard to deduce the arithmetic sequence $1, 4, 7, ..., 25, 28$. In fact, I argue it is a lot easier to do this than to go through the rigorous algebra. Hence, the desired ratio is $\boxed{\frac{25}{4}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-11}
+In Mathland's Marching band, Jafko finds himself in the the middle of a rectangular array of students. He notices that in the array, $315$ students are in a different row than him, and $308$ are in a different column than him. Given this, how many students are in the formation?
+\begin{answer}
+The number of rows and columns differ by $7$. The smallest value $x(x+7)$ greater than $315$ is $15\cdot 22 = \boxed{330}$. We can check that this does indeed satisfy the problem conditions.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-12}
+What is the smallest positive integer $x$ for which there exists an integer $a$ such that $$97+\sqrt{98+\sqrt{99+\sqrt{a+x}}}=x?$$
+\begin{answer}
+Because $a$ can be any integer, there is no restriction on $\sqrt{a+x} = b$ other than that it is nonnegative. Hence, $\sqrt{99+b} \ge \sqrt{99}$, so that $\sqrt{98+\sqrt{99+b}}$ is greater than something close to $108$. Because we need this to be an integer, it must be equal to $121$. Indeed, $\sqrt{a+x} = 430$ will do the trick. Hence, the answer is $97+11=\boxed{108}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-13}
+For how many positive integers $x$ less than $30$ is $x^2+5x+6$ is divisible by $30$?
+\begin{answer}
+This expression is equal to $(x+2)(x+3)$ and is always divisible by $2$, so we need only check divisibility by $3$ and $5$. Scanning over positive integers less than or equal to $30$, we get that $\frac{2}{3}$ of them will satisfy divisibility by $3$, and $\frac{2}{5}$ of them will satisfy divisibility by $5$. Because divisibility by these primes can be verified independently, we get that $\frac{4}{15}\cdot 30 = 8$ of them will satisfy divisibility by $15$. Finally, $x = 30$ does not work, so we do not need to subtract $1$. Hence, the answer is $\boxed{8}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-14}
+John is trapped in a $2\times 2$ grid of cells. Each cell in this grid has a $1$ way portal which leads to a randomly chosen fixed different cell on the grid. If John begins in the lower left cell and enters the portal there, what is the probability that he can eventually get back to the lower left cell? Express you answer as a common fraction.
+\begin{answer}
+Suppose WLOG John is trapped in $A$, which leads to $B$. The probability that $B$ leads to $A$ is $\frac{1}{3}$. Otherwise, WLOG it leads to $C$. The probability that we get a sequence $A \to B \to C \to A$ is $\frac{2}{3}\cdot \frac{1}{3} = \frac{2}{9}$. Otherwise, we want exactly $A \to B \to C \to D \to A$, which happens with probability $\frac{2}{3}\cdot \frac{1}{3}\cdot \frac{1}{3} = \frac{2}{27}$. Adding these fractions up, we get $\boxed{\frac{17}{27}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-15}
+How many rectangles are formed by the line segments below?
+\begin{center}
+\includegraphics[page=2,height=5cm]%
+{aops-mathcounts-2021-sprint-15}
+\end{center}
+\begin{answer}
+There are $\binom{5}{2}^2 = 100$ rectangles for each of the two $4 \times 4$ squares shown. They have the central unit square in common, so we have covered a total of $199$ squares. Finally, the only other rectangles that are not exclusive to one square must be one of the central strips. There are $2$ ways to choose between horizontal and vertical, $3$ ways to choose the outermost square on one side, and $3$ ways to choose the outermost square on the other side, for a total of $199+2\cdot 3\cdot 3 = \boxed{217}$ rectangles.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-16}
+A farmer tethers his horse to a fence of length $12$ meters with a leash of the length of $18$ meters, on flat ground. This leash is connected to the midpoint of one side of a fence. Given that the area of the land that the horse can walk on can be expressed as $a\pi + b\sqrt{c}$ where $a$, $b$, and $c$ are positive integers such that $c$ is not divisible by the square of any prime, what is the value of $a + b + c$? Assume that the horse cannot jump over the fence, and that the fence and the leash are the only objects that obstruct the horse's movement.
+\begin{answer}
+The valid region on the same side of the fence is a semicircle of radius $18$ meters. On the opposite side, we get $12/2 = 6$ meters taken away from the leash, so that on the other side, we have a union of two semicircles of radius $12$ meters. If we consider both endpoints, the intersection is exactly a triangle enclosed by the fence and two instances of reduced leashes. This is an equilateral triangle with side length $12$, so the rest of the valid region is actually two sectors of radius $12$ with degree measure $120^{\circ}$. Hence, the total area is $162\pi$ for the semicircle, $96\pi$ for the two $1/3$-circles, and $36\sqrt{3}$ for the equilateral triangle, for a total of $258\pi+36\sqrt{3}$. The sum of the coefficients is $\boxed{297}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-17}
+For how many positive integers $n$ is the sum of the digits of $n$ is equal to $\lfloor \tfrac{n}{10} \rfloor$? Note: $\lfloor x\rfloor$ denotes the greatest integer less than or equal to $x$.
+\begin{answer}
+The maximum possible sum of a 4-digit positive integer is $36$, whereas the minimum possible value is $1000$, yet $1000/36 > 10$. This is even worse for a larger number of digits, so we only consider less.
+
+One-digit positive integers clearly do not work. For two-digit positive integers, notice that the sum of the digits of $10a+b$ is $a+b$, and the floor of $\frac{10a+b}{10}$ is $a$. Hence, $b = 0$ is forced. We can check that all the two-digit positive integers divisible by $10$ work.
+
+Finally, the sum of the digits of $100a+10b+c$ is $a+b+c$, and $\lfloor \frac{100a+10b+c}{10} \rfloor = 10a+b$. These quantities are equal precisely when $9a = c$, or $a=1$ and $c=9$. Indeed, we can check that all positive integers with hundreds digit $1$ and units digit $9$ work.
+
+In conclusion, there are a total of $\boxed{19}$ positive integers $n$ that satisfy the problem conditions.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-18}
+For positive integers $n$, let $\varphi(n)$ be the number of positive integers less than or equal to $n$ which are relatively prime to $n$. For how many ordered pairs $(a, b)$ of positive integers not exceeding $20$ is $\varphi(a)+\varphi(b)$ is odd?
+\begin{answer}
+For odd positive integers $n$ greater than $2$, $(a, n) = 1$ is equivalent to $(n-a, n) = 1$, so $\phi(n)$ must be even.
+For even positive integers $n$, the same thing holds, but $(n/2, n) = n/2$, which is $1$ only when $n = 2$.
+Finally, $\phi(1)=1$. Since $\phi(a)+\phi(b)$ is odd precisely when exactly one of $a$ and $b$ is $1$ or $2$ (there are $2$ ways to choose the exact order), the answer is $2\cdot 2\cdot 18 = \boxed{72}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-19}
+Compute $ab + bc + ca$, given that $a, b, c$ are positive real numbers satisfying
+\begin{align*}
+a + \frac{14}{b} = b + \frac{36}{c} = c + \frac{153}{a} = \frac{720}{a+b+c}
+\end{align*}
+\begin{answer}
+Use the fact $\frac{a}{b}=\frac{a+c}{a+d}$
+if $\frac{a}{b}=\frac{c}{d}$
+Answer: $517$
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-20}
+In an infinite sequence of positive integers, let $a_1 = 1$, and let $a_{n+1}$ be the sum of $a_n$ and the largest odd factor of $a_n$ for all $n \ge 2$. What is the sum of the reciprocals of the terms in this sequence? Express your answer as a common fraction.
+\begin{answer}
+It is not hard to notice the sequence $1, 2, 3, 6, 9, 18, 27, 54, 81, 162, 243, ...$, in which we can simply conisder the odds and evens separately. We know that $1+\frac{1}{3}+\frac{1}{9}+\frac{1}{27}+... = \frac{3}{2}$, and the sum of the reciprocals of the evens is half this. Hence, the answer is $\frac{3}{2}+\frac{3}{4} = \boxed{\frac{9}{4}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-21}
+Jeremy places two red flags, one on the midpoint of a side and one on a vertex, and two blue flags, on the midpoints of two sides, of a regular heptagon, as shown. Then, he selects a point at random in the interior of the heptagon. What is probability that that point is closer to one of the red flags than either of the blue flags? Express your answer as a common fraction.
+\begin{center}
+\includegraphics[page=2,height=5cm]%
+{aops-mathcounts-2021-sprint-21}
+\end{center}
+\begin{answer}
+Call the top red point inner and the bottom red point outer. The region in which a point is closer to the inner red point than either blue point is determined by the perpendicular bisectors of those half-sides. These are parallel to the perpendiculars to the sides through the blue points. These pass through the center, so the area of that figure is $\frac{1}{7}$. Hence, the area of our desired figure is $\frac{1}{28}$.
+
+For the bottom red point, the perpendicular bisectors pass through the center and a vertex adjacent to one of the vertices adjacent to the outer red vertex. This figure has area of $\frac{3}{7}$. Hence, the total probability is $\frac{1}{28}+\frac{3}{7} = \boxed{\frac{13}{28}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-22}
+How many distinct trapezoids have all four vertices in the $3$ by $3$ grid of points shown below? (Here we define a trapezoid to be a convex quadrilateral with at least one pair of parallel sides).
+\begin{center}
+\includegraphics[page=2,height=3cm]%
+{aops-mathcounts-2021-sprint-22}
+\end{center}
+\begin{answer}
+We first do PIE on the trapezoids with parallel pair parallel to one of the axes. There are $2$ ways to choose between horizontal and vertical, $3$ ways to choose the location of the parallel edges, and $3\cdot 3 = 9$ ways to choose the $2$ of $3$ points on each parallel line, for a total of $54$ rectangles. The duplicates are the rectangles parallel to the axes, in which there are $\binom{3}{2}^2 = 9$ such rectangles. Hence, there are $45$ distinct trapezoids covered so far.
+
+The only other parallel pairs can occur at slope $\pm 2$ or $\pm \frac{1}{2}$, or at slope $\pm 1$. For the former, any slope we choose completely determines the $4$ points. Unfortunately, the other pair of edges is parallel to the axes, so it does not generate any new rectangles. For slope $\pm 1$, there are $2$ ways to choose the long diagonal and $2$ ways to choose the short diagonal parallel to it, for a total of $4$ new trapezoids. The final trapezoid is the one connecting the midpoints of the edges of the outer square.
+
+In total, there are $45+4+1 = \boxed{50}$ trapezoids.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-23}
+Let $ABCD$ be a rectangle such that $AB = 75$ and $BC = 100$. Let $E$ be a point such that $AEDC$ is a convex isosceles trapezoid. What is the area of pentagon $ABCDE$?
+\begin{answer}
+It is easy to see that the length of the rectangle's diagonal is $125$. We need only calculate $[AED]$, where $AD = 100$. By Ptolemy's Theorem, $ED = \frac{100^2-75^2}{125} = 35$. The height of the triangle with respect to segment $ED$ is the same as the height of the trapezoid with respect to the parallel bases $AC$ and $ED$. This height is precisely the height of the $75-100-125$ triangle, which is $60$. Hence, the area $[AED] = \frac{35\cdot 60}{2} = 1050$. In conclusion, the total area $[ABCDE] = 75\cdot 100 + 1050 = \boxed{8550}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-24}
+Niugnep flips a fair coin $5$ times. Given that he flipped at least one pair of consecutive heads, what is the probability that he flipped at least one pair of consecutive tails? Express your answer as a common fraction.
+\begin{answer}
+The number of ways to get a consecutive pair of heads is computed as follows.
+
+If there are only 2 heads, then it can only be the 4 consecutive pairs of characters. If there are 3 heads, the only failed case is HTHTH, so there are a total of $\binom{5}{3}-1 = 9$ ways. For 4 and 5 heads, there is always a pair of consecutive heads, so we add 5 and 1. Hence, there are 19 possible sequences.
+
+If we want 2 consecutive tails, the number of heads is at most 3. If there are only 2 tails, they must be on one of the 4 consecutive pairs of slots. The remaining heads are split $3+0$ or $2+1$, so it will not affect there being $2$ consecutive heads. Finally, if there are $3$ tails, then there are $2$ heads. For the same reason, there is always a pair of consecutive tails, so that adds $4$ to the successful set.
+
+In conclusion, the desired probability is $\frac{4+4}{5+9+4+1} = \boxed{\frac{8}{19}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-25}
+Quadrilateral $ABCD$ has side lengths $AB = 3$, $BC = 3$, and $CD = 4$, as shown. Furthermore, $\angle ABD = \angle BCD = 90^\circ$. If $P$ is the intersection of diagonals $AC$ and $BD$, what is the length of $AP$? Express your answer in simplest radical form.
+\begin{center}
+\includegraphics[page=2,height=7cm]%
+{aops-mathcounts-2021-sprint-25}
+\end{center}
+\begin{answer}
+Notice that $\angle PCD = 90-\angle PCB = 90-\angle ACB = 90-\angle CAB = 90-\angle PAB = \angle APB = \angle CPD$, so triangle $CPD$ is isosceles with $DC = DP = 4$. Hence, $BP = 1$, so that $AP = \sqrt{3^2+1^2} = \boxed{\sqrt{10}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-26}
+A positive integer $n$ is selected at random from the first $17000$ positive integers. What is the probability that $\frac{n+n^2+...+n^{15}+n^{16}}{1+2+3+\dots+16}$ is an integer? Express your answer as a common fraction.
+\begin{answer}
+The denominator is $8 \cdot 17$, so we check when it is divisible by $8$ first. Rewrite as $n(1+n^2+n^4+\ldots+n^{14})+(n^2+n^4+\ldots+n^16)$. We can see that $n \equiv 0 \pmod 8$ works. Now, note that if $n$ is odd then $n^2 \equiv 1 \pmod 8$, so $n$ to the power of other even numbers will be $1 \pmod 8$ too. This results in $0 \pmod 8$, so it works for all odd residues $\pmod 8$. By a similar argument, the even residues other than $0 \pmod 8$ do not work, for a probability of $\frac{5}{8}$.
+
+Now we consider the divisible by $17$ cases. Note that $n+n^2+\ldots+n^{15}+n^{16}=n\left(\frac{n^{16}-1}{n-1}\right)$. But by FLT (is this what it's called?) we see that $n^{16} \equiv 1 \pmod {17}$, so this appears to work in all cases. However, we see that dividing by $n-1$ does not work with $n \equiv 1 \pmod {17}$, which does not work, so the probability is $\frac{16}{17}$. Multiplying gives $\boxed{\frac{10}{17}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-27}
+Two congruent, tangent circles are inscribed in an isosceles trapezoid with bases of length $5$ and $8$, as shown. What is the radius of these circles? Express your answer as a common fraction.
+\begin{center}
+\includegraphics[page=2,height=5cm]%
+{aops-mathcounts-2021-sprint-27}
+\end{center}
+\begin{answer}
+Label the trapezoid's vertices by $A,B,C,D$ such that $AB=8, DC=5$, $AB$ is parallel to $DC$, and $A$ is to the left of $B$, $D$ is to the left of $C$. Let the left circle be $\alpha_1$ and let the right circle be $\alpha_2$. $\alpha_1$ is tangent to $AD$ at $T_1$, tangent to $AB$ at $T_2$, tangent to $DC$ at $T_3$, and tangent to $\alpha_2$ at $T_4$. $\alpha_2$ is tangent to $DC$ at $T_6$, tangent to $CB$ at $T_7$, and tangent to $AB$ at $T_8$. Denote $DT_3=x=T_6C$. Then $T_3T_6=5-2x=T_2T_8$. Let the midpoint of $DC$ be $M_1$ and let the midpoint of $AB$ be $M_2$. Then $T_2M_2=2.5-x$, so $AT_2=1.5+x=AT_1$. Similarly, $DT_1=x$, so $DA=2.5+x$. Next note that $DM_1=2.5, AM_2=4$, and $M_1M_2=\sqrt{(1.5+2x)^2-1.5^2}$, so Pitot gives $\sqrt{(1.5+2x)^2-1.5^2}+1.5+2x=6.5$. Solving, we get $x=\frac{25}{26}$, which gives a diameter of $\frac{40}{13}$ and hence a radius of $\boxed{\frac{20}{13}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-28}
+Every day, three penguins sit in a circle and are each either happy or sad for that day in a way such that the following are true:
+\begin{enumerate}
+\item 
+If both of the neighbors of a penguin are happy, the penguin will be happy $\frac{2}{3}$ of the time.
+\item 
+If exactly 1 of the neighbors of a penguin are happy, the penguin will be happy $\frac{1}{2}$ of the time.
+\item 
+If none of the neighbors of a penguin are happy, the penguin will be happy $\frac{1}{3}$ of the time.
+\end{enumerate}
+Given this, what is the probability that, on any given day, all three penguins are happy? Express your answer as a common fraction.
+\begin{answer}
+The key is to unravel the English. Condition 1 is saying that the probability of all 3 penguins being happy is twice the probability that a specific two of the penguins are happy. Because the first-person penguin in condition 1 can be any of the 3 penguins, the probabilities for 2 of 3 are all the same. Condition 3 gives that the probabilities for 1 of 3 are all the same, and it is half the probability of no penguins being happy. Finally, condition 2 states that 2 of 3 and 1 of 3 have the same probability. Let the probability of 2 of 3 be $T$. Then the sum of these probabilities is $(2T)+(T+T+T)+(T+T+T)+2T = 10T = 1$. Hence, the probability that all 3 penguins are happy is $2T = \boxed{\frac{1}{5}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-29}
+What is the smallest positive integer $m$ so that $2^{2^{2^{2^2}}}-2^{2^{2^2}}$ is NOT divisible by $m$? Note: The notation $a^{b^c}$ means $a^{(b^c)}$.
+\begin{answer}
+Let's write this as $2^{65536}-2^{16}$. This is divisible by $2^{16}$, so we likely only need to consider odd positive integers, so that we can make use of Fermat's Little Theorem that $a^{\phi(n)}-1 \equiv 0 \pmod{n}$ for all $(a, n) = 1$, where $\phi(n)$ is the totient function; the number of positive integers at most $n$ that are relatively prime to $n$.
+
+Notice that $65536-16 = 2^{16}-2^4 = 2^4(2^{12}-1) = 2^4\cdot 3^2\cdot 5\cdot 7\cdot 13$.
+
+We see that $\phi(3) = 2$, $\phi(5) = 4$, $\phi(7) = 6$, $\phi(9) = 6$, $\phi(11) = 10$, $\phi(13) = 12$, $\phi(15) = 8$, $\phi(17) = 16$, $\phi(19) = 18$, $\phi(21) = 12$, $\phi(23) = 22$.
+
+For smaller values of $\phi(n)$, if we factor out $2^{16}$, then $2^{65520}$ would be congruent to $1 \pmod{n}$ by Fermat's Little Theorem and then they can take it to the desired integer power that would lead to $2^{65520}$.
+
+$\phi(23)=22$ is the first value which does not divide $65520$. Indeed, if we compute $2^{65536}-2^{16}$ mod $23$, we find that $22$ divides $65516$. Let's factor out $2^{16}$. We then see that $2^{65520} \equiv 2^4 \equiv 16 \not \equiv 1 \pmod{23}$. Hence, the desired answer is $\boxed{23}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Sprint-30}
+Charlie chooses $10$ different positive integers between $1$ and $20$, inclusive. Henry chooses $12$ different positive integers, all different from Charlie's, between $1$ an $24$, inclusive. If no two of Charlie's numbers sum to $21$ and no two of Henry's numbers sum to $25$, in how many ways can Charlie and Henry choose their numbers? Note: The order in which they choose numbers does not matter, only the sets of numbers they each choose.
+\begin{answer}
+This may be a little bit of a hassle to follow due to the sheer amount of logic that occurs.
+
+First, notice that if we write the integers from $1$ to $20$ into pairs adding up to $21$, then Charlie must take exactly 1 integer from each pair. Similarly, we can do the same thing for Henry for pairs adding up to $25$ and deduce that Henry must use exactly one from each pair.
+
+The observation is that if Charlie uses a certain number $n$, then he must use the number that is 4 less than it. (Example: If Charlie uses $20$, then Henry must not use $20$, so he must use $5$. Then Charlie cannot use $5$, so Charlie must use $16$.).These numbers also dictate what numbers Henry must use. Hence, the idea is to split mod 4. Let's call the groups $0, 1, 2, 3$ based on their class modulo 4. For concreteness, I will list the classes here. In fact, I use $(0, 1)$ group and $(2, 3)$ group to illuminate that the modulo classes that interact with each other.
+
+C: 20, 16, 12, 8, 4
+H: 5, 9, 13, 17, 21
+
+C: 19, 15, 11, 7, 3
+H: 6, 10, 14, 18, 22
+
+C: 18, 14, 10, 6, 2
+H: 7, 11, 15, 19, 23
+
+C: 17, 13, 9, 5, 1
+H: 8, 12, 16, 20, 24
+
+We can see that the aggregate of the $0$ and $1$ groups must contain at most $5$ terms, and same for the aggregate of the $2$ and $3$ groups. Because Charlie must choose exactly 10 integers, we know that the aggregates must be split $5$ and $5$. There are $6$ ways to choose Charlie's $(0, 1)$ numbers and $6$ ways to choose Charlie's $(2, 3)$ numbers, for a total of $36$ ways to choose Charlie's numbers total. This dictates $10$ of the $12$ numbers Henry must choose.
+This next part is a bit complicated to explain, so I will use an example. Suppose we have chosen $14, 18, 22$ and $19, 23$ for Henry's numbers in the $(2, 3)$ group. Then we cannot jump over and choose $6$ or $11$, as both would violate the sum to $25$ condition. We also cannot choose both $10$ and $15$, as those add to $25$. In other words, we can only add one number from the $(2, 3)$ group to Henry's set. The same logic would then hold for the $(0, 1)$ group. Since we need $12$ integers total, "at most" is now "exactly". Because Charlie's greatest number is $20$, no matter how we distribute Charlie's numbers, Henry's required numbers will not go below $5$, so we have enough breathing room for Henry to choose one additional number in each set no matter what Charlie's split is. Indeed, in the groups above, notice how the numbers $1, 2, 3, 4$ do not appear in Henry's set of forced numbers. There are $2$ ways to choose the number from the $(0, 1)$ group and $2$ ways to choose the number from the $(2, 3)$ group. Combined with the $36$ ways to choose Charlie's numbers, we get an answer of $\boxed{144}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftoggle{showAnswers}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-1}
+A special rock lies in the ocean with weight $20$ pounds. Every minute, the rock loses $25$ percent of its weight, and then gains $20$ pounds. After $5$ years, the weight of the rock is closest to what integer?
+\begin{answer}
+Because 5 years is ridiculously large compared to 1 minute, the answer is certainly going to be when the weight of the rock stays constantly after each minute. Hence, the equation to solve is $x = 0.75x + 20$, or $x = \boxed{80}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-2}
+Jerry thinks of a finite arithmetic sequence of integers with first term $1$ and last term $19$. Then, Laura computes the sum of all of the numbers in Jerry’s sequence. What is the sum of all possible numbers Laura could obtain?
+\begin{answer}
+The common difference, is a factor of 18, so the number of terms will be 1 more than a factor of 18. Noticing that the average of the sequence is always $10$, the answer is $10(1+1)+10(2+1)+10(3+1)+10(6+1)+10(9+1)+10(18+1)=\boxed{450}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-3}
+How many ordered triples $(a, b, c)$ of (not necessarily distinct) positive integers not exceeding $10$ satisfy $\frac{a}{b}\times\frac{a}{c} = \frac{a}{b} - \frac{a}{c}$?
+\begin{answer}
+\begin{align*}
+\frac{a^2}{bc} 
+  & = \frac{ac-ab}{bc} \\
+a^2 & = ac-ab \\
+a & = c - b \\
+a + b & = c
+\end{align*}
+Maximizing $c=10$, the answer is just $\frac{9 \cdot 10}{2} = \boxed{45}$ by symmetry.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-4}
+What is the sum of the three smallest positive, odd integers $n > 1$ for which there exists a non-negative integer $k$ such that $2^kn$ has exactly $n$ divisors?
+\begin{answer}
+WLOG, the number of integers must be odd, meaning that the prime factorization of $n$ has to have even exponents(i.e. $p^{2x}$ where $p$ is a prime number and $x$ is a positive integer). So we can skip anything that isn't a perfect square, 4th power, or 6th power. Since we are looking for the smallest integers, just use perfect squares. The first odd perfect square above 1 is $9$. Since $9$ = $3^2$ and $2+1 = 3$, we can set $k=2$ to get $3 \cdot 3 = 9$ divisors. 25 and 49 are the squares of 5 and 7 respectively, and since 3 doesn't divide any of 2, 5, or 7, these are invalid. 81 would work, but it is a perfect 4th power and the prime representation $3^4$ has 5 factors, and 5 isn't divisible by either 2 or 3. We can skip 11 and 13 since they are both prime. Then we come to $15^2 = 3^2 \cdot 5^2$. Since it has $(2+1)(2+1) = 9$ factors, we can set $k = 24$ to satisfy this. 17 and 19 are both prime, so we can skip these. Then we have $21^2 = 3^2 \cdot 7^2$. Since again 441 has 9 factors, we can set $k=48$ to satisfy. Thus our answer is just $441 + 9 + 225 = \boxed{675}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-5}
+An integer $a$ is selected between $3$ and $5$, inclusive, and an integer $b$ is selected between $30$ and $50$, inclusive. How many distinct possible values are there for the product $ab$?
+\begin{answer}
+There are $3\cdot 21 = 63$ possible products $ab$. We now remove duplicates. It is impossible for a number to appear $3$ times, as one can check from $5\cdot 30 = 3\cdot 50$ not being divisible by $4$. For $(3, 4)$, we have $(30, 40), (33, 44), (36, 48)$. For $(3, 5)$, we just have $(30, 50)$. For $(4, 5)$, we have $(32, 40), (36, 45), (40, 50)$. Hence, the answer is $63-7=\boxed{56}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-6}
+n the figure shown, a right triangle with leg lengths 3 and 4 is inscribed in a larger right triangle. What is the value of $\frac{x}{y}$? Express your answer as a common fraction.
+\begin{center}
+\includegraphics[page=2,height=7cm]%
+{aops-mathcounts-2021-target-06}
+\end{center}
+\begin{answer}
+Draw the altitude from the vertex shared by the segments of length $1$ and $3$ down to the horizontal leg. Then by the similar triangles involving the hypotenuses of $3$ and $5$, we get that this altitude is $\frac{3}{4}x$. Because this altitude is parallel to the leg of length $y$, we get $\frac{1}{1+5} = \frac{1}{6} = \frac{3x}{4y}$, so that $\frac{x}{y} = \frac{1}{6}\cdot \frac{4}{3} = \boxed{\frac{2}{9}}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-7}
+What is the sum of all positive integers $n$ less than 50 such that the sum of the digits of the base 6 and base 9 representations of $n$ are the same?
+\begin{answer}
+We can see that $1, 2, 3, 4, 5$ obviously work, and $6, 7, 8$ don't work. For $9$ through $35$, we have $n = 6a+b=9c+d$. The sum of digits is $a+b = c+d$. Then we have $5a = 8c$, which forces $a \ge 8$, which is impossible. For $36$ through $49$, we get $36a+6b+c=9d+e$, and $a+b+c=d+e$. Subtracting, we get $35a+5b = 8d$. We know that $a = 1$ is forced, so the equation is now $35+5b=8d$. We see that $(b, d) = (1, 5)$ is a solution. The next largest $b$ for which there exists a positive integer $d$ which is a solution is $b = 9$ because $(5, 8) = 1$. However, $b = 9$ cannot be a digit in base $6$. Next, $c$ and $e$ are free so long as $2+c = 5+e$, so we must have $c \ge 3$. Noting that $c < 6$ in base $6$ representation, we get the integers $45, 46, 47$. Adding these up, we get $1+2+3+4+5+45+46+47=15+138=\boxed{153}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{2021-Target-8}
+Four basketball teams with distinct fixed skill levels participate in a special tournament. The manager of the tournament knows that whenever two teams play, the team with the higher skill level always wins, but he has no prior knowledge of the skill levels of the four teams. Every day, the manager randomly chooses two teams to play each other and records the winner and loser. What is the expected number of days until the manager can determine with certainty the order of the four teams' skill levels? Note: Two teams might play each other more than once.
+\begin{answer}
+There are a total of $6$ different pairs in which the manager can gain information on. If there are $n$ unknown pairs, then the expected number of days in which one of these shows up is the reciprocal of the probability of an unknown showing up. Suppose $A > B > C > D$. One can experiment but will notice that the manager can only ever have complete information on the skill levels of the teams if the pairs $AB$, $BC$, and $CD$ show up. (As an example, suppose $BC$ does not show up. Then for all we know, $B$ and $C$ have the same skill level until they play. The same holds for the other pairs.) Hence, we can treat the other pairs as if they have already showed up since they are inconsequential. Then the expected number of days it will take the manager to determine the skill level order is $\frac{6}{3}+\frac{6}{2}+\frac{6}{1} = 2+3+6 = \boxed{11}$.
+\end{answer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
