@@ -1,36 +1,48 @@
-\usepackage[a4paper, centering, height=250mm, width=180mm]{geometry}
-\usepackage[table]{xcolor}
+\RequirePackage[T1]{fontenc} 
+\RequirePackage[a4paper, centering, height=250mm, width=180mm]{geometry}
+\RequirePackage{verbatim}
+\RequirePackage[table]{xcolor}
 \definecolor{myblue}{rgb}{0.0,0.2,0.4}%
-\usepackage[pdfpagelabels,
+\RequirePackage[pdfpagelabels,
             colorlinks = true,
             linkcolor = black,
             urlcolor  = myblue,
             citecolor = black,
             anchorcolor = black]{hyperref}
-\usepackage{booktabs, cellspace, multirow}
-\usepackage{array}% \newcolumntype macro
+\RequirePackage{booktabs, cellspace, multirow}
+\RequirePackage{amsthm}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\RequirePackage{amssymb}% \nless, \square and \blacksquare
+\renewcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}% \qed already defined by amsthm
+\RequirePackage{float}% option [H] to figure
+\RequirePackage{array}% \newcolumntype macro
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{Q}[1]{>{\vfil\hfil$}m{#1}<{$\hfill\vfill}} % centered, automatic math mode
-\usepackage{graphicx}
+\newcolumntype{X}{>{$}l<{$}}
+\newcolumntype{Y}{>{$}c<{$}}
+\newcolumntype{Z}{>{$}r<{$}}
+\newcolumntype{M}{Z@{${}={}$}X}% align around the equality sign | uses X and Z above
+\RequirePackage{graphicx}
 \graphicspath{{figures/}}
-\usepackage{amsfonts}
-\usepackage{fontawesome}% useful symbols
-\usepackage[fleqn]{amsmath}
-\usepackage{mathtools}%\DeclarePairedDelimiter, etc.
+\RequirePackage{amsfonts}
+\RequirePackage{fontawesome}% useful symbols
+\RequirePackage[fleqn]{amsmath}
+\RequirePackage{mathtools}%\DeclarePairedDelimiter, etc.
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-\usepackage{amssymb}% \nless, \square and \blacksquare
-\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}%
-\usepackage{xfrac}% \sfrac
-\usepackage{bm}% \boldsymbol
-\usepackage[parfill]{parskip}% no indents, lineskip
-\usepackage{scalerel}% \scaleleftright[1.75ex]{<}
-\usepackage{nccmath}% medium-sized fraction \mfrac
+\RequirePackage{xfrac}% \sfrac
+\RequirePackage{bm}% \boldsymbol
+\setlength\parindent{0pt}% no indents
+%\setlength{\parskip}{0.75\baselineskip plus 2pt}% control space between paragraphs
+\RequirePackage[parfill]{parskip}% no indents, lineskip
+\RequirePackage{scalerel}% \scaleleftright[1.75ex]{<}
+\RequirePackage{nccmath}% fleqn environment, medium-sized fraction \mfrac
 
 % Triangle and Arc/Sector hat symbols
-%\usepackage{amsmath}
+%\RequirePackage{amsmath}% already loaded
 \DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
 \DeclareMathAccent{\trianglehat}{\mathord}{yhlargesymbols}{"E6}
 \DeclareMathAccent{\sectorhat}{\mathord}{yhlargesymbols}{"F3}
@@ -55,30 +67,42 @@
 \newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
 
 %% define commands for ticking in or crossing out
-\usepackage{amssymb}
-\usepackage{pifont}
+\RequirePackage{amssymb}
+\RequirePackage{pifont}
 \newcommand{\cmark}{\mbox{\ding{51}}}
 \newcommand{\xmark}{\mbox{\ding{55}}}
 
 % load tikz and libraries
-\usepackage{tikz}
-\usetikzlibrary{intersections,positioning,angles,quotes,arrows.meta,decorations.markings,shapes,shapes.misc,backgrounds}
+\RequirePackage{tikz}
+\usetikzlibrary{intersections}
+\usetikzlibrary{positioning}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings, decorations.text}
+\usetikzlibrary{shapes,shapes.misc}
+\usetikzlibrary{backgrounds}
+
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},remember picture] \node[draw=red,thick,circle,inner sep=0.5pt,minimum width=3ex] (#1) {$#1$};}
+\tikzset{connect/.style={
+    red,in=225,out=315,thick}}
 
 % load pgfplots and library for coordinate system 
-\usepackage{pgfplots}
+\RequirePackage{pgfplots}
 \pgfplotsset{compat=newest}% use bleeding edge version: risky
 \usetikzlibrary{arrows.meta}
 
 % math box with empheq+tcolorbox
-\usepackage{empheq}
-\usepackage[most]{tcolorbox}
+\RequirePackage{empheq}
+\RequirePackage[most]{tcolorbox}
 \newtcbox{\mathbox}[1][]{%
     nobeforeafter, math upper, tcbox raise base, enhanced, sharp corners, colframe=black, colback=white, boxrule=1pt, #1}
 \newtcbox{\alignbox}[1][]{%
     nobeforeafter, math upper, tcbox raise base, enhanced, colframe=black, colback=white, boxrule=1pt, #1}
 
 % answer show/hide toggle
-\usepackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+\newif\ifanswer\answertrue
+\RequirePackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
 \ifanswer
   \toggletrue{showAnswers}% default is false
 \fi
@@ -95,7 +119,7 @@
     }
     %\newenvironment{answer}{\vspace{1em}}{}
 }{%
-    \usepackage{verbatim}
+    %\RequirePackage{verbatim}% already loaded
     \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
 }%
 

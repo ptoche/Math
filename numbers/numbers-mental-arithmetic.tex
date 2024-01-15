@@ -1,0 +1,83 @@
+
+\section*{Mental Arithmetic}
+It is useful to add/multiply/divide fast. There are too many tricks to review, but here are a few basic ones. With practice you will be able to use these tricks while calculating in your head. 
+
+Add numbers by grouping them:
+
+\begin{minipage}{\textwidth}
+\begin{align*}
+  \tikzmark{1} + \tikzmark{2} + \tikzmark{3} + \tikzmark{4} + 5 + \tikzmark{6} + \tikzmark{7} + \tikzmark{8} + \tikzmark{9}
+  \begin{tikzpicture}[overlay,remember picture]
+    \draw[-,connect] (1) to (9);
+    \draw[-,connect] (2) to (8);
+    \draw[-,connect] (3) to (7);
+    \draw[-,connect] (4) to (6);
+  \end{tikzpicture}
+= 4 \times 10 + 5
+= 45
+\end{align*}
+\vspace{4ex}
+\end{minipage}
+
+Add numbers by rounding them:
+\begin{align*}
+978 + 237 = (980-2) + (220+17) = 1200 + 15 = 1215
+\end{align*}
+
+
+Multiply by $5$:
+\begin{align*}
+978 \times 5 
+ = (1000-20-2) \times \frac{10}{2} 
+ = \frac{500-10-1}{2} \times 10
+ = 4890
+\end{align*}
+where we have also decomposed $978$ to make the division by $2$ even easier (skip this step if you can quickly halve $978$).
+
+
+Multiply numbers by decomposing them:
+\begin{align*}
+14 \times 16
+ & = (15-1) \times (15+1) \\
+ & = 15^2 -1 = 224
+\end{align*}
+where we have used $15^2=225$ and the difference-of-squares formula:
+\begin{align*}
+(a+b) (a-b) = a^2 - b^2
+\end{align*}
+
+Similarly, $13 \times 17$ $=$ $15^2 -4$ $=$ $221$ (if hesitant, check that the last digit matches: $3\times7=21$, so the last digit $1$ is indeed correct).
+The difference-of-squares formula can always be applied when multiplying numbers that differ by a multiple of $2$ (multiplying two even numbers or multiplying two odd numbers). 
+
+Multiply numbers by rounding up:
+\begin{align*}
+19 \times 18
+ & = 20 \times 18 - 18\\
+ & = 360 - 18 = 342
+\end{align*}
+
+Multiply numbers by rounding up and down:
+\begin{align*}
+19 \times 23
+ & = (20-1) \times (20+3) \\
+ & = 20^2 + (3-1) \times 20 -3 = 400 + 40 - 3 = 437
+\end{align*}
+
+Square numbers by rounding up:
+\begin{align*}
+99^2 
+ & = (100-1)^2 \\
+ & = 10000 - 200 + 1 = 9801
+\end{align*}
+where we have used:
+\begin{align*}
+(a + b)^2 = a^2 + 2ab + b^2
+\end{align*}
+
+Square numbers by rounding up or down:
+\begin{align*}
+13^2 
+ & = (15-2)^2 \\
+ & = 200 + 25 - 60 + 4 = 140 + 29 = 169
+\end{align*}
+where we suppose you have memorized $15^2=225=200+25$ (but forgotten $13^2$). Because it is easier to subtract $60$ from $200$ than from $225$, we also split $225$ as $200+25$. These manipulations are to be done in your head or very quickly on a scrap of paper. 

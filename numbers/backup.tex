@@ -1,32 +1,13 @@
 \documentclass[12pt]{article}
-\usepackage[a4paper, centering, height=250mm, width=180mm, noheadfoot]{geometry}
-\usepackage{amsfonts}
-\usepackage[fleqn]{amsmath}
-\usepackage{mathtools}
-\usepackage{booktabs, cellspace, multirow}
-\usepackage{array}% \newcolumntype macro
-\newcolumntype{X}{>{$}l<{$}}
-\newcolumntype{Y}{>{$}c<{$}}
-\newcolumntype{Z}{>{$}r<{$}}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-\usepackage{bm}% \boldsymbol
-\setlength\parindent{0pt}% no indents
-\usepackage{parskip}
-\setlength{\parskip}{0.75\baselineskip plus 2pt}
-\usepackage{tikz}
-\usetikzlibrary{decorations.text}
-
-\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},remember picture] \node[draw=red,thick,circle,inner sep=0.5pt,minimum width=3ex] (#1) {$#1$};}
-\tikzset{connect/.style={
-    red,in=225,out=315,thick}}
-
+\usepackage{../preamble3}% preamble at the top
+\answertrue\answerfalse% comment out \answertrue to show/hide answers
+\newgeometry{letterpaper, centering, height=250mm, width=180mm, noheadfoot}% always after preamble
 \pagenumbering{gobble}
 
+
 \title{Math Competition Tricks}
-\author{Clairbourn School Grade 7/8}
+%\author{Clairbourn School Grade 7/8}% no more at Clairbourn!
+\author{Patrick Toche}
 
 \begin{document}
 \maketitle
@@ -125,6 +106,8 @@ where we suppose you have memorized $15^2=225=200+25$ (but forgotten $13^2$). Be
 
 \section*{Extract Square Root}
 TO DO
+
+\begin{comment}
  Extracting square roots mentally at an extremely fast speed
 Extracting square roots
 Finding the square root of a number is the inverse operation of squaring that number. Remember, the square of a number is that number times itself.
@@ -192,6 +175,9 @@ Square root of 15376 (√15376) = ?
     The last digit of the number 6 makes the ending digit of the answer a possibility of 4 or 6.
 
 12 times its next higher number (13) is 156. Since 153 is less than 156, the right digit of the answer must be 4 giving the final answer 124.
+
+
+\end{comment}
 
 \section*{Useful Sums}
 The sum of the first $n$ natural numbers:
@@ -579,6 +565,41 @@ Famous Pythagorean triples:
 \sqrt{18} & \approx 4.242641 \\
 \sqrt{19} & \approx 4.358899 \\
 \sqrt{20} & \approx 4.472136 \\
+\end{align*}
+
+
+\subsection*{Simplifying Numbers}
+Bombelli, 1572 (« L'algebra »):
+\begin{align*}
+\sqrt[\leftroot{-1}\uproot{2}\scriptstyle 3]{2 + \sqrt{-121}}
++ \sqrt[\leftroot{-1}\uproot{2}\scriptstyle 3]{2 - \sqrt{-121}}
+= 4
+\end{align*}
+
+Leibniz, 1675:
+\begin{align*}
+\sqrt{1 + \sqrt{-3}}
++ \sqrt{1 - \sqrt{-3}}
+= \sqrt{6}
+\end{align*}
+
+
+\begin{align*}
+\cos(\pi) 
+& = -1
+\\
+\cos(\pi/2) 
+& = 0
+\cos(\pi/3) 
+& = \frac{1}{2}
+\cos(\pi/4) 
+& = \frac{\sqrt{2}}{2}
+\\
+\cos(\pi/6) 
+& = \frac{\sqrt{3}}{2}
+\\
+\cos(0) 
+& = 1
 \end{align*}
 
 \end{document}
