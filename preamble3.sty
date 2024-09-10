@@ -28,7 +28,7 @@
 \RequirePackage{graphicx}
 \graphicspath{{figures/}}
 \RequirePackage{amsfonts}
-\RequirePackage{fontawesome}% useful symbols
+\RequirePackage{fontawesome5}% useful symbols
 \RequirePackage[fleqn]{amsmath}
 \RequirePackage{mathtools}%\DeclarePairedDelimiter, etc.
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
@@ -47,6 +47,14 @@
 \DeclareMathAccent{\trianglehat}{\mathord}{yhlargesymbols}{"E6}
 \DeclareMathAccent{\sectorhat}{\mathord}{yhlargesymbols}{"F3}
 
+% Math symbol
+% \newcommand*{\degree}{\textup{°}}% suddenly stopped working
+\usepackage{gensymb}% substitute for the above
+
+% Math operators
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
 
 % minipagex correctly applies paragraph skip preferences
 \newlength{\currentparskip}
@@ -59,7 +67,6 @@
    \setlength{\parindent}{\currentparindent}% restore the value
   }
   {\end{minipage}}
-
 
 % Permutations/Combinations
 \newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
@@ -140,3 +147,4 @@
 }
 \patchcmd{\env@cases}{\lbrace}{\@ldelim}{}{}
 \makeatother
+
