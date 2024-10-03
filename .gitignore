@@ -49,3 +49,6 @@ __pycache__/
 .tox
 .cache
 *.ffs_db
+
+## Specific tags
+*_ignore
