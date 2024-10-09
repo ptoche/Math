@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% GENERAL PURPOSE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{colortbl}
+%\colorlet{themecolor}{CornflowerBlue}
+\colorlet{themecolor}{black}
+\RequirePackage{float}% option [H] to figure
+\RequirePackage{graphicx}
+\RequirePackage{caption}
+\captionsetup{format=plain, font=small, labelfont=bf}
+\RequirePackage{subcaption}
+\captionsetup{format=plain, font=small, labelfont=bf}
+\RequirePackage[autostyle=false, style=english]{csquotes}% pretty quotes
+\MakeOuterQuote{"}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pretty tables
+\RequirePackage{tabularray}%
+\UseTblrLibrary{booktabs,functional}
+\setlength{\cmidrulewidth}{0.5pt}
+\SetTblrInner{
+   width=\linewidth,
+   columns = {colsep=10pt},
+   rows = {1ex, rowsep=0.5ex, bg=white, fg=black},
+   row{1} = {font=\bfseries},
+}
+% a paragraph cell that admits line break | alignment as argument
+\newcommand{\pcell}[3][c]{% 
+  \begin{tabular}[#1]{@{}#2@{}}#3\end{tabular}}
+% a paragraph cell that admits line break | old | centered by default
+\newcommand{\parcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MATHEMATICS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% number sets
+\newcommand{\N}{\ensuremath{\mathbb{N}} }% set of natural numbers
+\newcommand{\Z}{\ensuremath{\mathbb{Z}} }% set of integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}} }% set of rational numbers
+\newcommand{\R}{\ensuremath{\mathbb{R}} }% set of real numbers
+\newcommand{\Cx}{\ensuremath{\mathbb{C}} }% set of complex numbers
+\let\Natural\N
+\let\Integer\Z
+\let\Rational\Q
+\let\Real\R
+\let\Complex\Cx
+
+% set notation
+\renewcommand{\emptyset}{\varnothing}% empty set
+\newcommand{\intersect}{\cap}% intersection
+\newcommand{\union}{\cup}% union
+
+% mathematical symbols
+%\RequirePackage{amsmath}% required
+\RequirePackage[fleqn]{amsmath}% align all equations left
+\newcommand{\e}{\mathrm{e}}% exponential
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}% differential symbol
+\DeclareMathOperator{\sign}{\mathrm{sign}}% sign
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\freq}{freq}% freq
+\DeclareMathOperator*{\indep}{\perp \!\!\! \perp}% independence symbol
+\DeclareMathOperator{\trace}{Tr}
+
+% delimiter commands | must load the mathtools package
+% use a star to scale to the size of the argument, e.g. \abs*{x}
+\RequirePackage{mathtools}% required
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}\DeclarePairedDelimiter\sparen{[}{]}% square brackets
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}% absolute value
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}% mathematical norm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Proof | based on theorem environment
+\RequirePackage{amssymb}% required
+\RequirePackage[thmmarks]{ntheorem}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{:}
+%\theoremsymbol{$\blacksquare$}
+\newtheorem*{proof}{Proof}
+\AtEndEnvironment{proof}{\hfill$\blacksquare$}
+
+% Question | based on tcolorbox
+\RequirePackage[many]{tcolorbox}
+% usage: \begin{solution}[Optional title]
+\tcbset{onecolummnstyle/.style={
+  breakable,
+  enhanced,
+  lower separated=false,
+  text width=\linewidth,
+  %colframe=themecolor,
+  coltext=themecolor,
+  frame hidden,
+  colback=white,
+  sharp corners,
+  attach boxed title to top left={yshift=0ex,xshift=5pt},% negative xshift
+  boxed title style={
+    colframe=white,
+    colback=white,
+    sharp corners,
+    },
+  overlay={
+      \draw[themecolor!80!white, line width=1.5pt] (frame.north west)--(frame.south west);
+  },
+  %fonttitle=\sffamily
+  fonttitle={\normalsize\itshape\bfseries\color{themecolor}}
+  }
+}
+\newtcolorbox[auto counter]{question}[1][]{
+  title={Question},
+  onecolummnstyle,
+  #1
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

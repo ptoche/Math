@@ -1,0 +1,25 @@
+% !TEX root = solutions.tex
+
+The "Manhattan distance" between two cells is the shortest distance between those cells when traveling up, down, left, or right, as if one were traveling along city blocks rather than as the crow flies.
+
+Place numbers from 1-6 in some cells so the following criteria are satisfied:
+
+\begin{enumerate}
+
+\item A cell contains at most one number. Cells can be left empty.
+
+\item For each cell containing a number $N$ in the grid, exactly two other cells containing $N$ are at a Manhattan distance of $N$.
+
+\item For each cell containing a number $N$ in the grid, no other cells containing $N$ are at a Manhattan distance less than $N$.
+
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,height=0.15\textheight,keepaspectratio]%
+{figures-1/problem-1-question-figure-1}
+\end{figure}
+
+There is a unique solution, but you do not need to prove that your answer is the only one possible. 
+%You merely need to find an answer that satisfies the conditions of the problem. 
+%(Note: In any other USAMTS problem, you need to provide a full proof. Only in this problem is an answer without justification acceptable.)

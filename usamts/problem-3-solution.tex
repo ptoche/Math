@@ -1,0 +1,123 @@
+% !TEX root = solutions.tex
+
+The question does not state who splits the integers into two groups: If the split is engineered to maximize $M$, the answer is $M=1012$. If the split is engineered to minimize $M$, the answer is $M=2$. By another interpretation, the answer is $M=16$.
+
+\subsubsection*{General Considerations}
+
+The Fibonacci numbers $F_{0},F_{1},F_{2},\ldots$ are defined inductively, for $n \ge 1$, by 
+\begin{align*}
+F_{0} & = 0, \\
+F_{1} & = 1, \\ 
+F_{n+1} & = F_{n} + F_{n-1}.
+\end{align*}
+On the closed interval $[0,2024]$, the Fibonacci subsequence is 
+\begin{align*}
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597.
+\end{align*}
+where $F_{17}=1597$.
+Clearly, the largest possible difference $|a_{k+1}-a_{k}|$, calculated from consecutive terms in the sequence $a_{1},a_{2},\ldots,a_{m}$, cannot exceed $1597$ and likewise for $b_{1},b_{2},\ldots,b_{n}$. 
+
+
+\subsubsection*{Amicable Split}
+
+Consider the arithmetic sequence with first term $1$ and common difference $F_{1}$. Split the integers as
+\begin{align*}
+& \text{Group A}: 
+\quad
+a_{1},a_{2},a_{3}\ldots,a_{1012}
+&& = 1,2,3\ldots,1012
+\\
+& \text{Group B}: 
+\quad
+b_{1},b_{2},b_{3}\ldots,b_{1012}
+&& = 1013,1014,1015\ldots,2024
+\end{align*}
+where $m=n=1012$.
+The difference between any two consecutive elements in the sequence $a_{1},a_{2},a_{3}\ldots,a_{1012}$ is the Fibonacci number $F_{1}$. Likewise for $b_{1},b_{2},b_{3}\ldots,b_{1012}$. Every consecutive element from either Group A or Group B is a fibtastic sequence. The stated conditions are therefore satisfied and the maximum (max-max) is $M=1012$.
+
+\subsubsection*{Adversarial Split}
+If $m$ and $n$ are chosen to minimize $M$, we must have $m\ge2$ and $n\ge2$ to ensure that the difference between any two consecutive numbers is defined. An adversarial split that minimizes $M$ is:
+\begin{align*}
+& \text{Group A}: 
+\quad
+a_{1}, a_{2}
+&& = 1, 2
+\\
+& \text{Group B}: 
+\quad
+b_{1},b_{2},b_{3}\ldots,b_{2022}
+&& = 3,4,5\ldots,2024
+\end{align*}
+These sequences are fibtastic, as shown above. The stated conditions are therefore satisfied and the maximum (max-min) is $M=2$. 
+
+\subsubsection*{Increasing Fibonacci Subsequences}
+Adding a constraint to the problem makes it more interesting. Consider the revised definition:
+A sequence of integers $x_{1},x_{2},...,x_{k}$ is called \textit{fibtastic} if the difference between any two consecutive elements in the sequence is a Fibonacci number \textbf{\textit{and if these Fibonacci numbers form a strictly increasing sequence}}.
+
+The largest increasing sequence formed by the consecutive differences would be a subsequence of the first seventeen Fibonacci numbers: $F_{1},F_{2},\ldots,F_{17}$. However, $F_{17}=1597$ is unreachable for $m=n=1012$, so the increasing Fibonacci subsequence is reduced to $F_{1},F_{2},\ldots,F_{16}$, where $F_{16}=987$. With these additional restrictions, a candidate solution is $M=16$. It remains to be shown that a subsequence of that length does exist. 
+
+We start by constructing a subsequence on $[1,2024]$. 
+
+\begin{table}[H]
+\centering
+\begin{tblr}{
+  colspec = {X[c,2cm] @{\ } X[c,15pt] X[c] @{\ } X[c,20pt] @{\ } X[c]},
+  cell{2-Z}{1-Z}={mode=math},
+  row{1}={font=\bfseries},
+  column{3}={halign=l},
+  column{5}={halign=r},
+  rowsep = 0.2ex,
+  stretch=0,
+}
+\specialrule{.8pt}{0pt}{5pt}% .4pt = width of rule
+Number 
+& &
+\parcell{Fibonacci\\Representation}
+& &
+\parcell{Consecutive\\Difference}\\
+\specialrule{.4pt}{5pt}{5pt}% .4pt = width of rule
+ 1 & = & F_{1}                 && \\
+   &   &                       & \to & F_{3} - F_{1} = F_{2} \\
+ 2 & = & F_{3}                 && \\
+   &   &                       & \to & F_{4} - F_{3} = F_{2} \\
+ 3 & = & F_{4}                 && \\
+   &   &                       & \to & F_{2} \\
+ 4 & = & F_{4} + F_{2}         && \\
+   &   &                       & \to & F_{5} - F_{4} - F_{2} = F_{1} \\
+ 5 & = & F_{5}                 && \\
+   &   &                       & \to & F_{2} \\
+ 6 & = & F_{5} + F_{2}         && \\
+   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
+ 7 & = & F_{5} + F_{3}         && \\
+   &   &                       & \to & F_{6} - F_{5} - F_{3} = F_{2} \\
+ 8 & = & F_{6}                 && \\
+   &   &                       & \to & F_{2} \\
+ 9 & = & F_{6} + F_{2}         && \\
+   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
+10 & = & F_{6} + F_{3}         && \\
+   &   &                       & \to & F_{4} - F_{3} = F_{2} \\
+11 & = & F_{6} + F_{4}         && \\
+   &   &                       & \to & F_{2} \\
+12 & = & F_{6} + F_{4} + F_{2} && \\
+   &   &                       & \to & F_{7} - F_{6} - F_{4} - F_{2} = F_{1} \\
+13 & = & F_{7}                 && \\
+   &   &                       & \to & F_{1} \\
+14 & = & F_{7} + F_{2}         && \\
+   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
+15 & = & F_{7} + F_{3}         && \\
+   &   &                       & \to & F_{4} - F_{3} = F_{2} \\
+16 & = & F_{7} + F_{4}         && \\
+   &   &                       & \to & F_{2} \\
+17 & = & F_{7} + F_{4} + F_{2} && \\
+   &   &                       & \to & F_{5} - F_{4} - F_{2} = F_{1} \\
+18 & = & F_{7} + F_{5}         && \\
+   &   &                       & \to & F_{2} \\
+19 & = & F_{7} + F_{5} + F_{2} && \\
+   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
+20 & = & F_{7} + F_{5} + F_{3} && \\
+   &   &                       & \to & F_{8} - F_{7} - F_{5} - F_{3} = F_{2} \\
+21 & = & F_{8}                 && \\
+\specialrule{.8pt}{5pt}{0pt}% .4pt = width of rule
+\end{tblr}
+\caption{\label{pb-3-tbl-1}}
+\end{table}

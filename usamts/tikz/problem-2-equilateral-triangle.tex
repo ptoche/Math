@@ -1,0 +1,27 @@
+\documentclass[margin=3mm]{standalone}
+\usepackage[svgnames]{xcolor}
+\usepackage{tkz-euclide}
+
+\tkzSetUpLine[line width=.4pt,color=Navy]
+\tikzset{arrow/.style={
+         decoration={markings,
+         mark= at position .5 with {\arrow[scale=2]{>}}}}}  
+\begin{document}
+
+\begin{tikzpicture}[scale=1.5]
+\tkzDefPoint(0,0){C}
+\tkzDefPoint(4,0){E}
+\tkzDefTriangle[equilateral](C,E)\tkzGetPoint{A}
+\tkzDefMidPoint(C,E)\tkzGetPoint{M}
+\tkzDrawPolygon(C,E,A)
+\tkzDrawSegment[dotted](A,M)
+\tkzLabelSegment[left](C,A){$r$}
+\tkzLabelSegment[right](E,A){$r$}
+\tkzLabelSegment[below](C,M){$r/2$}
+\tkzLabelSegment[below](E,M){$r/2$}
+\tkzDefBarycentricPoint(C=10,E=10,A=0.1)\tkzGetPoint{O}% tweak the weights!
+\tkzAutoLabelPoints[center=O](C,E,A)
+\tkzLabelSegment[sloped,above](M,A){$\sqrt{r^{2}-(r/2)^{2}}=\frac{\sqrt{3}}{2}r~~~~~~~~$}
+\end{tikzpicture}
+
+\end{document}

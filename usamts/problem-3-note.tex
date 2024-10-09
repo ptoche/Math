@@ -1,0 +1,15 @@
+To solve the problem, we need to determine the largest integer M such that we can guarantee that we can pick M consecutive elements from either Group A or Group B which form a fibtastic sequence. A sequence is fibtastic if the difference between any two consecutive elements is a Fibonacci number. The Fibonacci sequence starts with F1​=1, F2​=1, F3​=2, F4​=3, F5​=5, etc.
+
+First, let's consider the maximum possible difference between two consecutive elements in a fibtastic sequence. The smallest Fibonacci numbers are 1, 1, 2, 3, 5, etc. If we use the largest Fibonacci number that is less than or equal to the maximum difference between any two consecutive elements in the sequence, we can determine the maximum length of the fibtastic sequence.
+
+The integers from 1 to 2024 are split into two groups, each written in increasing order. The maximum difference between any two consecutive elements in either group is 2024 (if one group contains only 1 and the other group contains all the other numbers). However, we need to find the largest M such that we can guarantee a fibtastic sequence of length M in either group.
+
+To do this, we need to consider the distribution of the numbers in the two groups. If we split the numbers into two groups, the maximum difference between any two consecutive elements in either group will be at most 2024. However, we can use the fact that the Fibonacci numbers grow exponentially to find a more precise bound.
+
+The largest Fibonacci number less than 2024 is F17​=1597. If we use the Fibonacci numbers F1​,F2​,F3​,…,F17​, the maximum difference between any two consecutive elements in a fibtastic sequence is 1597. Therefore, the maximum length of a fibtastic sequence is 17.
+
+However, we need to ensure that we can guarantee a fibtastic sequence of length M in either group. To do this, we need to consider the worst-case scenario, where the numbers are split in such a way that the maximum difference between any two consecutive elements in either group is minimized. In the worst-case scenario, the maximum difference between any two consecutive elements in either group is at most 2024/2 = 1012.
+
+The largest Fibonacci number less than 1012 is F16​=987. Therefore, the maximum length of a fibtastic sequence in either group is 16.
+
+Thus, the largest integer M such that we can guarantee that we can pick M consecutive elements from either Group A or Group B which form a fibtastic sequence is 16​.
