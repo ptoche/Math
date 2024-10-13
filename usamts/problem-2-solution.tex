@@ -22,7 +22,7 @@ A natural starting point for this problem is to draw a hexagon inscribed in a ci
 {figures-2/problem-2-question-figure-3}%
 \caption{\label{pb-2-fig-1c}}
 \end{subfigure}
-\caption{\label{pb-2-fig-1}}
+\caption{\label{pb-2-fig-1}There exist two polygons with one vertex at the center of the circle and two vertices on the circumference of the circle: see panel~(b) and~(c). Only one of them is such that only one vertex is outside the circle: see panel~(c).}
 \end{figure}
 
 
@@ -32,29 +32,43 @@ In hexagon $ABCDEF$ (Figure~\ref{pb-2-fig-2}), consider first the triangle $ACE$
 \centering
 \includegraphics[width=0.5\linewidth,keepaspectratio]%
 {figures-2/problem-2-question-figure-4}%
-\caption{\label{pb-2-fig-2}}
+\caption{\label{pb-2-fig-2}The area of the polygon may be calculated as the sum of areas of the equilateral triangle $ACE$ and of the isosceles triangles $ABC$, $CDE$, and $EFA$.}
 \end{figure}
 
 Since triangle $ACE$ is equilateral, its area is $\frac{\sqrt{3}}{4}r^{2}$ (the side lengths of the equilateral triangle coincide with the radius of the circle). This well-known formula can be proved by applying the Pythagorean theorem: See Figure~\ref{pb-2-fig-3}. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\linewidth,keepaspectratio]%
+\includegraphics[width=0.6\linewidth,keepaspectratio]%
 {figures-2/problem-2-equilateral-triangle}%
-\caption{\label{pb-2-fig-3}}
+\caption{\label{pb-2-fig-3}The area of equilateral triangle $ACE$ is $\frac{\sqrt{3}}{4}r^{2}$.}
 \end{figure}
 
-In hexagon $ABCDEF$ (Figure~\ref{pb-2-fig-2}), consider now the isosceles triangle $ABC$, with base equal to the chord $AC=r$. This triangle has area $\frac{\sin(\varphi)}{2}r^{2}$, (the base of the isosceles triangle coincides with the radius of the circle), where angle $\varphi={\angle}ABC=\frac{2\pi}{3}$. The angle follows from the sum-of-angles formula. The sum of the angles of a regular polygon with $n$ sides is $(n-2)\pi$. For a hexagon, $n=6$, the angle is therefore $\varphi=\frac{(6-2)\pi}{6}=\frac{2\pi}{3}$ and so $\sin(\varphi)=\sin(2\pi/3)=\frac{\sqrt{3}}{2}$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]%
+{figures-2/problem-2-isosceles-triangle}%
+\caption{\label{pb-2-fig-4}The area of isosceles triangle $ABC$ is $\frac{\sqrt{3}}{12}r^{2}$.}
+\end{figure}
 
-Adding together the area of triangle $ACE$ and triangles $ABC$, $AEF$, and $CDE$ (or, equivalently, three times the area of $ABC$) gives:\\
+
+Consider now the isosceles triangle $ABC$ in hexagon $ABCDEF$ (Figure~\ref{pb-2-fig-2}). The base of triangle $ABC$ coincides with the chord $AC=r$. The angle at the vertex is $\varphi={\angle}ABC=\frac{2\pi}{3}$. The angle $\varphi$ follows from the sum-of-angles formula. The sum of the angles of a regular polygon with $n$ sides is $(n-2)\pi$. For a hexagon, $n=6$, the angle is therefore $\varphi=\frac{(6-2)\pi}{6}=\frac{2\pi}{3}$. The isosceles triangle $ABC$ fits exactly three times into the equilateral triangle $ACE$. And therefore its area is $\frac{\sqrt{3}}{12}r^{2}$. As a sanity check, this area may also be calculated from trigonometry:
+\begin{align*}
+\frac{r^{2}}{4\tan(\varphi/2)}
+= \frac{r^{2}}{4\tan(\pi/3)}
+= \frac{r^{2}}{4\sqrt{3}}
+= \frac{\sqrt{3}}{12}r^{2}.
+\end{align*}
+
+Adding together the area of triangle $ACE$ and triangles $ABC$, $AEF$, and $CDE$ gives the area of hexagon $ABCDEF$:
 \begin{align*}
 \frac{\sqrt{3}}{4}r^{2}
-+ 3 \times \frac{\sqrt{3}}{2} r^{2}
-= \frac{7\sqrt{3}}{4}
++ 3 \ \frac{\sqrt{3}}{12} r^{2}
+= \frac{\sqrt{3}}{2}
 \end{align*}
 where we have substituted $r=1$, the radius of the unit circle.
 
-
+Conclusion: The area of the hexagon is \fbox{$\frac{\sqrt{3}}{2}\approx0.866$}.
 
 
 %$\sin(\pi/3)=\frac{\sqrt{3}}{2}$.

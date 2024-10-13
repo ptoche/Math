@@ -1,2 +1,148 @@
 % !TEX root = solutions.tex
 
+Let $g(x)=f(f(x)+x)$. 
+Substituting $f(x)=x^{2}+bx+1$ into $f(f(x)+x)$ yields a polynomial of degree $4$. Except for special values of $b$, this polynomial has two turning points and could satisfy $g(x)<0$ on two disconnected intervals. Figure~\ref{pb-5-fig-1a} shows the graph of $g(x)$ for $b=5$. We analyze $f(x)$ and used its special properties to analyze the nested expression $g(x)$. 
+
+\begin{minipage}[t]{0.49\linewidth}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]%
+{figures-5/problem-5-fig-1a}%
+\caption{\label{pb-5-fig-1a}$g(x)=f(f(x)+x)$.}
+\end{figure}
+\end{minipage}
+\hfill%
+\begin{minipage}[t]{0.49\linewidth}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]%
+{figures-5/problem-5-fig-2a}%
+\caption{\label{pb-5-fig-2a}$f(x)=x^{2}+bx+1$.}
+\end{figure}
+\bigskip
+\end{minipage}
+
+
+The graph of $f(x)$ is a U-shaped parabola whose vertex is located at point $(0,-b)$. Figure~\ref{pb-5-fig-2a} shows the graph of $f(x)$ for $b=5$. The discriminant associated with the equation $f(x)=0$ is: 
+\begin{align*}
+\delta = (b^{2}-4)=(b-2)(b+2). 
+\end{align*}
+It follows that:
+\begin{align*}
+b < 2 \implies \delta < 0 
+     &\implies f(x) > 0 \quad \forall x \in \mathbb{R}
+\\
+b = 2 \implies \delta = 0 
+     &\implies f(x) = x^{2} + 2x + 1 = (x+1)^{2} \ge 0 \quad \forall x \in \mathbb{R}
+\\
+b > 2 \implies \delta > 0 
+     &\implies f(x) > 0 \quad \forall x \in (-\infty, \tfrac{-b-\sqrt{\delta}}{2}) \cup (\tfrac{-b+\sqrt{\delta}}{2}, +\infty)
+\\
+     &\implies f(x) = 0 \quad \text{for}~ x = -1
+\\
+     &\implies f(x) < 0 \quad \forall x \in (\tfrac{-b-\sqrt{\delta}}{2}, \tfrac{-b+\sqrt{\delta}}{2})
+\end{align*}
+The problem is to count the number of integer values $n\in\mathbb{N}$ such that:
+\begin{align*}
+(f(n) + n) \in  
+  \Bigl(\tfrac{-b-\sqrt{\delta}}{2},\
+        \tfrac{-b+\sqrt{\delta}}{2}
+   \Bigr)
+\end{align*}
+
+We assume $b>2$, which implies $\delta>0$ and factorize $f$ as
+\begin{align*}
+f(x) = \Bigl(x+\tfrac{b+\sqrt{\delta}}{2}\Bigr)\Bigl(x+\tfrac{b-\sqrt{\delta}}{2}\Bigr)
+\end{align*}
+%While the number of integers inside the interval goes to infinity as $b\to\infty$, there are further restrictions from the nested expression $g(x)=f(f(x)+x)$ that make the number of integers finite. 
+
+Thanks to its special structure, $g(x)$ may be factorized as follows:
+\begin{align*}
+g(x) 
+& = f(f(x)+x))
+\\[1ex]
+& = \Bigl(f(x)+x+\tfrac{b+\sqrt{\delta}}{2}\Bigr) 
+    \Bigl(f(x)+x+\tfrac{b-\sqrt{\delta}}{2}\Bigr)
+\\[1ex]
+%& = \Bigl(x^{2}+(b+1)x+1 - \tfrac{- b - \sqrt{(b-2)(b+2)}}{2}\Bigr) 
+%    \Bigl(x^{2}+(b+1)x+1 - \tfrac{- b + \sqrt{(b-2)(b+2)}}{2}\Bigr)
+%\\[1ex]
+& = \Bigl(x^{2}+(b+1)x + \tfrac{(b+2) + \sqrt{\delta}}{2}\Bigr) 
+    \Bigl(x^{2}+(b+1)x + \tfrac{(b+2) - \sqrt{\delta}}{2}\Bigr)
+\end{align*}
+Since $b>2$, the first quadratic factor is strictly positive and the sign of $g(x)$ depends on the sign of the second quadratic factor. Let 
+\begin{align*}
+h(x) = x^{2}+(b+1)x+\tfrac{(b+2)-\sqrt{\delta}}{2}
+\end{align*}
+We have shown $g(x)<0$ if and only if $h(x)<0$, so we now analyze $h(x)$.
+
+The discriminant associated with $h(x)$ is: 
+\begin{align*}
+\alpha 
+  = (b+1)^{2} -4 \ \tfrac{(b+2) - \sqrt{\delta}}{2}
+  = b^{2}-3+2\sqrt{\delta}
+\end{align*}
+where $b>2$ implies $\alpha>0$. The quadratic $h(x)$ may be factorized as follows:
+\begin{align*}
+h(x) 
+& = \Bigl(x-\tfrac{-(b+1)-\sqrt{b^{2}-3+2\sqrt{\delta}}}{2}\Bigr)
+    \Bigl(x-\tfrac{-(b+1)+\sqrt{b^{2}-3+2\sqrt{\delta}}}{2}\Bigr)
+\end{align*}
+
+The expression can be simplified by eliminating the nested square-roots (see the proof at the end of this section).
+\begin{align*}
+\sqrt{b^{2}-3+2\sqrt{(b-2)(b+2)}}
+= 1 + \sqrt{(b-2)(b+2)}
+\end{align*}
+
+Going back to the factorization of $h(x)$, we have
+\begin{align*}
+h(x) 
+& = \Bigl(x-\tfrac{-(b+1)-(1+\sqrt{(b-2)(b+2)}\,)}{2}\Bigr)
+    \Bigl(x-\tfrac{-(b+1)+(1+\sqrt{(b-2)(b+2)}\,)}{2}\Bigr)
+\\
+& = \Bigl(x-\tfrac{-(b+2)-\sqrt{(b-2)(b+2)}\,)}{2}\Bigr)
+    \Bigl(x-\tfrac{-b+\sqrt{(b-2)(b+2)}\,)}{2}\Bigr)
+\end{align*}
+Both roots of $h(x)=0$ are negative with $-(b+2)-\sqrt{(b-2)(b+2)}\,)<-b+\sqrt{(b-2)(b+2)}\,)$ for all $b>2$.
+The problem is now to count the number of integer values $n\in\mathbb{N}$ such that:
+\begin{align*}
+n \in \Bigl(\tfrac{-(b+2)-\sqrt{(b-2)(b+2)}\,)}{2},\
+            \tfrac{-b+\sqrt{(b-2)(b+2)}\,)}{2}
+      \Bigr)
+\end{align*}
+for $b>2$. This is an interval of width
+\begin{align*}
+\tfrac{-b+\sqrt{(b-2)(b+2)}\,)}{2}-\tfrac{-(b+2)-\sqrt{(b-2)(b+2)}\,)}{2}=1.
+\end{align*}
+Since the bounds of the interval are excluded, this interval contains either exactly $1$ or exactly $0$ integer values such that $g(x)<0$. 
+
+Conclusion: The solutions are \fbox{0,1}.
+
+
+\subsubsection*{Proof: Simplifying the Nested Square-Roots}
+Suppose that there exist $x>0$ and $y>0$ such that:
+\begin{align*}
+\sqrt{b^{2}-3+2\sqrt{(b-2)(b+2)}}
+= \sqrt{x} + \sqrt{y}
+\end{align*}
+Square both sides of the equality:
+\begin{align*}
+b^{2}-3+2\sqrt{(b-2)(b+2)}
+= x + y + 2\sqrt{xy}
+\end{align*}
+Split the equality and equate each part:
+\begin{align*}
+x + y & = b^{2}-3
+\\
+x y & = (b-2)(b+2)
+\end{align*}
+Reduce the system to a single quadratic in $x$:
+\begin{align*}
+x^{2} - (b^{2}-3) x + (b-2)(b+2) = 0
+\end{align*}
+The discriminant of this quadratic is ${(b^{2}-3)^{2}-4(b-2)(b+2)=(b^{2}-5)^{2}}$. The roots are $1$ and $(b-2)(b+2)$. Substituting back for $y$ gives
+\begin{align*}
+\sqrt{b^{2}-3+2\sqrt{(b-2)(b+2)}}
+= 1 + \sqrt{(b-2)(b+2)}
+\end{align*}
