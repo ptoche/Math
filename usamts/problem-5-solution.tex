@@ -42,22 +42,19 @@ b > 2 \implies \delta > 0
 \\
      &\implies f(x) < 0 \quad \forall x \in (\tfrac{-b-\sqrt{\delta}}{2}, \tfrac{-b+\sqrt{\delta}}{2})
 \end{align*}
-The problem is to count the number of integer values $n\in\mathbb{N}$ such that:
-\begin{align*}
-(f(n) + n) \in  
-  \Bigl(\tfrac{-b-\sqrt{\delta}}{2},\
-        \tfrac{-b+\sqrt{\delta}}{2}
-   \Bigr)
-\end{align*}
+%The problem is to count the number of integer values $n\in\mathbb{N}$ such that:
+%\begin{align*}
+%(f(n) + n) \in  
+%  \Bigl(\tfrac{-b-\sqrt{\delta}}{2},\
+%        \tfrac{-b+\sqrt{\delta}}{2}
+%   \Bigr)
+%\end{align*}
 
-We assume $b>2$, which implies $\delta>0$ and factorize $f$ as
+If $\delta>0$, $f$ and $g$ can be factorized as:
 \begin{align*}
-f(x) = \Bigl(x+\tfrac{b+\sqrt{\delta}}{2}\Bigr)\Bigl(x+\tfrac{b-\sqrt{\delta}}{2}\Bigr)
-\end{align*}
-%While the number of integers inside the interval goes to infinity as $b\to\infty$, there are further restrictions from the nested expression $g(x)=f(f(x)+x)$ that make the number of integers finite. 
-
-Thanks to its special structure, $g(x)$ may be factorized as follows:
-\begin{align*}
+f(x) 
+& = \Bigl(x+\tfrac{b+\sqrt{\delta}}{2}\Bigr)\Bigl(x+\tfrac{b-\sqrt{\delta}}{2}\Bigr)
+\\[1ex]
 g(x) 
 & = f(f(x)+x))
 \\[1ex]
@@ -69,14 +66,18 @@ g(x)
 %\\[1ex]
 & = \Bigl(x^{2}+(b+1)x + \tfrac{(b+2) + \sqrt{\delta}}{2}\Bigr) 
     \Bigl(x^{2}+(b+1)x + \tfrac{(b+2) - \sqrt{\delta}}{2}\Bigr)
+\\
+& = \ell(x) \ h(x), \quad \text{where}
+\\[1ex]
+\ell(x) 
+  & = x^{2}+(b+1)x+\tfrac{(b+2)+\sqrt{\delta}}{2}
+\\
+h(x) 
+  & = x^{2}+(b+1)x+\tfrac{(b+2)-\sqrt{\delta}}{2}
 \end{align*}
-Since $b>2$, the first quadratic factor is strictly positive and the sign of $g(x)$ depends on the sign of the second quadratic factor. Let 
-\begin{align*}
-h(x) = x^{2}+(b+1)x+\tfrac{(b+2)-\sqrt{\delta}}{2}
-\end{align*}
-We have shown $g(x)<0$ if and only if $h(x)<0$, so we now analyze $h(x)$.
+The sign of $g(x)$ depends on the sign of the product of the two quadratic factors: $g(x)<0$ if and only if $\ell(x)h(x)<0$. 
 
-The discriminant associated with $h(x)$ is: 
+We first analyze $h(x)$. The discriminant associated with $h(x)$ is: 
 \begin{align*}
 \alpha 
   = (b+1)^{2} -4 \ \tfrac{(b+2) - \sqrt{\delta}}{2}
@@ -89,7 +90,7 @@ h(x)
     \Bigl(x-\tfrac{-(b+1)+\sqrt{b^{2}-3+2\sqrt{\delta}}}{2}\Bigr)
 \end{align*}
 
-The expression can be simplified by eliminating the nested square-roots (see the proof at the end of this section).
+The nested square-roots can be simplified (proof at the end of this section):
 \begin{align*}
 \sqrt{b^{2}-3+2\sqrt{(b-2)(b+2)}}
 = 1 + \sqrt{(b-2)(b+2)}
@@ -105,7 +106,7 @@ h(x)
     \Bigl(x-\tfrac{-b+\sqrt{(b-2)(b+2)}\,)}{2}\Bigr)
 \end{align*}
 Both roots of $h(x)=0$ are negative with $-(b+2)-\sqrt{(b-2)(b+2)}\,)<-b+\sqrt{(b-2)(b+2)}\,)$ for all $b>2$.
-The problem is now to count the number of integer values $n\in\mathbb{N}$ such that:
+The problem reduces to counting the number of integer values $n\in\mathbb{N}$ such that:
 \begin{align*}
 n \in \Bigl(\tfrac{-(b+2)-\sqrt{(b-2)(b+2)}\,)}{2},\
             \tfrac{-b+\sqrt{(b-2)(b+2)}\,)}{2}
@@ -115,9 +116,20 @@ for $b>2$. This is an interval of width
 \begin{align*}
 \tfrac{-b+\sqrt{(b-2)(b+2)}\,)}{2}-\tfrac{-(b+2)-\sqrt{(b-2)(b+2)}\,)}{2}=1.
 \end{align*}
-Since the bounds of the interval are excluded, this interval contains either exactly $1$ or exactly $0$ integer values such that $g(x)<0$. 
+This interval contains typically exactly $1$ integer value such that $g(x)<0$. However, since the bounds of the interval are excluded, whenever $f(f(x)+x)=0$ for some integer value of $x$, the interval contains exactly $0$ integers. 
 
-Conclusion: The solutions are \fbox{0,1}.
+The analysis of $\ell(x)$ is similar. 
+The problem reduces to counting the number of integer values $n\in\mathbb{N}$ such that:
+\begin{align*}
+n \in \Bigl(\tfrac{-b-\sqrt{(b-2)(b+2)}\,)}{2},\
+            \tfrac{-(b+2)+\sqrt{(b-2)(b+2)}\,)}{2}
+      \Bigr)
+\end{align*}
+for $b>2$. This interval also has width of exactly $1$.
+
+Putting it together, the generic situation is $0$ solutions or $2$ solutions, with $1$ solution occurring in cases where exactly one of $\ell(x)$ or $h(x)$ is zero at an integer value of $x$.
+
+Conclusion: The solutions are \fbox{0,1,2}.
 
 
 \subsubsection*{Proof: Simplifying the Nested Square-Roots}

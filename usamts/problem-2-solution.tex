@@ -51,7 +51,6 @@ Since triangle $ACE$ is equilateral, its area is $\frac{\sqrt{3}}{4}r^{2}$ (the 
 \caption{\label{pb-2-fig-4}The area of isosceles triangle $ABC$ is $\frac{\sqrt{3}}{12}r^{2}$.}
 \end{figure}
 
-
 Consider now the isosceles triangle $ABC$ in hexagon $ABCDEF$ (Figure~\ref{pb-2-fig-2}). The base of triangle $ABC$ coincides with the chord $AC=r$. The angle at the vertex is $\varphi={\angle}ABC=\frac{2\pi}{3}$. The angle $\varphi$ follows from the sum-of-angles formula. The sum of the angles of a regular polygon with $n$ sides is $(n-2)\pi$. For a hexagon, $n=6$, the angle is therefore $\varphi=\frac{(6-2)\pi}{6}=\frac{2\pi}{3}$. The isosceles triangle $ABC$ fits exactly three times into the equilateral triangle $ACE$. And therefore its area is $\frac{\sqrt{3}}{12}r^{2}$. As a sanity check, this area may also be calculated from trigonometry:
 \begin{align*}
 \frac{r^{2}}{4\tan(\varphi/2)}
@@ -68,8 +67,26 @@ Adding together the area of triangle $ACE$ and triangles $ABC$, $AEF$, and $CDE$
 \end{align*}
 where we have substituted $r=1$, the radius of the unit circle.
 
-Conclusion: The area of the hexagon is \fbox{$\frac{\sqrt{3}}{2}\approx0.866$}.
+Conclusion: The area of the hexagon is \fbox{$\frac{\sqrt{3}}{2}$}.
 
+\subsubsection*{Problem 2: Sanity Check}
+A quick check is shown in Figure~\ref{pb-2-fig-5}. 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.49\linewidth}
+\centering 
+\includegraphics[width=\linewidth]%
+{figures-2/hexagon-circle-grid-outer}%
+\caption{\label{pb-2-fig-5a}Outer grid.}
+\end{subfigure}
+\hfill%
+\begin{subfigure}[t]{0.49\linewidth}
+\includegraphics[width=\linewidth]%
+{figures-2/hexagon-circle-grid-inner}%
+\caption{\label{pb-2-fig-5b}Inner grid.}
+\end{subfigure}
+\caption{\label{pb-2-fig-5}Place a regular grid on top of the figure such that the radius of the circle is divided into $10$ squares. The outer grid in Figure~\ref{pb-2-fig-5a} covers $100$ squares. The inner grid in  Figure~\ref{pb-2-fig-5b} covers $72$ squares. The polygon's area is strictly inside $(0.72, 1)$ and approximately $0.86$. This is consistent with $\frac{\sqrt{3}}{2}\approx0.866$.}
+\end{figure}
 
 %$\sin(\pi/3)=\frac{\sqrt{3}}{2}$.
 
