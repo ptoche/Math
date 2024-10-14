@@ -1,6 +1,6 @@
 % !TEX root = solutions.tex
 
-The question does not state who splits the integers into two groups: If the split is engineered to maximize $M$, the answer is $M=1012$. If the split is engineered to minimize $M$, the answer is $M=2$. By another interpretation, the answer is $M=16$.
+The question does not state who splits the integers into two groups: If the split is engineered to maximize $M$, the answer is $M=1012$. If the split is engineered to minimize $M$, the answer is $M=2$. By another interpretation, the answer is $M=14$ or $M=15$, as shown below.
 
 \subsubsection*{General Considerations}
 
@@ -10,13 +10,15 @@ F_{0} & = 0, \\
 F_{1} & = 1, \\ 
 F_{n+1} & = F_{n} + F_{n-1}.
 \end{align*}
-On the closed interval $[0,2024]$, the Fibonacci subsequence is 
+The first few terms of the Fibonacci sequence are:
 \begin{align*}
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597.
 \end{align*}
 where $F_{17}=1597$.
-Clearly, the largest possible difference $|a_{k+1}-a_{k}|$, calculated from consecutive terms in the sequence $a_{1},a_{2},\ldots,a_{m}$, cannot exceed $1597$ and likewise for $b_{1},b_{2},\ldots,b_{n}$. 
 
+Clearly, the largest possible difference $|a_{k+1}-a_{k}|$, calculated from consecutive terms in any subsequence $a_{1},a_{2},\ldots,a_{m}$, cannot exceed $1597$, since $m<2024$, and likewise for $b_{1},b_{2},\ldots,b_{n}$. But $F_{17}=1597$ is unreachable if the subsequences are split into $1012$ elements each. 
+
+The question does not explicitly state a constraint on the Fibonacci numbers, but there may be an implicit understanding that they must form an increasing sequence. We consider several interpretations. 
 
 \subsubsection*{Amicable Split}
 
@@ -50,74 +52,74 @@ b_{1},b_{2},b_{3}\ldots,b_{2022}
 \end{align*}
 These sequences are fibtastic, as shown above. The stated conditions are therefore satisfied and the maximum (max-min) is $M=2$. 
 
-\subsubsection*{Increasing Fibonacci Subsequences}
-Adding a constraint to the problem makes it more interesting. Consider the revised definition:
-A sequence of integers $x_{1},x_{2},...,x_{k}$ is called \textit{fibtastic} if the difference between any two consecutive elements in the sequence is a Fibonacci number \textbf{\textit{and if these Fibonacci numbers form a strictly increasing sequence}}.
+\subsubsection*{Increasing Fibonacci Numbers}
+Consider the revised definition:
+A sequence of integers $x_{1},x_{2},...,x_{k}$ is called \textit{increasing fibtastic} if the difference between any two consecutive elements in the sequence is a Fibonacci number \textbf{\textit{and if these Fibonacci numbers form an increasing sequence}}. Consider both "strictly increasing" and "monotonically increasing" fibtastic sequences. 
 
-The largest increasing sequence formed by the consecutive differences would be a subsequence of the first seventeen Fibonacci numbers: $F_{1},F_{2},\ldots,F_{17}$. However, $F_{17}=1597$ is unreachable for $m=n=1012$, so the increasing Fibonacci subsequence is reduced to $F_{1},F_{2},\ldots,F_{16}$, where $F_{16}=987$. With these additional restrictions, a candidate solution is $M=16$. It remains to be shown that a subsequence of that length does exist. 
+The best we found is:
+\begin{itemize}[label=-]
+\item strictly increasing fibtastic sequence: $M=14$.
+\item monotonically increasing fibtastic sequence: $M=15$.
+\end{itemize}
 
-We start by constructing a subsequence on $[1,2024]$. 
+Method of construction:
+\begin{itemize}
+\item Construct a fibtastic sequence of length $n$ starting from $3$ (strict) or $2$ (not strict), that will be used for $(a)_{k}$.
+\item Construct another fibtastic sequence of length $n$ starting after the $n$th term of the fibtastic sequence created for $(a)_{k}$.
+\item For each fibtastic sequence, place all the integers that fall in the "gaps" into the other subsequence. 
+\item Any integer greater or lower than the fibtastic sequences can be placed into any one of the subsequences.
+\end{itemize}
 
-\begin{table}[H]
-\centering
-\begin{tblr}{
-  colspec = {X[c,2cm] @{\ } X[c,15pt] X[c] @{\ } X[c,20pt] @{\ } X[c]},
-  cell{2-Z}{1-Z}={mode=math},
-  row{1}={font=\bfseries},
-  column{3}={halign=l},
-  column{5}={halign=r},
-  rowsep = 0.2ex,
-  stretch=0,
-}
-\specialrule{.8pt}{0pt}{5pt}% .4pt = width of rule
-Number 
-& &
-\parcell{Fibonacci\\Representation}
-& &
-\parcell{Consecutive\\Difference}\\
-\specialrule{.4pt}{5pt}{5pt}% .4pt = width of rule
- 1 & = & F_{1}                 && \\
-   &   &                       & \to & F_{3} - F_{1} = F_{2} \\
- 2 & = & F_{3}                 && \\
-   &   &                       & \to & F_{4} - F_{3} = F_{2} \\
- 3 & = & F_{4}                 && \\
-   &   &                       & \to & F_{2} \\
- 4 & = & F_{4} + F_{2}         && \\
-   &   &                       & \to & F_{5} - F_{4} - F_{2} = F_{1} \\
- 5 & = & F_{5}                 && \\
-   &   &                       & \to & F_{2} \\
- 6 & = & F_{5} + F_{2}         && \\
-   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
- 7 & = & F_{5} + F_{3}         && \\
-   &   &                       & \to & F_{6} - F_{5} - F_{3} = F_{2} \\
- 8 & = & F_{6}                 && \\
-   &   &                       & \to & F_{2} \\
- 9 & = & F_{6} + F_{2}         && \\
-   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
-10 & = & F_{6} + F_{3}         && \\
-   &   &                       & \to & F_{4} - F_{3} = F_{2} \\
-11 & = & F_{6} + F_{4}         && \\
-   &   &                       & \to & F_{2} \\
-12 & = & F_{6} + F_{4} + F_{2} && \\
-   &   &                       & \to & F_{7} - F_{6} - F_{4} - F_{2} = F_{1} \\
-13 & = & F_{7}                 && \\
-   &   &                       & \to & F_{1} \\
-14 & = & F_{7} + F_{2}         && \\
-   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
-15 & = & F_{7} + F_{3}         && \\
-   &   &                       & \to & F_{4} - F_{3} = F_{2} \\
-16 & = & F_{7} + F_{4}         && \\
-   &   &                       & \to & F_{2} \\
-17 & = & F_{7} + F_{4} + F_{2} && \\
-   &   &                       & \to & F_{5} - F_{4} - F_{2} = F_{1} \\
-18 & = & F_{7} + F_{5}         && \\
-   &   &                       & \to & F_{2} \\
-19 & = & F_{7} + F_{5} + F_{2} && \\
-   &   &                       & \to & F_{3} - F_{2} = F_{1} \\
-20 & = & F_{7} + F_{5} + F_{3} && \\
-   &   &                       & \to & F_{8} - F_{7} - F_{5} - F_{3} = F_{2} \\
-21 & = & F_{8}                 && \\
-\specialrule{.8pt}{5pt}{0pt}% .4pt = width of rule
-\end{tblr}
-\caption{\label{pb-3-tbl-1}}
-\end{table}
+\subsubsection*{Solution for "strictly increasing" fibtastic sequence:}
+$M=14$: The terms in red form a strictly increasing fibtastic sequence. The terms in blue could be moved from subsequence $(b)_{k}$ to subsequence $(a)_{k}$ without altering the solution. 
+\begin{align*}
+(a)_{k} 
+& = \textcolor{red}{3, 4, 6, 9, 14, 22, 35, 56, 90, 145, 234, 378, 611, 988},
+\\ 
+& \quad\
+993, 995, 996, \ldots, 1973, 1974, 1975.
+\\[1ex] 
+(b)_{k} 
+& = \textcolor{blue}{1, 2}, 
+5, 7, 8, 10, 11, \ldots, 985, 986, 987,
+\textcolor{blue}{989, 990}, 
+\\
+& \quad\
+\textcolor{red}{991, 992, 994, 997, 1002, 1010, 1023, 1044, 1078, 1133, 1222, 1366, 1599, 1976}, 
+\\
+& \quad\
+\textcolor{blue}{1977, 1978, 1979, 1980, 1981, \ldots, 2022, 2023, 2024}.
+\end{align*}
+The difference between consecutive terms in the fibtastic sequence is:
+\begin{align*}
+1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377
+\end{align*}
+The difference sequence is the same for $(a)_{k}$ and $(b)_{k}$. It is strictly increasing. 
+
+\subsubsection*{Solution for "monotonically increasing" fibtastic sequence:}
+$M=15$: The terms in red form a monotonically increasing fibtastic sequence. The terms in blue could be moved from subsequence $(b)_{k}$ to subsequence $(a)_{k}$ without altering the solution. 
+\begin{align*}
+(a)_{k} 
+& = \textcolor{red}{2, 3, 4, 6, 9, 14, 22, 35, 56, 90, 145, 234, 378, 611, 988},
+\\ 
+& \quad\
+993, 995, 996, \ldots, 1973, 1974, 1975.
+\\[1ex] 
+(b)_{k} 
+& = \textcolor{blue}{1}, 
+5, 7, 8, 10, 11, \ldots, 985, 986, 987,
+\textcolor{blue}{989, 990}, 
+\\
+& \quad\
+\textcolor{red}{990, 991, 992, 994, 997, 1002, 1010, 1023, 1044, 1078, 1133, 1222, 1366, 1599, 1976}, 
+\\
+& \quad\
+\textcolor{blue}{1977, 1978, 1979, 1980, 1981, \ldots, 2022, 2023, 2024}.
+\end{align*}
+The difference between consecutive terms in the fibtastic sequence is:
+\begin{align*}
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377
+\end{align*}
+The difference sequence is the same for $(a)_{k}$ and $(b)_{k}$. It is monotonically increasing. 
+
+The next Fibonacci number after $F_{14}=377$ is $F_{15}=610$. Since $1976+610>2024$, it is not possible to insert $F_{15}$. 
