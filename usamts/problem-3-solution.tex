@@ -1,6 +1,10 @@
 % !TEX root = solutions.tex
 
-The question does not state who splits the integers into two groups: If the split is engineered to maximize $M$, the answer is $M=1012$. If the split is engineered to minimize $M$, the answer is $M=2$. By another interpretation, the answer is $M=14$ or $M=15$, as shown below.
+\subsubsection*{Introduction}
+
+The question does not explicitly state a restriction on the sequence of Fibonacci numbers. We consider strictly increasing sequences, monotonically increasing sequences (increasing, but not strictly), and non-monotonic sequences. If the Fibonacci numbers must form a strictly increasing sequence, the answer is $M=14$. If they must form a monotonically increasing sequence, the answer is $M=15$. If non-monotonic sequences are permitted, $M$ can be larger, as shown below. 
+
+The question does not state who splits the integers into two groups: If the split is engineered to maximize $M$, the answer is $M=1012$. If the split is engineered to minimize $M$, the answer is $M=2$. 
 
 \subsubsection*{General Considerations}
 
@@ -16,13 +20,14 @@ The first few terms of the Fibonacci sequence are:
 \end{align*}
 where $F_{17}=1597$.
 
-Clearly, the largest possible difference $|a_{k+1}-a_{k}|$, calculated from consecutive terms in any subsequence $a_{1},a_{2},\ldots,a_{m}$, cannot exceed $1597$, since $m<2024$, and likewise for $b_{1},b_{2},\ldots,b_{n}$. But $F_{17}=1597$ is unreachable if the subsequences are split into $1012$ elements each. 
+The largest possible difference $|a_{k+1}-a_{k}|$, calculated from consecutive terms in any subsequence $a_{1},a_{2},\ldots,a_{m}$, is at most $F_{17}=1597$, since the next Fibonacci number, $F_{18}=2584$, is too large for $m<2024$, and likewise for $b_{1},b_{2},\ldots,b_{n}$. 
+%But $F_{17}=1597$ is unreachable if the subsequences are split into $1012$ elements each. Thus, $F_{16}=987$ is a candidate for the largest number that could appear in the difference sequence. 
 
-The question does not explicitly state a constraint on the Fibonacci numbers, but there may be an implicit understanding that they must form an increasing sequence. We consider several interpretations. 
+The question does not explicitly state a constraint on the Fibonacci numbers. We consider several interpretations. 
 
 \subsubsection*{Amicable Split}
 
-Consider the arithmetic sequence with first term $1$ and common difference $F_{1}$. Split the integers as
+Consider the arithmetic sequence with first term $1$ and common difference $F_{1}=1$. Split the integers as
 \begin{align*}
 & \text{Group A}: 
 \quad
@@ -35,7 +40,7 @@ b_{1},b_{2},b_{3}\ldots,b_{1012}
 && = 1013,1014,1015\ldots,2024
 \end{align*}
 where $m=n=1012$.
-The difference between any two consecutive elements in the sequence $a_{1},a_{2},a_{3}\ldots,a_{1012}$ is the Fibonacci number $F_{1}$. Likewise for $b_{1},b_{2},b_{3}\ldots,b_{1012}$. Every consecutive element from either Group A or Group B is a fibtastic sequence. The stated conditions are therefore satisfied and the maximum (max-max) is $M=1012$.
+The difference between any two consecutive elements in the sequence $a_{1},a_{2},a_{3}\ldots,a_{1012}$ is the Fibonacci number $F_{1}=1$. Likewise for $b_{1},b_{2},b_{3}\ldots,b_{1012}$. Every consecutive element from either Group A or Group B is a fibtastic sequence. The stated conditions are therefore satisfied and the maximum (max-max) is $M=1012$.
 
 \subsubsection*{Adversarial Split}
 If $m$ and $n$ are chosen to minimize $M$, we must have $m\ge2$ and $n\ge2$ to ensure that the difference between any two consecutive numbers is defined. An adversarial split that minimizes $M$ is:
@@ -54,21 +59,17 @@ These sequences are fibtastic, as shown above. The stated conditions are therefo
 
 \subsubsection*{Increasing Fibonacci Numbers}
 Consider the revised definition:
-A sequence of integers $x_{1},x_{2},...,x_{k}$ is called \textit{increasing fibtastic} if the difference between any two consecutive elements in the sequence is a Fibonacci number \textbf{\textit{and if these Fibonacci numbers form an increasing sequence}}. Consider both "strictly increasing" and "monotonically increasing" fibtastic sequences. 
-
-The best we found is:
-\begin{itemize}[label=-]
-\item strictly increasing fibtastic sequence: $M=14$.
-\item monotonically increasing fibtastic sequence: $M=15$.
-\end{itemize}
+A sequence of integers $x_{1},x_{2},...,x_{k}$ is called \textit{increasing fibtastic} if the difference between any two consecutive elements in the sequence is a Fibonacci number \textbf{\textit{and if these Fibonacci numbers form an increasing sequence}}. 
 
 Method of construction:
 \begin{itemize}
 \item Construct a fibtastic sequence of length $n$ starting from $3$ (strict) or $2$ (not strict), that will be used for $(a)_{k}$.
 \item Construct another fibtastic sequence of length $n$ starting after the $n$th term of the fibtastic sequence created for $(a)_{k}$.
 \item For each fibtastic sequence, place all the integers that fall in the "gaps" into the other subsequence. 
-\item Any integer greater or lower than the fibtastic sequences can be placed into any one of the subsequences.
+\item Any integer smaller or greater than the terms of the fibtastic sequences can be placed into any one of $(a)_{k}$ or $(b)_{k}$.
 \end{itemize}
+
+This method of construction guarantees that no integer "interferes" with the fibtastic sequences. 
 
 \subsubsection*{Solution for "strictly increasing" fibtastic sequence:}
 $M=14$: The terms in red form a strictly increasing fibtastic sequence. The terms in blue could be moved from subsequence $(b)_{k}$ to subsequence $(a)_{k}$ without altering the solution. 
@@ -80,12 +81,15 @@ $M=14$: The terms in red form a strictly increasing fibtastic sequence. The term
 993, 995, 996, \ldots, 1973, 1974, 1975.
 \\[1ex] 
 (b)_{k} 
-& = \textcolor{blue}{1, 2}, 
-5, 7, 8, 10, 11, \ldots, 985, 986, 987,
-\textcolor{blue}{989, 990}, 
+& = \textcolor{blue}{1, 2,} \
+5, 7, 8, 10, 11, \ldots, 985, 986, 987, \
+\textcolor{blue}{989, 990,} 
 \\
 & \quad\
-\textcolor{red}{991, 992, 994, 997, 1002, 1010, 1023, 1044, 1078, 1133, 1222, 1366, 1599, 1976}, 
+\textcolor{red}{991, 992, 994, 997, 1002, 1010, 1023, 1044, 1078, 1133,}
+\\
+& \quad\
+\textcolor{red}{1222, 1366, 1599, 1976}, 
 \\
 & \quad\
 \textcolor{blue}{1977, 1978, 1979, 1980, 1981, \ldots, 2022, 2023, 2024}.
@@ -96,30 +100,44 @@ The difference between consecutive terms in the fibtastic sequence is:
 \end{align*}
 The difference sequence is the same for $(a)_{k}$ and $(b)_{k}$. It is strictly increasing. 
 
+The difference sequence uses the Fibonacci numbers from $F_{2}=1$ to $F_{14}=377$. The first two Fibonacci numbers, $F_{0}=0$ and $F_{1}=1$ cannot be used, because they would create a difference of $0$ between consecutive terms.
+
+
 \subsubsection*{Solution for "monotonically increasing" fibtastic sequence:}
 $M=15$: The terms in red form a monotonically increasing fibtastic sequence. The terms in blue could be moved from subsequence $(b)_{k}$ to subsequence $(a)_{k}$ without altering the solution. 
 \begin{align*}
 (a)_{k} 
-& = \textcolor{red}{2, 3, 4, 6, 9, 14, 22, 35, 56, 90, 145, 234, 378, 611, 988},
+& = \textcolor{red}{3, 4, 5, 7, 10, 15, 23, 36, 57, 91, 146, 235, 379, 612, 989,}
 \\ 
 & \quad\
-993, 995, 996, \ldots, 1973, 1974, 1975.
+994, 996, 997, \ldots, 1974, 1975, 1976.
 \\[1ex] 
 (b)_{k} 
-& = \textcolor{blue}{1}, 
-5, 7, 8, 10, 11, \ldots, 985, 986, 987,
-\textcolor{blue}{989, 990}, 
+& = \textcolor{blue}{1, 2,} \
+6, 8, 9, 11, \ldots, 986, 987, 988, \ 
+\textcolor{blue}{990,} 
 \\
 & \quad\
-\textcolor{red}{990, 991, 992, 994, 997, 1002, 1010, 1023, 1044, 1078, 1133, 1222, 1366, 1599, 1976}, 
+\textcolor{red}{991, 992, 993, 995, 998, 1003, 1011, 1024, 1045, 1079, 1134,}
 \\
 & \quad\
-\textcolor{blue}{1977, 1978, 1979, 1980, 1981, \ldots, 2022, 2023, 2024}.
+\textcolor{red}{1223, 1367, 1600, 1977}, 
+\\
+& \quad\
+\textcolor{blue}{1978, 1979, 1980, \ldots, 2022, 2023, 2024}.
 \end{align*}
 The difference between consecutive terms in the fibtastic sequence is:
 \begin{align*}
 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377
 \end{align*}
-The difference sequence is the same for $(a)_{k}$ and $(b)_{k}$. It is monotonically increasing. 
+The difference sequence is the same for $(a)_{k}$ and $(b)_{k}$. It is monotonically increasing, but not strictly increasing since the value $1$ is repeated. 
 
-The next Fibonacci number after $F_{14}=377$ is $F_{15}=610$. Since $1976+610>2024$, it is not possible to insert $F_{15}$. 
+The difference sequence uses the Fibonacci numbers from $F_{1}=1$ to $F_{14}=377$. The next Fibonacci number after $F_{14}=377$ is $F_{15}=610$. Since $1976+610>2024$, it is clearly not possible to insert $F_{15}$. 
+
+\subsubsection*{Conclusion}
+\begin{itemize}[label=-,nosep]
+\item adversarial split: $M=2$ or no solution.
+\item amicable split / no constraint on the difference sequence: $M=1012$.
+\item monotonically increasing difference sequence: $M=15$.
+\item strictly increasing difference sequence: $M=14$.
+\end{itemize}
