@@ -1,11 +1,16 @@
 \documentclass[12pt]{article}
 \newif\ifsolution\solutionfalse\solutiontrue% comment out \answertrue to show/hide answers
-\usepackage{../preamble3}% preamble always after \newif\ifanswer
+\solutionfalse% toggle on/off
+\usepackage{preamble}% preamble always after \newif\ifsolution
 %\pagenumbering{gobble}
 \title{Russian School of Math Test}
 \author{James \& Patrick}
 \date{Revised:~\today}
 
+% set path to files and append path to current graphicspath using a custom function
+\def\pathtodir{/Users/patricktoche/TeX/Handouts/Math/rsm/}
+\appendtoinputpath{{\pathtodir/Test-2}}% problems
+\appendtographicspath{{\pathtodir/Figures}}% figures
 
 \begin{document}
 \maketitle
@@ -17,51 +22,51 @@ This note reviews a small number of problems from the Russian School of Math tes
 \clearpage
 
 \subsection*{1}
-\input{rsm-test-2-01-question}
+\input{test-2-01-question}
 \ifsolution
-  \input{rsm-test-2-01-solution}
+  \input{test-2-01-solution}
 \fi
 
 \subsection*{2}
-\input{rsm-test-2-02-question}
+\input{test-2-02-question}
 
 \subsection*{3}
-\input{rsm-test-2-03-question}
+\input{test-2-03-question}
 
 \subsection*{4}
-\input{rsm-test-2-04-question}
+\input{test-2-04-question}
 
 \subsection*{5}
-\input{rsm-test-2-05-question}
+\input{test-2-05-question}
 
 \subsection*{6}
-\input{rsm-test-2-06-question}
+\input{test-2-06-question}
 
 \subsection*{7}
-\input{rsm-test-2-07-question}
+\input{test-2-07-question}
 
 \subsection*{8}
-\input{rsm-test-2-08-question}
+\input{test-2-08-question}
 
 \subsection*{9}
-\input{rsm-test-2-09-question}
+\input{test-2-09-question}
 
 \subsection*{10}
-\input{rsm-test-2-10-question}
+\input{test-2-10-question}
 
 \subsection*{11}
-\input{rsm-test-2-11-question}
+\input{test-2-11-question}
 
 \subsection*{12}
-\input{rsm-test-2-12-question}
+\input{test-2-12-question}
 
 \subsection*{13}
-\input{rsm-test-2-13-question}
+\input{test-2-13-question}
 
 \subsection*{14}
-\input{rsm-test-2-14-question}
+\input{test-2-14-question}
 
 \subsection*{15}
-\input{rsm-test-2-15-question}
+\input{test-2-15-question}
 
 \end{document}

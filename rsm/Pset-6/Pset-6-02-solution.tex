@@ -1,0 +1,61 @@
+First, note that $\displaystyle\frac{33}{37}=0.\overline{891}$.
+Next, note that adding $0.\overline{ab}$ and $0.\overline{abc}$ gives:
+
+\begin{table}[H]
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {*{9}{Q[c, wd=1.5cm]}}
+}
+\SetCell[c=2]{l} Column No. $\to$
+  &    &  1 &  2 &   3 &   4 &   5 &   6 & 
+\\ \toprule
+  & 0. &  a &  b &   a &   b &   a &   b & \ldots
+\\
++ & 0. &  a &  b &   c &   a &   b &   c & \ldots
+\\ \hline
+= & 0. & 2a & 2b & a+c & b+a & a+b & b+c & \ldots
+\\
+= & 0. &  8 &  9 &   1 &   8 &   9 &   1 & \ldots
+\end{tblr}
+\end{table}
+
+We attempt to match $2a$, $2b$, $(a+c)$, etc. with the digits $8$, $9$, and $1$.
+
+The first attempt fails. 
+First, since the sum is less than $1$, this suggests that $2a=8$, or $a=4$. 
+Next, since $2b$ is not a multiple of $9$, this suggests that there was a carry, so we take $10$ away from the previous position and add $1$ to the current position. Putting it together,
+\begin{align*}
+2a
+& = 8
+\\
+2b + 1 
+& = 9
+\\
+a + c - 10 = 1
+\end{align*}
+Solving the system gives $a=8$, $b=2$ $c=7$.
+But clearly that is not right! The second attempt succeeds.
+Note that for the adjacent $(b+a)\to8$ and $(a+b)\to9$ in columns $4$ and $5$ to match, there must have been a carry that stopped there, that is:
+\begin{align*}
+a + b + 1
+& = 9
+\\
+b + a 
+& = 8
+\end{align*}
+Next, column $3$ suggests $a+c=1$, but that clearly is not consistent with $a+b=8$, so there must be a carry, and so $a+c-10=1$. Next, column $2$ suggests $2b=9$, which does not divide evenly, so there must be a carry: $2b+1=9$. Putting it together,
+\begin{align*}
+a + b
+& = 8
+\\
+a + c - 10
+& = 1
+\\
+2b + 1
+& = 9
+\end{align*}
+which yields $a=4$, $b=4$, $c=7$.
+
+Solution: \fbox{$\overline{abc}=\overline{447}$.}
+
+% .444444444444+.447447447447

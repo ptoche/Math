@@ -1,0 +1,306 @@
+\RequirePackage[T1]{fontenc}
+\RequirePackage{verbatim}
+\RequirePackage[table]{xcolor}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{colortbl}
+\definecolor{myblue}{rgb}{0.0,0.2,0.4}%
+\colorlet{themecolor}{myblue}
+\RequirePackage{enumitem}
+\setlist*[enumerate,1]{labelindent=0pt,label={(\alph*)}}
+\RequirePackage{setspace}
+\RequirePackage[singlelinecheck=false]{caption}
+\RequirePackage[pdfpagelabels,
+            colorlinks = true,
+            linkcolor = black,
+            urlcolor  = myblue,
+            citecolor = black,
+            anchorcolor = black]{hyperref}
+\RequirePackage{tabularray}
+\UseTblrLibrary{booktabs}
+\RequirePackage{booktabs, cellspace, multirow}
+\RequirePackage{amssymb}% \nless, \square and \blacksquare
+\RequirePackage{float}% option [H] to figure
+\RequirePackage{array}% \newcolumntype macro
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{Q}[1]{>{\vfil\hfil$}m{#1}<{$\hfill\vfill}} % centered, automatic math mode
+\newcolumntype{X}{>{$}l<{$}}
+\newcolumntype{Y}{>{$}c<{$}}
+\newcolumntype{Z}{>{$}r<{$}}
+\newcolumntype{M}{Z@{${}={}$}X}% align around the equality sign | uses X and Z above
+\RequirePackage{amsfonts}
+\RequirePackage{fontawesome5}% useful symbols
+\RequirePackage[fleqn]{amsmath}
+\RequirePackage{mathtools}%\DeclarePairedDelimiter, etc.
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\RequirePackage{xfrac}% \sfrac
+\RequirePackage{bm}% \boldsymbol
+\setlength\parindent{0pt}% no indents
+%\setlength{\parskip}{0.75\baselineskip plus 2pt}% control space between paragraphs
+\RequirePackage[parfill]{parskip}% no indents, lineskip
+\RequirePackage{scalerel}% \scaleleftright[1.75ex]{<}
+\RequirePackage{nccmath}% fleqn environment, medium-sized fraction \mfrac
+
+% Triangle and Arc/Sector hat symbols
+%\RequirePackage{amsmath}% already loaded
+\DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\trianglehat}{\mathord}{yhlargesymbols}{"E6}
+\DeclareMathAccent{\sectorhat}{\mathord}{yhlargesymbols}{"F3}
+
+% Math symbol
+% \newcommand*{\degree}{\textup{°}}% suddenly stopped working
+\usepackage{gensymb}% substitute for the above
+
+% Math operators
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+% tighter modulo command
+\newcommand{\modulo}[1]{\;(\mathrm{mod}\,#1)}
+
+% Smaller binomial command
+\newcommand{\binomial}[3][0.8]{\scalebox{#1}{$\dbinom{#2}{#3}$}}
+
+% smaller multiplication symbol
+\DeclareMathOperator{\mult}{\mbox{\scriptsize$\times$}}
+
+% right slash
+\newcommand{\rslash}{\raisebox{.15ex}{/}}
+
+% bold+underline command
+\newcommand\underbold[1]{\underline{\bfseries\boldmath#1}}
+
+% minipagex correctly applies paragraph skip preferences
+\newlength{\currentparskip}
+\newlength{\currentparindent}
+\newenvironment{minipagex}[2][]
+  {\setlength{\currentparskip}{\parskip}% save the value
+    \setlength{\currentparindent}{\parindent}%
+   \begin{minipage}[#1]{#2}% open the minipage
+   \setlength{\parskip}{\currentparskip}% restore the value
+   \setlength{\parindent}{\currentparindent}% restore the value
+  }
+  {\end{minipage}}
+
+% Permutations/Combinations
+\newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
+\newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+%% define commands for ticking in or crossing out
+\RequirePackage{amssymb}
+\RequirePackage{pifont}
+\newcommand{\cmark}{\mbox{\ding{51}}}
+\newcommand{\xmark}{\mbox{\ding{55}}}
+
+% crossing-out digits
+\newcommand{\crossout}[2][1]{%
+  \vphantom{\rslash}%
+  {\ooalign{\hidewidth$\crosses{#1}$\hidewidth\cr$#2$\cr}}%
+}
+\newcommand{\crosses}[1]{%
+  \ifcase#1\relax
+    \or
+    \rslash\or
+    \rslash\mskip-5.5mu\rslash\or
+    \rslash\mskip-5.5mu\rslash\mskip-5.5mu\rslash%
+  \fi
+}
+
+% load tikz and libraries
+\RequirePackage{tikz}
+\usetikzlibrary{intersections}
+\usetikzlibrary{positioning}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings, decorations.text}
+\usetikzlibrary{shapes,shapes.misc}
+\usetikzlibrary{backgrounds}
+
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},remember picture] \node[draw=red,thick,circle,inner sep=0.5pt,minimum width=3ex] (#1) {$#1$};}
+\tikzset{connect/.style={
+    red,in=225,out=315,thick}}
+
+% load pgfplots and library for coordinate system 
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=newest}% use bleeding edge version: risky
+\usetikzlibrary{arrows.meta}
+
+% text box with tikz, to use inside a node
+\tikzstyle{textbox} = [draw=blue!80!black, fill=blue!1!white, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+
+
+% angled brackets to use as an option to \begin{cases} \end{cases}
+% does not stretch if linespacing is increased
+\makeatletter
+\renewenvironment{cases}[1][\lbrace]{%
+  \def\@ldelim{#1}
+  \matrix@check\cases\env@cases
+}{%
+  \endarray\right.%
+}
+\patchcmd{\env@cases}{\lbrace}{\@ldelim}{}{}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set Graphics Paths
+\RequirePackage{graphicx}
+%\graphicspath{}% initialize the graphicspath, no longer needed with new version
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% append paths to the existing graphicspath
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% https://tex.stackexchange.com/questions/171587/
+% usage: \appendtographicspath{{a}{b}{c}}
+\ExplSyntaxOn
+\NewDocumentCommand{\appendtographicspath}{m}
+ {
+  \tl_if_exist:cF { Ginput@path } { \tl_new:c { Ginput@path } }
+  \clist_map_function:nN { #1 } \steven_gpath_append:n
+ }
+\cs_new_protected:Nn \steven_gpath_append:n
+ {
+  \tl_gput_right:cn { Ginput@path } { {#1} }
+ }
+% for debugging
+\NewDocumentCommand{\showgraphicspath}{}{\tl_show:c { Ginput@path }}
+\ExplSyntaxOff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% append path to existing paths for input files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% https://tex.stackexchange.com/questions/79058/
+\makeatletter
+\newcommand\appendtoinputpath[1]{%
+  \providecommand*{\input@path}{}%
+  \edef\input@path{#1\input@path}% prepend new path to path list
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Proof | based on theorem environment
+\RequirePackage{amssymb}% required
+%\RequirePackage{amsthm}% ntheorem and amsthm not compatible
+\newcommand*{\qed}{\null\nobreak\hfill\ensuremath{\square}}% \qed already defined by amsthm
+\RequirePackage[thmmarks,amsthm]{ntheorem}
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{:}
+%\theoremsymbol{$\blacksquare$}
+%\newtheorem*{theorem}{Theorem}% already defined
+\newtheorem*{definition}{Definition}
+%\newtheorem*{proof}{Proof}% already defined
+\AtEndEnvironment{proof}{\hfill$\blacksquare$}
+
+%% Question/Solution | based on tcolorbox
+% solution | show/hide toggle
+\RequirePackage{etoolbox}\newtoggle{showSolution}\togglefalse{showSolution}%
+\ifsolution
+  \toggletrue{showSolution}% default is false
+\fi
+
+% math box with empheq+tcolorbox
+\RequirePackage{empheq}
+\RequirePackage[many]{tcolorbox}
+\newtcbox{\mathbox}[1][]{%
+    nobeforeafter, math upper, tcbox raise base, enhanced, sharp corners, colframe=black, colback=white, boxrule=1pt, #1}
+\newtcbox{\alignbox}[1][]{%
+    nobeforeafter, math upper, tcbox raise base, enhanced, colframe=black, colback=white, boxrule=1pt, #1}
+% usage: \begin{solution}[Optional title]
+\tcbset{onecolummnstyle/.style={
+  breakable,
+  enhanced,
+  lower separated=false,
+  text width=\linewidth,
+  %colframe=themecolor,
+  coltext=themecolor,
+  frame hidden,
+  colback=white,
+  sharp corners,
+  attach boxed title to top left={yshift=0ex,xshift=5pt},% negative xshift
+  boxed title style={
+    colframe=white,
+    colback=white,
+    sharp corners,
+    },
+  overlay={
+      \draw[themecolor!80!white, line width=1.5pt] (frame.north west)--(frame.south west);
+  },
+  %fonttitle=\sffamily
+  fonttitle={\normalsize\itshape\bfseries\color{themecolor}}
+  }
+}
+\newtcolorbox[auto counter]{question}[1][]{
+  title={Question},
+  onecolummnstyle,
+  #1
+}
+% conditionally define solution environment
+% omit solution if \ifsolution is False
+\iftoggle{showSolution}{
+  \newtcolorbox[auto counter]{solution}[1][]{
+    title={Solution},
+    onecolummnstyle,
+    #1
+  }
+}{%
+    %\RequirePackage{verbatim}% already loaded
+    \newenvironment{solution}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
+}%
+
+% box inside a box
+\usepackage{varwidth}
+\newtcolorbox{boxinbox}[2][]{
+        enhanced,
+        colback=gray!10!white,
+        boxrule=0.1pt,
+        colframe=themecolor,
+        fonttitle=\bfseries,
+        %center title,
+        width=\linewidth,
+        nobeforeafter,
+        %lifted shadow={1mm}{-2mm}{3mm}{0.1mm}{black!50!white},
+        title={#2},
+        #1
+    }
+% answer environment | redundant with solution | somewhat earlier version
+\RequirePackage{etoolbox}\newtoggle{showAnswers}\togglefalse{showAnswers}%
+\ifanswer
+  \toggletrue{showAnswers}% default is false
+\fi
+\ifsolution% added to accommodate both answer and solution environments
+  \toggletrue{showAnswers}% default is false
+\fi
+% define answer environment
+\iftoggle{showAnswers}{
+    \newtcolorbox{answer}{%
+      breakable, 
+      enhanced, 
+      width=\linewidth,
+      parbox=false, % normal paragraph spacing
+      colback=blue!2!white,
+      opacityback=0.5,enhanced jigsaw,
+      colframe=blue!80!black
+    }
+    %\newenvironment{answer}{\vspace{1em}}{}
+}{%
+    %\RequirePackage{verbatim}% already loaded
+    \newenvironment{answer}{\vspace{0em}\expandafter\comment}{\expandafter\endcomment} 
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

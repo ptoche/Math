@@ -1,0 +1,70 @@
+The number $n$ can be written as follows:
+\begin{align*}
+n & = a \mult 14^{2} + b \mult 14^{1} + c \mult 14^{0}
+\\
+  & = a \mult 15^{2} + c \mult 15^{1} + b \mult 15^{0}
+\\
+  & = a \mult 6^{3} + c \mult 6^{2} + a \mult 6^{1} + c \mult 6^{0}
+\end{align*}
+This is a system of $3$ equations in $4$ unknowns to be solved for integers. 
+
+\begin{align}
+n & = 196a + 14b + c
+\label{eq:06:1a}
+\\
+  & = 225a + 15c + b
+\label{eq:06:1b}
+\\
+  & = 222a + 37c
+\label{eq:06:1c}
+\end{align}
+
+From (\ref{eq:06:1b})$-$(\ref{eq:06:1a}):
+\begin{align}
+29a + 14c = 13b
+\label{eq:06:2a}
+\end{align}
+From (\ref{eq:06:1b})$-$(\ref{eq:06:1c}):
+\begin{align}
+3a + b = 22c
+\label{eq:06:2b}
+\end{align}
+And thus from (\ref{eq:06:2a})$-$(\ref{eq:06:2b}):
+\begin{align}
+26a + 36c
+& = 14b
+\implies 
+13a + 18c = 7b
+\label{eq:06:3}
+\end{align}
+Eliminating $b$ seems like a good approach, so we multiply (\ref{eq:06:2b}) by $7$ and combine it with (\ref{eq:06:3}):
+\begin{align*}
+13a + 18c 
+& = 7b
+\\
+21a + 7b 
+& = 154c
+\\ 
+\implies
+34a & = 136c
+\implies
+17a = 68c
+\implies
+a = 4c
+\end{align*}
+Substituting back into (\ref{eq:06:2b}) yields $b=10c$. 
+We solve the system for $a$, $b$, $c$ in integers:
+\begin{align*}
+a
+& = 4c
+\\
+b
+& = 10c
+\end{align*}
+The only solution with $a<6$ and $c<6$ is: $a=4$, $b=10$, $c=1$. Substituting back into (\ref{eq:06:1c}) to solve for $n$:
+\begin{align*}
+n = 222 \mult 4 + 37 \mult 1
+  = 925
+\end{align*}
+
+Solution: \fbox{$n=925$.}

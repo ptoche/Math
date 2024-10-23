@@ -1,0 +1,58 @@
+We notice that $4$ and $5$ can be factored
+\begin{flalign*}
+16^{x} + 20^{x}
+& = 25^{x}
+\\[1ex]
+4^{2x} + 5^{x} \cdot 4^{x}
+& = 5^{2x}
+\\[1ex]
+1 + \frac{5^{x}}{4^{x}} \cdot \frac{4^{x}}{4^{x}}
+& = \frac{5^{2x}}{4^{2x}}
+\\[1ex]
+1 + (5/4)^{x} 
+& = (5/4)^{2x}
+\end{flalign*}
+Let $X=(5/4)^{x}$ and solve for $X>0$:
+\begin{flalign*}
+X^{2} - X - 1
+& = 0
+\implies
+X = \frac{1 + \sqrt{5}}{2}
+\end{flalign*}
+Now solve for $x$ by taking the logarithm on both sides of the equality:
+\begin{flalign*}
+\left(\frac{5}{4}\right)^{x} 
+& = \frac{1 + \sqrt{5}}{2}
+\implies
+x \ln\left(\frac{5}{4}\right)
+  = \ln\left(1+\sqrt{5}\right)-\ln(2)
+\implies
+x = \frac{\ln(1+\sqrt{5})-\ln(2)}{\ln(5/4)}
+&
+\end{flalign*}
+Check the plausibility of the solution with coarse approximations:
+% (log(1+sqrt(5))-log(2))/log(5/4)
+% 2.156512
+% (1.2-0.69)/(1.61-2*0.69)
+% 2.217391
+\begin{flalign*}
+&
+\ln(2) \approx 0.69, \
+\ln(3) \approx 1.10, \
+\ln(5) \approx 1.61, \
+\sqrt{5} \approx 2.24,
+\implies \ln(1+\sqrt{5}) \approx \ln\left(3.24\right) \approx 1.2
+& \\[1ex]
+& \frac{\ln(1+\sqrt{5})-\ln(2)}{\ln(5)-2\ln(2)} 
+\approx \frac{1.2-0.69}{1.61 - 2 \times 0.69} 
+\approx 2.2 
+& \\[1ex]
+& 16^{2.2} + 20^{2.2} \approx 1174
+& \\[1ex]
+& 25^{2.2} \approx 1190
+&
+% 16^(2.2) + 20^(2.2)
+% 1173.948
+% 25^(2.2)
+% 1189.784
+\end{flalign*}

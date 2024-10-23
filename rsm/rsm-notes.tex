@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, centering, height=250mm, width=180mm]{geometry}
+% set the default values for solution/answer environments
+\newif\ifsolution\solutiontrue% comment out \answertrue to show/hide answers
+\newif\ifanswer\answertrue% comment out \answertrue to show/hide answers
+%\solutionfalse\answerfalse% toggle on/off
+\usepackage{../preamble}% preamble always after \newif\ifanswer
+\input{setPath}% set path to files
+%\pagenumbering{gobble}
+\title{Russian School of Math Test}
+\author{James \& Patrick}
+\date{Revised:~\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}\setlength{\parindent}{0pt}%
+This note reviews a small number of problems from the Russian School of Math test. Written for personal use.
+\end{abstract}
+
+\thispagestyle{empty}
+\clearpage
+
+\subsection*{Pell's Equation}
+\begin{boxinbox}{}
+\input{note-pell-equation}
+\end{boxinbox}
+
+\subsection*{Euler's Totient Function}
+\begin{boxinbox}{}
+\input{note-euler-totient}
+\end{boxinbox}
+
+\end{document}

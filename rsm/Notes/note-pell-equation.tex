@@ -1,0 +1,46 @@
+All the integer solutions $(x,y)$ of the Pell's equation $x^2-2y^2=1$
+
+are given by $(x_{0},y_{0})=(\pm 1,0)$, $(x_{1},y_{1})=(\pm 3,\pm 2)$,
+and 
+\begin{align*}
+x_{n}+\sqrt{2}y_{n} = \pm(3+2\sqrt{2})^n, 
+\quad n\in\mathbb Z^+
+\end{align*}
+or 
+\begin{align*}
+x_{n} & = \pm\frac{(3+2\sqrt{2})^n+(3-2\sqrt{2})^n}{2}
+\\
+y_{n} & = \pm\frac{(3+2\sqrt{2})^n-(3-2\sqrt{2})^n}{2\sqrt{2}}
+\end{align*}
+Example: $(x_{2},y_{2})=(\pm 17,\pm 12)$, etc.
+
+$n\in\mathbb Z^+$, $(x_{0},y_{0})=(\pm 1,0)$.
+
+In general, for some $D\in\mathbb{R}$, $x^2-Dy^2=1$,
+\begin{align*}
+x_{n} & = \pm\frac{(x_{1}+y_{1}\sqrt{D})^n+(x_{1}-y_{1}\sqrt{D})^n}{2}
+\\
+y_{n} & = \pm\frac{(x_{1}+y_{1}\sqrt{D})^n-(x_{1}-y_{1}\sqrt{D})^n}{2\sqrt{D}}
+\end{align*}
+
+These solutions hold for $x^2-Dy^2=-1$, except that $n$ can take on only odd values, i.e.
+\begin{align*}
+x_{n} & =\pm\frac{(x_{1}+y_{1}\sqrt{D})^{2n-1}+(x_{1}-y_{1}\sqrt{D})^{2n-1}}{2}
+\\
+y_{n} & =\pm\frac{(x_{1}+y_{1}\sqrt{D})^{2n-1}-(x_{1}-y_{1}\sqrt{D})^{2n-1}}{2\sqrt{D}}
+\end{align*}
+
+Using the relevant recurrence relations, we have:
+
+The solutions of $a_{n}=Aa_{n-1}+Ba_{n-2}$ are given by $a_{n}=C\lambda_{1}^n+D\lambda_{2}^n$ if $\lambda_{1}\neq \lambda_{2}$, where $C,D$ are constants created by $a_{0},a_{1}$, and $\lambda_{1}, \lambda_{2}$ are the solutions of $\lambda^2-A\lambda-B=0$ (the characteristic polynomial), and $a_{n}=C\lambda^n+Dn\lambda^n$ if $\lambda_{1}=\lambda_{2}=\lambda$.
+
+In this case, we want $\lambda_{1}=3+2\sqrt{2}$, $\lambda_{2}=3-2\sqrt{2}$, $C_{1}$, $D_{1}$ created by $x_{0}=1$, $x_{1}=3$, $C_{2}$, $D_{2}$ created by $y_{0}=0$, $y_{1}=2$.
+
+Apply Vieta's formulas:
+
+$\lambda_{1}+\lambda_{2}=6=A$, $\lambda_{1}\lambda_{2}=1=-B$.
+
+The characteristic polynomial is $\lambda^2-6\lambda+1=0$.
+
+The recurrence relations are $x_{n}=6x_{n-1}-x_{n-2}$, $y_{n}=6y_{n-1}-y_{n-2}$ with $x_{0}=1$, $x_{1}=3$, $y_{0}=0$, $y_{1}=2$.
+

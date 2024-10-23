@@ -1,0 +1,16 @@
+Take the range $[1,1000]$ as a starting point and consider the effect of removing the multiples of $28$. The median of the integers in the range $[1,1000]$, including the multiples of $28$, is
+\begin{align*}
+\frac{1000+1}{2} = 500.5
+\end{align*}
+There are $35$ integers divisible by $28$ in the range $[1,1000]$, of which $17$ are below the median and $18$ are above, since
+\begin{align*}
+\frac{1000}{28} \approx 35.7, ~~
+\frac{500}{28} \approx 17.9
+\end{align*}
+A single deletion below the median shifts the median upwards by half a unit, while a single deletion above the median shifts it downwards by half a unit.  Removing the multiples of $28$ results in $17$ deletions below and $18$ deletions above, for an overall shift downwards of half a unit. The new median is therefore
+\begin{align*}
+500.5 - 0.5 = 500
+\end{align*}        
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    500
+\end{empheq}

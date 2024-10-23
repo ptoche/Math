@@ -1,0 +1,37 @@
+The $12$ cars leave $4$ empty spaces. In the worst-case scenario, none of the $4$ empty spaces are next to each other and Auntie Em will not be able to park; otherwise she will be able to park. 
+
+Let a star denote an occupied space and a bar denote an empty space. Auntie Em can park if she finds an arrangement like the following:
+\begin{align*}
+||*|*|**********
+\end{align*}
+These are "favorable" arrangements. 
+Auntie Em will not be able to park if she finds:
+\begin{align*}
+|*|*|*|*********
+\end{align*}
+These are "unfavorable" arrangements.
+
+Consider the "unfavorable" arrangements. The number of arrangements of $1$ empty space after the $12$ cars are parked is $13$, because there are $11$ potential "spaces" strictly between $12$ cars and $2$ more at either end. Once the first empty space is selected, there remain one less potential "space", since we cannot place this second space next to the existing empty space, that is the number of arrangements is $12$ for the second space; and $11$ for the third space; and $10$ for the fourth and last space. Since the empty spaces can be permuted without affecting the parking possibilities, we correct for the overcounting by dividing by the number of ways to select $4$ empty spaces, or $4 \cdot 3 \cdot 2$. The number of non-ordered unfavorable arrangements is therefore:
+\begin{align*}
+\frac{13 \cdot 12 \cdot 11 \cdot 10}{4 \cdot 3 \cdot 2}
+= \frac{13!}{9!4!}
+= \binom{13}{4}
+= 13 \cdot 11 \cdot 5
+\end{align*}
+
+The total number of arrangements, including favorable and unfavorable arrangements, is:
+\begin{align*}
+\binom{16}{4}
+= \frac{16!}{4!12!}
+= \frac{16 \cdot 15 \cdot 14 \cdot 13}{4 \cdot 3 \cdot 2}
+= 2 \cdot 5 \cdot 14 \cdot 13
+\end{align*}
+
+The fraction of unfavorable arrangements to the total is:
+\begin{align*}
+\frac{\displaystyle\binom{13}{4}}{\displaystyle\binom{16}{4}}
+= \frac{13 \cdot 11 \cdot 5}{2 \cdot 5 \cdot 14 \cdot 13}
+= \frac{11}{28}
+\end{align*}
+
+Solution: $1-\displaystyle\frac{11}{28}=\frac{17}{28}\approx 0.61$.

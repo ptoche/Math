@@ -1,0 +1,67 @@
+Since we are looking for the last two digits, we can decompose the numbers and discards all the multiples of $100$. 
+First step: 
+\begin{align*}
+2017^{2}
+& = (2000+17)^{2}
+\equiv 17^{2} \modulo{100} 
+= 289
+\\
+2018^{2}
+& = (2000+18)^{2}
+\equiv 18^{2} \modulo{100} 
+= 324
+\\
+2019^{2}
+& = (2000+19)^{2}
+\equiv 19^{2} \modulo{100} 
+= 361
+\end{align*}
+Second step:
+\begin{align*}
+289^{10}
+& \equiv (289-300)^{10}
+  \equiv (-11)^{10}
+  \equiv (11)^{10} 
+  \equiv (10+1)^{10}
+\\
+& \equiv \binomial{10}{1} 10^{1} 1^{9} + \binomial{10}{0} 10^{0} 1^{10}
+  \equiv 100 + 1
+  \equiv 1
+\modulo{100}
+\\
+324^{10}
+& \equiv (324-300)^{10}
+  \equiv 24^{10}
+  \equiv (10+14)^{10}
+\\
+& \equiv \binomial{10}{0} 10^{0} 14^{10}
+  \equiv (10+4)^{10}
+  \equiv \binomial{10}{0} 10^{0} 4^{10}
+  \equiv 4^{2 \mult 5}
+  \equiv 16^{5}
+\\
+& \equiv (10+6)^{5}
+  \equiv \binomial{10}{0} 10^{0} 6^{5}
+  \equiv 776
+  \equiv 76
+\modulo{100} 
+\\
+361^{10}
+& \equiv (361-400)^{10}
+  \equiv (-39)^{10} 
+  \equiv 39^{10} \modulo{100}
+\\
+& \equiv (10+10+10+9)^{10}
+  \equiv 9^{10}
+  \equiv (-1)^{10}
+  \equiv 1 \modulo{100}
+\end{align*}
+
+Putting it together,
+\begin{align*}
+2017^{20} + 2018^{20} + 2019^{20}
+  \equiv 1 + 76 + 1
+  \equiv 78 \modulo{100}
+\end{align*}
+
+Solution: \fbox{$78$.}

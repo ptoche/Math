@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, centering, height=250mm, width=180mm]{geometry}
+% set the default values for solution/answer environments
+\newif\ifsolution\solutiontrue% comment out \answertrue to show/hide answers
+\newif\ifanswer\answertrue% comment out \answertrue to show/hide answers
+\solutionfalse\answerfalse% toggle on/off
+\usepackage{../preamble}% preamble always after \newif\ifanswer
+\input{setPath}% set path to files
+%\pagenumbering{gobble}
+\title{Math Miscellani}
+\author{James \& Patrick}
+\date{Revised:~\today}
+
+\usepackage[small]{titlesec}
+\titlelabel{\thetitle.\quad}
+\titleformat{\section}[runin]{\normalfont\normalsize\bfseries}{\thesection.}{0.25em}{}
+
+\begin{document}
+\maketitle
+\begin{abstract}\setlength{\parindent}{0pt}%
+This note reviews tips and tricks and selected problems to prepare for middle school math competitions. Written for personal use. Please report typos and errors over at \url{https://github.com/ptoche/Math/tree/master/mathcounts}. 
+\end{abstract}
+
+\thispagestyle{empty}
+\clearpage
+
+\subsection*{Problem~1}
+\input{problem-01-question}
+\begin{solution}
+  \input{problem-01-solution}
+\end{solution}
+
+\subsection*{Problem~2}
+\input{problem-02-question}
+\begin{solution}
+  \input{problem-02-solution}
+\end{solution}
+
+\subsection*{Problem~3}
+\input{problem-03-question}
+\begin{solution}
+  \input{problem-03-solution}
+\end{solution}
+
+\subsection*{Problem~4}
+\input{problem-04-question}
+\begin{solution}
+  \input{problem-04-solution}
+\end{solution}
+
+\subsection*{Problem~5}
+\input{problem-05-question}
+\begin{solution}
+  \input{problem-05-solution}
+\end{solution}
+
+\end{document}

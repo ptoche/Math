@@ -1,0 +1,25 @@
+Let $a$, $b$, $c$, $d$ denote the digits of the integers $abcd$, where
+\begin{align*}
+1 \leq a \leq 9, ~ 0 \leq b \leq 9, ~ 0 \leq c \leq 9, ~0 \leq d \leq 9
+\end{align*} 
+The text translates to the following set of three equations.
+\begin{align*}
+a + b & = c \\
+b + c & = d \\
+c + d & = 10a + b
+\end{align*}
+While these equations are linear, there are only $3$ equations for $4$ unknowns, so some clever guessing must be brought to bear on the problem. Since $a>0$ (otherwise it would not be a $4$-digit integer), the third equation implies
+\begin{align*}
+c + d & \geq 10
+\end{align*}
+In some sense, the sum $c+d$ is `large'. Meanwhile the second equation suggests that $d$ is likely to be greater than $c$ (only if $b=0$ that would not be true). So we will start to guess from $d=9$ and move down to $d=8$, $d=7$, and so on, until we hit on a solution. Thus, if $d=9$, we have:
+\begin{align*}
+a + b & = c \\
+b + c & = 9 \\
+c + 9 & = 10a + b \\
+\Rightarrow a = 1, b = 4, c = 5, d = 9
+\end{align*}
+We hit a solution on our first attempt!
+\begin{empheq}[box={\mathbox[colback=white]}]{equation*}
+    1459
+\end{empheq}

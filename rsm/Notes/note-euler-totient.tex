@@ -1,0 +1,28 @@
+Euler's totient function $\varphi(n)$ counts the positive integers up to a given integer $n$ that are relatively prime to $n$.  In other words, it is the number of integers $k$ in the range $1 \le k \le n$ for which the greatest common divisor $\gcd(n, k)$ is equal to $1$. If $p$ is prime, $\varphi(p)=p-1$, because $1,2,\ldots,p-1$ are all relatively prime to $p$. Euler's totient function is a multiplicative function, meaning that if two numbers $m$ and $n$ are relatively prime, then $\varphi(mn)=\varphi(m)\varphi(n)$. Another useful result is: If $p$ is prime, then $\varphi(p^{a})=p^{a}-p^{a-1}$ for any $a>0$.
+
+Examples: 
+\begin{align*}
+\varphi(200) 
+ = \varphi(25) \varphi(8)
+ = \varphi(5^{2}) \varphi(2^{3})
+ = (5^{2}-5^{1}) \mult (2^{3}-2^{2})
+ = 20 \mult 4
+ = 80
+\\[1ex]
+\varphi(2^{3}3^{4}7^{2}) 
+ = \varphi(2^{3}) \varphi(3^{4}) \varphi(7^{2})
+ = (2^{3}-2^{2}) \mult (3^{4}-3^{3}) \mult (7^{2}-7^{1})
+ = 4 \mult 54 \mult 42
+ = 9072
+\end{align*}
+
+The first values of Euler's totient function are:
+\begin{flushleft}
+1, 1, 2, 2, 4, 2, 6, 4, 6, 4, 10, 4, 12, 6, 8, 8, 16, 6, 18, 8, 12, 10, 22, 8, 20, 12, 18, 12, 28, 8, 30, 16, 20, 16, 24, 12, 36, 18, 24, 16, 40, 12, 42, 20, 24, 22, 46, 16, 42, 20, 32, 24, 52, 18, 40, 24, 36, 28, 58, 16, 60, 30, 36, 32, 48, 20, 66, 32, 44
+\end{flushleft}
+
+$\varphi(n)$ does not attain all (even) positive integer values. The first values of even numbers which are not attained are:
+\begin{flushleft}
+14, 26, 34, 38, 50, 62, 68, 74, 76, 86, 90, 94, 98, 114, 118, 122, 124, 134, 142,
+\end{flushleft}
+Odd values $>1$ are never attained, because $\phi(n)$ has a factor $2$ if $n\ge 3$, because $\phi$ is multiplicative and $\phi(p^n)=p^n-p^{n-1}$ is even for an odd prime $p$, as well as $\phi(2^n)=2^n-2^{n-1}$ for $n\ge 2$.

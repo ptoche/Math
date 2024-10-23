@@ -1,0 +1,44 @@
+\section*{Reductio ad Absurdum}
+If $\sqrt{2}$ were rational, there would exist a pair $(a, b) \in \mathbb{N} \times \mathbb{N}^{*}$ such that:
+\begin{align*}
+\sqrt{2} = \frac{a}{b}
+\end{align*}
+A proof by contradiction --- \textit{reductio ad absurdum} --- establishes deductions that yield to a contradiction with the assumptions. Examples: Deduce that the fraction is even or greater than $2$ or smaller than $1$ or that $a$ and $b$ have opposite signs, etc..
+
+\subsection*{Contradicting Parity} 
+Let $\nu_{2}(n)$ denote the $2$-order valuation operator on integer $n$, the largest natural number $\nu$ such that $2\nu$ divides $n$. Square the equality, rearrange the terms, and apply the $2$-order operator:
+\begin{align*}
+2b^2 & = a^2 \\
+\nu_{2}(2b^2) & = \nu_{2}(a^2) \\
+\nu_{2}(b^2) + 1  & = \nu_{2}(a^2) \\
+2\nu_{2}(b) + 1 & = 2\nu_{2}(a) \\
+\nu_{2}(a) - \nu_{2}(b) & =  \frac{1}{2} 
+\end{align*}
+where we have used $\nu_{2}(2n)=\nu_{2}(n)+1$ and $\nu_{2}(n^2)=2\nu_{2}(n)$.
+
+Since the $2$-order operator maps integers to integers, the difference cannot be equal to the rational $\frac{1}{2}$. By contradiction, $\sqrt{2}$ is not rational. 
+
+\subsection*{Contradicting Reducibility}
+A variant of the proof is to restrict attention to cases where $a$ and $b$ have no common factors and $a/b$ is therefore an irreducible fraction. This is without loss of generality since any fraction can be simplified to an irreducible form by division of common factors. From $2b^2 = a^2$, it follows that $a^2$ is even. Since the square of odd integers is always odd, it follows that $a$ cannot be odd and must therefore be even. Equivalently, $a^2$ must be a multiple of $4$ (``doubly even''). From $a^2 = 4 a^{\prime} = 2b^2$, it follows that $b^2$ must be even and, by the same earlier reasoning, $b$ must be even. But $a$ and $b$ cannot both be even, otherwise the fraction would be reducible further. By contradiction, $\sqrt{2}$ is not rational. 
+
+This proof relies on the intermediary result that the square of any odd integer is odd, 
+\begin{align*}
+(2k+1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1
+\end{align*} 
+for any odd integer $2k+1 \in \mathbb{N}$.
+
+\subsection*{Contradicting Finite Denominator}
+
+\begin{align*}
+\sqrt{2} - \frac{a}{b} 
+= \frac{\left(\sqrt{2} - \frac{a}{b}\right)\left(\sqrt{2} + \frac{a}{b}\right)}{\sqrt{2} + \frac{a}{b}} 
+= \frac{2- \left(\frac{a}{b}\right)^2}{2\sqrt{2}} 
+= \frac{2b^2- a^2}{2\sqrt{2}b^2} \geq \frac{1}{2\sqrt{2}b^2}
+\end{align*}
+where we have used $\dfrac{a}{b}=\sqrt{2}$ and $2b^2- a^2 \geq 1$. Thus, for finite $b$, the gap between $\sqrt{2}$ and $\dfrac{a}{b}$ remains bounded above zero. 
+
+\subsection*{Contradicting the Fundamental Theorem of Arithmetic}
+By the \textit{fundamental theorem of arithmetic}, any natural number admits a unique decomposition as a product of primes, and its square admits a similar decomposition with each prime represented twice. Thus any square of a natural number can be decomposed uniquely as a product of an even number of primes. Since $2$ is prime, $2b^2$ admits a decomposition into an odd number of primes, while $a^2$ admits an even number, contradicting the assumed equality:
+\begin{align*}
+2b^2 = a^2
+\end{align*}
