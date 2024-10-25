@@ -1,0 +1,194 @@
+\section{7. Models, Statistical Inference and Learning}\label{models-statistical-inference-and-learning}
+
+\subsection{7.2 Parametric and Nonparametric
+Models}\label{parametric-and-nonparametric-models}
+
+A \textbf{statistical model} is a set of distributions \(\mathfrak{F}\).
+
+A \textbf{parametric model} is a set \(\mathfrak{F}\) that may be
+parametrized by a finite number of parameters. For example, if we assume
+that data comes from a normal distribution then
+
+\[ \mathfrak{F} = \left\{ f(x; \mu, \sigma) = 
+\frac{1}{\sigma\sqrt{\pi}} \exp \left\{ -\frac{1}{2\sigma^2} \left(x - \mu \right)^2 \right\}, \; \; 
+\mu \in \mathbb{R}, \; \sigma > 0
+\right\} \]
+
+In general, a parametric model takes the form
+
+\[ \mathfrak{F} = \left\{ f(x; \theta) : \; \theta \in \Theta \right\} \]
+
+where \(\theta\) is an unknown parameter that takes values in the
+\textbf{parameter space} \(\Theta\).
+
+If \(\theta\) is a vector and we are only interested in one component of
+\(\theta\), we call the remaining parameters \textbf{nuisance
+parameters}.
+
+A \textbf{nonparametric model} is a set \(\mathfrak{F}\) that cannot be
+parametrized by a finite number of parameters.
+
+\paragraph{Some notation}\label{some-notation}
+
+If \(\mathfrak{F} = \{ f(x; \theta) : \; \theta \in \Theta \}\) is a
+parametric model, we write
+
+\[\mathbb{P}_\theta(X \in A) = \int_A f(x; \theta)dx\]
+
+\[\mathbb{E}_\theta(X \in A) = \int_A x f(x; \theta)dx\]
+
+The subscript \(\theta\) indicates that the probability or expectation
+is defined with respect to \(f(x; \theta)\); it does not mean we are
+averaging over \(\theta\).
+
+\subsection{7.3 Fundamental Concepts in
+Inference}\label{fundamental-concepts-in-inference}
+
+\paragraph{7.3.1 Point estimation}\label{point-estimation}
+
+Let \(X_1, \dots, X_n\) be \(n\) iid data points from some distribution
+\(F\). A point estimator \(\hat{\theta_n}\) of a parameter \(\theta\) is
+some function:
+
+\[ \hat{\theta_n} = g(X_1, \dots, X_n) \]
+
+We define
+
+\[ \text{bias}(\hat{\theta_n}) = \mathbb{E}_\theta(\hat{\theta_n}) - \theta \]
+
+to be the bias of \(\hat{\theta_n}\). We say that \(\hat{\theta_n}\) is
+\textbf{unbiased} if \$ \mathbb{E}\_\theta(\hat{\theta_n}) = 0 \$.
+
+A point estimator \(\hat{\theta_n}\) of a parameter \(\theta\) is
+\textbf{consistent} if \(\hat{\theta_n} \xrightarrow{\text{P}} \theta\).
+
+The distribution of \(\hat{\theta_n}\) is called the \textbf{sampling
+distribution}.
+
+The standard deviation of \(\hat{\theta_n}\) is called the
+\textbf{standard error}, denoted by \(\text{se}\):
+
+\[ \text{se} = \text{se}(\hat{\theta_n}) = \sqrt{\mathbb{V}(\hat{\theta_n})} \]
+
+Often it is not possible to compute the standard error but usually we
+can estimate the standard error. The estimated standard error is denoted
+by \(\hat{\text{se}}\).
+
+\textbf{Example}. Let \(X_1, \dots, X_n \sim \text{Bernoulli}(p)\) and
+let \(\hat{p_n} = n^{-1} \sum_i X_i\). Then
+\(\mathbb{E}(\hat{p_n}) = n^{-1} \sum_i \mathbb{E}(X_i) = p\) so
+\(\hat{p_n}\) is unbiased. The standard error is
+\(\text{se} = \sqrt{\mathbb{V}(\hat{p_n})} = \sqrt{p(1-p)/n}\). The
+estimated standard error is
+\(\hat{\text{se}} = \sqrt{\hat{p}(1 - \hat{p})/n}\).
+
+The quality of a point estimate is sometimes assessed by the
+\textbf{mean squared error}, or MSE, defined by:
+
+\[ \text{MSE} = \mathbb{E}_\theta \left( \hat{\theta_n} - \theta \right)^2 \]
+
+\textbf{Theorem 7.8}. The MSE can be rewritten as:
+
+\[ \text{MSE} = \text{bias}(\hat{\theta_n})^2 + \mathbb{V}_\theta(\hat{\theta_n}) \]
+
+\textbf{Proof}. Let
+\(\bar{\theta_n} = \mathbb{E}_\theta(\hat{\theta_n})\). Then
+
+\begin{align}
+\mathbb{E}_\theta(\hat{\theta_n} - \theta)^2 & = \mathbb{E}_\theta(\hat{\theta_n} - \bar{\theta_n} + \bar{\theta_n} - \theta)^2 \\
+&=  \mathbb{E}_\theta(\hat{\theta_n} - \bar{\theta_n})^2
+  + 2 (\bar{\theta_n} - \theta) \mathbb{E}_\theta(\hat{\theta_n} - \bar{\theta_n})
+  + \mathbb{E}_\theta(\hat{\theta_n} - \theta)^2 \\
+&= (\bar{\theta_n} - \theta)^2 + \mathbb{E}_\theta(\hat{\theta_n} - \bar{\theta_n})^2 \\
+&= \text{bias}^2 + \mathbb{V}_\theta(\hat{\theta_n})
+\end{align}
+
+\textbf{Theorem 7.9}. If \(\text{bias} \rightarrow 0\) and
+\(\text{se} \rightarrow 0\) as \(n \rightarrow \infty\) then
+\(\hat{\theta_n}\) is consistent, that is,
+\(\hat{\theta_n} \xrightarrow{\text{P}} \theta\).
+
+\textbf{Proof}. If \(\text{bias} \rightarrow 0\) and
+\(\text{se} \rightarrow 0\) then, by theorem 7.8,
+\(\text{MSE} \rightarrow 0\). It follows that
+\(\hat{\theta_n} \xrightarrow{\text{qm}} \theta\) -- and quadratic mean
+convergence implies probability convergence.
+
+An estimator is \textbf{asymptotically Normal} if
+
+\[ \frac{\hat{\theta_n} - \theta}{\text{se}} \leadsto N(0, 1) \]
+
+\paragraph{7.3.2 Confidence sets}\label{confidence-sets}
+
+A \(1 - \alpha\) \textbf{confidence interval} for a parameter \(\theta\)
+is an interval \(C_n = (a, b)\) where \(a = a(X_1, \dots, X_n)\) and
+\(b = b(X_1, \dots, _n)\) are functions of the data such that
+
+\[\mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha, \;\; \text{for all } \theta \in \Theta\]
+
+In words, \((a, b)\) traps \(\theta\) with probability \(1 - \alpha\).
+We call \(1 - \alpha\) the \textbf{coverage} of the confidence interval.
+
+Note: \textbf{\(C_n\) is random and \(\theta\) is fixed!}
+
+If \(\theta\) is a vector then we use a confidence set (such as a sphere
+or ellipse) instead of an interval.
+
+Point estimators often have a limiting Normal distribution, meaning
+\(\hat{\theta_n} \approx N(\theta, \hat{\text{se}}^2)\). In this case we
+can construct (approximate) confidence intervals as follows:
+
+\textbf{Theorem 7.14 (Normal-based Confidence Interval)}. Suppose that
+\(\hat{\theta_n} \approx N(\theta, \hat{\text{se}}^2)\). Let \(\Phi\) be
+the CDF of a standard Normal and let
+\(z_{\alpha/2} = \Phi^{-1}\left(1 - (\alpha / 2)\right)\), that is,
+\(\mathbb{P}(Z > z_{\alpha/2}) = \alpha/2\) and
+\(\mathbb{P}(-z_{\alpha/2} < Z < z_{alpha/2}) = 1 - \alpha\) where
+\(Z \sim N(0, 1)\). Let
+
+\[ C_n = \left(\hat{\theta_n} - z_{\alpha/2} \hat{\text{se}}, \; \hat{\theta_n} + z_{\alpha/2} \hat{\text{se}}\right) \]
+
+Then
+
+\[ \mathbb{P}_\theta(\theta \in C_n) \rightarrow 1 - \alpha \].
+
+\textbf{Proof}.
+
+Let \(Z_n = (\hat{\theta_n} - \theta) / \hat{\text{se}}\). By assumption
+\(Z_n \leadsto Z \sim N(0, 1)\). Hence,
+
+\begin{align}
+\mathbb{P}_\theta(\theta \in C_n) 
+& = \mathbb{P}_\theta \left(\hat{\theta_n} - z_{\alpha/2} \hat{\text{se}} < \theta < \hat{\theta_n} + z_{\alpha/2} \hat{\text{se}} \right) \\
+& = \mathbb{P}_\theta \left(-z_{\alpha/2} < \frac{\hat{\theta_n} - \theta}{\hat{\text{se}}} < z_{\alpha/2} \right) \\
+& \rightarrow \mathbb{P}\left(-z_{\alpha/2} < Z < z_{\alpha/2}\right) \\
+&= 1 - \alpha
+\end{align}
+
+\paragraph{7.3.3 Hypothesis Testing}\label{hypothesis-testing}
+
+In \textbf{hypothesis testing}, we start with some default theory --
+called a \textbf{null hypothesis} -- and we ask if the data provide
+sufficient evidence to reject the theory. If not we retain the null
+hypothesis.
+
+\subsection{7.5 Technical Appendix}\label{technical-appendix}
+
+\begin{itemize}[tightlist]
+\item
+  Our definition of confidence interval requires that
+  \(\mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha\) for all
+  \(\theta \in \Theta\).
+\item
+  A \textbf{pointwise asymptotic} confidence interval requires that
+  \(\lim \inf_{n \rightarrow \infty} \mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha\)
+  for all \(\theta \in \Theta\).
+\item
+  An \textbf{uniform asymptotic} confidence interval requires that
+  \(\lim \inf_{n \rightarrow \infty} \inf{\theta \in \Theta} \mathbb{P}_\theta(\theta \in C_n) \geq 1 - \alpha\).
+\end{itemize}
+
+The approximate Normal-based interval is a pointwise asymptotic
+confidence interval. In general, it might not be a uniform asymptotic
+confidence interval.
+

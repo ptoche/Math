@@ -1,0 +1,209 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper, centering, height=250mm, width=180mm]{geometry}
+% set the default values for solution/answer environments
+\newif\ifsolution\solutiontrue% comment out \answertrue to show/hide answers
+\newif\ifanswer\answertrue% comment out \answertrue to show/hide answers
+%\solutionfalse\answerfalse% toggle on/off
+\usepackage{../preamble}% preamble always after \newif\ifanswer
+\input{setPath}% set path to files
+%\pagenumbering{gobble}
+\title{Larry Wasserman, All of Statistics}
+\author{Telmo Correa | edited by Patrick Toche}
+\date{Revised:~\today}
+
+
+% commands and packages not already included in preamble.sty
+\usepackage{longtable}
+\SetEnumitemKey{tightlist}{align=left,
+   leftmargin=0pt,
+   labelindent=\parindent,
+   listparindent=\parindent,
+   labelwidth=0pt,
+   itemindent=!}
+
+% usepackage{tcolorbox}% aready loaded
+\usepackage{textcomp}% needed for double quotes
+\usepackage[scaled=.83]{beramono}% mono font, fixes caret ^ symbol (default .9)
+\usepackage{underscore}
+\usepackage{minted}
+\tcbuselibrary{breakable,skins,minted}% aready loaded
+% Custom tcolorbox style for Python code (not the code or the box it appears in, just the options for the box)
+\tcbset{
+    pythoncodebox/.style={
+        listing only,
+        listing engine=minted, 
+        minted language=python,
+        enhanced jigsaw,breakable,
+        colback=gray!10,colframe=gray!20!black,
+        boxrule=1pt,top=2pt,bottom=2pt,left=2pt,right=2pt,
+        sharp corners,before skip=10pt,after skip=10pt,
+        attach boxed title to top left,
+        boxed title style={empty,
+            top=0pt,bottom=0pt,left=2pt,right=2pt,
+            interior code={\fill[fill=tcbcolframe] (frame.south west)
+                --([yshift=-4pt]frame.north west)
+                to[out=90,in=180] ([xshift=4pt]frame.north west)
+                --([xshift=-8pt]frame.north east)
+                to[out=0,in=180] ([xshift=16pt]frame.south east)
+                --cycle;
+            }
+        },
+        title={#1}, % Argument of pythoncodebox specifies the title
+        fonttitle=\sffamily\bfseries
+    },
+    pythoncodebox/.default={}, % Default is No title
+    %%% Starred version has no frame %%%
+    pythoncodebox*/.style={
+        listing only,
+        listing engine=minted, 
+        minted language=python,
+        enhanced jigsaw,breakable,
+        colback=gray!10,coltitle=gray!20!black,colbacktitle=tcbcolback,
+        frame hidden,
+        top=2pt,bottom=2pt,left=2pt,right=2pt,
+        sharp corners,before skip=10pt,after skip=10pt,
+        attach boxed title to top text left={yshift=-1mm},
+        boxed title style={empty,
+            top=0pt,bottom=0pt,left=2pt,right=2pt,
+            interior code={\fill[fill=tcbcolback] (interior.south west)
+                --([yshift=-4pt]interior.north west)
+                to[out=90,in=180] ([xshift=4pt]interior.north west)
+                --([xshift=-8pt]interior.north east)
+                to[out=0,in=180] ([xshift=16pt]interior.south east)
+                --cycle;
+            }
+        },
+        title={#1}, % Argument of pythoncodebox specifies the title
+        fonttitle=\sffamily\bfseries
+    },
+    pythoncodebox*/.default={}, % Default is No title
+}
+% Custom tcolorbox for Python code (not the code itself, just the box it appears in)
+\newtcolorbox{pythonbox}[1][]{pythoncodebox=#1}
+\newtcolorbox{pythonbox*}[1][]{pythoncodebox*=#1} % Starred version has no frame
+
+% Custom minted environment for Python code, NOT using tcolorbox
+\newminted{python}{autogobble,breaklines,mathescape}
+
+% Custom tcblisting environment for Python code, using the "minted" tcb listing engine
+% Adapted from https://tex.stackexchange.com/a/402096
+\NewTCBListing{python}{ !O{} !D(){} !G{} }{
+    listing engine=minted,
+    listing only,
+    pythoncodebox={#1}, % First argument specifies the title (if any)
+    minted language=python,
+    minted options/.expanded={
+        autogobble,breaklines,mathescape,
+        #2 % Second argument, delimited by (), denotes options for the minted environment
+    },
+    #3 % Third argument, delimited by {}, denotes options for the tcolorbox
+}
+
+%%% Starred version has no frame %%%
+\NewTCBListing{python*}{ !O{} !D(){} !G{} }{
+    listing engine=minted,
+    listing only,
+    pythoncodebox*={#1}, % First argument specifies the title (if any)
+    minted language=python,
+    minted options/.expanded={
+        autogobble,breaklines,mathescape,
+        #2 % Second argument, delimited by (), denotes options for the minted environment
+    },
+    #3 % Third argument, delimited by {}, denotes options for the tcolorbox
+}
+
+% verbbox environment, for showing verbatim text next to code output (for package documentation and user learning purposes)
+\NewTCBListing{console}{ !O{} }{
+    listing engine=minted,
+    minted language=latex,
+    boxrule=1pt,sidebyside,skin=bicolor,
+    colback=gray!10,colbacklower=white,valign=center,
+    top=2pt,bottom=2pt,left=2pt,right=2pt,
+    #1
+} % Last argument allows more tcolorbox options to be added
+
+
+\begin{document}
+\maketitle
+\begin{abstract}\setlength{\parindent}{0pt}%
+Telmo Correa's Jupyter notebooks were downloaded from his Github repository, converted to LaTeX and adapted for personal use.
+Source: \url{https://github.com/telmo-correa/all-of-statistics}
+ Larry Wasserman, All of Statistics: A Concise Course in Statistical Inference (Springer Texts in Statistics). 
+\end{abstract}
+
+\thispagestyle{empty}
+\clearpage
+
+% Chapter 2
+\input{02-Probability}
+
+% Chapter 3
+\input{03-RVs}
+
+% Chapter 4
+\input{04-Expectation}
+
+% Chapter 5
+\input{05-Inequalities}
+
+% Chapter 6
+\input{06-Convergence}
+
+% Chapter 7
+\input{07-Inference}
+
+% Chapter 8
+\input{08-Estimation}
+
+% Chapter 9
+\input{09-Bootstrap}
+
+% Chapter 10
+\input{10-Parametric}
+
+% Chapter 11
+\input{11-Testing}
+
+% Chapter 12
+\input{12-Bayesian}
+
+% Chapter 13
+\input{13-Decision}
+
+% Chapter 14
+\input{14-Regression}
+
+% Chapter 15
+\input{15-Multivariate}
+
+% Chapter 16
+\input{16-Independence}
+
+% Chapter 17
+\input{17-Independence}
+
+% Chapter 18
+\input{18-Independence}
+
+% Chapter 19
+\input{19-Independence}
+
+% Chapter 20
+\input{20-Directed-Graphs}
+
+% Chapter 21
+\input{21-Nonparametric}
+
+% Chapter 22
+\input{22-Smoothing}
+
+% Chapter 23
+\input{23-Classification}
+
+% Chapter 24
+\input{24-Processes}
+
+% Chapter 25
+\input{25-Simulations}
+
+\end{document}

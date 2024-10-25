@@ -1,0 +1,20 @@
+Decompose $m \mult n$ into its prime factors:
+\begin{align*}
+m \mult n 
+= \prod_{k=1}^{w}p_{k}^{e_{k}} \  \mult \prod_{k=w+1}^{z}p_{k}^{e_{k}}
+= \prod_{k=1}^{z}p_{k}^{e_{k}}
+\end{align*}
+The decompositions are distinct because $m$ and $n$ are relatively prime by assumption.
+
+Apply Euler's product formula to the product:
+\begin{align*}
+\varphi(m \mult n)
+& = m \mult n \mult \ \prod_{k=1}^{z}(1-\tfrac{1}{p_{k}})
+\\
+& = m \mult n \mult \ \prod_{k=1}^{w}(1-\tfrac{1}{p_{k}}) \ \mult \prod_{k=w+1}^{z}(1-\tfrac{1}{p_{k}})
+\\
+& = \underbrace{m \mult\ \prod_{k=1}^{w}(1-\tfrac{1}{p_{k}})}_{\displaystyle\varphi(m)}
+    \quad\mult\quad
+    \underbrace{n \mult \prod_{k=w+1}^{z}(1-\tfrac{1}{p_{k}})}_{\displaystyle\varphi(n)}
+\end{align*}
+
