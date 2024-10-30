@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Re\PYGZhy{}fit with selected penalty over the whole dataset}
+\PYG{n}{selected\PYGZus{}fit} \PYG{o}{=} \PYG{n}{fit\PYGZus{}regularized}\PYG{p}{(}\PYG{n}{X\PYGZus{}c}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{selected\PYGZus{}l1\PYGZus{}penalty}\PYG{p}{)}
+\PYG{n}{beta} \PYG{o}{=} \PYG{n}{selected\PYGZus{}fit}\PYG{o}{.}\PYG{n}{x}
+\PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{beta}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{n}{index}\PYG{o}{=}\PYG{n}{X\PYGZus{}c}\PYG{o}{.}\PYG{n}{columns}\PYG{p}{,} \PYG{n}{columns}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{coef}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\end{MintedVerbatim}

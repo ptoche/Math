@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Estimated difference of means:   0.022
+Estimated SE:                    0.006
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} confidence interval:         (0.010, 0.034)
+Wald statistic:                  3.704
+Wald test p\PYGZhy{}value:               0.0002
+\end{MintedVerbatim}

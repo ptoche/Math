@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+temp \PYGZlt{}\PYGZhy{} y / sqrt(n)
+for j in (J \PYGZhy{} 1):0 \PYG{n+nb}{\PYGZob{}}
+  m \PYGZlt{}\PYGZhy{} 2\PYG{n+nb}{\PYGZca{}}\PYG{n+nb}{\PYGZob{}}j\PYG{n+nb}{\PYGZcb{}}
+  I \PYGZlt{}\PYGZhy{} (1:m)
+  D[j] \PYGZlt{}\PYGZhy{} (temp[2 * I] \PYGZhy{} temp[(2 * I) \PYGZhy{} 1]) / sqrt(2)
+  temp \PYGZlt{}\PYGZhy{} (temp[2 * I] + temp[(2 * I) \PYGZhy{} 1]) / sqrt(2)
+\PYG{n+nb}{\PYGZcb{}}
+\end{MintedVerbatim}

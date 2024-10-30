@@ -1,0 +1,33 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{plot\PYGZus{}histogram}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{bins}\PYG{p}{,} \PYG{n}{ax}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{X\PYGZus{}min}\PYG{p}{,} \PYG{n}{X\PYGZus{}max} \PYG{o}{=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{min}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{X}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{x\PYGZus{}plot\PYGZus{}vals} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{X\PYGZus{}min} \PYG{o}{\PYGZhy{}} \PYG{l+m+mf}{0.05} \PYG{o}{*} \PYG{p}{(}\PYG{n}{X\PYGZus{}max} \PYG{o}{\PYGZhy{}} \PYG{n}{X\PYGZus{}min}\PYG{p}{)}\PYG{p}{,} \PYG{n}{X\PYGZus{}max} \PYG{o}{+} \PYG{l+m+mf}{0.05} \PYG{o}{*} \PYG{p}{(}\PYG{n}{X\PYGZus{}max} \PYG{o}{\PYGZhy{}} \PYG{n}{X\PYGZus{}min}\PYG{p}{)}\PYG{p}{,} \PYG{n}{step}\PYG{o}{=}\PYG{p}{(}\PYG{n}{X\PYGZus{}max} \PYG{o}{\PYGZhy{}} \PYG{n}{X\PYGZus{}min}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{1000}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Draw the plot}
+    \PYG{n}{vals}\PYG{p}{,} \PYG{n}{lower\PYGZus{}vals}\PYG{p}{,} \PYG{n}{upper\PYGZus{}vals} \PYG{o}{=} \PYG{n}{create\PYGZus{}histogram}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{m}\PYG{o}{=}\PYG{n}{bins}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.05}\PYG{p}{)}\PYG{p}{(}\PYG{n}{x\PYGZus{}plot\PYGZus{}vals}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}plot\PYGZus{}vals}\PYG{p}{,} \PYG{n}{vals}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{darkblue}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Histogram}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}plot\PYGZus{}vals}\PYG{p}{,} \PYG{n}{upper\PYGZus{}vals}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{darkgreen}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{95}\PYG{l+s+si}{\PYGZpc{} u}\PYG{l+s+s1}{pper confidence}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x\PYGZus{}plot\PYGZus{}vals}\PYG{p}{,} \PYG{n}{lower\PYGZus{}vals}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{darkred}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{95}\PYG{l+s+si}{\PYGZpc{} lo}\PYG{l+s+s1}{wer confidence}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Title and labels}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bins = }\PYG{l+s+si}{\PYGZpc{}d}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{bins}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Refractive Index}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+
+\PYG{c+c1}{\PYGZsh{} Show 4 different bin counts}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{bins} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{15}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{]}\PYG{p}{)}\PYG{p}{:}
+
+    \PYG{c+c1}{\PYGZsh{} Set up the plot}
+    \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{n}{plot\PYGZus{}histogram}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{bins}\PYG{p}{,} \PYG{n}{ax}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Best risk}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mf}{14.5}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{plot\PYGZus{}histogram}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{bins}\PYG{o}{=}\PYG{l+m+mi}{17}\PYG{p}{,} \PYG{n}{ax}\PYG{o}{=}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{gca}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

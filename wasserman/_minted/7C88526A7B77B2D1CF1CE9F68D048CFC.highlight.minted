@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{v} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+m+mf}{0.1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{]}\PYG{p}{:}
+    \PYG{n}{E\PYGZus{}I} \PYG{o}{=} \PYG{n}{I\PYGZus{}bootstrap}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Expected value of I | v = }\PYG{l+s+si}{\PYGZpc{}.1f}\PYG{l+s+s1}{ : }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZpc{}.5f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{E\PYGZus{}I}\PYG{p}{)}\PYG{p}{)}
+\end{MintedVerbatim}

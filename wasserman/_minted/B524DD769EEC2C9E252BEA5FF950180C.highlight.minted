@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+                    S       score
+0                  ()  381.100039
+1               (HP,)  305.324815
+2               (SP,)  332.832040
+3               (WT,)  245.266568
+4              (VOL,)  373.531556
+5            (HP, SP)  288.594470
+6            (HP, WT)  247.670065
+7           (HP, VOL)  285.699095
+8            (SP, WT)  244.895261
+9           (SP, VOL)  307.747647
+10          (WT, VOL)  249.455822
+11       (HP, SP, WT)  225.425717
+12      (HP, SP, VOL)  281.219751
+13      (HP, WT, VOL)  250.346085
+14      (SP, WT, VOL)  246.530268
+15  (HP, SP, WT, VOL)  229.333642
+\end{MintedVerbatim}

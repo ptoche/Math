@@ -9,6 +9,7 @@
 \setlist*[enumerate,1]{labelindent=0pt,label={(\alph*)}}
 \RequirePackage{setspace}
 \RequirePackage[singlelinecheck=false]{caption}
+\RequirePackage{xurl}
 \RequirePackage[pdfpagelabels,
             colorlinks = true,
             linkcolor = black,
@@ -32,10 +33,6 @@
 \RequirePackage{amsfonts}
 \RequirePackage{fontawesome5}% useful symbols
 \RequirePackage[fleqn]{amsmath}
-\RequirePackage{mathtools}%\DeclarePairedDelimiter, etc.
-\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-\RequirePackage{xfrac}% \sfrac
 \RequirePackage{bm}% \boldsymbol
 \setlength\parindent{0pt}% no indents
 %\setlength{\parskip}{0.75\baselineskip plus 2pt}% control space between paragraphs
@@ -43,20 +40,66 @@
 \RequirePackage{scalerel}% \scaleleftright[1.75ex]{<}
 \RequirePackage{nccmath}% fleqn environment, medium-sized fraction \mfrac
 
-% Triangle and Arc/Sector hat symbols
-%\RequirePackage{amsmath}% already loaded
-\DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
-\DeclareMathAccent{\trianglehat}{\mathord}{yhlargesymbols}{"E6}
-\DeclareMathAccent{\sectorhat}{\mathord}{yhlargesymbols}{"F3}
+\RequirePackage{mathtools}%\DeclarePairedDelimiter, etc.
 
-% Math symbol
+% degree symbol
 % \newcommand*{\degree}{\textup{°}}% suddenly stopped working
 \usepackage{gensymb}% substitute for the above
 
-% Math operators
+% radian symbol
+\newcommand{\radian}{\,\textrm{rad}}
+
+% set notation
+\renewcommand{\emptyset}{\varnothing}% empty set
+\newcommand{\intersect}{\cap}% intersection
+\newcommand{\union}{\cup}% union
+
+% number sets
+\newcommand{\N}{\ensuremath{\mathbb{N}} }% set of natural numbers
+\newcommand{\Z}{\ensuremath{\mathbb{Z}} }% set of integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}} }% set of rational numbers
+\newcommand{\R}{\ensuremath{\mathbb{R}} }% set of real numbers
+\newcommand{\Cx}{\ensuremath{\mathbb{C}} }% set of complex numbers
+\let\Natural\N
+\let\Integer\Z
+\let\Rational\Q
+\let\Real\R
+\let\Complex\Cx
+
+% mathematical symbols
+\newcommand{\e}{\mathrm{e}}% exponential
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}% differential symbol
+\DeclareMathOperator{\sign}{\mathrm{sign}}% sign
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\freq}{freq}% freq
+\DeclareMathOperator*{\indep}{\perp \!\!\! \perp}% independence symbol
+\DeclareMathOperator{\trace}{Tr}
+
+% trigonometric operators
 \DeclareMathOperator{\arcsec}{arcsec}
 \DeclareMathOperator{\arccot}{arccot}
 \DeclareMathOperator{\arccsc}{arccsc}
+
+% floor/ceiling
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% auto-scaling parentheses
+\DeclarePairedDelimiter{\parens}{(}{)}
+
+% auto-scaling brackets
+\DeclarePairedDelimiter{\bracks}{[}{]}
+
+
+% absolute value
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+% mathematical norm
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+% placeholder
+\newcommand*{\placeholder}{\makebox[1ex]{\textbf{$\cdot$}}}
 
 % tighter modulo command
 \newcommand{\modulo}[1]{\;(\mathrm{mod}\,#1)}
@@ -73,22 +116,30 @@
 % bold+underline command
 \newcommand\underbold[1]{\underline{\bfseries\boldmath#1}}
 
-% minipagex correctly applies paragraph skip preferences
-\newlength{\currentparskip}
-\newlength{\currentparindent}
-\newenvironment{minipagex}[2][]
-  {\setlength{\currentparskip}{\parskip}% save the value
-    \setlength{\currentparindent}{\parindent}%
-   \begin{minipage}[#1]{#2}% open the minipage
-   \setlength{\parskip}{\currentparskip}% restore the value
-   \setlength{\parindent}{\currentparindent}% restore the value
-  }
-  {\end{minipage}}
+% displaystyle commands
+\newcommand*{\Sum}{\displaystyle\sum}
+\newcommand*{\Prod}{\displaystyle\prod}
+\newcommand*{\Frac}[2]{\displaystyle\frac{#1}{#2}}
+\newcommand*{\Int}{\displaystyle\int}
+\newcommand*{\Sqrt}[1]{\displaystyle\sqrt{#1}}
+\newcommand*{\Binom}[1]{\displaystyle\binom{#1}}
+
+% command \sfrac for small fractions | alternative to package xfrac
+\newcommand{\sfrac}[2]{\scalebox{0.65}{\ensuremath{\left.#1\middle/#2\right.}}}
 
 % Permutations/Combinations
 \newcommand*{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
 \newcommand*{\perm}[1][-3mu]{\permcomb[#1]{P}}
 \newcommand*{\comb}[1][-1mu]{\permcomb[#1]{C}}
+
+% Arrangements / Derangements
+\newcommand*{\arr}[1][-1mu]{\,\permcomb[#1]{A}}% arrangements
+\newcommand*{\arrange}[2]{A_{#1,#2}} 
+\newcommand*{\derange}[3][0mu]{{\mkern#1#2_{#3}}}
+
+% multiset | double-parenthesis notation
+\newcommand{\multiset}[2]{\bigl(\!{\binom{#1}{#2}}\!\bigr)}
+\newcommand{\Multiset}[2]{\left(\!\!{\displaystyle\binom{#1}{#2}}\!\!\right)}
 
 %% define commands for ticking in or crossing out
 \RequirePackage{amssymb}
@@ -109,6 +160,24 @@
     \rslash\mskip-5.5mu\rslash\mskip-5.5mu\rslash%
   \fi
 }
+
+% Triangle and Arc/Sector hat symbols
+%\RequirePackage{amsmath}% already loaded
+\DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\trianglehat}{\mathord}{yhlargesymbols}{"E6}
+\DeclareMathAccent{\sectorhat}{\mathord}{yhlargesymbols}{"F3}
+
+% minipagex correctly applies paragraph skip preferences
+\newlength{\currentparskip}
+\newlength{\currentparindent}
+\newenvironment{minipagex}[2][]
+  {\setlength{\currentparskip}{\parskip}% save the value
+    \setlength{\currentparindent}{\parindent}%
+   \begin{minipage}[#1]{#2}% open the minipage
+   \setlength{\parskip}{\currentparskip}% restore the value
+   \setlength{\parindent}{\currentparindent}% restore the value
+  }
+  {\end{minipage}}
 
 % load tikz and libraries
 \RequirePackage{tikz}

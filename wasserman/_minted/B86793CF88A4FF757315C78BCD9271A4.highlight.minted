@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Iterate through the powerset and calculate the score for each value}
+\PYG{n}{results} \PYG{o}{=} \PYG{p}{[}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,} \PYG{n}{score\PYGZus{}mallow\PYGZus{}cp}\PYG{p}{(}\PYG{n}{S}\PYG{p}{)}\PYG{p}{)} \PYG{k}{for} \PYG{n}{S} \PYG{o+ow}{in} \PYG{n}{powerset}\PYG{p}{(}\PYG{n}{features}\PYG{p}{)}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{} Format as dataframe for ease of presentation}
+\PYG{n}{results} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{results}\PYG{p}{,} \PYG{n}{columns}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{score}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\end{MintedVerbatim}

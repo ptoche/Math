@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Pearson confidence:      \PYGZhy{}0.857
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} confidence interval: \PYGZhy{}0.964, \PYGZhy{}0.684
+
+Spearman confidence:     \PYGZhy{}0.834
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} confidence interval: \PYGZhy{}0.953, \PYGZhy{}0.649
+\end{MintedVerbatim}

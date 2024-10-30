@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Optimization terminated successfully.
+         Current function value: 61.554007
+         Iterations: 1
+         Function evaluations: 45
+Selected penalty:  4.965056196086726e\PYGZhy{}07
+\end{MintedVerbatim}

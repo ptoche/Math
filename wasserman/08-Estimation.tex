@@ -1,174 +1,165 @@
-\section{8. Estimating the CDF and Statistical Functionals}\label{estimating-the-cdf-and-statistical-functionals}
+\section*{8. Estimating the CDF and Statistical Functionals}\label{estimating-the-cdf-and-statistical-functionals}
 
-\subsection{8.1 Empirical distribution
+\subsection*{8.1 Empirical distribution
 function}\label{empirical-distribution-function}
 
-The \textbf{empirical distribution function} \(\hat{F_n}\) is the CDF
-that puts mass \(1/n\) at each data point \(X_i\). Formally,
+The \textbf{empirical distribution function} \(\hat{F_{n}}\) is the CDF
+that puts mass \(1/n\) at each data point \(X_{i}\). Formally,
 
-\begin{align}
-\hat{F_n}(x) & = \frac{\sum_{i=1}^n I\left(X_i \leq x \right)}{n} \\
-&= \frac{\text{#}|\text{observations less than or equal to x}|}{n}
-\end{align}
+\begin{align*}
+\hat{F_{n}}(x) & = \frac{\sum_{i=1}^{n} I\left(X_{i} \leq x \right)}{n} \\
+& = \frac{\#|\text{observations less than or equal to x}|}{n}
+\end{align*}
 
 where
 
-\[
-\begin{equation}
-I\left(X_i \leq x\right) =
+\begin{align*}I\left(X_{i} \leq x\right) =
     \begin{cases}
-      1   & \text{if } X_i \leq x \\
-      0   & \text{if } X_i > x
+      1   & \text{if } X_{i} \leq x \\
+      0   & \text{if } X_{i} > x
     \end{cases}       
-\end{equation}
-\]
+\end{align*}
 
 \textbf{Theorem 8.3}. At any fixed value of \(x\),
 
-\[
-\begin{equation}
-\mathbb{E}\left( \hat{F_n}(x) \right) = F(x)
+\begin{align*}\mathbb{E}\left( \hat{F_{n}}(x) \right) = F(x)
 \quad\mathrm{and}\quad 
-\mathbb{V}\left( \hat{F_n}(x) \right) = \frac{F(x)(1 - F(x))}{n}
-\end{equation}
-\]
+\mathbb{V}\left( \hat{F_{n}}(x) \right) = \frac{F(x)(1 - F(x))}{n}
+\end{align*}
 
 Thus,
 
 \[ \text{MSE} = \frac{F(x)(1 - F(x))}{n} \rightarrow 0 \]
 
-and hence, \(\hat{F_n}(x) \xrightarrow{\text{P}} F(x)\).
+and hence, \(\hat{F_{n}}(x) \xrightarrow{\text{P}} F(x)\).
 
 \textbf{Theorem 8.4 (Glivenko-Cantelli Theorem)}. Let
-\(X_1, \dots, X_n \sim F\). Then
+\(X_{1}, \dots, X_{n} \sim F\). Then
 
-\[ \sup _x |\hat{F_n}(x) - F(x)| \xrightarrow{\text{P}} 0 \]
+\[ \sup _x |\hat{F_{n}}(x) - F(x)| \xrightarrow{\text{P}} 0 \]
 
-(actually, \(\sup _x |\hat{F_n}(x) - F(x)|\) converges to 0 almost
+(actually, \(\sup _x |\hat{F_{n}}(x) - F(x)|\) converges to 0 almost
 surely.)
 
-\subsection{8.2 Statistical
+\subsection*{8.2 Statistical
 Functionals}\label{statistical-functionals}
 
 A \textbf{statistical functional} \(T(F)\) is any function of \(F\).
 Examples are the mean \(\mu = \int x dF(x)\), the variance
-\(\sigma^2 = \int (x - \mu)^2 dF(x)\) and the median
+\(\sigma^{2} = \int (x - \mu)^{2} dF(x)\) and the median
 \(m = F^{-1}(1/2)\).
 
 The \textbf{plug-in estimator} of \(\theta = T(F)\) is defined by
 
-\[\hat{\theta_n} = T(\hat{F_n}) \]
+\[\hat{\theta_{n}} = T(\hat{F_{n}}) \]
 
-In other words, just plug in \(\hat{F_n}\) for the unknown \(F\).
+In other words, just plug in \(\hat{F_{n}}\) for the unknown \(F\).
 
 A functional of the form \(\int r(x) dF(x)\) is called a \textbf{linear
 functional}. Recall that \(\int r(x) dF(x)\) is defined to be
 \(\int r(x) f(x) d(x)\) in the continuous case and
-\(\sum_j r(x_j) f(x_j)\) in the discrete.
+\(\sum_{j} r(x_{j}) f(x_{j})\) in the discrete.
 
 The plug-in estimator for the linear functional
 \(T(F) = \int r(x) dF(x)\) is:
 
-\[T(\hat{F_n}) = \int r(x) d\hat{F_n}(x) = \frac{1}{n} \sum_{i=1}^n r(X_i)\]
+\[T(\hat{F_{n}}) = \int r(x) d\hat{F_{n}}(x) = \frac{1}{n} \sum_{i=1}^{n} r(X_{i})\]
 
 We have:
 
-\[ T(\hat{F_n}) \approx N\left(T(F), \hat{\text{se}}\right) \]
+\[ T(\hat{F_{n}}) \approx N\left(T(F), \hat{\text{se}}\right) \]
 
 An approximate \(1 - \alpha\) confidence interval for \(T(F)\) is then
 
-\[ T(\hat{F_n}) \pm z_{\alpha/2} \hat{\text{se}} \]
+\[ T(\hat{F_{n}}) \pm z_{\alpha/2} \hat{\text{se}} \]
 
 We call this the \textbf{Normal-based interval}.
 
-\subsection{8.3 Technical Appendix}\label{technical-appendix}
+\subsection*{8.3 Technical Appendix}
 
 \textbf{Theorem 8.12 (Dvoretsky-Kiefer-Wolfowitz (DKW) inequality)}. Let
-\(X_1, \dots, X_n\) be iid from \(F\). Then, for any \(\epsilon > 0\),
+\(X_{1}, \dots, X_{n}\) be iid from \(F\). Then, for any \(\epsilon > 0\),
 
-\[\mathbb{P}\left( \sup_x |F(x) - \hat{F_n}(x) | > \epsilon \right) \leq 2 e^{-2n\epsilon^2}\]
+\[\mathbb{P}\left( \sup_x |F(x) - \hat{F_{n}}(x) | > \epsilon \right) \leq 2 e^{-2n\epsilon^{2}}\]
 
 From the DKW inequality, we can construct a confidence set. Let
-\(\epsilon_n^2 = \log(2/\alpha) / (2n)\),
-\(L(x) = \max \{ \hat{F_n}(x) - \epsilon_n, \; 0 \}\) and
-\(U(x) = \min \{\hat{F_n}(x) + \epsilon_n, 1 \}\). It follows that for
+\(\epsilon_{n}^{2} = \log(2/\alpha) / (2n)\),
+\(L(x) = \max \{ \hat{F_{n}}(x) - \epsilon_{n}, \; 0 \}\) and
+\(U(x) = \min \{\hat{F_{n}}(x) + \epsilon_{n}, 1 \}\). It follows that for
 any \(F\),
 
-\[ \mathbb{P}(F \in C_n) \geq 1 - \alpha \]
+\[ \mathbb{P}(F \in C_{n}) \geq 1 - \alpha \]
 
 To summarize:
 
 A \(1 - \alpha\) nonparametric confidence band for \(F\) is
 \((L(x), \; U(x))\) where
 
-\begin{align}
-L(x) &= \max \{ \hat{F_n}(x) - \epsilon_n, \; 0 \} \\
-U(x) &= \min \{ \hat{F_n}(x) + \epsilon_n, \; 1 \} \\
-\epsilon_n &= \sqrt{\frac{1}{2n} \log \left( \frac{2}{\alpha} \right) }
-\end{align}
+\begin{align*}
+L(x) &= \max \{ \hat{F_{n}}(x) - \epsilon_{n}, \; 0 \} \\
+U(x) &= \min \{ \hat{F_{n}}(x) + \epsilon_{n}, \; 1 \} \\
+\epsilon_{n} &= \sqrt{\frac{1}{2n} \log \left( \frac{2}{\alpha} \right) }
+\end{align*}
 
-\subsection{8.5 Exercises}\label{exercises}
+\subsection*{8.5 Exercises}
 
 \textbf{Exercise 8.5.1}. Prove Theorem 8.3.
 
 \textbf{Solution}. We have:
 
 \[
-\hat{F_n}(x) = \frac{\sum_{i=1}^n I\left(X_i \leq x \right)}{n}
+\hat{F_{n}}(x) = \frac{\sum_{i=1}^{n} I\left(X_{i} \leq x \right)}{n}
 \]
 
 where
 
-\[
-\begin{equation}
-I\left(X_i \leq x\right) =
+\begin{align*}I\left(X_{i} \leq x\right) =
     \begin{cases}
-      1   & \text{if } X_i \leq x \\
-      0   & \text{if } X_i > x
+      1   & \text{if } X_{i} \leq x \\
+      0   & \text{if } X_{i} > x
     \end{cases}       
-\end{equation}
-\]
+\end{align*}
 
 Thus,
 
-\begin{align}
-\mathbb{E}(\hat{F_n}(x)) & = n^{-1} \sum_{i = 1}^n \mathbb{E}(I\left(X_i \leq x \right)) \\
- & = n^{-1} \sum_{i = 1}^n \mathbb{P}\left(X_i \leq x \right) \\
- & = n^{-1} \sum_{i = 1}^n F(x) \\
+\begin{align*}
+\mathbb{E}(\hat{F_{n}}(x)) & = n^{-1} \sum_{i = 1}^{n} \mathbb{E}(I\left(X_{i} \leq x \right)) \\
+ & = n^{-1} \sum_{i = 1}^{n} \mathbb{P}\left(X_{i} \leq x \right) \\
+ & = n^{-1} \sum_{i = 1}^{n} F(x) \\
  & = F(x)
-\end{align}
+\end{align*}
 
-\begin{align}
-\mathbb{E}(\hat{F_n}(x)^2) & = n^{-2} \mathbb{E} \left( \sum_{i = 1}^n I\left(X_i \leq x \right) \right)^2 \\
-& = n^{-2} \mathbb{E} \left( \sum_{i = 1}^n I\left(X_i \leq x \right)^2 
-+ \sum_{i = 1}^n \sum_{j = 1, j \neq i}^n I\left(X_i \leq x \right) I\left(X_j \leq x \right) \right) \\
-& = n^{-2} \left( \sum_{i = 1}^n \mathbb{E} \left( I\left(X_i \leq x \right)^2 \right)
-+ \sum_{i = 1}^n \sum_{j = 1, j \neq i}^n \mathbb{E} \left( I\left(X_i \leq x \right) I\left(X_j \leq x \right) \right) \right) \\
-& = n^{-2} \left( \sum_{i = 1}^n \mathbb{E} \left( I\left(X_i \leq x \right) \right)
-+ \sum_{i = 1}^n \sum_{j = 1, j \neq i}^n \mathbb{E} \left( I\left(X_i \leq x \right) \right) \mathbb{E} \left( I\left(X_j \leq x \right) \right) \right) \\
-& = n^{-2} \left( \sum_{i = 1}^n \mathbb{P}\left(X_i \leq x \right) 
-+ \sum_{i = 1}^n \sum_{j = 1, j \neq i}^n \mathbb{P}\left(X_i \leq x \right) \mathbb{P}\left(X_j \leq x \right)  \right) \\
-&= n^{-2} \left( \sum_{i = 1}^n F(x)
-+ \sum_{i = 1}^n \sum_{j = 1, j \neq i}^n F(x)^2  \right) \\
-&= n^{-2} \left( nF(x) + (n^2 - n)F(x)^2 \right) \\
-&= n^{-1} ( F(x) + (n - 1) F(x)^2 )
-\end{align}
+\begin{align*}
+\mathbb{E}(\hat{F_{n}}(x)^{2}) & = n^{-2} \mathbb{E} \left( \sum_{i = 1}^{n} I\left(X_{i} \leq x \right) \right)^{2} \\
+& = n^{-2} \mathbb{E} \left( \sum_{i = 1}^{n} I\left(X_{i} \leq x \right)^{2} 
++ \sum_{i = 1}^{n} \sum_{j = 1, j \neq i}^{n} I\left(X_{i} \leq x \right) I\left(X_{j} \leq x \right) \right) \\
+& = n^{-2} \left( \sum_{i = 1}^{n} \mathbb{E} \left( I\left(X_{i} \leq x \right)^{2} \right)
++ \sum_{i = 1}^{n} \sum_{j = 1, j \neq i}^{n} \mathbb{E} \left( I\left(X_{i} \leq x \right) I\left(X_{j} \leq x \right) \right) \right) \\
+& = n^{-2} \left( \sum_{i = 1}^{n} \mathbb{E} \left( I\left(X_{i} \leq x \right) \right)
++ \sum_{i = 1}^{n} \sum_{j = 1, j \neq i}^{n} \mathbb{E} \left( I\left(X_{i} \leq x \right) \right) \mathbb{E} \left( I\left(X_{j} \leq x \right) \right) \right) \\
+& = n^{-2} \left( \sum_{i = 1}^{n} \mathbb{P}\left(X_{i} \leq x \right) 
++ \sum_{i = 1}^{n} \sum_{j = 1, j \neq i}^{n} \mathbb{P}\left(X_{i} \leq x \right) \mathbb{P}\left(X_{j} \leq x \right)  \right) \\
+&= n^{-2} \left( \sum_{i = 1}^{n} F(x)
++ \sum_{i = 1}^{n} \sum_{j = 1, j \neq i}^{n} F(x)^{2}  \right) \\
+&= n^{-2} \left( nF(x) + (n^{2} - n)F(x)^{2} \right) \\
+&= n^{-1} ( F(x) + (n - 1) F(x)^{2} )
+\end{align*}
 
 Therefore,
 
-\[ \mathbb{V}(\hat{F_n}(x)) 
-= \mathbb{E}(\hat{F_n}(x)^2) - \mathbb{E}(\hat{F_n}(x))^2
-= F(x) /n + (1 - 1/n)F(x)^2 - F(x)^2
+\[ \mathbb{V}(\hat{F_{n}}(x)) 
+= \mathbb{E}(\hat{F_{n}}(x)^{2}) - \mathbb{E}(\hat{F_{n}}(x))^{2}
+= F(x) /n + (1 - 1/n)F(x)^{2} - F(x)^{2}
 = \frac{F(x)(1 - F(x))}{n}
 \]
 
 Finally,
 
-\[ \text{MSE} = (\text{bias}(F(x)))^2 + \mathbb{V}(F(x)) = (\mathbb{E}(\hat{F_n}(x)) - F(x))^2 + \mathbb{V}(F(x)) = \mathbb{V}(F(x)) = \frac{F(x)(1 - F(x))}{n} \rightarrow 0\]
+\[ \text{MSE} = (\text{bias}(F(x)))^{2} + \mathbb{V}(F(x)) = (\mathbb{E}(\hat{F_{n}}(x)) - F(x))^{2} + \mathbb{V}(F(x)) = \mathbb{V}(F(x)) = \frac{F(x)(1 - F(x))}{n} \rightarrow 0\]
 
 \textbf{Exercise 8.5.2}. Let
-\(X_1, \dots, X_n \sim \text{Bernoulli}(p)\) and let
-\(Y_1, \dots, Y_m \sim \text{Bernoulli}(q)\).
+\(X_{1}, \dots, X_{n} \sim \text{Bernoulli}(p)\) and let
+\(Y_{1}, \dots, Y_m \sim \text{Bernoulli}(q)\).
 
 \begin{itemize}[tightlist]
 \item
@@ -186,33 +177,38 @@ Finally,
 \textbf{(a)}
 
 \(p\) is the mean of \(\text{Bernoulli}(p)\), so its plugin estimator is
-\(\hat{p} = \mathbb{E}(\hat{F_n}) = n^{-1} \sum_{i=1}^n X_i  = \overline{X}_n\).
+\(\hat{p} = \mathbb{E}(\hat{F_{n}}) = n^{-1} \sum_{i=1}^{n} X_{i}  = \overline{X}_{n}\).
 
 \(\sqrt{p(1-p)}\) is the standard deviation of \(\text{Bernoulli}(p)\),
 so the plugin estimator for the standard error is
-\(\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} = \sqrt{\frac{\overline{X}_n(1 - \overline{X}_n)}{n}}\).
+\(\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} = \sqrt{\frac{\overline{X}_{n}(1 - \overline{X}_{n})}{n}}\).
 
 \textbf{(b)}
 
 The 90-percent confidence interval for \(p\) is
-\(\hat{p} \pm z_{5\%} \hat{se}(\hat{p})= \overline{X}_n \pm z_{5\%} \sqrt{\frac{\overline{X}_n(1-\overline{X}_n)}{n}}\).
+\(\hat{p} \pm z_{5\%} \hat{se}(\hat{p})= \overline{X}_{n} \pm z_{5\%} \sqrt{\frac{\overline{X}_{n}(1-\overline{X}_{n})}{n}}\).
 
 \textbf{(c)}
 
 The plug-in estimator for \(\theta = p - q\) is
-\(\hat{\theta} = \hat{p} - \hat{q} = \overline{X}_n - \overline{Y}_m\).
+\(\hat{\theta} = \hat{p} - \hat{q} = \overline{X}_{n} - \overline{Y}_m\).
 
 The standard error of \(\hat{\theta}\) is
 
-\[\text{se} = \sqrt{\mathbb{V}(\hat{p} - \hat{q})} = \sqrt{\mathbb{V}(\hat{p}) + \mathbb{V}(\hat{q})} = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{\hat{q}(1 - \hat{q})}{n}} = \sqrt{\frac{\overline{X}_n(1 - \overline{X}_n)}{n} + \frac{\overline{Y}_m(1 - \overline{Y}_m)}{n}} \]
+\[
+\text{se} = \sqrt{\mathbb{V}(\hat{p} - \hat{q})} = \sqrt{\mathbb{V}(\hat{p}) + \mathbb{V}(\hat{q})} = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n} + \frac{\hat{q}(1 - \hat{q})}{n}} = \sqrt{\frac{\overline{X}_{n}(1 - \overline{X}_{n})}{n} + \frac{\overline{Y}_m(1 - \overline{Y}_m)}{n}} 
+\]
 
 \textbf{(d)}
 
 The 90-percent confidence interval for \(\theta = p - q\) is
-\$\hat{\theta} \pm z\_\{5\%\} \hat{se}(\hat{\theta}) = \overline{X}\_n -
-\overline{Y}\emph{m \pm z}\{5\%\}
-\sqrt{\frac{\overline{X}_n(1 - \overline{X}_n)}{n} + \frac{\overline{Y}_m(1 - \overline{Y}_m)}{n}}
-\$
+
+\[
+\hat{\theta} \pm z\_\{5\%\} \hat{se}(\hat{\theta}) 
+= \overline{X}_{n} -
+\overline{Y}m \pm z \{5\%\}
+\sqrt{\frac{\overline{X}_{n}(1 - \overline{X}_{n})}{n} + \frac{\overline{Y}_m(1 - \overline{Y}_m)}{n}}
+\]
 
 \textbf{Exercise 8.5.3}. (Computer Experiment) Generate 100 observations
 from a \(N(0, 1)\) distribution. Compute a 95 percent confidence band
@@ -238,29 +234,30 @@ alpha = 0.05
 r = norm.rvs(size=n)
 epsilon = math.sqrt((1 / (2 * n)) * math.log(2 / alpha))
 
-F_n = lambda x : sum(r < x) / n
-L_n = lambda x : max(F_n(x) - epsilon, 0)
-U_n = lambda x : min(F_n(x) + epsilon, 1)
+F_{n} = lambda x : sum(r < x) / n
+L_{n} = lambda x : max(F_{n}(x) - epsilon, 0)
+U_{n} = lambda x : min(F_{n}(x) + epsilon, 1)
 
 xx = sorted(r)
 
 df = pd.DataFrame({
     'x': xx, 
-    'F_n': np.array(list(map(F_n, xx))), 
-    'U_n': np.array(list(map(U_n, xx))), 
-    'L_n': np.array(list(map(L_n, xx))), 
+    'F_{n}': np.array(list(map(F_{n}, xx))), 
+    'U_{n}': np.array(list(map(U_{n}, xx))), 
+    'L_{n}': np.array(list(map(L_{n}, xx))), 
     'CDF': np.array(list(map(norm.cdf, xx)))
 })
-df['in_bounds'] = (df['U_n'] >= df['CDF']) & (df['CDF'] >= df['L_n'])
+df['in_bounds'] = (df['U_{n}'] >= df['CDF']) & (df['CDF'] >= df['L_{n}'])
 
-plt.plot( 'x', 'L_n', data=df, color='red')
-plt.plot( 'x', 'U_n', data=df, color='green')
+plt.plot( 'x', 'L_{n}', data=df, color='red')
+plt.plot( 'x', 'U_{n}', data=df, color='green')
 plt.plot( 'x', 'CDF', data=df, color='purple')
 plt.legend()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-08-01}
+\centering
+\includegraphics{Figure-08-01}
 \end{figure}
     
 \begin{python}
@@ -273,22 +270,22 @@ for k in tqdm(range(1000)):
     r = norm.rvs(size=n)
     epsilon = math.sqrt((1 / (2 * n)) * math.log(2 / alpha))
 
-    F_n = lambda x : sum(r < x) / n
-    L_n = lambda x : max(F_n(x) - epsilon, 0)
-    U_n = lambda x : min(F_n(x) + epsilon, 1)
+    F_{n} = lambda x : sum(r < x) / n
+    L_{n} = lambda x : max(F_{n}(x) - epsilon, 0)
+    U_{n} = lambda x : min(F_{n}(x) + epsilon, 1)
 
     # xx = sorted(r)
     xx = r # No need to sort without plotting
     
     df = pd.DataFrame({
         'x': xx, 
-        'F_n': np.array(list(map(F_n, xx))), 
-        'U_n': np.array(list(map(U_n, xx))), 
-        'L_n': np.array(list(map(L_n, xx))), 
+        'F_{n}': np.array(list(map(F_{n}, xx))), 
+        'U_{n}': np.array(list(map(U_{n}, xx))), 
+        'L_{n}': np.array(list(map(L_{n}, xx))), 
         'CDF': np.array(list(map(norm.cdf, xx)))
     })
-    all_in_bounds = ((df['U_n'] >= df['CDF']) & (df['CDF'] >= df['L_n'])).all()
-    bounds.append(all_in_bounds)
+    all_{i}n_bounds = ((df['U_{n}'] >= df['CDF']) & (df['CDF'] >= df['L_{n}'])).all()
+    bounds.append(all_{i}n_bounds)
     
 print('Average fraction in bounds: %.3f' % np.array(bounds).mean())
 \end{python}
@@ -311,29 +308,30 @@ alpha = 0.05
 r = cauchy.rvs(size=n)
 epsilon = math.sqrt((1 / (2 * n)) * math.log(2 / alpha))
 
-F_n = lambda x : sum(r < x) / n
-L_n = lambda x : max(F_n(x) - epsilon, 0)
-U_n = lambda x : min(F_n(x) + epsilon, 1)
+F_{n} = lambda x : sum(r < x) / n
+L_{n} = lambda x : max(F_{n}(x) - epsilon, 0)
+U_{n} = lambda x : min(F_{n}(x) + epsilon, 1)
 
 xx = sorted(r)
 
 df = pd.DataFrame({
     'x': xx, 
-    'F_n': np.array(list(map(F_n, xx))), 
-    'U_n': np.array(list(map(U_n, xx))), 
-    'L_n': np.array(list(map(L_n, xx))), 
+    'F_{n}': np.array(list(map(F_{n}, xx))), 
+    'U_{n}': np.array(list(map(U_{n}, xx))), 
+    'L_{n}': np.array(list(map(L_{n}, xx))), 
     'CDF': np.array(list(map(norm.cdf, xx)))
 })
-df['in_bounds'] = (df['U_n'] >= df['CDF']) & (df['CDF'] >= df['L_n'])
+df['in_bounds'] = (df['U_{n}'] >= df['CDF']) & (df['CDF'] >= df['L_{n}'])
 
-plt.plot( 'x', 'L_n', data=df, color='red')
-plt.plot( 'x', 'U_n', data=df, color='green')
+plt.plot( 'x', 'L_{n}', data=df, color='red')
+plt.plot( 'x', 'U_{n}', data=df, color='green')
 plt.plot( 'x', 'CDF', data=df, color='purple')
 plt.legend()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-08-02}
+\centering
+\includegraphics{Figure-08-02}
 \end{figure}
 
 \begin{python}
@@ -346,22 +344,22 @@ for k in tqdm(range(1000)):
     r = cauchy.rvs(size=n)
     epsilon = math.sqrt((1 / (2 * n)) * math.log(2 / alpha))
 
-    F_n = lambda x : sum(r < x) / n
-    L_n = lambda x : max(F_n(x) - epsilon, 0)
-    U_n = lambda x : min(F_n(x) + epsilon, 1)
+    F_{n} = lambda x : sum(r < x) / n
+    L_{n} = lambda x : max(F_{n}(x) - epsilon, 0)
+    U_{n} = lambda x : min(F_{n}(x) + epsilon, 1)
 
     # xx = sorted(r)
     xx = r # No need to sort without plotting
 
     df = pd.DataFrame({
         'x': xx, 
-        'F_n': np.array(list(map(F_n, xx))), 
-        'U_n': np.array(list(map(U_n, xx))), 
-        'L_n': np.array(list(map(L_n, xx))), 
+        'F_{n}': np.array(list(map(F_{n}, xx))), 
+        'U_{n}': np.array(list(map(U_{n}, xx))), 
+        'L_{n}': np.array(list(map(L_{n}, xx))), 
         'CDF': np.array(list(map(norm.cdf, xx)))
     })
-    all_in_bounds = ((df['U_n'] >= df['CDF']) & (df['CDF'] >= df['L_n'])).all()
-    bounds.append(all_in_bounds)
+    all_{i}n_bounds = ((df['U_{n}'] >= df['CDF']) & (df['CDF'] >= df['L_{n}'])).all()
+    bounds.append(all_{i}n_bounds)
     
 print('Average fraction in bounds: %.3f' % np.array(bounds).mean())
 \end{python}
@@ -380,94 +378,100 @@ Average fraction in bounds: 0.209
 
 \end{console}
 
-\textbf{Exercise 8.5.4}. Let \(X_1, \dots, X_n \sim F\) and let
-\(\hat{F}_n(x)\) be the empirical distribution function. For a fixed
-\(x\), use the central limit theorem to find the limiting distribution
-of \(\hat{F}_n(x)\).
+\textbf{Exercise 8.5.4}. Let \(X_{1}, \dots, X_{n} \sim F\) and let
+\(\hat{F}_{n}(x)\) be the empirical distribution function. For a fixed
+\(x\), use the central limit Theorem to find the limiting distribution
+of \(\hat{F}_{n}(x)\).
 
 \textbf{Solution}.
 
 We have:
 
 \[
-\hat{F_n}(x) = \frac{\sum_{i=1}^n I\left(X_i \leq x \right)}{n}
+\hat{F_{n}}(x) = \frac{\sum_{i=1}^{n} I\left(X_{i} \leq x \right)}{n}
 \]
 
 where
 
-\[
-\begin{equation}
-I\left(X_i \leq x\right) =
+\begin{align*}I\left(X_{i} \leq x\right) =
     \begin{cases}
-      1   & \text{if } X_i \leq x \\
-      0   & \text{if } X_i > x
+      1   & \text{if } X_{i} \leq x \\
+      0   & \text{if } X_{i} > x
     \end{cases}       
-\end{equation}
-\]
+\end{align*}
 
-Let \(Y_i = I\left(X_i \leq x \right)\) for some fixed \(x\). From the
-central limit theorem,
+Let \(Y_{i} = I\left(X_{i} \leq x \right)\) for some fixed \(x\). From the
+central limit Theorem,
 
-\begin{align}
-\sqrt{n} (\overline{Y}_n - \mu_Y) & \leadsto N(0, \sigma_Y^2) \\
-\overline{Y}_n & \leadsto N(\mu_Y, \sigma_Y^2 / n)
-\end{align}
+\begin{align*}
+\sqrt{n} (\overline{Y}_{n} - \mu_Y) & \leadsto N(0, \sigma_Y^{2}) \\
+\overline{Y}_{n} & \leadsto N(\mu_Y, \sigma_Y^{2} / n)
+\end{align*}
 
 We can estimate the mean \(\mu_Y\) as
-\(\mathbb{E}(\hat{\mu_Y}) = \mathbb{E}(\overline{Y}_n) = n^{-1} \sum_{i=1}^n \mathbb{E}(I(X_i \leq x)) = n^{-1} \sum_{i=1}^n F(x) = \hat{F_n}(x)\).
 
-We can estimate the variance \(\sigma_Y^2\) as
-\(\mathbb{E}(\hat{\sigma_Y}^2) = \mathbb{E}(\mathbb{V}(\overline{Y}_n)) = n^{-1} \sum_{i=1}^n \mathbb{E}((Y_i - \overline{Y}_n)^2) = n^{-1} \sum_{i=1}^n \left( \mathbb{E}(Y_i^2) - 2 \mathbb{E}(Y_i \overline{Y}_n) + \mathbb{E}(\overline{Y}_n^2) \right) \leq n^{-1} \sum_{i=1}^n \left( \mathbb{E}(Y_i) + \mathbb{E}(\overline{Y}_n^2) \right) \leq 2\)
+\[
+\mathbb{E}(\hat{\mu_Y}) = \mathbb{E}(\overline{Y}_{n}) = n^{-1} \sum_{i=1}^{n} \mathbb{E}(I(X_{i} \leq x)) = n^{-1} \sum_{i=1}^{n} F(x) = \hat{F_{n}}(x).
+\]
+
+We can estimate the variance \(\sigma_Y^{2}\) as
+
+\[
+\mathbb{E}(\hat{\sigma_Y}^{2}) 
+= \mathbb{E}(\mathbb{V}(\overline{Y}_{n})) 
+= n^{-1} \sum_{i=1}^{n} \mathbb{E}((Y_{i} - \overline{Y}_{n})^{2}) 
+= n^{-1} \sum_{i=1}^{n} \left( \mathbb{E}(Y_{i}^{2}) - 2 \mathbb{E}(Y_{i} \overline{Y}_{n}) + \mathbb{E}(\overline{Y}_{n}^{2}) \right) \leq n^{-1} \sum_{i=1}^{n} \left( \mathbb{E}(Y_{i}) + \mathbb{E}(\overline{Y}_{n}^{2}) \right) \leq 2
+\]
 
 Therefore, for large \(n\), the limiting distribution has variance that
-goes to 0 -- so \(\overline{Y}_n \leadsto \mu_Y\), or
-\(I\left(X_i \leq x \right) \leadsto F(x)\) for every x. Then,
+goes to 0 -- so \(\overline{Y}_{n} \leadsto \mu_Y\), or
+\(I\left(X_{i} \leq x \right) \leadsto F(x)\) for every x. Then,
 
-\(\hat{F_n}(x) \leadsto n^{-1} \sum_{i=1}^n F(x) = F(x)\),
+\(\hat{F_{n}}(x) \leadsto n^{-1} \sum_{i=1}^{n} F(x) = F(x)\),
 
-and, as expected, \(F\) is the limiting distribution of \(F_n\).
+and, as expected, \(F\) is the limiting distribution of \(F_{n}\).
 
 \textbf{Exercise 8.5.5}. Let \(x\) and \(y\) be two distinct points.
-Find \(\text{Cov}(\hat{F_n}(x), \hat{F_n}(y))\).
+Find \(\text{Cov}(\hat{F_{n}}(x), \hat{F_{n}}(y))\).
 
 \textbf{Solution}.
 
 We have:
 
-\begin{align}
-\text{Cov}(\hat{F_n}(x), \hat{F_n}(y)) & = \mathbb{E}(\hat{F_n}(x) \hat{F_n}(y)) - \mathbb{E}(\hat{F_n}(x))\mathbb{E}(\hat{F_n}(y)) \\
-&= \mathbb{E}(\hat{F_n}(x) \hat{F_n}(y)) - F(x)F(y)
-\end{align}
+\begin{align*}
+\text{Cov}(\hat{F_{n}}(x), \hat{F_{n}}(y)) & = \mathbb{E}(\hat{F_{n}}(x) \hat{F_{n}}(y)) - \mathbb{E}(\hat{F_{n}}(x))\mathbb{E}(\hat{F_{n}}(y)) \\
+&= \mathbb{E}(\hat{F_{n}}(x) \hat{F_{n}}(y)) - F(x)F(y)
+\end{align*}
 
 But:
 
 \[
-\hat{F_n}(x) \hat{F_n}(y) = \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n I(X_i \leq x) I(X_j \leq y)
+\hat{F_{n}}(x) \hat{F_{n}}(y) = \frac{1}{n^{2}} \sum_{i=1}^{n} \sum_{j=1}^{n} I(X_{i} \leq x) I(X_{j} \leq y)
 \]
 
 so
 
-\begin{align}
-\mathbb{E}(\hat{F_n}(x) \hat{F_n}(y)) & = \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n \mathbb{E}(I(X_i \leq x) I(X_j \leq y)) \\
-&= \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n \mathbb{P}(X_i \leq x, X_j \leq y) \\
-&= \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1}^n \mathbb{P}(X_i \leq x | X_j \leq y) \mathbb{P}(X_j \leq y) \\
-&= \frac{1}{n^2} \left( \sum_{i=1}^n F(\min\{x, y\}) + \sum_{i=1}^n \sum_{j=1, j \neq i}^n F(x)F(y) \right) \\
+\begin{align*}
+\mathbb{E}(\hat{F_{n}}(x) \hat{F_{n}}(y)) & = \frac{1}{n^{2}} \sum_{i=1}^{n} \sum_{j=1}^{n} \mathbb{E}(I(X_{i} \leq x) I(X_{j} \leq y)) \\
+&= \frac{1}{n^{2}} \sum_{i=1}^{n} \sum_{j=1}^{n} \mathbb{P}(X_{i} \leq x, X_{j} \leq y) \\
+&= \frac{1}{n^{2}} \sum_{i=1}^{n} \sum_{j=1}^{n} \mathbb{P}(X_{i} \leq x | X_{j} \leq y) \mathbb{P}(X_{j} \leq y) \\
+&= \frac{1}{n^{2}} \left( \sum_{i=1}^{n} F(\min\{x, y\}) + \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} F(x)F(y) \right) \\
 &= \frac{1}{n} F(\min\{x, y\}) + \left( 1 - \frac{1}{n}\right) F(x)F(y)
-\end{align}
+\end{align*}
 
 Therefore, assuming \(x \leq y\),
 
-\begin{align}
-\text{Cov}(\hat{F_n}(x), \hat{F_n}(y)) & = \mathbb{E}(\hat{F_n}(x) \hat{F_n}(y)) - \mathbb{E}(\hat{F_n}(x))\mathbb{E}(\hat{F_n}(y)) \\
-&= \mathbb{E}(\hat{F_n}(x) \hat{F_n}(y)) - F(x)F(y) \\
+\begin{align*}
+\text{Cov}(\hat{F_{n}}(x), \hat{F_{n}}(y)) & = \mathbb{E}(\hat{F_{n}}(x) \hat{F_{n}}(y)) - \mathbb{E}(\hat{F_{n}}(x))\mathbb{E}(\hat{F_{n}}(y)) \\
+&= \mathbb{E}(\hat{F_{n}}(x) \hat{F_{n}}(y)) - F(x)F(y) \\
 &= \frac{1}{n} F(\min\{x, y\}) + \left( 1 - \frac{1}{n}\right) F(x)F(y) - F(x)F(y) \\
 &= \frac{F(x)(1 - F(y))}{n}
-\end{align}
+\end{align*}
 
-\textbf{Exercise 8.5.6}. Let \(X_1, \dots, X_n \sim F\) and let
+\textbf{Exercise 8.5.6}. Let \(X_{1}, \dots, X_{n} \sim F\) and let
 \(\hat{F}\) be the empirical distribution function. Let \(a < b\) be
 fixed numbers and define \(\theta = T(F) = F(b) - F(a)\). Let
-\(\hat{\theta} = T(\hat{F}_n) = \hat{F}_n(b) - \hat{F}_n(a)\).
+\(\hat{\theta} = T(\hat{F}_{n}) = \hat{F}_{n}(b) - \hat{F}_{n}(a)\).
 
 \begin{itemize}[tightlist]
 \item
@@ -482,46 +486,46 @@ fixed numbers and define \(\theta = T(F) = F(b) - F(a)\). Let
 \textbf{(a)}
 
 The estimated mean for \(\hat{\theta}\) is
-\(\mathbb{E}(\hat{\theta}) = \mathbb{E}(\hat{F}_n(b) - \hat{F}_n(a)) = \mathbb{E}(\hat{F}_n(b)) - \mathbb{E}(\hat{F}_n(a)) = F(b) - F(a) = \theta\).
+\(\mathbb{E}(\hat{\theta}) = \mathbb{E}(\hat{F}_{n}(b) - \hat{F}_{n}(a)) = \mathbb{E}(\hat{F}_{n}(b)) - \mathbb{E}(\hat{F}_{n}(a)) = F(b) - F(a) = \theta\).
 
 The estimated variance for \(\hat{\theta}\) is
 
-\[ \mathbb{V}(\hat{\theta}) = \mathbb{E}(\hat{\theta}^2) - \mathbb{E}(\hat{\theta})^2 \]
+\[ \mathbb{V}(\hat{\theta}) = \mathbb{E}(\hat{\theta}^{2}) - \mathbb{E}(\hat{\theta})^{2} \]
 
 But
 
-\begin{align}
-\mathbb{E}(\hat{\theta}^2) & = \mathbb{E}((\hat{F}_n(b) - \hat{F}_n(a))^2)  \\
-&= \mathbb{E}(\hat{F}_n(a)^2 + \hat{F}_n(b)^2 - 2 \hat{F}_n(a)\hat{F}_n(b)) \\
-&= \mathbb{E}(\hat{F}_n(a)^2) + \mathbb{E}(\hat{F}_n(b)^2) - 2 \mathbb{E}(\hat{F}_n(a)\hat{F}_n(b))
-\end{align}
+\begin{align*}
+\mathbb{E}(\hat{\theta}^{2}) & = \mathbb{E}((\hat{F}_{n}(b) - \hat{F}_{n}(a))^{2})  \\
+&= \mathbb{E}(\hat{F}_{n}(a)^{2} + \hat{F}_{n}(b)^{2} - 2 \hat{F}_{n}(a)\hat{F}_{n}(b)) \\
+&= \mathbb{E}(\hat{F}_{n}(a)^{2}) + \mathbb{E}(\hat{F}_{n}(b)^{2}) - 2 \mathbb{E}(\hat{F}_{n}(a)\hat{F}_{n}(b))
+\end{align*}
 
-\begin{align}
-\mathbb{E}(\hat{F}_n(a)^2) & = \mathbb{E}\left(\left(\frac{1}{n} \sum_{i=1}^n I(X_i \leq a)\right)^2\right) \\
-& = \frac{1}{n^2} \left(\sum_{i=1}^n \mathbb{E} \left( I(X_i \leq a)^2 \right) + \sum_{i=1}^n \sum_{j=1, j \neq i}^n \mathbb{E}\left( I(X_i \leq a) I(X_j \leq a) \right) \right) \\
-& = \frac{1}{n^2} \left(\sum_{i=1}^n \mathbb{E} \left( I(X_i \leq a) \right) + \sum_{i=1}^n \sum_{j=1, j \neq i}^n \mathbb{E}\left( I(X_i \leq a) I(X_j \leq a) \right) \right) \\
-& = \frac{1}{n^2} \left(\sum_{i=1}^n \mathbb{P} \left( X_i \leq a \right) + \sum_{i=1}^n \sum_{j=1, j \neq i}^n \mathbb{P}\left( X_i \leq a, X_j \leq a \right) \right) \\
-& = \frac{1}{n^2} \left(n F(a) + n(n-1) F(a)^2 \right) \\
-&= F(a) \frac{1}{n} + F(a)^2 \left(1 - \frac{1}{n} \right) \\
-\mathbb{E}(\hat{F}_n(b)^2) & = F(b) \frac{1}{n} + F(b)^2 \left(1 - \frac{1}{n} \right)
-\end{align}
+\begin{align*}
+\mathbb{E}(\hat{F}_{n}(a)^{2}) & = \mathbb{E}\left(\left(\frac{1}{n} \sum_{i=1}^{n} I(X_{i} \leq a)\right)^{2}\right) \\
+& = \frac{1}{n^{2}} \left(\sum_{i=1}^{n} \mathbb{E} \left( I(X_{i} \leq a)^{2} \right) + \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} \mathbb{E}\left( I(X_{i} \leq a) I(X_{j} \leq a) \right) \right) \\
+& = \frac{1}{n^{2}} \left(\sum_{i=1}^{n} \mathbb{E} \left( I(X_{i} \leq a) \right) + \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} \mathbb{E}\left( I(X_{i} \leq a) I(X_{j} \leq a) \right) \right) \\
+& = \frac{1}{n^{2}} \left(\sum_{i=1}^{n} \mathbb{P} \left( X_{i} \leq a \right) + \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} \mathbb{P}\left( X_{i} \leq a, X_{j} \leq a \right) \right) \\
+& = \frac{1}{n^{2}} \left(n F(a) + n(n-1) F(a)^{2} \right) \\
+&= F(a) \frac{1}{n} + F(a)^{2} \left(1 - \frac{1}{n} \right) \\
+\mathbb{E}(\hat{F}_{n}(b)^{2}) & = F(b) \frac{1}{n} + F(b)^{2} \left(1 - \frac{1}{n} \right)
+\end{align*}
 
 From the previous exercise,
 
-\[ \mathbb{E}(\hat{F}_n(a)\hat{F}_n(b)) = \frac{1}{n} F(a) + \left( 1 - \frac{1}{n}\right) F(a)F(b) \]
+\[ \mathbb{E}(\hat{F}_{n}(a)\hat{F}_{n}(b)) = \frac{1}{n} F(a) + \left( 1 - \frac{1}{n}\right) F(a)F(b) \]
 
 Putting it together,
 
-\begin{align}
-\mathbb{E}(\hat{\theta}^2) 
-&= \mathbb{E}(\hat{F}_n(a)^2) + \mathbb{E}(\hat{F}_n(b)^2) - 2 \mathbb{E}(\hat{F}_n(a)\hat{F}_n(b)) \\
-&=   F(a) \frac{1}{n} + F(a)^2 \left(1 - \frac{1}{n} \right) +  F(b) \frac{1}{n} + F(b)^2 \left(1 - \frac{1}{n} \right) - 2 \left( \frac{1}{n} F(a) + \left( 1 - \frac{1}{n}\right) F(a)F(b) \right) \\
-&=  \frac{1}{n} \left(F(b) - F(a)\right) + \left( 1 - \frac{1}{n}\right) \left( F(b) - F(a) \right)^2 \\
-&=  \frac{1}{n} \theta + \left( 1 - \frac{1}{n} \right) \theta^2 \\
-\mathbb{V}(\hat{\theta}) &=  \mathbb{E}(\hat{\theta}^2) - \mathbb{E}(\hat{\theta})^2 \\
-&=  \frac{1}{n} \theta + \left( 1 - \frac{1}{n} \right) \theta^2 - \theta^2 \\
+\begin{align*}
+\mathbb{E}(\hat{\theta}^{2}) 
+&= \mathbb{E}(\hat{F}_{n}(a)^{2}) + \mathbb{E}(\hat{F}_{n}(b)^{2}) - 2 \mathbb{E}(\hat{F}_{n}(a)\hat{F}_{n}(b)) \\
+&=   F(a) \frac{1}{n} + F(a)^{2} \left(1 - \frac{1}{n} \right) +  F(b) \frac{1}{n} + F(b)^{2} \left(1 - \frac{1}{n} \right) - 2 \left( \frac{1}{n} F(a) + \left( 1 - \frac{1}{n}\right) F(a)F(b) \right) \\
+&=  \frac{1}{n} \left(F(b) - F(a)\right) + \left( 1 - \frac{1}{n}\right) \left( F(b) - F(a) \right)^{2} \\
+&=  \frac{1}{n} \theta + \left( 1 - \frac{1}{n} \right) \theta^{2} \\
+\mathbb{V}(\hat{\theta}) &=  \mathbb{E}(\hat{\theta}^{2}) - \mathbb{E}(\hat{\theta})^{2} \\
+&=  \frac{1}{n} \theta + \left( 1 - \frac{1}{n} \right) \theta^{2} - \theta^{2} \\
 &= \frac{\theta (1 - \theta)}{n} 
-\end{align}
+\end{align*}
 
 Finally, the estimated standard error is
 
@@ -557,27 +561,28 @@ n = len(r)
 alpha = 0.05
 epsilon = math.sqrt((1 / (2 * n)) * math.log(2 / alpha))
 
-F_n = lambda x : sum(r < x) / n
-L_n = lambda x : max(F_n(x) - epsilon, 0)
-U_n = lambda x : min(F_n(x) + epsilon, 1)
+F_{n} = lambda x : sum(r < x) / n
+L_{n} = lambda x : max(F_{n}(x) - epsilon, 0)
+U_{n} = lambda x : min(F_{n}(x) + epsilon, 1)
 
 xx = sorted(r)
 
 df = pd.DataFrame({
     'x': xx, 
-    'F_n': np.array(list(map(F_n, xx))), 
-    'U_n': np.array(list(map(U_n, xx))), 
-    'L_n': np.array(list(map(L_n, xx)))
+    'F_{n}': np.array(list(map(F_{n}, xx))), 
+    'U_{n}': np.array(list(map(U_{n}, xx))), 
+    'L_{n}': np.array(list(map(L_{n}, xx)))
 })
 
-plt.plot( 'x', 'L_n', data=df, color='red')
-plt.plot( 'x', 'U_n', data=df, color='green')
-plt.plot( 'x', 'F_n', data=df, color='blue')
+plt.plot( 'x', 'L_{n}', data=df, color='red')
+plt.plot( 'x', 'U_{n}', data=df, color='green')
+plt.plot( 'x', 'F_{n}', data=df, color='blue')
 plt.legend()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-08-03}
+\centering
+\includegraphics{Figure-08-03}
 \end{figure}
 
 \begin{python}
@@ -587,7 +592,7 @@ import math
 from scipy.stats import norm
 
 z_95 = norm.ppf(.975)
-theta = F_n(4.9) - F_n(4.3)
+theta = F_{n}(4.9) - F_{n}(4.3)
 se = math.sqrt(theta * (1 - theta) / n)
 
 print('95%% confidence interval: (%.3f, %.3f)' % ((theta - z_95 * se), (theta + z_95 * se)))
@@ -669,34 +674,34 @@ Estimated median time: 76.000
 \textbf{Exercise 8.5.9}. 100 people are given a standard antibiotic to
 treat an infection and another 100 are given a new antibiotic. In the
 first group, 90 people recover; in the second group, 85 people recover.
-Let \(p_1\) be the probability of recovery under the standard treatment,
-and let \(p_2\) be the probability of recovery under the new treatment.
-We are interested in estimating \(\theta = p_1 - p_2\). Provide an
+Let \(p_{1}\) be the probability of recovery under the standard treatment,
+and let \(p_{2}\) be the probability of recovery under the new treatment.
+We are interested in estimating \(\theta = p_{1} - p_{2}\). Provide an
 estimate, standard error, an 80\% confidence interval and a 95\%
 confidence interval for \(\theta\).
 
-\textbf{Solution}. Let \(X_1, \dots, X_100\) be indicator random
+\textbf{Solution}. Let \(X_{1}, \dots, X_{1}00\) be indicator random
 variables (0 or 1) determining recovery on the first group, and
-\(Y_1, \dots, Y_100\) indicating recovery on the second group. From the
-problem formulation, we can assume \(X_i \sim \text{Bernoulli}(p_1)\)
-and \(Y_i \sim \text{Bernoulli}(p_2)\). \(n_1 = n_2 = 100\), so we can
+\(Y_{1}, \dots, Y_{1}00\) indicating recovery on the second group. From the
+problem formulation, we can assume \(X_{i} \sim \text{Bernoulli}(p_{1})\)
+and \(Y_{i} \sim \text{Bernoulli}(p_{2})\). \(n_{1} = n_{2} = 100\), so we can
 use \(n\) to refer to both.
 
-If \(\theta = p_1 - p_2\), then from exercise 8.5.2:
+If \(\theta = p_{1} - p_{2}\), then from exercise 8.5.2:
 
-\[\hat{\theta} = \hat{p_1} - \hat{p_2}\]
+\[\hat{\theta} = \hat{p_{1}} - \hat{p_{2}}\]
 
-\[\text{se}(\hat{\theta}) = \sqrt{\frac{\hat{p_1}(1 - \hat{p_1})}{n} + \frac{\hat{p_2}(1 - \hat{p_2})}{n}}\]
+\[\text{se}(\hat{\theta}) = \sqrt{\frac{\hat{p_{1}}(1 - \hat{p_{1}})}{n} + \frac{\hat{p_{2}}(1 - \hat{p_{2}})}{n}}\]
 
 \begin{python}
 import math
 
-p_hat_1 = 0.9
-p_hat_2 = 0.85
+p_hat_{1} = 0.9
+p_hat_{2} = 0.85
 n = 100
 
-theta_hat = p_hat_1 - p_hat_2
-se_theta_hat = math.sqrt((p_hat_1 * (1 - p_hat_1) + p_hat_2 * (1 - p_hat_2)) / n)
+theta_hat = p_hat_{1} - p_hat_{2}
+se_theta_hat = math.sqrt((p_hat_{1} * (1 - p_hat_{1}) + p_hat_{2} * (1 - p_hat_{2})) / n)
 
 print('Estimated mean: %.3f' % theta_hat)
 print('Estimated SE: %.3f'   % se_theta_hat)
@@ -713,8 +718,10 @@ from scipy.stats import norm
 z_80 = norm.ppf(.9)
 z_95 = norm.ppf(.975)
 
-print('80%% confidence interval: (%.3f, %.3f)' % ((theta_hat - z_80 * se_theta_hat), (theta_hat + z_80 * se_theta_hat)))
-print('95%% confidence interval: (%.3f, %.3f)' % ((theta_hat - z_95 * se_theta_hat), (theta_hat + z_95 * se_theta_hat)))
+print('80%% confidence interval: (%.3f, %.3f)' % ((theta_hat - z_80 * se_theta_hat), 
+                                                 (theta_hat + z_80 * se_theta_hat)))
+print('95%% confidence interval: (%.3f, %.3f)' % ((theta_hat - z_95 * se_theta_hat), 
+                                                 (theta_hat + z_95 * se_theta_hat)))
 \end{python}
 
 \begin{console}

@@ -1,0 +1,20 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Run parametric bootstrap}
+
+\PYG{n}{theta\PYGZus{}hat} \PYG{o}{=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{B} \PYG{o}{=} \PYG{l+m+mi}{1000000}
+\PYG{n}{t\PYGZus{}boot\PYGZus{}param} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}
+\PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{tqdm\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{otebook}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{xx} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{n}{low}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{high}\PYG{o}{=}\PYG{n}{theta\PYGZus{}hat}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{50}\PYG{p}{)}
+    \PYG{n}{t\PYGZus{}boot\PYGZus{}param}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{xx}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{se\PYGZus{}boot\PYGZus{}param} \PYG{o}{=} \PYG{n}{t\PYGZus{}boot\PYGZus{}param}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{alpha} \PYG{o}{=} \PYG{l+m+mf}{0.05}
+\PYG{n}{z} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{ppf}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{normal\PYGZus{}conf\PYGZus{}param} \PYG{o}{=} \PYG{p}{(}\PYG{n}{theta\PYGZus{}hat} \PYG{o}{\PYGZhy{}} \PYG{n}{z} \PYG{o}{*} \PYG{n}{se\PYGZus{}boot\PYGZus{}param}\PYG{p}{,} \PYG{n}{theta\PYGZus{}hat} \PYG{o}{+} \PYG{n}{z} \PYG{o}{*} \PYG{n}{se\PYGZus{}boot\PYGZus{}param}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{95}\PYG{l+s+si}{\PYGZpc{}\PYGZpc{}}\PYG{l+s+s1}{ confidence interval (Parametric Normal): }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{, }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{normal\PYGZus{}conf\PYGZus{}param}\PYG{p}{)}
+\end{MintedVerbatim}

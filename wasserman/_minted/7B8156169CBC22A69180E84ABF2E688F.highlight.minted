@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+QDA misclassification rate: 0.167
+QDA confusion matrix:
+[[1731  687]
+ [  82 2101]]
+\end{MintedVerbatim}

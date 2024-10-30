@@ -3,10 +3,12 @@
 % set the default values for solution/answer environments
 \newif\ifsolution\solutiontrue% comment out \answertrue to show/hide answers
 \newif\ifanswer\answertrue% comment out \answertrue to show/hide answers
-%\solutionfalse\answerfalse% toggle on/off
+\solutionfalse\answerfalse% toggle on/off
 \usepackage{../preamble}% preamble always after \newif\ifanswer
 \input{setPath}% set path to files
 %\pagenumbering{gobble}
+\setlist*[enumerate]{itemsep=1ex}
+\setlist*[itemize]{itemsep=1ex}
 
 \title{Russian School of Math: Lesson~2}
 \author{James \& Patrick}

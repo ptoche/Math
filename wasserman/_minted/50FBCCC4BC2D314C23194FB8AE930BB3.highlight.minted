@@ -1,0 +1,29 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} 1000 iterations with Cauchy distribution}
+
+\PYG{n}{bounds} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n}{tqdm}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{100}
+    \PYG{n}{alpha} \PYG{o}{=} \PYG{l+m+mf}{0.05}
+    \PYG{n}{r} \PYG{o}{=} \PYG{n}{cauchy}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{n}{n}\PYG{p}{)}
+    \PYG{n}{epsilon} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{n}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{/} \PYG{n}{alpha}\PYG{p}{)}\PYG{p}{)}
+
+    \PYG{n}{F\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x} \PYG{p}{:} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZlt{}} \PYG{n}{x}\PYG{p}{)} \PYG{o}{/} \PYG{n}{n}
+    \PYG{n}{L\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x} \PYG{p}{:} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{F\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{epsilon}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{n}{U\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x} \PYG{p}{:} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{F\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{+} \PYG{n}{epsilon}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} xx = sorted(r)}
+    \PYG{n}{xx} \PYG{o}{=} \PYG{n}{r} \PYG{c+c1}{\PYGZsh{} No need to sort without plotting}
+
+    \PYG{n}{df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{xx}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{F\PYGZus{}}\PYG{l+s+si}{\PYGZob{}n\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{map}\PYG{p}{(}\PYG{n}{F\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{U\PYGZus{}}\PYG{l+s+si}{\PYGZob{}n\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{map}\PYG{p}{(}\PYG{n}{U\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{L\PYGZus{}}\PYG{l+s+si}{\PYGZob{}n\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{map}\PYG{p}{(}\PYG{n}{L\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{CDF}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{map}\PYG{p}{(}\PYG{n}{norm}\PYG{o}{.}\PYG{n}{cdf}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}\PYG{p}{)}
+    \PYG{n}{all\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{n\PYGZus{}bounds} \PYG{o}{=} \PYG{p}{(}\PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{U\PYGZus{}}\PYG{l+s+si}{\PYGZob{}n\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{CDF}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{CDF}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{L\PYGZus{}}\PYG{l+s+si}{\PYGZob{}n\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{all}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{bounds}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{all\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{n\PYGZus{}bounds}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Average fraction in bounds: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{bounds}\PYG{p}{)}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\end{MintedVerbatim}

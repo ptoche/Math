@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{graphviz} \PYG{k+kn}{import} \PYG{n}{Graph}
+
+\PYG{n}{g} \PYG{o}{=} \PYG{n}{Graph}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{g}\PYG{o}{.}\PYG{n}{edge}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{g}\PYG{o}{.}\PYG{n}{edge}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{W}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{g}\PYG{o}{.}\PYG{n}{edge}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Z}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{g}\PYG{o}{.}\PYG{n}{edge}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Y}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{g}
+\end{MintedVerbatim}

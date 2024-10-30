@@ -1,0 +1,32 @@
+\documentclass[tikz,border=2mm]{standalone}
+\usepackage{tkz-euclide}
+
+\newcommand*{\AB}{9}
+\newcommand*{\BF}{6}
+\newcommand*{\BE}{10}
+
+\begin{document}
+\begin{tikzpicture}[scale=0.5]
+  \tkzDefPoint(-15,0){A} 
+  \tkzDefPoint(-6,0){B} 
+  \tkzDefPoint(0,0){F} 
+  \tkzDefPoint(6,0){C} 
+  \tkzDefPoint(15,0){D} 
+  \tkzDefPoint(0,-8){E}
+  \tkzDrawPolygon(A,E,D,A)
+  \tkzDrawPolygon(B,E,C,B)
+  \tkzDrawPolygon(E,F)
+  \tkzLabelPoints[above left](A)
+  \tkzLabelPoints[above left](B)
+  \tkzLabelPoints[above right](C)
+  \tkzLabelPoints[above right](D)
+  \tkzLabelPoints[above right](F)
+  \tkzLabelPoints[below](E)
+
+  % add line length labels
+  \tkzDrawSegment[dim={\BE,15pt,transform shape}](E,B)
+  \tkzDrawSegment[dim={\BF,15pt,transform shape}](B,F)
+\end{tikzpicture}
+\end{document}
+
+

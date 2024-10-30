@@ -1,0 +1,24 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+
+\PYG{k}{def} \PYG{n+nf}{beta\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{j}\PYG{p}{\PYGZcb{}}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{j} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{2} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+m+mi}{0}
+    \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+m+mi}{2} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}
+    \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{/} \PYG{p}{(}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi} \PYG{o}{*} \PYG{n}{j} \PYG{o}{*} \PYG{n}{j}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi} \PYG{o}{*} \PYG{n}{j}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{phi\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{j}\PYG{p}{\PYGZcb{}}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones\PYGZus{}like}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{p}{(}\PYG{n}{j} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi} \PYG{o}{*} \PYG{n}{x}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{f}
+
+\PYG{k}{def} \PYG{n+nf}{partial\PYGZus{}sum}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{lx} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{terms} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{lx}\PYG{p}{)}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{terms}\PYG{p}{[}\PYG{n}{j} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{beta\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{j}\PYG{p}{\PYGZcb{}}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)} \PYG{o}{*} \PYG{n}{phi\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{j}\PYG{p}{\PYGZcb{}}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{terms}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{axis} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{)}
+\end{MintedVerbatim}

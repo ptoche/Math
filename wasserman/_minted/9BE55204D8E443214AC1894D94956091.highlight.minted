@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{mu\PYGZus{}X\PYGZus{}hat} \PYG{o}{=} \PYG{n}{x}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{mu\PYGZus{}Y\PYGZus{}hat}\PYG{p}{,} \PYG{n}{sigma\PYGZus{}Y\PYGZus{}hat} \PYG{o}{=} \PYG{n}{estimate\PYGZus{}parameters}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+\PYG{n}{t\PYGZus{}boot} \PYG{o}{=} \PYG{n}{bootstrap\PYGZus{}skewness\PYGZus{}parametric}\PYG{p}{(}\PYG{n}{mu\PYGZus{}Y\PYGZus{}hat}\PYG{p}{,} \PYG{n}{sigma\PYGZus{}Y\PYGZus{}hat}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{,} \PYG{n}{B}\PYG{o}{=}\PYG{l+m+mi}{100000}\PYG{p}{)}
+
+\PYG{n}{parametric\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ormal\PYGZus{}conf} \PYG{o}{=} \PYG{n}{bootstrap\PYGZus{}parametric\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{ntervals}\PYG{p}{(}\PYG{n}{mu\PYGZus{}X\PYGZus{}hat}\PYG{p}{,} \PYG{n}{t\PYGZus{}boot}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.05}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{95}\PYG{l+s+si}{\PYGZpc{}\PYGZpc{}}\PYG{l+s+s1}{ confidence interval (Parametric Normal): }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{, }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{parametric\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ormal\PYGZus{}conf}\PYG{p}{)}
+\end{MintedVerbatim}

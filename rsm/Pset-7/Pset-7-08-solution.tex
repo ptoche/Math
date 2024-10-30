@@ -1,0 +1,42 @@
+Let the roots of the equation be $r_{1}$, $r_{2}$ and $r_{3}$. 
+
+If the cubic equation has real roots, they must be positive. This follows from:
+\begin{align*}
+x < 0, \quad a > 0, \quad b > 0
+\implies 
+x^3 - ax^2 + bx - a < 0
+\end{align*}
+
+Vieta's identities applied to the equation give:
+\begin{align*}
+r_{1} + r_{2} + r_{3} 
+= a > 0
+\\
+r_{1}\,r_{2}\,r_{3} 
+= a > 0
+\\
+r_{1}\,r_{2} + r_{2}\,r_{3} + r_{1}\,r_{3}
+= b > 0
+\end{align*}
+
+The AM-GM inequality (The inequality of the Arithmetic Mean and Geometric Mean) gives
+\begin{align*}
+\tfrac{1}{3}
+(r_{1}+r_{2}+r_{3})
+& \ge \sqrt[3]{r_{1}\,r_{2}\,r_{3}}
+\\[1ex]
+\implies\ 
+\frac{a}{3}
+& \ge \sqrt[3]{a^{3}}
+\\[1ex]
+\implies
+a
+& \ge 3 \sqrt{3}
+\end{align*}
+
+The smallest value of $a$ is $3\sqrt{3}$. With $r_{1}r_{2}=r_{3}=\sqrt{3}$, we get
+\begin{align*}
+b = r_{1}\,r_{2} + r_{2}\,r_{3} + r_{1}\,r_{3}
+  = 3 \mult \sqrt{3} \mult \sqrt{3}
+  = 9
+\end{align*}

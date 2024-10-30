@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{norm}\PYG{p}{,} \PYG{n}{binom}
+
+\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{200}
+\PYG{n}{X1} \PYG{o}{=} \PYG{l+m+mi}{160}
+\PYG{n}{X2} \PYG{o}{=} \PYG{l+m+mi}{148}
+\end{MintedVerbatim}

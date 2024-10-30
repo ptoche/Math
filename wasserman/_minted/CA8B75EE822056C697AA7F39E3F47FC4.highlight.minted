@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+LDA misclassification rate: 0.159
+LDA confusion matrix:
+[[1229  149]
+ [ 584 2639]]
+\end{MintedVerbatim}

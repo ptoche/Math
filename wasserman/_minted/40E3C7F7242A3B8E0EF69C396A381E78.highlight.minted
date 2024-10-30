@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{ttest\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{nd}
+
+\PYG{n}{X0} \PYG{o}{=} \PYG{n}{X}\PYG{p}{[}\PYG{n}{Y} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n}{X1} \PYG{o}{=} \PYG{n}{X}\PYG{p}{[}\PYG{n}{Y} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{]}
+
+\PYG{n}{num\PYGZus{}features} \PYG{o}{=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{n}{num\PYGZus{}selected} \PYG{o}{=} \PYG{l+m+mi}{10}
+
+\PYG{n}{pvalues} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{n}{num\PYGZus{}features}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{num\PYGZus{}features}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{\PYGZus{}}\PYG{p}{,} \PYG{n}{pvalues}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ttest\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{nd}\PYG{p}{(}\PYG{n}{X0}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{n}{k}\PYG{p}{]}\PYG{p}{,} \PYG{n}{X1}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{n}{k}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{selected\PYGZus{}features} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argpartition}\PYG{p}{(}\PYG{n}{pvalues}\PYG{p}{,} \PYG{n}{num\PYGZus{}selected}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{n}{num\PYGZus{}selected}\PYG{p}{]}
+
+\PYG{n}{X\PYGZus{}filtered} \PYG{o}{=} \PYG{n}{X}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{n}{selected\PYGZus{}features}\PYG{p}{]}
+\end{MintedVerbatim}

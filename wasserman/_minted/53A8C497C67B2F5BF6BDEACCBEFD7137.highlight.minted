@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}} ⫫ X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}} | X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}:  0.030
+X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}} ⫫ X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}} | X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}:  0.882
+X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}} ⫫ X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}} | X\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}:  0.262
+\end{MintedVerbatim}

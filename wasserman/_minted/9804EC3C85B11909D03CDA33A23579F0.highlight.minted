@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Logistic Regression misclassification rate: 0.121
+Logistic Regression confusion matrix:
+[[1413  156]
+ [ 400 2632]]
+\end{MintedVerbatim}

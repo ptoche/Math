@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+set Y = y
+for i = 1, ..., n:
+  x\PYG{n+nb}{\PYGZus{}}\PYG{n+nb}{\PYGZob{}}i\PYG{n+nb}{\PYGZcb{}} \PYGZlt{}\PYGZhy{} p\PYG{n+nb}{\PYGZus{}}X(x\PYG{n+nb}{\PYGZus{}}\PYG{n+nb}{\PYGZob{}}i\PYG{n+nb}{\PYGZcb{}})
+  z\PYG{n+nb}{\PYGZus{}}\PYG{n+nb}{\PYGZob{}}i\PYG{n+nb}{\PYGZcb{}} \PYGZlt{}\PYGZhy{} p\PYG{n+nb}{\PYGZus{}}\PYG{n+nb}{\PYGZob{}}Z | X, Y\PYG{n+nb}{\PYGZcb{}}(z\PYG{n+nb}{\PYGZus{}}\PYG{n+nb}{\PYGZob{}}i\PYG{n+nb}{\PYGZcb{}} | x\PYG{n+nb}{\PYGZus{}}\PYG{n+nb}{\PYGZob{}}i\PYG{n+nb}{\PYGZcb{}}, y)
+\end{MintedVerbatim}

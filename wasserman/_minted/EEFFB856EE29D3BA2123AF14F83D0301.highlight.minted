@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Log10 of standard error of I | v = 0.1:   81.50661
+Log10 of standard error of I | v = 1.0:   \PYGZhy{}0.21918
+Log10 of standard error of I | v = 10.0:   0.01540
+\end{MintedVerbatim}

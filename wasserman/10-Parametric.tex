@@ -1,103 +1,103 @@
-\section{10. Parametric Inference}\label{parametric-inference}
+\section*{10. Parametric Inference}\label{parametric-inference}
 
 \textbf{Parametric models} are of the form
 
 \[ \mathfrak{F} = \bigg\{ f(x; \theta) : \; \theta \in \Theta \bigg\} \]
 
-where \(\Theta \subset \mathbb{R}^k\) is the parameter space and
-\(\theta = (\theta_1, \dots, \theta_k)\) is the parameter. The problem
+where \(\Theta \subset \mathbb{R}^{k}\) is the parameter space and
+\(\theta = (\theta_{1}, \dots, \theta_{k})\) is the parameter. The problem
 of inference then reduces to the problem of estimating parameter
 \(\theta\).
 
-\subsection{10.1 Parameter of interest}\label{parameter-of-interest}
+\subsection*{10.1 Parameter of interest}\label{parameter-of-interest}
 
 Often we are only interested in some function \(T(\theta)\). For
-example, if \(X \sim N(\mu, \sigma^2)\) then the parameter is
+example, if \(X \sim N(\mu, \sigma^{2})\) then the parameter is
 \(\theta = (\mu, \sigma)\). If our goal is to estimate \(\mu\) then
 \(\mu = T(\theta)\) is called the \textbf{parameter of interest} and
 \(\sigma\) is called a \textbf{nuisance parameter}.
 
-\subsection{10.2 The Method of Moments}\label{the-method-of-moments}
+\subsection*{10.2 The Method of Moments}\label{the-method-of-moments}
 
-Suppose that the parameter \(\theta = (\theta_1, \dots, \theta_n)\) has
+Suppose that the parameter \(\theta = (\theta_{1}, \dots, \theta_{n})\) has
 \(k\) components. For \(1 \leq j \leq k\) define the \(j\)-th
 \textbf{moment}
 
-\[ \alpha_j \equiv \alpha_j(\theta) = \mathbb{E}_\theta(X^j) = \int x^j dF_\theta(x)\]
+\[ \alpha_{j} \equiv \alpha_{j}(\theta) = \mathbb{E}_\theta(X^{j}) = \int x^{j} dF_\theta(x)\]
 
 and the \(j\)-th \textbf{sample moment}
 
-\[ \hat{\alpha}_j = \frac{1}{n} \sum_{i=1}^n X_i^j \]
+\[ \hat{\alpha}_{j} = \frac{1}{n} \sum_{i=1}^{n} X_{i}^{j} \]
 
-The \textbf{method of moments estimator} \(\hat{\theta}_n\) is defined
+The \textbf{method of moments estimator} \(\hat{\theta}_{n}\) is defined
 to be the value of \(\theta\) such that
 
-\begin{align}
-\alpha_1(\hat{\theta}_n) &= \hat{\alpha_1} \\
-\alpha_2(\hat{\theta}_n) &= \hat{\alpha_2} \\
+\begin{align*}
+\alpha_{1}(\hat{\theta}_{n}) &= \hat{\alpha_{1}} \\
+\alpha_{2}(\hat{\theta}_{n}) &= \hat{\alpha_{2}} \\
 \vdots \\
-\alpha_k(\hat{\theta}_n) &= \hat{\alpha_k}  
-\end{align}
+\alpha_{k}(\hat{\theta}_{n}) &= \hat{\alpha_{k}}  
+\end{align*}
 
 This defines a system of \(k\) equations with \(k\) unknowns.
 
-\textbf{Theorem 10.6}. Let \(\hat{\theta}_n\) denote the method of
+\textbf{Theorem 10.6}. Let \(\hat{\theta}_{n}\) denote the method of
 moments estimator. Under the conditions given in the appendix, the
 following statements hold:
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
 \item
-  The estimate \(\hat{\theta}_n\) exists with probability tending to 1.
+  The estimate \(\hat{\theta}_{n}\) exists with probability tending to 1.
 \item
   The estimate is consistent:
-  \(\hat{\theta}_n \xrightarrow{\text{P}} \theta\).
+  \(\hat{\theta}_{n} \xrightarrow{\text{P}} \theta\).
 \item
   The estimate is asymptotically Normal:
 \end{enumerate}
 
-\[\sqrt(n)(\hat{\theta}_n - \theta) \leadsto N(0, \Sigma) \]
+\[\sqrt(n)(\hat{\theta}_{n} - \theta) \leadsto N(0, \Sigma) \]
 
 where
 
 \[
 \Sigma = g \mathbb{E}_\theta (Y Y^T) g^T \\
-Y = (X, X^2, \dots, X^k)^T, \quad g = (g_1, \dots, g_k) \quad \text{and} \quad g_j = \partial \alpha_j^{-1}(\theta)/\partial\theta
+Y = (X, X^{2}, \dots, X^{k})^T, \quad g = (g_{1}, \dots, g_{k}) \quad \text{and} \quad g_{j} = \partial \alpha_{j}^{-1}(\theta)/\partial\theta
 \]
 
 The last statement in Theorem 10.6 can be used to find standard errors
 and confidence intervals. However, there is an easier way: the
 bootstrap.
 
-\subsection{10.3 Maximum Likelihood}\label{maximum-likelihood}
+\subsection*{10.3 Maximum Likelihood}\label{maximum-likelihood}
 
-Let \(X_1, \dots, X_n\) be iid with PDF \(f(x; \theta)\).
+Let \(X_{1}, \dots, X_{n}\) be iid with PDF \(f(x; \theta)\).
 
 The \textbf{likelihood function} is defined by
 
-\[ \mathcal{L}_n(\theta) = \prod_{i=1}^n f(X_i; \theta) \]
+\[ \mathcal{L}_{n}(\theta) = \prod_{i=1}^{n} f(X_{i}; \theta) \]
 
 The \textbf{log-likelihood function} is defined by
-\(\ell_n(\theta) = \log \mathcal{L}_n(\theta)\).
+\(\ell_{n}(\theta) = \log \mathcal{L}_{n}(\theta)\).
 
 The likelihood function is just the joint density of the data, except we
 treat is as a function of parameter \(\theta\). Thus
-\(\mathcal{L}_n : \Theta \rightarrow [0, \infty)\). The likelihood
+\(\mathcal{L}_{n} : \Theta \rightarrow [0, \infty)\). The likelihood
 function is not a density function; in general it is not true that
-\(\mathcal{L}_n\) integrates to 1.
+\(\mathcal{L}_{n}\) integrates to 1.
 
 The \textbf{maximum likelihood estimator} MLE, denoted by
-\(\hat{\theta}_n\), is the value of \(\theta\) that maximizes
-\(\mathcal{L}_n(\theta)\).
+\(\hat{\theta}_{n}\), is the value of \(\theta\) that maximizes
+\(\mathcal{L}_{n}(\theta)\).
 
-The maximum of \(\ell_n(\theta)\) occurs at the same place as the
-maximum of \(\mathcal{L}_n(\theta)\), so maximizing either leads to the
-same answer. Often it's easier to maximize the log-likelihood.
+The maximum of \(\ell_{n}(\theta)\) occurs at the same place as the
+maximum of \(\mathcal{L}_{n}(\theta)\), so maximizing either leads to the
+same answer. Often it is easier to maximize the log-likelihood.
 
-\subsection{10.4 Properties of Maximum Likelihood
+\subsection*{10.4 Properties of Maximum Likelihood
 Estimators}\label{properties-of-maximum-likelihood-estimators}
 
-Under certain conditions on the model, the MLE \(\hat{\theta}_n\)
+Under certain conditions on the model, the MLE \(\hat{\theta}_{n}\)
 possesses many properties that make it an appealing choice of estimator.
 
 The main properties of the MLE are:
@@ -105,11 +105,11 @@ The main properties of the MLE are:
 \begin{itemize}[tightlist]
 \item
   It is \textbf{consistent}:
-  \(\hat{\theta}_n \xrightarrow{\text{P}} \theta_*\), where \(\theta_*\)
+  \(\hat{\theta}_{n} \xrightarrow{\text{P}} \theta_*\), where \(\theta_*\)
   denotes the true value of parameter \(\theta\).
 \item
-  It is \textbf{equivariant}: if \(\hat{\theta}_n\) is the MLE of
-  \(\theta\) then \(g(\hat{\theta}_n)\) is the MLE of \(g(\theta)\).
+  It is \textbf{equivariant}: if \(\hat{\theta}_{n}\) is the MLE of
+  \(\theta\) then \(g(\hat{\theta}_{n})\) is the MLE of \(g(\theta)\).
 \item
   If is \textbf{asymptotically Normal}:
   \(\sqrt{n}(\hat{\theta} - \theta_*) / \hat{\text{se}} \leadsto N(0, 1)\)
@@ -122,7 +122,7 @@ The main properties of the MLE are:
   The MLE is approximately the Bayes estimator.
 \end{itemize}
 
-\subsection{10.5 Consistency of Maximum Likelihood
+\subsection*{10.5 Consistency of Maximum Likelihood
 Estimator}\label{consistency-of-maximum-likelihood-estimator}
 
 If \(f\) and \(g\) are PDFs, define the \textbf{Kullback-Leibler
@@ -136,59 +136,59 @@ It can be shown that \(D(f, g) \geq 0\) and \(D(f, f) = 0\). For any
 \(\theta \neq \psi\) implies \(D(\theta, \psi) > 0\).
 
 Let \(\theta_*\) denote the true value of \(\theta\). Maximizing
-\(\ell_n(\theta)\) is equivalent to maximizing
+\(\ell_{n}(\theta)\) is equivalent to maximizing
 
-\[M_n(\theta) = \frac{1}{n} \sum_i \log \frac{f(X_i; \theta)}{f(X_i; \theta_*)}\]
+\[M_{n}(\theta) = \frac{1}{n} \sum_{i} \log \frac{f(X_{i}; \theta)}{f(X_{i}; \theta_*)}\]
 
-By the law of large numbers, \(M_n(\theta)\) converges to:
+By the law of large numbers, \(M_{n}(\theta)\) converges to:
 
-\begin{align}
-\mathbb{E}_{\theta_*} \left( \log \frac{f(X_i; \theta)}{f(X_i; \theta_*)} \right)
+\begin{align*}
+\mathbb{E}_{\theta_*} \left( \log \frac{f(X_{i}; \theta)}{f(X_{i}; \theta_*)} \right)
 & = \int \log \left( \frac{f(x; \theta)}{f(x; \theta_*)} \right) f(x; \theta_*) dx \\
 & = - \int \log \left( \frac{f(x; \theta_*)}{f(x; \theta)} \right) f(x; \theta_*) dx \\
 &= -D(\theta_*, \theta)
-\end{align}
+\end{align*}
 
-Hence \(M_n(\theta) \approx -D(\theta_*, \theta)\) which is maximized at
+Hence \(M_{n}(\theta) \approx -D(\theta_*, \theta)\) which is maximized at
 \(\theta_*\), since the KL distance is 0 when \(\theta_* = \theta\) and
 positive otherwise. Hence, we expect that the maximizer will tend to
 \(\theta_*\).
 
 To prove this formally, we need more than
-\(M_n(\theta) \xrightarrow{\text{P}} -D(\theta_*, \theta)\). We need
+\(M_{n}(\theta) \xrightarrow{\text{P}} -D(\theta_*, \theta)\). We need
 this convergence to be uniform over \(\theta\). We also have to make
 sure that the KL distance is well-behaved. Here are the formal details.
 
 \textbf{Theorem 10.13}. Let \(\theta_*\) denote the true value of
 \(\theta\). Define
 
-\[M_n(\theta) = \frac{1}{n} \sum_i \log \frac{f(X_i; \theta)}{f(X_i; \theta_*)}\]
+\[M_{n}(\theta) = \frac{1}{n} \sum_{i} \log \frac{f(X_{i}; \theta)}{f(X_{i}; \theta_*)}\]
 
 and \(M(\theta) = -D(\theta_*, \theta)\). Suppose that
 
-\[ \sup _{\theta \in \Theta} |M_n(\theta) - M(\theta)| \xrightarrow{\text{P}} 0 \]
+\[ \sup _{\theta \in \Theta} |M_{n}(\theta) - M(\theta)| \xrightarrow{\text{P}} 0 \]
 
 and that, for every \(\epsilon > 0\),
 
 \[ \sup _{\theta : |\theta - \theta_*| \geq \epsilon} M(\theta) < M(\theta_*)\]
 
-Let \(\hat{\theta}_n\) denote the mle. Then
-\(\hat{\theta}_n \xrightarrow{\text{P}} \theta_*\).
+Let \(\hat{\theta}_{n}\) denote the mle. Then
+\(\hat{\theta}_{n} \xrightarrow{\text{P}} \theta_*\).
 
-\subsection{10.6 Equivalence of the
+\subsection*{10.6 Equivalence of the
 MLE}\label{equivalence-of-the-mle}
 
 \textbf{Theorem 10.14}. Let \(\tau = g(\theta)\) be a one-to-one
-function of \(\theta\). Let \(\hat{\theta}_n\) be the MLE of \(\theta\).
-Then \(\hat{\tau}_n = g(\hat{\theta}_n)\) is the MLE of \(\tau\).
+function of \(\theta\). Let \(\hat{\theta}_{n}\) be the MLE of \(\theta\).
+Then \(\hat{\tau}_{n} = g(\hat{\theta}_{n})\) is the MLE of \(\tau\).
 
 \textbf{Proof}. Let \(h = g^{-1}\) denote the inverse of \(g\). Then
-\(\hat{\theta}_n = h(\hat{\tau}_n)\). For any \(\tau\),
-\(L(\tau) = \prod_i f(x_i; h(\tau)) = \prod_i f(x_i; \theta) = \mathcal{L}(\theta)\)
+\(\hat{\theta}_{n} = h(\hat{\tau}_{n})\). For any \(\tau\),
+\(L(\tau) = \prod_{i} f(x_{i}; h(\tau)) = \prod_{i} f(x_{i}; \theta) = \mathcal{L}(\theta)\)
 where \(\theta = h(\tau)\). Hence, for any \(\tau\),
-\(\mathcal{L}_n(\tau) = \mathcal{L}(\theta) \leq \mathcal{L}(\hat{\theta}) = \mathcal{L}_n(\hat{\tau})\).
+\(\mathcal{L}_{n}(\tau) = \mathcal{L}(\theta) \leq \mathcal{L}(\hat{\theta}) = \mathcal{L}_{n}(\hat{\tau})\).
 
-\subsection{10.7 Asymptotic Normality}\label{asymptotic-normality}
+\subsection*{10.7 Asymptotic Normality}\label{asymptotic-normality}
 
 The \textbf{score function} is defined to be
 
@@ -196,47 +196,47 @@ The \textbf{score function} is defined to be
 
 The \textbf{Fisher information} is defined to be
 
-\begin{align}
-I_n(\theta) &= \mathbb{V}_\theta \left( \sum_{i=1}^n s(X_i; \theta) \right) \\
-&= \sum_{i=1}^n \mathbb{V}_\theta(s(X_i; \theta))
-\end{align}
+\begin{align*}
+I_{n}(\theta) &= \mathbb{V}_\theta \left( \sum_{i=1}^{n} s(X_{i}; \theta) \right) \\
+&= \sum_{i=1}^{n} \mathbb{V}_\theta(s(X_{i}; \theta))
+\end{align*}
 
 For \(n = 1\) we sometimes write \(I(\theta)\) instead of
-\(I_1(\theta)\).
+\(I_{1}(\theta)\).
 
 It can be shown that \(\mathbb{E}_\theta(s(X; \theta)) = 0\). It then
 follows that
-\(\mathbb{V}_\theta(s(X; \theta)) = \mathbb{E}_\theta((s(X; \theta))^2)\).
-A further simplification of \(I_n(\theta)\) is given in the next result.
+\(\mathbb{V}_\theta(s(X; \theta)) = \mathbb{E}_\theta((s(X; \theta))^{2})\).
+A further simplification of \(I_{n}(\theta)\) is given in the next result.
 
 \textbf{Theorem 10.17}.
 
-\[ I_n(\theta) = n I(\theta)\]
+\[ I_{n}(\theta) = n I(\theta)\]
 
-\begin{align}
-I(\theta) & = -\mathbb{E}_\theta \left( \frac{\partial^2 \log f(X; \theta)}{\partial^2 \theta^2} \right) \\
-&= - \int \left( \frac{\partial^2 \log f(x; \theta)}{\partial^2 \theta^2} \right) f(x; \theta) dx
-\end{align}
+\begin{align*}
+I(\theta) & = -\mathbb{E}_\theta \left( \frac{\partial^{2} \log f(X; \theta)}{\partial^{2} \theta^{2}} \right) \\
+&= - \int \left( \frac{\partial^{2} \log f(x; \theta)}{\partial^{2} \theta^{2}} \right) f(x; \theta) dx
+\end{align*}
 
 \textbf{Theorem 10.18 (Asymptotic Normality of the MLE)}. Under
 appropriate regularity conditions, the following hold:
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
-  Let \(\text{se} = \sqrt{1 / I_n(\theta)}\). Then,
+  Let \(\text{se} = \sqrt{1 / I_{n}(\theta)}\). Then,
 \end{enumerate}
 
-\[ \frac{\hat{\theta}_n - \theta}{\text{se}} \leadsto N(0, 1) \]
+\[ \frac{\hat{\theta}_{n} - \theta}{\text{se}} \leadsto N(0, 1) \]
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
-  Let \(\hat{\text{se}} = \sqrt{1 / I_n(\hat{\theta}_n)}\). Then,
+  Let \(\hat{\text{se}} = \sqrt{1 / I_{n}(\hat{\theta}_{n})}\). Then,
 \end{enumerate}
 
-\[ \frac{\hat{\theta}_n - \theta}{\hat{\text{se}}} \leadsto N(0, 1) \]
+\[ \frac{\hat{\theta}_{n} - \theta}{\hat{\text{se}}} \leadsto N(0, 1) \]
 
 The first statement says that
-\(\hat{\theta}_n \approx N(\theta, \text{se})\). The second statement
+\(\hat{\theta}_{n} \approx N(\theta, \text{se})\). The second statement
 says that this is still true if we replace the standard error
 \(\text{se}\) by its estimated standard error \(\hat{\text{se}}\).
 
@@ -246,52 +246,52 @@ construct an asymptotic confidence interval.
 
 \textbf{Theorem 10.19}. Let
 
-\[ C_n = \left( \hat{\theta_n} - z_{\alpha/2} \hat{\text{se}}, \; \hat{\theta_n} + z_{\alpha/2} \hat{\text{se}} \right) \]
+\[ C_{n} = \left( \hat{\theta_{n}} - z_{\alpha/2} \hat{\text{se}}, \; \hat{\theta_{n}} + z_{\alpha/2} \hat{\text{se}} \right) \]
 
-Then, \(\mathbb{P}_\theta(\theta \in C_n) \rightarrow 1 - \alpha\) as
+Then, \(\mathbb{P}_\theta(\theta \in C_{n}) \rightarrow 1 - \alpha\) as
 \(n \rightarrow \infty\).
 
 \textbf{Proof} Let \(Z\) denote a standard random variable. Then,
 
-\begin{align}
-\mathbb{P}_\theta(\theta \in C_n) 
-&= \mathbb{P}_\theta(\hat{\theta}_n - z_{\alpha/2} \hat{\text{se}} \leq \theta \leq \hat{\theta}_n + z_{\alpha/2} \hat{\text{se}}) \\
-&= \mathbb{P}_\theta(-z_{\alpha/2} \leq \frac{\hat{\theta}_n - \theta}{\hat{\text{se}}} \leq z_{\alpha/2}) \\
+\begin{align*}
+\mathbb{P}_\theta(\theta \in C_{n}) 
+&= \mathbb{P}_\theta(\hat{\theta}_{n} - z_{\alpha/2} \hat{\text{se}} \leq \theta \leq \hat{\theta}_{n} + z_{\alpha/2} \hat{\text{se}}) \\
+&= \mathbb{P}_\theta(-z_{\alpha/2} \leq \frac{\hat{\theta}_{n} - \theta}{\hat{\text{se}}} \leq z_{\alpha/2}) \\
 &\rightarrow \mathbb{P}(-z_{\alpha/2} \leq Z \leq z_{\alpha/2}) = 1 - \alpha
-\end{align}
+\end{align*}
 
-\subsection{10.8 Optimality}\label{optimality}
+\subsection*{10.8 Optimality}\label{optimality}
 
-Suppose that \(X_1, \dots, X_n \sim N(0, \sigma^2)\). The MLE is
-\(\hat{\theta}_n = \overline{X}_n\). Another reasonable estimator is the
-sample median \(\overline{\theta}_n\). The MLE satisfies
+Suppose that \(X_{1}, \dots, X_{n} \sim N(0, \sigma^{2})\). The MLE is
+\(\hat{\theta}_{n} = \overline{X}_{n}\). Another reasonable estimator is the
+sample median \(\overline{\theta}_{n}\). The MLE satisfies
 
-\[ \sqrt{n}(\hat{\theta}_n - \theta) \leadsto N(0, \sigma^2) \]
+\[ \sqrt{n}(\hat{\theta}_{n} - \theta) \leadsto N(0, \sigma^{2}) \]
 
 It can be proved that the median satisfies
 
-\[ \sqrt{n}(\overline{\theta}_n - \theta) \leadsto N\left(0, \sigma^2 \frac{\pi}{2} \right) \]
+\[ \sqrt{n}(\overline{\theta}_{n} - \theta) \leadsto N\left(0, \sigma^{2} \frac{\pi}{2} \right) \]
 
 This means that the median converges to the right value but has a larger
 variance than the MLE.
 
-More generally, consider two estimators \(T_n\) and \(U_n\) and suppose
+More generally, consider two estimators \(T_{n}\) and \(U_{n}\) and suppose
 that
 
 \[
-\sqrt{n}(T_n - \theta) \leadsto N(0, t^2) 
+\sqrt{n}(T_{n} - \theta) \leadsto N(0, t^{2}) 
 \quad \text{and} \quad 
-\sqrt{n}(U_n - \theta) \leadsto N(0, u^2)
+\sqrt{n}(U_{n} - \theta) \leadsto N(0, u^{2})
 \]
 
 We define the \textbf{asymptotic relative efficiency} of U to T by
-\(ARE(U, T) = t^2/u^2\). In the Normal example,
-\(ARE(\overline{\theta}_n, \hat{\theta}_n) = 2 / \pi = 0.63\).
+\(ARE(U, T) = t^{2}/u^{2}\). In the Normal example,
+\(ARE(\overline{\theta}_{n}, \hat{\theta}_{n}) = 2 / \pi = 0.63\).
 
-\textbf{Theorem 10.23}. If \(\hat{\theta}_n\) is the MLE and
-\(\overline{\theta}_n\) is any other estimator then
+\textbf{Theorem 10.23}. If \(\hat{\theta}_{n}\) is the MLE and
+\(\overline{\theta}_{n}\) is any other estimator then
 
-\[ ARE(\overline{\theta}_n, \hat{\theta}_n) \leq 1 \]
+\[ ARE(\overline{\theta}_{n}, \hat{\theta}_{n}) \leq 1 \]
 
 Thus, MLE has the smallest (asymptotic) variance and we say that MLE is
 \textbf{efficient} or \textbf{asymptotically optimal}.
@@ -299,7 +299,7 @@ Thus, MLE has the smallest (asymptotic) variance and we say that MLE is
 The result is predicated over the model being correct -- otherwise the
 MLE may no longer be optimal.
 
-\subsection{10.9 The Delta Method}\label{the-delta-method}
+\subsection*{10.9 The Delta Method}\label{delta:method}
 
 Let \(\tau = g(\theta)\) where \(g\) is a smooth function. The maximum
 likelihood estimator of \(\tau\) is \(\hat{\tau} = g(\hat{\theta})\).
@@ -307,37 +307,37 @@ likelihood estimator of \(\tau\) is \(\hat{\tau} = g(\hat{\theta})\).
 \textbf{Theorem 10.24 (The Delta Method)}. If \(\tau = g(\theta)\) where
 \(g\) is differentiable and \(g'(\theta) \neq 0\) then
 
-\[ \frac{\sqrt{n}(\hat{\tau}_n - \tau)}{\hat{\text{se}}(\hat{\tau})} \leadsto N(0, 1) \]
+\[ \frac{\sqrt{n}(\hat{\tau}_{n} - \tau)}{\hat{\text{se}}(\hat{\tau})} \leadsto N(0, 1) \]
 
-where \(\hat{\tau}_n = g(\hat{\theta})\) and
+where \(\hat{\tau}_{n} = g(\hat{\theta})\) and
 
-\[ \hat{\text{se}}(\hat{\tau}_n) = |g'(\hat{\theta})| \hat{\text{se}} (\hat{\theta}_n) \]
+\[ \hat{\text{se}}(\hat{\tau}_{n}) = |g'(\hat{\theta})| \hat{\text{se}} (\hat{\theta}_{n}) \]
 
 Hence, if
 
-\[ C_n = \left( \hat{\tau}_n - z_{\alpha/2} \hat{\text{se}}(\hat{\tau}_n), \; \hat{\tau}_n + z_{\alpha/2} \hat{\text{se}}(\hat{\tau}_n) \right) \]
+\[ C_{n} = \left( \hat{\tau}_{n} - z_{\alpha/2} \hat{\text{se}}(\hat{\tau}_{n}), \; \hat{\tau}_{n} + z_{\alpha/2} \hat{\text{se}}(\hat{\tau}_{n}) \right) \]
 
-then \(\mathbb{P}_\theta(\tau \in C_n) \rightarrow 1 - \alpha\) as
+then \(\mathbb{P}_\theta(\tau \in C_{n}) \rightarrow 1 - \alpha\) as
 \(n \rightarrow \infty\).
 
-\subsection{10.10 Multiparameter Models}\label{multiparameter-models}
+\subsection*{10.10 Multiparameter Models}\label{multiparameter-models}
 
 We can extend these ideas to models with several parameters.
 
-Let \(\theta = (\theta_1, \dots, \theta_n)\) and let
-\(\hat{\theta} = (\hat{\theta}_1, \dots, \hat{\theta}_n)\) be the MLE.
-Let \(\ell_n = \sum_{i=1}^n \log f(X_i; \theta)\),
+Let \(\theta = (\theta_{1}, \dots, \theta_{n})\) and let
+\(\hat{\theta} = (\hat{\theta}_{1}, \dots, \hat{\theta}_{n})\) be the MLE.
+Let \(\ell_{n} = \sum_{i=1}^{n} \log f(X_{i}; \theta)\),
 
 \[
-H_jj = \frac{\partial^2 \ell_n}{\partial \theta_j^2}
+H_{j}j = \frac{\partial^{2} \ell_{n}}{\partial \theta_{j}^{2}}
 \quad \text{and} \quad
-H_jk = \frac{\partial^2 \ell_n}{\partial \theta_j \partial \theta_k}
+H_{j}k = \frac{\partial^{2} \ell_{n}}{\partial \theta_{j} \partial \theta_{k}}
 \]
 
 Define the \textbf{Fisher Information Matrix} by
 
 \[
-I_n(\theta) = -
+I_{n}(\theta) = -
 \begin{bmatrix}
 \mathbb{E}_\theta(H_{11}) & \mathbb{E}_\theta(H_{12}) & \cdots & \mathbb{E}_\theta(H_{1k}) \\
 \mathbb{E}_\theta(H_{21}) & \mathbb{E}_\theta(H_{22}) & \cdots & \mathbb{E}_\theta(H_{2k}) \\
@@ -346,29 +346,29 @@ I_n(\theta) = -
 \end{bmatrix}
 \]
 
-Let \(J_n(\theta) = I_n^{-1}(\theta)\) be the inverse of \(I_n\).
+Let \(J_{n}(\theta) = I_{n}^{-1}(\theta)\) be the inverse of \(I_{n}\).
 
 \textbf{Theorem 10.27}. Under appropriate regularity conditions,
 
-\[ \sqrt(n)(\hat{\theta} - \theta) \approx N(0, J_n(\theta))\]
+\[ \sqrt(n)(\hat{\theta} - \theta) \approx N(0, J_{n}(\theta))\]
 
-Also, if \(\hat{\theta}_j\) is the \(j\)-th component of
+Also, if \(\hat{\theta}_{j}\) is the \(j\)-th component of
 \(\hat{\theta}\), then
 
-\[ \frac{\sqrt{n}(\hat{\theta_j} - \theta_j)}{\hat{\text{se}}_j} \approx N(0, 1) \]
+\[ \frac{\sqrt{n}(\hat{\theta_{j}} - \theta_{j})}{\hat{\text{se}}_{j}} \approx N(0, 1) \]
 
-where \(\hat{\text{se}}_j^2\) is the \(j\)-th diagonal element of
-\(J_n\). The approximate covariance of \(\hat{\theta}_j\) and
-\(\hat{\theta}_k\) is
-\(\text{Cov}(\hat{\theta}_j, \hat{\theta}_k) \approx J_n(j, k)\).
+where \(\hat{\text{se}}_{j}^{2}\) is the \(j\)-th diagonal element of
+\(J_{n}\). The approximate covariance of \(\hat{\theta}_{j}\) and
+\(\hat{\theta}_{k}\) is
+\(\text{Cov}(\hat{\theta}_{j}, \hat{\theta}_{k}) \approx J_{n}(j, k)\).
 
 There is also a multiparameter delta method. Let
-\(\tau = g(\theta_1, \dots, \theta_k)\) be a function and let
+\(\tau = g(\theta_{1}, \dots, \theta_{k})\) be a function and let
 
 \[ \nabla g = \begin{pmatrix}
-\frac{\partial g}{\partial \theta_1} \\
+\frac{\partial g}{\partial \theta_{1}} \\
 \vdots \\
-\frac{\partial g}{\partial \theta_k}
+\frac{\partial g}{\partial \theta_{k}}
 \end{pmatrix}
 \]
 
@@ -382,47 +382,47 @@ be the gradient of \(g\).
 
 where
 
-\[ \hat{\text{se}}(\hat{\tau}) = \sqrt{\left(\hat{\nabla} g \right)^T \hat{J}_n \left(\hat{\nabla} g \right)} ,\]
+\[ \hat{\text{se}}(\hat{\tau}) = \sqrt{\left(\hat{\nabla} g \right)^T \hat{J}_{n} \left(\hat{\nabla} g \right)} ,\]
 
-\(\hat{J}_n = J_n(\hat{\theta}_n)\) and \(\hat{\nabla}g\) is
+\(\hat{J}_{n} = J_{n}(\hat{\theta}_{n})\) and \(\hat{\nabla}g\) is
 \(\nabla g\) evaluated at \(\theta = \hat{\theta}\).
 
-\subsection{10.11 The Parametric
+\subsection*{10.11 The Parametric
 Bootstrap}\label{the-parametric-bootstrap}
 
 For parametric models, standard errors and confidence intervals may also
 be estimated using the bootstrap. There is only one change. In
-nonparametric bootstrap, we sampled \(X_1^*, \dots, X_n*\) from the
-empirical distribution \(\hat{F}_n\). In the parametric bootstrap we
-sample instead from \(f(x; \hat{\theta}_n)\). Here, \(\hat{\theta}_n\)
+nonparametric bootstrap, we sampled \(X_{1}^*, \dots, X_{n}*\) from the
+empirical distribution \(\hat{F}_{n}\). In the parametric bootstrap we
+sample instead from \(f(x; \hat{\theta}_{n})\). Here, \(\hat{\theta}_{n}\)
 could be the MLE or the method of moments estimator.
 
-\subsection{10.12 Technical Appendix}\label{technical-appendix}
+\subsection*{10.12 Technical Appendix}
 
 \paragraph{10.12.1 Proofs}\label{proofs}
 
-\textbf{Proof of Theorem 10.13}. Since \(\hat{\theta}_n\) maximizes
-\(M_n(\theta)\), we have \(M_n(\hat{\theta}) \geq M_n(\theta_*)\).
+\textbf{Proof of Theorem 10.13}. Since \(\hat{\theta}_{n}\) maximizes
+\(M_{n}(\theta)\), we have \(M_{n}(\hat{\theta}) \geq M_{n}(\theta_*)\).
 Hence,
 
-\begin{align}
-M(\theta_*) - M(\hat{\theta}_n) 
-&= M_n(\theta_*) - M(\hat{\theta}_n) + M(\hat{\theta}_*) - M_n(\theta_*) \\
-&\leq M_n(\hat{\theta}) - M(\hat{\theta}_n) + M(\theta_*) - M_n(\theta_*) \\
-&\leq \sup_\theta | M_n(\theta) - M(\theta) |  + M(\theta_*)  - M_n(\theta_*) \\
+\begin{align*}
+M(\theta_*) - M(\hat{\theta}_{n}) 
+&= M_{n}(\theta_*) - M(\hat{\theta}_{n}) + M(\hat{\theta}_*) - M_{n}(\theta_*) \\
+&\leq M_{n}(\hat{\theta}) - M(\hat{\theta}_{n}) + M(\theta_*) - M_{n}(\theta_*) \\
+&\leq \sup_\theta | M_{n}(\theta) - M(\theta) |  + M(\theta_*)  - M_{n}(\theta_*) \\
 &\xrightarrow{\text{P}} 0
-\end{align}
+\end{align*}
 
 It follows that, for any \(\delta > 0\),
 
-\[\mathbb{P}(M(\hat{\theta}_n) < M(\theta_*) - \delta) \rightarrow 0\]
+\[\mathbb{P}(M(\hat{\theta}_{n}) < M(\theta_*) - \delta) \rightarrow 0\]
 
 Pick any \(\epsilon > 0\). There exists \(\delta > 0\) such that
 \(|\theta - \theta_*| \geq \epsilon\) implies that
 \(M(\theta) < M(\theta_*) - \delta\). Hence,
 
-\[\mathbb{P}(|\hat{\theta}_n - \theta_*| > \epsilon) \leq 
-\mathbb{P}\left( M(\hat{\theta}_n) < M(\theta_*) - \delta \right) \rightarrow 0\]
+\[\mathbb{P}(|\hat{\theta}_{n} - \theta_*| > \epsilon) \leq 
+\mathbb{P}\left( M(\hat{\theta}_{n}) < M(\theta_*) - \delta \right) \rightarrow 0\]
 
 \textbf{Lemma 10.31}. The score function satisfies
 
@@ -431,12 +431,12 @@ Pick any \(\epsilon > 0\). There exists \(\delta > 0\) such that
 \textbf{Proof}. Note that \(1 = \int f(x; \theta) dx\). Differentiate
 both sides of this equation to get
 
-\begin{align}
+\begin{align*}
 0 &= \frac{\partial}{\partial \theta} \int f(x; \theta)dx = \int \frac{\partial}{\partial \theta} f(x; \theta) dx \\
 &= \int \frac{\frac{\partial f(x; \theta)}{\partial \theta}}{f(x; \theta)} f(x; \theta) dx
 = \int \frac{\partial \log f(x; \theta)}{\partial \theta} f(x; \theta) dx \\
 &= \int s(x; \theta) f(x; \theta) dx = \mathbb{E}[s(X; \theta)]
-\end{align}
+\end{align*}
 
 \textbf{Proof of Theorem 10.18}. Let
 \(\ell(\theta) = \log \mathcal{L}(\theta)\). Then
@@ -448,15 +448,15 @@ Rearrange the above equation to get
 
 \[ \sqrt{n}(\hat{\theta} - \theta) = \frac{\frac{1}{\sqrt{n}}\ell'(\theta)}{-\frac{1}{n}\ell''(\theta)} = \frac{\text{TOP}}{\text{BOTTOM}}\]
 
-Let \(Y_i = \partial \log f(X_i, \theta) / \partial \theta\). From the
-previous lemma \(\mathbb{E}(Y_i) = 0\) and also
-\(\mathbb{V}(Y_i) = I(\theta)\). Hence,
+Let \(Y_{i} = \partial \log f(X_{i}, \theta) / \partial \theta\). From the
+previous lemma \(\mathbb{E}(Y_{i}) = 0\) and also
+\(\mathbb{V}(Y_{i}) = I(\theta)\). Hence,
 
-\[\text{TOP} = n^{-1/2} \sum_i Y_i = \sqrt{n} \overline{Y} = \sqrt{n} (\overline{Y} - 0) \leadsto W \sim N(0, I)\]
+\[\text{TOP} = n^{-1/2} \sum_{i} Y_{i} = \sqrt{n} \overline{Y} = \sqrt{n} (\overline{Y} - 0) \leadsto W \sim N(0, I)\]
 
-by the central limit theorem. Let
-\(A_i = -\partial^2 \log f(X_i; \theta) / \partial theta^2\). Then
-\(\mathbb{E}(A_i) = I(\theta)\) and
+by the central limit Theorem. Let
+\(A_{i} = -\partial^{2} \log f(X_{i}; \theta) / \partial theta^{2}\). Then
+\(\mathbb{E}(A_{i}) = I(\theta)\) and
 
 \[\text{BOTTOM} = \overline{A} \xrightarrow{\text{P}} I(\theta)\]
 
@@ -465,12 +465,12 @@ by the law of large numbers. Apply Theorem 6.5 part (e) to conclude that
 \[\sqrt{n}(\hat{\theta} - \theta) \leadsto \frac{W}{I(\theta)} \sim N \left(0, \frac{1}{I(\theta)} \right)\]
 
 Assuming that \(I(\theta)\) is a continuous function of \(\theta\), it
-follows that \(I(\hat{\theta}_n) \xrightarrow{\text{P}} I(\theta)\). Now
+follows that \(I(\hat{\theta}_{n}) \xrightarrow{\text{P}} I(\theta)\). Now
 
-\begin{align}
-\frac{\hat{\theta}_n - \theta}{\hat{\text{se}}}&= \sqrt{n} I^{1/2}(\hat{\theta_n})(\hat{\theta_n} - \theta) \\
-&= \left\{ \sqrt{n} I^{1/2}(\theta)(\hat{\theta}_n - \theta)\right\} \left\{ \frac{I(\hat{\theta}_n)}{I(\theta)} \right\}^{1/2}
-\end{align}
+\begin{align*}
+\frac{\hat{\theta}_{n} - \theta}{\hat{\text{se}}}&= \sqrt{n} I^{1/2}(\hat{\theta_{n}})(\hat{\theta_{n}} - \theta) \\
+&= \left\{ \sqrt{n} I^{1/2}(\theta)(\hat{\theta}_{n} - \theta)\right\} \left\{ \frac{I(\hat{\theta}_{n})}{I(\theta)} \right\}^{1/2}
+\end{align*}
 
 The first term tends in distribution to \(N(0, 1)\). The second term
 tends in probability to 1. The result follows from Theorem 6.5 part (e).
@@ -494,45 +494,45 @@ Theorem 10.18 tells us that the right hand side tends in distribution to
 
 or, in other words,
 
-\[\hat{\tau} \approx N(\tau, \text{se}^2(\hat{\tau}_n))\]
+\[\hat{\tau} \approx N(\tau, \text{se}^{2}(\hat{\tau}_{n}))\]
 
 where
 
-\[\text{se}^2(\hat{\tau}_n) = \frac{(g'(\theta))^2}{nI(\theta)}\]
+\[\text{se}^{2}(\hat{\tau}_{n}) = \frac{(g'(\theta))^{2}}{nI(\theta)}\]
 
 The result remains true if we substitute \(\hat{\theta}\) for \(\theta\)
 by Theorem 6.5 part (e).
 
 \paragraph{10.12.2 Sufficiency}\label{sufficiency}
 
-A \textbf{statistic} is a function \(T(X^n)\) of the data. A sufficient
+A \textbf{statistic} is a function \(T(X^{n})\) of the data. A sufficient
 statistic is a statistic that contains all of the information in the
 data.
 
-Write \(x^n \leftrightarrow y^n\) if
-\(f(x^n; \theta) = c f(y^n; \theta)\) for some constant \(c\) that might
-depend on \(x^n\) and \(y^n\) but not \(\theta\). A statistic is
-\textbf{sufficient} if \(T(x^n) \leftrightarrow T(y^n)\) implies that
-\(x^n \leftrightarrow y^n\).
+Write \(x^{n} \leftrightarrow y^{n}\) if
+\(f(x^{n}; \theta) = c f(y^{n}; \theta)\) for some constant \(c\) that might
+depend on \(x^{n}\) and \(y^{n}\) but not \(\theta\). A statistic is
+\textbf{sufficient} if \(T(x^{n}) \leftrightarrow T(y^{n})\) implies that
+\(x^{n} \leftrightarrow y^{n}\).
 
-Notice that if \(x^n \leftrightarrow y^n\) then the likelihood functions
-based on \(x^n\) and \(y^n\) have the same shape. Roughly speaking, a
+Notice that if \(x^{n} \leftrightarrow y^{n}\) then the likelihood functions
+based on \(x^{n}\) and \(y^{n}\) have the same shape. Roughly speaking, a
 statistic is sufficient if we can calculate the likelihood function
-knowing only \(T(X^n)\).
+knowing only \(T(X^{n})\).
 
 A statistic \(T\) is \textbf{minimally sufficient} if it is sufficient
 and it is a function of every other sufficient statistic.
 
 \textbf{Theorem 10.36}. \(T\) is minimally sufficient if
-\(T(x^n) = T(y^n)\) if and only if \(x^n \leftrightarrow y^n\).
+\(T(x^{n}) = T(y^{n})\) if and only if \(x^{n} \leftrightarrow y^{n}\).
 
 The usual definition of sufficiency is this: \(T\) is sufficient if the
-distribution of \(X^n\) given \(T(X^n) = t\) does not depend on
+distribution of \(X^{n}\) given \(T(X^{n}) = t\) does not depend on
 \(\theta\).
 
 \textbf{Theorem 10.40 (Factorization Theorem)}. \(T\) is sufficient if
 and only if there are functions \(g(t, \theta)\) and \(h(x)\) such that
-\(f(x^n; \theta) = g(t(x^n); \theta)h(x^n)\).
+\(f(x^{n}; \theta) = g(t(x^{n}); \theta)h(x^{n})\).
 
 \textbf{Theorem 10.42 (Rao-Blackwell)}. Let \(\hat{\theta}\) be an
 estimator and let \(T\) be a sufficient statistic. Define a new
@@ -545,7 +545,7 @@ Then, for every \(\theta\),
 \[R(\theta, \overline{\theta}) \leq R(\theta, \hat{\theta})\]
 
 where
-\(R(\theta, \hat{\theta}) = \mathbb{E}_\theta[(\theta - \hat{\theta})^2]\)
+\(R(\theta, \hat{\theta}) = \mathbb{E}_\theta[(\theta - \hat{\theta})^{2}]\)
 denote the MSE of an estimator.
 
 \paragraph{10.12.3 Exponential Families}\label{exponential-families}
@@ -568,13 +568,13 @@ and
 
 \[A(\eta) = \log \int h(x) e^{\eta T(x)} dx\]
 
-Let \(X_1, \dots, X_n\) be iid from an exponential family. Then
-\(f(x^n; \theta)\) is an exponential family:
+Let \(X_{1}, \dots, X_{n}\) be iid from an exponential family. Then
+\(f(x^{n}; \theta)\) is an exponential family:
 
-\[f(x^n; \theta) = h_n(x^n) e^{\eta(\theta) T_n(x^n) - B_n(\theta)}\]
+\[f(x^{n}; \theta) = h_{n}(x^{n}) e^{\eta(\theta) T_{n}(x^{n}) - B_{n}(\theta)}\]
 
-where \(h_n(x^n) = \prod_i h(x_i)\), \(T_n(x^n) = \sum_i T(x_i)\) and
-\(B_n(\theta) = nB(\theta)\). This implies that \(\sum_i T(X_i)\) is
+where \(h_{n}(x^{n}) = \prod_{i} h(x_{i})\), \(T_{n}(x^{n}) = \sum_{i} T(x_{i})\) and
+\(B_{n}(\theta) = nB(\theta)\). This implies that \(\sum_{i} T(X_{i})\) is
 sufficient.
 
 \textbf{Theorem 10.47}. Let \(X\) have an exponential family. Then,
@@ -585,19 +585,19 @@ sufficient.
 \mathbb{V}(T(X)) = A''(\eta)
 \]
 
-If \(\theta = (\theta_1, \dots, \theta_n)\) is a vector, then we say
+If \(\theta = (\theta_{1}, \dots, \theta_{n})\) is a vector, then we say
 that \(f(x; \theta)\) has exponential family form if
 
-\[ f(x; \theta) = h(x) \exp \left\{ \sum_{j=1}^k \eta_j(\theta) T_j(x) - B(\theta) \right\}\]
+\[ f(x; \theta) = h(x) \exp \left\{ \sum_{j=1}^{k} \eta_{j}(\theta) T_{j}(x) - B(\theta) \right\}\]
 
-Again, \(T = (T_1, \dots, T_k)\) is sufficient and \(n\) iid samples
+Again, \(T = (T_{1}, \dots, T_{k})\) is sufficient and \(n\) iid samples
 also has exponential form with sufficient statistic
-\(\left(\sum_i T_1(X_i), \dots, \sum_i T_k(X_i)\right)\).
+\(\left(\sum_{i} T_{1}(X_{i}), \dots, \sum_{i} T_{k}(X_{i})\right)\).
 
-\section{10.13 Exercises}\label{exercises}
+\section*{10.13 Exercises}
 
 \textbf{Exercise 10.13.1}. Let
-\(X_1, \dots, X_n \sim \text{Gamma}(\alpha, \beta)\). Find the method of
+\(X_{1}, \dots, X_{n} \sim \text{Gamma}(\alpha, \beta)\). Find the method of
 moments estimator for \(\alpha\) and \(\beta\).
 
 \textbf{Solution}.
@@ -605,35 +605,35 @@ moments estimator for \(\alpha\) and \(\beta\).
 The first two moments are:
 
 \[
-\alpha_1 = \mathbb{E}(X) = \frac{\alpha}{\beta}\\
-\alpha_2 = \mathbb{E}(X^2) = \mathbb{V}(X) + \mathbb{E}(X)^2 = \frac{\alpha}{\beta^2} + \frac{\alpha^2}{\beta^2} = \frac{\alpha(\alpha + 1)}{\beta^2} 
+\alpha_{1} = \mathbb{E}(X) = \frac{\alpha}{\beta}\\
+\alpha_{2} = \mathbb{E}(X^{2}) = \mathbb{V}(X) + \mathbb{E}(X)^{2} = \frac{\alpha}{\beta^{2}} + \frac{\alpha^{2}}{\beta^{2}} = \frac{\alpha(\alpha + 1)}{\beta^{2}} 
 \]
 
 We have the sample moments:
 
-\[\hat{\alpha}_1 = \frac{1}{n}\sum_{i=1}^n X_i
+\[\hat{\alpha}_{1} = \frac{1}{n}\sum_{i=1}^{n} X_{i}
 \quad \quad
-\hat{\alpha}_2 = \frac{1}{n}\sum_{i=1}^n X_i^2\]
+\hat{\alpha}_{2} = \frac{1}{n}\sum_{i=1}^{n} X_{i}^{2}\]
 
 Equating these we get:
 
 \[
-\hat{\alpha}_1 = \frac{\hat{\alpha}_n}{\hat{\beta}_n}
+\hat{\alpha}_{1} = \frac{\hat{\alpha}_{n}}{\hat{\beta}_{n}}
 \quad \quad
-\hat{\alpha}_2 = \frac{\hat{\alpha}_n(\hat{\alpha}_n + 1)}{\hat{\beta}_n^2}
+\hat{\alpha}_{2} = \frac{\hat{\alpha}_{n}(\hat{\alpha}_{n} + 1)}{\hat{\beta}_{n}^{2}}
 \]
 
 Solving these we get the method of moments estimators for \(\alpha\) and
 \(\beta\):
 
 \[
-\hat{\alpha}_n = \frac{\hat{\alpha}_1^2}{\hat{\alpha}_2 - \hat{\alpha}_1^2}
+\hat{\alpha}_{n} = \frac{\hat{\alpha}_{1}^{2}}{\hat{\alpha}_{2} - \hat{\alpha}_{1}^{2}}
 \quad \quad
-\hat{\beta}_n = \frac{\hat{\alpha}_1}{\hat{\alpha}_2 - \hat{\alpha}_1^2}
+\hat{\beta}_{n} = \frac{\hat{\alpha}_{1}}{\hat{\alpha}_{2} - \hat{\alpha}_{1}^{2}}
 \]
 
 \textbf{Exercise 10.13.2}. Let
-\(X_1, \dots, X_n \sim \text{Uniform}(a, b)\) where \(a, b\) are unknown
+\(X_{1}, \dots, X_{n} \sim \text{Uniform}(a, b)\) where \(a, b\) are unknown
 parameters and \(a < b\).
 
 \textbf{(a)} Find the method of moments estimators for \(a\) and \(b\).
@@ -655,37 +655,37 @@ of \(\tilde{\tau}\) analytically. Compare.
 The first two moments are:
 
 \[ 
-\alpha_1 = \mathbb{E}(X) = \frac{a + b}{2} \\
-\alpha_2 = \mathbb{E}(X^2) = \mathbb{V}(X) + \mathbb{E}(X)^2 = \frac{(b - a)^2}{12} + \frac{(a + b)^2}{4}
-= \frac{a^2 + ab + b^2}{3}
+\alpha_{1} = \mathbb{E}(X) = \frac{a + b}{2} \\
+\alpha_{2} = \mathbb{E}(X^{2}) = \mathbb{V}(X) + \mathbb{E}(X)^{2} = \frac{(b - a)^{2}}{12} + \frac{(a + b)^{2}}{4}
+= \frac{a^{2} + ab + b^{2}}{3}
 \]
 
 We have the sample moments:
 
-\[\hat{\alpha}_1 = \frac{1}{n}\sum_{i=1}^n X_i
+\[\hat{\alpha}_{1} = \frac{1}{n}\sum_{i=1}^{n} X_{i}
 \quad \quad
-\hat{\alpha}_2 = \frac{1}{n}\sum_{i=1}^n X_i^2\]
+\hat{\alpha}_{2} = \frac{1}{n}\sum_{i=1}^{n} X_{i}^{2}\]
 
 Equating these we get:
 
 \[
-\hat{\alpha}_1 = \frac{\hat{a} + \hat{b}}{2}
+\hat{\alpha}_{1} = \frac{\hat{a} + \hat{b}}{2}
 \quad \quad
-\hat{\alpha}_2 = \frac{(\hat{b} - \hat{a})^2}{12} + \frac{(\hat{a} + \hat{b})^2}{4}
+\hat{\alpha}_{2} = \frac{(\hat{b} - \hat{a})^{2}}{12} + \frac{(\hat{a} + \hat{b})^{2}}{4}
 \]
 
 Solving these we get the method of moment estimators for \(a\) and
 \(b\):
 
 \[
-\hat{a} = \hat{\alpha}_1 - \sqrt{3}(\hat{\alpha}_1^2 - \hat{\alpha}_2)
+\hat{a} = \hat{\alpha}_{1} - \sqrt{3}(\hat{\alpha}_{1}^{2} - \hat{\alpha}_{2})
 \quad \quad
-\hat{b} = \hat{\alpha}_1 + \sqrt{3}(\hat{\alpha}_1^2 - \hat{\alpha}_2)
+\hat{b} = \hat{\alpha}_{1} + \sqrt{3}(\hat{\alpha}_{1}^{2} - \hat{\alpha}_{2})
 \]
 
 \textbf{(b)}
 
-The probability density function for each \(X_i\) is
+The probability density function for each \(X_{i}\) is
 
 \[f(x; (a, b)) = \begin{cases}
 (b - a)^{-1} & \text{if } a \leq x \leq b \\
@@ -694,8 +694,8 @@ The probability density function for each \(X_i\) is
 
 The likelihood function is
 
-\[\mathcal{L}_n(a, b) = \prod_{i=1}^n f(X_i; (a, b)) = \begin{cases}
-(b-a)^{-n} & \text{if } a \leq X_i \leq b \text{ for all } X_i\\
+\[\mathcal{L}_{n}(a, b) = \prod_{i=1}^{n} f(X_{i}; (a, b)) = \begin{cases}
+(b-a)^{-n} & \text{if } a \leq X_{i} \leq b \text{ for all } X_{i}\\
 0 & \text{otherwise}
 \end{cases}
 \]
@@ -705,16 +705,16 @@ as small as possible -- that is, we should pick the maximum \(a\) and
 the minimum \(b\) for which the likelihood function is non-zero. So the
 MLEs are:
 
-\[\hat{a} = \min \{X_1, \dots, X_n \}
+\[\hat{a} = \min \{X_{1}, \dots, X_{n} \}
 \quad \quad
-\hat{b} = \max \{X_1, \dots, X_n \}\]
+\hat{b} = \max \{X_{1}, \dots, X_{n} \}\]
 
 \textbf{(c)}
 
 \(\tau = \int x dF(x) = \mathbb{E}(x) = (a + b)/2\), so since the MLE is
 equivariant, the MLE of \(\tau\) is
 
-\[\hat{\tau} = \frac{\hat{a} + \hat{b}}{2} = \frac{\min \{X_1, \dots, X_n\} + \max\{X_1, \dots, X_n\}}{2}\]
+\[\hat{\tau} = \frac{\hat{a} + \hat{b}}{2} = \frac{\min \{X_{1}, \dots, X_{n}\} + \max\{X_{1}, \dots, X_{n}\}}{2}\]
 
 \textbf{(d)}
 
@@ -748,21 +748,21 @@ MSE for tau\_hat:         0.150
 
 Analytically, we have:
 
-\begin{align}
+\begin{align*}
 \mathbb{V}(\tilde{\tau}) 
-&= \mathbb{E}(\tilde{\tau}^2) - (\mathbb{E}(\tilde{\tau}))^2 \\
-&= \frac{1}{n^2}\left(\mathbb{E}\left[ \left(\sum_{i=1}^n X_i\right)^2\right] - \left(\mathbb{E}\left[\sum_{i=1}^n X_i \right]\right)^2\right) \\
-&= \frac{1}{n^2}\left( \mathbb{E}\left[ \sum_{i=1}^n X_i^2 + \sum_{i=1}^n \sum_{j=1, j \neq i}^n X_i X_j \right] - \left(n \frac{a + b}{2}\right)^2\right) \\
-&= \frac{1}{n^2}\left( \sum_{i=1}^n \mathbb{E}[X_i^2] + \sum_{i=1}^n \sum_{j=1, j \neq i}^n \mathbb{E}[X_i]\mathbb{E}[X_j]  - \left(n \frac{a + b}{2}\right)^2\right) \\
-&= \frac{1}{n^2}\left( n \frac{a^2 + ab + b^2}{3} + n(n-1) \left(\frac{a+b}{2}\right)^2  - n^2\left(\frac{a + b}{2}\right)^2\right) \\
-&= \frac{1}{n^2}\left( n \frac{a^2 + ab + b^2}{3} - n \left(\frac{a+b}{2}\right)^2 \right) \\
-&= \frac{1}{n} \left( \frac{a^2 + ab + b^2}{3} - \frac{a^2 + 2ab + b^2}{4}\right) \\
-&= \frac{1}{n} \frac{(b - a)^2}{12}
-\end{align}
+&= \mathbb{E}(\tilde{\tau}^{2}) - (\mathbb{E}(\tilde{\tau}))^{2} \\
+&= \frac{1}{n^{2}}\left(\mathbb{E}\left[ \left(\sum_{i=1}^{n} X_{i}\right)^{2}\right] - \left(\mathbb{E}\left[\sum_{i=1}^{n} X_{i} \right]\right)^{2}\right) \\
+&= \frac{1}{n^{2}}\left( \mathbb{E}\left[ \sum_{i=1}^{n} X_{i}^{2} + \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} X_{i} X_{j} \right] - \left(n \frac{a + b}{2}\right)^{2}\right) \\
+&= \frac{1}{n^{2}}\left( \sum_{i=1}^{n} \mathbb{E}[X_{i}^{2}] + \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} \mathbb{E}[X_{i}]\mathbb{E}[X_{j}]  - \left(n \frac{a + b}{2}\right)^{2}\right) \\
+&= \frac{1}{n^{2}}\left( n \frac{a^{2} + ab + b^{2}}{3} + n(n-1) \left(\frac{a+b}{2}\right)^{2}  - n^{2}\left(\frac{a + b}{2}\right)^{2}\right) \\
+&= \frac{1}{n^{2}}\left( n \frac{a^{2} + ab + b^{2}}{3} - n \left(\frac{a+b}{2}\right)^{2} \right) \\
+&= \frac{1}{n} \left( \frac{a^{2} + ab + b^{2}}{3} - \frac{a^{2} + 2ab + b^{2}}{4}\right) \\
+&= \frac{1}{n} \frac{(b - a)^{2}}{12}
+\end{align*}
 
 Therefore,
 
-\[\text{se}(\tilde{\tau}) = \sqrt{\frac{1}{n} \frac{(b - a)^2}{12}}\]
+\[\text{se}(\tilde{\tau}) = \sqrt{\frac{1}{n} \frac{(b - a)^{2}}{12}}\]
 
 \begin{python}
 se_tau_tilde = np.sqrt((1/n) * ((b - a)**2 / 12))
@@ -775,7 +775,7 @@ MSE for tau\_tilde:       0.183
 \end{console}
 
 \textbf{Exercise 10.13.3}. Let
-\(X_1, \dots, X_n \sim N(\mu, \sigma^2)\). Let \(\tau\) be the 0.95
+\(X_{1}, \dots, X_{n} \sim N(\mu, \sigma^{2})\). Let \(\tau\) be the 0.95
 percentile, i.e.~\(\mathbb{P}(X < \tau) = 0.95\).
 
 \textbf{(a)} Find the MLE of \(\tau\).
@@ -795,8 +795,7 @@ confidence interval for \(\tau\).
 \end{matrix}
 \]
 
-Find the MLE \(\hat{\tau}\). Find the standard error using the delta
-method. Find the standard error using the parametric bootstrap.
+Find the MLE \(\hat{\tau}\). Find the standard error using the delta method. Find the standard error using the parametric bootstrap.
 
 \textbf{Solution}.
 
@@ -804,27 +803,27 @@ method. Find the standard error using the parametric bootstrap.
 
 Let \(Z \sim N(0, 1)\), so \((X - \mu) / \sigma \sim Z\). We have:
 
-\begin{align}
+\begin{align*}
 \mathbb{P}(X < \tau) &= 0.95 \\
 \mathbb{P}\left(\frac{X - \mu}{\sigma} < \frac{\tau - \mu}{\sigma}\right) &= 0.95 \\
 \mathbb{P}\left(Z < \frac{\tau - \mu}{\sigma}\right) &= 0.95 \\
 \frac{\tau - \mu}{\sigma} &= z_{5\%} \\
 \tau &= \mu + z_{5\%} \sigma 
-\end{align}
+\end{align*}
 
 Since the MLE is equivariant,
 \(\hat{\tau} = \hat{\mu} + z_{5\%} \hat{\sigma}\), where
 \(\hat{\mu}, \hat{\sigma}\) are the MLEs for the Normal distribution
 parameters:
 
-\[ \hat{\mu} = n^{-1} \sum_{i=1}^n X_i
+\[ \hat{\mu} = n^{-1} \sum_{i=1}^{n} X_{i}
 \quad \quad
-\hat{\sigma} = \sqrt{n^{-1} \sum_{i=1}^n (X_i - \overline{X})^2}
+\hat{\sigma} = \sqrt{n^{-1} \sum_{i=1}^{n} (X_{i} - \overline{X})^{2}}
 \]
 
 \textbf{(b)}
 
-Let's use the multiparameter delta method.
+Use the multiparameter delta method.
 
 We have \(\tau = g(\mu, \sigma) = \mu + z_{5\%} \sigma\), so
 
@@ -839,29 +838,29 @@ z_{5\%}
 
 The Fisher Information Matrix for the Normal process is
 
-\[ I_n(\mu, \sigma) = \begin{bmatrix}
-n / \sigma^2 & 0 \\
-0 & 2n / \sigma^2
+\[ I_{n}(\mu, \sigma) = \begin{bmatrix}
+n / \sigma^{2} & 0 \\
+0 & 2n / \sigma^{2}
 \end{bmatrix}
 \]
 
 then its inverse is
 
-\[ J_n = I_n^{-1}(\mu, \sigma) = \frac{1}{n} \begin{bmatrix}
-\sigma^2 & 0 \\
-0 & \sigma^2/2
+\[ J_{n} = I_{n}^{-1}(\mu, \sigma) = \frac{1}{n} \begin{bmatrix}
+\sigma^{2} & 0 \\
+0 & \sigma^{2}/2
 \end{bmatrix}
 \]
 
 and the standard error estimate for our new parameter variable is
 
-\[\hat{\text{se}}(\hat{\tau}) = \sqrt{(\hat{\nabla} g)^T \hat{J}_n (\hat{\nabla} g)} = \hat{\sigma} \sqrt{n^{-1}(1 + z_{5\%}^2 / 2)}\]
+\[\hat{\text{se}}(\hat{\tau}) = \sqrt{(\hat{\nabla} g)^T \hat{J}_{n} (\hat{\nabla} g)} = \hat{\sigma} \sqrt{n^{-1}(1 + z_{5\%}^{2} / 2)}\]
 
 A \(1 - \alpha\) confidence interval for \(\hat{\tau}\), then, is
 
-\[ C_n = \left(
-\hat{\mu} + \hat{\sigma}\left( z_{5\%} - z_{\alpha / 2} \sqrt{n^{-1}(1 + z_{5\%}^2 / 2)} \right), \;
-\hat{\mu} + \hat{\sigma}\left( z_{5\%} + z_{\alpha / 2} \sqrt{n^{-1}(1 + z_{5\%}^2 / 2)} \right) \right) \]
+\[ C_{n} = \left(
+\hat{\mu} + \hat{\sigma}\left( z_{5\%} - z_{\alpha / 2} \sqrt{n^{-1}(1 + z_{5\%}^{2} / 2)} \right), \;
+\hat{\mu} + \hat{\sigma}\left( z_{5\%} + z_{\alpha / 2} \sqrt{n^{-1}(1 + z_{5\%}^{2} / 2)} \right) \right) \]
 
 \textbf{(c)}
 
@@ -869,8 +868,8 @@ A \(1 - \alpha\) confidence interval for \(\hat{\tau}\), then, is
 import numpy as np
 from scipy.stats import norm
 
-z_05 = norm.ppf(0.95)
-z_025 = norm.ppf(0.975)
+z_{0}5 = norm.ppf(0.95)
+z_{0}25 = norm.ppf(0.975)
 \end{python}
 
 \begin{python}
@@ -886,7 +885,7 @@ X = np.array([
 n = len(X)
 mu_hat = X.mean()
 sigma_hat = X.std()
-tau_hat = mu_hat + z_05 * sigma_hat
+tau_hat = mu_hat + z_{0}5 * sigma_hat
 
 print("Estimated tau: %.3f" % tau_hat)
 \end{python}
@@ -898,10 +897,12 @@ Estimated tau: 4.180
 \begin{python}
 # Confidence interval using delta method
 
-se_tau_hat = sigma_hat * np.sqrt((1/n) * (1 + z_05 * z_05 / 2))
-confidence_interval = (tau_hat - z_025 * se_tau_hat, tau_hat + z_025 * se_tau_hat)
+se_tau_hat = sigma_hat * np.sqrt((1/n) * (1 + z_{0}5 * z_{0}5 / 2))
+confidence_{i}nterval = (tau_hat - z_{0}25 * se_tau_hat, 
+                         tau_hat + z_{0}25 * se_tau_hat)
 
-print("Estimated tau (delta method, 95%% confidence interval): \t (%.3f, %.3f)" % confidence_interval)
+print("Estimated tau (delta method, 95%% confidence interval): 
+       \t (%.3f, %.3f)" % confidence_{i}nterval)
 \end{python}
 
 \begin{console}
@@ -914,7 +915,7 @@ Estimated tau (delta method, 95\% confidence interval):   (3.088, 5.273)
 n = len(X)
 mu_hat = X.mean()
 sigma_hat = X.std()
-tau_hat = mu_hat + z_05 * sigma_hat
+tau_hat = mu_hat + z_{0}5 * sigma_hat
 
 B = 10000
 t_boot = np.empty(B)
@@ -923,9 +924,11 @@ for i in range(B):
     t_boot[i] = np.quantile(xx, 0.95)
     
 se_tau_hat_bootstrap = t_boot.std()
-confidence_interval = (tau_hat - z_025 * se_tau_hat_bootstrap, tau_hat + z_025 * se_tau_hat_bootstrap)
+confidence_{i}nterval = (tau_hat - z_{0}25 * se_tau_hat_bootstrap, 
+                         tau_hat + z_{0}25 * se_tau_hat_bootstrap)
 
-print("Estimated tau (parametric bootstrap, 95%% confidence interval): \t (%.3f, %.3f)" % confidence_interval)
+print("Estimated tau (parametric bootstrap, 95%% confidence interval): 
+      \t (%.3f, %.3f)" % confidence_{i}nterval)
 \end{python}
 
 \begin{console}
@@ -933,17 +936,17 @@ Estimated tau (parametric bootstrap, 95\% confidence interval):   (2.887, 5.474)
 \end{console}
 
 \textbf{Exercise 10.13.4} Let
-\(X_1, \dots, X_n \sim \text{Uniform}(0, \theta)\). Show that the MLE is
+\(X_{1}, \dots, X_{n} \sim \text{Uniform}(0, \theta)\). Show that the MLE is
 consistent.
 
-Hint: Let \(Y = \max \{ X_1, \dots, X_n \}\). For any c,
-\(\mathbb{P}(Y < c) = \mathbb{P}(X_1 < c, X_2 < c, \dots, X_n < c) = \mathbb{P}(X_1 < c)\mathbb{P}(X_2 < c)\dots\mathbb{P}(X_n < c)\).
+Hint: Let \(Y = \max \{ X_{1}, \dots, X_{n} \}\). For any c,
+\(\mathbb{P}(Y < c) = \mathbb{P}(X_{1} < c, X_{2} < c, \dots, X_{n} < c) = \mathbb{P}(X_{1} < c)\mathbb{P}(X_{2} < c)\dots\mathbb{P}(X_{n} < c)\).
 
 \textbf{Solution}.
 
 The probability density function is
 
-\[ f(x, \theta) = \mathbb{P}(Y < x) = \prod_{i = 1}^n \mathbb{P}(X_i < x) = f_{\text{Uniform}(0, \theta)}(x)^n \]
+\[ f(x, \theta) = \mathbb{P}(Y < x) = \prod_{i = 1}^{n} \mathbb{P}(X_{i} < x) = f_{\text{Uniform}(0, \theta)}(x)^{n} \]
 
 The probability density function for the original distribution is
 
@@ -963,18 +966,18 @@ so
 
 The likelihood is maximized when \(\theta\) is as small as possible
 while keeping all samples within the first case, so
-\(\hat{\theta}_n = \max \{X_1, \dots, X_n \}\).
+\(\hat{\theta}_{n} = \max \{X_{1}, \dots, X_{n} \}\).
 
 For a given \(\epsilon > 0\), we have
 
-\[\mathbb{P}(\hat{\theta}_n < \theta - \epsilon) = \prod_{i=1}^n \mathbb{P}(X_i < \theta - \epsilon) = \left(1 - \frac{\epsilon}{\theta} \right)^n\]
+\[\mathbb{P}(\hat{\theta}_{n} < \theta - \epsilon) = \prod_{i=1}^{n} \mathbb{P}(X_{i} < \theta - \epsilon) = \left(1 - \frac{\epsilon}{\theta} \right)^{n}\]
 
 which goes to 0 as \(n \rightarrow \infty\), so
-\(\lim _{n \rightarrow \infty} \hat{\theta}_n = \theta\), and thus the
+\(\lim _{n \rightarrow \infty} \hat{\theta}_{n} = \theta\), and thus the
 MLE is consistent.
 
 \textbf{Exercise 10.13.5}. Let
-\(X_1, \dots, X_n \sim \text{Poisson}(\lambda)\). Find the method of
+\(X_{1}, \dots, X_{n} \sim \text{Poisson}(\lambda)\). Find the method of
 moments estimator, the maximum likelihood estimator, and the Fisher
 information \(I(\lambda)\).
 
@@ -986,30 +989,35 @@ The first moment is:
 
 We have the sample moment:
 
-\[\hat{\alpha}_1 = \frac{1}{n} \sum_{i=1}^n X_i\]
+\[\hat{\alpha}_{1} = \frac{1}{n} \sum_{i=1}^{n} X_{i}\]
 
 Equating those, the method of moments estimator for \(\hat{\lambda}\)
 is:
 
-\[\hat{\lambda} = \hat{\alpha_1} = \frac{1}{n} \sum_{i=1}^n X_i\]
+\[\hat{\lambda} = \hat{\alpha_{1}} = \frac{1}{n} \sum_{i=1}^{n} X_{i}\]
 
 The likelihood function is
 
-\[\mathcal{L}_n(\lambda) = \prod_{i=1}^n f(X_i; \lambda) = \prod_{i=1}^n \frac{\lambda^{X_i}e^{-\lambda}}{(X_i)!}\]
+\[\mathcal{L}_{n}(\lambda) = \prod_{i=1}^{n} f(X_{i}; \lambda) = \prod_{i=1}^{n} \frac{\lambda^{X_{i}}e^{-\lambda}}{(X_{i})!}\]
 
-so the log likelihood function is
+so the log-likelihood function is
 
-\[\ell_n(\lambda) = \log \mathcal{L}_n(\lambda) = \sum_{i=1}^n (\log(\lambda^{X_i}e^{-\lambda}) - \log X_i!)
-= \sum_{i=1}^n (X_i \log \lambda - \lambda - \log X_i!)
-= -n \lambda + (\log \lambda) \sum_{i=1}^n X_i - \sum_{i=1}^n \log X_i!
-\]
+\begin{align*}
+\ell_{n}(\lambda) 
+  = \log \mathcal{L}_{n}(\lambda) 
+& = \sum_{i=1}^{n} (\log(\lambda^{X_{i}}e^{-\lambda}) - \log X_{i}!)
+\\
+& = \sum_{i=1}^{n} (X_{i} \log \lambda - \lambda - \log X_{i}!)
+\\
+& = -n \lambda + (\log \lambda) \sum_{i=1}^{n} X_{i} - \sum_{i=1}^{n} \log X_{i}!
+\end{align*}
 
 To find the MLE, we differentiate this equation with respect to 0 and
 equate it to 0:
 
-\[ \frac{\partial \ell_n(\lambda)}{\partial \lambda} = 0 \\
--n + \frac{\sum_{i=1}^n X_i}{\hat{\lambda}} = 0 \\
-\hat{\lambda} = \frac{1}{n} \sum_{i=1}^n X_i
+\[ \frac{\partial \ell_{n}(\lambda)}{\partial \lambda} = 0 \\
+-n + \frac{\sum_{i=1}^{n} X_{i}}{\hat{\lambda}} = 0 \\
+\hat{\lambda} = \frac{1}{n} \sum_{i=1}^{n} X_{i}
 \]
 
 The score function is:
@@ -1018,28 +1026,28 @@ The score function is:
 
 and the Fisher information is:
 
-\[ I_n(\lambda) = \sum_{i=1}^n \mathbb{V}\left( s(X_i; \lambda) \right) 
-= \sum_{i=1}^n \mathbb{V} \left( \frac{X_i}{\lambda} - 1 \right)
-= \frac{1}{\lambda^2}  \sum_{i=1}^n \mathbb{V}(X_i) = \frac{n}{\lambda}\]
+\[ I_{n}(\lambda) = \sum_{i=1}^{n} \mathbb{V}\left( s(X_{i}; \lambda) \right) 
+= \sum_{i=1}^{n} \mathbb{V} \left( \frac{X_{i}}{\lambda} - 1 \right)
+= \frac{1}{\lambda^{2}}  \sum_{i=1}^{n} \mathbb{V}(X_{i}) = \frac{n}{\lambda}\]
 
-In particular, \(I(\lambda) = I_1(\lambda) = 1 / \lambda\).
+In particular, \(I(\lambda) = I_{1}(\lambda) = 1 / \lambda\).
 
-\textbf{Exercise 10.13.6}. Let \(X_1, \dots, X_n \sim N(\theta, 1)\).
+\textbf{Exercise 10.13.6}. Let \(X_{1}, \dots, X_{n} \sim N(\theta, 1)\).
 Define
 
-\[Y_i = \begin{cases}
-1 & \text{if } X_i > 0 \\
-0 & \text{if } X_i \leq 0
+\[Y_{i} = \begin{cases}
+1 & \text{if } X_{i} > 0 \\
+0 & \text{if } X_{i} \leq 0
 \end{cases}\]
 
-Let \(\psi = \mathbb{P}(Y_1 = 1)\).
+Let \(\psi = \mathbb{P}(Y_{1} = 1)\).
 
 \textbf{(a)} Find the maximum likelihood estimate \(\hat{\psi}\) of
 \(\psi\).
 
 \textbf{(b)} Find an approximate 95\% confidence interval for \(\psi\).
 
-\textbf{(c)} Define \(\overline{\psi} = (1 / n) \sum_i Y_i\). Show that
+\textbf{(c)} Define \(\overline{\psi} = (1 / n) \sum_{i} Y_{i}\). Show that
 \(\overline{\psi}\) is a consistent estimator of \(\psi\).
 
 \textbf{(d)} Compute the asymptotic relative efficiency of
@@ -1054,13 +1062,13 @@ converge to?
 \textbf{Solution}.
 
 Note that, from the definition,
-\(Y_1, \dots, Y_n \sim \text{Bernoulli}(\Phi(\theta))\), where \(\Phi\)
+\(Y_{1}, \dots, Y_{n} \sim \text{Bernoulli}(\Phi(\theta))\), where \(\Phi\)
 is the CDF for the normal distribution. Let \(p = \Phi(\theta)\).
 
-\textbf{(a)} We have \(\psi = \mathbb{P}(Y_1 = 1) = p\), so the MLE is
+\textbf{(a)} We have \(\psi = \mathbb{P}(Y_{1} = 1) = p\), so the MLE is
 \(\hat{\psi} = \hat{p} = \Phi(\hat{\theta})
 = \Phi(\overline{X})\), where
-\(\overline{X} = n^{-1} \sum_{i=1}^n X_i\).
+\(\overline{X} = n^{-1} \sum_{i=1}^{n} X_{i}\).
 
 \textbf{(b)} Let \(g(\theta) = \Phi(\theta)\). Then
 \(g'(\theta) = \phi(\theta)\), where \(\phi\) is the standard normal
@@ -1069,15 +1077,15 @@ PDF. By the delta method,
 
 Then, an approximate 95\% confidence interval is
 
-\[ C_n = \left(\Phi(\overline{X}) \left(1 - \frac{z_{2.5\%}}{\sqrt{n}}\right), \; 
+\[ C_{n} = \left(\Phi(\overline{X}) \left(1 - \frac{z_{2.5\%}}{\sqrt{n}}\right), \; 
 \Phi(\overline{X}) \left(1 + \frac{z_{2.5\%}}{\sqrt{n}}\right) \right)\]
 
 \textbf{(c)} \(\overline{\psi}\) has mean \(p\), so consistency follows
 from the law of large numbers.
 
-\textbf{(d)} We have \(\mathbb{V}(Y_1) = \psi (1 - \psi)\), since
-\(Y_1\) follows a Bernoulli distribution, so
-\(\mathbb{V}(\overline{\psi}) = \mathbb{V}(Y_1) / n = \psi (1 - \psi) / n\).
+\textbf{(d)} We have \(\mathbb{V}(Y_{1}) = \psi (1 - \psi)\), since
+\(Y_{1}\) follows a Bernoulli distribution, so
+\(\mathbb{V}(\overline{\psi}) = \mathbb{V}(Y_{1}) / n = \psi (1 - \psi) / n\).
 
 From (b), \(\mathbb{V}{\hat{\psi}} = \phi(\theta) / n\).
 
@@ -1087,28 +1095,28 @@ Therefore, the asymptotic relative efficiency is
 
 \textbf{(e)} By the law of large numbers, we still have that
 \(\overline{X}\) converges to
-\(\mathbb{E}(Y_1) = \mathbb{P}(Y_1 = 1) \cdot 1 + \mathbb{P}(Y_1 = 0)\cdot 0 = \mathbb{P}(Y_1 = 1) = 1 - F_X(0) = \mu_Y\).
+\(\mathbb{E}(Y_{1}) = \mathbb{P}(Y_{1} = 1) \cdot 1 + \mathbb{P}(Y_{1} = 0)\cdot 0 = \mathbb{P}(Y_{1} = 1) = 1 - F_X(0) = \mu_Y\).
 Then \(\hat{\psi} = \Phi(\overline{X})\) converges to \(\Phi(\mu_Y)\).
-But the true value of \(\psi\) is \(\mathbb{P}(Y_1 = 1) = 1 - F_X(0)\).
+But the true value of \(\psi\) is \(\mathbb{P}(Y_{1} = 1) = 1 - F_X(0)\).
 
 But for an arbitrary distribution \(1 - F_X(0) \neq \Phi(1 - F_X(0))\).
 
-\textbf{Exercise 10.13.7}. (Comparing two treatments). \(n_1\) people
-are given treatment 1 and \(n_2\) people are given treatment 2. Let
-\(X_1\) be the number of people on treatment 1 who respond favorably to
-the treatment and let \(X_2\) be the number of people on treatment 2 who
-respond favorably. Assume that \(X_1 \sim \text{Binomial}(n_1, p_1)\),
-\(X_2 \sim \text{Binomial}(n_2, p_2)\). Let \(\psi = p_1 - p_2\).
+\textbf{Exercise 10.13.7}. (Comparing two treatments). \(n_{1}\) people
+are given treatment 1 and \(n_{2}\) people are given treatment 2. Let
+\(X_{1}\) be the number of people on treatment 1 who respond favorably to
+the treatment and let \(X_{2}\) be the number of people on treatment 2 who
+respond favorably. Assume that \(X_{1} \sim \text{Binomial}(n_{1}, p_{1})\),
+\(X_{2} \sim \text{Binomial}(n_{2}, p_{2})\). Let \(\psi = p_{1} - p_{2}\).
 
 \textbf{(a)} Find the MLE of \(\psi\).
 
-\textbf{(b)} Find the Fisher Information Matrix \(I(p_1, p_2)\).
+\textbf{(b)} Find the Fisher Information Matrix \(I(p_{1}, p_{2})\).
 
 \textbf{(c)} Use the multiparameter delta method to find the asymptotic
 standard error of \(\hat{\psi}\).
 
-\textbf{(d)} Suppose that \(n_1 = n_2 = 200\), \(X_1 = 160\) and
-\(X_2 = 148\). Find \(\hat{\psi}\). Find an approximate 90\% confidence
+\textbf{(d)} Suppose that \(n_{1} = n_{2} = 200\), \(X_{1} = 160\) and
+\(X_{2} = 148\). Find \(\hat{\psi}\). Find an approximate 90\% confidence
 interval for \(\psi\) using (i) the delta method and (ii) the parametric
 bootstrap.
 
@@ -1116,55 +1124,56 @@ bootstrap.
 
 \textbf{(a)} The MLE is equivariant, so
 
-\[\hat{\psi} = \hat{p_1} - \hat{p_2} = \frac{X_1}{n_1} - \frac{X_2}{n_2}\]
+\[\hat{\psi} = \hat{p_{1}} - \hat{p_{2}} = \frac{X_{1}}{n_{1}} - \frac{X_{2}}{n_{2}}\]
 
 \textbf{(b)}
 
 The probability mass function is
 
-\[f((x_1, x_2); \psi) = f_1(x_1; p_1) f_2(x_2; p_2) = 
-\binom{n_1}{x_1} p_1^{x_1} (1 - p_1)^{n_1 - x_1}
-\binom{n_2}{x_2} p_2^{x_2} (1 - p_2)^{n_2 - x_2}
+\[f((x_{1}, x_{2}); \psi) = f_{1}(x_{1}; p_{1}) f_{2}(x_{2}; p_{2}) = 
+\binom{n_{1}}{x_{1}} p_{1}^{x_{1}} (1 - p_{1})^{n_{1} - x_{1}}
+\binom{n_{2}}{x_{2}} p_{2}^{x_{2}} (1 - p_{2})^{n_{2} - x_{2}}
 \]
 
 The log likelihood is
 
-\begin{align}
-\ell_n &= \log f((x_1, x_2); \psi) \\
-&= \sum_{i=1}^2 \log \binom{n_i}{x_i} + x_i \log p_i + (n_i - x_i) \log (1 - p_i)
-\end{align}\]
+\begin{align*}
+\ell_{n} &= \log f((x_{1}, x_{2}); \psi) 
+\\
+&= \sum_{i=1}^{2} \log \binom{n_{i}}{x_{i}} + x_{i} \log p_{i} + (n_{i} - x_{i}) \log (1 - p_{i})
+\end{align*}
 
 Calculating the partial derivatives and their expectations,
 
-\begin{align}
-H_{11} & = \frac{\partial^2 \ell_n}{\partial p_1^2}
-= \frac{\partial}{\partial p_1} \left( \frac{x_1}{p_1} - \frac{n_1 - x_1}{1 - p_1}\right)
-= -\frac{x_1}{p_1^2} - \frac{n_1 - x_1}{(1 - p_1)^2} \\
-\mathbb{E}[H_{11}] &= -\frac{\mathbb{E}[x_1]}{p_1^2} - \frac{\mathbb{E}[n - x_1]}{(1 - p_1)^2}
-= -\frac{n_1 / p_1}{p_1^2} - \frac{n_1/(1 - p_1)}{(1 - p_1)^2}
-= -\frac{n_1}{p_1} - \frac{n_1}{1 - p_1} = -\frac{n_1}{p_1(1 - p_1)}
-\end{align}
+\begin{align*}
+H_{11} & = \frac{\partial^{2} \ell_{n}}{\partial p_{1}^{2}}
+= \frac{\partial}{\partial p_{1}} \left( \frac{x_{1}}{p_{1}} - \frac{n_{1} - x_{1}}{1 - p_{1}}\right)
+= -\frac{x_{1}}{p_{1}^{2}} - \frac{n_{1} - x_{1}}{(1 - p_{1})^{2}} \\
+\mathbb{E}[H_{11}] &= -\frac{\mathbb{E}[x_{1}]}{p_{1}^{2}} - \frac{\mathbb{E}[n - x_{1}]}{(1 - p_{1})^{2}}
+= -\frac{n_{1} / p_{1}}{p_{1}^{2}} - \frac{n_{1}/(1 - p_{1})}{(1 - p_{1})^{2}}
+= -\frac{n_{1}}{p_{1}} - \frac{n_{1}}{1 - p_{1}} = -\frac{n_{1}}{p_{1}(1 - p_{1})}
+\end{align*}
 
-\begin{align}
-H_{22} &= -\frac{x_2}{p_2^2} - \frac{n_2 - x_2}{(1 - p_2)^2} \\
-\mathbb{E}[H_{22}] &= -\frac{n_2}{p_2(1 - p_2)}
-\end{align}
+\begin{align*}
+H_{22} &= -\frac{x_{2}}{p_{2}^{2}} - \frac{n_{2} - x_{2}}{(1 - p_{2})^{2}} \\
+\mathbb{E}[H_{22}] &= -\frac{n_{2}}{p_{2}(1 - p_{2})}
+\end{align*}
 
-\[ H_{12} = \frac{\partial^2 \ell_n}{\partial p_1 \partial p_2} = 0\]
+\[ H_{12} = \frac{\partial^{2} \ell_{n}}{\partial p_{1} \partial p_{2}} = 0\]
 \[ H_{21} = 0\]
 
 So the Fisher Information Matrix is:
 
-\[ I(p_1, p_2) = \begin{bmatrix}
-\frac{n_1}{p_1(1 - p_1)} & 0\\
-0 & \frac{n_2}{p_2(1 - p_2)}
+\[ I(p_{1}, p_{2}) = \begin{bmatrix}
+\frac{n_{1}}{p_{1}(1 - p_{1})} & 0\\
+0 & \frac{n_{2}}{p_{2}(1 - p_{2})}
 \end{bmatrix}\]
 
 \textbf{(c)} Using the multiparameter delta method,
-\(g(\psi) = p_1 - p_2\), so
+\(g(\psi) = p_{1} - p_{2}\), so
 
 \[ \nabla g = \begin{bmatrix}
-\partial g / \partial p_1 \\ \partial g / \partial p_2
+\partial g / \partial p_{1} \\ \partial g / \partial p_{2}
 \end{bmatrix}
 = \begin{bmatrix}
 1 \\ -1
@@ -1172,15 +1181,15 @@ So the Fisher Information Matrix is:
 
 The inverse of the Fisher Information Matrix is
 
-\[J(p_1, p_2) = I(p_1, p_2)^{-1} = \begin{bmatrix}
-\frac{p_1(1 - p_1)}{n_1} & 0 \\
-0 & \frac{p_2(1 - p_2)}{n_2}
+\[J(p_{1}, p_{2}) = I(p_{1}, p_{2})^{-1} = \begin{bmatrix}
+\frac{p_{1}(1 - p_{1})}{n_{1}} & 0 \\
+0 & \frac{p_{2}(1 - p_{2})}{n_{2}}
 \end{bmatrix}\]
 
 Then the asymptotic standard error of \(\hat{\psi}\) is:
 
-\[\hat{\text{se}}(\hat{\psi}) = \sqrt{(\hat{\nabla} g)^T \hat{J}_n (\hat{\nabla} g)}
-= \sqrt{\frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)}{n_2}}\]
+\[\hat{\text{se}}(\hat{\psi}) = \sqrt{(\hat{\nabla} g)^T \hat{J}_{n} (\hat{\nabla} g)}
+= \sqrt{\frac{p_{1}(1 - p_{1})}{n_{1}} + \frac{p_{2}(1 - p_{2})}{n_{2}}}\]
 
 \textbf{(d)}
 
@@ -1241,18 +1250,18 @@ print("90%% confidence interval (parametric bootstrap): \t %.3f, %.3f" % confide
 \textbf{Exercise 10.13.8}. Find the Fisher information matrix for
 Example 10.29:
 
-Let \(X_1, \dots, X_n \sim N(\mu, \sigma^2)\).
+Let \(X_{1}, \dots, X_{n} \sim N(\mu, \sigma^{2})\).
 
 \textbf{Solution} The log likelihood is:
 
-\[\ell_n = \sum_i \log f(x; (\mu, \sigma))
-= n \left[ \log \left( \frac{1}{\sigma \sqrt{2 \pi}} \right) + \left( -\frac{1}{2} \left(\frac{x - \mu}{\sigma} \right)^2\right) \right]\]
+\[\ell_{n} = \sum_{i} \log f(x; (\mu, \sigma))
+= n \left[ \log \left( \frac{1}{\sigma \sqrt{2 \pi}} \right) + \left( -\frac{1}{2} \left(\frac{x - \mu}{\sigma} \right)^{2}\right) \right]\]
 
 From this,
 
-\[H_{11} = \frac{\partial^2 \ell_n}{\partial \mu^2} = -\frac{n}{\sigma^2}\]
-\[H_{22} = \frac{\partial^2 \ell_n}{\partial \sigma^2} = -\frac{n}{\sigma^2} - \frac{n}{\sigma^2} = -\frac{2n}{\sigma^2}\]
-\[H_{12} = H_{21} = \frac{\partial^2 \ell_n}{\partial \mu \partial \sigma} = 0\]
+\[H_{11} = \frac{\partial^{2} \ell_{n}}{\partial \mu^{2}} = -\frac{n}{\sigma^{2}}\]
+\[H_{22} = \frac{\partial^{2} \ell_{n}}{\partial \sigma^{2}} = -\frac{n}{\sigma^{2}} - \frac{n}{\sigma^{2}} = -\frac{2n}{\sigma^{2}}\]
+\[H_{12} = H_{21} = \frac{\partial^{2} \ell_{n}}{\partial \mu \partial \sigma} = 0\]
 
 So the Fisher Information Matrix is
 
@@ -1260,8 +1269,8 @@ So the Fisher Information Matrix is
 \mathbb{E}[H_{11}] & \mathbb{E}[H_{12}] \\
 \mathbb{E}[H_{21}] & \mathbb{E}[H_{22}]
 \end{bmatrix} = \begin{bmatrix}
-\frac{n}{\sigma^2} & 0 \\
-0 & \frac{2n}{\sigma^2}
+\frac{n}{\sigma^{2}} & 0 \\
+0 & \frac{2n}{\sigma^{2}}
 \end{bmatrix}\]
 
 \textbf{Exercises 10.13.9 and 10.13.10}. See final exercises from

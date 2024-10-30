@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Selected hyperparameter k: 1
+Cross\PYGZhy{}validation accuracy: 0.913
+\end{MintedVerbatim}

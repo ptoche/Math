@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{1000}
+\PYG{n}{X} \PYG{o}{=} \PYG{n}{generate\PYGZus{}samples}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+\end{MintedVerbatim}

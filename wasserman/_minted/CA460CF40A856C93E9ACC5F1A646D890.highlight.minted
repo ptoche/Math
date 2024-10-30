@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{tree} \PYG{k+kn}{import} \PYG{n}{DecisionTreeClassifier}
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{ensemble} \PYG{k+kn}{import} \PYG{n}{AdaBoostClassifier}
+
+\PYG{k}{def} \PYG{n+nf}{run\PYGZus{}boosting\PYGZus{}classifier}\PYG{p}{(}\PYG{n}{n\PYGZus{}estimators}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{tree\PYGZus{}classifier} \PYG{o}{=} \PYG{n}{DecisionTreeClassifier}\PYG{p}{(}\PYG{n}{max\PYGZus{}depth}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{n}{boosting\PYGZus{}classifier} \PYG{o}{=} \PYG{n}{AdaBoostClassifier}\PYG{p}{(}\PYG{n}{base\PYGZus{}estimator}\PYG{o}{=}\PYG{n}{tree\PYGZus{}classifier}\PYG{p}{,} \PYG{n}{n\PYGZus{}estimators}\PYG{o}{=}\PYG{n}{n\PYGZus{}estimators}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{run\PYGZus{}classifier\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{k}\PYG{p}{\PYGZcb{}}\PYG{n}{fold}\PYG{p}{(}\PYG{n}{boosting\PYGZus{}classifier}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{n\PYGZus{}splits}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{)}
+\end{MintedVerbatim}

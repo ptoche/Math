@@ -1,0 +1,31 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{j\PYGZus{}hat\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{adaraya\PYGZus{}watson}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{h}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Approximates the risk on a regression using the Nadaraya\PYGZhy{}Watson kernel estimator:}
+
+\PYG{l+s+sd}{      \PYGZbs{}hat\PYGZob{}J\PYGZcb{}(h) = \PYGZbs{}sum\PYGZus{}\PYGZob{}i=1\PYGZcb{}\PYGZca{}\PYGZob{}n\PYGZcb{} (Y\PYGZus{}\PYGZob{}i\PYGZcb{} \PYGZhy{} \PYGZbs{}hat\PYGZob{}r\PYGZcb{}(x\PYGZus{}\PYGZob{}i\PYGZcb{}))\PYGZca{}\PYGZob{}2\PYGZcb{} ( 1 \PYGZhy{} \PYGZbs{}frac\PYGZob{}K(0)\PYGZcb{}\PYGZob{}\PYGZbs{}sum\PYGZus{}\PYGZob{}j=1\PYGZcb{}\PYGZca{}\PYGZob{}n\PYGZcb{} K( \PYGZbs{}frac\PYGZob{}x\PYGZus{}\PYGZob{}i\PYGZcb{} \PYGZhy{} x\PYGZus{}\PYGZob{}j\PYGZcb{}\PYGZcb{}\PYGZob{}h\PYGZcb{} )\PYGZcb{} )\PYGZca{}\PYGZob{}\PYGZhy{}2\PYGZcb{}}
+
+\PYG{l+s+sd}{    where:}
+\PYG{l+s+sd}{      Y\PYGZus{}\PYGZob{}i\PYGZcb{} is the i\PYGZhy{}th target point}
+\PYG{l+s+sd}{      \PYGZbs{}hat\PYGZob{}r\PYGZcb{}(x\PYGZus{}\PYGZob{}i\PYGZcb{}) is the estimated regressed value for the i\PYGZhy{}th point}
+\PYG{l+s+sd}{      K is the regression kernel (assumed to be N(0, 1))}
+\PYG{l+s+sd}{      h is the regression bandwidth}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{XX} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{repeat}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{to\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{umpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{n}{K\PYGZus{}values} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{pdf}\PYG{p}{(}\PYG{p}{(}\PYG{n}{XX} \PYG{o}{\PYGZhy{}} \PYG{n}{X}\PYG{o}{.}\PYG{n}{to\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{umpy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{h}\PYG{p}{)}
+    \PYG{n}{K\PYGZus{}values\PYGZus{}sum} \PYG{o}{=} \PYG{n}{K\PYGZus{}values}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} W\PYGZus{}\PYGZob{}i\PYGZcb{}j = w\PYGZus{}\PYGZob{}i\PYGZcb{}(x\PYGZus{}\PYGZob{}j\PYGZcb{})}
+    \PYG{n}{W} \PYG{o}{=} \PYG{n}{K\PYGZus{}values} \PYG{o}{/} \PYG{n}{K\PYGZus{}values\PYGZus{}sum}
+
+    \PYG{c+c1}{\PYGZsh{} R\PYGZus{}\PYGZob{}j\PYGZcb{} = \PYGZbs{}sum\PYGZus{}\PYGZob{}i\PYGZcb{} W\PYGZus{}\PYGZob{}j\PYGZcb{}i Y\PYGZus{}\PYGZob{}i\PYGZcb{}}
+    \PYG{n}{R} \PYG{o}{=} \PYG{n}{W}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{Y}
+
+    \PYG{n}{terms} \PYG{o}{=} \PYG{p}{(}\PYG{p}{(}\PYG{n}{Y} \PYG{o}{\PYGZhy{}} \PYG{n}{R}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{norm}\PYG{o}{.}\PYG{n}{pdf}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{/} \PYG{n}{K\PYGZus{}values\PYGZus{}sum}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}
+
+    \PYG{c+c1}{\PYGZsh{} Skip NaNs due to zero denominators}
+    \PYG{k}{if} \PYG{n}{np}\PYG{o}{.}\PYG{n}{isnan}\PYG{p}{(}\PYG{n}{terms}\PYG{p}{)}\PYG{o}{.}\PYG{n}{any}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{nan}
+
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{terms}\PYG{p}{)}
+\end{MintedVerbatim}

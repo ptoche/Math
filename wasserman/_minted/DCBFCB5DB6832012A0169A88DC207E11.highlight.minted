@@ -1,0 +1,21 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{sympy}
+\PYG{k+kn}{from} \PYG{n+nn}{sympy}\PYG{n+nn}{.}\PYG{n+nn}{abc} \PYG{k+kn}{import} \PYG{n}{x}
+\PYG{k+kn}{from} \PYG{n+nn}{functools} \PYG{k+kn}{import} \PYG{n}{lru\PYGZus{}cache}
+
+\PYG{n+nd}{@lru\PYGZus{}cache}\PYG{p}{(}\PYG{n}{maxsize}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{legendre\PYGZus{}polynomial}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+m+mi}{1}
+    \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{x}
+
+    \PYG{k}{return} \PYG{n}{sympy}\PYG{o}{.}\PYG{n}{expand}\PYG{p}{(}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{j} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{x} \PYG{o}{*} \PYG{n}{legendre\PYGZus{}polynomial}\PYG{p}{(}\PYG{n}{j} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{j} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{legendre\PYGZus{}polynomial}\PYG{p}{(}\PYG{n}{j} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{j}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{legendre\PYGZus{}basis}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones\PYGZus{}like}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+
+    \PYG{n}{pj} \PYG{o}{=} \PYG{n}{legendre\PYGZus{}polynomial}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{sympy}\PYG{o}{.}\PYG{n}{lambdify}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{sympy}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{pj}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{numpy}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{MintedVerbatim}

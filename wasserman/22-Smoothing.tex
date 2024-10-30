@@ -1,30 +1,30 @@
-\subsection{22. Smoothing Using Orthogonal Functions}\label{smoothing-using-orthogonal-functions}
+\section*{22. Smoothing Using Orthogonal Functions}\label{smoothing-using-orthogonal-functions}
 
-    In this Chapter we study a different approach to nonparametric curve
+In this Chapter we study a different approach to nonparametric curve
 estimation based on \textbf{orthogonal functions}. We begin with a brief
 introduction to the theory of orthogonal functions. Then we turn to
 density estimation and regression.
 
-\subsubsection{\texorpdfstring{22.1 Orthogonal Functions and \(L_2\) Spaces}{22.1 Orthogonal Functions and L\_2 Spaces}}\label{orthogonal-functions-and-l_2-spaces}
+\subsection*{\texorpdfstring{22.1 Orthogonal Functions and \(L_{2}\) Spaces}{22.1 Orthogonal Functions and L\_{2} Spaces}}\label{orthogonal-functions-and-l_{2}-spaces}
 
-    Let \(v = (v_1, v_2, v_3)\) denote a three dimensional vector. Let
+Let \(v = (v_{1}, v_{2}, v_{3})\) denote a three dimensional vector. Let
 \(\mathcal{V}\) denote the set of all such vectors.
 
 \begin{itemize}[tightlist]
 \item
   If \(a\) is a scalar and \(v\) is a vector, we define
-  \(av = (av_1, av_2, av_3)\).
+  \(av = (av_{1}, av_{2}, av_{3})\).
 \item
   The sum of vectors \(v\) and \(w\) is defined as
-  \(v + w = (v_1 + w_1, v_2 + w_2, v_3 + w_3)\).
+  \(v + w = (v_{1} + w_{1}, v_{2} + w_{2}, v_{3} + w_{3})\).
 \item
   The \textbf{inner product} between vectors \(v\) and \(w\) is defined
-  by \(\langle v, w \rangle = \sum_i v_i w_i\).
+  by \(\langle v, w \rangle = \sum_{i} v_{i} w_{i}\).
 \item
   The \textbf{norm} (or \textbf{length}) of a vector is defined by
 \end{itemize}
 
-\[ \Vert v \Vert = \sqrt{\langle v, v \rangle} = \sqrt{\sum_i v_i^2 }\]
+\[ \Vert v \Vert = \sqrt{\langle v, v \rangle} = \sqrt{\sum_{i} v_{i}^{2} }\]
 
 \begin{itemize}[tightlist]
 \item
@@ -36,8 +36,8 @@ density estimation and regression.
   A vector is \textbf{normal} if \(\Vert v \Vert = 1\).
 \end{itemize}
 
-Let \(\phi_1 = (1, 0, 0)\), \(\phi_2 = (0, 1, 0)\),
-\(\phi_3 = (0, 0, 1)\). These vectors are said to be an
+Let \(\phi_{1} = (1, 0, 0)\), \(\phi_{2} = (0, 1, 0)\),
+\(\phi_{3} = (0, 0, 1)\). These vectors are said to be an
 \textbf{orthonormal basis} for \(\mathcal{V}\) since they have the
 following properties:
 
@@ -49,40 +49,40 @@ following properties:
 \item
   they form a basis for \(\mathcal{V}\), that is, if
   \(v \in \mathcal{V}\) then \(v\) can be written as a linear
-  combination of \(\phi_i\),
+  combination of \(\phi_{i}\),
 \end{itemize}
 
-\[v = \sum_i \beta_i \phi_i
-\quad \text{where } \beta_i = \langle \phi_i, v \rangle\]
+\[v = \sum_{i} \beta_{i} \phi_{i}
+\quad \text{where } \beta_{i} = \langle \phi_{i}, v \rangle\]
 
 There are other orthonormal basis for \(\mathcal{V}\), for example
 
-\[ \psi_1 = \left( \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} , \frac{1}{\sqrt{3}} \right),
+\[ \psi_{1} = \left( \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} , \frac{1}{\sqrt{3}} \right),
 \quad
-\psi_2 = \left( \frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} , 0 \right),
+\psi_{2} = \left( \frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} , 0 \right),
 \quad
-\psi_3 = \left( \frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}} , -\frac{2}{\sqrt{6}} \right)
+\psi_{3} = \left( \frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}} , -\frac{2}{\sqrt{6}} \right)
 \]
 
 Now we make the leap from vectors to functions. Basically, we just
 replace vectors with functions and sums with integrals.
 
-Let \(L_2(a, b)\) denote all functions defined on the interval
-\([a, b]\) such that \(\int_a^b f(x)^2 dx < \infty\):
+Let \(L_{2}(a, b)\) denote all functions defined on the interval
+\([a, b]\) such that \(\int_a^{b} f(x)^{2} dx < \infty\):
 
-\[ L_2(a, b) = \left\{ f: [a, b] \rightarrow \mathbb{R} , \int_a^b f(x)^2 < \infty \right\} \]
+\[ L_{2}(a, b) = \left\{ f: [a, b] \rightarrow \mathbb{R} , \int_a^{b} f(x)^{2} < \infty \right\} \]
 
-We sometimes write \(L_2\) instead of \(L_2(a, b)\).
+We sometimes write \(L_{2}\) instead of \(L_{2}(a, b)\).
 
 \begin{itemize}[tightlist]
 \item
-  The inner product between two functions \(f, g \in L_2\) is
+  The inner product between two functions \(f, g \in L_{2}\) is
   \(\langle f, g \rangle = \int f(x) g(x) dx\).
 \item
   The norm of \(f\) is
 \end{itemize}
 
-\[ \Vert f \Vert = \sqrt{\int f(x)^2 dx} \]
+\[ \Vert f \Vert = \sqrt{\int f(x)^{2} dx} \]
 
 \begin{itemize}[tightlist]
 \item
@@ -90,27 +90,27 @@ We sometimes write \(L_2\) instead of \(L_2(a, b)\).
 \item
   A function is normal if \(\Vert f \Vert = 1\).
 \item
-  A sequence of functions \(\phi_1, \phi_2, \phi_3, \dots\) is
-  \textbf{orthonormal} if \(|| \phi_i || = 1\) for each \(i\) and
-  \(\langle \phi_i, \phi_j \rangle = 0\) for \(i \neq j\).
+  A sequence of functions \(\phi_{1}, \phi_{2}, \phi_{3}, \dots\) is
+  \textbf{orthonormal} if \(|| \phi_{i} || = 1\) for each \(i\) and
+  \(\langle \phi_{i}, \phi_{j} \rangle = 0\) for \(i \neq j\).
 \item
   An orthonormal sequence is \textbf{complete} if the only function that
-  is orthogonal to each \(\phi_i\) is the zero function. In that case,
-  the functions \(\phi_1, \phi_2, \phi_3, \dots\) for a basis, meaning
-  that if \(f \in L_2\) then \(f\) can be written as
+  is orthogonal to each \(\phi_{i}\) is the zero function. In that case,
+  the functions \(\phi_{1}, \phi_{2}, \phi_{3}, \dots\) for a basis, meaning
+  that if \(f \in L_{2}\) then \(f\) can be written as
 \end{itemize}
 
-\[ f(x) = \sum_{j=1}^\infty \beta_j \phi_j(x)
-\quad \text{where } \beta_j = \int_a^b f(x) \phi_j(x) dx \]
+\[ f(x) = \sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x)
+\quad \text{where } \beta_{j} = \int_a^{b} f(x) \phi_{j}(x) dx \]
 
 \textbf{Parseval's relation} says that
 
-\[ \Vert f \Vert^2 \equiv \int f^2(x) dx = \sum_{j=1}^\infty \beta_j^2 \equiv \Vert \beta \Vert^2\]
+\[ \Vert f \Vert^{2} \equiv \int f^{2}(x) dx = \sum_{j=1}^{\infty} \beta_{j}^{2} \equiv \Vert \beta \Vert^{2}\]
 
-The \textbf{cosine basis} is defined as follows: Let \(\phi_1(x) = 1\)
+The \textbf{cosine basis} is defined as follows: Let \(\phi_{1}(x) = 1\)
 and for \(j \geq 2\) define
 
-\[\phi_j(x) = \sqrt{2} \cos \left( (j - 1) \pi x\right)\]
+\[\phi_{j}(x) = \sqrt{2} \cos \left( (j - 1) \pi x\right)\]
 
 The first ten functions are plotted below.
 
@@ -146,38 +146,37 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-01}
+\centering
+\includegraphics{Figure-22-01}
 \end{figure}
 
 The \textbf{Legendre polynomials} on \([-1, 1]\) are defined by
 
-\[ P_j(x) = \frac{1}{2^i j!} \frac{d^j}{dx^j} (x^2 - 1)^j, \quad j = 0, 1, 2, \dots \]
+\[ P_{j}(x) = \frac{1}{2^{i} j!} \frac{d^{j}}{dx^{j}} (x^{2} - 1)^{j}, \quad j = 0, 1, 2, \dots \]
 
 It can be shown that these functions are complete and orthogonal, and
 that
 
-\[ \int_{-1}^1 P_j^2(x) dx = \frac{2}{2j + 1}\]
+\[ \int_{-1}^{1} P_{j}^{2}(x) dx = \frac{2}{2j + 1}\]
 
 It follows that the functions
 
-\[ \phi_j(x) = \sqrt{\frac{2j + 1}{2}}P_j(x), \quad j = 0, 1, 2, \dots \]
+\[ \phi_{j}(x) = \sqrt{\frac{2j + 1}{2}}P_{j}(x), \quad j = 0, 1, 2, \dots \]
 
-form an orthonormal basis for \(L_2[-1, 1]\). The first few Legendre
+form an orthonormal basis for \(L_{2}[-1, 1]\). The first few Legendre
 polynomials are
 
-\[
-\begin{align}
-P_0(x) &= 1 \\
-P_1(x) &= x \\
-P_2(x) &= \frac{1}{2}\left( 3x^2 - 1 \right) \\
-P_3(x) &= \frac{1}{2}\left( 5x^3 - 3x \right)
-\end{align}
-\]
+\begin{align*}
+P_{0}(x) &= 1 \\
+P_{1}(x) &= x \\
+P_{2}(x) &= \frac{1}{2}\left( 3x^{2} - 1 \right) \\
+P_{3}(x) &= \frac{1}{2}\left( 5x^{3} - 3x \right)
+\end{align*}
 
 These polynomials may be constructed explicitly using the following
 recursive relation:
 
-\[ P_{j+1}(x) = \frac{(2j + 1) x P_j(x) - j P_{j - 1}(x)}{j + 1} \]
+\[ P_{j+1}(x) = \frac{(2j + 1) x P_{j}(x) - j P_{j - 1}(x)}{j + 1} \]
 
 \begin{python}
 import sympy
@@ -219,67 +218,68 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-02}
+\centering
+\includegraphics{Figure-22-02}
 \end{figure}
 
-The coefficients \(\beta_1, \beta_2, \dots\) are related to the
+The coefficients \(\beta_{1}, \beta_{2}, \dots\) are related to the
 smoothness of the function \(f\). To see why note that, if \(f\) is
 smooth, then its derivative will be finite. Thus we expect that, for
-some \(k\), \(\int_0^1 (f^{(k)}(x))^2 dx < \infty\), where \(f^{(k)}\)
+some \(k\), \(\int_{0}^{1} (f^{(k)}(x))^{2} dx < \infty\), where \(f^{(k)}\)
 is the \(k\)-th derivative of \(f\).
 
 Now consider the cosine basis and let
-\(f(x) = \sum_{j=1}^\infty \beta_j \phi_j(x)\). Then,
+\(f(x) = \sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x)\). Then,
 
-\[ \int_0^1 (f^{(k)}(x))^2 dx = 2 \sum_{j=1}^\infty \beta_j^2 ( \pi (j - 1) ) ^{2k} \]
+\[ \int_{0}^{1} (f^{(k)}(x))^{2} dx = 2 \sum_{j=1}^{\infty} \beta_{j}^{2} ( \pi (j - 1) ) ^{2k} \]
 
-The only way the sum can be finite is if the \(\beta_j\)'s get small
+The only way the sum can be finite is if the \(\beta_{j}\)s get small
 when \(j\) gets large. To summarize:
 
 \textbf{If the function \(f\) is smooth then the coefficients
-\(\beta_j\) will be small when \(j\) is large.}
+\(\beta_{j}\) will be small when \(j\) is large.}
 
 For the rest of this chapter, we will assume we are using the cosine
 basis unless otherwise specified.
 
-\subsubsection{22.2 Density Estimation}\label{density-estimation}
+\subsection*{22.2 Density Estimation}\label{density-estimation}
 
-Let \(X_1, \dots, X_n\) be IID observations from a distribution on
-\([0, 1]\) with density \(f\). Assuming \(f \in L_2\) we can write
+Let \(X_{1}, \dots, X_{n}\) be IID observations from a distribution on
+\([0, 1]\) with density \(f\). Assuming \(f \in L_{2}\) we can write
 
-\[ f(x) = \sum_{j=1}^\infty \beta_j \phi_j(x) \]
+\[ f(x) = \sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x) \]
 
-where \(\phi_i\)s form an orthonormal basis. Define
+where \(\phi_{i}\)s form an orthonormal basis. Define
 
-\[ \hat{\beta}_j = \frac{1}{n} \sum_{i=1}^n \phi_j(X_i)\]
+\[ \hat{\beta}_{j} = \frac{1}{n} \sum_{i=1}^{n} \phi_{j}(X_{i})\]
 
-\textbf{Theorem 22.4}. The mean and variance of the \(\hat{\beta}_j\)
+\textbf{Theorem 22.4}. The mean and variance of the \(\hat{\beta}_{j}\)
 are
 
 \[
-\mathbb{E}(\hat{\beta}_j) = \beta_j
+\mathbb{E}(\hat{\beta}_{j}) = \beta_{j}
 \quad \text{and} \quad
-\mathbb{V}(\hat{\beta}_j) = \frac{\sigma_j^2}{n}
+\mathbb{V}(\hat{\beta}_{j}) = \frac{\sigma_{j}^{2}}{n}
 \]
 
 where
 
-\[ \sigma_j^2 = \mathbb{V}(\phi_j(X_i)) = \int \left( \phi_j(x) - \beta_j\right)^2f(x) dx\]
+\[ \sigma_{j}^{2} = \mathbb{V}(\phi_{j}(X_{i})) = \int \left( \phi_{j}(x) - \beta_{j}\right)^{2}f(x) dx\]
 
 \textbf{Proof}. We have
 
-\[ \mathbb{E}(\hat{\beta}_j) = \frac{1}{n} \sum_{i=1}^n \mathbb{E}(\phi_j(X_i)) = \mathbb{E}(\phi_j(X_1))  = \int \phi_j(x) f(x) dx = \beta_j\]
+\[ \mathbb{E}(\hat{\beta}_{j}) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{E}(\phi_{j}(X_{i})) = \mathbb{E}(\phi_{j}(X_{1}))  = \int \phi_{j}(x) f(x) dx = \beta_{j}\]
 
 The calculation for variance is similar:
 
-\[ \mathbb{V}(\hat{\beta}_j) = \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}(\phi_j(X_i)) = \frac{1}{n} \mathbb{V}(\phi_j(X_1)) = \frac{1}{n} \int \left( \phi_j(x) - \beta_j\right)^2f(x) dx \]
+\[ \mathbb{V}(\hat{\beta}_{j}) = \frac{1}{n^{2}} \sum_{i=1}^{n} \mathbb{V}(\phi_{j}(X_{i})) = \frac{1}{n} \mathbb{V}(\phi_{j}(X_{1})) = \frac{1}{n} \int \left( \phi_{j}(x) - \beta_{j}\right)^{2}f(x) dx \]
 
-Hence, \(\hat{\beta}_j\) is an unbiased estimate of \(\beta_j\). It is
+Hence, \(\hat{\beta}_{j}\) is an unbiased estimate of \(\beta_{j}\). It is
 tempting to estimate \(f\) by
-\(\sum_{i=1}^\infty \hat{\beta}_j \phi_j(x)\) but it turns out to have a
+\(\sum_{i=1}^{\infty} \hat{\beta}_{j} \phi_{j}(x)\) but it turns out to have a
 very high variance. Instead, consider the estimator
 
-\[ \hat{f}(x) = \sum_{i=1}^J \hat{\beta}_j \phi_j(x) \]
+\[ \hat{f}(x) = \sum_{i=1}^J \hat{\beta}_{j} \phi_{j}(x) \]
 
 The number of terms \(J\) is a smoothing parameter. Increasing \(J\)
 will decrease bias while increasing variance. For technical reasons, we
@@ -289,22 +289,22 @@ function on \(J\), we write the risk function as \(R(J)\).
 
 \textbf{Theorem 22.5}. The risk of \(\hat{f}\) is given by
 
-\[ R(J) = \sum_{j=1}^J \frac{\sigma_j^2}{J} + \sum_{j=J+1}^\infty \beta_j^2 \]
+\[ R(J) = \sum_{j=1}^J \frac{\sigma_{j}^{2}}{J} + \sum_{j=J+1}^{\infty} \beta_{j}^{2} \]
 
 In kernel estimation, we used cross-validation to estimate the risk. In
 the orthogonal function approach, we instead use the risk estimator
 
-\[ \hat{R}(J) = \sum_{j=1}^J \frac{\hat{\sigma}_j^2}{n} + \sum_{j=J+1}^p \left( \hat{\beta}_j^2 - \frac{\hat{\sigma}_j^2}{n} \right)_{+}\]
+\[ \hat{R}(J) = \sum_{j=1}^J \frac{\hat{\sigma}_{j}^{2}}{n} + \sum_{j=J+1}^p \left( \hat{\beta}_{j}^{2} - \frac{\hat{\sigma}_{j}^{2}}{n} \right)_{+}\]
 
 where \(a_{+} = \max \{ a, 0 \}\) and
 
-\[ \hat{\sigma}_j^2 = \frac{1}{n - 1} \sum_{i=1}^n \left( \phi_j(X_i) - \hat{\beta}_j\right)^2 \]
+\[ \hat{\sigma}_{j}^{2} = \frac{1}{n - 1} \sum_{i=1}^{n} \left( \phi_{j}(X_{i}) - \hat{\beta}_{j}\right)^{2} \]
 
-To motivate this estimator, note that \(\hat{\sigma}_j^2\) is an
-unbiased estimator of \(\sigma^2\) and
-\(\hat{\beta}_j^2 - \hat{\sigma}_j^2 / n\) is an unbiased estimator of
-\(\beta_j^2\). We take the positive part of the later term since we know
-\(\beta_j^2\) cannot be negative. We now choose
+To motivate this estimator, note that \(\hat{\sigma}_{j}^{2}\) is an
+unbiased estimator of \(\sigma^{2}\) and
+\(\hat{\beta}_{j}^{2} - \hat{\sigma}_{j}^{2} / n\) is an unbiased estimator of
+\(\beta_{j}^{2}\). We take the positive part of the later term since we know
+\(\beta_{j}^{2}\) cannot be negative. We now choose
 \(1 \leq \hat{J} \leq p\) to minimize the risk estimator \(\hat{R}(J)\).
 
 \textbf{Summary of Orthogonal Function Density Estimation}
@@ -314,7 +314,7 @@ unbiased estimator of \(\sigma^2\) and
   Let
 \end{enumerate}
 
-\[ \hat{\beta}_j = \frac{1}{n} \sum_{i=1}^n \phi_j(X_i) \]
+\[ \hat{\beta}_{j} = \frac{1}{n} \sum_{i=1}^{n} \phi_{j}(X_{i}) \]
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
@@ -322,134 +322,134 @@ unbiased estimator of \(\sigma^2\) and
   \(1 \leq J \leq p = \sqrt{n}\) where
 \end{enumerate}
 
-\[ \hat{R}(J) = \sum_{j=1}^J \frac{\hat{\sigma}_j^2}{n} + \sum_{j=J+1}^p \left( \hat{\beta}_j^2 - \frac{\hat{\sigma}_j^2}{n} \right)_{+}\]
+\[ \hat{R}(J) = \sum_{j=1}^J \frac{\hat{\sigma}_{j}^{2}}{n} + \sum_{j=J+1}^p \left( \hat{\beta}_{j}^{2} - \frac{\hat{\sigma}_{j}^{2}}{n} \right)_{+}\]
 
 and
 
-\[ \hat{\sigma}_j^2 = \frac{1}{n - 1} \sum_{i=1}^n \left( \phi_j(X_i) - \hat{\beta}_j\right)^2 \]
+\[ \hat{\sigma}_{j}^{2} = \frac{1}{n - 1} \sum_{i=1}^{n} \left( \phi_{j}(X_{i}) - \hat{\beta}_{j}\right)^{2} \]
 
 \begin{enumerate}[tightlist,label={\arabic*.},resume]
 \item
   Let
 \end{enumerate}
 
-\[ \hat{f}(x) = \sum_{j=1}^\hat{J} \hat{\beta}_j \phi_j(x) \]
+\[ \hat{f}(x) = \sum_{j=1}^\hat{J} \hat{\beta}_{j} \phi_{j}(x) \]
 
-The estimator \(\hat{f}_n\) can be negative. If we are interested in
+The estimator \(\hat{f}_{n}\) can be negative. If we are interested in
 estimating the shape of \(f\), this is not a problem. However, if we
 need the estimate to be a probability density function, we can truncate
 the estimate and then normalize it:\\
-\[\hat{f}^*(x) = \frac{\max \{ \hat{f}_n(x), 0 \}}{\int_0^1 \max \{ \hat{f}_n(u), 0 \} du}\]
+\[\hat{f}^*(x) = \frac{\max \{ \hat{f}_{n}(x), 0 \}}{\int_{0}^{1} \max \{ \hat{f}_{n}(u), 0 \} du}\]
 
 Now, let us construct a confidence band for \(f\). Suppose we estimate
 \(f\) using \(J\) orthogonal functions. We are essentially estimating
-\(\overline{f}(x) = \sum_{j=1}^J \beta_j \phi_j(x)\) instead of the true
-density \(f(x) = \sum_{j=1}^\infty \beta_j \phi_j(x)\). Thus the
+\(\overline{f}(x) = \sum_{j=1}^J \beta_{j} \phi_{j}(x)\) instead of the true
+density \(f(x) = \sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x)\). Thus the
 confidence band should be regarded as a band for \(\overline{f}(x)\).
 
 \textbf{Theorem 22.6}. An approximate \(1 - \alpha\) confidence band for
 \(\overline{f}\) is \((\ell(x), u(x))\) where
 
 \[
-\ell(x) = \hat{f}_n(x) - c
+\ell(x) = \hat{f}_{n}(x) - c
 \quad \text{and} \quad
-u(x) = \hat{f}_n(x) + x
+u(x) = \hat{f}_{n}(x) + x
 \]
 
 where
 
-\[ c = \frac{JK^2}{\sqrt{n}} \sqrt{1 + \frac{\sqrt{2} z_{\alpha}}{\sqrt{J}}} \]
+\[ c = \frac{JK^{2}}{\sqrt{n}} \sqrt{1 + \frac{\sqrt{2} z_{\alpha}}{\sqrt{J}}} \]
 
 and
 
-\[ K = \max_{1 \leq j \leq J} \max_x | \phi_j(x) | \]
+\[ K = \max_{1 \leq j \leq J} \max_x | \phi_{j}(x) | \]
 
 For the cosine basis, \(K = \sqrt{2}\).
 
-\subsubsection{22.3 Regression}\label{regression}
+\subsection*{22.3 Regression}\label{regression}
 
 Consider the regression model
 
-\[ Y_i = r(x_i) + \epsilon_i, \quad i = 1, \dots, n\]
+\[ Y_{i} = r(x_{i}) + \epsilon_{i}, \quad i = 1, \dots, n\]
 
-where \(\epsilon_i\) are independent with mean 0 and variance
-\(\sigma^2\). We will initially focus on the special case where
-\(x_i = i / n\). We assume that \(r \in L_2[0, 1]\) and hence we can
+where \(\epsilon_{i}\) are independent with mean 0 and variance
+\(\sigma^{2}\). We will initially focus on the special case where
+\(x_{i} = i / n\). We assume that \(r \in L_{2}[0, 1]\) and hence we can
 write
 
 \[
-r(x) = \sum_{j=1}^\infty \beta_j \phi_j(x)
-\quad \text{where } \beta_j = \int_0^1 r(x) \phi_j(x) dx
+r(x) = \sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x)
+\quad \text{where } \beta_{j} = \int_{0}^{1} r(x) \phi_{j}(x) dx
 \]
 
-where \(\phi_1, \phi_2, \dots\) is an orthonormal basis for \([0, 1]\).
+where \(\phi_{1}, \phi_{2}, \dots\) is an orthonormal basis for \([0, 1]\).
 
 Define
 
-\[ \hat{\beta}_j = \frac{1}{n} \sum_{i=1}^n Y_i \phi_j(x), 
+\[ \hat{\beta}_{j} = \frac{1}{n} \sum_{i=1}^{n} Y_{i} \phi_{j}(x), 
 \quad j = 1, 2, \dots\]
 
-Since \(\hat{\beta}_j\) is an average, the central limit theorem tells
-us that \(\hat{\beta}_j\) will be approximately normally distributed.
+Since \(\hat{\beta}_{j}\) is an average, the central limit Theorem tells
+us that \(\hat{\beta}_{j}\) will be approximately normally distributed.
 
 \textbf{Theorem 22.8}.
 
-\[ \hat{\beta}_j \approx N \left( \beta_j, \frac{\sigma^2}{n} \right) \]
+\[ \hat{\beta}_{j} \approx N \left( \beta_{j}, \frac{\sigma^{2}}{n} \right) \]
 
-\textbf{Proof}. The mean of \(\hat{\beta}_j\) is
+\textbf{Proof}. The mean of \(\hat{\beta}_{j}\) is
 
-\[ \mathbb{E}(\hat{\beta}_j) = \frac{1}{n} \sum_{i=1}^n \mathbb{E}(Y_i) \phi_j(x_i) = \frac{1}{n} \sum_{i=1}^n r(x_i) \phi_j(x_i) \approx \int r(x) \phi_j(x) dx = \beta_j\]
+\[ \mathbb{E}(\hat{\beta}_{j}) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{E}(Y_{i}) \phi_{j}(x_{i}) = \frac{1}{n} \sum_{i=1}^{n} r(x_{i}) \phi_{j}(x_{i}) \approx \int r(x) \phi_{j}(x) dx = \beta_{j}\]
 
 where the approximate equality follows from the definition of a Riemann
-integral: \(\sum_i h(x_i) / n \rightarrow \int_0^1 h(x) dx\).
+integral: \(\sum_{i} h(x_{i}) / n \rightarrow \int_{0}^{1} h(x) dx\).
 
 The variance is
 
-\[ \mathbb{V}(\hat{\beta}_j) = \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}(Y_i) \phi_j(x_i) = \frac{\sigma^2}{n} \left( \frac{1}{n} \sum_{i=1}^n \phi_j^2(x_i) \right) \approx \frac{\sigma^2}{n} \left( \int \phi_j^2(x) dx \right) = \frac{\sigma^2}{n}\]
+\[ \mathbb{V}(\hat{\beta}_{j}) = \frac{1}{n^{2}} \sum_{i=1}^{n} \mathbb{V}(Y_{i}) \phi_{j}(x_{i}) = \frac{\sigma^{2}}{n} \left( \frac{1}{n} \sum_{i=1}^{n} \phi_{j}^{2}(x_{i}) \right) \approx \frac{\sigma^{2}}{n} \left( \int \phi_{j}^{2}(x) dx \right) = \frac{\sigma^{2}}{n}\]
 
-since \(\phi_j\) has norm 1.
+since \(\phi_{j}\) has norm 1.
 
 As we did for density estimation, we will estimate \(r\) by
 
-\[ \hat{r}(x) = \sum_{j=1}^J \hat{\beta}_j \phi_j(x) \]
+\[ \hat{r}(x) = \sum_{j=1}^J \hat{\beta}_{j} \phi_{j}(x) \]
 
 Let
 
-\[ R(J) = \mathbb{E} \int (r(x) - \hat{r}(x))^2 dx \]
+\[ R(J) = \mathbb{E} \int (r(x) - \hat{r}(x))^{2} dx \]
 
 be the risk of the estimator.
 
-\textbf{Theorem 22.9}. The risk \(R(J)\) of the estimator \$ \hat{r}(x)
-= \sum\_\{j=1\}\^{}J \hat{\beta}\_j \phi\_j(x) \$ is
+\textbf{Theorem 22.9}. The risk \(R(J)\) of the estimator $ \hat{r}(x)
+= \sum\_\{j=1\}^{J} \hat{\beta}\_{j} \phi\_{j}(x) $ is
 
-\[ R(J) = \frac{J \sigma^2}{n} + \sum_{j=J+1}^\infty \beta_j^2 \]
+\[ R(J) = \frac{J \sigma^{2}}{n} + \sum_{j=J+1}^{\infty} \beta_{j}^{2} \]
 
-To motivate the estimator \(\sigma^2 = \mathbb{V}(\epsilon_i)\) we use
+To motivate the estimator \(\sigma^{2} = \mathbb{V}(\epsilon_{i})\) we use
 
-\[ \hat{\sigma}^2 = \frac{n}{k} \sum_{i=n - k + 1}^n \hat{\beta}_j^2 \]
+\[ \hat{\sigma}^{2} = \frac{n}{k} \sum_{i=n - k + 1}^{n} \hat{\beta}_{j}^{2} \]
 
 where \(k = n / 4\). To motivate this estimator, recall that if \(f\) is
-smooth then \(\beta_j \approx 0\) for large \(j\). So, for \(j \geq k\),
-\(\hat{\beta}_j \approx N(0, \sigma^2 / n)\). So
-\(\hat{\beta}_j \approx \sigma Z_j / \sqrt{n}\) for \(j \geq k\), where
-\(Z_j \sim N(0, 1)\). Therefore,
+smooth then \(\beta_{j} \approx 0\) for large \(j\). So, for \(j \geq k\),
+\(\hat{\beta}_{j} \approx N(0, \sigma^{2} / n)\). So
+\(\hat{\beta}_{j} \approx \sigma Z_{j} / \sqrt{n}\) for \(j \geq k\), where
+\(Z_{j} \sim N(0, 1)\). Therefore,
 
-\[ \hat{\sigma}^2 = \frac{n}{k} \sum_{i=n-k+1}^k \hat{\beta}_j^2 \approx \frac{n}{k} \sum_{i=n-k+1}^k \left( \frac{\sigma}{\sqrt{n}} Z_j \right)^2 = \frac{\sigma^2}{k} \sum_{i=n-k+1}^k Z_j^2 = \frac{\sigma^2}{k} \chi_k^2\]
+\[ \hat{\sigma}^{2} = \frac{n}{k} \sum_{i=n-k+1}^{k} \hat{\beta}_{j}^{2} \approx \frac{n}{k} \sum_{i=n-k+1}^{k} \left( \frac{\sigma}{\sqrt{n}} Z_{j} \right)^{2} = \frac{\sigma^{2}}{k} \sum_{i=n-k+1}^{k} Z_{j}^{2} = \frac{\sigma^{2}}{k} \chi_{k}^{2}\]
 
 since a sum of \(k\) squares of independent standard normals has a
-\(\chi_k^2\) distribution. Now \(\mathbb{E}(\chi_k^2) = k\), leading to
-\(\mathbb{E}(\hat{\sigma}^2) \approx \sigma^2\). Also,
-\(\mathbb{V}(\chi_k^2) = 2k\) and so
-\(\mathbb{V}(\hat{\sigma}^2) \approx (\sigma^4 / k^2) 2k = 2\sigma^4 / k \rightarrow 0\)
-as \(n \rightarrow \infty\). Thus we expect \(\hat{\sigma}^2\) to be a
-consistent estimator of \(\sigma^2\).
+\(\chi_{k}^{2}\) distribution. Now \(\mathbb{E}(\chi_{k}^{2}) = k\), leading to
+\(\mathbb{E}(\hat{\sigma}^{2}) \approx \sigma^{2}\). Also,
+\(\mathbb{V}(\chi_{k}^{2}) = 2k\) and so
+\(\mathbb{V}(\hat{\sigma}^{2}) \approx (\sigma^{4} / k^{2}) 2k = 2\sigma^{4} / k \rightarrow 0\)
+as \(n \rightarrow \infty\). Thus we expect \(\hat{\sigma}^{2}\) to be a
+consistent estimator of \(\sigma^{2}\).
 
 There is nothing special about the choice of \(k = n / 4\); any \(k\)
 that increases with \(n\) at an appropriate rate would suffice.
 
 We estimate the risk with
 
-\[ \hat{R}(J) = J \frac{\hat{\sigma}^2}{n} + \sum_{j=J+1}^n \left(\hat{\beta}_j^2 - \frac{\hat{\sigma}^2}{n} \right)_{+} \]
+\[ \hat{R}(J) = J \frac{\hat{\sigma}^{2}}{n} + \sum_{j=J+1}^{n} \left(\hat{\beta}_{j}^{2} - \frac{\hat{\sigma}^{2}}{n} \right)_{+} \]
 
 We are now ready to give a complete description of the method which
 Beran (2000) calls REACT (Risk Estimation and Adaptation by Coordinate
@@ -462,14 +462,14 @@ Transformation).
   Let
 \end{enumerate}
 
-\[ \hat{\beta}_j = \frac{1}{n} \sum_{i=1}^n Y_i \phi_i(x_i), \quad j = 1, \dots, n\]
+\[ \hat{\beta}_{j} = \frac{1}{n} \sum_{i=1}^{n} Y_{i} \phi_{i}(x_{i}), \quad j = 1, \dots, n\]
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
   Let
 \end{enumerate}
 
-\[ \hat{\sigma}^2 = \frac{n}{k} \sum_{i=n-k+1}^n \hat{\beta}_j^2 \]
+\[ \hat{\sigma}^{2} = \frac{n}{k} \sum_{i=n-k+1}^{n} \hat{\beta}_{j}^{2} \]
 
 where \(k \approx n / 4\).
 
@@ -478,7 +478,7 @@ where \(k \approx n / 4\).
   For \(1 \leq J \leq n\), compute the risk estimate
 \end{enumerate}
 
-\[ \hat{R}(J) = J \frac{\hat{\sigma}^2}{n} + \sum_{j=J+1}^n \left(\hat{\beta}_j^2 - \frac{\hat{\sigma}^2}{n} \right)_{+} \]
+\[ \hat{R}(J) = J \frac{\hat{\sigma}^{2}}{n} + \sum_{j=J+1}^{n} \left(\hat{\beta}_{j}^{2} - \frac{\hat{\sigma}^{2}}{n} \right)_{+} \]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -489,42 +489,42 @@ where \(k \approx n / 4\).
   Let
 \end{enumerate}
 
-\[ \hat{f}(x) = \sum_{j=1}^J \hat{\beta}_j \phi_j(x) \]
+\[ \hat{f}(x) = \sum_{j=1}^J \hat{\beta}_{j} \phi_{j}(x) \]
 
 Finally, we turn to confidence bands. As before, these bands are not for
 the true regression function \(r(x)\), but for the smoothed version of
 the function
-\(\overline{r}(x) = \sum_{i=1}^\overline{J} \beta_j \phi_j(x)\).
+\(\overline{r}(x) = \sum_{i=1}^\overline{J} \beta_{j} \phi_{j}(x)\).
 
 \textbf{Theorem 22.11}. Suppose the estimate \(\hat{r}\) is based on
-\(J\) terms and \$\hat{\sigma}\^{}2 = \frac{n}{k} \sum\_\{i=n-k+1\}\^{}n
-\hat{\beta}\_j\^{}2 \$. Assume that \(J < n - k + 1\). An approximate
+\(J\) terms and $\hat{\sigma}^{2} = \frac{n}{k} \sum\_\{i=n-k+1\}^{n}
+\hat{\beta}\_{j}^{2} $. Assume that \(J < n - k + 1\). An approximate
 \(1 - \alpha\) confidence band for \(\overline{r}\) is \((\ell, u)\),
 where
 
-\[ \ell(x) = \hat{r}(x) - K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^2}{n}}
-\quad \text{and} \quad u(x) = \hat{r}(x) + K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^2}{n}} \]
+\[ \ell(x) = \hat{r}(x) - K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^{2}}{n}}
+\quad \text{and} \quad u(x) = \hat{r}(x) + K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^{2}}{n}} \]
 
 where
 
-\[ K = \max_{1 \leq j \leq J} \max_x | \phi_j(x) | \]
+\[ K = \max_{1 \leq j \leq J} \max_x | \phi_{j}(x) | \]
 
 and
 
-\[ \hat{\tau}^2 = \frac{2 J \hat{\sigma}^4}{n} \left( 1 + \frac{J}{k} \right) \]
+\[ \hat{\tau}^{2} = \frac{2 J \hat{\sigma}^{4}}{n} \left( 1 + \frac{J}{k} \right) \]
 
-and \(k = n / 4\) as used in the definition of \(\hat{\sigma}^2\). In
+and \(k = n / 4\) as used in the definition of \(\hat{\sigma}^{2}\). In
 the cosine basis, \(K = \sqrt{2}\).
 
-So far, we have assumed that the \(x_i\) are of the form
-\(\{1/n, 2/n, \dots, 1\}\). If \(x_i \in [a, b]\) then we can rescale
-them to be in \([0, 1]\). If the \(x_i\)'s are not equally spaced the
+So far, we have assumed that the \(x_{i}\) are of the form
+\(\{1/n, 2/n, \dots, 1\}\). If \(x_{i} \in [a, b]\) then we can rescale
+them to be in \([0, 1]\). If the \(x_{i}\)s are not equally spaced the
 methods discussed here apply as long as they ``fill out'' the interval
 in a way as to not be too clumped together. If we want to treat the
-\(x_i\)'s as random instead of fixed, then the method needs significant
+\(x_{i}\)s as random instead of fixed, then the method needs significant
 modifications which will not be treated here.
 
-\subsubsection{22.4 Wavelets}\label{wavelets}
+\subsection*{22.4 Wavelets}\label{wavelets}
 
 Suppose there is a sharp jump in a regression function \(f\) at some
 point \(x\) but that \(f\) is otherwise very smooth. Such as function is
@@ -543,10 +543,11 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-03}
+\centering
+\includegraphics{Figure-22-03}
 \end{figure}
 
-It's hard to estimate \(f\) using the methods we discussed so far. If we
+It is hard to estimate \(f\) using the methods we discussed so far. If we
 use a cosine basis and only keep the low order terms, we will miss the
 peak; if we allow higher order terms we will find the peak but we will
 make the rest of the curve very wiggly. Similar comments apply to kernel
@@ -580,9 +581,9 @@ The \textbf{mother Haar wavelet} is defined by
 
 For any integers \(j\) and \(k\) define
 
-\[ \phi_{j, k}(x) = 2^{j/2} \phi(2^j x - k) 
+\[ \phi_{j, k}(x) = 2^{j/2} \phi(2^{j} x - k) 
 \quad \text{and} \quad
-\psi_{j, k}(x) = 2^{j/2} \psi(2^j x - k)
+\psi_{j, k}(x) = 2^{j/2} \psi(2^{j} x - k)
 \]
 
 The function \(\psi_{j, k}\) has the same shape as \(\psi\) but it has
@@ -637,45 +638,46 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-04}
+\centering
+\includegraphics{Figure-22-04}
 \end{figure}
 
 Notice that for large \(j\), \(\psi_{j, k}\) is a very localized
 function. This makes it possible to add a blip to a function without
 adding wiggles elsewhere. In technical terms, we say that wavelets
-provide a \textbf{multiresolution analysis} of \(L_2(0, 1)\).
+provide a \textbf{multiresolution analysis} of \(L_{2}(0, 1)\).
 
 Let
 
-\[ W_j = \{\psi_{j, k}, \; k = 0, 1, \dots, 2^j - 1\} \]
+\[ W_{j} = \{\psi_{j, k}, \; k = 0, 1, \dots, 2^{j} - 1\} \]
 
 be the set of rescaled and shifted mother wavelets at resolution \(j\).
 
 \textbf{Theorem 22.13}. The set of functions
 
-\[ \left\{ \phi, W_0, W_1, W_2, \dots \right\} \]
+\[ \left\{ \phi, W_{0}, W_{1}, W_{2}, \dots \right\} \]
 
-is an orthonormal basis for \(L_2(0, 1)\).
+is an orthonormal basis for \(L_{2}(0, 1)\).
 
-It follows from this theorem that we can expand any function
-\(f \in L_2(0, 1)\) in this basis. Because each \(W_j\) is itself a set
+It follows from this Theorem that we can expand any function
+\(f \in L_{2}(0, 1)\) in this basis. Because each \(W_{j}\) is itself a set
 of functions, we write the expansion as a double sum:
 
-\[ f(x) = \alpha \phi(x) + \sum_{j=0}^\infty \sum_{k=0}^{2^j - 1} \beta_{j, k} \psi_{j, k}(x) \]
+\[ f(x) = \alpha \phi(x) + \sum_{j=0}^{\infty} \sum_{k=0}^{2^{j} - 1} \beta_{j, k} \psi_{j, k}(x) \]
 
 where
 
-\[ \alpha = \int_0^1 f(x) \phi(x) dx, \quad \beta_{j, k} = \int_0^1 f(x) \psi_{j, k}(x) dx\]
+\[ \alpha = \int_{0}^{1} f(x) \phi(x) dx, \quad \beta_{j, k} = \int_{0}^{1} f(x) \psi_{j, k}(x) dx\]
 
 We call \(\alpha\) the \textbf{scaling coefficient} and \(\beta_{j, k}\)
 the \textbf{detail coefficients}. We call the finite sum
 
-\[ \overline{f}(x) = \alpha \phi(x) + \sum_{j=0}^{J - 1} \sum_{k=0}^{2^j - 1} \beta_{j, k}\]
+\[ \overline{f}(x) = \alpha \phi(x) + \sum_{j=0}^{J - 1} \sum_{k=0}^{2^{j} - 1} \beta_{j, k}\]
 
 the \textbf{resolution \(J\)} approximation to \(f\). The total number
 of terms in this sum is
 
-\[ 1 + \sum_{j=0}^{J - 1}2^j = 2^J\]
+\[ 1 + \sum_{j=0}^{J - 1}2^{j} = 2^J\]
 
 Haar wavelets are localized, meaning they are zero outside of an
 interval, but they are not smooth. In 1988, Ingrid Daubechie showed that
@@ -685,8 +687,8 @@ we will continue to use Haar wavelets.
 
 We can now use wavelets to do density estimation and regression. We
 shall only discuss the regression problem
-\(Y_i = r(x_i) + \sigma \epsilon_i\) where \(\epsilon_i \sim N(0, 1)\)
-and \(x_i = i / n\). To simplify this discussion we assume that
+\(Y_{i} = r(x_{i}) + \sigma \epsilon_{i}\) where \(\epsilon_{i} \sim N(0, 1)\)
+and \(x_{i} = i / n\). To simplify this discussion we assume that
 \(n = 2^J\) for some \(J\).
 
 There is one major difference between estimation using wavelets instead
@@ -700,12 +702,12 @@ called hard, universal threshold.
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
-  Let \(J = \log_2 n\) and define
+  Let \(J = \log_{2} n\) and define
 \end{enumerate}
 
-\[ \hat{\alpha} = \frac{1}{n} \sum_i \phi(x_i) Y_i
+\[ \hat{\alpha} = \frac{1}{n} \sum_{i} \phi(x_{i}) Y_{i}
 \quad \text{and} \quad
-D_{j, k} = \frac{1}{n} \sum_i \psi_{j, k}(x_i) Y_i
+D_{j, k} = \frac{1}{n} \sum_{i} \psi_{j, k}(x_{i}) Y_{i}
 \]
 
 for \(0 \leq j \leq J - 1\)
@@ -732,7 +734,7 @@ D_{j, k} & \text{if } \left| D_{j, k} \right| > \hat{\sigma} \sqrt{\frac{2 \log 
   Set
 \end{enumerate}
 
-\[ \hat{f}(x) = \hat{\alpha} \phi(x) + \sum_{j = j_0}^{J - 1} \sum_{k = 0}^{2^j - 1} \hat{\beta}_{j, k} \psi_{j, k}(x) \]
+\[ \hat{f}(x) = \hat{\alpha} \phi(x) + \sum_{j = j_{0}}^{J - 1} \sum_{k = 0}^{2^{j} - 1} \hat{\beta}_{j, k} \psi_{j, k}(x) \]
 
 In practice, we do not compute \(\hat{\alpha}\) and \(D_{j, k}\).
 Instead, we use the \textbf{discrete wavelet transform (DWT)} which is
@@ -742,7 +744,7 @@ very fast. For Haar wavelets, the DWT works as follows.
 
 \begin{itemize}[tightlist]
 \item
-  Let \(y = (Y_1, \dots, Y_n)\) and let \(J = \log_2 n\).\\
+  Let \(y = (Y_{1}, \dots, Y_{n})\) and let \(J = \log_{2} n\).\\
 \item
   Create a list \(D\) with elements \(D[0], ..., D[J - 1]\)
 \item
@@ -752,7 +754,7 @@ very fast. For Haar wavelets, the DWT works as follows.
 \begin{console}
 temp <- y / sqrt(n)
 for j in (J - 1):0 {
-  m <- 2^j
+  m <- 2^{j}
   I <- (1:m)
   D[j] <- (temp[2 * I] - temp[(2 * I) - 1]) / sqrt(2)
   temp <- (temp[2 * I] + temp[(2 * I) - 1]) / sqrt(2)
@@ -776,119 +778,113 @@ estimator. Then
 as \(n \rightarrow \infty\).
 
 \textbf{Proof} Assume \(\sigma\) is known. Now
-\(D_{j, k} \approx N(0, \sigma^2 / n)\). We will need \textbf{Mill's
+\(D_{j, k} \approx N(0, \sigma^{2} / n)\). We will need \textbf{Mill's
 inequality}: if \(Z \sim N(0, 1)\) then
-\(\mathbb{P}(|Z| > t) \leq (c / t) e^{-t^2 / 2}\) where
+\(\mathbb{P}(|Z| > t) \leq (c / t) e^{-t^{2} / 2}\) where
 \(c = \sqrt{2 / pi}\) is a constant. Thus,
 
-\[
-\begin{align}
+\begin{align*}
 \mathbb{P}(\max |D_{j, k}| > \lambda) &\leq \sum_{j, k} \mathbb{P}(|D_{j, k}| > \lambda) \\
 & \leq \sum_{j, k} \mathbb{P} \left( \frac{\sqrt{n} |D_{j, k}|}{\sigma} > \frac{\sqrt{n} \lambda}{\sigma} \right) \\
-& \leq \sum_{j, k} \frac{c \sigma}{\lambda \sqrt{n}} \exp \left\{ - \frac{1}{2} \frac{n \lambda^2}{\sigma^2} \right\} \\
+& \leq \sum_{j, k} \frac{c \sigma}{\lambda \sqrt{n}} \exp \left\{ - \frac{1}{2} \frac{n \lambda^{2}}{\sigma^{2}} \right\} \\
 & = \frac{c}{\sqrt{2 \log n}} \rightarrow 0
-\end{align}
-\]
+\end{align*}
 
-\subsubsection{22.6 Exercises}\label{exercises}
+\subsection*{22.6 Exercises}
 
 \textbf{Exercise 22.6.1}. Prove Theorem 22.5.
 
 The risk of \(\hat{f}\) is given by
 
-\[ R(J) = \sum_{j=1}^J \frac{\sigma_j^2}{n} + \sum_{j=J+1}^\infty \beta_j^2 \]
+\[ R(J) = \sum_{j=1}^J \frac{\sigma_{j}^{2}}{n} + \sum_{j=J+1}^{\infty} \beta_{j}^{2} \]
 
 \textbf{Solution}.
 
 The density estimator \(\hat{f}\) is defined as
 
-\[ \hat{f}(x) = \sum_{i=1}^J \hat{\beta}_j \phi_j(x) 
+\[ \hat{f}(x) = \sum_{i=1}^J \hat{\beta}_{j} \phi_{j}(x) 
 \quad \text{where} \quad
-\hat{\beta}_j = \frac{1}{n} \sum_{i=1}^n \phi_j(X_i)\]
+\hat{\beta}_{j} = \frac{1}{n} \sum_{i=1}^{n} \phi_{j}(X_{i})\]
 
 From Theorem 22.4,
 
-\[ \mathbb{E}[\hat{\beta}_j] = \beta_j
+\[ \mathbb{E}[\hat{\beta}_{j}] = \beta_{j}
 \quad \text{and} \quad
-\mathbb{V}[\hat{\beta}_j] = \frac{\sigma_j^2}{n}
+\mathbb{V}[\hat{\beta}_{j}] = \frac{\sigma_{j}^{2}}{n}
 \]
 
 The (unintegrated) variance is
 
 \[ \mathbb{V}[f(x) - \hat{f}(x)] = \mathbb{V}[\hat{f}(x)] 
-= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_j]\phi_j(x)^2 + 2 \sum_{i < j} \text{Cov}(\hat{\beta}_i, \hat{\beta}_j) \phi_i(x) \phi_j(x) \]
+= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_{j}]\phi_{j}(x)^{2} + 2 \sum_{i < j} \text{Cov}(\hat{\beta}_{i}, \hat{\beta}_{j}) \phi_{i}(x) \phi_{j}(x) \]
 
 so, integrating,
 
-\[
-\begin{align}
-\int \mathbb{V}[f(x) - \hat{f}(x)] dx &= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_j] \int \phi_j(x)^2 dx + 2 \sum_{i < j} \text{Cov}(\hat{\beta}_i, \hat{\beta}_j) \int \phi_i(x) \phi_j(x) dx  \\
-&= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_j] \langle \phi_j, \phi_j \rangle + 2 \sum_{i < j} \text{Cov}(\hat{\beta}_i, \hat{\beta}_j) \langle \phi_i, \phi_j \rangle \\
-&= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_j] = \sum_{j=1}^J \frac{\sigma_j^2}{n}
-\end{align}
-\]
+\begin{align*}
+\int \mathbb{V}[f(x) - \hat{f}(x)] dx &= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_{j}] \int \phi_{j}(x)^{2} dx + 2 \sum_{i < j} \text{Cov}(\hat{\beta}_{i}, \hat{\beta}_{j}) \int \phi_{i}(x) \phi_{j}(x) dx  \\
+&= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_{j}] \langle \phi_{j}, \phi_{j} \rangle + 2 \sum_{i < j} \text{Cov}(\hat{\beta}_{i}, \hat{\beta}_{j}) \langle \phi_{i}, \phi_{j} \rangle \\
+&= \sum_{j=1}^J \mathbb{V}[\hat{\beta}_{j}] = \sum_{j=1}^J \frac{\sigma_{j}^{2}}{n}
+\end{align*}
 
 while the integrated expected bias squared is:
 
-\[ 
-\begin{align}
-\int \mathbb{E}\left[\left(f(x) - \hat{f}(x)\right)^2\right] dx
-&= \int \mathbb{E}\left[\left(\sum_{j=1}^\infty \beta_j \phi_j(x) - \sum_{j=1}^J \hat{\beta}_j \phi_j(x)\right)^2\right] dx \\
-&= \int \mathbb{E} \left[ \left(\sum_{j=1}^\infty \beta_j \phi_j(x)\right)^2 \right] dx
-+ \int \mathbb{E} \left[ \left(\sum_{j=1}^J \hat{\beta}_j \phi_j(x)\right)^2 \right] dx
-- \int \mathbb{E} \left[ \sum_{i=1}^\infty \sum_{j=1}^J \beta_i \hat{\beta}_j \phi_i(x) \phi_j(x) \right] dx \\
-&= \sum_{j=1}^\infty \beta_j^2 \int \phi_j(x)^2 dx 
-+ \sum_{j=1}^J \beta_j^2 \int \phi_j(x)^2 dx 
-- 2 \sum_{j=1}^J \beta_j^2 \int \phi_j(x)^2 dx \\
-&= \sum_{j=J+1}^\infty \beta_j^2
-\end{align}
-\]
+\begin{align*}
+\int \mathbb{E}\left[\left(f(x) - \hat{f}(x)\right)^{2}\right] dx
+&= \int \mathbb{E}\left[\left(\sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x) - \sum_{j=1}^J \hat{\beta}_{j} \phi_{j}(x)\right)^{2}\right] dx \\
+&= \int \mathbb{E} \left[ \left(\sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x)\right)^{2} \right] dx
++ \int \mathbb{E} \left[ \left(\sum_{j=1}^J \hat{\beta}_{j} \phi_{j}(x)\right)^{2} \right] dx
+- \int \mathbb{E} \left[ \sum_{i=1}^{\infty} \sum_{j=1}^J \beta_{i} \hat{\beta}_{j} \phi_{i}(x) \phi_{j}(x) \right] dx \\
+&= \sum_{j=1}^{\infty} \beta_{j}^{2} \int \phi_{j}(x)^{2} dx 
++ \sum_{j=1}^J \beta_{j}^{2} \int \phi_{j}(x)^{2} dx 
+- 2 \sum_{j=1}^J \beta_{j}^{2} \int \phi_{j}(x)^{2} dx \\
+&= \sum_{j=J+1}^{\infty} \beta_{j}^{2}
+\end{align*}
 
 since
-\(\langle \phi_i, \phi_j \rangle = \int \phi_i(x) \phi_j(x) dx = 0\) for
+\(\langle \phi_{i}, \phi_{j} \rangle = \int \phi_{i}(x) \phi_{j}(x) dx = 0\) for
 \(i \neq j\), and since
-\(\langle \phi_j, \phi_j \rangle = \int \phi_j(x)^2 dx = 1\).
+\(\langle \phi_{j}, \phi_{j} \rangle = \int \phi_{j}(x)^{2} dx = 1\).
 
 Then, the risk is the bias squared plus the variance,
 
-\[ R(J) = \sum_{j=1}^J \frac{\sigma_j^2}{n} + \sum_{j=J+1}^\infty \beta_j^2\]
+\[ R(J) = \sum_{j=1}^J \frac{\sigma_{j}^{2}}{n} + \sum_{j=J+1}^{\infty} \beta_{j}^{2}\]
 
 as desired.
 
 \textbf{Exercise 22.6.2}. Prove Theorem 22.9.
 
-The risk \(R(J)\) of the estimator \$ \hat{r}(x) = \sum\_\{j=1\}\^{}J
-\hat{\beta}\_j \phi\_j(x) \$ is
+The risk \(R(J)\) of the estimator $ \hat{r}(x) = \sum\_\{j=1\}^{J}
+\hat{\beta}\_{j} \phi\_{j}(x) $ is
 
-\[ R(J) = \frac{J \sigma^2}{n} + \sum_{j=J+1}^\infty \beta_j^2 \]
+\[ R(J) = \frac{J \sigma^{2}}{n} + \sum_{j=J+1}^{\infty} \beta_{j}^{2} \]
 
 \textbf{Solution}. Consider the probability distribution function
 obtained by shifting the true regression function to a minimum of 0, and
 rescaled to integrate to 1:
 
-\[ f(x) = \frac{r(x) - r_0}{A} \quad \text{where } A = \int r(y) dy - r_0, r_0 = \inf_x r(x) \]
+\[ f(x) = \frac{r(x) - r_{0}}{A} \quad \text{where } A = \int r(y) dy - r_{0}, r_{0} = \inf_x r(x) \]
 
-But if \(r(x) = \sum_{j=1}^\infty \beta_j \phi_j(x)\), then
+But if \(r(x) = \sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x)\), then
 
-\[ f(x) = -\frac{r_0}{A} + \sum_{j=1}^\infty \left( \frac{\beta_j}{A} \right) \phi_j(x) = \sum_{j=1}^\infty \left( \frac{\beta_j}{A} + c_j \right) \phi_j(x) \]
+\[ f(x) = -\frac{r_{0}}{A} + \sum_{j=1}^{\infty} \left( \frac{\beta_{j}}{A} \right) \phi_{j}(x) = \sum_{j=1}^{\infty} \left( \frac{\beta_{j}}{A} + c_{j} \right) \phi_{j}(x) \]
 
-where the \(c_j\)'s are the decomposition of the constant function
-\(-r_0 / A\) on the basis of the functions \(\phi_j\)'s. Assuming a
-sensible basis, \(\phi_0\) is constant and \(c_j = 0\) for \(j > 1\).
+where the \(c_{j}\)s are the decomposition of the constant function
+\(-r_{0} / A\) on the basis of the functions \(\phi_{j}\)s. Assuming a
+sensible basis, \(\phi_{0}\) is constant and \(c_{j} = 0\) for \(j > 1\).
 
-By theorem 22.5, the risk of the PDF estimation is
+By Theorem 22.5, the risk of the PDF estimation is
 
-\[ \sum_{j=1}^J \frac{\sigma_j^2}{n} + \sum_{j=J+1}^\infty \left( \frac{\beta_j}{A} \right)^2 = \frac{1}{A^2} \left( \frac{J \sigma^2}{n} + \sum_{j=J+1}^\infty \beta_j^2 \right)\]
+\[ \sum_{j=1}^J \frac{\sigma_{j}^{2}}{n} + \sum_{j=J+1}^{\infty} \left( \frac{\beta_{j}}{A} \right)^{2} = \frac{1}{A^{2}} \left( \frac{J \sigma^{2}}{n} + \sum_{j=J+1}^{\infty} \beta_{j}^{2} \right)\]
 
 and so the result follows.
 
 \textbf{Exercise 22.6.3}. Let
 
-\[ \psi_1 = \left( \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} , \frac{1}{\sqrt{3}} \right),
+\[ \psi_{1} = \left( \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}} , \frac{1}{\sqrt{3}} \right),
 \quad
-\psi_2 = \left( \frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} , 0 \right),
+\psi_{2} = \left( \frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} , 0 \right),
 \quad
-\psi_3 = \left( \frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}} , -\frac{2}{\sqrt{6}} \right)
+\psi_{3} = \left( \frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}} , -\frac{2}{\sqrt{6}} \right)
 \]
 
 Show that these vectors have norm 1 and are orthogonal.
@@ -897,40 +893,34 @@ Show that these vectors have norm 1 and are orthogonal.
 
 Norms:
 
-\[
-\begin{align}
-\langle \psi_1, \psi_1 \rangle &= \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{3}} + \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{3}} + \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{3}} \\&= \frac{1}{3} + \frac{1}{3} + \frac{1}{3} &= 1 \\
-\langle \psi_2, \psi_2 \rangle &= \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} + \frac{-1}{\sqrt{2}} \cdot \frac{-1}{\sqrt{2}} + 0 \cdot 0 \\&= \frac{1}{2} + \frac{1}{2} + 0 &= 1 \\
-\langle \psi_3, \psi_3 \rangle &= \frac{1}{\sqrt{6}} \cdot \frac{1}{\sqrt{6}} + \frac{1}{\sqrt{6}} \cdot \frac{1}{\sqrt{6}} + \frac{-2}{\sqrt{6}} \cdot \frac{-2}{\sqrt{6}}\\ &= \frac{1}{6} + \frac{1}{6} + \frac{4}{6} &= 1
-\end{align}
-\]
+\begin{align*}
+\langle \psi_{1}, \psi_{1} \rangle &= \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{3}} + \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{3}} + \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{3}} \\&= \frac{1}{3} + \frac{1}{3} + \frac{1}{3} &= 1 \\
+\langle \psi_{2}, \psi_{2} \rangle &= \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} + \frac{-1}{\sqrt{2}} \cdot \frac{-1}{\sqrt{2}} + 0 \cdot 0 \\&= \frac{1}{2} + \frac{1}{2} + 0 &= 1 \\
+\langle \psi_{3}, \psi_{3} \rangle &= \frac{1}{\sqrt{6}} \cdot \frac{1}{\sqrt{6}} + \frac{1}{\sqrt{6}} \cdot \frac{1}{\sqrt{6}} + \frac{-2}{\sqrt{6}} \cdot \frac{-2}{\sqrt{6}}\\ &= \frac{1}{6} + \frac{1}{6} + \frac{4}{6} &= 1
+\end{align*}
 
-Orthogonality: \[
-\begin{align}
-\langle \psi_1, \psi_2 \rangle &= \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{3}} \cdot \frac{-1}{\sqrt{2}} + \frac{1}{\sqrt{3}} \cdot 0 \\&= \frac{1}{\sqrt{6}} + \frac{-1}{\sqrt{6}} + 0 &= 0 \\
-\langle \psi_1, \psi_3 \rangle &= \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{6}} + \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{6}} + \frac{1}{\sqrt{3}} \cdot \frac{-2}{\sqrt{6}} \\&= \frac{1}{3\sqrt{2}} + \frac{1}{3\sqrt{2}} + \frac{-2}{3\sqrt{2}} &= 0 \\
-\langle \psi_2, \psi_3 \rangle &= \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{6}} + \frac{-1}{\sqrt{2}} \cdot \frac{1}{\sqrt{6}} + 0 \cdot \frac{-2}{\sqrt{6}} \\&= \frac{1}{2\sqrt{3}} + \frac{-1}{2\sqrt{3}} + 0 &= 0 
-\end{align}
-\]
+Orthogonality: \begin{align*}
+\langle \psi_{1}, \psi_{2} \rangle &= \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{3}} \cdot \frac{-1}{\sqrt{2}} + \frac{1}{\sqrt{3}} \cdot 0 \\&= \frac{1}{\sqrt{6}} + \frac{-1}{\sqrt{6}} + 0 &= 0 \\
+\langle \psi_{1}, \psi_{3} \rangle &= \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{6}} + \frac{1}{\sqrt{3}} \cdot \frac{1}{\sqrt{6}} + \frac{1}{\sqrt{3}} \cdot \frac{-2}{\sqrt{6}} \\&= \frac{1}{3\sqrt{2}} + \frac{1}{3\sqrt{2}} + \frac{-2}{3\sqrt{2}} &= 0 \\
+\langle \psi_{2}, \psi_{3} \rangle &= \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{6}} + \frac{-1}{\sqrt{2}} \cdot \frac{1}{\sqrt{6}} + 0 \cdot \frac{-2}{\sqrt{6}} \\&= \frac{1}{2\sqrt{3}} + \frac{-1}{2\sqrt{3}} + 0 &= 0 
+\end{align*}
 
 \textbf{Exercise 22.6.4}. Prove Parseval's relation equation.
 
-\[ \Vert f \Vert^2 \equiv \int f^2(x) dx = \sum_{j=1}^\infty \beta_j^2 \equiv \Vert \beta \Vert^2\]
+\[ \Vert f \Vert^{2} \equiv \int f^{2}(x) dx = \sum_{j=1}^{\infty} \beta_{j}^{2} \equiv \Vert \beta \Vert^{2}\]
 
 \textbf{Solution}. We have:
 
-\[ 
-\begin{align}
-\int f^2(x) dx &= \int \left( \sum_{i=1}^\infty \beta_i \phi_i(x) \right)^2 dx \\
-&= \int \left( \sum_{i=1}^\infty \beta_i^2 \phi_i^2(x) + \sum_{i=1}^\infty \sum_{j=1, j \neq i}^\infty \beta_i \beta_j \phi_i(x) \phi_j(x) \right) dx \\
-&= \sum_{i=1}^\infty \beta_i^2 \int \phi_i^2(x) dx + \sum_{i=1}^\infty \sum_{j=1, j \neq i}^\infty \beta_i \beta_j  \int \phi_i(x) \phi_j(x) dx \\
-&= \sum_{i=1}^\infty \beta_i^2 \langle \phi_i, \phi_i \rangle + \sum_{i=1}^\infty \sum_{j=1, j \neq i}^\infty \beta_i \beta_j \langle \phi_i, \phi_j \rangle \\
-&= \sum_{i=1}^\infty \beta_i^2
-\end{align}
-\]
+\begin{align*}
+\int f^{2}(x) dx &= \int \left( \sum_{i=1}^{\infty} \beta_{i} \phi_{i}(x) \right)^{2} dx \\
+&= \int \left( \sum_{i=1}^{\infty} \beta_{i}^{2} \phi_{i}^{2}(x) + \sum_{i=1}^{\infty} \sum_{j=1, j \neq i}^{\infty} \beta_{i} \beta_{j} \phi_{i}(x) \phi_{j}(x) \right) dx \\
+&= \sum_{i=1}^{\infty} \beta_{i}^{2} \int \phi_{i}^{2}(x) dx + \sum_{i=1}^{\infty} \sum_{j=1, j \neq i}^{\infty} \beta_{i} \beta_{j}  \int \phi_{i}(x) \phi_{j}(x) dx \\
+&= \sum_{i=1}^{\infty} \beta_{i}^{2} \langle \phi_{i}, \phi_{i} \rangle + \sum_{i=1}^{\infty} \sum_{j=1, j \neq i}^{\infty} \beta_{i} \beta_{j} \langle \phi_{i}, \phi_{j} \rangle \\
+&= \sum_{i=1}^{\infty} \beta_{i}^{2}
+\end{align*}
 
-since \(\langle \phi_i, \phi_i \rangle = 1\) and
-\(\langle \phi_i, \phi_j \rangle = 0\) for \(i \neq j\).
+since \(\langle \phi_{i}, \phi_{i} \rangle = 1\) and
+\(\langle \phi_{i}, \phi_{j} \rangle = 0\) for \(i \neq j\).
 
 \textbf{Exercise 22.6.5}. Plot the first five Legendre polynomials.
 Verify, numerically, that they are orthonormal.
@@ -977,7 +967,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-05}
+\centering
+\includegraphics{Figure-22-05}
 \end{figure}
 
 \begin{python}
@@ -990,57 +981,57 @@ for i in range(0, 5):
 \end{python}
 
 \begin{console}
-<phi\_0, phi\_0>: 1.000
-<phi\_0, phi\_1>: -0.000
-<phi\_0, phi\_2>: 0.000
-<phi\_0, phi\_3>: -0.000
-<phi\_0, phi\_4>: 0.000
-<phi\_1, phi\_1>: 1.000
-<phi\_1, phi\_2>: -0.000
-<phi\_1, phi\_3>: 0.000
-<phi\_1, phi\_4>: -0.000
-<phi\_2, phi\_2>: 1.000
-<phi\_2, phi\_3>: -0.000
-<phi\_2, phi\_4>: 0.000
-<phi\_3, phi\_3>: 1.000
-<phi\_3, phi\_4>: -0.000
-<phi\_4, phi\_4>: 1.000
+<phi\_{0}, phi\_{0}>: 1.000
+<phi\_{0}, phi\_{1}>: -0.000
+<phi\_{0}, phi\_{2}>: 0.000
+<phi\_{0}, phi\_{3}>: -0.000
+<phi\_{0}, phi\_{4}>: 0.000
+<phi\_{1}, phi\_{1}>: 1.000
+<phi\_{1}, phi\_{2}>: -0.000
+<phi\_{1}, phi\_{3}>: 0.000
+<phi\_{1}, phi\_{4}>: -0.000
+<phi\_{2}, phi\_{2}>: 1.000
+<phi\_{2}, phi\_{3}>: -0.000
+<phi\_{2}, phi\_{4}>: 0.000
+<phi\_{3}, phi\_{3}>: 1.000
+<phi\_{3}, phi\_{4}>: -0.000
+<phi\_{4}, phi\_{4}>: 1.000
 \end{console}
 
 \textbf{Exercise 22.6.6}. Expand the following functions in the cosine
-basis on \([0, 1]\). For (a) and (b), find the coefficients \(\beta_j\)
-analytically. For (c) and (d), find the coefficients \(\beta_j\)
+basis on \([0, 1]\). For (a) and (b), find the coefficients \(\beta_{j}\)
+analytically. For (c) and (d), find the coefficients \(\beta_{j}\)
 numerically, i.e.
 
-\[ \beta_j = \int_0^1 f(x) \phi_j(x) \approx \frac{1}{N} \sum_{r=1}^N f \left( \frac{r}{N} \right) \phi_j \left( \frac{r}{N} \right) \]
+\[ \beta_{j} = \int_{0}^{1} f(x) \phi_{j}(x) \approx \frac{1}{N} \sum_{r=1}^N f \left( \frac{r}{N} \right) \phi_{j} \left( \frac{r}{N} \right) \]
 
 for some large integer \(N\). Then plot the partial sum
-\(\sum_{j=1}^n \beta_j \phi_j(x)\) for increasing values of \(n\).
+\(\sum_{j=1}^{n} \beta_{j} \phi_{j}(x)\) for increasing values of \(n\).
 
 \textbf{(a)} \(f(x) = \sqrt{2} \cos (3 \pi x)\)
 
 \textbf{(b)} \(f(x) = \sin(\pi x)\)
 
-\textbf{(c)} \(f(x) = \sum_{j=1}^{11} h_j K(x - t_j)\), where
+\textbf{(c)} \(f(x) = \sum_{j=1}^{11} h_{j} K(x - t_{j})\), where
 \(K(t) = (1 + \text{sign}(t)) / 2\),
 
 \[ 
-(t_j) = (.1, .13, .15, .23, .25, .40, .44, .65, .76, .78, .81), \\
-(h_j) = (4, -5, 3, -4, 5, -4.2, 2.1, 4.3, -3.1, 2.1, -4.2)
+(t_{j}) = (.1, .13, .15, .23, .25, .40, .44, .65, .76, .78, .81), \\
+(h_{j}) = (4, -5, 3, -4, 5, -4.2, 2.1, 4.3, -3.1, 2.1, -4.2)
 \]
 
-\textbf{(d)} \$f(x) = \sqrt{x(1-x)} \sin \left(
-\frac{2.1 \pi}{(x + .05)} \right) \$
+\textbf{(d)} $f(x) = \sqrt{x(1-x)} \sin \left(
+\frac{2.1 \pi}{(x + .05)} \right) $
 
 \textbf{Solution}.
 
 \textbf{(a)} is immediate by inspection:
 
-\[ f(x) = \sqrt{2} \cos(3 \pi x) = \sum_{j=1}^\infty \beta_j \phi_j(x), \quad \text{where } \phi_j(x) = \sqrt{2} \cos((j - 1) \pi x) \]
+\[ f(x) = \sqrt{2} \cos(3 \pi x) = \sum_{j=1}^{\infty} \beta_{j} \phi_{j}(x), \quad \text{where } \phi_{j}(x) = \sqrt{2} \cos((j - 1) \pi x) \]
 
 so
 
-\[ \beta_j = \begin{cases}
+\[ \beta_{j} = \begin{cases}
 1 & \text{if } j = 4 \\
 0 & \text{otherwise}
 \end{cases} \]
@@ -1048,12 +1039,12 @@ so
 \begin{python}
 import numpy as np
 
-def beta_j(j):
+def beta_{j}(j):
     if j == 4:
         return 1
     return 0
 
-def phi_j(j):
+def phi_{j}(j):
     def f(x):
         if j == 1:
             return np.ones_like(x)
@@ -1064,7 +1055,7 @@ def partial_sum(n, x):
     lx = len(x)
     terms = np.empty((n, lx))
     for j in range(1, n + 1):
-        terms[j - 1] = beta_j(j) * phi_j(j)(xx)
+        terms[j - 1] = beta_{j}(j) * phi_{j}(j)(xx)
     return terms.sum(axis = 0)
 \end{python}
 
@@ -1093,40 +1084,41 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-06}
+\centering
+\includegraphics{Figure-22-06}
 \end{figure}
 
-\textbf{(b)} can be solved with the definition of \(\beta_j\):
+\textbf{(b)} can be solved with the definition of \(\beta_{j}\):
 
 For \(j = 1\),
 
-\[ \beta_j = \langle f, \phi_1 \rangle = \int_0^1 f(x) \phi_1(x) dx = \int_0^1 \sin(\pi x) dx = \frac{2}{\pi} \]
+\[ \beta_{j} = \langle f, \phi_{1} \rangle = \int_{0}^{1} f(x) \phi_{1}(x) dx = \int_{0}^{1} \sin(\pi x) dx = \frac{2}{\pi} \]
 
 For \(j \geq 2\),
 
 \[
-\beta_j = \langle f, \phi_j \rangle = \int_0^1 f(x) \phi_j(x) dx = \int_0^1 \sin(\pi x) \left( \sqrt{2} \cos((j-1) \pi x) \right) dx = \frac{\sqrt{2} (\cos(\pi j) - 1)}{\pi j^2 - 2 \pi j }
+\beta_{j} = \langle f, \phi_{j} \rangle = \int_{0}^{1} f(x) \phi_{j}(x) dx = \int_{0}^{1} \sin(\pi x) \left( \sqrt{2} \cos((j-1) \pi x) \right) dx = \frac{\sqrt{2} (\cos(\pi j) - 1)}{\pi j^{2} - 2 \pi j }
 \]
 
 so
 
-\[ \beta_j = \begin{cases}
+\[ \beta_{j} = \begin{cases}
 \frac{2}{\pi} & \text{if } j = 1\\
--\frac{2\sqrt{2}}{\pi j^2 - 2 \pi j} & \text{if } j \text{ is odd}, j > 1 \\
+-\frac{2\sqrt{2}}{\pi j^{2} - 2 \pi j} & \text{if } j \text{ is odd}, j > 1 \\
 0 & \text{if } j \text{ is even}
 \end{cases} \]
 
 \begin{python}
 import numpy as np
 
-def beta_j(j):
+def beta_{j}(j):
     if j % 2 == 0:
         return 0
     if j == 1:
         return 2 / np.pi
     return -np.sqrt(2)*2 / ((np.pi * j * j) - (2 * np.pi * j))
 
-def phi_j(j):
+def phi_{j}(j):
     def f(x):
         if j == 1:
             return np.ones_like(x)
@@ -1137,7 +1129,7 @@ def partial_sum(n, x):
     lx = len(x)
     terms = np.empty((n, lx))
     for j in range(1, n + 1):
-        terms[j - 1] = beta_j(j) * phi_j(j)(xx)
+        terms[j - 1] = beta_{j}(j) * phi_{j}(j)(xx)
     return terms.sum(axis = 0)
 \end{python}
 
@@ -1167,7 +1159,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-07}
+\centering
+\includegraphics{Figure-22-07}
 \end{figure}
 
 \textbf{(c)}
@@ -1178,7 +1171,7 @@ import numpy as np
 T = np.array([.1, .13, .15, .23, .25, .40, .44, .65, .76, .78, .81])
 H = np.array([4, -5, 3, -4, 5, -4.2, 2.1, 4.3, -3.1, 2.1, -4.2])
 
-def phi_j(j):
+def phi_{j}(j):
     def f(x):
         if j == 1:
             return np.ones_like(x)
@@ -1201,16 +1194,16 @@ xx = np.arange(0, 1 + step, step=step)
 J = 256
 estimated_beta = np.empty(J)
 for j in range(1, J + 1):
-    estimated_beta[j - 1] = f(xx) @ phi_j(j)(xx) / N
+    estimated_beta[j - 1] = f(xx) @ phi_{j}(j)(xx) / N
     
-def beta_j(j):
+def beta_{j}(j):
     return estimated_beta[j - 1]
 
 def partial_sum(n, x):
     lx = len(x)
     terms = np.empty((n, lx))
     for j in range(1, n + 1):
-        terms[j - 1] = beta_j(j) * phi_j(j)(xx)
+        terms[j - 1] = beta_{j}(j) * phi_{j}(j)(xx)
     return terms.sum(axis = 0)
 \end{python}
 
@@ -1232,7 +1225,7 @@ def do_subplot(index, xx, yy, label, color):
 do_subplot(1, xx, partial_sum(16,  xx), label=r'$n = %i$' % 16, color='C0')
 do_subplot(2, xx, partial_sum(64,  xx), label=r'$n = %i$' % 64, color='C1')
 do_subplot(3, xx, partial_sum(256, xx), label=r'$n = %i$' % 256, color='C2')
-do_subplot(4, xx, f(xx), label=r'$f(x) = \sum_j h_j K(x - t_j) $', color='C3')
+do_subplot(4, xx, f(xx), label=r'$f(x) = \sum_{j} h_{j} K(x - t_{j}) $', color='C3')
     
 plt.tight_layout()
 plt.legend()
@@ -1240,7 +1233,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-08}
+\centering
+\includegraphics{Figure-22-08}
 \end{figure}
 
 \textbf{(d)}
@@ -1248,7 +1242,7 @@ plt.show()
 \begin{python}
 import numpy as np
 
-def phi_j(j):
+def phi_{j}(j):
     def f(x):
         if j == 1:
             return np.ones_like(x)
@@ -1267,16 +1261,16 @@ xx = np.arange(0, 1 + step, step=step)
 J = 512
 estimated_beta = np.empty(J)
 for j in range(1, J + 1):
-    estimated_beta[j - 1] = f(xx) @ phi_j(j)(xx) / N
+    estimated_beta[j - 1] = f(xx) @ phi_{j}(j)(xx) / N
     
-def beta_j(j):
+def beta_{j}(j):
     return estimated_beta[j - 1]
 
 def partial_sum(n, x):
     lx = len(x)
     terms = np.empty((n, lx))
     for j in range(1, n + 1):
-        terms[j - 1] = beta_j(j) * phi_j(j)(xx)
+        terms[j - 1] = beta_{j}(j) * phi_{j}(j)(xx)
     return terms.sum(axis = 0)
 \end{python}
 
@@ -1306,7 +1300,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-09}
+\centering
+\includegraphics{Figure-22-09}
 \end{figure}
 
 \textbf{Exercise 22.6.7}. Consider the glass fragments data. Let \(Y\)
@@ -1328,7 +1323,7 @@ import numpy as np
 import pandas as pd
 
 data = pd.read_csv('data/glass.txt', delim_whitespace=True)
-data = data[['Al', 'RI']].sort_values(by='Al', ignore_index=True)
+data = data[['Al', 'RI']].sort_values(by='Al', ignore_{i}ndex=True)
 X, Y = data['Al'], data['RI']
 \end{python}
 
@@ -1341,14 +1336,14 @@ X, Y = data['Al'], data['RI']
   Let
 \end{enumerate}
 
-\[ \hat{\beta}_j = \frac{1}{n} \sum_{i=1}^n Y_i \phi_i(x_i), \quad j = 1, \dots, n\]
+\[ \hat{\beta}_{j} = \frac{1}{n} \sum_{i=1}^{n} Y_{i} \phi_{i}(x_{i}), \quad j = 1, \dots, n\]
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
   Let
 \end{enumerate}
 
-\[ \hat{\sigma}^2 = \frac{n}{k} \sum_{i=n-k+1}^n \hat{\beta}_j^2 \]
+\[ \hat{\sigma}^{2} = \frac{n}{k} \sum_{i=n-k+1}^{n} \hat{\beta}_{j}^{2} \]
 
 where \(k \approx n / 4\).
 
@@ -1357,7 +1352,7 @@ where \(k \approx n / 4\).
   For \(1 \leq J \leq n\), compute the risk estimate
 \end{enumerate}
 
-\[ \hat{R}(J) = J \frac{\hat{\sigma}^2}{n} + \sum_{j=J+1}^n \left(\hat{\beta}_j^2 - \frac{\hat{\sigma}^2}{n} \right)_{+} \]
+\[ \hat{R}(J) = J \frac{\hat{\sigma}^{2}}{n} + \sum_{j=J+1}^{n} \left(\hat{\beta}_{j}^{2} - \frac{\hat{\sigma}^{2}}{n} \right)_{+} \]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1368,31 +1363,31 @@ where \(k \approx n / 4\).
   Let
 \end{enumerate}
 
-\[ \hat{f}(x) = \sum_{j=1}^J \hat{\beta}_j \phi_j(x) \]
+\[ \hat{f}(x) = \sum_{j=1}^J \hat{\beta}_{j} \phi_{j}(x) \]
 
 \textbf{Theorem 22.11}. Suppose the estimate \(\hat{r}\) is based on
-\(J\) terms and \$\hat{\sigma}\^{}2 = \frac{n}{k} \sum\_\{i=n-k+1\}\^{}n
-\hat{\beta}\_j\^{}2 \$. Assume that \(J < n - k + 1\). An approximate
+\(J\) terms and $\hat{\sigma}^{2} = \frac{n}{k} \sum\_\{i=n-k+1\}^{n}
+\hat{\beta}\_{j}^{2} $. Assume that \(J < n - k + 1\). An approximate
 \(1 - \alpha\) confidence band for \(\overline{r}\) is \((\ell, u)\),
 where
 
-\[ \ell(x) = \hat{r}(x) - K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^2}{n}}
-\quad \text{and} \quad u(x) = \hat{r}(x) + K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^2}{n}} \]
+\[ \ell(x) = \hat{r}(x) - K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^{2}}{n}}
+\quad \text{and} \quad u(x) = \hat{r}(x) + K \sqrt{J} \sqrt{\frac{z_{\alpha} \hat{\tau}}{\sqrt{n}} + \frac{J \hat{\sigma}^{2}}{n}} \]
 
 where
 
-\[ K = \max_{1 \leq j \leq J} \max_x | \phi_j(x) | \]
+\[ K = \max_{1 \leq j \leq J} \max_x | \phi_{j}(x) | \]
 
 and
 
-\[ \hat{\tau}^2 = \frac{2 J \hat{\sigma}^4}{n} \left( 1 + \frac{J}{k} \right) \]
+\[ \hat{\tau}^{2} = \frac{2 J \hat{\sigma}^{4}}{n} \left( 1 + \frac{J}{k} \right) \]
 
-and \(k = n / 4\) as used in the definition of \(\hat{\sigma}^2\). In
+and \(k = n / 4\) as used in the definition of \(\hat{\sigma}^{2}\). In
 the cosine basis, \(K = \sqrt{2}\).
 
 \begin{python}
 # Cosine basis function
-def phi_j(j):
+def phi_{j}(j):
     def f(x):
         if j == 1:
             return np.ones_like(x)
@@ -1413,7 +1408,7 @@ def estimate_r(X, Y, alpha=0.05):
     X_scaled = X_to_L2(X)
     beta_hat = np.empty(n)
     for j in range(1, n+1):
-        beta_hat[j - 1] = np.sum(Y @ phi_j(j)(X_scaled)) / n
+        beta_hat[j - 1] = np.sum(Y @ phi_{j}(j)(X_scaled)) / n
         
     k = int(np.ceil(n / 4))
     sigma2_hat = np.sum(beta_hat[-k:]**2) * (n / k)
@@ -1426,7 +1421,7 @@ def estimate_r(X, Y, alpha=0.05):
         xx = X_to_L2(x)
         result = np.zeros_like(xx)
         for j in range(1, J_hat):
-            result += beta_hat[j - 1] * phi_j(j)(xx)
+            result += beta_hat[j - 1] * phi_{j}(j)(xx)
         return result
         
     J_hat = np.argmin(risk_hat) + 2
@@ -1466,7 +1461,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-10}
+\centering
+\includegraphics{Figure-22-10}
 \end{figure}
 
 \textbf{(b)}
@@ -1475,12 +1471,12 @@ plt.show()
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
-  Let \(J = \log_2 n\) and define
+  Let \(J = \log_{2} n\) and define
 \end{enumerate}
 
-\[ \hat{\alpha} = \frac{1}{n} \sum_i \phi(x_i) Y_i
+\[ \hat{\alpha} = \frac{1}{n} \sum_{i} \phi(x_{i}) Y_{i}
 \quad \text{and} \quad
-D_{j, k} = \frac{1}{n} \sum_i \psi_{j, k}(x_i) Y_i
+D_{j, k} = \frac{1}{n} \sum_{i} \psi_{j, k}(x_{i}) Y_{i}
 \]
 
 for \(0 \leq j \leq J - 1\)
@@ -1507,7 +1503,7 @@ D_{j, k} & \text{if } \left| D_{j, k} \right| > \hat{\sigma} \sqrt{\frac{2 \log 
   Set
 \end{enumerate}
 
-\[ \hat{f}(x) = \hat{\alpha} \phi(x) + \sum_{j = j_0}^{J - 1} \sum_{k = 0}^{2^j - 1} \hat{\beta}_{j, k} \psi_{j, k}(x) \]
+\[ \hat{f}(x) = \hat{\alpha} \phi(x) + \sum_{j = j_{0}}^{J - 1} \sum_{k = 0}^{2^{j} - 1} \hat{\beta}_{j, k} \psi_{j, k}(x) \]
 
 \begin{python}
 # Wavelet base functions
@@ -1578,7 +1574,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-11}
+\centering
+\includegraphics{Figure-22-11}
 \end{figure}
 
 \textbf{Exercise 22.6.8}. Show that the Haar wavelets are orthonormal.
@@ -1606,9 +1603,9 @@ The \textbf{mother Haar wavelet} is defined by
 
 For any integers \(j\) and \(k\) define
 
-\[ \phi_{j, k}(x) = 2^{j/2} \phi(2^j x - k) 
+\[ \phi_{j, k}(x) = 2^{j/2} \phi(2^{j} x - k) 
 \quad \text{and} \quad
-\psi_{j, k}(x) = 2^{j/2} \psi(2^j x - k)
+\psi_{j, k}(x) = 2^{j/2} \psi(2^{j} x - k)
 \]
 
 The function \(\psi_{j, k}\) has the same shape as \(\psi\) but it has
@@ -1617,60 +1614,54 @@ been rescaled by a factor of \(2^{j/2}\) and shifted by a factor of
 
 Let
 
-\[ W_j = \{\psi_{j, k}, \; k = 0, 1, \dots, 2^j - 1\} \]
+\[ W_{j} = \{\psi_{j, k}, \; k = 0, 1, \dots, 2^{j} - 1\} \]
 
 be the set of rescaled and shifted mother wavelets at resolution \(j\).
 
 \textbf{Theorem 22.13}. The set of functions
 
-\[ \left\{ \phi, W_0, W_1, W_2, \dots \right\} \]
+\[ \left\{ \phi, W_{0}, W_{1}, W_{2}, \dots \right\} \]
 
-is an orthonormal basis for \(L_2(0, 1)\).
+is an orthonormal basis for \(L_{2}(0, 1)\).
 
 \textbf{Proof}.
 
 Normality:
 
-\[
-\begin{align}
-\langle \phi, \phi \rangle &= \int_0^1 \phi^2(x) dx = \int_0^1 1 \; dx = 1 \\
-\langle \psi_{j, k}, \psi_{j, k} \rangle &= \int_0^1 \psi_{j, k}^2(x) dx \\
-&= \int_0^1 \left( 2^{j / 2} \psi(2^j x - k) \right)^2 dx \\
-&= \int_{-k}^{2^j - k} 2^j  \psi^2(y) \left( 2^{-j} dy \right) \\
-&= \int_0^1 1 \; dy = 1
-\end{align}
-\]
+\begin{align*}
+\langle \phi, \phi \rangle &= \int_{0}^{1} \phi^{2}(x) dx = \int_{0}^{1} 1 \; dx = 1 \\
+\langle \psi_{j, k}, \psi_{j, k} \rangle &= \int_{0}^{1} \psi_{j, k}^{2}(x) dx \\
+&= \int_{0}^{1} \left( 2^{j / 2} \psi(2^{j} x - k) \right)^{2} dx \\
+&= \int_{-k}^{2^{j} - k} 2^{j}  \psi^{2}(y) \left( 2^{-j} dy \right) \\
+&= \int_{0}^{1} 1 \; dy = 1
+\end{align*}
 
 Orthogonality:
 
-\[
-\begin{align}
-\langle \phi, \psi_{j, k} \rangle &= \int_0^1 \phi(x) \psi_{j, k}(x) dx \\
-&= \int_0^1  2^{j / 2} \psi(2^j x - k) dx  \\
-&= \int_{-k}^{2^j - k} 2^{j / 2}  \psi(y) \left( 2^{-j} dy \right) \\
-&= 2^{-j/2} \int_0^1 \psi(y) dy = 1
-\end{align}
-\]
+\begin{align*}
+\langle \phi, \psi_{j, k} \rangle &= \int_{0}^{1} \phi(x) \psi_{j, k}(x) dx \\
+&= \int_{0}^{1}  2^{j / 2} \psi(2^{j} x - k) dx  \\
+&= \int_{-k}^{2^{j} - k} 2^{j / 2}  \psi(y) \left( 2^{-j} dy \right) \\
+&= 2^{-j/2} \int_{0}^{1} \psi(y) dy = 1
+\end{align*}
 
 since \(\psi(y)\) has values \(-1\) for \(y \in [0, 1/2]\) and \(1\) for
-\([1/2, 1]\), and 0 otherwise, and \([0, 1] \subset [-k, 2^j - k]\).
+\([1/2, 1]\), and 0 otherwise, and \([0, 1] \subset [-k, 2^{j} - k]\).
 
-\[
-\begin{align}
-\langle \psi_{a, b}, \psi_{c, d} \rangle &= \int_0^1 \psi_{a, b}(x) \psi_{c, d}(x)
-\end{align}
-\]
+\begin{align*}
+\langle \psi_{a, b}, \psi_{c, d} \rangle &= \int_{0}^{1} \psi_{a, b}(x) \psi_{c, d}(x)
+\end{align*}
 
 For each wavelet \(\psi_{j, k}\), consider the domain of values that
 produce a non-zero function output,
 
-\[F_{j, k} = \{ x : \psi_{j, k}(x) \neq 0 \} = \left[\frac{k}{2^j}, \frac{k + 1}{2^j} \right]\]
+\[F_{j, k} = \{ x : \psi_{j, k}(x) \neq 0 \} = \left[\frac{k}{2^{j}}, \frac{k + 1}{2^{j}} \right]\]
 
 Also consider the regions that produce +1 and -1 outputs,
 
-\[F_{j, k}^+ = \{ x : \psi_{j, k}(x) = 1 \} = \left[\frac{k + \frac{1}{2}}{2^j}, \frac{k + 1}{2^j} \right]
+\[F_{j, k}^+ = \{ x : \psi_{j, k}(x) = 1 \} = \left[\frac{k + \frac{1}{2}}{2^{j}}, \frac{k + 1}{2^{j}} \right]
 \quad \text{and} \quad
-F_{j, k}^- = \{ x : \psi_{j, k}(x) = 1 \} = \left[\frac{k}{2^j}, \frac{k + \frac{1}{2}}{2^j} \right]\]
+F_{j, k}^- = \{ x : \psi_{j, k}(x) = 1 \} = \left[\frac{k}{2^{j}}, \frac{k + \frac{1}{2}}{2^{j}} \right]\]
 
 If \(a = c\), \(b \neq d\), then the non-zero domain of the wavelets do
 not overlap -- each increment or decrement in the second parameter
@@ -1686,25 +1677,25 @@ Therefore, in this case, the integral must also be zero.
 
 Since we covered all cases, we have shown orthogonality. Since we have
 orthogonality and normality, the basis is orthonormal, proving the
-theorem.
+Theorem.
 
 \textbf{Exercise 22.6.9}. Consider again the doppler signal:
 
 \[ f(x) = \sqrt{x (1 - x)} \sin \left( \frac{2.1 \pi}{x + 0.05} \right) \]
 
-Let \(n = 1024\) and let \((x_1, \dots, x_n) = (1/n, \dots, 1)\).
+Let \(n = 1024\) and let \((x_{1}, \dots, x_{n}) = (1/n, \dots, 1)\).
 Generate data
 
-\[ Y_i = f(x_i) + \sigma \epsilon_i \]
+\[ Y_{i} = f(x_{i}) + \sigma \epsilon_{i} \]
 
-where \(\epsilon_i \sim N(0, 1)\).
+where \(\epsilon_{i} \sim N(0, 1)\).
 
 \textbf{(a)} Fit the curve using the cosine basis method. Plot the
 function estimate and confidence band for \(J = 10, 20, \dots, 100\).
 
 \textbf{(b)} Use Haar wavelets to fit the curve.
 
-\textbf{Solution}. Let's pick \(\sigma = 0.1\) when generating the data:
+\textbf{Solution}. Pick \(\sigma = 0.1\) when generating the data:
 
 \begin{python}
 import numpy as np
@@ -1729,14 +1720,15 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-12}
+\centering
+\includegraphics{Figure-22-12}
 \end{figure}
 
 \textbf{(a)}
 
 \begin{python}
 # Cosine basis function
-def phi_j(j):
+def phi_{j}(j):
     def f(x):
         if j == 1:
             return np.ones_like(x)
@@ -1757,7 +1749,7 @@ def estimate_r(X, Y, J=None, alpha=0.05):
     X_scaled = X_to_L2(X)
     beta_hat = np.empty(n)
     for j in range(1, n+1):
-        beta_hat[j - 1] = np.sum(Y @ phi_j(j)(X_scaled)) / n
+        beta_hat[j - 1] = np.sum(Y @ phi_{j}(j)(X_scaled)) / n
         
     k = int(np.ceil(n / 4))
     sigma2_hat = np.sum(beta_hat[-k:]**2) * (n / k)
@@ -1777,7 +1769,7 @@ def estimate_r(X, Y, J=None, alpha=0.05):
         xx = X_to_L2(x)
         result = np.zeros_like(xx)
         for j in range(1, J_hat):
-            result += beta_hat[j - 1] * phi_j(j)(xx)
+            result += beta_hat[j - 1] * phi_{j}(j)(xx)
         return result
         
     tau_hat = sigma2_hat * np.sqrt((2 * J_hat / n) * (1 + J_hat / k))
@@ -1824,11 +1816,13 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-13}
+\centering
+\includegraphics{Figure-22-13}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-14}
+\centering
+\includegraphics{Figure-22-14}
 \end{figure}
 
 \textbf{(b)}
@@ -1898,26 +1892,27 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-15}
+\centering
+\includegraphics{Figure-22-15}
 \end{figure}
 
 \textbf{Exercise 22.6.10 (Haar density estimation)}. Let
-\(X_1, \dots, X_n \sim f\) for some density \(f\) on \([0, 1]\). Let's
-consider constructing a wavelet histogram. Let \(\phi\) and \(\psi\) be
+\(X_{1}, \dots, X_{n} \sim f\) for some density \(f\) on \([0, 1]\).
+Consider constructing a wavelet histogram. Let \(\phi\) and \(\psi\) be
 the Haar father and mother wavelet. Write
 
-\[ f(x) \approx \phi(x) + \sum_{j=0}^{J - 1} \sum_{k=0}^{2^j - 1} \beta_{j, k} \psi_{j, k}(x) \]
+\[ f(x) \approx \phi(x) + \sum_{j=0}^{J - 1} \sum_{k=0}^{2^{j} - 1} \beta_{j, k} \psi_{j, k}(x) \]
 
-where \(J \approx \log_2(n)\). Let
+where \(J \approx \log_{2}(n)\). Let
 
-\[ \hat{\beta}_{j, k} = \frac{1}{n} \sum_{i=1}^n \psi_{j, k}(X_i) \].
+\[ \hat{\beta}_{j, k} = \frac{1}{n} \sum_{i=1}^{n} \psi_{j, k}(X_{i}) \].
 
 \textbf{(a)} Show that \(\hat{\beta}_{j, k}\) is an unbiased estimate of
 \(\beta_{j, k}\).
 
 \textbf{(b)} Define the Haar histogram
 
-\[ \hat{f}(x) = \phi(x) + \sum_{j=0}^{B} \sum_{k=0}^{2^j - 1} \hat{\beta}_{j, k} \psi_{j, k}(x) \]
+\[ \hat{f}(x) = \phi(x) + \sum_{j=0}^{B} \sum_{k=0}^{2^{j} - 1} \hat{\beta}_{j, k} \psi_{j, k}(x) \]
 
 for \(0 \leq B \leq J - 1\).
 
@@ -1932,10 +1927,10 @@ histogram. Use leave-one-out cross validation to choose \(B\).
 
 \textbf{(a)}
 
-\[ \mathbb{E}(\hat{\beta}_{j, k}) = \frac{1}{n} \sum_{i=1}^n \mathbb{E}(\psi_{j, k}(X_i))
-= \mathbb{E}(\psi_{j, k}(X_1)) = \int_0^1 \psi_{j, k}(x) dx = \beta_{j, k} \]
+\[ \mathbb{E}(\hat{\beta}_{j, k}) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{E}(\psi_{j, k}(X_{i}))
+= \mathbb{E}(\psi_{j, k}(X_{1})) = \int_{0}^{1} \psi_{j, k}(x) dx = \beta_{j, k} \]
 
-\textbf{(b)} Let's interpret ``define'' as ``implement''.
+\textbf{(b)} Interpret ``define'' as ``implement''.
 
 \begin{python}
 # Wavelet base functions
@@ -1993,55 +1988,55 @@ ordered as
 \psi_{1, 0}, & \psi_{1, 1}, \\
 \psi_{2, 0}, & \dots, & \psi_{2, 2}, \\
 \vdots \\
-\psi_{j, 0}, & \dots, & \psi_{j, 2^k - 1}, \\
+\psi_{j, 0}, & \dots, & \psi_{j, 2^{k} - 1}, \\
 \vdots
 \end{array}
 \]
 
 where each row of wavelets other than the first goes from
-\(\psi_{j, 0}\) to \(\psi_{j, 2^j - 1}\), containing \(2^j\) functions.
+\(\psi_{j, 0}\) to \(\psi_{j, 2^{j} - 1}\), containing \(2^{j}\) functions.
 We can label them in order
 
-\[ q_1, q_2, \dots 
-\quad \text{where }q_n = \begin{cases}
+\[ q_{1}, q_{2}, \dots 
+\quad \text{where }q_{n} = \begin{cases}
 \phi & \text{if }  n = 1 \\
-\psi_{\lceil \log_2 n \rceil- 1, n + 1 - \lceil \log_2 n \rceil } & \text{otherwise}
+\psi_{\lceil \log_{2} n \rceil- 1, n + 1 - \lceil \log_{2} n \rceil } & \text{otherwise}
 \end{cases}\]
 
 Now, limiting the Haar histogram estimator to hyperparameter \(B\) is
 equivalent to limiting it to only use the first \(2^{B + 1}\) functions.
 
 Then, we can use Theorem 22.5 to calculate the risk on the basis of the
-\(q_j\)'s, where \(J = 2^{B + 1}\):
+\(q_{j}\)s, where \(J = 2^{B + 1}\):
 
-\[ R = \sum_{j=1}^J \frac{\sigma_j^2}{n} + \sum_{j=J+1}^\infty \beta_j^2 \]
+\[ R = \sum_{j=1}^J \frac{\sigma_{j}^{2}}{n} + \sum_{j=J+1}^{\infty} \beta_{j}^{2} \]
 
 with approximation
 
-\[ \hat{R}_J(J) = \sum_{j=1}^J \frac{\hat{\sigma}_j^2}{n} + \sum_{j=J+1}^p \left( \hat{\beta}_j^2 - \frac{\hat{\sigma}_j^2}{n} \right)_{+} \]
+\[ \hat{R}_J(J) = \sum_{j=1}^J \frac{\hat{\sigma}_{j}^{2}}{n} + \sum_{j=J+1}^p \left( \hat{\beta}_{j}^{2} - \frac{\hat{\sigma}_{j}^{2}}{n} \right)_{+} \]
 
 where
 
-\[ \hat{\sigma}_j^2 = \frac{1}{n - 1} \sum_{i=1}^n \left( q_j(X_i) - \hat{\beta}_j\right)^2 \]
+\[ \hat{\sigma}_{j}^{2} = \frac{1}{n - 1} \sum_{i=1}^{n} \left( q_{j}(X_{i}) - \hat{\beta}_{j}\right)^{2} \]
 
 Rewriting the approximation on the original Haar wavelet notation basis,
 we get:
 
-\[ \hat{R}(B) = \frac{\hat{\sigma}_\phi^2}{n} 
-+ \sum_{j=0}^B \sum_{k=0}^{2^j - 1} \frac{\hat{\sigma}_{j, k}^2}{n}
-+ \sum_{j=B+1}^p \sum_{k=0}^{2^j - 1} \left( \hat{\beta}_{j, k}^2 - \frac{\hat{\sigma}_{j, k}^2}{n} \right)_+
+\[ \hat{R}(B) = \frac{\hat{\sigma}_\phi^{2}}{n} 
++ \sum_{j=0}^B \sum_{k=0}^{2^{j} - 1} \frac{\hat{\sigma}_{j, k}^{2}}{n}
++ \sum_{j=B+1}^p \sum_{k=0}^{2^{j} - 1} \left( \hat{\beta}_{j, k}^{2} - \frac{\hat{\sigma}_{j, k}^{2}}{n} \right)_+
 \]
 
 where the estimated betas are still
 
-\[ \hat{\beta}_{j, k} = \frac{1}{n} \sum_{i=1}^n \psi_{j, k} (X_i)\]
+\[ \hat{\beta}_{j, k} = \frac{1}{n} \sum_{i=1}^{n} \psi_{j, k} (X_{i})\]
 
 and the estimated variances are
 
 \[ 
-\hat{\sigma}_\phi^2 = \frac{1}{n - 1} \sum_{a=0}^B \sum_{b=0}^{2^a - 1} \left( \psi_{a, b}(X_i) - 1\right)^2
+\hat{\sigma}_\phi^{2} = \frac{1}{n - 1} \sum_{a=0}^B \sum_{b=0}^{2^{a} - 1} \left( \psi_{a, b}(X_{i}) - 1\right)^{2}
 \quad \text{and} \quad
-\hat{\sigma}_{j, k}^2 = \frac{1}{n - 1} \sum_{a=0}^B \sum_{b=0}^{2^a - 1} \left( \psi_{a, b}(X_i) - \hat{\beta}_{j, k}\right)^2 
+\hat{\sigma}_{j, k}^{2} = \frac{1}{n - 1} \sum_{a=0}^B \sum_{b=0}^{2^{a} - 1} \left( \psi_{a, b}(X_{i}) - \hat{\beta}_{j, k}\right)^{2} 
 \]
 
 \textbf{(d)}
@@ -2081,13 +2076,14 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-16}
+\centering
+\includegraphics{Figure-22-16}
 \end{figure}
 
 Rather than using the risk expression from (c), we will use the
 leave-one-out cross-validation score, as in definition 21.15:
 
-\[ \hat{J} = \int \left( \hat{f}(x) \right)^2 dx - \frac{2}{n} \sum_{i=1}^n \hat{f}_{(-i)} (X_i) \]
+\[ \hat{J} = \int \left( \hat{f}(x) \right)^{2} dx - \frac{2}{n} \sum_{i=1}^{n} \hat{f}_{(-i)} (X_{i}) \]
 
 where \(\hat{f}\) is the estimator using all data, and
 \(\hat{f}_{(-i)}\) is the estimator dropping the \(i\)-th observation.
@@ -2133,7 +2129,8 @@ print('Selected risk score: %.3f' % selected_B_score)
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-17}
+\centering
+\includegraphics{Figure-22-17}
 \end{figure}
 
 \begin{console}
@@ -2153,14 +2150,15 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-18}
+\centering
+\includegraphics{Figure-22-18}
 \end{figure}
 
 \textbf{Exercise 22.6.11}. In this exercise, we will explore the
 motivation for equation (22.38). Let
-\(X_1, \dots, X_n \sim N(0, \sigma^2)\). Let
+\(X_{1}, \dots, X_{n} \sim N(0, \sigma^{2})\). Let
 
-\[ \hat{\sigma} = \sqrt{n} \times \frac{\text{median} (| X_1|, \dots, |X_n|)}{0.6745} \]
+\[ \hat{\sigma} = \sqrt{n} \times \frac{\text{median} (| X_{1}|, \dots, |X_{n}|)}{0.6745} \]
 
 \textbf{(a)} Show that \(\mathbb{E}(\hat{\sigma}) = \sigma\).
 
@@ -2178,8 +2176,8 @@ simulate each observation from a \(N(0, 10)\) with probability 0.05.
 rescale by \(\sqrt{n}\).
 
 From the Median Theorem,
-\(\mathbb{E}(\text{median}( \{ |X_i| : i = 1, \dots, n \} )) = \mathbb{E}(\text{median}(|X|))\),
-where \(X \sim N(0, \sigma^2)\). But the half normal distribution has
+\(\mathbb{E}(\text{median}( \{ |X_{i}| : i = 1, \dots, n \} )) = \mathbb{E}(\text{median}(|X|))\),
+where \(X \sim N(0, \sigma^{2})\). But the half normal distribution has
 CDF \(F(x) = \text{erf}\left(\frac{x}{\sigma \sqrt{2}}\right)\), so the
 median is
 \(F^{-1}\left(\frac{1}{2}\right) = \frac{\sigma \sqrt{2}}{\sqrt{\pi}} \approx 0.6745 \sigma\).
@@ -2279,18 +2277,16 @@ and (d) numerically. Plots are to be provided for all scenarios.
 
 We have:
 
-\[
-\begin{align}
-\alpha &= \int_0^1 f(x) \phi(x) dx = \int_0^1 \sqrt{2} \cos (3 \pi x) dx = 0 \\
-\beta_{j, k} &= \int_0^1 f(x) \psi_{j, k}(x) dx \\
-&= 2^{(j + 1)/2} \left( \int_{\frac{k + 1/2}{2^j}}^{\frac{k + 1}{2^j}} \cos(3 \pi x) dx - \int_{\frac{k}{2^j}}^{\frac{k + 1/2}{2^j}} \cos(3 \pi x) dx \right) \\
+\begin{align*}
+\alpha &= \int_{0}^{1} f(x) \phi(x) dx = \int_{0}^{1} \sqrt{2} \cos (3 \pi x) dx = 0 \\
+\beta_{j, k} &= \int_{0}^{1} f(x) \psi_{j, k}(x) dx \\
+&= 2^{(j + 1)/2} \left( \int_{\frac{k + 1/2}{2^{j}}}^{\frac{k + 1}{2^{j}}} \cos(3 \pi x) dx - \int_{\frac{k}{2^{j}}}^{\frac{k + 1/2}{2^{j}}} \cos(3 \pi x) dx \right) \\
 &= \frac{2^{(j + 1)/2}}{3 \pi} \left(
- \sin\left( \frac{3\pi k}{2^j} \right)
- + \sin\left( \frac{3\pi (k + 1)}{2^j} \right)
- -  2 \sin\left( \frac{3\pi \left(k + \frac{1}{2}\right)}{2^j} \right) 
+ \sin\left( \frac{3\pi k}{2^{j}} \right)
+ + \sin\left( \frac{3\pi (k + 1)}{2^{j}} \right)
+ -  2 \sin\left( \frac{3\pi \left(k + \frac{1}{2}\right)}{2^{j}} \right) 
 \right)
-\end{align}
-\]
+\end{align*}
 
 \begin{python}
 # Wavelet base functions
@@ -2352,25 +2348,24 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-19}
+\centering
+\includegraphics{Figure-22-19}
 \end{figure}
 
 \textbf{(b)} \(f(x) = \sin(\pi x)\)
 
 We have:
 
-\[
-\begin{align}
-\alpha &= \int_0^1 f(x) \phi(x) dx = \int_0^1 \sin (\pi x) dx = \frac{2}{\pi} \\
-\beta_{j, k} &= \int_0^1 f(x) \psi_{j, k}(x) dx \\
-&= 2^{j/2} \left( \int_{\frac{k + 1/2}{2^j}}^{\frac{k + 1}{2^j}} \sin(\pi x) dx - \int_{\frac{k}{2^j}}^{\frac{k + 1/2}{2^j}} \sin(\pi x) dx \right) \\
+\begin{align*}
+\alpha &= \int_{0}^{1} f(x) \phi(x) dx = \int_{0}^{1} \sin (\pi x) dx = \frac{2}{\pi} \\
+\beta_{j, k} &= \int_{0}^{1} f(x) \psi_{j, k}(x) dx \\
+&= 2^{j/2} \left( \int_{\frac{k + 1/2}{2^{j}}}^{\frac{k + 1}{2^{j}}} \sin(\pi x) dx - \int_{\frac{k}{2^{j}}}^{\frac{k + 1/2}{2^{j}}} \sin(\pi x) dx \right) \\
 &= \frac{2^{j/2}}{\pi} \left(
- 2 \cos\left( \frac{\pi \left(k + \frac{1}{2}\right)}{2^j} \right) 
- - \cos\left( \frac{\pi k}{2^j} \right)
- - \cos\left( \frac{\pi (k + 1)}{2^j} \right) 
+ 2 \cos\left( \frac{\pi \left(k + \frac{1}{2}\right)}{2^{j}} \right) 
+ - \cos\left( \frac{\pi k}{2^{j}} \right)
+ - \cos\left( \frac{\pi (k + 1)}{2^{j}} \right) 
 \right)
-\end{align}
-\]
+\end{align*}
 
 \begin{python}
 # Wavelet base functions
@@ -2431,15 +2426,16 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-20}
+\centering
+\includegraphics{Figure-22-20}
 \end{figure}
 
-\textbf{(c)} \(f(x) = \sum_{j=1}^{11} h_j K(x - t_j)\), where
+\textbf{(c)} \(f(x) = \sum_{j=1}^{11} h_{j} K(x - t_{j})\), where
 \(K(t) = (1 + \text{sign}(t)) / 2\),
 
 \[ 
-(t_j) = (.1, .13, .15, .23, .25, .40, .44, .65, .76, .78, .81), \\
-(h_j) = (4, -5, 3, -4, 5, -4.2, 2.1, 4.3, -3.1, 2.1, -4.2)
+(t_{j}) = (.1, .13, .15, .23, .25, .40, .44, .65, .76, .78, .81), \\
+(h_{j}) = (4, -5, 3, -4, 5, -4.2, 2.1, 4.3, -3.1, 2.1, -4.2)
 \]
 
 \begin{python}
@@ -2519,7 +2515,7 @@ def do_subplot(index, xx, yy, label, color):
 do_subplot(1, xx, partial_sum(2, xx), label=r'$B = %i$' % 2, color='C0')
 do_subplot(2, xx, partial_sum(4, xx), label=r'$B = %i$' % 4, color='C1')
 do_subplot(3, xx, partial_sum(6, xx), label=r'$B = %i$' % 6, color='C2')
-do_subplot(4, xx, f(xx), label=r'$f(x) = \sum_j h_j K(x - t_j) $', color='C3')
+do_subplot(4, xx, f(xx), label=r'$f(x) = \sum_{j} h_{j} K(x - t_{j}) $', color='C3')
     
 plt.tight_layout()
 plt.legend()
@@ -2527,11 +2523,12 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-21}
+\centering
+\includegraphics{Figure-22-21}
 \end{figure}
 
-\textbf{(d)} \$f(x) = \sqrt{x(1-x)} \sin \left(
-\frac{2.1 \pi}{(x + .05)} \right) \$
+\textbf{(d)} $f(x) = \sqrt{x(1-x)} \sin \left(
+\frac{2.1 \pi}{(x + .05)} \right) $
 
 \begin{python}
 # Wavelet base functions
@@ -2609,5 +2606,6 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-22-22}
+\centering
+\includegraphics{Figure-22-22}
 \end{figure}

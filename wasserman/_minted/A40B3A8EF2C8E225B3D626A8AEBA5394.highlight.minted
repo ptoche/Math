@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Estimated theta:         0.480
+Estimated SE:            0.011
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} confidence interval: (0.458, 0.503)
+Wald statistic:          \PYGZhy{}1.713
+p\PYGZhy{}value:                 0.087
+\end{MintedVerbatim}

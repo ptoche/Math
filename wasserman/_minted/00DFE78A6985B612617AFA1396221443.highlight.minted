@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Confidence using parametric bootstrap}
+
+\PYG{n}{B} \PYG{o}{=} \PYG{l+m+mi}{1000}
+\PYG{n}{xx1} \PYG{o}{=} \PYG{n}{binom}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{p1\PYGZus{}hat}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{B}\PYG{p}{)}
+\PYG{n}{xx2} \PYG{o}{=} \PYG{n}{binom}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{p2\PYGZus{}hat}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{B}\PYG{p}{)}
+\PYG{n}{t\PYGZus{}boot} \PYG{o}{=} \PYG{n}{xx1} \PYG{o}{/} \PYG{n}{n} \PYG{o}{\PYGZhy{}} \PYG{n}{xx2} \PYG{o}{/} \PYG{n}{n}
+
+\PYG{n}{se\PYGZus{}bootstrap} \PYG{o}{=} \PYG{n}{t\PYGZus{}boot}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{confidence\PYGZus{}delta} \PYG{o}{=} \PYG{p}{(}\PYG{n}{psi\PYGZus{}hat} \PYG{o}{\PYGZhy{}} \PYG{n}{z} \PYG{o}{*} \PYG{n}{se\PYGZus{}bootstrap}\PYG{p}{,} \PYG{n}{psi\PYGZus{}hat} \PYG{o}{+} \PYG{n}{z} \PYG{o}{*} \PYG{n}{se\PYGZus{}bootstrap}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{90}\PYG{l+s+si}{\PYGZpc{}\PYGZpc{}}\PYG{l+s+s2}{ confidence interval (parametric bootstrap): }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s2}{ }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{confidence\PYGZus{}delta}\PYG{p}{)}
+\end{MintedVerbatim}

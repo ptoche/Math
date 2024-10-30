@@ -1,4 +1,4 @@
-\section{14. Linear Regression}\label{linear-regression}
+\section*{14. Linear Regression}\label{linear-regression}
 
 \textbf{Regression} is a method for studying the relationship between a
 \textbf{response variable} \(Y\) and a \textbf{covariates} \(X\). The
@@ -6,7 +6,7 @@ covariate is also called a \textbf{predictor variable} or
 \textbf{feature}. Later we will generalize and allow for more than one
 covariate. The data are of the form
 
-\[ (Y_1, X_1), \dots, (Y_n, X_n) \]
+\[ (Y_{1}, X_{1}), \dots, (Y_{n}, X_{n}) \]
 
 One way to summarize the relationship between \(X\) and \(Y\) is through
 the \textbf{regression function}
@@ -16,246 +16,246 @@ the \textbf{regression function}
 Most of this chapter is concerned with estimating the regression
 function.
 
-\subsection{14.1 Simple Linear
+\subsection*{14.1 Simple Linear
 Regression}\label{simple-linear-regression}
 
-The simplest version of regression is when \(X_i\) is simple (a scalar,
+The simplest version of regression is when \(X_{i}\) is simple (a scalar,
 not a vector) and \(r(x)\) is assumed to be linear:
 
-\[r(x) = \beta_0 + \beta_1 x\]
+\[r(x) = \beta_{0} + \beta_{1} x\]
 
 This model is called the \textbf{simple linear regression model}. Let
-\(\epsilon_i = Y_i - (\beta_0 + \beta_1 X_i)\). Then:
+\(\epsilon_{i} = Y_{i} - (\beta_{0} + \beta_{1} X_{i})\). Then:
 
-\begin{align}
-\mathbb{E}(\epsilon_i | Y_i) &= \mathbb{E}(Y_i - (\beta_0 + \beta_1 X_i) | X_i)\\
-&= \mathbb{E}(Y_i | X_i) - (\beta_0 + \beta_1 X_i)\\
-&= r(X_i) - (\beta_0 + \beta_1 X_i)\\
+\begin{align*}
+\mathbb{E}(\epsilon_{i} | Y_{i}) &= \mathbb{E}(Y_{i} - (\beta_{0} + \beta_{1} X_{i}) | X_{i})\\
+&= \mathbb{E}(Y_{i} | X_{i}) - (\beta_{0} + \beta_{1} X_{i})\\
+&= r(X_{i}) - (\beta_{0} + \beta_{1} X_{i})\\
 &= 0
-\end{align}
+\end{align*}
 
-Let \(\sigma^2(x) = \mathbb{V}(\epsilon_i | X_i = x)\). We will make the
-further simplifying assumption that \(\sigma^2(x) = \sigma^2\) does not
+Let \(\sigma^{2}(x) = \mathbb{V}(\epsilon_{i} | X_{i} = x)\). We will make the
+further simplifying assumption that \(\sigma^{2}(x) = \sigma^{2}\) does not
 depend on \(x\).
 
 \textbf{The Linear Regression Model}
 
-\[Y_i = \beta_0 + \beta_1 X_i + \epsilon_i\]
+\[Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}\]
 
-where \(\mathbb{E}(\epsilon_i | X_i) = 0\) and
-\(\mathbb{V}(\epsilon_i | X_i) = \sigma^2\).
+where \(\mathbb{E}(\epsilon_{i} | X_{i}) = 0\) and
+\(\mathbb{V}(\epsilon_{i} | X_{i}) = \sigma^{2}\).
 
-The unknown models in the parameter are the intercept \(\beta_0\), the
-slope \(\beta_1\) and the variance \(\sigma^2\). Let \(\hat{\beta_0}\)
-and \(\hat{\beta_1}\) denote the estimates of \(\beta_0\) and
-\(\beta_1\). The \textbf{fitted line} is defined to be
+The unknown models in the parameter are the intercept \(\beta_{0}\), the
+slope \(\beta_{1}\) and the variance \(\sigma^{2}\). Let \(\hat{\beta_{0}}\)
+and \(\hat{\beta_{1}}\) denote the estimates of \(\beta_{0}\) and
+\(\beta_{1}\). The \textbf{fitted line} is defined to be
 
-\[\hat{r}(x) = \hat{\beta}_0 + \hat{\beta}_1 x\]
+\[\hat{r}(x) = \hat{\beta}_{0} + \hat{\beta}_{1} x\]
 
 The \textbf{predicted values} or \textbf{fitted values} are
-\(\hat{Y}_i = \hat{r}(X_i)\) and the \textbf{residuals} are defined to
+\(\hat{Y}_{i} = \hat{r}(X_{i})\) and the \textbf{residuals} are defined to
 be
 
-\[\hat{\epsilon}_i = Y_i - \hat{Y}_i = Y_i - (\hat{\beta}_0 + \hat{\beta}_1 X_i)\]
+\[\hat{\epsilon}_{i} = Y_{i} - \hat{Y}_{i} = Y_{i} - (\hat{\beta}_{0} + \hat{\beta}_{1} X_{i})\]
 
 The \textbf{residual sum of squares} or RSS is defined by
 
-\[ \text{RSS} = \sum_{i=1}^n \hat{\epsilon}_i^2\]
+\[ \text{RSS} = \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}\]
 
 The quantity RSS measures how well the fitted line fits the data.
 
-The \textbf{least squares estimates} are the values \(\hat{\beta}_0\)
-and \(\hat{\beta}_1\) that minimize
-\(\text{RSS} = \sum_{i=1}^n \hat{\epsilon}_i^2\).
+The \textbf{least squares estimates} are the values \(\hat{\beta}_{0}\)
+and \(\hat{\beta}_{1}\) that minimize
+\(\text{RSS} = \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}\).
 
 \textbf{Theorem 14.4}. The least square estimates are given by
 
-\begin{align}
-\hat{\beta}_1 &= \frac{\sum_{i=1}^n (X_i - \overline{X}_n) (Y_i - \overline{Y}_n)}{\sum_{i=1}^n (X_i - \overline{X}_n)^2}\\
-\hat{\beta}_0 &= \overline{Y}_n - \hat{\beta}_1 \overline{X}_n
-\end{align}
+\begin{align*}
+\hat{\beta}_{1} &= \frac{\sum_{i=1}^{n} (X_{i} - \overline{X}_{n}) (Y_{i} - \overline{Y}_{n})}{\sum_{i=1}^{n} (X_{i} - \overline{X}_{n})^{2}}\\
+\hat{\beta}_{0} &= \overline{Y}_{n} - \hat{\beta}_{1} \overline{X}_{n}
+\end{align*}
 
-An unbiased estimate of \(\sigma^2\) is
+An unbiased estimate of \(\sigma^{2}\) is
 
 \[
-\hat{\sigma}^2 = \left( \frac{1}{n - 2} \right) \sum_{i=1}^n \hat{\epsilon}_i^2
+\hat{\sigma}^{2} = \left( \frac{1}{n - 2} \right) \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}
 \]
 
-\subsection{14.2 Least Squares and Maximum
+\subsection*{14.2 Least Squares and Maximum
 Likelihood}\label{least-squares-and-maximum-likelihood}
 
 Suppose we add the assumption that
-\(\epsilon_i | X_i \sim N(0, \sigma^2)\), that is,
+\(\epsilon_{i} | X_{i} \sim N(0, \sigma^{2})\), that is,
 
-\(Y_i | X_i \sim N(\mu_i, \sigma_i^2)\)
+\(Y_{i} | X_{i} \sim N(\mu_{i}, \sigma_{i}^{2})\)
 
-where \(\mu_i = \beta_0 + \beta_i X_i\). The likelihood function is
+where \(\mu_{i} = \beta_{0} + \beta_{i} X_{i}\). The likelihood function is
 
-\begin{align}
-\prod_{i=1}n f(X_i, Y_i) &= \prod_{i=1}^n f_X(X_i) f_{Y|X}(Y_i | X_i)\\
-&= \prod_{i=1}^n f_X(X_i) \times \prod_{i=1}^n f_{Y|X}(Y_i | X_i) \\
-&= \mathcal{L}_1 \times \mathcal{L}_2
-\end{align}
+\begin{align*}
+\prod_{i=1}n f(X_{i}, Y_{i}) &= \prod_{i=1}^{n} f_X(X_{i}) f_{Y|X}(Y_{i} | X_{i})\\
+&= \prod_{i=1}^{n} f_X(X_{i}) \times \prod_{i=1}^{n} f_{Y|X}(Y_{i} | X_{i}) \\
+&= \mathcal{L}_{1} \times \mathcal{L}_{2}
+\end{align*}
 
-where \(\mathcal{L}_1 = \prod_{i=1}^n f_X(X_i)\) and
-\(\mathcal{L}_2 = \prod_{i=1}^n f_{Y|X}(Y_i | X_i)\).
+where \(\mathcal{L}_{1} = \prod_{i=1}^{n} f_X(X_{i})\) and
+\(\mathcal{L}_{2} = \prod_{i=1}^{n} f_{Y|X}(Y_{i} | X_{i})\).
 
-The term \(\mathcal{L}_1\) does not involve the parameters \(\beta_0\)
-and \(\beta_1\). We shall focus on the second term \(\mathcal{L}_2\)
+The term \(\mathcal{L}_{1}\) does not involve the parameters \(\beta_{0}\)
+and \(\beta_{1}\). We shall focus on the second term \(\mathcal{L}_{2}\)
 which is called the \textbf{conditional likelihood}, given by
 
-\[\mathcal{L}_2 \equiv \mathcal{L}(\beta_0, \beta_1, \sigma)
-= \prod_{i=1}^n f_{Y|X}(Y_i | X_i)
-\propto \sigma^{-n} \exp \left\{ - \frac{1}{2 \sigma^2} \sum_i (Y_i - \mu_i)^2 \right\}
+\[\mathcal{L}_{2} \equiv \mathcal{L}(\beta_{0}, \beta_{1}, \sigma)
+= \prod_{i=1}^{n} f_{Y|X}(Y_{i} | X_{i})
+\propto \sigma^{-n} \exp \left\{ - \frac{1}{2 \sigma^{2}} \sum_{i} (Y_{i} - \mu_{i})^{2} \right\}
 \]
 
 The conditional log-likelihood is
 
-\[\ell(\beta_0, \beta_1, \sigma) = -n \log \sigma - \frac{1}{2 \sigma^2} \sum_{i=1}^n \left(Y_i - (\beta_0 + \beta_1 X_i) \right)^2\]
+\[\ell(\beta_{0}, \beta_{1}, \sigma) = -n \log \sigma - \frac{1}{2 \sigma^{2}} \sum_{i=1}^{n} \left(Y_{i} - (\beta_{0} + \beta_{1} X_{i}) \right)^{2}\]
 
-To find the MLE of \((\beta_0, \beta_1)\) we maximize the conditional
+To find the MLE of \((\beta_{0}, \beta_{1})\) we maximize the conditional
 log likelihood. We can see from the equation above that this is the same
 as minimizing the RSS. Therefore, we have shown the following:
 
 \textbf{Theorem 14.7}. Under the assumption of Normality, the least
 squares estimator is also the maximum likelihood estimator.
 
-We can also maximize \(\ell(\beta_0, \beta_1, \sigma)\) over \(\sigma\)
+We can also maximize \(\ell(\beta_{0}, \beta_{1}, \sigma)\) over \(\sigma\)
 yielding the MLE
 
-\[ \hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n \hat{\epsilon}_i^2 \]
+\[ \hat{\sigma}^{2} = \frac{1}{n} \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2} \]
 
 This estimator is similar to, but not identical to, the unbiased
 estimator. Common practice is to use the unbiased estimator.
 
-\subsection{14.3 Properties of the Least Squares
+\subsection*{14.3 Properties of the Least Squares
 Estimators}\label{properties-of-the-least-squares-estimators}
 
 \textbf{Theorem 14.8}. Let
-\(\hat{\beta}^T = (\hat{\beta}_0, \hat{\beta}_1)^T\) denote the least
+\(\hat{\beta}^T = (\hat{\beta}_{0}, \hat{\beta}_{1})^T\) denote the least
 squares estimators. Then,
 
 \[
-\mathbb{E}(\hat{\beta} | X^n) = \begin{pmatrix}\beta_0 \\ \beta_1 \end{pmatrix}
+\mathbb{E}(\hat{\beta} | X^{n}) = \begin{pmatrix}\beta_{0} \\ \beta_{1} \end{pmatrix}
 \]
 
 \[
-\mathbb{V}(\hat{\beta} | X^n) = \frac{\sigma^2}{n s_X^2} \begin{pmatrix} 
-\frac{1}{n} \sum_{i=1}^n X_i^2 & -\overline{X}_n \\
--\overline{X}_n & 1
+\mathbb{V}(\hat{\beta} | X^{n}) = \frac{\sigma^{2}}{n s_X^{2}} \begin{pmatrix} 
+\frac{1}{n} \sum_{i=1}^{n} X_{i}^{2} & -\overline{X}_{n} \\
+-\overline{X}_{n} & 1
 \end{pmatrix}
 \]
 
-where \(s_X^2 = n^{-1} \sum_{i=1}^n (X_i - \overline{X}_n)^2\).
+where \(s_X^{2} = n^{-1} \sum_{i=1}^{n} (X_{i} - \overline{X}_{n})^{2}\).
 
-The estimated standard errors of \(\hat{\beta}_0\) and \(\hat{\beta}_1\)
+The estimated standard errors of \(\hat{\beta}_{0}\) and \(\hat{\beta}_{1}\)
 are obtained by taking the square roots of the corresponding diagonal
-terms of \(\mathbb{V}(\hat{\beta} | X^n)\) and inserting the estimate
+terms of \(\mathbb{V}(\hat{\beta} | X^{n})\) and inserting the estimate
 \(\hat{\sigma}\) for \(\sigma\). Thus,
 
-\begin{align}
-\hat{\text{se}}(\hat{\beta}_0) &= \frac{\hat{\sigma}}{s_X \sqrt{n}} \sqrt{\frac{\sum_{i=1}^n X_i^2}{n}}\\
-\hat{\text{se}}(\hat{\beta}_1) &= \frac{\hat{\sigma}}{s_X \sqrt{n}}
-\end{align}
+\begin{align*}
+\hat{\text{se}}(\hat{\beta}_{0}) &= \frac{\hat{\sigma}}{s_X \sqrt{n}} \sqrt{\frac{\sum_{i=1}^{n} X_{i}^{2}}{n}}\\
+\hat{\text{se}}(\hat{\beta}_{1}) &= \frac{\hat{\sigma}}{s_X \sqrt{n}}
+\end{align*}
 
-We should write \(\hat{\text{se}}(\hat{\beta}_0 | X^n)\) and
-\(\hat{\text{se}}(\hat{\beta}_1 | X^n)\) but we will use the shorter
-notation \(\hat{\text{se}}(\hat{\beta}_0)\) and
-\(\hat{\text{se}}(\hat{\beta}_1)\).
+We should write \(\hat{\text{se}}(\hat{\beta}_{0} | X^{n})\) and
+\(\hat{\text{se}}(\hat{\beta}_{1} | X^{n})\) but we will use the shorter
+notation \(\hat{\text{se}}(\hat{\beta}_{0})\) and
+\(\hat{\text{se}}(\hat{\beta}_{1})\).
 
 \textbf{Theorem 14.9}. Under appropriate conditions we have:
 
 \begin{enumerate}[label={\arabic*.}]
 \item
-  (Consistency) \(\hat{\beta}_0 \xrightarrow{\text{P}} \beta_0\) and
-  \(\hat{\beta}_1 \xrightarrow{\text{P}} \beta_1\)
+  (Consistency) \(\hat{\beta}_{0} \xrightarrow{\text{P}} \beta_{0}\) and
+  \(\hat{\beta}_{1} \xrightarrow{\text{P}} \beta_{1}\)
 \item
   (Asymptotic Normality):
 \end{enumerate}
 
 \[
-\frac{\hat{\beta}_0 - \beta_0}{\hat{se}(\hat{\beta}_0)} \leadsto N(0, 1)
+\frac{\hat{\beta}_{0} - \beta_{0}}{\hat{se}(\hat{\beta}_{0})} \leadsto N(0, 1)
 \quad \text{and} \quad
-\frac{\hat{\beta}_1 - \beta_1}{\hat{se}(\hat{\beta}_1)} \leadsto N(0, 1)
+\frac{\hat{\beta}_{1} - \beta_{1}}{\hat{se}(\hat{\beta}_{1})} \leadsto N(0, 1)
 \]
 
 \begin{enumerate}[tightlist,label={\arabic*.},resume]
 \item
-  Approximate \(1 - \alpha\) confidence intervals for \(\beta_0\) and
-  \(\beta_1\) are
+  Approximate \(1 - \alpha\) confidence intervals for \(\beta_{0}\) and
+  \(\beta_{1}\) are
 \end{enumerate}
 
 \[
-\hat{\beta}_0 \pm z_{\alpha/2} \hat{\text{se}}(\hat{\beta}_0)
+\hat{\beta}_{0} \pm z_{\alpha/2} \hat{\text{se}}(\hat{\beta}_{0})
 \quad \text{and} \quad
-\hat{\beta}_1 \pm z_{\alpha/2} \hat{\text{se}}(\hat{\beta}_1)
+\hat{\beta}_{1} \pm z_{\alpha/2} \hat{\text{se}}(\hat{\beta}_{1})
 \]
 
-The Wald statistic for testing \(H_0 : \beta_1 = 0\) versus
-\(H_1: \beta_1 \neq 0\) is: reject \(H_0\) if \(W > z_{\alpha / 2}\)
-where \(W = \hat{\beta}_1 / \hat{\text{se}}(\hat{\beta}_1)\).
+The Wald statistic for testing \(H_{0} : \beta_{1} = 0\) versus
+\(H_{1}: \beta_{1} \neq 0\) is: reject \(H_{0}\) if \(W > z_{\alpha / 2}\)
+where \(W = \hat{\beta}_{1} / \hat{\text{se}}(\hat{\beta}_{1})\).
 
-\subsection{14.4 Prediction}\label{prediction}
+\subsection*{14.4 Prediction}\label{prediction}
 
 Suppose we have estimated a regression model
-\(\hat{r}(x) = \hat{\beta}_0 + \hat{\beta}_1 x\) from data
-\((X_1, Y_1), \dots, (X_n, Y_n)\). We observe the value \(X_* = x\) of
+\(\hat{r}(x) = \hat{\beta}_{0} + \hat{\beta}_{1} x\) from data
+\((X_{1}, Y_{1}), \dots, (X_{n}, Y_{n})\). We observe the value \(X_* = x\) of
 the covariate for a new subject and we want to predict the outcome
 \(Y_*\). An estimate of \(Y_*\) is
 
-\[ \hat{Y}_* = \hat{\beta}_0 + \hat{\beta}_1 X_*\]
+\[ \hat{Y}_* = \hat{\beta}_{0} + \hat{\beta}_{1} X_*\]
 
 Using the formula for the variance of the sum of two random variables,
 
-\[ \mathbb{V}(\hat{Y}_*) = \mathbb{V}(\hat{\beta}_0 + \hat{\beta}_1 x_*) = \mathbb{V}(\hat{\beta}_0) + x_* \mathbb{V}(\hat{\beta}_1) + 2 x_* \text{Cov}(\hat{\beta}_0, \hat{\beta}_1) \]
+\[ \mathbb{V}(\hat{Y}_*) = \mathbb{V}(\hat{\beta}_{0} + \hat{\beta}_{1} x_*) = \mathbb{V}(\hat{\beta}_{0}) + x_* \mathbb{V}(\hat{\beta}_{1}) + 2 x_* \text{Cov}(\hat{\beta}_{0}, \hat{\beta}_{1}) \]
 
 Theorem 14.8 gives the formulas for all terms in this equation. The
 estimated standard error \(\hat{\text{se}}(\hat{Y}_*)\) is the square
-root of this variance, with \(\hat{\sigma}^2\) in place of \(\sigma^2\).
+root of this variance, with \(\hat{\sigma}^{2}\) in place of \(\sigma^{2}\).
 However, \textbf{the confidence interval for \(\hat{Y}_*\) is not of the
 usual form} \(\hat{Y}_* \pm z_{\alpha} \hat{\text{se}}(\hat{Y}_*)\). The
 appendix explains why. The correct form is given in the following
-theorem. We can the interval a \textbf{prediction interval}.
+Theorem. We can the interval a \textbf{prediction interval}.
 
 \textbf{Theorem 14.11 (Prediction Interval)}. Let
 
-\begin{align}
-\hat{\xi}_n^2 &= \hat{\text{se}}^2(\hat{Y}_*) + \hat{\sigma}^2 \\
-&= \hat{\sigma}^2 \left(\frac{\sum_{i=1}^n (X_i - X_*)^2}{n \sum_{i=1}^n (X_i - \overline{X})^2} + 1 \right)
-\end{align}
+\begin{align*}
+\hat{\xi}_{n}^{2} &= \hat{\text{se}}^{2}(\hat{Y}_*) + \hat{\sigma}^{2} \\
+&= \hat{\sigma}^{2} \left(\frac{\sum_{i=1}^{n} (X_{i} - X_*)^{2}}{n \sum_{i=1}^{n} (X_{i} - \overline{X})^{2}} + 1 \right)
+\end{align*}
 
 An approximate \(1 - \alpha\) prediction interval for \(Y_*\) is
 
-\[ \hat{Y}_* \pm z_{\alpha/2} \xi_n\]
+\[ \hat{Y}_* \pm z_{\alpha/2} \xi_{n}\]
 
-\subsection{14.5 Multiple Regression}\label{multiple-regression}
+\subsection*{14.5 Multiple Regression}\label{multiple-regression}
 
-Now suppose we have \(k\) covariates \(X_1, \dots, X_k\). The data are
+Now suppose we have \(k\) covariates \(X_{1}, \dots, X_{k}\). The data are
 of the form
 
-\[(Y_1, X_1), \dots, (Y_n, X_n)\]
+\[(Y_{1}, X_{1}), \dots, (Y_{n}, X_{n})\]
 
 where
 
-\[ X_i = (X_{i1}, \dots, X_{ik}) \]
+\[ X_{i} = (X_{i1}, \dots, X_{ik}) \]
 
-Here, \(X_i\) is the vector of \(k\) covariates for the \(i-\)th
+Here, \(X_{i}\) is the vector of \(k\) covariates for the \(i-\)th
 observation. The linear regression model is
 
-\[ Y_i = \sum_{i=1}^k \beta_j X_{ij} + \epsilon_i \]
+\[ Y_{i} = \sum_{i=1}^{k} \beta_{j} X_{ij} + \epsilon_{i} \]
 
 for \(i = 1, \dots, n\) where
-\(\mathbb{E}(\epsilon_i | X_{1i}, \dots, X_{ik}) = 0\). Usually we want
+\(\mathbb{E}(\epsilon_{i} | X_{1i}, \dots, X_{ik}) = 0\). Usually we want
 to include an intercept in the model which we can do by setting
 \(X_{i1} = 1\) for \(i = 1, \dots, n\). At this point it will become
 more convenient to express the model in matrix notation. The outcomes
 will be denoted by
 
 \[ Y = \begin{pmatrix}
-Y_1 \\
-Y_2 \\
+Y_{1} \\
+Y_{2} \\
 \vdots \\
-Y_n
+Y_{n}
 \end{pmatrix}
 \]
 
@@ -274,15 +274,15 @@ covariates. Thus, \(X\) is a \(n \times k\) matrix. Let
 
 \[
 \beta = \begin{pmatrix}
-\beta_1 \\
+\beta_{1} \\
 \vdots \\
-\beta_k
+\beta_{k}
 \end{pmatrix}
 \quad \text{and} \quad
 \epsilon = \begin{pmatrix}
-\epsilon_1 \\
+\epsilon_{1} \\
 \vdots \\
-\epsilon_k
+\epsilon_{k}
 \end{pmatrix}
 \]
 
@@ -297,25 +297,25 @@ is invertible, the least squares estimate is
 
 The estimated regression function is
 
-\[ \hat{r}(x) = \sum_{j=1}^k \hat{\beta}_j x_j\]
+\[ \hat{r}(x) = \sum_{j=1}^{k} \hat{\beta}_{j} x_{j}\]
 
 The variance-covariance matrix of \(\hat{\beta}\) is
 
-\[ \mathbb{V}(\hat{\beta} | X^n) = \sigma^2 (X^T X)^{-1} \]
+\[ \mathbb{V}(\hat{\beta} | X^{n}) = \sigma^{2} (X^T X)^{-1} \]
 
-An unbiased estimate of \(\sigma^2\) is
+An unbiased estimate of \(\sigma^{2}\) is
 
-\[ \hat{\sigma}^2 = \left( \frac{1}{n - k} \right) \sum_{i=1}^n \hat{\epsilon}_i^2 \]
+\[ \hat{\sigma}^{2} = \left( \frac{1}{n - k} \right) \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2} \]
 
 where \(\hat{\epsilon} = X \hat{\beta} - Y\) is the vector of residuals.
-An approximate \(1 - \alpha\) confidence interval for \(\beta_j\) is
+An approximate \(1 - \alpha\) confidence interval for \(\beta_{j}\) is
 
-\[ \hat{\beta}_j \pm z_{\alpha/2} \hat{\text{se}}(\hat{\beta}_j) \]
+\[ \hat{\beta}_{j} \pm z_{\alpha/2} \hat{\text{se}}(\hat{\beta}_{j}) \]
 
-where \(\hat{\text{se}}^2(\hat{\beta}_j)\) is the \(j\)-th diagonal
-element of the matrix \(\hat{\sigma}^2 (X^T X)^{-1}\).
+where \(\hat{\text{se}}^{2}(\hat{\beta}_{j})\) is the \(j\)-th diagonal
+element of the matrix \(\hat{\sigma}^{2} (X^T X)^{-1}\).
 
-\subsection{14.6 Model Selection}\label{model-selection}
+\subsection*{14.6 Model Selection}\label{model-selection}
 
 We may have data on many covariates but we may not want to include all
 of them in the model. A smaller model with fewer covariates has two
@@ -331,25 +331,25 @@ model which measures, in some sense, how good the model is, and
 searching through all models to find the model with the best score.
 
 Let \(S \subset \{1, \dots, k\}\) and let
-\(\mathcal{X}_S = \{ X_j : j \in S \}\) denote a subset of the
+\(\mathcal{X}_S = \{ X_{j} : j \in S \}\) denote a subset of the
 covariates. Let \(\beta_S\) denote the coefficients of the corresponding
 set of covariates and let \(\hat{\beta}_S\) denote the least squares
 estimate of \(\beta_S\). Let \(X_S\) denote the \(X\) matrix for this
 subset of covariates, and let \(\hat{r}_S(x)\) to be the estimated
 regression function. The predicted values from model \(S\) are denoted
-by \(\hat{Y}_i(S) = \hat{r}_S(X_i)\).
+by \(\hat{Y}_{i}(S) = \hat{r}_S(X_{i})\).
 
 The \textbf{prediction risk} is defined to be
 
-\[R(S) = \sum_{i=1}^n \mathbb{E} (\hat{Y}_i(S) - Y_i^*)^2 \]
+\[R(S) = \sum_{i=1}^{n} \mathbb{E} (\hat{Y}_{i}(S) - Y_{i}^*)^{2} \]
 
-where \(Y_i^*\) denotes the value of the future observation of \(Y_i\)
-at covariate value \(X_i\). Our goal is to choose \(S\) to make \(R(S)\)
+where \(Y_{i}^*\) denotes the value of the future observation of \(Y_{i}\)
+at covariate value \(X_{i}\). Our goal is to choose \(S\) to make \(R(S)\)
 small.
 
 The \textbf{training error} is defined to be
 
-\[\hat{R}_\text{tr}(S) = \sum_{i=1}^n (\hat{Y}_i(S) - Y_i)^2 \]
+\[\hat{R}_\text{tr}(S) = \sum_{i=1}^{n} (\hat{Y}_{i}(S) - Y_{i})^{2} \]
 
 This estimate is very biased and under-estimates \(R(S)\).
 
@@ -360,11 +360,11 @@ of the prediction risk:
 
 In fact,
 
-\[\text{bias}(\hat{R}_\text{tr}(S)) = \mathbb{E}(\hat{R}_\text{tr}(S)) - R(S) = -2 \sum_{i=1}^n \text{Cov}(\hat{Y}_i, Y_i)\]
+\[\text{bias}(\hat{R}_\text{tr}(S)) = \mathbb{E}(\hat{R}_\text{tr}(S)) - R(S) = -2 \sum_{i=1}^{n} \text{Cov}(\hat{Y}_{i}, Y_{i})\]
 
 The reason for the bias is that the data is being used twice: to
 estimate the parameters and to estimate the risk. When fitting a model
-with many variables, the covariance \(\text{Cov}(\hat{Y_i}, Y_i)\) will
+with many variables, the covariance \(\text{Cov}(\hat{Y_{i}}, Y_{i})\) will
 be large and the bias of the training error gets worse.
 
 In summary, the training error is a poor estimate of risk. Here are some
@@ -372,10 +372,10 @@ better estimates.
 
 \textbf{Mallow's \(C_p\) statistic} is defined by
 
-\[\hat{R}(S) = \hat{R}_\text{tr}(S) + 2 |S| \hat{\sigma}^2\]
+\[\hat{R}(S) = \hat{R}_\text{tr}(S) + 2 |S| \hat{\sigma}^{2}\]
 
 where \(|S|\) denotes the number of terms in \(S\) and
-\(\hat{\sigma}^2\) is the estimate of \(\sigma^2\) obtained from the
+\(\hat{\sigma}^{2}\) is the estimate of \(\sigma^{2}\) obtained from the
 full model (with all covariates). Think of the \(C_p\) statistic as lack
 of fit plus complexity penalty.
 
@@ -395,14 +395,14 @@ which model is selected.}
 Yet another method for estimating risk is \textbf{leave-one-out
 cross-validation}. In this case, the risk estimator is
 
-\[\hat{R}_\text{CV}(S) = \sum_{i=1}^n (Y_i - \hat{Y}_{(i)})^2 \]
+\[\hat{R}_\text{CV}(S) = \sum_{i=1}^{n} (Y_{i} - \hat{Y}_{(i)})^{2} \]
 
-where \(\hat{Y}_{(i)}\) is the prediction for \(Y_i\) obtained by
-fitting the model with \(Y_i\) omitted. It can be shown that
+where \(\hat{Y}_{(i)}\) is the prediction for \(Y_{i}\) obtained by
+fitting the model with \(Y_{i}\) omitted. It can be shown that
 
-\[\hat{R}_\text{CV}(S) = \sum_{i=1}^n \left( \frac{Y_i - \hat{Y}_i(S)}{1 - U_{ii}(S)} \right)^2 \]
+\[\hat{R}_\text{CV}(S) = \sum_{i=1}^{n} \left( \frac{Y_{i} - \hat{Y}_{i}(S)}{1 - U_{ii}(S)} \right)^{2} \]
 
-where \(U_ii\) is the \(i\)-th diagonal element of the matrix
+where \(U_{i}i\) is the \(i\)-th diagonal element of the matrix
 
 \[U(S) = X_S (X_S^T X_S)^{-1} X_S^T\]
 
@@ -412,7 +412,7 @@ A generalization is \textbf{k-fold cross-validation}. Here we divide the
 data into \(k\) groups; often people take \(k = 10\). We omit one group
 of data and fit the models on the remaining data. We use the fitted
 model to predict the data in the group that was omitted. We then
-estimate the risk by \(\sum_i (Y_i - \hat{Y}_i)^2\) where the sum is
+estimate the risk by \(\sum_{i} (Y_{i} - \hat{Y}_{i})^{2}\) where the sum is
 over the data points in the omitted group. This process is repeated for
 each of the \(k\) groups and the resulting risk estimates are averaged.
 
@@ -424,16 +424,16 @@ cross-validation will be more useful.
 Another scoring method is \textbf{BIC (Bayesian Information Criterion)}.
 Here we choose a model to maximize
 
-\[ \text{BIC}(S) = \text{RSS}(S) = 2 |S| \hat{\sigma}^2 \]
+\[ \text{BIC}(S) = \text{RSS}(S) = 2 |S| \hat{\sigma}^{2} \]
 
 The BIC score has a Bayesian interpretation. Let
-\(\mathcal{S} = \{ S_1, \dots, S_m \}\) denote a set of models. Suppose
-we assign the uniform prior \(\mathbb{P}(S_j) = 1 / m\) over the models.
+\(\mathcal{S} = \{ S_{1}, \dots, S_m \}\) denote a set of models. Suppose
+we assign the uniform prior \(\mathbb{P}(S_{j}) = 1 / m\) over the models.
 Also assume we put a smooth prior on the parameters within each model.
 It can be shown that the posterior probability for a model is
 approximately
 
-\[ \mathbb{P}(S_j | \text{data}) \approx \frac{e^{\text{BIC}(S_j)}}{\sum_r e^{\text{BIC}(S_r)}}\]
+\[ \mathbb{P}(S_{j} | \text{data}) \approx \frac{e^{\text{BIC}(S_{j})}}{\sum_r e^{\text{BIC}(S_r)}}\]
 
 so choosing the model with highest BIC is like choosing the model with
 highest posterior probability.
@@ -445,7 +445,7 @@ The BIC score is identical to Mallows \(C_p\) except that it puts a more
 severe penalty for complexity. It thus leads one to choose a smaller
 model than the other methods.
 
-If there are \(k\) covariates then there are \(2^k\) possible models. We
+If there are \(k\) covariates then there are \(2^{k}\) possible models. We
 need to search through all of those models, assign a score to each one,
 and choose the model with the best score. When \(k\) is large, this is
 infeasible; in that case, we need to search over a subset of all the
@@ -457,18 +457,18 @@ model, and keep adding variables one at a time that lead to the best
 score. In backward stepwise regression, we start with the biggest model
 (all covariates) and drop one variable at a time.
 
-\subsection{14.7 The Lasso}\label{the-lasso}
+\subsection*{14.7 The Lasso}\label{the-lasso}
 
 This method, due to Tibshirani, is called the \textbf{Lasso}. Assume
 that all covariates have been rescaled to have the same variance.
-Consider estimating \(\beta = (\beta_1, \dots, \beta_k)\) by minimizing
+Consider estimating \(\beta = (\beta_{1}, \dots, \beta_{k})\) by minimizing
 the loss function
 
-\[ \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 + \lambda \sum_{j=1}^k | \beta_j |\]
+\[ \sum_{i=1}^{n} (Y_{i} - \hat{Y}_{i})^{2} + \lambda \sum_{j=1}^{k} | \beta_{j} |\]
 
 where \(\lambda > 0\). The idea is to minimize the sums of squares but
-there is a penalty that gets large if any \(\beta_j\) gets large. It can
-be shown that some of the \(\beta_j\)'s will be 0. We interpret this as
+there is a penalty that gets large if any \(\beta_{j}\) gets large. It can
+be shown that some of the \(\beta_{j}\)Here is will be 0. We interpret this as
 having the \(j\)-th covariate omitted from the model; thus we are doing
 estimation and model selection simultaneously.
 
@@ -477,7 +477,7 @@ the prediction risk \(R(\lambda)\) as a function of \(\lambda\) and
 choosing to minimize it. For example, we can estimate the risk using
 leave-one-out cross-validation
 
-\subsection{14.8 Technical Appendix}\label{technical-appendix}
+\subsection*{14.8 Technical Appendix}
 
 The prediction interval is of a different form than other confidence
 intervals we have seen -- the quantity of interest \(Y_*\) is equal to a
@@ -485,112 +485,112 @@ parameter \(\theta\) plus a random variable.
 
 We can fix this by defining:
 
-\[ \xi_n^2 = \mathbb{V}(\hat{Y}_*) + \sigma^2 = \left[\frac{\sum_i (x_i - x_*)^2}{n \sum_i (x_i - \overline{x})^2} + 1\right] \sigma^2\]
+\[ \xi_{n}^{2} = \mathbb{V}(\hat{Y}_*) + \sigma^{2} = \left[\frac{\sum_{i} (x_{i} - x_*)^{2}}{n \sum_{i} (x_{i} - \overline{x})^{2}} + 1\right] \sigma^{2}\]
 
 In practice, we substitute \(\hat{\sigma}\) for \(\sigma\) and we denote
-the resulting quantity by \(\hat{\xi}_n\). Now,
+the resulting quantity by \(\hat{\xi}_{n}\). Now,
 
-\begin{align}
-\mathbb{P}(\hat{Y}_* - z_{\alpha/2} \hat{\xi}_n < Y_* < \hat{Y}_* + z_{\alpha/2} \hat{\xi}_n) &=
-\mathbb{P}\left(-z_{\alpha/2} < \frac{\hat{Y}_* - Y_*}{\hat{\xi}_n} < z_{\alpha/2} \right)\\
-&= \mathbb{P}\left(-z_{\alpha/2} < \frac{\hat{\theta} - \theta - \epsilon}{\hat{\xi}_n} < z_{\alpha/2} \right) \\
-&\approx \mathbb{P}\left(-z_{\alpha/2} < \frac{N(0, s^2 + \sigma^2)}{\hat{\xi}_n} < z_{\alpha/2} \right)  \\
-&\approx \mathbb{P}\left(-z_{\alpha/2} < \frac{N(0, s^2 + \sigma^2)}{\xi_n} < z_{\alpha/2} \right)  \\
+\begin{align*}
+\mathbb{P}(\hat{Y}_* - z_{\alpha/2} \hat{\xi}_{n} < Y_* < \hat{Y}_* + z_{\alpha/2} \hat{\xi}_{n}) &=
+\mathbb{P}\left(-z_{\alpha/2} < \frac{\hat{Y}_* - Y_*}{\hat{\xi}_{n}} < z_{\alpha/2} \right)\\
+&= \mathbb{P}\left(-z_{\alpha/2} < \frac{\hat{\theta} - \theta - \epsilon}{\hat{\xi}_{n}} < z_{\alpha/2} \right) \\
+&\approx \mathbb{P}\left(-z_{\alpha/2} < \frac{N(0, s^{2} + \sigma^{2})}{\hat{\xi}_{n}} < z_{\alpha/2} \right)  \\
+&\approx \mathbb{P}\left(-z_{\alpha/2} < \frac{N(0, s^{2} + \sigma^{2})}{\xi_{n}} < z_{\alpha/2} \right)  \\
 &= \mathbb{P}(-z_{\alpha/2} < N(0, 1) < z_{\alpha/2}) \\
 &= 1 - \alpha
-\end{align}
+\end{align*}
 
-\subsection{14.9 Exercises}\label{exercises}
+\subsection*{14.9 Exercises}
 
 \textbf{Exercise 14.9.1}. Prove Theorem 14.4:
 
 The least square estimates are given by
 
-\begin{align}
-\hat{\beta}_1 &= \frac{\sum_{i=1}^n (X_i - \overline{X}_n) (Y_i - \overline{Y}_n)}{\sum_{i=1}^n (X_i - \overline{X}_n)^2}\\
-\hat{\beta}_0 &= \overline{Y}_n - \hat{\beta}_1 \overline{X}_n
-\end{align}
+\begin{align*}
+\hat{\beta}_{1} &= \frac{\sum_{i=1}^{n} (X_{i} - \overline{X}_{n}) (Y_{i} - \overline{Y}_{n})}{\sum_{i=1}^{n} (X_{i} - \overline{X}_{n})^{2}}\\
+\hat{\beta}_{0} &= \overline{Y}_{n} - \hat{\beta}_{1} \overline{X}_{n}
+\end{align*}
 
-An unbiased estimate of \(\sigma^2\) is
+An unbiased estimate of \(\sigma^{2}\) is
 
 \[
-\hat{\sigma}^2 = \left( \frac{1}{n - 2} \right) \sum_{i=1}^n \hat{\epsilon}_i^2
+\hat{\sigma}^{2} = \left( \frac{1}{n - 2} \right) \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}
 \]
 
-\textbf{Solution}. We can obtain the estimates \(\hat{\beta}_0\) and
-\(\hat{\beta}_1\) by minimizing the RSS -- by taking the partial
-derivatives with respect to \(\beta_0\) and \(\beta_1\):
+\textbf{Solution}. We can obtain the estimates \(\hat{\beta}_{0}\) and
+\(\hat{\beta}_{1}\) by minimizing the RSS -- by taking the partial
+derivatives with respect to \(\beta_{0}\) and \(\beta_{1}\):
 
-\[\text{RSS} = \sum_i \hat{\epsilon}_i^2 = \sum_i (Y_i - (\beta_0 + \beta_1 X_i))^2\]
+\[\text{RSS} = \sum_{i} \hat{\epsilon}_{i}^{2} = \sum_{i} (Y_{i} - (\beta_{0} + \beta_{1} X_{i}))^{2}\]
 
-Derivating RSS on \(\beta_0\):
+Derivating RSS on \(\beta_{0}\):
 
-\[\frac{d}{d \beta_0}\text{RSS} = \sum_i \frac{d}{d \beta_0} (Y_i - (\beta_0 + \beta_1 X_i))^2
-= \sum_i 2 (\beta_0 - (Y_i - \beta_1 X_i))\]
+\[\frac{d}{d \beta_{0}}\text{RSS} = \sum_{i} \frac{d}{d \beta_{0}} (Y_{i} - (\beta_{0} + \beta_{1} X_{i}))^{2}
+= \sum_{i} 2 (\beta_{0} - (Y_{i} - \beta_{1} X_{i}))\]
 
-Making this derivative equal to 0 at \(\hat{\beta}_0\),
-\(\hat{\beta}_1\) gives:
+Making this derivative equal to 0 at \(\hat{\beta}_{0}\),
+\(\hat{\beta}_{1}\) gives:
 
-\begin{align}
-0 &= \sum_i 2 (\hat{\beta}_0 - (Y_i - \hat{\beta}_1 X_i))\\
-n \hat{\beta}_0 &= n \sum_i Yi - \hat{\beta}_1 n \sum_i X_i\\
-\hat{\beta}_0 &= \overline{Y}_n - \hat{\beta}_1 \overline{X}_n
-\end{align}
+\begin{align*}
+0 &= \sum_{i} 2 (\hat{\beta}_{0} - (Y_{i} - \hat{\beta}_{1} X_{i}))\\
+n \hat{\beta}_{0} &= n \sum_{i} Yi - \hat{\beta}_{1} n \sum_{i} X_{i}\\
+\hat{\beta}_{0} &= \overline{Y}_{n} - \hat{\beta}_{1} \overline{X}_{n}
+\end{align*}
 
-Replacing \(\overline{Y}_n - \beta_1 \overline{X}_n\) for \(\beta_0\)
-and derivating on \(\beta_1\):
+Replacing \(\overline{Y}_{n} - \beta_{1} \overline{X}_{n}\) for \(\beta_{0}\)
+and derivating on \(\beta_{1}\):
 
-\[\frac{d}{d \beta_1}\text{RSS} = \sum_i \frac{d}{d \beta_1} (Y_i - (\beta_0 + \beta_1 X_i))^2
-\sum_i \frac{d}{d \beta_1} (Y_i - \overline{Y}_n - \beta_1 (X_i - \overline{X}_n)))^2
-= \sum_i -2 (X_i - \overline{X}_n) (Y_i - \overline{Y}_n - \beta_1 (X_i - \overline{X}_n)))\]
+\[\frac{d}{d \beta_{1}}\text{RSS} = \sum_{i} \frac{d}{d \beta_{1}} (Y_{i} - (\beta_{0} + \beta_{1} X_{i}))^{2}
+\sum_{i} \frac{d}{d \beta_{1}} (Y_{i} - \overline{Y}_{n} - \beta_{1} (X_{i} - \overline{X}_{n})))^{2}
+= \sum_{i} -2 (X_{i} - \overline{X}_{n}) (Y_{i} - \overline{Y}_{n} - \beta_{1} (X_{i} - \overline{X}_{n})))\]
 
-Making this derivative equal to 0 at \(\hat{\beta}_1\) gives:
+Making this derivative equal to 0 at \(\hat{\beta}_{1}\) gives:
 
-\begin{align}
-0 &= \sum_i (X_i - \overline{X}_n) (Y_i - \overline{Y}_n - \beta_1 (X_i - \overline{X}_n))) \\
-0 &= \hat{\beta}_1 \sum_i (\overline{X}_n - X_i)^2 + \sum_i (\overline{X}_n - X_i)(Y_i - \overline{Y}_n) \\
-\hat{\beta}_1 &= \frac{\sum_i (X_i - \overline{X}_n)(Y_i - \overline{Y}_n)}{\sum_i (X_i - \overline{X}_n)^2}
-\end{align}
+\begin{align*}
+0 &= \sum_{i} (X_{i} - \overline{X}_{n}) (Y_{i} - \overline{Y}_{n} - \beta_{1} (X_{i} - \overline{X}_{n}))) \\
+0 &= \hat{\beta}_{1} \sum_{i} (\overline{X}_{n} - X_{i})^{2} + \sum_{i} (\overline{X}_{n} - X_{i})(Y_{i} - \overline{Y}_{n}) \\
+\hat{\beta}_{1} &= \frac{\sum_{i} (X_{i} - \overline{X}_{n})(Y_{i} - \overline{Y}_{n})}{\sum_{i} (X_{i} - \overline{X}_{n})^{2}}
+\end{align*}
 
-For the unbiased estimate, let's adapt a more general proof from Greene
+For the unbiased estimate,  adapt a more general proof from Greene
 (2003), restricted to \(k = 2\) dimensions, where the first dimension is
 set to all ones to represent the intercept, and the second dimension
-represents the one-dimensional covariates \(X_i\).
+represents the one-dimensional covariates \(X_{i}\).
 
 The vector of least square residuals is
 
 \[ \hat{\epsilon} = \begin{pmatrix}
-\hat{\epsilon}_1 \\
-\hat{\epsilon}_2 \\
+\hat{\epsilon}_{1} \\
+\hat{\epsilon}_{2} \\
 \vdots \\
-\hat{\epsilon}_n
+\hat{\epsilon}_{n}
 \end{pmatrix} = \begin{pmatrix}
-Y_1 - (\hat{\beta}_0 \cdot 1 + \hat{\beta}_1 X_1) \\
-Y_2 - (\hat{\beta}_0 \cdot 1 + \hat{\beta}_1 X_2) \\
+Y_{1} - (\hat{\beta}_{0} \cdot 1 + \hat{\beta}_{1} X_{1}) \\
+Y_{2} - (\hat{\beta}_{0} \cdot 1 + \hat{\beta}_{1} X_{2}) \\
 \vdots \\
-Y_n - (\hat{\beta}_0 \cdot 1 + \hat{\beta}_1 X_n)
+Y_{n} - (\hat{\beta}_{0} \cdot 1 + \hat{\beta}_{1} X_{n})
 \end{pmatrix} = 
 y - X \hat{\beta}
 \]
 
 where \[
 y = \begin{pmatrix}
-Y_1 \\
-Y_2 \\
+Y_{1} \\
+Y_{2} \\
 \vdots \\
-Y_n
+Y_{n}
 \end{pmatrix}
 , \quad
 X = \begin{pmatrix}
-1 & X_1 \\
-1 & X_2 \\
+1 & X_{1} \\
+1 & X_{2} \\
 \vdots & \vdots \\
-1 & X_n
+1 & X_{n}
 \end{pmatrix},
 \quad \text{and} \quad
 \hat{\beta} = \begin{pmatrix}
-\hat{\beta}_0 \\
-\hat{\beta}_1
+\hat{\beta}_{0} \\
+\hat{\beta}_{1}
 \end{pmatrix}
 \]
 
@@ -607,37 +607,37 @@ maker} matrix.
 
 Note that \(M\) is symmetric, that is, \(M^T = M\):
 
-\begin{align}
+\begin{align*}
 M^T &= (I - X (X^T X)^{-1} X^T)^T  \\
 &= I^T - (X (X^T X)^{-1} X^T)^T \\
 &= I - (X^T)^T ((X^T X)^{-1})^T X^T \\
 &= I - X ((X^{-1}(X^T)^{-1})^T X^T \\
 &= I -  X (X^T X)^{-1} X^T \\
 &= M
-\end{align}
+\end{align*}
 
-Note also that \(M\) is idempotent, that is, \(M^2 = M\):
+Note also that \(M\) is idempotent, that is, \(M^{2} = M\):
 
-\begin{align}
-M^2 &= (I - X (X^T X)^{-1} X^T) (I - X (X^T X)^{-1} X^T) \\
+\begin{align*}
+M^{2} &= (I - X (X^T X)^{-1} X^T) (I - X (X^T X)^{-1} X^T) \\
 &= I - X (X^T X)^{-1} X^T - X (X^T X)^{-1} X^T + X \left( (X^T X)^{-1} X^T X \right) (X^T X)^{-1} X^T \\
 &= I - X (X^T X)^{-1} X^T - X (X^T X)^{-1} X^T + X (X^T X)^{-1} X^T \\
 &= I - X (X^T X)^{-1} X^T \\
 &= M
-\end{align}
+\end{align*}
 
 Now, we have that \(MX = 0\), as running least squares on a regression
 where the covariates match the target variables should yield a model
 that just copies the covariate over, where all residuals are zero
-(\(\beta_0 = 0\) and \(\beta_1 = 1\)). So:
+(\(\beta_{0} = 0\) and \(\beta_{1} = 1\)). So:
 
 \[\hat{\epsilon} = M y = M( X \beta + \epsilon) = M\epsilon\]
 
 where \(\epsilon = Y - X\beta\) are the population residuals.
 
-We can then write an estimator for \(\sigma^2\):
+We can then write an estimator for \(\sigma^{2}\):
 
-\[ \hat{\epsilon}^T \hat{\epsilon} = \epsilon^T M^T M \epsilon = \epsilon^T M^2 \epsilon = \epsilon^T M \epsilon\]
+\[ \hat{\epsilon}^T \hat{\epsilon} = \epsilon^T M^T M \epsilon = \epsilon^T M^{2} \epsilon = \epsilon^T M \epsilon\]
 
 Taking the expectation with respect to the data \(X\) on both sides,
 
@@ -654,62 +654,62 @@ expectation:
 
 \[\mathbb{E}(\text{tr}(M \epsilon \epsilon^T) | X) = \text{tr}(\mathbb{E}(M \epsilon \epsilon^T | X))
 = \text{tr}(M \mathbb{E}(\epsilon \epsilon^T | X))
-= \text{tr}(M \sigma^2 I_1)
-= \sigma^2 \text{tr}(M)
+= \text{tr}(M \sigma^{2} I_{1})
+= \sigma^{2} \text{tr}(M)
 \]
 
 Finally, we can compute the trace of \(M\):
 
-\begin{align}
-\text{tr}(M) &= \text{tr}(I_n - X(X^T X)^{-1}X^T)\\
-&= \text{tr}(I_n) - \text{tr}(X(X^T X)^{-1}X^T) \\
-&= \text{tr}(I_n) - \text{tr}((X^T X)^{-1}X^T X) \\
-&= \text{tr}(I_n) - \text{tr}(I_k)  \\
+\begin{align*}
+\text{tr}(M) &= \text{tr}(I_{n} - X(X^T X)^{-1}X^T)\\
+&= \text{tr}(I_{n}) - \text{tr}(X(X^T X)^{-1}X^T) \\
+&= \text{tr}(I_{n}) - \text{tr}((X^T X)^{-1}X^T X) \\
+&= \text{tr}(I_{n}) - \text{tr}(I_{k})  \\
 &= n - k
-\end{align}
+\end{align*}
 
 Therefore, the unbiased estimator is
 
-\[\hat{\sigma}^2 = \frac{\hat{\epsilon}^T \hat{\epsilon}}{n - k}\]
+\[\hat{\sigma}^{2} = \frac{\hat{\epsilon}^T \hat{\epsilon}}{n - k}\]
 
 or, for our case where \(k = 2\),
 
-\[\hat{\sigma}^2 = \left( \frac{1}{n - 2} \right) \sum_{i=1}^n \hat{\epsilon}_i^2\]
+\[\hat{\sigma}^{2} = \left( \frac{1}{n - 2} \right) \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}\]
 
 Reference: Greene, William H. Econometric analysis. Pearson Education
 India, 2003. Chapter 4, pages 61-62.
 
 \textbf{Exercise 14.9.2}. Prove the formulas for the standard errors in
-Theorem 14.8. You should regard the \(X_i\)'s as fixed constants.
+Theorem 14.8. You should regard the \(X_{i}\)Here is as fixed constants.
 
 \[
-\mathbb{E}(\hat{\beta} | X^n) = \begin{pmatrix}\beta_0 \\ \beta_1 \end{pmatrix}
+\mathbb{E}(\hat{\beta} | X^{n}) = \begin{pmatrix}\beta_{0} \\ \beta_{1} \end{pmatrix}
 \quad \text{and} \quad
-\mathbb{V}(\hat{\beta} | X^n) = \frac{\sigma^2}{n s_X^2} \begin{pmatrix} 
-\frac{1}{n} \sum_{i=1}^n X_i^2 & -\overline{X}_n \\
--\overline{X}_n & 1
+\mathbb{V}(\hat{\beta} | X^{n}) = \frac{\sigma^{2}}{n s_X^{2}} \begin{pmatrix} 
+\frac{1}{n} \sum_{i=1}^{n} X_{i}^{2} & -\overline{X}_{n} \\
+-\overline{X}_{n} & 1
 \end{pmatrix}
 \]
 
-\[s_X^2 = n^{-1} \sum_{i=1}^n (X_i - \overline{X}_n)^2\]
+\[s_X^{2} = n^{-1} \sum_{i=1}^{n} (X_{i} - \overline{X}_{n})^{2}\]
 
 \[
-\hat{\text{se}}(\hat{\beta}_0) = \frac{\hat{\sigma}}{s_X \sqrt{n}} \sqrt{\frac{\sum_{i=1}^n X_i^2}{n}}
+\hat{\text{se}}(\hat{\beta}_{0}) = \frac{\hat{\sigma}}{s_X \sqrt{n}} \sqrt{\frac{\sum_{i=1}^{n} X_{i}^{2}}{n}}
 \quad \text{and} \quad
-\hat{\text{se}}(\hat{\beta}_1) = \frac{\hat{\sigma}}{s_X \sqrt{n}}
+\hat{\text{se}}(\hat{\beta}_{1}) = \frac{\hat{\sigma}}{s_X \sqrt{n}}
 \]
 
 \textbf{Solution}.
 
 The formulas follow immediately by performing the suggested replacement
-on the diagonal elements of \(\mathbb{V}(\hat{\beta} | X^n)\) from
+on the diagonal elements of \(\mathbb{V}(\hat{\beta} | X^{n})\) from
 Theorem 14.8. From the diagonals, replacing \(\hat{\sigma}\) for
 \(\sigma\):
 
 \[
-\hat{\text{se}}(\hat{\beta}_0)^2 = \frac{\hat{\sigma}^2}{n s_X^2} \frac{\sum_{i=1}^n X_i^2}{n}
+\hat{\text{se}}(\hat{\beta}_{0})^{2} = \frac{\hat{\sigma}^{2}}{n s_X^{2}} \frac{\sum_{i=1}^{n} X_{i}^{2}}{n}
 \quad \text{and} \quad
-\hat{\text{se}}(\hat{\beta}_1)^2 = \frac{\hat{\sigma}^2}{n s_X^2} \cdot 1\]
+\hat{\text{se}}(\hat{\beta}_{1})^{2} = \frac{\hat{\sigma}^{2}}{n s_X^{2}} \cdot 1\]
 
 Results follow by taking the square root.
 
@@ -723,37 +723,37 @@ Greene):
 
 Taking the variance conditional on \(X\),
 
-\begin{align}
+\begin{align*}
 \mathbb{V}(\hat{\beta} | X) &= \mathbb{V}(\hat{\beta} - \beta | X) \\
 &= \mathbb{E}((\hat{\beta} - \beta)(\hat{\beta} - \beta)^T | X)  \\
 &= \mathbb{E}((X^T X)^{-1}X^T \epsilon\epsilon^T X(X^T X)^{-1} | X) \\
 &= (X^T X)^{-1}X^T \mathbb{E}(\epsilon\epsilon^T | X) X(X^T X)^{-1} \\
-&= (X^T X)^{-1}X^T \sigma^2 I X(X^T X)^{-1} \\
-&= \sigma^2 (X^T X)^{-1} 
-\end{align}
+&= (X^T X)^{-1}X^T \sigma^{2} I X(X^T X)^{-1} \\
+&= \sigma^{2} (X^T X)^{-1} 
+\end{align*}
 
 But we have:
 
 \[ X^T X = \begin{pmatrix}
 1 & 1 & \cdots & 1 \\
-X_1 & X_2 & \cdots & X_n
+X_{1} & X_{2} & \cdots & X_{n}
 \end{pmatrix} \begin{pmatrix}
-1 & X_1 \\
-1 & X_2 \\
+1 & X_{1} \\
+1 & X_{2} \\
 \vdots & \vdots \\
-1 & X_n
+1 & X_{n}
 \end{pmatrix} = 
 n \begin{pmatrix}
-1 & \overline{X}_n \\
-\overline{X}_n & \frac{1}{n}\sum_{i=1}^n X_i^2
+1 & \overline{X}_{n} \\
+\overline{X}_{n} & \frac{1}{n}\sum_{i=1}^{n} X_{i}^{2}
 \end{pmatrix}
 \]
 
 so we can verify its inverse is
 
-\[(X^T X)^{-1} = \frac{1}{n s_X^2} \begin{pmatrix}
-\frac{1}{n} \sum_{i=1}^n X_i^2 & - \overline{X}_n \\
--\overline{X}_n & 1
+\[(X^T X)^{-1} = \frac{1}{n s_X^{2}} \begin{pmatrix}
+\frac{1}{n} \sum_{i=1}^{n} X_{i}^{2} & - \overline{X}_{n} \\
+-\overline{X}_{n} & 1
 \end{pmatrix}\]
 
 and so the result follows.
@@ -764,7 +764,7 @@ India, 2003. Chapter 4, page 59.
 \textbf{Exercise 14.9.3}. Consider the \textbf{regression through the
 origin} model:
 
-\[Y_i = \beta X_i + \epsilon\]
+\[Y_{i} = \beta X_{i} + \epsilon\]
 
 Find the least squares estimate for \(\beta\). Find the standard error
 of the estimate. Find conditions that guarantee that the estimate is
@@ -773,9 +773,9 @@ consistent.
 \textbf{Solution}. Once more adopting notation from the solution of
 14.9.1, let
 
-\[ y = \begin{pmatrix} Y_1 \\ \vdots \\ Y_n \end{pmatrix},
+\[ y = \begin{pmatrix} Y_{1} \\ \vdots \\ Y_{n} \end{pmatrix},
 \quad
-X = \begin{pmatrix} X_1 \\ \vdots \\ X_n \end{pmatrix}\]
+X = \begin{pmatrix} X_{1} \\ \vdots \\ X_{n} \end{pmatrix}\]
 
 and \(\beta\) is a scalar (or a \(1 \times 1\) matrix).
 
@@ -785,36 +785,36 @@ The least squares estimate is, again,
 
 which simplifies in this one-dimensional case to:
 
-\[\hat{\beta} = \frac{\sum_{i=1}^n X_i Y_i}{\sum_{i=1}^n X_i^2}\]
+\[\hat{\beta} = \frac{\sum_{i=1}^{n} X_{i} Y_{i}}{\sum_{i=1}^{n} X_{i}^{2}}\]
 
-The unbiased estimator for \(\sigma^2\) is, with \(k = 1\),
+The unbiased estimator for \(\sigma^{2}\) is, with \(k = 1\),
 
-\[\hat{\sigma}^2 = \frac{1}{n - 1} \sum_{i=1}^n \hat{\epsilon}_i^2\]
+\[\hat{\sigma}^{2} = \frac{1}{n - 1} \sum_{i=1}^{n} \hat{\epsilon}_{i}^{2}\]
 
 and the variance of \(\hat{\beta}\) conditional of \(X\) is:
 
-\[\mathbb{V}(\hat{\beta} | X) = \sigma^2 (X^T X)^{-1} = \frac{\sigma^2}{\sum_{i=1}^n X_i^2}\]
+\[\mathbb{V}(\hat{\beta} | X) = \sigma^{2} (X^T X)^{-1} = \frac{\sigma^{2}}{\sum_{i=1}^{n} X_{i}^{2}}\]
 
 so the standard error of the estimate is
 
-\[\hat{\text{se}}(\hat{\beta}) = \frac{\hat{\sigma}}{\sqrt{\sum_{i=1}^n X_i^2}}\]
+\[\hat{\text{se}}(\hat{\beta}) = \frac{\hat{\sigma}}{\sqrt{\sum_{i=1}^{n} X_{i}^{2}}}\]
 
 These, of course, make the assumption that \(X^T X\) is invertible --
-that is, that the sum of squares of the \(X_i\) variables is greater
+that is, that the sum of squares of the \(X_{i}\) variables is greater
 than 0. This is only not the case when all covariates are 0, in which
 case the value of our estimator \(\hat{\beta}\) would be irrelevant to
 determining the prediction outcome -- the system would be undetermined.
 
 Finally, note that \(\hat{\beta}\) is also the MLE in the parameter
 space for regression through the origin. As each measurement error
-\(\epsilon_i = Y_i - \beta X_i\) is drawn from a normal distribution
-\(N(0, \sigma^2)\), the log-likelihood for a given parameter \(\beta\)
+\(\epsilon_{i} = Y_{i} - \beta X_{i}\) is drawn from a normal distribution
+\(N(0, \sigma^{2})\), the log-likelihood for a given parameter \(\beta\)
 is
 
-\[\ell_n(\beta) = -\frac{n}{2} \log \sigma^2 - \frac{1}{2 \sigma^2} \sum_{i=1}^n (Y_i - \beta X_i)^2 + C\]
+\[\ell_{n}(\beta) = -\frac{n}{2} \log \sigma^{2} - \frac{1}{2 \sigma^{2}} \sum_{i=1}^{n} (Y_{i} - \beta X_{i})^{2} + C\]
 
 and so maximizing it is equivalent to minimizing
-\(\sum_{i=1}^n (Y_i - \beta X_i)^2\), which is what the least squares
+\(\sum_{i=1}^{n} (Y_{i} - \beta X_{i})^{2}\), which is what the least squares
 procedure does.
 
 Since the MLE is consistent, the least squares estimate is also
@@ -822,62 +822,62 @@ consistent.
 
 \textbf{Exercise 14.9.4}. Prove equation (14.24).
 
-\[ \text{bias}(\hat{R}_\text{tr}(S)) = \mathbb{E}(\hat{R}_\text{tr}(S)) - R(S) = -2 \sum_i \text{Cov}(\hat{Y}_i, Y_i) \]
+\[ \text{bias}(\hat{R}_\text{tr}(S)) = \mathbb{E}(\hat{R}_\text{tr}(S)) - R(S) = -2 \sum_{i} \text{Cov}(\hat{Y}_{i}, Y_{i}) \]
 
 \textbf{Solution}.
 
 The bias is:
 
-\begin{align}
-\mathbb{E}(\hat{R}_\text{tr}(S)) - R(S) &= \mathbb{E}\left[\sum_i (\hat{Y}_i- Y_i)^2 \right] - \mathbb{E} \left[ \sum_i (\hat{Y}_i - Y_i^*)^2 \right] \\
-&= \sum_i \left( \mathbb{E} \left[\hat{Y}_i^2 \right] - 2 \mathbb{E} \left[\hat{Y}_i Y_i \right] + \mathbb{E}\left[Y_i^2 \right] - \mathbb{E} \left[\hat{Y}_i^2 \right] + 2 \mathbb{E} \left[\hat{Y}_i Y_i^* \right] - \mathbb{E}\left[{Y_i^*}^2 \right] \right)
-\end{align}
+\begin{align*}
+\mathbb{E}(\hat{R}_\text{tr}(S)) - R(S) &= \mathbb{E}\left[\sum_{i} (\hat{Y}_{i}- Y_{i})^{2} \right] - \mathbb{E} \left[ \sum_{i} (\hat{Y}_{i} - Y_{i}^*)^{2} \right] \\
+&= \sum_{i} \left( \mathbb{E} \left[\hat{Y}_{i}^{2} \right] - 2 \mathbb{E} \left[\hat{Y}_{i} Y_{i} \right] + \mathbb{E}\left[Y_{i}^{2} \right] - \mathbb{E} \left[\hat{Y}_{i}^{2} \right] + 2 \mathbb{E} \left[\hat{Y}_{i} Y_{i}^* \right] - \mathbb{E}\left[{Y_{i}^*}^{2} \right] \right)
+\end{align*}
 
-The random variables \(Y_i = \beta X_i + \epsilon_\text{train}\) and
-\(Y_i^* = \beta X_i + \epsilon_\text{pred}\) are independent, as the
+The random variables \(Y_{i} = \beta X_{i} + \epsilon_\text{train}\) and
+\(Y_{i}^* = \beta X_{i} + \epsilon_\text{pred}\) are independent, as the
 errors during training and predition are independent, and the covariates
-\(X_i\) and true parameter \(\beta\) are constant. Since they are
+\(X_{i}\) and true parameter \(\beta\) are constant. Since they are
 independent,
-\(\mathbb{E}[Y_i Y_i^*] = \mathbb{E}[Y_i] \mathbb{E}[Y_i^*]\).
+\(\mathbb{E}[Y_{i} Y_{i}^*] = \mathbb{E}[Y_{i}] \mathbb{E}[Y_{i}^*]\).
 
 We also have
-\(\mathbb{E} [ {Y_i^*}^2 ] = \mathbb{V}[Y_i^*] + \mathbb{E}[Y_i^*]^2 = \mathbb{V}[\epsilon_\text{pred}] + \mathbb{E}[X \beta]^2 = \mathbb{V}[\epsilon_\text{train}] + \mathbb{E}[Y_i]^2 = \mathbb{E} [Y_i^2]\).
+\(\mathbb{E} [ {Y_{i}^*}^{2} ] = \mathbb{V}[Y_{i}^*] + \mathbb{E}[Y_{i}^*]^{2} = \mathbb{V}[\epsilon_\text{pred}] + \mathbb{E}[X \beta]^{2} = \mathbb{V}[\epsilon_\text{train}] + \mathbb{E}[Y_{i}]^{2} = \mathbb{E} [Y_{i}^{2}]\).
 
 Replacing both of those in the expression of bias above, we get the
 result:
 
-\begin{align}
+\begin{align*}
 \mathbb{E}(\hat{R}_\text{tr}(S)) - R(S) &= 
--2 \sum_i \left( \mathbb{E}[Y_i \hat{Y}_i] - \mathbb{E}[Y_i] \mathbb{E}[\hat{Y}_i] \right) \\
-&= -2 \sum_i \text{Cov}(\hat{Y}_i, Y_i)
-\end{align}
+-2 \sum_{i} \left( \mathbb{E}[Y_{i} \hat{Y}_{i}] - \mathbb{E}[Y_{i}] \mathbb{E}[\hat{Y}_{i}] \right) \\
+&= -2 \sum_{i} \text{Cov}(\hat{Y}_{i}, Y_{i})
+\end{align*}
 
 \textbf{Exercise 14.9.5}. In the simple linear regression model,
-construct a Wald test for \(H_0 : \beta_1 = 17 \beta_0\) versus
-\(H_1 : \beta_1 \neq 17 \beta_0\).
+construct a Wald test for \(H_{0} : \beta_{1} = 17 \beta_{0}\) versus
+\(H_{1} : \beta_{1} \neq 17 \beta_{0}\).
 
-\textbf{Solution}. Let \(\delta = \beta_1 - 17 \beta_0\). The MLE is
-\(\hat{\delta} = \hat{\beta}_1 - 17 \hat{\beta}_0\), with estimated
+\textbf{Solution}. Let \(\delta = \beta_{1} - 17 \beta_{0}\). The MLE is
+\(\hat{\delta} = \hat{\beta}_{1} - 17 \hat{\beta}_{0}\), with estimated
 standard error \(\hat{\text{se}}(\hat{\delta})\), where
 
-\[\hat{\text{se}}(\hat{\delta})^2 = \hat{\text{se}}(\hat{\beta}_1 - 17 \hat{\beta}_0)^2 = \hat{\text{se}}(\hat{\beta}_1)^2 + 17^2 \hat{\text{se}}(\hat{\beta}_0)^2 \]
+\[\hat{\text{se}}(\hat{\delta})^{2} = \hat{\text{se}}(\hat{\beta}_{1} - 17 \hat{\beta}_{0})^{2} = \hat{\text{se}}(\hat{\beta}_{1})^{2} + 17^{2} \hat{\text{se}}(\hat{\beta}_{0})^{2} \]
 
 and the estimates for the parameter standard deviations are
 
 \[
-\hat{\text{se}}(\hat{\beta}_0) = \frac{\hat{\sigma}}{s_X \sqrt{n}} \sqrt{\frac{\sum_{i=1}^n X_i^2}{n}}
+\hat{\text{se}}(\hat{\beta}_{0}) = \frac{\hat{\sigma}}{s_X \sqrt{n}} \sqrt{\frac{\sum_{i=1}^{n} X_{i}^{2}}{n}}
 \quad \text{and} \quad
-\hat{\text{se}}(\hat{\beta}_1) = \frac{\hat{\sigma}}{s_X \sqrt{n}}
+\hat{\text{se}}(\hat{\beta}_{1}) = \frac{\hat{\sigma}}{s_X \sqrt{n}}
 \]
 
 The Wald test then checks if \(|W| < z_{\alpha / 2}\), where
 
 \[W = \frac{\hat{\delta} - 0}{\hat{\text{se}}(\hat{\delta})} 
-= \frac{\hat{\beta}_1 - 17 \hat{\beta}_0}{\sqrt{\hat{\text{se}}(\hat{\beta}_1)^2 + 17^2 \hat{\text{se}}(\hat{\beta}_0)^2}}\]
+= \frac{\hat{\beta}_{1} - 17 \hat{\beta}_{0}}{\sqrt{\hat{\text{se}}(\hat{\beta}_{1})^{2} + 17^{2} \hat{\text{se}}(\hat{\beta}_{0})^{2}}}\]
 
 \textbf{Exercise 14.9.6}. Get the passenger car mileage data from
 
-http://lib.stat.cmu.edu/DASL/Datafiles/carmpgdat.html
+\url{http://lib.stat.cmu.edu/DASL/Datafiles/carmpgdat.html}
 
 \textbf{(a)} Fit a simple linear regression model to predict MPG (miles
 per gallon) from HP (horsepower). Summarize your analysis including a
@@ -889,7 +889,7 @@ Compare the analysis.
 \textbf{Solution}.
 
 We would ordinarily use a library to do linear regression, but given
-this chapter is specifically on linear regression formulas, let's do all
+this chapter is specifically on linear regression formulas, consider all
 of the calculations on matrix algebra ``by hand'' instead -- and compare
 the results with statsmodels OLS.
 
@@ -912,7 +912,7 @@ def get_regression(X, Y):
     X.insert(0, 'const', 1)
     
     # Least squares solution
-    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_numpy()
+    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_{n}umpy()
 
     # Predicted solutions
     Y_pred = X @ beta_hat
@@ -1006,7 +1006,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-14-01}
+\centering
+\includegraphics{Figure-14-01}
 \end{figure}
 
 \textbf{(b)}
@@ -1073,12 +1074,13 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-14-02}
+\centering
+\includegraphics{Figure-14-02}
 \end{figure}
 
 \textbf{Exercise 14.9.7}. Get the passenger car mileage data from
 
-http://lib.stat.cmu.edu/DASL/Datafiles/carmpgdat.html
+\url{http://lib.stat.cmu.edu/DASL/Datafiles/carmpgdat.html}
 
 \textbf{(a)} Fit a multiple linear regression model to predict MPG
 (miles per gallon) from HP (horsepower). Summarize your analysis
@@ -1178,12 +1180,13 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-14-03}
+\centering
+\includegraphics{Figure-14-03}
 \end{figure}
 
 \textbf{(b)}
 
-First, let's create helper functions to calculate the model variance and
+First,  create helper functions to calculate the model variance and
 Mallow's \(C_p\):
 
 \begin{python}
@@ -1194,7 +1197,7 @@ def get_model_variance(X, Y):
     X.insert(0, 'const', 1)
     
     # Least squares solution
-    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_numpy()
+    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_{n}umpy()
 
     # Predicted solutions
     Y_pred = X @ beta_hat
@@ -1218,7 +1221,7 @@ def get_mallow_cp(X, Y, S, full_model_variance):
         X = pd.DataFrame({'const': np.ones_like(Y)})
     
     # Least squares solution
-    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_numpy()
+    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_{n}umpy()
 
     # Predicted solutions
     Y_pred = X @ beta_hat
@@ -1233,8 +1236,8 @@ def get_mallow_cp(X, Y, S, full_model_variance):
     return partial_training_error + 2 * (len(S) + 1) * full_model_variance
 \end{python}
 
-Next, let's calculate and save the full model variance \textbf{once},
-sine it's used for every candidate model -- and use it to define our
+Next,  calculate and save the full model variance \textbf{once},
+sine it is used for every candidate model -- and use it to define our
 custom score function.
 
 \begin{python}
@@ -1244,19 +1247,17 @@ def score_mallow_cp(S):
     return get_mallow_cp(X, Y, S, full_model_variance)
 \end{python}
 
-Finally, let's do the submodel search.
+Finally, consider the submodel search.
 
 First approach is an explicit search through all features:
 
 \begin{python}
-# Recipe from itertools documentation, https://docs.python.org/2.7/library/itertools.html#recipes
-
 from itertools import chain, combinations
 
 def powerset(iterable):
     "powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
     s = list(iterable)
-    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
+    return chain.from_{i}terable(combinations(s, r) for r in range(len(s)+1))
 \end{python}
 
 \begin{python}
@@ -1302,7 +1303,7 @@ results[results.score == results.score.min()]
 
 This approach recommends the features HP, SP, and WT.
 
-Next, let's do forward stepwise feature selection:
+Next, consider forward stepwise feature selection:
 
 \begin{python}
 current_subset = []
@@ -1334,7 +1335,7 @@ pd.DataFrame([[tuple(current_subset), current_score]], columns=['S', 'score'])
 This approach also recommends selecting these 3 features (order is
 irrelevant): WT, SP, HP
 
-Finally, let's so backward stepwise feature selection:
+Finally, apply backward stepwise feature selection:
 
 \begin{python}
 current_subset = features
@@ -1369,7 +1370,7 @@ This approach also recommends selecting the same 3 features.
 
 Note that the book's definition of BIC is:
 
-\[ \text{BIC}(S) = \text{RSS}(S) + 2 |S| \hat{\sigma}^2 \]
+\[ \text{BIC}(S) = \text{RSS}(S) + 2 |S| \hat{\sigma}^{2} \]
 
 while other sources apply a log to this quantity and scale it by the
 number of observations \(n\), e.g.
@@ -1388,7 +1389,7 @@ def get_bic(X, Y, S):
         X = pd.DataFrame({'const': np.ones_like(Y)})
     
     # Least squares solution
-    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_numpy()
+    beta_hat = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_{n}umpy()
 
     # Predicted solutions
     Y_pred = X @ beta_hat
@@ -1515,7 +1516,7 @@ method -- select the 3 features HP, SP, and WT.
 \textbf{(d)} To use Lasso, we will need to minimize the L1 loss function
 for an arbitrary penalty parameter \(\lambda\):
 
-\[ \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 + \lambda \sum_{j=1}^k | \beta_j | \]
+\[ \sum_{i=1}^{n} (Y_{i} - \hat{Y}_{i})^{2} + \lambda \sum_{j=1}^{k} | \beta_{j} | \]
 
 Since we are including a penalty parameter that affects both estimation
 and model selection, we will need to calculate this loss function on
@@ -1536,8 +1537,8 @@ def fit_regularized(X, Y, l1_penalty):
         return lasso_loss(Y, X @ beta, beta, l1_penalty)
     
     # Use the solution without penalties as an initial guess
-    beta_initial_guess = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_numpy()
-    return minimize(loss_function, beta_initial_guess, method = 'Powell',
+    beta_{i}nitial_guess = (np.linalg.inv(X.T @ X) @ X.T @ Y).to_{n}umpy()
+    return minimize(loss_function, beta_{i}nitial_guess, method = 'Powell',
                     options={'xtol': 1e-8, 'disp': False, 'maxiter': 10000 }) 
 
 # Leave-one-out cross-validation
@@ -1559,8 +1560,8 @@ def optimize_l1_penalty(X, Y):
         l1_penalty = abs(l1_penalty_signed)
         return leave_one_out_cv_risk(X, Y, lambda xx, yy: fit_regularized(xx, yy, l1_penalty))
     
-    l1_penalty_initial_guess = 0.0
-    return minimize(loss_function, l1_penalty_initial_guess, method = 'Powell',
+    l1_penalty_{i}nitial_guess = 0.0
+    return minimize(loss_function, l1_penalty_{i}nitial_guess, method = 'Powell',
                    options={'xtol': 1e-8, 'disp': True, 'maxiter': 10000 })
 \end{python}
 
@@ -1604,7 +1605,7 @@ VOL     -0.015645
 
 The best leave-one-out cross validation for the Lasso procedure is
 achieved (according to our optimizer) at \(\lambda \approx\) 0, where
-all covariants have a non-zero coefficient (i.e.~\(\beta_i \neq 0\) for
+all covariants have a non-zero coefficient (i.e.~\(\beta_{i} \neq 0\) for
 all \(i\)).
 
 In other words, Lasso with leave-one-out cross validation selects the
@@ -1616,7 +1617,7 @@ statistic.
 
 Mallows' \(C_p\):
 
-\[\hat{R}(S) = \hat{R}_\text{tr}(S) + 2 |S| \hat{\sigma}^2\]
+\[\hat{R}(S) = \hat{R}_\text{tr}(S) + 2 |S| \hat{\sigma}^{2}\]
 
 AIC:
 
@@ -1625,7 +1626,7 @@ AIC:
 \textbf{Solution}.
 
 For the given definition, note that
-\(-2 \text{AIC} \hat{\sigma}^2 = -2 \ell_S \hat{\sigma}^2 + 2|S| \hat{\sigma}^2 = \hat{R}_\text{tr}(S) + 2 |S| \hat{\sigma}^2 = \hat{R}(S)\),
+\(-2 \text{AIC} \hat{\sigma}^{2} = -2 \ell_S \hat{\sigma}^{2} + 2|S| \hat{\sigma}^{2} = \hat{R}_\text{tr}(S) + 2 |S| \hat{\sigma}^{2} = \hat{R}(S)\),
 given the log likelihood of a Normal model -- so maximizing AIC is
 equivalent to minimizing Mallows \(C_p\).
 
@@ -1637,60 +1638,48 @@ Boisbunon, Aurélie, et al.~``AIC, Cp and estimators of loss for
 elliptically symmetric distributions.'' arXiv preprint arXiv:1308.2766
 (2013).
 
-\textbf{Exercise 14.9.9}. In this question we will take a closer look at
-the AIC method. Let \(X_1, \dots, X_n\) be iid observations. Consider
-two models \(\mathcal{M}_0\) and \(\mathcal{M}_1\). Under
-\(\mathcal{M}_0\) the data are assumed to be \(N(0, 1)\) while under
-\(M_1\) the data are assumed to be \(N(\theta, 1)\) for some unknown
-\(\theta \in \mathbb{R}\):
+\textbf{Exercise 14.9.9}. In this question we will take a closer look at the AIC method. Let \(X_{1}, \dots, X_{n}\) be iid observations. Consider two models \(\mathcal{M}_{0}\) and \(\mathcal{M}_{1}\). Under \(\mathcal{M}_{0}\) the data are assumed to be \(N(0, 1)\) while under \(M_{1}\) the data are assumed to be \(N(\theta, 1)\) for some unknown \(\theta \in \mathbb{R}\):
 
-\begin{align}
-\mathcal{M}_0 : X_1, \dots, X_n &\sim N(0, 1) \\
-\mathcal{M}_1 : X_1, \dots, X_n &\sim N(\theta, 1), \; \theta \in \mathbb{R}
-\end{align}
+\begin{align*}
+\mathcal{M}_{0} : X_{1}, \dots, X_{n} &\sim N(0, 1) \\
+\mathcal{M}_{1} : X_{1}, \dots, X_{n} &\sim N(\theta, 1), \; \theta \in \mathbb{R}
+\end{align*}
 
-This is just another way of viewing the hypothesis testing problem:
-\(H_0: \theta = 0\) versus \(H_1: \theta \neq 0\). Let
-\(\ell_n(\theta)\) be the log-likelihood function. The AIC score for a
-model is the log-likelihood at the MLE minus the number of parameters.
-(Some people multiply this score by 2 but that is irrelevant). Thus, the
-AIC score for \(\mathcal{M}_0\) is \(\text{AIC}_0 = \ell_n(0)\) and the
-AIC score for \(\mathcal{M}_1\) is
-\(\text{AIC}_1 = \ell_n(\hat{\theta}) - 1\). Suppose we choose the model
-with highest AIC score. Let \(J_n\) denote the selected model:
+This is just another way of viewing the hypothesis testing problem: \(H_{0}: \theta = 0\) versus \(H_{1}: \theta \neq 0\). Let \(\ell_{n}(\theta)\) be the log-likelihood function. The AIC score for a model is the log-likelihood at the MLE minus the number of parameters. (Some people multiply this score by 2 but that is irrelevant). Thus, the AIC score for \(\mathcal{M}_{0}\) is \(\text{AIC}_{0} = \ell_{n}(0)\) and the AIC score for \(\mathcal{M}_{1}\) is \(\text{AIC}_{1} = \ell_{n}(\hat{\theta}) - 1\). Suppose we choose the model with highest AIC score. Let \(J_{n}\) denote the selected model:
 
-\[J_n = \begin{cases}
-0 & \text{if } \text{AIC}_0 > \text{AIC}_1 \\
-1 & \text{if } \text{AIC}_1 > \text{AIC}_0
-\end{cases}\]
+\[
+J_{n} = 
+\begin{cases}
+0 & \text{if } \text{AIC}_{0} > \text{AIC}_{1} \\
+1 & \text{if } \text{AIC}_{1} > \text{AIC}_{0}
+\end{cases}
+\]
 
-\textbf{(a)} Suppose that \(\mathcal{M}_0\) is the true model,
-i.e.~\(\theta = 0\). Find
+\textbf{(a)} Suppose that \(\mathcal{M}_{0}\) is the true model, i.e.~\(\theta = 0\). Find
 
-\[ \lim_{n \rightarrow \infty} \mathbb{P}(J_n = 0) \]
+\[ \lim_{n \rightarrow \infty} \mathbb{P}(J_{n} = 0) \]
 
-Now compute \(\lim_{n \rightarrow \infty} \mathbb{P}(J_n = 0)\) when
-\(\theta \neq 0\).
+Now compute \(\lim_{n \rightarrow \infty} \mathbb{P}(J_{n} = 0)\) when \(\theta \neq 0\).
 
-\textbf{(b)} The fact that
-\(\lim_{n \rightarrow \infty} \mathbb{P}(J_n = 0) \neq 1\) when
-\(\theta = 0\) is why some people say that AIC ``overfits''. But this is
-not quite true as we shall now see. Let \(\phi_\theta(x)\) denote a
-Normal density function with mean \(\theta\) and variance 1. Define
+\textbf{(b)} The fact that \(\lim_{n \rightarrow \infty} \mathbb{P}(J_{n} = 0) \neq 1\) when \(\theta = 0\) is why some people say that AIC ``overfits''. But this is not quite true as we shall now see. Let \(\phi_\theta(x)\) denote a Normal density function with mean \(\theta\) and variance 1. Define
 
-\[ \hat{f}_n(x) = \begin{cases}
-\phi_0(x) & \text{if } J_n = 0 \\
-\phi_\overline{\theta}(x) & \text{if } J_n = 1
-\end{cases}\]
+\[ 
+\hat{f}_{n}(x) = 
+\begin{cases}
+\phi_{0}(x) & \text{if } J_{n} = 0 \\
+\phi_{\overline{\theta}}(x) & \text{if } J_{n} = 1
+\end{cases}
+\]
 
 If \(\theta = 0\), show that
-\(D(\phi_0, \hat{f}_n) \xrightarrow{\text{P}} 0\) as
+\(D(\phi_{0}, \hat{f}_{n}) \xrightarrow{\text{P}} 0\) as
 \(n \rightarrow \infty\) where
-
-\[ D(f, g) = \int f(x) \log \left( \frac{f(x)}{g(x)} \right) dx \]
+\[ 
+D(f, g) = \int f(x) \log \left( \frac{f(x)}{g(x)} \right) dx 
+\]
 
 is the Kullback-Leibler distance. Show that
-\(D(\phi_\theta, \hat{f}_n) \xrightarrow{\text{P}} 0\) if
+\(D(\phi_\theta, \hat{f}_{n}) \xrightarrow{\text{P}} 0\) if
 \(\theta \neq 0\). Hence, AIC consistently estimates the true density
 even if it ``overshoots'' the correct model.
 
@@ -1701,108 +1690,111 @@ of parameters and \(n\) is the sample size.
 \textbf{Solution}.
 
 \textbf{(a)} Note that the log-likelihood of the distribution
-\(N(\mu, \sigma^2)\) is:
+\(N(\mu, \sigma^{2})\) is:
 
-\begin{align}
-\ell_n(\mu, \sigma^2) &= \log \prod_{i=1}^n f(X_i | \mu, \sigma^2) \\
-&= \sum_{i=1}^n \log f(X_i | \mu, \sigma^2) \\
-&= - \frac{n}{2} \log 2\pi - \frac{n}{2} \log \sigma^2 - \frac{1}{2\sigma^2} \sum_{i=1}^n (X_i - \mu)^2
-\end{align}
+\begin{align*}
+\ell_{n}(\mu, \sigma^{2}) &= \log \prod_{i=1}^{n} f(X_{i} | \mu, \sigma^{2}) \\
+&= \sum_{i=1}^{n} \log f(X_{i} | \mu, \sigma^{2}) \\
+&= - \frac{n}{2} \log 2\pi - \frac{n}{2} \log \sigma^{2} - \frac{1}{2\sigma^{2}} \sum_{i=1}^{n} (X_{i} - \mu)^{2}
+\end{align*}
 
 Then, we have:
 
-\begin{align}
-\mathbb{P}(J_n = 0) &= \mathbb{P}(\text{AIC}_0 > \text{AIC}_1) \\
-&= \mathbb{P}(\ell_n(0) > \ell_n(\hat{\theta}) - 1) \\
-&= \mathbb{P} \left(-\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^n (X_i - 0)^2 > -\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^n (X_i - \hat{\theta})^2 - 1 \right) \\
-&= \mathbb{P}\left( -\frac{1}{2} \sum_{i=1}^n X_i^2 > -\frac{1}{2} \sum_{i=1}^n (X_i - \hat{\theta})^2 - 1\right) \\
-&= \mathbb{P}\left( \sum_{i=1}^n \left((X_i - \hat{\theta})^2 - X_i^2 \right) > -2 \right) \\
-&= \mathbb{P}\left( n \hat{\theta}^2 - 2 \hat{\theta} \sum_{i=1}^n X_i > -2 \right) \\
-&= \mathbb{P}\left( n \overline{X}_n^2 - 2 \overline{X}_n n \overline{X}_n > -2\right) \\
-&= \mathbb{P}\left( -n \overline{X}_n^2 > -2 \right) \\
-&= \mathbb{P}\left(-\sqrt{\frac{2}{n}} < \overline{X}_n < \sqrt{\frac{2}{n}} \right)
-\end{align}
+\begin{align*}
+\mathbb{P}(J_{n} = 0) &= \mathbb{P}(\text{AIC}_{0} > \text{AIC}_{1}) \\
+&= \mathbb{P}(\ell_{n}(0) > \ell_{n}(\hat{\theta}) - 1) \\
+&= \mathbb{P} \left(-\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^{n} (X_{i} - 0)^{2} > -\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^{n} (X_{i} - \hat{\theta})^{2} - 1 \right) \\
+&= \mathbb{P}\left( -\frac{1}{2} \sum_{i=1}^{n} X_{i}^{2} > -\frac{1}{2} \sum_{i=1}^{n} (X_{i} - \hat{\theta})^{2} - 1\right) \\
+&= \mathbb{P}\left( \sum_{i=1}^{n} \left((X_{i} - \hat{\theta})^{2} - X_{i}^{2} \right) > -2 \right) \\
+&= \mathbb{P}\left( n \hat{\theta}^{2} - 2 \hat{\theta} \sum_{i=1}^{n} X_{i} > -2 \right) \\
+&= \mathbb{P}\left( n \overline{X}_{n}^{2} - 2 \overline{X}_{n} n \overline{X}_{n} > -2\right) \\
+&= \mathbb{P}\left( -n \overline{X}_{n}^{2} > -2 \right) \\
+&= \mathbb{P}\left(-\sqrt{\frac{2}{n}} < \overline{X}_{n} < \sqrt{\frac{2}{n}} \right)
+\end{align*}
 
-But \(X_i \sim N(\theta, 1)\), so
-\(n \overline{X}_n = \sum_i X_i \sim N(n\theta, n)\) and
-\(\overline{X}_n \sim N(\theta, 1/n)\). Then:
+But \(X_{i} \sim N(\theta, 1)\), so
+\(n \overline{X}_{n} = \sum_{i} X_{i} \sim N(n\theta, n)\) and
+\(\overline{X}_{n} \sim N(\theta, 1/n)\). Then:
 
-\begin{align}
-\mathbb{P}(J_n = 0) &= \mathbb{P}\left(-\sqrt{\frac{2}{n}} < \overline{X}_n < \sqrt{\frac{2}{n}} \right) \\
-&= \mathbb{P}\left(\frac{-\sqrt{\frac{2}{n}} - \theta}{\sqrt{1/n}} < \frac{\overline{X}_n - \theta}{\sqrt{1/n}} < \frac{\sqrt{\frac{2}{n}} - \theta}{\sqrt{1/n}} \right) \\
+\begin{align*}
+\mathbb{P}(J_{n} = 0) &= \mathbb{P}\left(-\sqrt{\frac{2}{n}} < \overline{X}_{n} < \sqrt{\frac{2}{n}} \right) \\
+&= \mathbb{P}\left(\frac{-\sqrt{\frac{2}{n}} - \theta}{\sqrt{1/n}} < \frac{\overline{X}_{n} - \theta}{\sqrt{1/n}} < \frac{\sqrt{\frac{2}{n}} - \theta}{\sqrt{1/n}} \right) \\
 &= \mathbb{P}\left(-\sqrt{2} - \sqrt{n}\theta < Z < \sqrt{2} - \sqrt{n}\theta \right) \\
 &= \Phi(\sqrt{2} - \sqrt{n}\theta) - \Phi(-\sqrt{2} - \sqrt{n}\theta)
-\end{align}
+\end{align*}
 
 where \(\Phi\) is the CDF of the standard normal distribution
 \(N(0, 1)\).
 
 When \(\theta = 0\),
 
-\[\mathbb{P}(J_n = 0) = \Phi(\sqrt{2}) - \Phi(-\sqrt{2}) \approx 0.8427 \neq 0\]
+\[\mathbb{P}(J_{n} = 0) = \Phi(\sqrt{2}) - \Phi(-\sqrt{2}) \approx 0.8427 \neq 0\]
 
 When \(\theta \neq 0\),
 
-\[\lim_{n \rightarrow \infty} \mathbb{P}(J_n = 0) = \lim_{n \rightarrow \infty}\Phi(\sqrt{2} - \sqrt{n}\theta) - \Phi(-\sqrt{2} - \sqrt{n}\theta) = \lim_{n \rightarrow \infty}\Phi(\sqrt{n}\theta) - \lim_{n \rightarrow \infty}\Phi(-\sqrt{n}\theta) = 0\]
+\[\lim_{n \rightarrow \infty} \mathbb{P}(J_{n} = 0) = \lim_{n \rightarrow \infty}\Phi(\sqrt{2} - \sqrt{n}\theta) - \Phi(-\sqrt{2} - \sqrt{n}\theta) = \lim_{n \rightarrow \infty}\Phi(\sqrt{n}\theta) - \lim_{n \rightarrow \infty}\Phi(-\sqrt{n}\theta) = 0\]
 
 \textbf{(b)} We have:
 
-\[ D(\phi_\theta, \hat{f}_n) = \int \phi_\theta(x) \log \left(\frac{\phi_\theta(x)}{\hat{f}_n(x)} \right) dx = \int \left[\phi_\theta(x) \log \phi_\theta(x) - \phi_\theta(x) \log \hat{f}_n(x) \right] dx \]
+\[ D(\phi_\theta, \hat{f}_{n}) = \int \phi_\theta(x) \log \left(\frac{\phi_\theta(x)}{\hat{f}_{n}(x)} \right) dx = \int \left[\phi_\theta(x) \log \phi_\theta(x) - \phi_\theta(x) \log \hat{f}_{n}(x) \right] dx \]
 
-But \(\lim_{n \rightarrow \infty} \hat{f}_n(x) = \phi_\theta(x)\), so
+But \(\lim_{n \rightarrow \infty} \hat{f}_{n}(x) = \phi_\theta(x)\), so
 the integrand goes to 0 at each x, and so
-\(D(\phi_\theta, \hat{f}_n) \xrightarrow{\text{P}} 0\).
+\(D(\phi_\theta, \hat{f}_{n}) \xrightarrow{\text{P}} 0\).
 
-\textbf{REMARK: I am feeling ambitious.} Let \(K_n\) denote the selected
+\textbf{REMARK: I am feeling ambitious.} Let \(K_{n}\) denote the selected
 model:
 
-\[ K_n = \begin{cases}
-0 & \text{if } \text{BIC}_0 > \text{BIC}_1 \\
-1 & \text{if } \text{BIC}_1 > \text{BIC}_0
+\[ K_{n} = \begin{cases}
+0 & \text{if } \text{BIC}_{0} > \text{BIC}_{1} \\
+1 & \text{if } \text{BIC}_{1} > \text{BIC}_{0}
 \end{cases}\]
 
 where
 
 \[
-\text{BIC}_0 = \ell_n(0) \\
-\text{BIC}_1 = \ell_n(\hat{\theta}) - \frac{1}{2} \log n
+\text{BIC}_{0} = \ell_{n}(0) \\
+\text{BIC}_{1} = \ell_{n}(\hat{\theta}) - \frac{1}{2} \log n
 \]
 
 So,
 
-\begin{align}
-\mathbb{P}(K_n = 0) &= \mathbb{P}(\text{BIC}_0 > \text{BIC}_1) \\
-&= \mathbb{P}\left(\ell_n(0) > \ell_n(\hat{\theta}) - \frac{1}{2} \log n \right) \\
-&= \mathbb{P} \left(-\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^n (X_i - 0)^2 > -\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^n (X_i - \hat{\theta})^2 - \frac{1}{2} \log n \right) \\
-&= \mathbb{P}\left( -\frac{1}{2} \sum_{i=1}^n X_i^2 > -\frac{1}{2} \sum_{i=1}^n (X_i - \hat{\theta})^2 - \frac{1}{2} \log n\right) \\
-&= \mathbb{P}\left( \sum_{i=1}^n \left((X_i - \hat{\theta})^2 - X_i^2 \right) > -\log n \right) \\
-&= \mathbb{P}\left( n \hat{\theta}^2 - 2 \hat{\theta} \sum_{i=1}^n X_i > -\log n \right) \\
-&= \mathbb{P}\left( n \overline{X}_n^2 - 2 \overline{X}_n n \overline{X}_n > -\log n\right) \\
-&= \mathbb{P}\left( -n \overline{X}_n^2 > -\log n \right) \\
-&= \mathbb{P}\left(-\sqrt{\frac{\log n}{n}} < \overline{X}_n < \sqrt{\frac{\log n}{n}} \right) \\
-&= \mathbb{P}\left(\frac{-\sqrt{\frac{\log n}{n}} - \theta}{\sqrt{1/n}} < \frac{\overline{X}_n - \theta}{\sqrt{1/n}} < \frac{\sqrt{\frac{\log n}{n}} - \theta}{\sqrt{1/n}} \right) \\ 
+\begin{align*}
+\mathbb{P}(K_{n} = 0) &= \mathbb{P}(\text{BIC}_{0} > \text{BIC}_{1}) \\
+&= \mathbb{P}\left(\ell_{n}(0) > \ell_{n}(\hat{\theta}) - \frac{1}{2} \log n \right) \\
+&= \mathbb{P} \left(-\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^{n} (X_{i} - 0)^{2} > -\frac{n}{2} \log 2\pi - 0 - \frac{1}{2} \sum_{i=1}^{n} (X_{i} - \hat{\theta})^{2} - \frac{1}{2} \log n \right) \\
+&= \mathbb{P}\left( -\frac{1}{2} \sum_{i=1}^{n} X_{i}^{2} > -\frac{1}{2} \sum_{i=1}^{n} (X_{i} - \hat{\theta})^{2} - \frac{1}{2} \log n\right) \\
+&= \mathbb{P}\left( \sum_{i=1}^{n} \left((X_{i} - \hat{\theta})^{2} - X_{i}^{2} \right) > -\log n \right) \\
+&= \mathbb{P}\left( n \hat{\theta}^{2} - 2 \hat{\theta} \sum_{i=1}^{n} X_{i} > -\log n \right) \\
+&= \mathbb{P}\left( n \overline{X}_{n}^{2} - 2 \overline{X}_{n} n \overline{X}_{n} > -\log n\right) \\
+&= \mathbb{P}\left( -n \overline{X}_{n}^{2} > -\log n \right) \\
+&= \mathbb{P}\left(-\sqrt{\frac{\log n}{n}} < \overline{X}_{n} < \sqrt{\frac{\log n}{n}} \right) \\
+&= \mathbb{P}\left(\frac{-\sqrt{\frac{\log n}{n}} - \theta}{\sqrt{1/n}} < \frac{\overline{X}_{n} - \theta}{\sqrt{1/n}} < \frac{\sqrt{\frac{\log n}{n}} - \theta}{\sqrt{1/n}} \right) \\ 
 &=  \mathbb{P}\left(-\sqrt{\log n} - \sqrt{n}\theta < Z < \sqrt{\log n} - \sqrt{n}\theta \right) \\
 &= \Phi(\sqrt{\log n} - \sqrt{n}\theta) - \Phi(-\sqrt{\log n} - \sqrt{n}\theta)
-\end{align}
+\end{align*}
 
 As \(O(\sqrt{log n}) < O(\sqrt{n})\), we get the result:
 
-\[ \lim_{n \rightarrow \infty} \mathbb{P}(K_n = 0) = \begin{cases}
+\[ \lim_{n \rightarrow \infty} \mathbb{P}(K_{n} = 0) = \begin{cases}
 1 & \text{if } \theta = 0 \\
 0 & \text{if } \theta \neq 0
 \end{cases}\]
 
 Also, if we define:
 
-\[\hat{g}_n(x) = \begin{cases}
-\phi_0(x) & \text{if } K_n = 0 \\
-\phi_\overline{\theta}(x) & \text{if } K_n = 1
-\end{cases}\]
+\[
+\hat{g}_{n}(x) = 
+\begin{cases}
+\phi_{0}(x) & \text{if } K_{n} = 0 \\
+\phi_{\overline{\theta}}(x) & \text{if } K_{n} = 1
+\end{cases}
+\]
 
 then, again,
 
-\[ D(\phi_\theta, \hat{g}_n) = \int \phi_\theta(x) \log \left(\frac{\phi_\theta(x)}{\hat{g}_n(x)} \right) dx = \int \left[\phi_\theta(x) \log \phi_\theta(x) - \phi_\theta(x) \log \hat{g}_n(x) \right] dx \]
+\[ D(\phi_\theta, \hat{g}_{n}) = \int \phi_\theta(x) \log \left(\frac{\phi_\theta(x)}{\hat{g}_{n}(x)} \right) dx = \int \left[\phi_\theta(x) \log \phi_\theta(x) - \phi_\theta(x) \log \hat{g}_{n}(x) \right] dx \]
 
-But \(\lim_{n \rightarrow \infty} \hat{g}_n(x) = \phi_\theta(x)\), so
+But \(\lim_{n \rightarrow \infty} \hat{g}_{n}(x) = \phi_\theta(x)\), so
 the integrand goes to 0 at each x, and so
-\(D(\phi_\theta, \hat{g}_n) \xrightarrow{\text{P}} 0\).
+\(D(\phi_\theta, \hat{g}_{n}) \xrightarrow{\text{P}} 0\).

@@ -4,48 +4,24 @@ We first find the ranges of numbers that correspond to these digit requirements 
 
 A natural number $n$ requires $3$ digits in base 12 if it satisfies the following inequality:
 \begin{align*}
-122 \le n < 123
-\end{align*}
-The powers of $12$ are:
-\begin{align*}
-12^{2} & = 144
-\\
-12^{3} & = 1728
-\end{align*}
-so the range for $n$ in base $12$ is:
-\begin{align*}
-144 \le n < 1728
+144 = 12^{2} \le n < 12^{3} = 1728
 \end{align*}
 
-\subsubsection*{Step 2: Find the range for $4$-digit numbers in base $9$}
+\subsubsection*{Step 2: Find the range for $4$-digit numbers in base $8$}
 
-A natural number $n$ requires $4$ digits in base $9$ if it satisfies the following inequality:
+A natural number $n$ requires $4$ digits in base $8$ if it satisfies the following inequality:
 \begin{align*}
-93 \le n < 94
-\end{align*}
-The powers of $9$ are:
-\begin{align*}
-9^{3} & = 729
-\\
-9^{4} & = 6561
-\end{align*}
-so the range for $n$ in base $9$ is:
-\begin{align*}
-729 \le n < 6561
+512 = 8^{3} \le n < 8^{4} = 4096
 \end{align*}
 
 \subsubsection*{Step 3: Find the intersection of the two ranges}
 \begin{align*}
 \{ 144 \le n < 1728 \} 
 \cap
-\{ 729 \le n < 6561 \}
+\{ 512 \le n < 4096 \}
+= 
+\{ 512 \le n < 1728 \}
 \end{align*}
-
-The overlap of these two ranges is:
-\begin{align*}
-729 \le n < 1728
-\end{align*}
-
 \subsubsection*{Step 4: Calculate the number of natural numbers in the intersection}
 
-The smallest integer in the range is $729$. The largest integer in the range is $1727$, so the count is $1727−729+1=999$. Solution: \fbox{$999$.}
+The smallest integer in the range is $512$. The largest integer in the range is $1727$, so the count is $1727-512+1=1216$. Solution: \fbox{$1216$.}

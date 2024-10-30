@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{X} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mf}{0.225}\PYG{p}{,} \PYG{l+m+mf}{0.262}\PYG{p}{,} \PYG{l+m+mf}{0.217}\PYG{p}{,} \PYG{l+m+mf}{0.240}\PYG{p}{,} \PYG{l+m+mf}{0.230}\PYG{p}{,} \PYG{l+m+mf}{0.229}\PYG{p}{,} \PYG{l+m+mf}{0.235}\PYG{p}{,} \PYG{l+m+mf}{0.217}\PYG{p}{]}
+\PYG{n}{Y} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mf}{0.209}\PYG{p}{,} \PYG{l+m+mf}{0.205}\PYG{p}{,} \PYG{l+m+mf}{0.196}\PYG{p}{,} \PYG{l+m+mf}{0.210}\PYG{p}{,} \PYG{l+m+mf}{0.202}\PYG{p}{,} \PYG{l+m+mf}{0.207}\PYG{p}{,} \PYG{l+m+mf}{0.224}\PYG{p}{,} \PYG{l+m+mf}{0.223}\PYG{p}{,} \PYG{l+m+mf}{0.220}\PYG{p}{,} \PYG{l+m+mf}{0.201}\PYG{p}{]}
+\end{MintedVerbatim}

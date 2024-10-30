@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Expected value of I | v = 0.1 :          56.89318
+Expected value of I | v = 1.0 :          0.00568
+Expected value of I | v = 10.0 :         0.00546
+\end{MintedVerbatim}

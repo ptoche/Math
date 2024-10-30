@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Test statistic:                         4.643
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} percentile chi squared with 1 df:   3.841
+p\PYGZhy{}value for different distributions:    0.031
+\end{MintedVerbatim}

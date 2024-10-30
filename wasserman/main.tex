@@ -11,117 +11,110 @@
 \author{Telmo Correa | edited by Patrick Toche}
 \date{Revised:~\today}
 
+% options for figures | includegraphics
+\setkeys{Gin}{width=0.9\linewidth,height=0.35\textheight,keepaspectratio}
 
 % commands and packages not already included in preamble.sty
-\usepackage{longtable}
-\SetEnumitemKey{tightlist}{align=left,
-   leftmargin=0pt,
-   labelindent=\parindent,
-   listparindent=\parindent,
-   labelwidth=0pt,
-   itemindent=!}
+\setlist[itemize,1]{label={--},
+    align=left,
+    leftmargin=0pt,
+    labelindent=\parindent,
+    listparindent=\parindent,
+    labelwidth=0pt,
+    itemindent=!}
+\SetEnumitemKey{tightlist}{%
+    align=left,
+    leftmargin=0pt,
+    labelindent=\parindent,
+    listparindent=\parindent,
+    labelwidth=0pt,
+    itemindent=!}
 
-% usepackage{tcolorbox}% aready loaded
+% typesetting
 \usepackage{textcomp}% needed for double quotes
 \usepackage[scaled=.83]{beramono}% mono font, fixes caret ^ symbol (default .9)
 \usepackage{underscore}
-\usepackage{minted}
-\tcbuselibrary{breakable,skins,minted}% aready loaded
-% Custom tcolorbox style for Python code (not the code or the box it appears in, just the options for the box)
+\usepackage{float}
+\usepackage{unicode-math}
+
+%\usepackage{tcolorbox}% aready loaded
+\tcbuselibrary{listings}
+%\usepackage{listings}
+%\usepackage{listingsutf8}
+%\lstset{inputencoding=utf8/latin1}
 \tcbset{
-    pythoncodebox/.style={
-        listing only,
-        listing engine=minted, 
-        minted language=python,
-        enhanced jigsaw,breakable,
-        colback=gray!10,colframe=gray!20!black,
-        boxrule=1pt,top=2pt,bottom=2pt,left=2pt,right=2pt,
-        sharp corners,before skip=10pt,after skip=10pt,
-        attach boxed title to top left,
-        boxed title style={empty,
-            top=0pt,bottom=0pt,left=2pt,right=2pt,
-            interior code={\fill[fill=tcbcolframe] (frame.south west)
-                --([yshift=-4pt]frame.north west)
-                to[out=90,in=180] ([xshift=4pt]frame.north west)
-                --([xshift=-8pt]frame.north east)
-                to[out=0,in=180] ([xshift=16pt]frame.south east)
-                --cycle;
-            }
-        },
-        title={#1}, % Argument of pythoncodebox specifies the title
-        fonttitle=\sffamily\bfseries
-    },
-    pythoncodebox/.default={}, % Default is No title
-    %%% Starred version has no frame %%%
-    pythoncodebox*/.style={
-        listing only,
-        listing engine=minted, 
-        minted language=python,
-        enhanced jigsaw,breakable,
-        colback=gray!10,coltitle=gray!20!black,colbacktitle=tcbcolback,
-        frame hidden,
-        top=2pt,bottom=2pt,left=2pt,right=2pt,
-        sharp corners,before skip=10pt,after skip=10pt,
-        attach boxed title to top text left={yshift=-1mm},
-        boxed title style={empty,
-            top=0pt,bottom=0pt,left=2pt,right=2pt,
-            interior code={\fill[fill=tcbcolback] (interior.south west)
-                --([yshift=-4pt]interior.north west)
-                to[out=90,in=180] ([xshift=4pt]interior.north west)
-                --([xshift=-8pt]interior.north east)
-                to[out=0,in=180] ([xshift=16pt]interior.south east)
-                --cycle;
-            }
-        },
-        title={#1}, % Argument of pythoncodebox specifies the title
-        fonttitle=\sffamily\bfseries
-    },
-    pythoncodebox*/.default={}, % Default is No title
+    codebox/.style={
+        before upper = {\topskip0pt \maxdepth=0pt},
+        enhanced,
+        breakable = unlimited,
+        enhanced jigsaw,
+        sharp corners,
+        before skip = 5pt plus 2pt,
+        colback = gray!10,
+        colframe = black,
+        fonttitle = \sffamily\bfseries,
+        title={#1},% first argument: set the title
+       },
+    codebox/.default={},% first argument default: No title
 }
-% Custom tcolorbox for Python code (not the code itself, just the box it appears in)
-\newtcolorbox{pythonbox}[1][]{pythoncodebox=#1}
-\newtcolorbox{pythonbox*}[1][]{pythoncodebox*=#1} % Starred version has no frame
 
-% Custom minted environment for Python code, NOT using tcolorbox
-\newminted{python}{autogobble,breaklines,mathescape}
-
-% Custom tcblisting environment for Python code, using the "minted" tcb listing engine
-% Adapted from https://tex.stackexchange.com/a/402096
-\NewTCBListing{python}{ !O{} !D(){} !G{} }{
-    listing engine=minted,
+\tcbuselibrary{minted}% default options: tabsize=2,fontsize=\small,breaklines,autogobble
+\NewTCBListing{python}{ !O{} }{
+    codebox,
     listing only,
-    pythoncodebox={#1}, % First argument specifies the title (if any)
-    minted language=python,
-    minted options/.expanded={
-        autogobble,breaklines,mathescape,
-        #2 % Second argument, delimited by (), denotes options for the minted environment
+    listing engine = minted,
+    minted style = colorful,
+    minted language = python,
+    minted options = {texcl=true,fontsize=\footnotesize},
+    listing options = {
+        language = Python,
+        tabsize = 2,
+        breaklines = true,
+        texcl = true,
+        extendedchars = true,
+        keywordstyle = \color{blue}
     },
-    #3 % Third argument, delimited by {}, denotes options for the tcolorbox
-}
-
-%%% Starred version has no frame %%%
-\NewTCBListing{python*}{ !O{} !D(){} !G{} }{
-    listing engine=minted,
-    listing only,
-    pythoncodebox*={#1}, % First argument specifies the title (if any)
-    minted language=python,
-    minted options/.expanded={
-        autogobble,breaklines,mathescape,
-        #2 % Second argument, delimited by (), denotes options for the minted environment
-    },
-    #3 % Third argument, delimited by {}, denotes options for the tcolorbox
-}
-
-% verbbox environment, for showing verbatim text next to code output (for package documentation and user learning purposes)
-\NewTCBListing{console}{ !O{} }{
-    listing engine=minted,
-    minted language=latex,
-    boxrule=1pt,sidebyside,skin=bicolor,
-    colback=gray!10,colbacklower=white,valign=center,
-    top=2pt,bottom=2pt,left=2pt,right=2pt,
     #1
-} % Last argument allows more tcolorbox options to be added
+}
 
+\NewTCBListing{pythonlisting}{ !O{} }{
+    codebox,
+    listing only,
+    listing engine=minted,
+    listing options = {
+        language = Python,
+        tabsize = 2,
+        breaklines = true,
+        texcl = true,
+        extendedchars = true,
+        keywordstyle = \color{blue}
+    },
+    #1
+}
+
+\NewTCBListing{console}{ !O{} }{
+    codebox,
+    listing only,
+    colback=gray!20,
+    attach boxed title to top right={
+        yshift = -\tcboxedtitleheight-2mm,
+        xshift = -2mm},
+    fonttitle = \bfseries, 
+    colbacktitle = white,
+    coltitle = black,
+    boxed title style={
+      boxrule = 0pt,
+      colframe = white,
+      },
+    title = output,
+    #1
+}
+
+
+% play around with delimiters
+\usepackage{mleftright}% better \left and \right
+\let\left\relax \let\right\relax
+  \let\left\mleft \let\right\mright
 
 \begin{document}
 \maketitle
@@ -133,6 +126,7 @@ Source: \url{https://github.com/telmo-correa/all-of-statistics}
 
 \thispagestyle{empty}
 \clearpage
+
 
 % Chapter 2
 \input{02-Probability}
@@ -180,13 +174,13 @@ Source: \url{https://github.com/telmo-correa/all-of-statistics}
 \input{16-Independence}
 
 % Chapter 17
-\input{17-Independence}
+\input{17-Undirected-Graphs}
 
 % Chapter 18
-\input{18-Independence}
+\input{18-Loglinear}
 
 % Chapter 19
-\input{19-Independence}
+\input{19-Causality}
 
 % Chapter 20
 \input{20-Directed-Graphs}
@@ -205,5 +199,8 @@ Source: \url{https://github.com/telmo-correa/all-of-statistics}
 
 % Chapter 25
 \input{25-Simulations}
+
+%\begin{comment}
+%\end{comment}
 
 \end{document}

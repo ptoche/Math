@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Data from example 9.6:}
+
+\PYG{n}{LSAT} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{576}\PYG{p}{,} \PYG{l+m+mi}{635}\PYG{p}{,} \PYG{l+m+mi}{558}\PYG{p}{,} \PYG{l+m+mi}{578}\PYG{p}{,} \PYG{l+m+mi}{666}\PYG{p}{,} \PYG{l+m+mi}{580}\PYG{p}{,} \PYG{l+m+mi}{555}\PYG{p}{,} \PYG{l+m+mi}{661}\PYG{p}{,} \PYG{l+m+mi}{651}\PYG{p}{,} \PYG{l+m+mi}{605}\PYG{p}{,} \PYG{l+m+mi}{653}\PYG{p}{,} \PYG{l+m+mi}{575}\PYG{p}{,} \PYG{l+m+mi}{545}\PYG{p}{,} \PYG{l+m+mi}{572}\PYG{p}{,} \PYG{l+m+mi}{594}\PYG{p}{]}
+\PYG{n}{GPA} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mf}{3.39}\PYG{p}{,} \PYG{l+m+mf}{3.30}\PYG{p}{,} \PYG{l+m+mf}{2.81}\PYG{p}{,} \PYG{l+m+mf}{3.03}\PYG{p}{,} \PYG{l+m+mf}{3.44}\PYG{p}{,} \PYG{l+m+mf}{3.07}\PYG{p}{,} \PYG{l+m+mf}{3.00}\PYG{p}{,} \PYG{l+m+mf}{3.43}\PYG{p}{,} \PYG{l+m+mf}{3.36}\PYG{p}{,} \PYG{l+m+mf}{3.13}\PYG{p}{,} \PYG{l+m+mf}{3.12}\PYG{p}{,} \PYG{l+m+mf}{2.74}\PYG{p}{,} \PYG{l+m+mf}{2.76}\PYG{p}{,} \PYG{l+m+mf}{2.88}\PYG{p}{,} \PYG{l+m+mf}{3.96}\PYG{p}{]}
+\end{MintedVerbatim}

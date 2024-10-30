@@ -1,4 +1,4 @@
-\subsection{25. Simulation Methods}\label{simulation-methods}
+\section*{25. Simulation Methods}\label{simulations:methods}
 
 In this we will see that by generating data in a clever way, we can
 solve a number of problems such as integrating or maximizing a
@@ -13,24 +13,24 @@ complicated function. For integration, we will study 3 methods:
   Markov chain Monte Carlo (MCMC)
 \end{itemize}
 
-\subsubsection{25.1 Bayesian Inference Revisited}\label{bayesian-inference-revisited}
+\subsection*{25.1 Bayesian Inference Revisited}\label{bayesian-inference-revisited}
 
 Simulation methods are specially useful in Bayesian inference so let us
 briefly review the main ideas. Given a prior \(f(\theta)\) and data
-\(X^n = (X_1, \dots, X_n)\) the posterior density is
+\(X^{n} = (X_{1}, \dots, X_{n})\) the posterior density is
 
-\[ f(\theta | X^n) = \frac{\mathcal{L}(\theta) f(\theta)}{ \int \mathcal{L}(u) f(u) \; du} \]
+\[ f(\theta | X^{n}) = \frac{\mathcal{L}(\theta) f(\theta)}{ \int \mathcal{L}(u) f(u) \; du} \]
 
 where \(\mathcal{L}(\theta)\) is the likelihood function. The posterior
 mean is
 
-\[ \overline{\theta} = \int \theta f(\theta | X^n) \; d\theta = \frac{\int \theta \mathcal{L}(\theta) f(\theta) \; d\theta}{\int \mathcal{L}(\theta) f(\theta) \; d\theta} \]
+\[ \overline{\theta} = \int \theta f(\theta | X^{n}) \; d\theta = \frac{\int \theta \mathcal{L}(\theta) f(\theta) \; d\theta}{\int \mathcal{L}(\theta) f(\theta) \; d\theta} \]
 
-If \(\theta = (\theta_1, \dots, \theta_k)\) is multidimensional, then we
+If \(\theta = (\theta_{1}, \dots, \theta_{k})\) is multidimensional, then we
 might be interested in the posterior for one the components,
-\(\theta_1\), say. This marginal posterior density is
+\(\theta_{1}\), say. This marginal posterior density is
 
-\[ f(\theta_1 | X^n) = \int \int \cdots \int f(\theta_1, \dots, \theta_k | X^n) \; d\theta_2 \cdots d\theta_k\]
+\[ f(\theta_{1} | X^{n}) = \int \int \cdots \int f(\theta_{1}, \dots, \theta_{k} | X^{n}) \; d\theta_{2} \cdots d\theta_{k}\]
 
 which involves high dimensional integration.
 
@@ -39,9 +39,9 @@ You can see that integrals play a big role in Bayesian inference. When
 these integrals analytically. Simulation methods will often be very
 helpful.
 
-\subsubsection{25.2 Basic Monte Carlo Integration}\label{basic-monte-carlo-integration}
+\subsection*{25.2 Basic Monte Carlo Integration}\label{basic-monte-carlo-integration}
 
-Suppose you want to evaluate the integral \(I = \int_a^b h(x) dx\) for
+Suppose you want to evaluate the integral \(I = \int_a^{b} h(x) dx\) for
 some function \(h\). If \(h\) is an ``easy'' function like a polynomial
 or a trigonometric function then we can do the integral in closed form.
 In practice, \(h\) can be very complicated and there may be no known
@@ -55,7 +55,7 @@ simplicity, generality, and scalability.
 
 Let us begin by writing
 
-\[ I = \int_a^b h(x) dx = \int_a^b h(x) (b - a) \frac{1}{b - a} dx = \int_a^b w(x) f(x) dx\]
+\[ I = \int_a^{b} h(x) dx = \int_a^{b} h(x) (b - a) \frac{1}{b - a} dx = \int_a^{b} w(x) f(x) dx\]
 
 where \(w(x) = h(x)(b - a)\) and \(f(x) = 1 / (b - a)\). Notice that
 \(f\) is the density for a uniform random variable over \((a, b)\).
@@ -65,18 +65,18 @@ Hence,
 
 where \(X \sim \text{Uniform}(a, b)\).
 
-Suppose we generate \(X_1, \dots, X_n \sim \text{Uniform}(a, b)\) where
+Suppose we generate \(X_{1}, \dots, X_{n} \sim \text{Uniform}(a, b)\) where
 \(N\) is large. By the law of large numbers,
 
-\[ \hat{I} \equiv \frac{1}{N} \sum_{i=1}^N w(X_i) \xrightarrow{\text{P}} \mathbb{E}(w(X)) = I \]
+\[ \hat{I} \equiv \frac{1}{N} \sum_{i=1}^N w(X_{i}) \xrightarrow{\text{P}} \mathbb{E}(w(X)) = I \]
 
 This is the \textbf{basic monte carlo integration method}. We can also
 compute the standard error of the estimate,
 
 \[ \hat{\text{se}} = \frac{s}{\sqrt{N}} 
 \quad \text{where} \quad
-s^2 = \frac{\sum_i (Y_i - \hat{I})^2}{N - 1},
-\quad Y_i = w(X_i)
+s^{2} = \frac{\sum_{i} (Y_{i} - \hat{I})^{2}}{N - 1},
+\quad Y_{i} = w(X_{i})
 \]
 
 A \(1 - \alpha\) confidence interval for \(I\) is
@@ -91,19 +91,19 @@ the form
 
 where \(f(x)\) is a probability density function. Taking \(f\) to be
 \(\text{Uniform}(a, b)\) gives us the special case above. The only
-difference is that now we draw \(X_1, \dots, X_N \sim f\) and take
+difference is that now we draw \(X_{1}, \dots, X_N \sim f\) and take
 
-\[ \hat{I} \equiv \frac{1}{N} \sum_{i=1}^N h(X_i) \]
+\[ \hat{I} \equiv \frac{1}{N} \sum_{i=1}^N h(X_{i}) \]
 
 as before.
 
-\textbf{Example 25.1}. Let's try this on an example where we know the
-true answer. Let \(h(x) = x^3\). Hence, \(I = \int_0^1 x^3\;dx = 1/4\).
+\textbf{Example 25.1}. Consider an example where we know the
+true answer. Let \(h(x) = x^{3}\). Hence, \(I = \int_{0}^{1} x^{3}\;dx = 1/4\).
 
 \begin{python}
 import numpy as np
 from scipy.stats import norm
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 np.random.seed(0)
 
@@ -118,7 +118,7 @@ Y = h(X)
 
 I_hat = np.empty(N)
 se_hat = np.empty(N)
-for n in tqdm_notebook(range(N)):
+for n in tqdm_{n}otebook(range(N)):
     I_hat[n] = Y[:n+1].mean()
     if n < 2:
         se_hat[n] = np.inf
@@ -151,12 +151,13 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-01}
+\centering
+\includegraphics{Figure-25-01}
 \end{figure}
 
 \textbf{Example 25.2}. Let
 
-\[ f(x) = \frac{1}{\sqrt{2 \pi}} e^{-x^2 / 2} \]
+\[ f(x) = \frac{1}{\sqrt{2 \pi}} e^{-x^{2} / 2} \]
 
 be the standard normal PDF. Suppose we want to compute the CDF at some
 point,
@@ -164,13 +165,13 @@ point,
 \[ I = \int_{-\infty}^x f(s) ds = \Phi(x) \]
 
 Of course, you could look up the value in a table or a computing
-library, but let's use the simulation method instead.
+library, but  use the simulation method instead.
 
 \begin{python}
 import numpy as np
 import numpy as np
 from scipy.stats import norm
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 np.random.seed(0)
 
@@ -186,7 +187,7 @@ Y = h(X)
 
 I_hat = np.empty(N)
 se_hat = np.empty(N)
-for n in tqdm_notebook(range(N)):
+for n in tqdm_{n}otebook(range(N)):
     I_hat[n] = Y[:n+1].mean()
     if n < 2:
         se_hat[n] = np.inf
@@ -218,61 +219,62 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-02}
+\centering
+\includegraphics{Figure-25-02}
 \end{figure}
 
 \textbf{Example 25.3 (Two Binomials)}. Let
-\(X \sim \text{Binomial}(n, p_1)\) and
-\(Y \sim \text{Binomial}(n, p_2)\). We would like to estimate
-\(\delta = p_2 - p_1\). The MLE is
-\(\hat{\theta} = \hat{p}_2 - \hat{p}_1 = (Y / m) - (X / n)\). We can get
+\(X \sim \text{Binomial}(n, p_{1})\) and
+\(Y \sim \text{Binomial}(n, p_{2})\). We would like to estimate
+\(\delta = p_{2} - p_{1}\). The MLE is
+\(\hat{\theta} = \hat{p}_{2} - \hat{p}_{1} = (Y / m) - (X / n)\). We can get
 the standard error \(\hat{\text{se}}\) using the delta method which
 yields
 
-\[ \hat{\text{se}} = \sqrt{\frac{\hat{p}_1 (1 - \hat{p}_1)}{n} + \frac{\hat{p}_2 (1 - \hat{p}_2)}{m}} \]
+\[ \hat{\text{se}} = \sqrt{\frac{\hat{p}_{1} (1 - \hat{p}_{1})}{n} + \frac{\hat{p}_{2} (1 - \hat{p}_{2})}{m}} \]
 
-and then construct a confidence interval using \$\hat{\delta}
-\pm z\_\{\alpha / 2\} \hat{\text{se}} \$. Now consider a Bayesian
-analysis. Suppose we use the prior \(f(p_1, p_2) = f(p_1) f(p_2) = 1\),
-that is, a flat prior on \((p_1, p_2)\). The posterior is
+and then construct a confidence interval using $\hat{\delta}
+\pm z\_\{\alpha / 2\} \hat{\text{se}} $. Now consider a Bayesian
+analysis. Suppose we use the prior \(f(p_{1}, p_{2}) = f(p_{1}) f(p_{2}) = 1\),
+that is, a flat prior on \((p_{1}, p_{2})\). The posterior is
 
-\[ f(p_1, p_2 | X, Y) \propto p_1^{X} (1 - p_1)^{n - X} p_2^Y (1 - p_2)^{m - Y}\]
+\[ f(p_{1}, p_{2} | X, Y) \propto p_{1}^{X} (1 - p_{1})^{n - X} p_{2}^Y (1 - p_{2})^{m - Y}\]
 
 The posterior mean of \(\delta\) is
 
-\[ \overline{\delta} = \int_0^1 \int_0^1 \delta(p_1, p_2) f(p_1, p_2 | X, Y) \; dp_1 dp_2 = \int_0^1 \int_0^1 (p_2 - p_1) f(p_1, p_2 | X, Y) \; dp_1 dp_2 \]
+\[ \overline{\delta} = \int_{0}^{1} \int_{0}^{1} \delta(p_{1}, p_{2}) f(p_{1}, p_{2} | X, Y) \; dp_{1} dp_{2} = \int_{0}^{1} \int_{0}^{1} (p_{2} - p_{1}) f(p_{1}, p_{2} | X, Y) \; dp_{1} dp_{2} \]
 
 If we want the posterior density of \(\delta\) we can first get the
 posterior CDF
 
-\[ F(c | X, Y) = \mathbb{P}(\delta \leq c | X, Y) = \int_A f(p_1, p_2 | X, Y) \; dA \]
+\[ F(c | X, Y) = \mathbb{P}(\delta \leq c | X, Y) = \int_A f(p_{1}, p_{2} | X, Y) \; dA \]
 
-where \(A = \{ (p_1, p_2) : p_2 - p_1 \leq c \}\). The density can then
+where \(A = \{ (p_{1}, p_{2}) : p_{2} - p_{1} \leq c \}\). The density can then
 be obtained by differentiating \(F\).
 
-To avoid these integrals, let's use simulation. Note that
-\(f(p_1, p_2 | X, Y) = f(p_1 | X) f(p_2 | Y)\) which implies that
-\(p_1\) and \(p_2\) are independent under the posterior distribution.
+To avoid these integrals,  use simulation. Note that
+\(f(p_{1}, p_{2} | X, Y) = f(p_{1} | X) f(p_{2} | Y)\) which implies that
+\(p_{1}\) and \(p_{2}\) are independent under the posterior distribution.
 Also, we see that
 
 \[ 
-p_1 | X \sim \text{Beta}(X + 1, n - X + 1) 
+p_{1} | X \sim \text{Beta}(X + 1, n - X + 1) 
 \quad \text{and} \quad
-p_2 | Y \sim \text{Beta}(Y + 1, m - Y + 1) 
+p_{2} | Y \sim \text{Beta}(Y + 1, m - Y + 1) 
 \]
 
 Hence, we can simulate
-\((P_1^{(1)}, P_2^{(1)}), \dots, (P_1^{(N)}, P_2^{(N)})\) by drawing
+\((P_{1}^{(1)}, P_{2}^{(1)}), \dots, (P_{1}^{(N)}, P_{2}^{(N)})\) by drawing
 
 \[ 
-P_1^{(i)} \sim \text{Beta}(X + 1, n - X + 1) 
+P_{1}^{(i)} \sim \text{Beta}(X + 1, n - X + 1) 
 \quad \text{and} \quad
-P_2^{(i)} \sim \text{Beta}(Y + 1, m - Y + 1) 
+P_{2}^{(i)} \sim \text{Beta}(Y + 1, m - Y + 1) 
 \]
 
-Now let \(\delta^{(i)} = P_2^{(i)} - P_1^{(i)}\). Then,
+Now let \(\delta^{(i)} = P_{2}^{(i)} - P_{1}^{(i)}\). Then,
 
-\[ \overline{\delta} \approx \frac{1}{N} \sum_i \delta^{(i)} \]
+\[ \overline{\delta} \approx \frac{1}{N} \sum_{i} \delta^{(i)} \]
 
 We can also get a 95\% posterior interval for \(\delta\) by sorting the
 simulated values, and finding the 2.5\% and 97.5\% quantiles. The
@@ -284,7 +286,7 @@ For example, assume \(n = m = 10\), \(X = 8\) and \(Y = 6\).
 
 \begin{python}
 import numpy as np
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 n, m = 10, 10
 X, Y = 8, 6
@@ -299,7 +301,7 @@ delta = P2 - P1
 delta_mean = np.empty(N)
 delta_lower = np.empty(N)
 delta_upper = np.empty(N)
-for n in tqdm_notebook(range(N)):
+for n in tqdm_{n}otebook(range(N)):
     delta_mean[n] = delta[:n+1].mean()
     if n < 2:
         delta_lower[n], delta_upper[n] = np.inf, np.inf
@@ -324,7 +326,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-03}
+\centering
+\includegraphics{Figure-25-03}
 \end{figure}
 
 \begin{python}
@@ -337,71 +340,72 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-04}
+\centering
+\includegraphics{Figure-25-04}
 \end{figure}
 
 \textbf{Example 25.4 (Dose Response)}. Suppose we conduct an experiment
 by giving rats one of ten possible doses of a drug, denoted by
-\(x_1 < x_2 < \cdots < x_{10}\). For each dose level \(x\), we use \(n\)
-rats and observe \(Y_i\), the number that die. Thus we have 10
-independent binomials \(Y_i \sim \text{Binomial}(n, p_i)\). Suppose we
+\(x_{1} < x_{2} < \cdots < x_{10}\). For each dose level \(x\), we use \(n\)
+rats and observe \(Y_{i}\), the number that die. Thus we have 10
+independent binomials \(Y_{i} \sim \text{Binomial}(n, p_{i})\). Suppose we
 know from biological considerations that higher doses should have higher
-probability of death. Thus, \(p_1 \leq p_2 \leq \cdots \leq p_{10}\).
+probability of death. Thus, \(p_{1} \leq p_{2} \leq \cdots \leq p_{10}\).
 Suppose we want to estimate the dose at which animals have a 50\% chance
-of dying. This is called the LD50. Formally, \(\delta = x_j\) where
+of dying. This is called the LD50. Formally, \(\delta = x_{j}\) where
 
-\[ j = \min \{ i: p_i \geq .50 \} \]
+\[ j = \min \{ i: p_{i} \geq .50 \} \]
 
 Notice that \(\delta\) is implicitly a (complicated) function of
-\(p_1, \dots, p_{10}\) so we can write
-\(\delta = g(p_1, \dots, p_{10})\) for some \(g\). This just means that
-if we know the \(p_i\) then we can find \(\delta\). The posterior mean
+\(p_{1}, \dots, p_{10}\) so we can write
+\(\delta = g(p_{1}, \dots, p_{10})\) for some \(g\). This just means that
+if we know the \(p_{i}\) then we can find \(\delta\). The posterior mean
 of \(\delta\) is
 
-\[ \overline{\delta} = \int \int \cdots \int_A g(p_1, \dots, p_{10}) f(p_1, \dots, p_{10} | Y_1, \dots, Y_{10} ) \; dp_1 dp_2 \dots dp_{10} \]
+\[ \overline{\delta} = \int \int \cdots \int_A g(p_{1}, \dots, p_{10}) f(p_{1}, \dots, p_{10} | Y_{1}, \dots, Y_{10} ) \; dp_{1} dp_{2} \dots dp_{10} \]
 
 The integral is over the region of valid parameter values,
 
-\[ A = \{ (p_1, \dots, p_{10}) : p_1 \leq \cdots \leq p_{10} \} \]
+\[ A = \{ (p_{1}, \dots, p_{10}) : p_{1} \leq \cdots \leq p_{10} \} \]
 
 Similarly, the posterior CDF of \(\delta\) is
 
 \[
-F(c | Y_1, \dots, Y_{10}) = \mathbb{P}(\delta \leq c | Y_1, \dots, Y_{10}) = \int \int \cdots \int_B f(p_1, \dots, p_{10} | Y_1, \dots, Y_{10} ) \; dp_1 dp_2 \dots dp_{10}
+F(c | Y_{1}, \dots, Y_{10}) = \mathbb{P}(\delta \leq c | Y_{1}, \dots, Y_{10}) = \int \int \cdots \int_B f(p_{1}, \dots, p_{10} | Y_{1}, \dots, Y_{10} ) \; dp_{1} dp_{2} \dots dp_{10}
 \]
 
-where the integral is over the valid parameter values given \$
-\delta \leq c\$,
+where the integral is over the valid parameter values given $
+\delta \leq c$,
 
-\[ B = A \cap \{ (p_1, \dots, p_{10}) : g(p_1, \dots, p_{10}) \leq c \} \]
+\[ B = A \cap \{ (p_{1}, \dots, p_{10}) : g(p_{1}, \dots, p_{10}) \leq c \} \]
 
 We would need to do a 10 dimensional integral over a restricted region
-\(A\). Instead, let's use simulation.
+\(A\). Instead,  use simulation.
 
 Let us take a flat prior truncated over \(A\). Except for the
-truncation, each \(P_i\) has once again a Beta distribution. To draw
+truncation, each \(P_{i}\) has once again a Beta distribution. To draw
 from the posterior, we do the following steps:
 
 \begin{itemize}[tightlist]
 \item
-  Draw \(P_i \sim \text{Beta}(Y_i + 1, n - Y_i + 1)\),
+  Draw \(P_{i} \sim \text{Beta}(Y_{i} + 1, n - Y_{i} + 1)\),
   \(i = 1, \dots, 10\).
 \item
-  If \(P_1 \leq P_2 \leq \cdots \leq P_{10}\) keep this draw. Otherwise,
+  If \(P_{1} \leq P_{2} \leq \cdots \leq P_{10}\) keep this draw. Otherwise,
   throw it away and draw again until you get one you can keep.
 \item
-  Let \(\delta = x_j\) where \(j = \min \{ i : P_i > .50 \}\).
+  Let \(\delta = x_{j}\) where \(j = \min \{ i : P_{i} > .50 \}\).
 \end{itemize}
 
 We repeat this \(N\) times to get \(\delta^{(1)}, \dots, \delta^{(N)}\)
 and take
 
-\[ \mathbb{E}(\delta | Y_1, \dots, Y_{10}) \approx \frac{1}{N} \sum_i \delta^{(i)} \]
+\[ \mathbb{E}(\delta | Y_{1}, \dots, Y_{10}) \approx \frac{1}{N} \sum_{i} \delta^{(i)} \]
 
 \(\delta\) is a discrete variable. We can estimate its probability mass
 function by
 
-\[ \mathbb{P}(\delta = x_j | Y_1, \dots, Y_10) \approx \frac{1}{N} I(\delta^{(i)} = j) \]
+\[ \mathbb{P}(\delta = x_{j} | Y_{1}, \dots, Y_{1}0) \approx \frac{1}{N} I(\delta^{(i)} = j) \]
 
 \begin{python}
 import numpy as np
@@ -443,7 +447,7 @@ ax.set_ylabel('proportion who died')
 ax = plt.subplot(2, 2, 2)
 ax.violinplot(p)
 ax.set_xlabel(r'$X$')
-ax.set_ylabel(r'$P_i$')
+ax.set_ylabel(r'$P_{i}$')
 
 ax = plt.subplot(2, 2, 3)
 ax.bar(X, [(sum(delta == i) / N) for i in X])
@@ -455,10 +459,11 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-05}
+\centering
+\includegraphics{Figure-25-05}
 \end{figure}
 
-\subsubsection{25.3 Importance Sampling}\label{importance-sampling}
+\subsection*{25.3 Importance Sampling}\label{importance-sampling}
 
 Consider the integral \(I = \int h(x) f(x) dx\) where \(f\) is a
 probability density. The basic Monte Carlo method involves sampling from
@@ -475,18 +480,18 @@ how to simulate from. Then
 \[ I = \int h(x) f(x) \; dx = \int \frac{h(x) f(x)}{g(x)} g(x) \; dx  = \mathbb{E}_g[Y] \]
 
 where \(Y = h(X) f(X) / g(X)\) and the expectation \(\mathbb{E}_g[Y]\)
-is with respect to \(g\). We can simulate \(X_1, \dots, X_N \sim g\) and
+is with respect to \(g\). We can simulate \(X_{1}, \dots, X_N \sim g\) and
 estimate \(I\) by
 
-\[ \hat{I} = \frac{1}{N} \sum_i Y_i = \frac{1}{N} \sum_i \frac{h(X_i) f(X_i)}{g(X_i)} \]
+\[ \hat{I} = \frac{1}{N} \sum_{i} Y_{i} = \frac{1}{N} \sum_{i} \frac{h(X_{i}) f(X_{i})}{g(X_{i})} \]
 
 This is called \textbf{importance sampling}. By the law of large
 numbers, \(\hat{I} \xrightarrow{\text{P}} I\). However, there is a
-catch. It's possible that \(\hat{I}\) might have an infinite standard
+catch. It is possible that \(\hat{I}\) might have an infinite standard
 error. To see why, recall that \(I\) is the mean of
 \(w(x) = h(x) f(x) / g(x)\). The second moment of this quantity is
 
-\[ \mathbb{E}_g[w^2(X)] = \int \left( \frac{h(x) f(x)}{g(x)} \right)^2 g(x) \; dx = \int \frac{h^2(x) f^2(x)}{g(x)} \; dx\]
+\[ \mathbb{E}_g[w^{2}(X)] = \int \left( \frac{h(x) f(x)}{g(x)} \right)^{2} g(x) \; dx = \int \frac{h^{2}(x) f^{2}(x)}{g(x)} \; dx\]
 
 If \(g\) has thinner tails than \(f\), this integral might be infinite.
 To avoid this, a basic rule in importance sampling is to sample from a
@@ -505,29 +510,27 @@ of \(\hat{I}\) is
 
 \textbf{Proof}. The variance of \(w = f h / g\) is:
 
-\[
-\begin{align}
-\mathbb{E}_g[w^2] - (\mathbb{E}_g[w])^2 &= \int w^2(x) g(x) dx - \left( \int w(x) g(x) dx \right)^2 \\
-&= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx - \left( \int \frac{h(x) f(x)}{g(x)} g(x) dx \right)^2 \\
-&= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx - \left( \int h(x) f(x) dx \right)^2
-\end{align}
-\]
+\begin{align*}
+\mathbb{E}_g[w^{2}] - (\mathbb{E}_g[w])^{2} &= \int w^{2}(x) g(x) dx - \left( \int w(x) g(x) dx \right)^{2} \\
+&= \int \frac{h^{2}(x) f^{2}(x)}{g^{2}(x)} g(x) dx - \left( \int \frac{h(x) f(x)}{g(x)} g(x) dx \right)^{2} \\
+&= \int \frac{h^{2}(x) f^{2}(x)}{g^{2}(x)} g(x) dx - \left( \int h(x) f(x) dx \right)^{2}
+\end{align*}
 
 The second integral does not depend on \(g\) so we only need to minimize
 the first integral. Now, from Jensen's inequality we have
 
-\[ \mathbb{E}_g[W^2] \geq \left(\mathbb{E}_g[|W|]\right)^2 = \left( \int |h(x)| f(x) dx \right)^2 \]
+\[ \mathbb{E}_g[W^{2}] \geq \left(\mathbb{E}_g[|W|]\right)^{2} = \left( \int |h(x)| f(x) dx \right)^{2} \]
 
-This establishes a lower bound on \(\mathbb{E}_g[W^2]\). However,
-\(\mathbb{E}_{g^*}[W^2]\) equals this lower bound, which proves the
+This establishes a lower bound on \(\mathbb{E}_g[W^{2}]\). However,
+\(\mathbb{E}_{g^*}[W^{2}]\) equals this lower bound, which proves the
 claim.
 
-This theorem is interesting but only of theoretical interest. If we did
+This Theorem is interesting but only of theoretical interest. If we did
 not know how to sample from \(f\) then it is unlikely that we could
 sample from \(g^*\). In practice, we try to find a thick tailed
 distribution \(g\) which is similar to \(f |h|\).
 
-\textbf{Example 25.6 (Tail Probability)}. Let's estimate
+\textbf{Example 25.6 (Tail Probability)}. Estimate
 
 \[ I = \mathbb{P}(Z > 3) \approx .0013
 \quad \text{where } Z \sim N(0, 1)\]
@@ -536,13 +539,13 @@ Using the basic Monte Carlo estimator,
 
 \[ I = \int h(x) f(x) \; dx \quad \text{where} \quad h(x) = I(x > 3), f \sim N(0, 1)\]
 
-and \[ \hat{I} = \frac{1}{N} \sum_i h(X_i) \]
+and \[ \hat{I} = \frac{1}{N} \sum_{i} h(X_{i}) \]
 
 \begin{python}
 import numpy as np
 import numpy as np
 from scipy.stats import norm
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 np.random.seed(0)
 
@@ -555,7 +558,7 @@ def h(x):
     return np.where(x > 3, 1, 0)
 
 I_bootstrap = np.empty(B)
-for b in tqdm_notebook(range(B)):
+for b in tqdm_{n}otebook(range(B)):
     XX = np.random.normal(loc=0.0, scale=1.0, size=N)
     YY = h(XX)
     I_bootstrap[b] = YY.mean()
@@ -578,13 +581,13 @@ Using importance sampling with \(g \sim N(4, 1)\), we get
 \quad \text{where} \quad h(x) = I(x > 3), f \sim N(0, 1), g \sim N(4, 1)\]
 and
 
-\[ \hat{I} = \frac{1}{N} \sum_i \frac{f(X_i) h(X_i)}{g(X_i)} \]
+\[ \hat{I} = \frac{1}{N} \sum_{i} \frac{f(X_{i}) h(X_{i})}{g(X_{i})} \]
 
 \begin{python}
 import numpy as np
 import numpy as np
 from scipy.stats import norm
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 np.random.seed(0)
 
@@ -600,7 +603,7 @@ def f_over_g(x):
     return np.exp(-(1/2) * (x**2 - (x - 4)**2))
 
 I_bootstrap = np.empty(B)
-for b in tqdm_notebook(range(B)):
+for b in tqdm_{n}otebook(range(B)):
     XX = np.random.normal(loc=4.0, scale=1.0, size=N)
     YY = h(XX) * f_over_g(XX)
     I_bootstrap[b] = YY.mean()
@@ -621,51 +624,51 @@ Standard error of I:     0.00031
 Note we have reduced the standard error by an order of magnitude.
 
 \textbf{Example 25.7 (Measurement Model with Outliers)}. Suppose we have
-measurements \(X_1, \dots, X_n\) of some physical quantity \(\theta\).
+measurements \(X_{1}, \dots, X_{n}\) of some physical quantity \(\theta\).
 We might model this as
 
-\[ X_i = \theta + \epsilon_i \]
+\[ X_{i} = \theta + \epsilon_{i} \]
 
-If we assume that \(\epsilon_i \sim N(0, 1)\) then
-\(X_i \sim N(\theta_i, 1)\). However, when taking measurements, it is
+If we assume that \(\epsilon_{i} \sim N(0, 1)\) then
+\(X_{i} \sim N(\theta_{i}, 1)\). However, when taking measurements, it is
 often the case that we get the occasional wild observation, or outlier.
 This suggests that a Normal might be a poor model since Normals have
 thin tails which implies that extreme observations are rare. One way to
-improve this model is to use a density for \(\epsilon_i\) with a thicker
+improve this model is to use a density for \(\epsilon_{i}\) with a thicker
 tail, for example, at t-distribution with \(\nu\) degrees of freedom
 which has the form
 
-\[ t(x) = \frac{\Gamma\left( \frac{\nu + 1}{2} \right)}{\Gamma \left( \frac{\nu}{2} \right)} \frac{1}{\nu \pi} \left( 1 + \frac{x^2}{\nu} \right)^{-(\nu + 1) / 2}\]
+\[ t(x) = \frac{\Gamma\left( \frac{\nu + 1}{2} \right)}{\Gamma \left( \frac{\nu}{2} \right)} \frac{1}{\nu \pi} \left( 1 + \frac{x^{2}}{\nu} \right)^{-(\nu + 1) / 2}\]
 
 Smaller values of \(\nu\) correspond to thicker tails. For sake of
 illustration we will take \(\nu = 3\). Suppose we observe \(n\)
-\(X_i = \theta + \epsilon_i\), \(i = 1, \dots, n\) where \(\epsilon_i\)
+\(X_{i} = \theta + \epsilon_{i}\), \(i = 1, \dots, n\) where \(\epsilon_{i}\)
 has a t-distribution with \(\nu = 3\). We will take a flat prior on
 \(\theta\). The likelihood is
-\(\mathcal{L}(\theta) = \prod_{i=1}^n t(X_i - \theta)\) and the
+\(\mathcal{L}(\theta) = \prod_{i=1}^{n} t(X_{i} - \theta)\) and the
 posterior mean of \(\theta\) is
 
 \[ \overline{\theta} = \frac{\int \theta \mathcal{L}(\theta) \; d\theta }{\int \mathcal{L}(\theta) \; d\theta} \]
 
 We can estimate the top and bottom integral using importance sampling.
-We draw \(\theta_1, \dots, \theta_N \sim g\) and then
+We draw \(\theta_{1}, \dots, \theta_N \sim g\) and then
 
-\[ \overline{\theta} \approx \frac{ \frac{1}{N} \sum_{j=1}^n \frac{\theta_j \mathcal{L}(\theta_j)}{g(\theta_j)}}{\frac{1}{N} \sum_{j=1}^n \frac{\mathcal{L}(\theta_j)}{g(\theta_j)}} \]
+\[ \overline{\theta} \approx \frac{ \frac{1}{N} \sum_{j=1}^{n} \frac{\theta_{j} \mathcal{L}(\theta_{j})}{g(\theta_{j})}}{\frac{1}{N} \sum_{j=1}^{n} \frac{\mathcal{L}(\theta_{j})}{g(\theta_{j})}} \]
 
 
-\subsubsection{25.4 MCMC Part I: The Metropolis-Hastings
+\subsection*{25.4 MCMC Part I: The Metropolis-Hastings
 Algorithm}\label{mcmc-part-i-the-metropolis-hastings-algorithm}
 
 Consider again the problem of estimating the integral
 \(I = \int h(x) f(x) dx\). In this chapter we introduce the Markov chain
 Monte Carlo (MCMC) methods. The idea is to construct a Markov chain
-\(X_1, X_2, \dots\) whose stationary distribution is \(f\). Under
+\(X_{1}, X_{2}, \dots\) whose stationary distribution is \(f\). Under
 certain conditions it will then follow that
 
-\[ \frac{1}{N} \sum_{i=1}^N h(X_i) \xrightarrow{\text{P}} \mathbb{E}_f[h(x)] = I \]
+\[ \frac{1}{N} \sum_{i=1}^N h(X_{i}) \xrightarrow{\text{P}} \mathbb{E}_f[h(x)] = I \]
 
 This works because there is a law of large numbers for Markov chains
-called \textbf{the ergodic theorem}.
+called \textbf{the ergodic Theorem}.
 
 The \textbf{Metropolis-Hastings} algorithm is a specific MCMC method
 that works as follows. Let \(q(y | x)\) be an arbitrary, friendly
@@ -676,15 +679,15 @@ follows.
 
 \textbf{Metropolis-Hastings Algorithm}.
 
-Choose \(X_0\) arbitrarily. Suppose we have generated
-\(X_0, X_1, \dots, X_i\). To generate \(X_{i+1}\) do:
+Choose \(X_{0}\) arbitrarily. Suppose we have generated
+\(X_{0}, X_{1}, \dots, X_{i}\). To generate \(X_{i+1}\) do:
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
   Generate a \textbf{proposal} or \textbf{candidate} value
-  \(Y \sim q(y | X_i)\).
+  \(Y \sim q(y | X_{i})\).
 \item
-  Evaluate \(r \equiv r(X_i, Y)\) where
+  Evaluate \(r \equiv r(X_{i}, Y)\) where
 \end{enumerate}
 
 \[ r(x, y) = \min \left\{ \frac{f(y)}{f(x)} \frac{q(x | y)}{q(y | x)}, 1 \right\} \]
@@ -697,50 +700,50 @@ Choose \(X_0\) arbitrarily. Suppose we have generated
 \[
 X_{i+1} = \begin{cases}
 Y   &\text{with probability } r \\
-X_i &\text{with probability } 1 - r 
+X_{i} &\text{with probability } 1 - r 
 \end{cases}
 \]
 
 \emph{Remark 1}: A simple way of executing step 3 is to generate
 \(U \sim \text{Uniform}(0, 1)\), then if \(U < r\) set \(X_{i + 1} = Y\)
-else set \(X_{i + 1} = X_i\).
+else set \(X_{i + 1} = X_{i}\).
 
-\emph{Remark 2}: A common choice for \(q(y | x)\) is \(N(x, b^2)\) for
+\emph{Remark 2}: A common choice for \(q(y | x)\) is \(N(x, b^{2})\) for
 some \(b > 0\). This means that the proposal is drawn from a Normal
 centered at the current value.
 
 \emph{Remark 3}: if the proposal density \(q\) is symmetric,
 \(q(x | y) = q(y | x)\), then \(r\) simplifies to
 
-\[ r = \min \left\{ \frac{f(Y)}{f(X_i)}, 1\right\} \]
+\[ r = \min \left\{ \frac{f(Y)}{f(X_{i})}, 1\right\} \]
 
 The Normal proposal distribution in remark 2 is an example of a
 symmetric proposal density.
 
-By construction, \(X_0, X_1, \dots\) is a Markov chain. But why does
+By construction, \(X_{0}, X_{1}, \dots\) is a Markov chain. But why does
 this Markov chain have \(f\) as its stationary distribution? Before we
-explain why, let's do an example.
+explain why, consider an example.
 
 \textbf{Example 25.8}. The Cauchy distribution has density
 
-\[ f(x) = \frac{1}{\pi} \frac{1}{1 + x^2} \]
+\[ f(x) = \frac{1}{\pi} \frac{1}{1 + x^{2}} \]
 
 Our goal is to simulate a Markov chain whose stationary distribution is
 \(f\). As suggested in the remark above, we take \(q(y | x)\) to be a
-\(N(x, b^2)\). So in this case,
+\(N(x, b^{2})\). So in this case,
 
-\[ r(x, y) = \min \left\{ \frac{f(y)}{f(x)}, 1 \right\} = \min \left\{ \frac{1 + x^2}{1 + y^2} , 1\right\} \]
+\[ r(x, y) = \min \left\{ \frac{f(y)}{f(x)}, 1 \right\} = \min \left\{ \frac{1 + x^{2}}{1 + y^{2}} , 1\right\} \]
 
-So the algorithm is to draw \(Y \sim N(X_i, b^2)\) and set
+So the algorithm is to draw \(Y \sim N(X_{i}, b^{2})\) and set
 
 \[ 
 X_{i + 1} = \begin{cases}
-Y & \text{with probability } r(X_i, Y) \\
-X & \text{with probability } 1 - r(X_i, Y)
+Y & \text{with probability } r(X_{i}, Y) \\
+X & \text{with probability } 1 - r(X_{i}, Y)
 \end{cases} 
 \]
 
-The simulator requires a choice of \(b\). Let's plot 3 chains of length
+The simulator requires a choice of \(b\). Plot 3 chains of length
 1000 using \(b = .1\), \(b = 1\) and \(b = 10\), as well as their
 histograms.
 
@@ -796,7 +799,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-06}
+\centering
+\includegraphics{Figure-25-06}
 \end{figure}
 
 \begin{python}
@@ -822,11 +826,12 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-07}
+\centering
+\includegraphics{Figure-25-07}
 \end{figure}
 
 Setting \(b = 0.1\) forces the chain to take small steps. As a result,
-the chain doesn't ``explore'' much of the sample space. The histogram
+the chain does not ``explore'' much of the sample space. The histogram
 from the sample does not approximate the true density very well. Setting
 \(b = 10\) causes the proposals to often be in the tails, making \(r\)
 small and hence we reject the proposal and keep the chain at the current
@@ -845,14 +850,14 @@ well''. Constructing a chain that mixes well is somewhat of an art.
 distribution \(\pi\) satisfies \textbf{detailed balance} for a Markov
 chain if
 
-\[ p_{ij} \pi_i = p_{ji} \pi_j \]
+\[ p_{ij} \pi_{i} = p_{ji} \pi_{j} \]
 
 We then showed that if \(\pi\) satisties detailed balance, then it is a
 stationary distribution for the chain.
 
 Because we are now dealing with continuous state Markov chains, we will
 change notation a little and write \(p(x, y)\) for the probability of
-making a transition from \(x\) to \(y\). Also, let's use \(f(x)\)
+making a transition from \(x\) to \(y\). Also,  use \(f(x)\)
 instead of \(\pi\) for a distribution. In this notation, \(f\) is a
 stationary distribution if \(f(x) = \int f(y) p(y, x) dx\) and detailed
 balance holds for \(f\) if
@@ -906,7 +911,7 @@ Comparing the two last statements, we get that detailed balance holds:
 
 \[ f(x) p(x, y) = f(y) q(x | y) = f(y) p(y, x) \]
 
-\subsubsection{25.5 MCMC Part II: Different Flavors}\label{mcmc-part-ii-different-flavors}
+\subsection*{25.5 MCMC Part II: Different Flavors}\label{mcmc-part-ii-different-flavors}
 
 There are a few different types of MCMC algorithm. Here we will consider
 a few of the most popular versions.
@@ -916,9 +921,9 @@ a few of the most popular versions.
 In the previous section we considered drawing a proposal \(Y\) of the
 form
 
-\[ Y = X + \epsilon_i \]
+\[ Y = X + \epsilon_{i} \]
 
-where \(\epsilon_i\) comes from some distribution with density \(g\). In
+where \(\epsilon_{i}\) comes from some distribution with density \(g\). In
 other words, \(q(y | x) = g(y - x)\). We saw that, in this case,
 
 \[ r(x, y) = \min \left\{ \frac{f(y)}{f(x)}, 1 \right\} \]
@@ -926,11 +931,11 @@ other words, \(q(y | x) = g(y - x)\). We saw that, in this case,
 This is called a \textbf{random-walk-Metropolis-Hastings method}. The
 reason for name is that, if we did not do the accept-reject step, we
 would be simulating a random walk. The most common choice for \(g\) is
-\(N(0, b^2)\). The hard part is choosing \(b\) so that the chain mixes
+\(N(0, b^{2})\). The hard part is choosing \(b\) so that the chain mixes
 well. A good rule of thumb is: choose \(b\) so that you accept the
 proposals about 50\% of the time.
 
-\textbf{Warning}: This method doesn't make sense unless \(X\) takes
+\textbf{Warning}: This method does not make sense unless \(X\) takes
 values on the whole real line. If \(X\) is restricted to some interval
 then it is best to transform \(X\), say, \(Y = m(X)\) where \(Y\) takes
 values on the whole real line. For example, if \(X \in (0, \infty)\)
@@ -952,123 +957,113 @@ higher dimensions. In practice, tuning the chains to make them mix well
 is hard. Gibbs sampling is a way to turn a high-dimensional problem into
 several one dimensional problems.
 
-Here's how it works for a bivariate problem. Suppose that \((X, Y)\) has
+Here is how it works for a bivariate problem. Suppose that \((X, Y)\) has
 density \(f_{X, Y}(x, y)\). First, suppose that it is possible to
 simulate from the conditional distributions \(f_{X|Y}(x | y)\) and
-\(f_{Y | X}(y | x)\). Let \((X_0, Y_0)\) be the starting values. Assume
-we have drawn \((X_0, Y_0), \dots, (X_n, Y_n)\). Then the Gibbs sampling
+\(f_{Y | X}(y | x)\). Let \((X_{0}, Y_{0})\) be the starting values. Assume
+we have drawn \((X_{0}, Y_{0}), \dots, (X_{n}, Y_{n})\). Then the Gibbs sampling
 algorithm for getting \((X_{n+1}, Y_{n+1})\) is:
 
-\[
-\begin{align}
-X_{n + 1} &\sim f_{X|Y}(x | Y_n) \\
+\begin{align*}
+X_{n + 1} &\sim f_{X|Y}(x | Y_{n}) \\
 Y_{n + 1} &\sim f_{Y|X}(y | X_{n + 1})
-\end{align}
-\]
+\end{align*}
 
 This generalizes in the obvious ways to higher dimensions.
 
 \textbf{Example 25.9 (Normal Hierarchical Model)}. Gibbs sampling is
 very useful for a class of models called \textbf{hierarchical models}.
 Here is a simple case. Suppose we draw a sample of \(k\) cities. From
-each city we draw \(n_i\) people and observe how many people \(Y_i\)
-have a disease. Thus, \(Y_i \sim \text{Binomial}(n_i, p_i)\). We are
+each city we draw \(n_{i}\) people and observe how many people \(Y_{i}\)
+have a disease. Thus, \(Y_{i} \sim \text{Binomial}(n_{i}, p_{i})\). We are
 allowing for different disease rates in different cities. We can also
-think of the \(p_i\)'s as random draws from some distribution \(F\). We
+think of the \(p_{i}\)s as random draws from some distribution \(F\). We
 can write this model in the following way:
 
-\[
-\begin{align}
-P_i &\sim F \\
-Y_i | P_i = p_i &\sim \text{Binomial}(n_i, p_i)
-\end{align}
-\]
+\begin{align*}
+P_{i} &\sim F \\
+Y_{i} | P_{i} = p_{i} &\sim \text{Binomial}(n_{i}, p_{i})
+\end{align*}
 
-We are interested in estimating the \(p_i\)'s and the overall disease
+We are interested in estimating the \(p_{i}\)s and the overall disease
 rate \(\int p \; dF(p)\).
 
 To proceed, it will simplify matters if we make some transformations
 that will allow us to use some Normal approximations. Let
-\(\hat{p}_i = Y_i / n_i\). Recall that \(\hat{p}_i \approx N(p_i, s_i)\)
-where \(s_i = \sqrt{\hat{p}_i (1 - \hat{p}_i) / n_i}\). Let
-\(\psi_i = \log (p_i / (1 - p_i))\) and define
-\(Z_i \equiv \hat{\psi}_i = \log (\hat{p}_i / (1 - \hat{p}_i))\). By the
+\(\hat{p}_{i} = Y_{i} / n_{i}\). Recall that \(\hat{p}_{i} \approx N(p_{i}, s_{i})\)
+where \(s_{i} = \sqrt{\hat{p}_{i} (1 - \hat{p}_{i}) / n_{i}}\). Let
+\(\psi_{i} = \log (p_{i} / (1 - p_{i}))\) and define
+\(Z_{i} \equiv \hat{\psi}_{i} = \log (\hat{p}_{i} / (1 - \hat{p}_{i}))\). By the
 delta method,
 
-\[ \hat{\psi}_i \approx N(\psi_i, \sigma_i^2) \quad \text{where} \quad \sigma_i^2 = \frac{1}{n \hat{p}_i (1 - \hat{p}_i)}\]
+\[ \hat{\psi}_{i} \approx N(\psi_{i}, \sigma_{i}^{2}) \quad \text{where} \quad \sigma_{i}^{2} = \frac{1}{n \hat{p}_{i} (1 - \hat{p}_{i})}\]
 
 Experience shows that the normal approximation for \(\psi\) is more
 accurate than the normal approximation for \(p\) so we shall work with
-\(\psi\). We shall treat the \(\sigma_i\) as known. Furthermore, we
-shall take the distribution of the \(\psi_i\)'s to be normal. The
+\(\psi\). We shall treat the \(\sigma_{i}\) as known. Furthermore, we
+shall take the distribution of the \(\psi_{i}\)s to be normal. The
 hierarchical model is now
 
-\[
-\begin{align}
-\psi_i &\sim N(\mu, \tau^2) \\
-Z_i | \psi_i &\sim N(\psi_i, \sigma_i^2)
-\end{align}
-\]
+\begin{align*}
+\psi_{i} &\sim N(\mu, \tau^{2}) \\
+Z_{i} | \psi_{i} &\sim N(\psi_{i}, \sigma_{i}^{2})
+\end{align*}
 
 As yet another simplication we take \(\tau = 1\). The unknown parameters
-are \(\theta = (\mu, \psi_1, \dots, \psi_k)\). The likelihood function
+are \(\theta = (\mu, \psi_{1}, \dots, \psi_{k})\). The likelihood function
 is
 
-\[ 
-\begin{align}
+\begin{align*}
 \mathcal{L}(\theta) 
-&\propto \prod_i f(\psi_i | \mu) \prod_i f(Z_i | \psi) \\
-&\propto \prod _i \exp \left\{-\frac{1}{2} (\psi_i - \mu)^2 \right\} \exp \left\{ -\frac{1}{2} (Z_i - \psi_i)^2 \right\}
-\end{align}
-\]
+&\propto \prod_{i} f(\psi_{i} | \mu) \prod_{i} f(Z_{i} | \psi) \\
+&\propto \prod _{i} \exp \left\{-\frac{1}{2} (\psi_{i} - \mu)^{2} \right\} \exp \left\{ -\frac{1}{2} (Z_{i} - \psi_{i})^{2} \right\}
+\end{align*}
 
 If we use the prior \(f(\mu) \propto 1\) then the posterior is
 proportional to the likelihood. To use Gibbs sampling, we need to find
 the conditional distribution of each parameter conditional on all the
 others. Let us begin by finding \(f(\mu | \text{rest})\) where ``rest''
-refers to all the other variables. We can throw away terms that don't
+refers to all the other variables. We can throw away terms that do not
 involve \(\mu\). Thus,
 
-\[ f(\mu | \text{rest}) \propto \prod_i \exp \left\{ -\frac{1}{2} (\psi_i - \mu)^2 \right\} \propto \exp \left\{ -\frac{k}{2} (\mu - b)^2 \right\} \]
+\[ f(\mu | \text{rest}) \propto \prod_{i} \exp \left\{ -\frac{1}{2} (\psi_{i} - \mu)^{2} \right\} \propto \exp \left\{ -\frac{k}{2} (\mu - b)^{2} \right\} \]
 
 where
 
-\[ b = \frac{1}{k} \sum_i \psi_i \]
+\[ b = \frac{1}{k} \sum_{i} \psi_{i} \]
 
 Hence we see that \(\mu | \text{rest} \sim N(b, 1 / k)\).
 
 Next we will find \(f(\psi | \text{rest})\). Again, we can throw away
-any terms not involving \(\psi_i\), leaving us with
+any terms not involving \(\psi_{i}\), leaving us with
 
-\[ f(\psi_i | \text{rest}) \propto \exp \left\{-\frac{1}{2} (\psi_i - \mu)^2 \right\} \exp \left\{ -\frac{1}{2} (Z_i - \psi_i)^2 \right\} \propto \exp \left\{ -\frac{1}{2d_i^2}(\psi_i - e_i)^2 \right\} \]
+\[ f(\psi_{i} | \text{rest}) \propto \exp \left\{-\frac{1}{2} (\psi_{i} - \mu)^{2} \right\} \exp \left\{ -\frac{1}{2} (Z_{i} - \psi_{i})^{2} \right\} \propto \exp \left\{ -\frac{1}{2d_{i}^{2}}(\psi_{i} - e_{i})^{2} \right\} \]
 
 where
 
 \[ 
-e_i = \frac{\frac{Z_i}{\sigma_i^2} + \mu}{1 + \frac{1}{\sigma_i^2}}
+e_{i} = \frac{\frac{Z_{i}}{\sigma_{i}^{2}} + \mu}{1 + \frac{1}{\sigma_{i}^{2}}}
 \quad \text{and} \quad
-d_i^2 = \frac{1}{1 + \frac{1}{\sigma_i^2}}
+d_{i}^{2} = \frac{1}{1 + \frac{1}{\sigma_{i}^{2}}}
 \]
 
-and so \(\psi_i | \text{rest} \sim N(e_i, d_i^2)\).
+and so \(\psi_{i} | \text{rest} \sim N(e_{i}, d_{i}^{2})\).
 
 The Gibbs sampling algorithm then involves iterating the following steps
 \(N\) times:
 
-\[
-\begin{align}
-\text{draw } \mu &\sim N(b, v^2) \\
-\text{draw } \psi_1 &\sim N(e_1, d_1^2) \\
+\begin{align*}
+\text{draw } \mu &\sim N(b, v^{2}) \\
+\text{draw } \psi_{1} &\sim N(e_{1}, d_{1}^{2}) \\
 \vdots & \quad \vdots \\
-\text{draw } \psi_k &\sim N(e_k, d_k^2)
-\end{align}
-\]
+\text{draw } \psi_{k} &\sim N(e_{k}, d_{k}^{2})
+\end{align*}
 
 It is understood that, at each step, the most recent version of each
 variable is used.
 
 Let us now consider a numeric example. Suppose there are \(k = 20\)
-cities and we sample \(n_i = 20\) people from each city.
+cities and we sample \(n_{i} = 20\) people from each city.
 
 \begin{python}
 import numpy as np
@@ -1124,7 +1119,7 @@ ax.set_title('Simulated values of $\mu$')
 
 ax = plt.subplot(4, 1, 2)
 ax.plot(results['p'][:, 0])
-ax.set_title('Simulated values of $p_1$')
+ax.set_title('Simulated values of $p_{1}$')
 
 
 raw_estimate = Y / 20
@@ -1149,18 +1144,19 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-08}
+\centering
+\includegraphics{Figure-25-08}
 \end{figure}
 
-After running the chain, we convert each \(\psi_i\) back into
-\(p_i = e^{\psi_i} / (1 + e^{\psi_i})\). Note that the Bayes estimates
+After running the chain, we convert each \(\psi_{i}\) back into
+\(p_{i} = e^{\psi_{i}} / (1 + e^{\psi_{i}})\). Note that the Bayes estimates
 are ``shrunk'' together. The parameter \(\tau\) controls the amount of
 shrinkage. We set \(\tau = 1\) but, in practice, we should treat
 \(\tau\) as another parameter and let the data determine how much
 shrinkage is needed.
 
 So far we assumed that we know how to draw samples from the conditionals
-\(f_{X | Y}(x | y)\) and \(f_{Y | X}(y | x)\). If we don't know how, we
+\(f_{X | Y}(x | y)\) and \(f_{Y | X}(y | x)\). If we do not know how, we
 can still use Gibbs sampling algorithm by drawing each observation using
 a Metropolis-Hastings step. Let \(q\) be a proposal distribution for
 \(x\) and let \(\overline{q}\) be a proposal distribution for \(y\).
@@ -1170,11 +1166,11 @@ fixed. Here are the steps:
 
 \paragraph{Metropolis with Gibbs}\label{metropolis-with-gibbs}
 
-(1a) Draw a proposal \(Z \sim q(z | X_n)\).
+(1a) Draw a proposal \(Z \sim q(z | X_{n})\).
 
 (1b) Evaluate
 
-\[ r = \min \left\{ \frac{f(Z, Y_n)}{f(X_n, Y_n)} \frac{q(X_n | Z)}{q(Z | X_n)}, 1\right\} \]
+\[ r = \min \left\{ \frac{f(Z, Y_{n})}{f(X_{n}, Y_{n})} \frac{q(X_{n} | Z)}{q(Z | X_{n})}, 1\right\} \]
 
 (1c) Set
 
@@ -1183,29 +1179,29 @@ Z &\text{with probability } r \\
 X_{n} &\text{with probability } 1 - r
 \end{cases} \]
 
-(2a) Draw a proposal \(Y \sim \overline{q}(z | Y_n)\).
+(2a) Draw a proposal \(Y \sim \overline{q}(z | Y_{n})\).
 
 (2b) Evaluate
 
-\[ \overline{r} = \min \left\{ \frac{f(X_{n+1}, Z)}{f(X_{n+1}, Y_n)} \frac{\overline{q}(Y_n | Z)}{\overline{q}(Z | Y_n)}, 1 \right\} \]
+\[ \overline{r} = \min \left\{ \frac{f(X_{n+1}, Z)}{f(X_{n+1}, Y_{n})} \frac{\overline{q}(Y_{n} | Z)}{\overline{q}(Z | Y_{n})}, 1 \right\} \]
 
 (2c) Set
 
 \[ Y_{n+1} = \begin{cases}
 Z &\text{with probability } r \\
-Y_n &\text{with probability } 1 - r
+Y_{n} &\text{with probability } 1 - r
 \end{cases}
 \]
 
 Again, this generalized to more than two dimensions.
 
-\subsubsection{25.7 Exercises}\label{exercises}
+\subsection*{25.7 Exercises}
 
 \emph{Exercises taken from latest edition}
 
 \textbf{Exercise 25.7.1}. Let
 
-\[ I = \int_1^2 \frac{e^{-x^2 / 2}}{\sqrt{2 \pi}} \; dx \]
+\[ I = \int_{1}^{2} \frac{e^{-x^{2} / 2}}{\sqrt{2 \pi}} \; dx \]
 
 \textbf{(a)} Estimate \(I\) using the basic Monte Carlo method. Use
 \(N = 100,000\). Also, find the estimated standard error.
@@ -1214,7 +1210,7 @@ Again, this generalized to more than two dimensions.
 your estimate in (a). Compare to the estimated standard error.
 
 \textbf{(c)} Estimate \(I\) using importance sampling. Take \(g\) to be
-\(N(1.5, v^2)\) with \(v = .1\), \(v = 1\) and \(v = 10\). Compute the
+\(N(1.5, v^{2})\) with \(v = .1\), \(v = 1\) and \(v = 10\). Compute the
 (true) standard errors in each case. Also, plot a histogram of the
 values you are averaging to see if there are any extreme values.
 
@@ -1225,28 +1221,28 @@ is the standard error using \(g^*\)?
 
 \textbf{(a)} We have:
 
-\[ I = \int_1^2 \phi(x) dx = \Phi(2) - \Phi(1) \]
+\[ I = \int_{1}^{2} \phi(x) dx = \Phi(2) - \Phi(1) \]
 
 where \(\phi\) is the probability density function of \(N(0, 1)\) and
 \(\Phi\) is the cumulative density function. The basic Monte Carlo
 method is to compute
 
-\[ I = \frac{1}{N} \sum_{i=1}^N Y_i,
-\quad Y_i = w(X_i) = I(1 \leq X_i \leq 2)
+\[ I = \frac{1}{N} \sum_{i=1}^N Y_{i},
+\quad Y_{i} = w(X_{i}) = I(1 \leq X_{i} \leq 2)
 \]
 
-where \(X_i\) are drawn from \(N(0, 1)\), and the estimated standard
+where \(X_{i}\) are drawn from \(N(0, 1)\), and the estimated standard
 error is given by
 
 \[ \hat{\text{se}} = \frac{s}{\sqrt{N}} 
 \quad \text{where} \quad
-s^2 = \frac{\sum_i (Y_i - \hat{I})^2}{N - 1}
+s^{2} = \frac{\sum_{i} (Y_{i} - \hat{I})^{2}}{N - 1}
 \]
 
 \begin{python}
 import numpy as np
 from scipy.stats import norm
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 np.random.seed(0)
 
@@ -1261,7 +1257,7 @@ Y = h(X)
 
 I_hat = np.empty(N)
 se_hat = np.empty(N)
-for n in tqdm_notebook(range(N)):
+for n in tqdm_{n}otebook(range(N)):
     I_hat[n] = Y[:n+1].mean()
     if n < 2:
         se_hat[n] = np.inf
@@ -1293,7 +1289,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-09}
+\centering
+\includegraphics{Figure-25-09}
 \end{figure}
 
 \begin{python}
@@ -1305,19 +1302,19 @@ Estimated standard error:        0.00107918
 \end{console}
 
 \textbf{(b)} This is an unbiased estimator, with error
-\(\epsilon_i = Y_i - I\) having expectation 0. The variance of each
-error is \$ \mathbb{V}{[}\epsilon\_i{]} = \mathbb{V}{[}Y\_i{]} =
-\mathbb{E}{[}Y\_i\^{}2{]} - \mathbb{E}{[}Y\_i{]}\^{}2\$. Buy by
-construction \(\mathbb{E}[Y_i] = I = \Phi(2) - \Phi(1)\), and
-\(Y_i = Y_i^2\), so \(\mathbb{E}[Y_i^2] = \mathbb{E}[Y_i] = I\). Then,
+\(\epsilon_{i} = Y_{i} - I\) having expectation 0. The variance of each
+error is $ \mathbb{V}{[}\epsilon\_{i}{]} = \mathbb{V}{[}Y\_{i}{]} =
+\mathbb{E}{[}Y_{i}^{2}{]} - \mathbb{E}{[}Y\_{i}{]}^{2}$. Buy by
+construction \(\mathbb{E}[Y_{i}] = I = \Phi(2) - \Phi(1)\), and
+\(Y_{i} = Y_{i}^{2}\), so \(\mathbb{E}[Y_{i}^{2}] = \mathbb{E}[Y_{i}] = I\). Then,
 
-\[ \mathbb{V}[\epsilon_i] = \mathbb{V}[Y_i] = \mathbb{E}[Y_i^2] - \mathbb{E}[Y_i]^2 = I - I^2 \]
+\[ \mathbb{V}[\epsilon_{i}] = \mathbb{V}[Y_{i}] = \mathbb{E}[Y_{i}^{2}] - \mathbb{E}[Y_{i}]^{2} = I - I^{2} \]
 
 and so
 
-\[ \mathbb{E}[\text{se}^2] = \mathbb{E}\left[\frac{s^2}{N}\right] = \frac{1}{N(N - 1)} \sum_i \mathbb{E}[\epsilon^2] = \frac{1}{N(N - 1)} \sum_i \mathbb{V}[\epsilon_i] = \frac{1}{N - 1} (I - I^2) \]
+\[ \mathbb{E}[\text{se}^{2}] = \mathbb{E}\left[\frac{s^{2}}{N}\right] = \frac{1}{N(N - 1)} \sum_{i} \mathbb{E}[\epsilon^{2}] = \frac{1}{N(N - 1)} \sum_{i} \mathbb{V}[\epsilon_{i}] = \frac{1}{N - 1} (I - I^{2}) \]
 
-Let's compare the difference in the estimated standard error and this
+Compare the difference in the estimated standard error and this
 analytic estimate (square root of expectation of variance):
 
 \begin{python}
@@ -1336,7 +1333,7 @@ Difference between values:               0.00000450
 
 \textbf{(c)} For importance sampling, we do
 
-\[ \hat{I} = \frac{1}{N} \sum_i Y_i = \frac{1}{N} \sum_i \frac{h(X_i) f(X_i)}{g(X_i)} \]
+\[ \hat{I} = \frac{1}{N} \sum_{i} Y_{i} = \frac{1}{N} \sum_{i} \frac{h(X_{i}) f(X_{i})}{g(X_{i})} \]
 
 where:
 
@@ -1348,7 +1345,7 @@ where:
 \item
   \(h(x) = I(1 \leq x \leq 2)\)
 \item
-  \(g\) is the density of \(N(1.5, v^2)\), for \(v = .1\), \(v = 1\),
+  \(g\) is the density of \(N(1.5, v^{2})\), for \(v = .1\), \(v = 1\),
   \(v = 10\).
 \end{itemize}
 
@@ -1356,7 +1353,7 @@ where:
 import numpy as np
 import numpy as np
 from scipy.stats import norm
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 np.random.seed(0)
 
@@ -1374,7 +1371,7 @@ def f_over_g(mu_g, sigma_g):
 I_bootstrap = {}
 for v in [0.1, 1, 10]:    
     I_bootstrap[v] = np.empty(B)
-    for b in tqdm_notebook(range(B)):
+    for b in tqdm_{n}otebook(range(B)):
         XX = np.random.normal(loc=4.0, scale=1.0, size=N)
         YY = np.where((1 < XX) & (XX < 2), f_over_g(1.5, v)(XX), 0)
         I_bootstrap[v][b] = YY.mean()
@@ -1408,7 +1405,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-10}
+\centering
+\includegraphics{Figure-25-10}
 \end{figure}
 
 There is obviously something unusual happening with \(v = 0.1\) -- the
@@ -1417,110 +1415,96 @@ values.
 
 The true variance of \(w = f h / g\) is, in general,
 
-\[
-\begin{align}
-\mathbb{V}_g[w] = \mathbb{E}_g[w^2] - (\mathbb{E}_g[w])^2 &= \int w^2(x) g(x) dx - \left( \int w(x) g(x) dx \right)^2 \\
-&= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx - \left( \int \frac{h(x) f(x)}{g(x)} g(x) dx \right)^2 \\
-&= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx - \left( \int h(x) f(x) dx \right)^2
-\end{align}
-\]
+\begin{align*}
+\mathbb{V}_g[w] = \mathbb{E}_g[w^{2}] - (\mathbb{E}_g[w])^{2} &= \int w^{2}(x) g(x) dx - \left( \int w(x) g(x) dx \right)^{2} \\
+&= \int \frac{h^{2}(x) f^{2}(x)}{g^{2}(x)} g(x) dx - \left( \int \frac{h(x) f(x)}{g(x)} g(x) dx \right)^{2} \\
+&= \int \frac{h^{2}(x) f^{2}(x)}{g^{2}(x)} g(x) dx - \left( \int h(x) f(x) dx \right)^{2}
+\end{align*}
 
-and, in this specific case, \(h^2(x) = h(x) = I(1 \leq x \leq 2)\), and
+and, in this specific case, \(h^{2}(x) = h(x) = I(1 \leq x \leq 2)\), and
 \(I = \int h(x) f(x) dx = \Phi(2) - \Phi(1)\), so
 
-\[
-\begin{align}
-\mathbb{V}_g[w] &= \int_1^2 \frac{f^2(x)}{g(x)} dx - I^2 \\
-&= \int_1^2 \frac{\frac{1}{2 \pi} \exp \left\{-x^2 \right\}}{\frac{1}{\sigma_g \sqrt{2 \pi}} \exp \left\{-\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 \right\} } dx - I^2 \\
-&= \sigma_g \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^2 +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 \right\} dx - I^2
-\end{align}
-\]
+\begin{align*}
+\mathbb{V}_g[w] &= \int_{1}^{2} \frac{f^{2}(x)}{g(x)} dx - I^{2} \\
+&= \int_{1}^{2} \frac{\frac{1}{2 \pi} \exp \left\{-x^{2} \right\}}{\frac{1}{\sigma_g \sqrt{2 \pi}} \exp \left\{-\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} \right\} } dx - I^{2} \\
+&= \sigma_g \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^{2} +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} \right\} dx - I^{2}
+\end{align*}
 
-If \(2 \sigma_g^2 - 1 > 0\), we can complete the square in the exponent
+If \(2 \sigma_g^{2} - 1 > 0\), we can complete the square in the exponent
 to make it proportional to a Gaussian PDF. Rewrite the exponent as
 
-\[ 
-\begin{align}
--x^2 +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 &= -\frac{1}{2} \left( 2x^2 -  \left(\frac{x - \mu_g}{\sigma_g}\right)^2 \right) \\
-&= -\frac{1}{2} \frac{1}{\sigma_g^2} \left( 2 \sigma_g^2 x^2  - x^2 - 2 \mu_g x + \mu_g^2 \right) \\
-&= -\frac{1}{2} \frac{1}{\sigma_g^2} \left( x^2 (2\sigma_g^2 - 1) - 2x \mu_g + \mu_g^2 \right) \\
-&= -\frac{1}{2} \frac{2\sigma_g^2 - 1}{\sigma_g^2} \left( x^2 - 2x \frac{\mu_g}{2\sigma_g^2 - 1} + \frac{\mu_g^2}{2\sigma_g^2 - 1} \right) \\
-&= -\frac{1}{2} \frac{2\sigma_g^2 - 1}{\sigma_g^2} \left( \left( x - \frac{\mu_g}{2\sigma_g^2 - 1} \right)^2  + \frac{\mu_g^2}{2\sigma_g^2 - 1}\left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right) \\
-&= -\frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^2 - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right)
-\end{align}
-\]
+\begin{align*}
+-x^{2} +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} &= -\frac{1}{2} \left( 2x^{2} -  \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} \right) \\
+&= -\frac{1}{2} \frac{1}{\sigma_g^{2}} \left( 2 \sigma_g^{2} x^{2}  - x^{2} - 2 \mu_g x + \mu_g^{2} \right) \\
+&= -\frac{1}{2} \frac{1}{\sigma_g^{2}} \left( x^{2} (2\sigma_g^{2} - 1) - 2x \mu_g + \mu_g^{2} \right) \\
+&= -\frac{1}{2} \frac{2\sigma_g^{2} - 1}{\sigma_g^{2}} \left( x^{2} - 2x \frac{\mu_g}{2\sigma_g^{2} - 1} + \frac{\mu_g^{2}}{2\sigma_g^{2} - 1} \right) \\
+&= -\frac{1}{2} \frac{2\sigma_g^{2} - 1}{\sigma_g^{2}} \left( \left( x - \frac{\mu_g}{2\sigma_g^{2} - 1} \right)^{2}  + \frac{\mu_g^{2}}{2\sigma_g^{2} - 1}\left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right) \\
+&= -\frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^{2} - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right)
+\end{align*}
 
 where
 
-\[ \mu_a = \frac{\mu_g}{2\sigma_g^2 - 1} 
+\[ \mu_a = \frac{\mu_g}{2\sigma_g^{2} - 1} 
 \quad \text{and} \quad
-\sigma_a = \frac{\sigma_g}{\sqrt{2 \sigma_g^2 - 1}} \]
+\sigma_a = \frac{\sigma_g}{\sqrt{2 \sigma_g^{2} - 1}} \]
 
 Replacing above, we get
 
-\[
-\begin{align}
-\mathbb{V}_g[w] &= \sigma_g \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^2 +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 \right\} dx - I^2 \\
-&= \sigma_g \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^2 \right\} \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\} dx - I^2 \\
-&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\} \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^2 \right\} dx - I^2 \\
-&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\} \int_{\frac{1 - \mu_a}{\sigma_a}}^{\frac{2 - \mu_a}{\sigma_a}} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} y^2 \right\} \frac{1}{\sigma_a} dy - I^2 \\
-&= \frac{\sigma_g}{\sigma_a} \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\}  \left( \Phi\left(\frac{2 - \mu_a}{\sigma_a}\right) - \Phi\left(\frac{1 - \mu_a}{\sigma_a}\right) \right) - \left( \Phi(2) - \Phi(1) \right)^2
-\end{align}
-\]
+\begin{align*}
+\mathbb{V}_g[w] &= \sigma_g \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^{2} +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} \right\} dx - I^{2} \\
+&= \sigma_g \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^{2} \right\} \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\} dx - I^{2} \\
+&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\} \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^{2} \right\} dx - I^{2} \\
+&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\} \int_{\frac{1 - \mu_a}{\sigma_a}}^{\frac{2 - \mu_a}{\sigma_a}} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} y^{2} \right\} \frac{1}{\sigma_a} dy - I^{2} \\
+&= \frac{\sigma_g}{\sigma_a} \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\}  \left( \Phi\left(\frac{2 - \mu_a}{\sigma_a}\right) - \Phi\left(\frac{1 - \mu_a}{\sigma_a}\right) \right) - \left( \Phi(2) - \Phi(1) \right)^{2}
+\end{align*}
 
-For the case where \(2 \sigma_g^2 - 1 < 0\), the coefficient of \(x^2\)
+For the case where \(2 \sigma_g^{2} - 1 < 0\), the coefficient of \(x^{2}\)
 in the exponent of
 
-\[ \int \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^2 +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 \right\} dx \]
+\[ \int \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^{2} +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} \right\} dx \]
 
-is positive, the indefinite integral does not diverge, and we can't
+is positive, the indefinite integral does not diverge, and we cannot
 express this as a Gaussian PDF. Instead, we can express the definite
 integral as a function of the imaginary error function,
 
-\[ \text{erfi}(z) = \frac{2}{\sqrt{\pi}} \int_0^z e^{t^2} dt \]
+\[ \text{erfi}(z) = \frac{2}{\sqrt{\pi}} \int_{0}^z e^{t^{2}} dt \]
 
 The exponent becomes:
 
 \[ 
--x^2 +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 = \frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^2 - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right)
+-x^{2} +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} = \frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^{2} - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right)
 \]
 
 where
 
-\[ \mu_a = \frac{\mu_g}{2\sigma_g^2 - 1} 
+\[ \mu_a = \frac{\mu_g}{2\sigma_g^{2} - 1} 
 \quad \text{and} \quad
-\sigma_a = \frac{\sigma_g}{\sqrt{1 - 2 \sigma_g^2}} \]
+\sigma_a = \frac{\sigma_g}{\sqrt{1 - 2 \sigma_g^{2}}} \]
 
 and we get:
 
-\[
-\begin{align}
-\mathbb{V}_g[w] &= \sigma_g \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^2 +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 \right\} dx - I^2 \\
-&= \sigma_g \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ \frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^2 \right\} \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\} dx - I^2 \\
-&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\} \frac{1}{\sqrt{2 \pi}} \int_1^2 \exp \left\{ \frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^2 \right\} dx - I^2 \\
-&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\} \frac{1}{\sqrt{2 \pi}} \int_{\frac{1 - \mu_a}{\sigma_a}}^{\frac{2 - \mu_a}{\sigma_a}} \exp \left\{ \frac{1}{2} y^2 \right\} \frac{1}{\sigma_a} dy - I^2 \\
-&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^2}{\sigma_g^2} \left(1 - \frac{1}{2\sigma_g^2 - 1} \right) \right\} \sqrt{\frac{\pi}{2}} \sigma_a \left( \text{erfi}\left( \frac{\mu_a - 1}{\sqrt{2} \sigma_a} \right) - \text{erfi}\left( \frac{\mu_a - 2}{\sqrt{2} \sigma_a} \right) \right) - \left( \Phi(2) - \Phi(1) \right)^2
-\end{align}
-\]
+\begin{align*}
+\mathbb{V}_g[w] &= \sigma_g \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^{2} +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} \right\} dx - I^{2} \\
+&= \sigma_g \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ \frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^{2} \right\} \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\} dx - I^{2} \\
+&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\} \frac{1}{\sqrt{2 \pi}} \int_{1}^{2} \exp \left\{ \frac{1}{2} \left( \frac{x - \mu_a}{\sigma_a} \right)^{2} \right\} dx - I^{2} \\
+&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\} \frac{1}{\sqrt{2 \pi}} \int_{\frac{1 - \mu_a}{\sigma_a}}^{\frac{2 - \mu_a}{\sigma_a}} \exp \left\{ \frac{1}{2} y^{2} \right\} \frac{1}{\sigma_a} dy - I^{2} \\
+&= \sigma_g \exp \left\{ - \frac{1}{2} \frac{\mu_g^{2}}{\sigma_g^{2}} \left(1 - \frac{1}{2\sigma_g^{2} - 1} \right) \right\} \sqrt{\frac{\pi}{2}} \sigma_a \left( \text{erfi}\left( \frac{\mu_a - 1}{\sqrt{2} \sigma_a} \right) - \text{erfi}\left( \frac{\mu_a - 2}{\sqrt{2} \sigma_a} \right) \right) - \left( \Phi(2) - \Phi(1) \right)^{2}
+\end{align*}
 
-Finally, when \(\sigma_g = \sqrt{2}\), the \(x^2\) term on the exponent
+Finally, when \(\sigma_g = \sqrt{2}\), the \(x^{2}\) term on the exponent
 cancels out, and we get:
 
-\[
-\begin{align}
--x^2 + \frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 &= -2 \mu_g x + \mu_g^2
-\end{align}
-\]
+\begin{align*}
+-x^{2} + \frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} &= -2 \mu_g x + \mu_g^{2}
+\end{align*}
 
 Replacing on the expression for the variance, we get:
 
-\[
-\begin{align}
-\mathbb{V}_g[w] &= \sigma_g \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^2 +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^2 \right\} dx - I^2 \\
-&= \sigma_g \int_1^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{ -2 \mu_g x + \mu_g^2 \right\} dx - I^2 \\
-&= \frac{\sigma_g }{\sqrt{2 \pi} \mu_g} \left( \exp \left\{ (\mu_g (\mu_g - 3) \right\} \; \text{sinh} (\mu_g) \right) - \left( \Phi(2) - \Phi(1) \right)^2
-\end{align}
-\]
+\begin{align*}
+\mathbb{V}_g[w] &= \sigma_g \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -x^{2} +\frac{1}{2} \left(\frac{x - \mu_g}{\sigma_g}\right)^{2} \right\} dx - I^{2} \\
+&= \sigma_g \int_{1}^{2} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -2 \mu_g x + \mu_g^{2} \right\} dx - I^{2} \\
+&= \frac{\sigma_g }{\sqrt{2 \pi} \mu_g} \left( \exp \left\{ (\mu_g (\mu_g - 3) \right\} \; \text{sinh} (\mu_g) \right) - \left( \Phi(2) - \Phi(1) \right)^{2}
+\end{align*}
 
 \begin{python}
 from scipy.stats import norm
@@ -1580,24 +1564,25 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-11}
+\centering
+\includegraphics{Figure-25-11}
 \end{figure}
 
 The variance (and the standard error) blows up as \(v = \sigma_g\)
 becomes smaller, as we are integrating a diverging term (positive
-coefficient for \(x^2\) on an exponential).
+coefficient for \(x^{2}\) on an exponential).
 
 The minimum true variance in this class of functions
-\(g \sim N(1.5, \sigma_g^2)\) occurs on the edge case where
+\(g \sim N(1.5, \sigma_g^{2})\) occurs on the edge case where
 \(\sigma_g = 1 / \sqrt{2}\).
 
-\textbf{(d)} From theorem 25.5, the choice of \(g\) that minimizes the
+\textbf{(d)} From Theorem 25.5, the choice of \(g\) that minimizes the
 variance is
 
 \[ g^*(x) = \frac{|h(x)| f(x) }{\int | h(s) | f(s)  ds} \]
 
 Since \(h(x) = I(1 < x < 2)\), \(f(x) = \phi(x)\), and the integral is
-\(I = \int_1^2 f(s) ds = \Phi(2) - \Phi(1)\), we can write
+\(I = \int_{1}^{2} f(s) ds = \Phi(2) - \Phi(1)\), we can write
 
 \[ g^*(x) = \begin{cases}
 \frac{\phi(x)}{\Phi(2) - \Phi(1)} &\text{if } 1 \leq x \leq 2 \\
@@ -1607,16 +1592,16 @@ Since \(h(x) = I(1 < x < 2)\), \(f(x) = \phi(x)\), and the integral is
 
 The minimum variance is
 
-\[ \int_1^2 \frac{f^2(x)}{g^*(x)} dx - I^2 = \int_1^2 \frac{\phi^2(x)}{\frac{\phi(x)}{I}} dx - I^2 = I \left( \int_1^2 \phi(x) dx \right) - I^2 = I \cdot I - I^2 = 0 \]
+\[ \int_{1}^{2} \frac{f^{2}(x)}{g^*(x)} dx - I^{2} = \int_{1}^{2} \frac{\phi^{2}(x)}{\frac{\phi(x)}{I}} dx - I^{2} = I \left( \int_{1}^{2} \phi(x) dx \right) - I^{2} = I \cdot I - I^{2} = 0 \]
 
 \textbf{Exercise 25.7.2}. Here is a way to use importance sampling to
 estimate a marginal density. Let \(f_{X, Y}(x, y)\) be a bivariate
-density and let \((X_1, Y_1), \dots, (X_N, Y_N) \sim f_{X, Y}\).
+density and let \((X_{1}, Y_{1}), \dots, (X_N, Y_N) \sim f_{X, Y}\).
 
 \textbf{(a)} Let \(w(x)\) be an arbitrary probability density function.
 Let
 
-\[ \hat{f}_X(x) = \frac{1}{N} \sum_{i=1}^N \frac{f_{X, Y}(x, Y_i)  w(X_i)}{f_{X, Y}(X_i, Y_i)} \]
+\[ \hat{f}_X(x) = \frac{1}{N} \sum_{i=1}^N \frac{f_{X, Y}(x, Y_{i})  w(X_{i})}{f_{X, Y}(X_{i}, Y_{i})} \]
 
 Show that, for each \(x\),
 
@@ -1625,7 +1610,7 @@ Show that, for each \(x\),
 Find an expression for the variance of this estimator.
 
 \textbf{(b)} Let \(Y \sim N(0, 1)\) and
-\(X | Y = y \sim N(y, 1 + y^2)\). Use the method in (a) to estimate
+\(X | Y = y \sim N(y, 1 + y^{2})\). Use the method in (a) to estimate
 \(f_X(x)\).
 
 \textbf{Solution}.
@@ -1648,7 +1633,9 @@ function \(g\) such that
 
 by defining a new density function \(g\) such that
 
-\[ g\left(s\right) = \mathbb{P}\left[\frac{X}{L} = s\right] = \int \int_{\frac{a}{b} = s} f_X(a) f_L(b) \; da\; db \]
+\[ 
+g\left(s\right) = \mathbb{P}\left[\frac{X}{L} = s\right] = \int \int_{\frac{a}{b} = s} f_X(a) f_L(b) \; da\; db 
+\]
 
 which leads to
 
@@ -1657,83 +1644,75 @@ which leads to
 Then, if we want to estimate, for some function \(h\),
 \(\mathbb{E}_f[h(X)] = \int h(x) f(x) dx\), we can pick another
 arbitrary distribution \(g\) for \(Z = h(X) / L\), sample
-\(Z_i \sim g\), and use the estimator
+\(Z_{i} \sim g\), and use the estimator
 
-\[ \hat{\mathbb{E}}_g\left[\frac{h(X)}{L}\right] = \frac{1}{N} \sum_{i=1}^N \frac{h(Z_i) f(Z_i)}{g(Z_i)} \]
+\[ \hat{\mathbb{E}}_g\left[\frac{h(X)}{L}\right] = \frac{1}{N} \sum_{i=1}^N \frac{h(Z_{i}) f(Z_{i})}{g(Z_{i})} \]
 
 as it converges to \(\mathbb{E}_g\left[h(X) / L\right]\) by the law of
 large numbers, and this expectation is the same as
 \(\mathbb{E}_f[h(X)]\) by construction.
 
 Now, consider the bivariate distribution \(Z = (X, Y) \sim f_{X, Y}\),
-let \(g = f_{X, Y}\), and for some constant \(x_0\) define
+let \(g = f_{X, Y}\), and for some constant \(x_{0}\) define
 
-\[ h(x, y) = \frac{f_{X, Y}(x_0, y) w(x) }{ f_{X, Y}(x, y) } \]
+\[ h(x, y) = \frac{f_{X, Y}(x_{0}, y) w(x) }{ f_{X, Y}(x, y) } \]
 
 The expected value of \(h(X, Y)\) is:
 
-\[
-\begin{align}
+\begin{align*}
 \mathbb{E}[h(X, Y)] &= \int \int h(x, y) f_{X, Y}(x, y) \; dx dy \\
-&= \int \int \frac{f_{X, Y}(x_0, y) w(x)}{f_{X, Y}(x, y)} f_{X, Y}(x, y) \; dx dy \\
-&= \int \int f_{X, Y}(x_0, y) w(x) \; dx dy \\
-&= \int \left(\int f_{X, Y}(x_0, y) \; dy \right) w(x) \; dx \\
-&= \int f_X(x_0) w(x) \; dx \\
-&= f_X(x_0) \left( \int w(x) \; dx \right) \\
-&= f_X(x_0)
-\end{align}
-\]
+&= \int \int \frac{f_{X, Y}(x_{0}, y) w(x)}{f_{X, Y}(x, y)} f_{X, Y}(x, y) \; dx dy \\
+&= \int \int f_{X, Y}(x_{0}, y) w(x) \; dx dy \\
+&= \int \left(\int f_{X, Y}(x_{0}, y) \; dy \right) w(x) \; dx \\
+&= \int f_X(x_{0}) w(x) \; dx \\
+&= f_X(x_{0}) \left( \int w(x) \; dx \right) \\
+&= f_X(x_{0})
+\end{align*}
 
 since \(w\) is a PDF and integrates to 1. But, by construction, we have
 
 \[ 
-\frac{h(X_i, Y_i) f(X_i, Y_i)}{g(X_i, Y_i)}
+\frac{h(X_{i}, Y_{i}) f(X_{i}, Y_{i})}{g(X_{i}, Y_{i})}
 =
-\frac{f(x_0, Y_i) w(X_i)}{f(X_i, Y_i)}
+\frac{f(x_{0}, Y_{i}) w(X_{i})}{f(X_{i}, Y_{i})}
 \]
 
 and so the estimator
 
-\[ \hat{f}_X(x_0) \equiv \frac{1}{N} \sum_{i=1}^N \frac{f_{X, Y}(x_0, Y_i)  w(X_i)}{f_{X, Y}(X_i, Y_i)} \]
+\[ \hat{f}_X(x_{0}) \equiv \frac{1}{N} \sum_{i=1}^N \frac{f_{X, Y}(x_{0}, Y_{i})  w(X_{i})}{f_{X, Y}(X_{i}, Y_{i})} \]
 
-converges to \(\mathbb{E}_f[h(X, Y)] = f_X(x_0)\), which is our result.
+converges to \(\mathbb{E}_f[h(X, Y)] = f_X(x_{0})\), which is our result.
 
 The variance of the estimator (which is unbiased) is
 
-\[
-\begin{align}
-\mathbb{E}_g\left[ \left(\frac{h(X, Y) f_{X, Y}(X, Y)}{g(X, Y)} \right)^2 \right]
-&= \int \int \left( \frac{h(x, y) f_{X, Y}(x, y)}{g(x, y)} \right)^2 g(x, y) \; dx dy \\
-&= \int \int \frac{h^2(x, y) f_{X, Y}^2(x, y)}{g(x, y)} \; dx dy
-\end{align}
-\]
+\begin{align*}
+\mathbb{E}_g\left[ \left(\frac{h(X, Y) f_{X, Y}(X, Y)}{g(X, Y)} \right)^{2} \right]
+&= \int \int \left( \frac{h(x, y) f_{X, Y}(x, y)}{g(x, y)} \right)^{2} g(x, y) \; dx dy \\
+&= \int \int \frac{h^{2}(x, y) f_{X, Y}^{2}(x, y)}{g(x, y)} \; dx dy
+\end{align*}
 
 and, replacing our choices for \(h\) and \(g\),
 
-\[
-\begin{align}
-\mathbb{E}_g\left[ \left(\frac{h(X, Y) f_{X, Y}(X, Y)}{g(X, Y)} \right)^2 \right]
-&= \int \int h^2(x, y) f_{X, Y}(x, y) \; dx dy \\
-&= \int \int \frac{f_{X, Y}^2(x_0, y) w^2(x) }{ f_{X, Y}^2(x, y) } f_{X, Y}(x, y) \; dx dy \\
-&= \int f_{X, Y}^2(x_0, y) \left( \int \left(\frac{w(x)}{f_{X, Y}(x, y)}\right)^2 f_{X, Y}(x, y) \; dx \right) \; dy \\
-&= \int f_{X, Y}^2(x_0, y) \mathbb{E}_X\left[ \left(\frac{w(x)}{f_{X, Y}(x, y)}\right)^2 \right] dy \\
-&= \int \mathbb{E}_X\left[ f_{X, Y}(x_0, y) \left(\frac{w(x)}{f_{X, Y}(x, y)}\right)^2 \right] f_{X, Y}(x_0, y) \; dy \\
-&= \mathbb{E} \left[  f_{X, Y}(x_0, Y) \left(\frac{w(X)}{f_{X, Y}(X, Y)}\right)^2 \right]
-\end{align}
-\]
+\begin{align*}
+\mathbb{E}_g\left[ \left(\frac{h(X, Y) f_{X, Y}(X, Y)}{g(X, Y)} \right)^{2} \right]
+&= \int \int h^{2}(x, y) f_{X, Y}(x, y) \; dx dy \\
+&= \int \int \frac{f_{X, Y}^{2}(x_{0}, y) w^{2}(x) }{ f_{X, Y}^{2}(x, y) } f_{X, Y}(x, y) \; dx dy \\
+&= \int f_{X, Y}^{2}(x_{0}, y) \left( \int \left(\frac{w(x)}{f_{X, Y}(x, y)}\right)^{2} f_{X, Y}(x, y) \; dx \right) \; dy \\
+&= \int f_{X, Y}^{2}(x_{0}, y) \mathbb{E}_X\left[ \left(\frac{w(x)}{f_{X, Y}(x, y)}\right)^{2} \right] dy \\
+&= \int \mathbb{E}_X\left[ f_{X, Y}(x_{0}, y) \left(\frac{w(x)}{f_{X, Y}(x, y)}\right)^{2} \right] f_{X, Y}(x_{0}, y) \; dy \\
+&= \mathbb{E} \left[  f_{X, Y}(x_{0}, Y) \left(\frac{w(X)}{f_{X, Y}(X, Y)}\right)^{2} \right]
+\end{align*}
 
 \textbf{(b)} The formula for the joint distribution PDF is
 
-\[ 
-\begin{align}
+\begin{align*}
 f_{X, Y}(x, y) &= f_Y(y) f_{X | Y}(x | y) \\
-&= \left( \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} y^2 \right\} \right)
-\left( \frac{1}{\sqrt{1 + y^2} \sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} \left( \frac{x - y}{\sqrt{1 + y^2}} \right)^2\right\} \right) \\
-&= \frac{1}{(2 \pi) \sqrt{1 + y^2}} \exp \left\{ -\frac{1}{2} \left( y^2 + \frac{(x - y)^2}{1 + y^2} \right) \right\}
-\end{align}
-\]
+&= \left( \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} y^{2} \right\} \right)
+\left( \frac{1}{\sqrt{1 + y^{2}} \sqrt{2 \pi}} \exp \left\{ -\frac{1}{2} \left( \frac{x - y}{\sqrt{1 + y^{2}}} \right)^{2}\right\} \right) \\
+&= \frac{1}{(2 \pi) \sqrt{1 + y^{2}}} \exp \left\{ -\frac{1}{2} \left( y^{2} + \frac{(x - y)^{2}}{1 + y^{2}} \right) \right\}
+\end{align*}
 
-Let's pick \(w\) as a t-distribution with \(v = 5\).
+Pick \(w\) as a t-distribution with \(v = 5\).
 
 \begin{python}
 import numpy as np
@@ -1773,7 +1752,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-12}
+\centering
+\includegraphics{Figure-25-12}
 \end{figure}
 
 \textbf{Exercise 25.7.3}. Here is a method called \textbf{accept-reject
@@ -1795,7 +1775,7 @@ algorithm:
 Show that the distribution of \(Y\) is \(f\).
 
 \textbf{(b)} Let \(f\) be a standard normal density and let
-\(g(x) = 1 / (1 + x^2)\) be the Cauchy density. Apply the method in (a)
+\(g(x) = 1 / (1 + x^{2})\) be the Cauchy density. Apply the method in (a)
 to draw 1,000 observations from the normal distribution. Draw a
 histogram of the sample to verify that the sample appears to be normal.
 
@@ -1829,13 +1809,13 @@ def accept_reject(N, M=1, seed=None):
     def g(x):
         return 1 / (1 + x**2)
     
-    def G_inv(q):
+    def G_{i}nv(q):
         return np.tan(np.pi * (q - (1/2)))
         
     def draw_results(batch_size): 
         U = np.random.uniform(low=0, high=1, size=batch_size)
         Q = np.random.uniform(low=0, high=1, size=batch_size)
-        X = G_inv(Q)
+        X = G_{i}nv(Q)
 
         return X[U <= f(X) / (M * g(X))]
     
@@ -1864,24 +1844,25 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-13}
+\centering
+\includegraphics{Figure-25-13}
 \end{figure}
 
 \textbf{Exercise 25.7.4}. A random variable \(Z\) has an \textbf{inverse
 Gaussian distribution} if it has density
 
-\[ f(z) \propto z^{-3/2}  \exp \left\{ -\theta_1 z - \frac{\theta_2}{z} + 2 \sqrt{\theta_1 \theta_2}  + \log \left( \sqrt{2 \theta_2} \right) \right\}, \quad z > 0\]
+\[ f(z) \propto z^{-3/2}  \exp \left\{ -\theta_{1} z - \frac{\theta_{2}}{z} + 2 \sqrt{\theta_{1} \theta_{2}}  + \log \left( \sqrt{2 \theta_{2}} \right) \right\}, \quad z > 0\]
 
-where \(\theta_1 > 0\) and \(\theta_2 > 0\) are parameters. It can be
+where \(\theta_{1} > 0\) and \(\theta_{2} > 0\) are parameters. It can be
 shown that
 
 \[ 
-\mathbb{E}[Z] = \sqrt{\frac{\theta_2}{\theta_1}} 
+\mathbb{E}[Z] = \sqrt{\frac{\theta_{2}}{\theta_{1}}} 
 \quad \text{and} \quad
-\mathbb{E}\left[ \frac{1}{Z} \right] = \sqrt{\frac{\theta_1}{\theta_2}} + \frac{1}{2 \theta_2}
+\mathbb{E}\left[ \frac{1}{Z} \right] = \sqrt{\frac{\theta_{1}}{\theta_{2}}} + \frac{1}{2 \theta_{2}}
 \]
 
-\textbf{(a)} Let \(\theta_1 = 1.5\) and \(\theta_2 = 2\). Draw a sample
+\textbf{(a)} Let \(\theta_{1} = 1.5\) and \(\theta_{2} = 2\). Draw a sample
 of size 1,000 using the independence-Metropolis-Hastings method. Use a
 Gamma distribution as the proposal density. To assess the accuracy,
 compare the mean of \(Z\) and \(1 / Z\) from the sample to the
@@ -1892,21 +1873,21 @@ get an accurate sample.
 random-walk-Metropolis-Hastings method. Sinze \(z > 0\) we cannot just
 use a normal density. One strategy is this. Let \(W = \log Z\). Find the
 density of \(W\). Use the random-walk-Metropolis-Hastings method to get
-a sample \(W_1, \dots, W_N\) and let \(Z_i = e^{W_i}\). Assess the
+a sample \(W_{1}, \dots, W_N\) and let \(Z_{i} = e^{W_{i}}\). Assess the
 accuracy of the simulation as in part (a).
 
 \textbf{Solution}.
 
 \textbf{(a)}. The Independence-Metropolis-Hastings method is:
 
-Choose \(X_0\) arbitrarily. Suppose we have generated
-\(X_0, X_1, \dots, X_i\). To generate \(X_{i+1}\) do:
+Choose \(X_{0}\) arbitrarily. Suppose we have generated
+\(X_{0}, X_{1}, \dots, X_{i}\). To generate \(X_{i+1}\) do:
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
   Generate a \textbf{proposal} or \textbf{candidate} value \(Y \sim g\).
 \item
-  Evaluate \(r \equiv r(X_i, Y)\) where
+  Evaluate \(r \equiv r(X_{i}, Y)\) where
 \end{enumerate}
 
 \[ r(x, y) = \min \left\{ 1, \frac{f(y)}{f(x)} \frac{g(x)}{g(y)} \right\} \]
@@ -1919,7 +1900,7 @@ Choose \(X_0\) arbitrarily. Suppose we have generated
 \[
 X_{i+1} = \begin{cases}
 Y   &\text{with probability } r \\
-X_i &\text{with probability } 1 - r 
+X_{i} &\text{with probability } 1 - r 
 \end{cases}
 \]
 
@@ -1957,19 +1938,19 @@ def independence_metropolis_hastings(N, theta1, theta2, gamma_a, seed=None):
 \end{python}
 
 \begin{python}
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 gamma_as = np.logspace(-1, 1, num=200)
 
 EZs = np.empty(len(gamma_as))
-E_invZs = np.empty(len(gamma_as))
+E_{i}nvZs = np.empty(len(gamma_as))
 
 N = 1000
 theta1, theta2 = 1.5, 2
-for i, gamma_a in tqdm_notebook([(i, gamma_a) for i, gamma_a in enumerate(gamma_as)]):
+for i, gamma_a in tqdm_{n}otebook([(i, gamma_a) for i, gamma_a in enumerate(gamma_as)]):
     Z = independence_metropolis_hastings(N=N, theta1=theta1, theta2=theta2, gamma_a=gamma_a, seed=0)
     EZs[i] = Z.mean()
-    E_invZs[i] = (1 / Z).mean()
+    E_{i}nvZs[i] = (1 / Z).mean()
 \end{python}
 
 \begin{python}
@@ -1977,28 +1958,29 @@ import matplotlib.pyplot as plt
 
 theta1, theta2 = 1.5, 2
 true_EZ = np.sqrt(theta2 / theta1)
-true_E_invZ = np.sqrt(theta1 / theta2) + 1/(2 * theta2)
+true_E_{i}nvZ = np.sqrt(theta1 / theta2) + 1/(2 * theta2)
 
 plt.figure(figsize=(12, 8))
 plt.plot(gamma_as, EZs, label=r'$\hat{\mathbb{E}}[Z]$', color='darkblue', alpha=0.5)
-plt.plot(gamma_as, E_invZs, label=r'$\hat{\mathbb{E}}[1 / Z]$', color='darkred', alpha=0.5)
+plt.plot(gamma_as, E_{i}nvZs, label=r'$\hat{\mathbb{E}}[1 / Z]$', color='darkred', alpha=0.5)
 plt.xlabel('a')
 
 plt.hlines(true_EZ, xmin=min(gamma_as), xmax=max(gamma_as), label=r'True $\mathbb{E}[Z]$', color='blue')
-plt.hlines(true_E_invZ, xmin=min(gamma_as), xmax=max(gamma_as), label=r'True $\mathbb{E}[1 / Z]$', color='red')
+plt.hlines(true_E_{i}nvZ, xmin=min(gamma_as), xmax=max(gamma_as), label=r'True $\mathbb{E}[1 / Z]$', color='red')
 plt.legend(loc='upper right')
 plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-14}
+\centering
+\includegraphics{Figure-25-14}
 \end{figure}
 
 \begin{python}
 # Selected hyperparameter by minimizing sum of square errors
 
 error_EZ = EZs - true_EZ
-error_E_InvZ = E_invZs - true_E_invZ
+error_E_InvZ = E_{i}nvZs - true_E_{i}nvZ
 
 MSE = error_EZ**2 + error_E_InvZ**2
 selected_gamma_a = gamma_as[np.argmin(MSE)]
@@ -2016,20 +1998,21 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-15}
+\centering
+\includegraphics{Figure-25-15}
 \end{figure}
 
 \textbf{(b)} The random-walk-Hastings-Metropolis method is:
 
-Choose \(X_0\) arbitrarily. Suppose we have generated
-\(X_0, X_1, \dots, X_i\). To generate \(X_{i+1}\) do:
+Choose \(X_{0}\) arbitrarily. Suppose we have generated
+\(X_{0}, X_{1}, \dots, X_{i}\). To generate \(X_{i+1}\) do:
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
   Generate a \textbf{proposal} or \textbf{candidate} value
-  \(Y \sim q(y | X_i) = g(y - X_i)\).
+  \(Y \sim q(y | X_{i}) = g(y - X_{i})\).
 \item
-  Evaluate \(r \equiv r(X_i, Y)\) where
+  Evaluate \(r \equiv r(X_{i}, Y)\) where
 \end{enumerate}
 
 \[ r(x, y) = \min \left\{ \frac{f(y)}{f(x)} \frac{q(x | y)}{q(y | x)}, 1 \right\} = \min \left\{ \frac{f(y)}{f(x)}, 1 \right\} \]
@@ -2042,7 +2025,7 @@ Choose \(X_0\) arbitrarily. Suppose we have generated
 \[
 X_{i+1} = \begin{cases}
 Y   &\text{with probability } r \\
-X_i &\text{with probability } 1 - r 
+X_{i} &\text{with probability } 1 - r 
 \end{cases}
 \]
 
@@ -2058,9 +2041,9 @@ and so, derivating on \(w\), the probability density function is:
 and so
 
 \[ f_W(w) \propto \exp \left\{ -\frac{w}{2}
--\theta_1 e^{w} - \theta_2 e^{-w} \right\} \]
+-\theta_{1} e^{w} - \theta_{2} e^{-w} \right\} \]
 
-We then translate back the generated values, \(Z_i = e^{W_i}\) We will
+We then translate back the generated values, \(Z_{i} = e^{W_{i}}\) We will
 also use a Log-Gamma distribution for \(g\) instead of a Gamma
 distribution. The Log-Gamma distribution has probability density
 function:
@@ -2095,19 +2078,19 @@ def random_walk_hastings_metropolis(N, theta1, theta2, loggamma_c, seed=None):
 \end{python}
 
 \begin{python}
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 loggamma_cs = np.logspace(-1, 1, num=100)
 
 EZs = np.empty(len(loggamma_cs))
-E_invZs = np.empty(len(loggamma_cs))
+E_{i}nvZs = np.empty(len(loggamma_cs))
 
 N = 1000
 theta1, theta2 = 1.5, 2
-for i, loggamma_c in tqdm_notebook([(i, loggamma_c) for i, loggamma_c in enumerate(loggamma_cs)]):
+for i, loggamma_c in tqdm_{n}otebook([(i, loggamma_c) for i, loggamma_c in enumerate(loggamma_cs)]):
     Z = random_walk_hastings_metropolis(N=N, theta1=theta1, theta2=theta2, loggamma_c=loggamma_c, seed=0)
     EZs[i] = Z.mean()
-    E_invZs[i] = (1 / Z).mean()
+    E_{i}nvZs[i] = (1 / Z).mean()
 \end{python}
 
 \begin{python}
@@ -2116,28 +2099,29 @@ import matplotlib.pyplot as plt
 
 theta1, theta2 = 1.5, 2
 true_EZ = np.sqrt(theta2 / theta1)
-true_E_invZ = np.sqrt(theta1 / theta2) + 1/(2 * theta2)
+true_E_{i}nvZ = np.sqrt(theta1 / theta2) + 1/(2 * theta2)
 
 plt.figure(figsize=(12, 8))
 plt.plot(loggamma_cs, EZs, label=r'$\hat{\mathbb{E}}[Z]$', color='darkblue', alpha=0.5)
-plt.plot(loggamma_cs, E_invZs, label=r'$\hat{\mathbb{E}}[1 / Z]$', color='darkred', alpha=0.5)
+plt.plot(loggamma_cs, E_{i}nvZs, label=r'$\hat{\mathbb{E}}[1 / Z]$', color='darkred', alpha=0.5)
 plt.xlabel('c')
 
 plt.hlines(true_EZ, xmin=min(loggamma_cs), xmax=max(loggamma_cs), label=r'True $\mathbb{E}[Z]$', color='blue')
-plt.hlines(true_E_invZ, xmin=min(loggamma_cs), xmax=max(loggamma_cs), label=r'True $\mathbb{E}[1 / Z]$', color='red')
+plt.hlines(true_E_{i}nvZ, xmin=min(loggamma_cs), xmax=max(loggamma_cs), label=r'True $\mathbb{E}[1 / Z]$', color='red')
 plt.legend(loc='upper right')
 plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-16}
+\centering
+\includegraphics{Figure-25-16}
 \end{figure}
 
 \begin{python}
 # Selected hyperparameter by minimizing sum of square errors
 
 error_EZ = EZs - true_EZ
-error_E_InvZ = E_invZs - true_E_invZ
+error_E_InvZ = E_{i}nvZs - true_E_{i}nvZ
 
 MSE = error_EZ**2 + error_E_InvZ**2
 selected_loggamma_c = loggamma_cs[np.argmin(MSE)]
@@ -2155,20 +2139,21 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-17}
+\centering
+\includegraphics{Figure-25-17}
 \end{figure}
 
 \textbf{Exercise 25.7.5}. Get the heart disease data from the book
 website. Consider a Bayesian analysis of the logistic regression model
 
-\[ \mathbb{P}(Y = 1 | X = x) = \frac{e^{ \beta_0 + \sum_{j=1}^k \beta_j x_j } }{1 + e^{ \beta_0 + \sum_{j=1}^k \beta_j x_j }} \]
+\[ \mathbb{P}(Y = 1 | X = x) = \frac{e^{ \beta_{0} + \sum_{j=1}^{k} \beta_{j} x_{j} } }{1 + e^{ \beta_{0} + \sum_{j=1}^{k} \beta_{j} x_{j} }} \]
 
 \textbf{(a)} Use the flat prior
-\(f(\beta_0, \dots, \beta_k) \propto 1\). Use the Gibbs-Metropolis
+\(f(\beta_{0}, \dots, \beta_{k}) \propto 1\). Use the Gibbs-Metropolis
 algorithm to draw a sample of size 10,000 from the posterior
-\(f(\beta_0, \dots, \beta_k)\). Plot histograms of the posteriors for
-the \(\beta_j\)'s. Get the posterior mean and a 95\% posterior interval
-for each \(\beta_j\).
+\(f(\beta_{0}, \dots, \beta_{k})\). Plot histograms of the posteriors for
+the \(\beta_{j}\)s. Get the posterior mean and a 95\% posterior interval
+for each \(\beta_{j}\).
 
 \textbf{(b)} Compare your analysis to a frequentist approach using
 maximum likelihood.
@@ -2185,38 +2170,36 @@ del data['row.names']
 X, Y = data[data.columns[data.columns != 'chd']], data['chd']
 \end{python}
 
-\textbf{(a)} Given parameters \(\beta = (\beta_0, \dots, \beta_k)\), and
+\textbf{(a)} Given parameters \(\beta = (\beta_{0}, \dots, \beta_{k})\), and
 assuming a flat prior \(f(\beta) \propto 1\), the posterior is
 
 \[ f(\beta | \text{data}) = \frac{\mathcal{L}(\beta) f(\beta)}{\int \mathcal{L}(u) f(u) du} = \frac{\mathcal{L}(\beta)}{\int \mathcal{L}(u) du} \propto \mathcal{L}(\beta) \]
 
 The likelihood is
 
-\[ 
-\begin{align}
-\mathcal{L}(\beta) &= \prod_i \mathbb{P}(Y = Y_i | X = X_i)  \\
-&= \prod_{i: Y_i = 1} \frac{e^{ \beta X_i } }{1 + e^{ \beta X_i }} \prod_{i: Y_i = 0} \frac{1}{1 + e^{ \beta X_i }} \\
-&= \prod_i \frac{e^{ \beta X_i Y_i } }{1 + e^{ \beta X_i }}
-\end{align}
-\]
+\begin{align*}
+\mathcal{L}(\beta) &= \prod_{i} \mathbb{P}(Y = Y_{i} | X = X_{i})  \\
+&= \prod_{i: Y_{i} = 1} \frac{e^{ \beta X_{i} } }{1 + e^{ \beta X_{i} }} \prod_{i: Y_{i} = 0} \frac{1}{1 + e^{ \beta X_{i} }} \\
+&= \prod_{i} \frac{e^{ \beta X_{i} Y_{i} } }{1 + e^{ \beta X_{i} }}
+\end{align*}
 
 The Gibbs-Metropolis algorithm is:
 
 \begin{itemize}[tightlist]
 \item
   Start with an arbitrary variable
-  \(B^{(0)} = (B^{(0)}_0, B^{(0)}_1, \dots, B^{(0)}_k)\).
+  \(B^{(0)} = (B^{(0)}_{0}, B^{(0)}_{1}, \dots, B^{(0)}_{k})\).
 \item
   For each step \(i = 1, 2, \dots, N\), build \(B^{(i)}\) as follows:
 
   \begin{itemize}
   \item
-    For each variable \(\beta_j\), \(j = 0, 1, \dots, k\), set
-\(B_j^{(i)}\) as follows:
+    For each variable \(\beta_{j}\), \(j = 0, 1, \dots, k\), set
+\(B_{j}^{(i)}\) as follows:
 
     \begin{itemize}[tightlist]
     \item
-      Draw a proposal \(Z\) for \(B_j^{(i)}\) from a proposal
+      Draw a proposal \(Z\) for \(B_{j}^{(i)}\) from a proposal
       distribution \(q_{j}\)
     \item
       Evaluate
@@ -2225,10 +2208,10 @@ The Gibbs-Metropolis algorithm is:
     \end{itemize}
 
     \[
-     \begin{align}
-     B_\text{proposal} &= \left(B_0^{(i)}, \dots, B_{j-1}^{(i)}, Z, B_{j + 1}^{(i - 1)} \dots, B_k^{(i - 1)}\right) \\
-     B_\text{current} &= \left(B_0^{(i)}, \dots, B_{j-1}^{(i)}, B_{j}^{(i - 1)}, B_{j + 1}^{(i - 1)} \dots, B_k^{(i - 1)}\right)
-     \end{align}
+     \begin{align*}
+     B_\text{proposal} &= \left(B_{0}^{(i)}, \dots, B_{j-1}^{(i)}, Z, B_{j + 1}^{(i - 1)} \dots, B_{k}^{(i - 1)}\right) \\
+     B_\text{current} &= \left(B_{0}^{(i)}, \dots, B_{j-1}^{(i)}, B_{j}^{(i - 1)}, B_{j + 1}^{(i - 1)} \dots, B_{k}^{(i - 1)}\right)
+     \end{align*}
      \]
 
     \begin{itemize}[tightlist]
@@ -2237,9 +2220,9 @@ The Gibbs-Metropolis algorithm is:
     \end{itemize}
 
     \[ 
-     B_j^{(i)} = \begin{cases}
+     B_{j}^{(i)} = \begin{cases}
      Z &\text{with probability } r \\
-     B_j^{(i - 1)} &\text{with probability } 1 - r
+     B_{j}^{(i - 1)} &\text{with probability } 1 - r
      \end{cases}
      \]
   \end{itemize}
@@ -2253,14 +2236,14 @@ conditional probabilities, and make the accept probability simply
 
 \[ r = \min \left\{ \frac{f\left(B_\text{proposal}\right)}{f\left(B_\text{current}\right)}, 1\right\} \]
 
-For example, let's make the proposals for \(\beta_j\) be
-\(Z \sim N(0, \sigma_j^2)\), with \(\sigma_j\) to be selected based on
+For example, consider \(\beta_{j}\) be
+\(Z \sim N(0, \sigma_{j}^{2})\), with \(\sigma_{j}\) to be selected based on
 the data.
 
 \begin{python}
 from scipy.stats import norm
 from scipy.special import expit
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 Xp = np.concatenate([np.ones((X.shape[0], 1)), X], axis=1)
 
@@ -2277,7 +2260,7 @@ def gibbs_metropolis(start, proposer, f, N, seed=None, show_progress=True):
     X[0] = start
     U = np.random.uniform(size=(N, k))
     
-    iterator = tqdm_notebook(range(N)) if show_progress else range(N)
+    iterator = tqdm_{n}otebook(range(N)) if show_progress else range(N)
     
     for i in iterator:
         B_current = X[i].copy()
@@ -2296,13 +2279,13 @@ def gibbs_metropolis(start, proposer, f, N, seed=None, show_progress=True):
 \end{python}
 
 \begin{python}
-# Select a sigma_j based on max likelihood
+# Select a sigma_{j} based on max likelihood
 
-sigma_js = np.logspace(-2, 0, num=20)
-B_likelihoods = np.empty(len(sigma_js))
+sigma_{j}s = np.logspace(-2, 0, num=20)
+B_likelihoods = np.empty(len(sigma_{j}s))
 
-for i, sigma_j in tqdm_notebook([(i, sigma_j) for i, sigma_j in enumerate(sigma_js)]):
-    B = gibbs_metropolis(np.zeros(10), lambda j : norm.rvs(scale=sigma_j), likelihood, N=1000, seed=0, show_progress=False)
+for i, sigma_{j} in tqdm_{n}otebook([(i, sigma_{j}) for i, sigma_{j} in enumerate(sigma_{j}s)]):
+    B = gibbs_metropolis(np.zeros(10), lambda j : norm.rvs(scale=sigma_{j}), likelihood, N=1000, seed=0, show_progress=False)
     B_likelihoods[i] = likelihood(B.mean(axis = 0))
 \end{python}
 
@@ -2311,21 +2294,22 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 plt.figure(figsize=(12, 8))
-plt.plot(sigma_js, B_likelihoods)
+plt.plot(sigma_{j}s, B_likelihoods)
 plt.xscale('log')
-plt.xlabel(r'$\sigma_j$')
+plt.xlabel(r'$\sigma_{j}$')
 plt.ylabel(r'$\mathcal{L}(\hat{\beta})$')
 plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-18}
+\centering
+\includegraphics{Figure-25-18}
 \end{figure}
 
 \begin{python}
-selected_sigma_j = sigma_js[np.argmax(B_likelihoods)]
+selected_sigma_{j} = sigma_{j}s[np.argmax(B_likelihoods)]
 
-B = gibbs_metropolis(np.zeros(10), lambda j : norm.rvs(scale=selected_sigma_j), likelihood, N=100000, seed=0, 
+B = gibbs_metropolis(np.zeros(10), lambda j : norm.rvs(scale=selected_sigma_{j}), likelihood, N=100000, seed=0, 
                      show_progress=True)
 \end{python}
 
@@ -2341,13 +2325,14 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(12, 8))
 plt.bar(np.arange(10), posterior_mean, yerr=np.abs(posterior_confidence_bounds - posterior_mean))
 plt.xlabel('i')
-plt.ylabel(r'$\overline{\beta}_i$')
+plt.ylabel(r'$\overline{\beta}_{i}$')
 plt.title('Estimated parameters (95% confidence bounds)')
 plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-19}
+\centering
+\includegraphics{Figure-25-19}
 \end{figure}
 
 \begin{python}
@@ -2366,7 +2351,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-20}
+\centering
+\includegraphics{Figure-25-20}
 \end{figure}
 
 \textbf{(b)}. For a frequentist approach, we would simply try to
@@ -2387,10 +2373,11 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(12, 8))
 plt.bar(np.arange(10), B_freq)
 plt.xlabel('i')
-plt.ylabel(r'$\overline{\beta}_i$')
+plt.ylabel(r'$\overline{\beta}_{i}$')
 plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-25-21}
+\centering
+\includegraphics{Figure-25-21}
 \end{figure}

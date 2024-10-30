@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+library(MASS)
+data(fgl)
+x \PYGZlt{}\PYGZhy{} fgl[[1]]
+help(fgl)
+\end{MintedVerbatim}

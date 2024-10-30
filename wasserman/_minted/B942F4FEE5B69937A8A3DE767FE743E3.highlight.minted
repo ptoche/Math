@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} confidence interval (Normal):        53.099, 301.701
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} confidence interval (percentile):    38.336, 266.201
+95\PYG{k}{\PYGZbs{}\PYGZpc{}} confidence interval (pivotal):       88.599, 316.464
+\end{MintedVerbatim}

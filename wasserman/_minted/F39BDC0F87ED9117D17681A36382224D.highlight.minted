@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+                Treatment  Odds ratio  Wald statistic   p\PYGZhy{}value
+1          Chlorpromazine    2.423077       \PYGZhy{}2.764364  0.005703
+2            Dimenhydrate    0.815934        0.642987  0.520232
+3  Pentobarbital (100 mg)    1.175510       \PYGZhy{}0.486428  0.626664
+4  Pentobarbital (150 mg)    1.667954       \PYGZhy{}1.646605  0.099639
+\end{MintedVerbatim}

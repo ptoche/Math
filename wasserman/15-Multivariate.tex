@@ -1,10 +1,10 @@
-\section{15. Multivariate Models}\label{multivariate-models}
+\section*{15. Multivariate Models}\label{multivariate-models}
 
 Review of notation from linear algebra:
 
 \begin{itemize}[tightlist]
 \item
-  If \(x\) and \(y\) are vectors, then \(x^T y = \sum_j x_j y_j\).
+  If \(x\) and \(y\) are vectors, then \(x^T y = \sum_{j} x_{j} y_{j}\).
 \item
   If \(A\) is a matrix then \(\text{det}(A)\) denotes the determinant of
   \(A\), \(A^T\) denotes the transpose of A, and \(A^{-1}\) denotes the
@@ -36,26 +36,26 @@ Review of notation from linear algebra:
   \end{itemize}
 \end{itemize}
 
-\subsection{15.1 Random Vectors}\label{random-vectors}
+\subsection*{15.1 Random Vectors}\label{random-vectors}
 
     Multivariate models involve a random vector \(X\) of the form
 
-\[X = \begin{pmatrix} X_1 \\ \vdots \\ X_k \end{pmatrix}\]
+\[X = \begin{pmatrix} X_{1} \\ \vdots \\ X_{k} \end{pmatrix}\]
 
 The mean of a random vector \(X\) is defined by
 
 \[\mu 
-= \begin{pmatrix} \mu_1 \\ \vdots \\ mu_k \end{pmatrix} 
-= \begin{pmatrix} \mathbb{E}(X_1) \\ \vdots \\ \mathbb{E}(X_k) \end{pmatrix}
+= \begin{pmatrix} \mu_{1} \\ \vdots \\ mu_{k} \end{pmatrix} 
+= \begin{pmatrix} \mathbb{E}(X_{1}) \\ \vdots \\ \mathbb{E}(X_{k}) \end{pmatrix}
 \]
 
 The covariance matrix \(\Sigma\) is defined to be
 
 \[\Sigma = \mathbb{V}(X) = \begin{pmatrix}
-\mathbb{V}(X_1) & \text{Cov}(X_1, X_2) & \cdots & \text{Cov}(X_1, X_k) \\
-\text{Cov}(X_2, X_1) & \mathbb{V}(X_2) & \cdots & \text{Cov}(X_2, X_k) \\
+\mathbb{V}(X_{1}) & \text{Cov}(X_{1}, X_{2}) & \cdots & \text{Cov}(X_{1}, X_{k}) \\
+\text{Cov}(X_{2}, X_{1}) & \mathbb{V}(X_{2}) & \cdots & \text{Cov}(X_{2}, X_{k}) \\
 \vdots & \vdots & \ddots & \vdots \\
-\text{Cov}(X_k, X_1) & \text{Cov}(X_k, X_2) & \cdots & \mathbb{V}(X_k)
+\text{Cov}(X_{k}, X_{1}) & \text{Cov}(X_{k}, X_{2}) & \cdots & \mathbb{V}(X_{k})
 \end{pmatrix}\]
 
 This is also called the variance matrix or the variance-covariance
@@ -79,9 +79,9 @@ Now suppose we have a random sample of \(n\) vectors:
 
 The sample mean \(\overline{X}\) is a vector defined by
 
-\[\overline{X} = \begin{pmatrix} \overline{X}_1 \\ \vdots \\ \overline{X}_k \end{pmatrix}\]
+\[\overline{X} = \begin{pmatrix} \overline{X}_{1} \\ \vdots \\ \overline{X}_{k} \end{pmatrix}\]
 
-where \(\overline{X}_i = n^{-1} \sum_{j = 1}^n X_{ij}\). The sample
+where \(\overline{X}_{i} = n^{-1} \sum_{j = 1}^{n} X_{ij}\). The sample
 variance matrix is
 
 \[ S = \begin{pmatrix} 
@@ -93,12 +93,12 @@ s_{1k} & s_{2k} & \cdots & s_{kk}
 
 where
 
-\[s_{ab} = \frac{1}{n - 1} \sum_{j = 1}^n (X_{aj} - \overline{X}_a) (X_{bj} - \overline{X}_b)\]
+\[s_{ab} = \frac{1}{n - 1} \sum_{j = 1}^{n} (X_{aj} - \overline{X}_a) (X_{bj} - \overline{X}_b)\]
 
 It follows that \(\mathbb{E}(\overline{X}) = \mu\) and
 \(\mathbb{E}(S) = \Sigma\).
 
-\subsection{15.2 Estimating the
+\subsection*{15.2 Estimating the
 Correlation}\label{estimating-the-correlation}
 
 Consider \(n\) data points from a bivariate distribution
@@ -110,13 +110,13 @@ Consider \(n\) data points from a bivariate distribution
 \begin{pmatrix} X_{1n} \\ X_{1n}\end{pmatrix}
 \]
 
-Recall that the correlation between \(X_1\) and \(X_2\) is
+Recall that the correlation between \(X_{1}\) and \(X_{2}\) is
 
-\[\rho = \frac{\mathbb{E}((X_1 - \mu) (X_2 - \mu_2))}{\sigma_1 \sigma_2}\]
+\[\rho = \frac{\mathbb{E}((X_{1} - \mu) (X_{2} - \mu_{2}))}{\sigma_{1} \sigma_{2}}\]
 
 The sample correlation (the plug-in estimator) is
 
-\[\hat{\rho} = \frac{\sum_{i=1}^n (X_{1i} - \overline{X}_1)(X_{2i} - \overline{X}_2)}{s_1 s_2}\]
+\[\hat{\rho} = \frac{\sum_{i=1}^{n} (X_{1i} - \overline{X}_{1})(X_{2i} - \overline{X}_{2})}{s_{1} s_{2}}\]
 
 We can construct a confidence interval for \(\rho\) by applying the
 delta method as usual. However, it turns out that we get a more accurate
@@ -165,98 +165,98 @@ Now do the following steps:
 
 \[ \left( \frac{e^{2a} - 1}{e^{2a} + 1}, \frac{e^{2b} - 1}{e^{2b} + 1} \right) \]
 
-\subsection{15.3 Multinomial}\label{multinomial}
+\subsection*{15.3 Multinomial}\label{multinomial}
 
 Review of Multinomial distribution: consider drawing a ball from an urn
-that has \(n\) balls of \(k\) colors. Let \(p = (p_1, \dots, p_k)\)
-where \(p_j \geq 0\) are the probabilities of drawing (with replacement)
-a ball of each color; \(\sum_j p_j = 1\). Draw \(n\) times and let
-\(X = (X_1, \dots, X_n)\) where \(X_j\) is the number of times that
-color \(j\) appeared; so \(\sum_k X_k = n\). We say \(X\) has a
+that has \(n\) balls of \(k\) colors. Let \(p = (p_{1}, \dots, p_{k})\)
+where \(p_{j} \geq 0\) are the probabilities of drawing (with replacement)
+a ball of each color; \(\sum_{j} p_{j} = 1\). Draw \(n\) times and let
+\(X = (X_{1}, \dots, X_{n})\) where \(X_{j}\) is the number of times that
+color \(j\) appeared; so \(\sum_{k} X_{k} = n\). We say \(X\) has a
 Multinomial(\(n\), \(p\)) distribution. The probability function is
 
-\[ f(x; p) = \binom{n}{x_1 \dots x_k} p_1^{x_1}\dots p_k^{x_k}\]
+\[ f(x; p) = \binom{n}{x_{1} \dots x_{k}} p_{1}^{x_{1}}\dots p_{k}^{x_{k}}\]
 
 where
 
-\[ \binom{n}{x_1 \dots x_k} = \frac{n!}{x_1! \dots x_k!} \]
+\[ \binom{n}{x_{1} \dots x_{k}} = \frac{n!}{x_{1}! \dots x_{k}!} \]
 
 \textbf{Theorem 15.2}. Let \(X \sim \text{Multinomial}(n, p)\). Then the
-marginal distribution of \(X_j\) is
-\(X_j \sim \text{Binomial}(n, p_j)\). The mean and variance of \(X\) are
+marginal distribution of \(X_{j}\) is
+\(X_{j} \sim \text{Binomial}(n, p_{j})\). The mean and variance of \(X\) are
 
-\[\mathbb{E}(X) = \begin{pmatrix} np_1 \\ \vdots \\ np_k \end{pmatrix}\]
+\[\mathbb{E}(X) = \begin{pmatrix} np_{1} \\ \vdots \\ np_{k} \end{pmatrix}\]
 
 and
 
 \[\mathbb{V}(X) = \begin{pmatrix}
-np_1(1 - p_1) & -np_1p_2 & \cdots & -np_1p_k \\
--np_1p_2 & np_2(1 - p_2) & \cdots & -np_2p_k \\
+np_{1}(1 - p_{1}) & -np_{1}p_{2} & \cdots & -np_{1}p_{k} \\
+-np_{1}p_{2} & np_{2}(1 - p_{2}) & \cdots & -np_{2}p_{k} \\
 \vdots & \vdots & \ddots & \vdots \\
--np_1p_k & -np_2p_k & \cdots & -np_k(1 - p_k)
+-np_{1}p_{k} & -np_{2}p_{k} & \cdots & -np_{k}(1 - p_{k})
 \end{pmatrix}\]
 
-\textbf{Proof}. That \(X_j \sim \text{Bimomial}(n, p_j)\) follows
-easily. Hence \(\mathbb{E}(X_j) = np_j\) and
-\(\mathbb{V}(X_j) = np_j(1 - p_j)\).
+\textbf{Proof}. That \(X_{j} \sim \text{Bimomial}(n, p_{j})\) follows
+easily. Hence \(\mathbb{E}(X_{j}) = np_{j}\) and
+\(\mathbb{V}(X_{j}) = np_{j}(1 - p_{j})\).
 
-To compute \(\text{Cov}(X_i, X_j)\), notice that
-\(X_i + X_j \sim \text{Binomial}(n, p_i + p_j)\), so
-\(\mathbb{V}(X_i + X_j) = n (p_i + p_j) (1 - p_i - p_j)\). On the other
+To compute \(\text{Cov}(X_{i}, X_{j})\), notice that
+\(X_{i} + X_{j} \sim \text{Binomial}(n, p_{i} + p_{j})\), so
+\(\mathbb{V}(X_{i} + X_{j}) = n (p_{i} + p_{j}) (1 - p_{i} - p_{j})\). On the other
 hand, decomposing the sum of the random variables on the variance,
 
-\begin{align}
-\mathbb{V}(X_i + X_j) &= \mathbb{V}(X_i) + \mathbb{V}(X_j) + 2 \text{Cov}(X_i, X_j) \\
-&= np_i(1 - p_i) + np_j(1 - p_j) + 2 \text{Cov}(X_i, X_j)
-\end{align}
+\begin{align*}
+\mathbb{V}(X_{i} + X_{j}) &= \mathbb{V}(X_{i}) + \mathbb{V}(X_{j}) + 2 \text{Cov}(X_{i}, X_{j}) \\
+&= np_{i}(1 - p_{i}) + np_{j}(1 - p_{j}) + 2 \text{Cov}(X_{i}, X_{j})
+\end{align*}
 
 Equating both expressions and isolating the covariance we get
-\(\text{Cov}(X_i, X_j) = -np_ip_j\).
+\(\text{Cov}(X_{i}, X_{j}) = -np_{i}p_{j}\).
 
 \textbf{Theorem 15.3}. The maximum likelihood estimator of \(p\) is
 
 \[\hat{p} 
-= \begin{pmatrix} \hat{p}_1 \\ \vdots \\ \hat{p}_k \end{pmatrix}
-= \begin{pmatrix} \frac{X_1}{n} \\ \vdots \\ \frac{X_k}{n} \end{pmatrix}
+= \begin{pmatrix} \hat{p}_{1} \\ \vdots \\ \hat{p}_{k} \end{pmatrix}
+= \begin{pmatrix} \frac{X_{1}}{n} \\ \vdots \\ \frac{X_{k}}{n} \end{pmatrix}
 = \frac{X}{n}
 \]
 
 \textbf{Proof}. The log-likelihood (ignoring a constant) is
-\(\ell(p) = \sum_j X_j \log p_j\). When we maximize it we need to be
-careful to enforce the constraint that \(\sum_j p_j = 1\). Using
+\(\ell(p) = \sum_{j} X_{j} \log p_{j}\). When we maximize it we need to be
+careful to enforce the constraint that \(\sum_{j} p_{j} = 1\). Using
 Lagrange multipliers, instead we maximize
 
-\[A(p) = \sum_{j=1}^k X_j \log p_j + \lambda \left( \sum_{j=1}^k p_j - 1 \right)\]
+\[A(p) = \sum_{j=1}^{k} X_{j} \log p_{j} + \lambda \left( \sum_{j=1}^{k} p_{j} - 1 \right)\]
 
 But
 
-\[\frac{\partial A(p)}{\partial p_j} = \frac{X_j}{p_j} + \lambda\]
+\[\frac{\partial A(p)}{\partial p_{j}} = \frac{X_{j}}{p_{j}} + \lambda\]
 
-Setting it to zero we get \(\hat{p}_j = - X_j / \lambda\). Since
-\(\sum_j \hat{p}_j = 1\) we get \(\lambda = -n\) and so
-\(\hat{p}_j = X_j / n\), which is our result.
+Setting it to zero we get \(\hat{p}_{j} = - X_{j} / \lambda\). Since
+\(\sum_{j} \hat{p}_{j} = 1\) we get \(\lambda = -n\) and so
+\(\hat{p}_{j} = X_{j} / n\), which is our result.
 
 Next we want the variance of the MLE. The direct approach is to compute
 the variance matrix of \(\hat{p}\) directly:
 \(\mathbb{V}(\hat{p}) = \mathbb{V}(X / n) = n^{-2} \mathbb{V}(X)\), so
 
 \[\mathbb{V}(\hat{p}) = \frac{1}{n} \begin{pmatrix}
-p_1(1 - p_1) & -p_1p_2 & \cdots & -p_1p_k \\
--p_1p_2 & p_2(1 - p_2) & \cdots & -p_2p_k \\
+p_{1}(1 - p_{1}) & -p_{1}p_{2} & \cdots & -p_{1}p_{k} \\
+-p_{1}p_{2} & p_{2}(1 - p_{2}) & \cdots & -p_{2}p_{k} \\
 \vdots & \vdots & \ddots & \vdots \\
--p_1p_k & -p_2p_k & \cdots & p_k(1 - p_k)
+-p_{1}p_{k} & -p_{2}p_{k} & \cdots & p_{k}(1 - p_{k})
 \end{pmatrix}\]
 
-\subsection{15.4 Multivariate Normal}\label{multivariate-normal}
+\subsection*{15.4 Multivariate Normal}\label{multivariate:normal}
 
-Let's recall the definition of the multivariate normal. Let
+Recall the definition of the multivariate normal. Let
 
-\[ Z = \begin{pmatrix} Z_1 \\ \vdots \\ Z_k \end{pmatrix} \]
+\[ Z = \begin{pmatrix} Z_{1} \\ \vdots \\ Z_{k} \end{pmatrix} \]
 
-where \(Z_1, \dots, Z_k \sim N(0, 1)\) are independent. The density of
+where \(Z_{1}, \dots, Z_{k} \sim N(0, 1)\) are independent. The density of
 \(Z\) is
 
-\[ f(z) = \frac{1}{(2\pi)^{k / 2}} \exp \left\{ -\frac{1}{2} \sum_{j=1}^k z_j^2 \right\} = \frac{1}{(2\pi)^{k / 2}} \exp \left\{ -\frac{1}{2} z^T z \right\}\]
+\[ f(z) = \frac{1}{(2\pi)^{k / 2}} \exp \left\{ -\frac{1}{2} \sum_{j=1}^{k} z_{j}^{2} \right\} = \frac{1}{(2\pi)^{k / 2}} \exp \left\{ -\frac{1}{2} z^T z \right\}\]
 
 The variance matrix of \(Z\) is the identity matrix \(I\). We write
 \(Z \sim N(0, I)\) where it is understood that \(0\) is a vector of
@@ -287,7 +287,7 @@ where \(\mu\) is a vector of length \(k\) and \(\Sigma\) is a
   length as \(X\), then \(a^T X \sim N(a^T \mu, a^T \Sigma a)\).
 \item
   Let \(V = (X - \mu)^T \Sigma^{-1} (X - \mu)\). Then
-  \(V \sim \xi_k^2\).
+  \(V \sim \xi_{k}^{2}\).
 \end{enumerate}
 
 Suppose we partition a random Normal vector \(X\) into two parts
@@ -313,10 +313,10 @@ Suppose we partition a random Normal vector \(X\) into two parts
 
 where
 
-\begin{align}
+\begin{align*}
 \mu(x_a) &= \mu_b + \Sigma_{ba} \Sigma_{aa}^{-1} (x_a - \mu_a) \\
 \Sigma(x_a) &= \Sigma_{bb} - \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}
-\end{align}
+\end{align*}
 
 \textbf{Theorem 15.6}. Given a random sample of size \(n\) from a
 \(N(\mu, \Sigma)\), the log-likelihood (up to a constant not depending
@@ -330,40 +330,40 @@ The MLE is
 \quad \text{and} \quad
 \hat{\Sigma} = \left( \frac{n - 1}{n} \right) S\]
 
-\subsection{15.5 Appendix}\label{appendix}
+\subsection*{15.5 Appendix}\label{appendix:multivariate}
 
 \textbf{Proof of Theorem 15.6}. Let the \(i\)-th random vector be
-\(X^i\). The log-likelihood is
+\(X^{i}\). The log-likelihood is
 
-\[\ell(\mu, \Sigma) = \sum_{i = 1}^k f(X^i; \mu, \Sigma) 
+\[\ell(\mu, \Sigma) = \sum_{i = 1}^{k} f(X^{i}; \mu, \Sigma) 
 = -\frac{kn}{2} \log ( 2\pi ) - \frac{n}{2} \log \text{det} \left( \Sigma \right)
-- \frac{1}{2} \sum_{i=1}^k (X^i - \mu)^T \Sigma^{-1} (X^i - \mu)
+- \frac{1}{2} \sum_{i=1}^{k} (X^{i} - \mu)^T \Sigma^{-1} (X^{i} - \mu)
 \]
 
 Now,
 
-\begin{align}
-\sum_{i=1}^k (X^i - \mu)^T \Sigma^{-1} (X^i - \mu) &=
-\sum_{i=1}^k \left[ (X^i - \overline(X)) + (\overline{X} - \mu) \right]^T \Sigma^{-1} \left[(X^i - \overline{X}) + (\overline{X} - \mu) \right] \\
-&= \sum_{i=1}^k [(X^i - \overline{X})^T\Sigma^{-1}(X^i - \overline{X})]
+\begin{align*}
+\sum_{i=1}^{k} (X^{i} - \mu)^T \Sigma^{-1} (X^{i} - \mu) &=
+\sum_{i=1}^{k} \left[ (X^{i} - \overline(X)) + (\overline{X} - \mu) \right]^T \Sigma^{-1} \left[(X^{i} - \overline{X}) + (\overline{X} - \mu) \right] \\
+&= \sum_{i=1}^{k} [(X^{i} - \overline{X})^T\Sigma^{-1}(X^{i} - \overline{X})]
 + n (\overline{X} - \mu)^T \Sigma^{-1} (\overline{X} - \mu)
-\end{align}
+\end{align*}
 
 since
-\(\sum_i (X^i - \overline{X}) \Sigma^{-1} (\overline{X} - \mu) = 0\).
-Also, \((X^i - \mu)^T \Sigma^T (X^i - \mu)\) is a scalar, so
+\(\sum_{i} (X^{i} - \overline{X}) \Sigma^{-1} (\overline{X} - \mu) = 0\).
+Also, \((X^{i} - \mu)^T \Sigma^T (X^{i} - \mu)\) is a scalar, so
 
-\begin{align}
-\sum_{i=1}^k (X^i - \mu)^T \Sigma^{-1} (X^i - \mu) &=
-\sum_{i=1}^k \text{tr} \left[ (X^i - \mu)^T \Sigma^{-1} (X^i - \mu)\right] \\
-&= \sum_{i=1}^k \text{tr} \left[ \Sigma^{-1} (X^i - \mu) (X^i - \mu)^T \right] \\
-&= \text{tr} \left[ \Sigma^{-1} \sum_{i=1}^k (X^i - \mu) (X^i - \mu) ^T \right] \\
+\begin{align*}
+\sum_{i=1}^{k} (X^{i} - \mu)^T \Sigma^{-1} (X^{i} - \mu) &=
+\sum_{i=1}^{k} \text{tr} \left[ (X^{i} - \mu)^T \Sigma^{-1} (X^{i} - \mu)\right] \\
+&= \sum_{i=1}^{k} \text{tr} \left[ \Sigma^{-1} (X^{i} - \mu) (X^{i} - \mu)^T \right] \\
+&= \text{tr} \left[ \Sigma^{-1} \sum_{i=1}^{k} (X^{i} - \mu) (X^{i} - \mu) ^T \right] \\
 &= n \; \text{tr} \left[ \Sigma^{-1} S\right]
-\end{align}
+\end{align*}
 
 so the conclusion follows.
 
-\subsection{15.6 Exercises}\label{exercises}
+\subsection*{15.6 Exercises}
 
 \textbf{Exercise 15.6.1}. Prove Theorem 15.1.
 
@@ -375,18 +375,18 @@ and \(\mathbb{V}(AX) = A \Sigma A^T\).
 
 \textbf{Solution}.
 
-For the vector version of the theorem, we have:
+For the vector version of the Theorem, we have:
 
-\[\mathbb{E}(a^T X) = \mathbb{E}\left( \sum_{i=1}^k a_i X_i \right) = \sum_{i=1}^k a_i \mathbb{E}(X_i) = \sum_{i=1}^k a_i \mu_i = a^T \mu \]
+\[\mathbb{E}(a^T X) = \mathbb{E}\left( \sum_{i=1}^{k} a_{i} X_{i} \right) = \sum_{i=1}^{k} a_{i} \mathbb{E}(X_{i}) = \sum_{i=1}^{k} a_{i} \mu_{i} = a^T \mu \]
 
-\[\mathbb{V}(a^T X) = \mathbb{V}\left( \sum_{i=1}^k a_i X_i \right) = \sum_{i=1}^k \sum_{j=1}^k a_i a_j \text{Cov} (X_i, X_j) = \sum_{i=1}^k a_i \left( \sum_{j=1}^k \text{Cov}(X_i, X_j) a_j \right) = \sum_{i=1}^k a_i \Big( \Sigma a \Big)_i = a^T \Sigma a\]
+\[\mathbb{V}(a^T X) = \mathbb{V}\left( \sum_{i=1}^{k} a_{i} X_{i} \right) = \sum_{i=1}^{k} \sum_{j=1}^{k} a_{i} a_{j} \text{Cov} (X_{i}, X_{j}) = \sum_{i=1}^{k} a_{i} \left( \sum_{j=1}^{k} \text{Cov}(X_{i}, X_{j}) a_{j} \right) = \sum_{i=1}^{k} a_{i} \Big( \Sigma a \Big)_{i} = a^T \Sigma a\]
 
-For the matrix version of the theorem, consider the \(r\) rows of \(A\)
-as vectors, separately, \(a^1, \dots, a^k\):
+For the matrix version of the Theorem, consider the \(r\) rows of \(A\)
+as vectors, separately, \(a^{1}, \dots, a^{k}\):
 
 \[ A = \begin{pmatrix}
-\cdots & a^1 & \cdots \\
-\cdots & a^2 & \cdots \\
+\cdots & a^{1} & \cdots \\
+\cdots & a^{2} & \cdots \\
 \vdots & \vdots & \vdots \\
 \cdots & a^r & \cdots
 \end{pmatrix}\]
@@ -394,13 +394,13 @@ as vectors, separately, \(a^1, \dots, a^k\):
 Then,
 
 \[ \mathbb{E}(AX) = \begin{pmatrix}
-\mathbb{E}(a^1 X) \\
-\mathbb{E}(a^2 X) \\
+\mathbb{E}(a^{1} X) \\
+\mathbb{E}(a^{2} X) \\
 \vdots \\
 \mathbb{E}(a^r X)
 \end{pmatrix} = \begin{pmatrix}
-a^1 \mu \\
-a^2 \mu \\
+a^{1} \mu \\
+a^{2} \mu \\
 \vdots \\
 a^r \mu
 \end{pmatrix} = A\mu
@@ -408,25 +408,25 @@ a^r \mu
 
 Finally, looking at the \(i\)-th term of \(AX\),
 
-\[(AX)_i = \sum_{s=1}^k a_{is} X_s = a^i X\]
+\[(AX)_{i} = \sum_{s=1}^{k} a_{is} X_s = a^{i} X\]
 
-so, by the vector version of the theorem,
-\(\mathbb{V}((AX)_i) = (a^i)^T \Sigma a^i\). Applying this to every
+so, by the vector version of the Theorem,
+\(\mathbb{V}((AX)_{i}) = (a^{i})^T \Sigma a^{i}\). Applying this to every
 element:
 
 \[\mathbb{V}(AX) = \begin{pmatrix}
-\mathbb{V}((AX)_1) \\
-\mathbb{V}((AX)_2) \\
+\mathbb{V}((AX)_{1}) \\
+\mathbb{V}((AX)_{2}) \\
 \vdots \\
 \mathbb{V}((AX)_r)
 \end{pmatrix} = \begin{pmatrix}
-\mathbb{V}(a^1 X) \\
-\mathbb{V}(a^2 X) \\
+\mathbb{V}(a^{1} X) \\
+\mathbb{V}(a^{2} X) \\
 \vdots \\
 \mathbb{V}(a^r X)
 \end{pmatrix} = \begin{pmatrix}
-(a^1)^T \Sigma a^1 \\
-(a^2)^T \Sigma a^2 \\
+(a^{1})^T \Sigma a^{1} \\
+(a^{2})^T \Sigma a^{2} \\
 \vdots \\
 (a^r)^T \Sigma a^r
 \end{pmatrix} = A \Sigma A^T\]
@@ -438,31 +438,31 @@ of a Multinomial.
 
 The probability mass function for a Multinomial distribution is:
 
-\[ f(X; p) = \binom{n}{X_1 \dots X_k} p_1^{X_1} \dots p_k^{X_k} = \frac{n!}{X_1! \dots X_k!} p_1^{X_1} \dots p_k^{X_k}\]
+\[ f(X; p) = \binom{n}{X_{1} \dots X_{k}} p_{1}^{X_{1}} \dots p_{k}^{X_{k}} = \frac{n!}{X_{1}! \dots X_{k}!} p_{1}^{X_{1}} \dots p_{k}^{X_{k}}\]
 
 so the log-likelihood (ignoring a constant) is
 
-\[ \ell_n(p) = \sum_{i=1}^k X_i \log p_i\]
+\[ \ell_{n}(p) = \sum_{i=1}^{k} X_{i} \log p_{i}\]
 
 The partial derivatives are:
 
-\begin{align}
-H_{ii} = \frac{\partial^2 \ell_n(p)}{\partial^2 p_i} &= -\frac{X_i}{p_i^2} \\
-H_{ij} = \frac{\partial^2 \ell_n(p)}{\partial p_i \partial p_j} &= 0 \; \text{for } i \neq j
-\end{align}
+\begin{align*}
+H_{ii} = \frac{\partial^{2} \ell_{n}(p)}{\partial^{2} p_{i}} &= -\frac{X_{i}}{p_{i}^{2}} \\
+H_{ij} = \frac{\partial^{2} \ell_{n}(p)}{\partial p_{i} \partial p_{j}} &= 0 \; \text{for } i \neq j
+\end{align*}
 
-so \(\mathbb{E}(H_{ii}) = - n/p_i\), and the Fisher Information Matrix
+so \(\mathbb{E}(H_{ii}) = - n/p_{i}\), and the Fisher Information Matrix
 is:
 
-\[I_n(p) = n \begin{pmatrix}
-\frac{1}{p_1} & 0 & \cdots & 0 \\
-0 & \frac{1}{p_2} & \cdots & 0 \\
+\[I_{n}(p) = n \begin{pmatrix}
+\frac{1}{p_{1}} & 0 & \cdots & 0 \\
+0 & \frac{1}{p_{2}} & \cdots & 0 \\
 \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & \cdots & \frac{1}{p_k}
+0 & 0 & \cdots & \frac{1}{p_{k}}
 \end{pmatrix}\]
 
 Note, however, that the variance is \emph{not} the inverse matrix of
-\(I_n(p)\), and further, that, \(\mathbb{V}(X)\) is not invertible.
+\(I_{n}(p)\), and further, that, \(\mathbb{V}(X)\) is not invertible.
 
 \textbf{Exercise 15.6.3}. Prove Theorem 15.5.
 
@@ -480,10 +480,10 @@ Let \(X \sim N(\mu, \Sigma)\). Then:
 
 where
 
-\begin{align}
+\begin{align*}
 \mu(x_a) &= \mu_b + \Sigma_{ba} \Sigma_{aa}^{-1} (x_a - \mu_a) \\
 \Sigma(x_a) &= \Sigma_{bb} - \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}
-\end{align}
+\end{align*}
 
 \textbf{Solution}.
 
@@ -497,27 +497,27 @@ variance given by getting the first \(k\) dimensions of \(\mu\) and
 For the conditional distribution result, let
 \(A = -\Sigma_{ba} \Sigma_{aa}^{-1}\) and \(z = x_b + A x_a\). We have:
 
-\[\begin{align}
+\begin{align*}
 \text{Cov}(z, x_a) &= \text{Cov}(x_b, x_a) + \text{Cov}(A x_a, x_a) \\
 &= \Sigma_{ba} + A \mathbb{V}(x_a) \\
 &= \Sigma_{ba} - \Sigma_{ba} \Sigma_{aa}^{-1} \Sigma_{aa} \\
 &= 0
-\end{align}\]
+\end{align*}
 
 so \(z\) and \(x_a\) are uncorrelated (and since they are jointly
 normal, they are also independent). We then have:
 
-\[\begin{align}
+\begin{align*}
 \mathbb{E}(x_b | x_a) &= \mathbb{E}(z - A x_a | x_a) \\
 &= \mathbb{E}(z | x_a) - \mathbb{E}(A x_a | x_a) \\
 &= \mathbb{E}(z) - A x_a \\
 &= \mu_b + A \mu_a - A x_a \\
 &= \mu_b + \Sigma_{ba} \Sigma_{aa}^{-1} (x_a - \mu_a)
-\end{align}\]
+\end{align*}
 
 For the covariance matrix,
 
-\[\begin{align}
+\begin{align*}
 \mathbb{V}(x_b | x_a) &= \mathbb{V}(z - A x_a | x_a) \\
 &= \mathbb{V}(z | x_a) - \mathbb{V}(A x_a | x_a) - A \text{Cov}(z, -x_a) - \text{Cov}(z, -x_a) A^T \\
 &= \mathbb{V}(z | x_a) - 0 - A \cdot 0 - 0 \cdot A \\
@@ -527,21 +527,21 @@ For the covariance matrix,
 &= \Sigma_{bb} + (- \Sigma_{ba} \Sigma_{aa}^{-1}) \Sigma_{aa} (- \Sigma_{ba} \Sigma_{aa}^{-1})^T + (- \Sigma_{ba} \Sigma_{aa}^{-1}) \Sigma_{ab} + \Sigma_{ba} (- \Sigma_{ba} \Sigma_{aa}^{-1})^T \\
 &= \Sigma_{bb} + \Sigma_{ba} \Sigma_{aa}^{-1} \Sigma_{aa} \Sigma_{aa}^{-1} \Sigma_{ab} - 2 \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab} \\
 &= \Sigma_{bb} - \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}
-\end{align}\]
+\end{align*}
 
 Reference: Macro (https://stats.stackexchange.com/users/4856/macro),
 Deriving the conditional distributions of a multivariate normal
 distribution, URL (version: 2015-06-18):
-https://stats.stackexchange.com/q/30600
+\url{https://stats.stackexchange.com/q/30600}
 
 \textbf{Exercise 15.6.4 (Computer Experiment)}. Write a function to
 generate \(\text{nsim}\) observations from a
 \(\text{Multinomial}(n, p)\) distribution.
 
-\textbf{Solution}. Let's use the combinatoric interpretation of the
+\textbf{Solution}. Use the combinatoric interpretation of the
 distribution: Drawing \(n\) times, with replacement, from an urn with
 different ball colors, where the probability of obtaining balls of color
-\(i\) is \(p_i\).
+\(i\) is \(p_{i}\).
 
 \begin{python}
 import numpy as np
@@ -579,21 +579,22 @@ plt.show()
 
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-15-01}
+\centering
+\includegraphics{Figure-15-01}
 \end{figure}
 
 \textbf{Exercise 15.6.5 (Computer Experiment)}. Write a function to
 generate \(\text{nsim}\) observations from a Multivariate normal with
 given mean \(\mu\) and covariance matrix \(\Sigma\).
 
-\textbf{Solution}. Let's construct our samples based on samples of a
+\textbf{Solution}. Construct our samples based on samples of a
 standard multivariate normal \(Z \sim N(0, I)\), by making
 \(X = \mu + \Sigma^{1/2} Z\).
 
 \begin{python}
 import numpy as np
 
-def multivariate_normal_observations(mu, sigma, nsim=1):
+def multivariate_{n}ormal_observations(mu, sigma, nsim=1):
     mu_array = np.array(mu)
     sigma_array = np.array(sigma)
     
@@ -606,10 +607,10 @@ def multivariate_normal_observations(mu, sigma, nsim=1):
     U, D, V = np.linalg.svd(sigma_array)
     sigma_sqrt = U @ np.diag(np.sqrt(D))
     
-    # Let's write our own random normal generator for fun, rather than use np.random.normal
+    # Write our own random normal generator for fun, rather than use np.random.normal
     # Strategy: Use Box-Muller to transform two random uniform variables in (0, 1) 
     # into two standard normals
-    def random_normals(size):
+    def random_{n}ormals(size):
 
         def box_muller(u1, u2):
             R = np.sqrt(-2 * np.log(u1))
@@ -639,7 +640,7 @@ def multivariate_normal_observations(mu, sigma, nsim=1):
         return result
 
     def get_observation():
-        z = random_normals(k)
+        z = random_{n}ormals(k)
         return mu_array + sigma_sqrt @ z
     
     return np.array([get_observation() for _ in range(nsim)])
@@ -651,7 +652,7 @@ import matplotlib.pyplot as plt
 
 mu = [1, 3]
 sigma = [[2, 1], [1, 2]]
-obs = multivariate_normal_observations(mu, sigma, nsim=5000)
+obs = multivariate_{n}ormal_observations(mu, sigma, nsim=5000)
 
 plt.figure(figsize=(12, 8))
 plt.hexbin(obs[:, 0], obs[:, 1], cmap=plt.cm.Reds)
@@ -659,7 +660,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-15-02}
+\centering
+\includegraphics{Figure-15-02}
 \end{figure}
 
 \textbf{Exercise 15.6.6 (Computer Experiment)}. Generate 1000 random
@@ -673,10 +675,10 @@ vectors from a \(N(\mu, \Sigma)\) distribution where
 \end{pmatrix}\]
 
 Plot the simulation as a scatterplot. Find the distribution of
-\(X_2 | X_1 = x_1\) using theorem 15.5. In particular, what is the
-formula for \(\mathbb{E}(X_2 | X_1 = x_1)\)? Plot
-\(\mathbb{E}(X_2 | X_1 = x_1)\) on your scatterplot. Find the
-correlation \(\rho\) between \(X_1\) and \(X_2\). Compare this with the
+\(X_{2} | X_{1} = x_{1}\) using Theorem 15.5. In particular, what is the
+formula for \(\mathbb{E}(X_{2} | X_{1} = x_{1})\)? Plot
+\(\mathbb{E}(X_{2} | X_{1} = x_{1})\) on your scatterplot. Find the
+correlation \(\rho\) between \(X_{1}\) and \(X_{2}\). Compare this with the
 sample correlations from your simulation. Find a 95\% confidence
 interval for \(\rho\). Estimate the covariance matrix \(\Sigma\).
 
@@ -691,13 +693,13 @@ use the following matrix:
 # Generate 1000 vectors
 mu = [3, 8]
 sigma = [[2, 6], [6, 2]]
-obs = multivariate_normal_observations(mu, sigma, nsim=1000)
+obs = multivariate_{n}ormal_observations(mu, sigma, nsim=1000)
 
 # Using numpy to generate observations:
-#obs = np.random.multivariate_normal(mu, sigma, size=1000)
+#obs = np.random.multivariate_{n}ormal(mu, sigma, size=1000)
 
 # Using scipy to generate observations:
-#obs = scipy.stats.multivariate_normal.rvs(mean=mu, cov=sigma, size=1000)
+#obs = scipy.stats.multivariate_{n}ormal.rvs(mean=mu, cov=sigma, size=1000)
 
 x, y = obs[:, 0], obs[:, 1]
 
@@ -708,26 +710,27 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-12-04}
+\centering
+\includegraphics{Figure-12-04}
 \end{figure}
 
-From theorem 15.5,
+From Theorem 15.5,
 
-\[ X_2 | X_1 = x_1 \sim N(\mu(x_1), \Sigma(x_1))\]
+\[ X_{2} | X_{1} = x_{1} \sim N(\mu(x_{1}), \Sigma(x_{1}))\]
 
 where
 
-\begin{align}
-\mu(x_1) &= \mu_2 + \Sigma_{21} \Sigma_{11}^{-1} (x_1 - \mu_1) \\
-\Sigma(x_1) &= \Sigma_{22} - \Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}
-\end{align}
+\begin{align*}
+\mu(x_{1}) &= \mu_{2} + \Sigma_{21} \Sigma_{11}^{-1} (x_{1} - \mu_{1}) \\
+\Sigma(x_{1}) &= \Sigma_{22} - \Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}
+\end{align*}
 
 Replacing the given values,
 
-\begin{align}
-\mu(x_1) &= 8 + 2 \cdot 6^{-1} (x_1 - 3) = \frac{1}{3} x_1 + \frac{22}{3}\\
-\Sigma(x_1) &= 6 - 2 \cdot 6^{-1} \cdot 2 = \frac{16}{3}
-\end{align}
+\begin{align*}
+\mu(x_{1}) &= 8 + 2 \cdot 6^{-1} (x_{1} - 3) = \frac{1}{3} x_{1} + \frac{22}{3}\\
+\Sigma(x_{1}) &= 6 - 2 \cdot 6^{-1} \cdot 2 = \frac{16}{3}
+\end{align*}
 
 \begin{python}
 # Plot scatterplot + line
@@ -740,16 +743,17 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-15-04}
+\centering
+\includegraphics{Figure-15-04}
 \end{figure}
 
-The correlation \(\rho\) between \(X_1\) and \(X_2\) is:
+The correlation \(\rho\) between \(X_{1}\) and \(X_{2}\) is:
 
-\[ \rho = \frac{\text{Cov}(X_1, X_2)}{\sigma_{X_1} \sigma_{X_2}} = \frac{1}{3}\]
+\[ \rho = \frac{\text{Cov}(X_{1}, X_{2})}{\sigma_{X_{1}} \sigma_{X_{2}}} = \frac{1}{3}\]
 
-The estimated correlation \(\rho\) between \(X_1\) and \(X_2\) is:
+The estimated correlation \(\rho\) between \(X_{1}\) and \(X_{2}\) is:
 
-\[ \hat{\rho} = \frac{\sum_i (X_{1i} - \overline{X}_1)(X_{2i} - \overline{X}_2)}{s_{X_1} s_{X_2}}\]
+\[ \hat{\rho} = \frac{\sum_{i} (X_{1i} - \overline{X}_{1})(X_{2i} - \overline{X}_{2})}{s_{X_{1}} s_{X_{2}}}\]
 
 \begin{python}
 rho_hat = np.corrcoef(x, y)[0, 1]
@@ -803,10 +807,10 @@ theta_hat = (np.log(1 + rho_hat) - np.log(1 - rho_hat)) / 2
 se_theta_hat = 1 / np.sqrt(1000 - 3)
 z = norm.ppf(0.975)
 a, b = theta_hat - z * se_theta_hat, theta_hat + z * se_theta_hat
-f_inv = lambda x: (np.exp(2*x) - 1) / (np.exp(2*x) + 1)
-confidence_interval = (f_inv(a), f_inv(b))
+f_{i}nv = lambda x: (np.exp(2*x) - 1) / (np.exp(2*x) + 1)
+confidence_{i}nterval = (f_{i}nv(a), f_{i}nv(b))
 
-print('95%% confidence interval: %.3f, %.3f' % confidence_interval)
+print('95%% confidence interval: %.3f, %.3f' % confidence_{i}nterval)
 \end{python}
 
 \begin{console}
@@ -815,7 +819,7 @@ print('95%% confidence interval: %.3f, %.3f' % confidence_interval)
 
 The sample covariance matrix is:
 
-\[ \hat{\Sigma} = \frac{1}{n} S = \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})(X_i - \overline{X})^T \]
+\[ \hat{\Sigma} = \frac{1}{n} S = \frac{1}{n} \sum_{i=1}^{n} (X_{i} - \overline{X})(X_{i} - \overline{X})^T \]
 
 \begin{python}
 import numpy as np
@@ -844,7 +848,7 @@ the true value of \(\rho\)?
 
 \textbf{Solution}.
 
-The provided matrix, yet again, has negative eigenvalues. Let's instead
+The provided matrix, yet again, has negative eigenvalues. Instead
 use:
 
 \[\Sigma = \begin{pmatrix}
@@ -857,7 +861,7 @@ use:
 n = 100
 mu = [0, 2]
 sigma = [[3, 1], [1, 3]]
-obs = multivariate_normal_observations(mu, sigma, nsim=n)
+obs = multivariate_{n}ormal_observations(mu, sigma, nsim=n)
 x, y = obs[:, 0], obs[:, 1]
 \end{python}
 
@@ -870,10 +874,10 @@ theta_hat = (np.log(1 + rho_hat) - np.log(1 - rho_hat)) / 2
 se_theta_hat = 1 / np.sqrt(n - 3)
 z = norm.ppf(0.975)
 a, b = theta_hat - z * se_theta_hat, theta_hat + z * se_theta_hat
-f_inv = lambda x: (np.exp(2*x) - 1) / (np.exp(2*x) + 1)
-confidence_interval = (f_inv(a), f_inv(b))
+f_{i}nv = lambda x: (np.exp(2*x) - 1) / (np.exp(2*x) + 1)
+confidence_{i}nterval = (f_{i}nv(a), f_{i}nv(b))
 
-print('95%% confidence interval: %.3f, %.3f' % confidence_interval)
+print('95%% confidence interval: %.3f, %.3f' % confidence_{i}nterval)
 \end{python}
 
 
@@ -883,4 +887,4 @@ print('95%% confidence interval: %.3f, %.3f' % confidence_interval)
 
 True value of \(\rho\):
 
-\[ \rho = \frac{\text{Cov}(X_1, X_2)}{\sigma_{X_1} \sigma_{X_2}} = \frac{1}{3}\]
+\[ \rho = \frac{\text{Cov}(X_{1}, X_{2})}{\sigma_{X_{1}} \sigma_{X_{2}}} = \frac{1}{3}\]

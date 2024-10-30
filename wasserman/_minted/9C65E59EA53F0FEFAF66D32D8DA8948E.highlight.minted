@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{w}\PYG{p}{,} \PYG{n}{v} \PYG{o}{=} \PYG{n}{eig}\PYG{p}{(}\PYG{n}{P}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)}
+\PYG{n}{pi} \PYG{o}{=} \PYG{n}{v}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{pi}\PYG{p}{)}
+\end{MintedVerbatim}

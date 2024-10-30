@@ -1,0 +1,3 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{r\PYGZus{}hat}\PYG{p}{,} \PYG{n}{r\PYGZus{}lower}\PYG{p}{,} \PYG{n}{r\PYGZus{}upper} \PYG{o}{=} \PYG{n}{estimate\PYGZus{}r}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.05}\PYG{p}{)}
+\end{MintedVerbatim}

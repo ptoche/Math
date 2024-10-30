@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Estimate with various segments of the data}
+\PYG{n}{n\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{floor}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{logspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{n}{base}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{)}
+\PYG{n}{z\PYGZus{}estimates} \PYG{o}{=} \PYG{p}{[}\PYG{n}{estimate\PYGZus{}z\PYGZus{}given\PYGZus{}y}\PYG{p}{(}\PYG{n}{X}\PYG{p}{[}\PYG{p}{:}\PYG{n}{k}\PYG{p}{]}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n}{n\PYGZus{}values}\PYG{p}{]}
+\end{MintedVerbatim}

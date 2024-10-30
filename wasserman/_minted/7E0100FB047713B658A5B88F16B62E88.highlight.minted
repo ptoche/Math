@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Selected hyperparameter n\PYG{k}{\PYGZbs{}\PYGZus{}estimators:} 34
+Cross\PYGZhy{}validation accuracy: 0.878
+\end{MintedVerbatim}

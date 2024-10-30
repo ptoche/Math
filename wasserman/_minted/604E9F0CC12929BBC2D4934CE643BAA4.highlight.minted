@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{binom\PYGZus{}test}
+
+\PYG{n}{theta\PYGZus{}week1} \PYG{o}{=} \PYG{l+m+mi}{55} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{55} \PYG{o}{+} \PYG{l+m+mi}{141}\PYG{p}{)}
+\PYG{n}{theta\PYGZus{}week2} \PYG{o}{=} \PYG{l+m+mi}{33} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{33} \PYG{o}{+} \PYG{l+m+mi}{145}\PYG{p}{)}
+\PYG{n}{theta\PYGZus{}week3} \PYG{o}{=} \PYG{l+m+mi}{70} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{70} \PYG{o}{+} \PYG{l+m+mi}{139}\PYG{p}{)}
+\PYG{n}{theta\PYGZus{}week4} \PYG{o}{=} \PYG{l+m+mi}{49} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{49} \PYG{o}{+} \PYG{l+m+mi}{161}\PYG{p}{)}
+
+\PYG{n}{theta\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ull} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{55} \PYG{o}{+} \PYG{l+m+mi}{33} \PYG{o}{+} \PYG{l+m+mi}{70} \PYG{o}{+} \PYG{l+m+mi}{49}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{55} \PYG{o}{+} \PYG{l+m+mi}{33} \PYG{o}{+} \PYG{l+m+mi}{70} \PYG{o}{+} \PYG{l+m+mi}{49} \PYG{o}{+} \PYG{l+m+mi}{141} \PYG{o}{+} \PYG{l+m+mi}{145} \PYG{o}{+} \PYG{l+m+mi}{139} \PYG{o}{+} \PYG{l+m+mi}{161}\PYG{p}{)}
+
+\PYG{n}{p1} \PYG{o}{=} \PYG{n}{binom\PYGZus{}test}\PYG{p}{(}\PYG{l+m+mi}{55}\PYG{p}{,} \PYG{l+m+mi}{55} \PYG{o}{+} \PYG{l+m+mi}{141}\PYG{p}{,} \PYG{n}{theta\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ull}\PYG{p}{,} \PYG{n}{alternative}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{two\PYGZhy{}sided}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{p2} \PYG{o}{=} \PYG{n}{binom\PYGZus{}test}\PYG{p}{(}\PYG{l+m+mi}{33}\PYG{p}{,} \PYG{l+m+mi}{33} \PYG{o}{+} \PYG{l+m+mi}{145}\PYG{p}{,} \PYG{n}{theta\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ull}\PYG{p}{,} \PYG{n}{alternative}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{two\PYGZhy{}sided}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{p3} \PYG{o}{=} \PYG{n}{binom\PYGZus{}test}\PYG{p}{(}\PYG{l+m+mi}{70}\PYG{p}{,} \PYG{l+m+mi}{70} \PYG{o}{+} \PYG{l+m+mi}{139}\PYG{p}{,} \PYG{n}{theta\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ull}\PYG{p}{,} \PYG{n}{alternative}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{two\PYGZhy{}sided}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{p4} \PYG{o}{=} \PYG{n}{binom\PYGZus{}test}\PYG{p}{(}\PYG{l+m+mi}{49}\PYG{p}{,} \PYG{l+m+mi}{49} \PYG{o}{+} \PYG{l+m+mi}{161}\PYG{p}{,} \PYG{n}{theta\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ull}\PYG{p}{,} \PYG{n}{alternative}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{two\PYGZhy{}sided}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{results} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{p\PYGZhy{}value}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{,} \PYG{n}{p3}\PYG{p}{,} \PYG{n}{p4}\PYG{p}{]}\PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{index}\PYG{o}{=}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{results}
+\end{MintedVerbatim}

@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+             coef    std err         t       P \PYGZgt{} |t|
+const  192.437753  23.531613  8.177839  3.351097e\PYGZhy{}12
+HP       0.392212   0.081412  4.817602  6.671547e\PYGZhy{}06
+SP      \PYGZhy{}1.294818   0.244773 \PYGZhy{}5.289864  1.019119e\PYGZhy{}06
+WT      \PYGZhy{}1.859804   0.213363 \PYGZhy{}8.716617  2.888800e\PYGZhy{}13
+VOL     \PYGZhy{}0.015645   0.022825 \PYGZhy{}0.685425  4.950327e\PYGZhy{}01
+\end{MintedVerbatim}

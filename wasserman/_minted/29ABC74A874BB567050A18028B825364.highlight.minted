@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Normal confidence lower bound:           mean 1.031, SE 0.001
+Normal confidence upper bound:           mean 2.639, SE 0.001
+Percentile confidence lower bound:       mean 1.154, SE 0.002
+Percentile confidence upper bound:       mean 2.762, SE 0.005
+Pivotal confidence lower bound:          mean 0.907, SE 0.005
+Pivotal confidence upper bound:          mean 2.515, SE 0.002
+\end{MintedVerbatim}

@@ -1,0 +1,24 @@
+\documentclass[tikz,border=2mm]{standalone}
+\usepackage{tkz-euclide}
+
+\newcommand*{\AB}{5}
+\newcommand*{\BC}{6}
+\newcommand*{\CA}{7}
+
+\begin{document}
+\begin{tikzpicture}[scale=1]
+  \tkzDefPoint(0,0){A} 
+  \tkzDefPoint(\AB,0){B}
+  \tkzInterCC[R](A,\CA cm)(B,\BC cm) 
+  \tkzGetPoints{C}{D}
+  \tkzDrawPolygon(A,B,C)
+  \tkzLabelSegment[below](A,B){\AB}
+  \tkzLabelSegment[above right](B,C){\BC}
+  \tkzLabelSegment[above left](C,A){\CA}
+  \tkzLabelPoints[below left](A)
+  \tkzLabelPoints[below right](B)
+  \tkzLabelPoints[above left](C)
+\end{tikzpicture}
+\end{document}
+
+

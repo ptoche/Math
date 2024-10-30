@@ -1,0 +1,37 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{norm}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{special} \PYG{k+kn}{import} \PYG{n}{expit}
+\PYG{k+kn}{from} \PYG{n+nn}{tqdm} \PYG{k+kn}{import} \PYG{n}{tqdm\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{otebook}
+
+\PYG{n}{Xp} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,} \PYG{n}{X}\PYG{p}{]}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{likelihood}\PYG{p}{(}\PYG{n}{beta}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{bx} \PYG{o}{=} \PYG{n}{beta} \PYG{o}{@} \PYG{n}{Xp}\PYG{o}{.}\PYG{n}{T}
+    \PYG{k}{return} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{expit}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{Y}\PYG{p}{,} \PYG{n}{bx}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*} \PYG{n}{expit}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{bx}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{gibbs\PYGZus{}metropolis}\PYG{p}{(}\PYG{n}{start}\PYG{p}{,} \PYG{n}{proposer}\PYG{p}{,} \PYG{n}{f}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,} \PYG{n}{seed}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{,} \PYG{n}{show\PYGZus{}progress}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{seed} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+        \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{seed}\PYG{p}{(}\PYG{n}{seed}\PYG{o}{=}\PYG{n}{seed}\PYG{p}{)}
+
+    \PYG{n}{k} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{start}\PYG{p}{)}
+    \PYG{n}{X} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{p}{(}\PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{X}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{start}
+    \PYG{n}{U} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)}\PYG{p}{)}
+
+    \PYG{n}{iterator} \PYG{o}{=} \PYG{n}{tqdm\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{otebook}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}\PYG{p}{)} \PYG{k}{if} \PYG{n}{show\PYGZus{}progress} \PYG{k}{else} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{iterator}\PYG{p}{:}
+        \PYG{n}{B\PYGZus{}current} \PYG{o}{=} \PYG{n}{X}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n}{Z} \PYG{o}{=} \PYG{n}{proposer}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}
+            \PYG{n}{B\PYGZus{}proposal} \PYG{o}{=} \PYG{n}{B\PYGZus{}current}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+            \PYG{n}{B\PYGZus{}proposal}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Z}
+
+            \PYG{n}{r} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{n}{B\PYGZus{}proposal}\PYG{p}{)} \PYG{o}{/} \PYG{n}{f}\PYG{p}{(}\PYG{n}{B\PYGZus{}current}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{U}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{r}\PYG{p}{:}
+                \PYG{n}{B\PYGZus{}current}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Z}
+
+        \PYG{n}{X}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{B\PYGZus{}current}
+
+    \PYG{k}{return} \PYG{n}{X}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]}
+\end{MintedVerbatim}

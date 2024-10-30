@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} We can now calculate the expected value of the loss function by simulation}
+
+\PYG{k}{def} \PYG{n+nf}{p\PYGZus{}hat\PYGZus{}mle}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} MLE estimate for the multinomial (replacing zeros with ones) \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{count} \PYG{o}{=} \PYG{n}{samples\PYGZus{}to\PYGZus{}count}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{count} \PYG{o}{/} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{count}\PYG{p}{)}
+
+
+\PYG{k}{def} \PYG{n+nf}{f\PYGZus{}hat\PYGZus{}mle}\PYG{p}{(}\PYG{n}{p\PYGZus{}hat\PYGZus{}mle}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Density function for the estimated multinomial \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{return} \PYG{k}{lambda} \PYG{n}{x} \PYG{p}{:} \PYG{n}{p\PYGZus{}hat\PYGZus{}mle}\PYG{p}{[}\PYG{n}{row\PYGZus{}to\PYGZus{}binary}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{]}
+\end{MintedVerbatim}

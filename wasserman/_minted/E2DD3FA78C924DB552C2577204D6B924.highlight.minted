@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{seed}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{100000}
+\PYG{n}{U} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{n}{low}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{high}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{N}\PYG{p}{)}
+
+\PYG{n}{X} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+\PYG{k}{for} \PYG{n}{beta} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+m+mf}{0.1}\PYG{p}{,} \PYG{l+m+mf}{1.0}\PYG{p}{,} \PYG{l+m+mf}{10.0}\PYG{p}{]}\PYG{p}{:}
+    \PYG{n}{X}\PYG{p}{[}\PYG{n}{beta}\PYG{p}{]} \PYG{o}{=} \PYG{n}{inv\PYGZus{}F}\PYG{p}{(}\PYG{n}{beta}\PYG{p}{)}\PYG{p}{(}\PYG{n}{U}\PYG{p}{)}
+\end{MintedVerbatim}

@@ -1,4 +1,4 @@
-\section{16. Inference about Independence}\label{inference-about-independence}
+\section*{16. Inference about Independence}\label{inference-about-independence}
 
 This chapter addresses two questions:
 
@@ -21,10 +21,10 @@ heart disease, and quitting smoking will reduce the chance of heart
 disease. - Owning a TV is related to lower starvation, but giving a
 starving person a TV does not make them not hungry.
 
-\subsection{16.1 Two Binary Variables}\label{two-binary-variables}
+\subsection*{16.1 Two Binary Variables}\label{two-binary-variables}
 
 Suppose that both \(Y\) and \(Z\) are binary. Consider a data set
-\((Y_1, Z_1), \dots, (Y_n, Z_n)\). Represent the data as a two-by-two
+\((Y_{1}, Z_{1}), \dots, (Y_{n}, Z_{n})\). Represent the data as a two-by-two
 table:
 
 \[
@@ -39,8 +39,8 @@ Z = 1 & X_{10} & X_{11} & X_{1\text{·}}\\
 \]
 
 where \(X_{ij}\) represents the number of observations where
-\((Z_k, Y_k) = (i, j)\). The dotted subscripts denote sums,
-e.g.~\(X_{i\text{·}} = \sum_j X_{ij}\). Denote the corresponding
+\((Z_{k}, Y_{k}) = (i, j)\). The dotted subscripts denote sums,
+e.g.~\(X_{i\text{·}} = \sum_{j} X_{ij}\). Denote the corresponding
 probabilities by:
 
 \[
@@ -83,47 +83,47 @@ The \textbf{log odds ratio} is defined to be
 Now consider testing
 
 \[
-H_0: Y \text{ ⫫ } Z
+H_{0}: Y \text{ ⫫ } Z
 \quad \text{versus} \quad
-H_1: \text{not} (Y \text{ ⫫ } Z)
+H_{1}: \text{not} (Y \text{ ⫫ } Z)
 \]
 
-First consider the likelihood ratio test. Under \(H_1\),
+First consider the likelihood ratio test. Under \(H_{1}\),
 \(X \sim \text{Multinomial}(n, p)\) and the MLE is \(\hat{p} = X / n\).
-Under \(H_0\), again \(X \sim \text{Multinomial}(n, p)\) but \(p\) is
+Under \(H_{0}\), again \(X \sim \text{Multinomial}(n, p)\) but \(p\) is
 subjected to the constraint \(p_{ij} = p_{i.} p_{.j}\). This leads to
 the following test.
 
 \textbf{Theorem 16.3 (Likelihood Ratio Test for Independence in a 2-by-2
 table)}. Let
 
-\[ T = 2 \sum_{i=0}^1 \sum_{j=0}^1 X_{ij} \log \left( \frac{X_{ij} X_{\text{··}}}{X_{i\text{·}} X_{\text{·}j}} \right)\]
+\[ T = 2 \sum_{i=0}^{1} \sum_{j=0}^{1} X_{ij} \log \left( \frac{X_{ij} X_{\text{··}}}{X_{i\text{·}} X_{\text{·}j}} \right)\]
 
-Under \(H_0\), \(T \leadsto \chi_1^2\). Thus, an approximate level
-\(\alpha\) test is obtained by rejecting \(H_0\) when
-\(T > \chi_{1, \alpha}^2\).
+Under \(H_{0}\), \(T \leadsto \chi_{1}^{2}\). Thus, an approximate level
+\(\alpha\) test is obtained by rejecting \(H_{0}\) when
+\(T > \chi_{1, \alpha}^{2}\).
 
-\textbf{Theorem 16.4 (Pearson's \(\chi^2\) test for Independence in a
+\textbf{Theorem 16.4 (Pearson's \(\chi^{2}\) test for Independence in a
 2-by-2 table)}. Let
 
-\[ U = \sum_{i=0}^1 \sum_{j=0}^1 \frac{(X_{ij} - E_{ij})^2}{E_{ij}} \]
+\[ U = \sum_{i=0}^{1} \sum_{j=0}^{1} \frac{(X_{ij} - E_{ij})^{2}}{E_{ij}} \]
 
 where
 
 \[ E_{ij} = \frac{X_{i\text{·}} X_{\text{·}j}}{n}\]
 
-Under \(H_0\), \(U \leadsto \chi_1^2\). Thus, an approximate level
-\(\alpha\) test is obtained by rejecting \(H_0\) when
-\(U > \chi_{1, \alpha}^2\).
+Under \(H_{0}\), \(U \leadsto \chi_{1}^{2}\). Thus, an approximate level
+\(\alpha\) test is obtained by rejecting \(H_{0}\) when
+\(U > \chi_{1, \alpha}^{2}\).
 
-Here's the intuition for the Pearson test: Under \(H_0\),
+Here is the intuition for the Pearson test: Under \(H_{0}\),
 \(p_{ij} = p_{i\text{·}} p_{\text{·}j}\), so the MLE of \(p_{ij}\) is
 \(\hat{p}_{ij} = \hat{p}_{i\text{·}} \hat{p}_{\text{·}j} = \frac{X_{i\text{·}}}{n} \frac{X_{\text{·}j}}{n}\).
 Thus, the expected number of observations in the \((i, j)\) cell is
 \(E_{ij} = n \hat{p}_{ij} = \frac{X_{i\text{·}} X_{\text{·}j}}{n}\). The
 statistic \(U\) compares the observed and expected counts.
 
-\textbf{Theorem 16.6}. The MLE's of \(\psi\) and \(\gamma\) are
+\textbf{Theorem 16.6}. The MLEs of \(\psi\) and \(\gamma\) are
 
 \[
 \hat{\psi} = \frac{X_{00} X_{11}}{X_{01} X_{10}}
@@ -133,10 +133,10 @@ statistic \(U\) compares the observed and expected counts.
 
 The asymptotic standard errors (computed from the delta method) are
 
-\begin{align}
+\begin{align*}
 \hat{\text{se}}(\hat{\psi}) &= \sqrt{\frac{1}{X_{00}} + \frac{1}{X_{01}} + \frac{1}{X_{10}} + \frac{1}{X_{11}}}\\
 \hat{\text{se}}(\hat{\gamma}) &= \hat{\psi} \hat{\text{se}}(\hat{\gamma})
-\end{align}
+\end{align*}
 
 Yet another test of independence is the Wald test for \(\gamma = 0\)
 given by \(W = (\hat{\gamma} - 0) / \hat{\text{se}}(\hat{\gamma})\).
@@ -151,7 +151,7 @@ since \(\psi = e^{\gamma}\) we could use
 \(\exp \{\hat{\gamma} \pm z_{\alpha/2} \hat{\text{se}}(\hat{\gamma})\}\).
 This second method is usually more accurate.
 
-\subsection{16.2 Interpreting the Odds
+\subsection*{16.2 Interpreting the Odds
 Ratios}\label{interpreting-the-odds-ratios}
 
 Suppose event \(A\) has probability \(\mathbb{P}(A)\). The odds of \(A\)
@@ -171,11 +171,11 @@ odds of getting the disease given exposure are:
 
 and the odds of getting the disease given non-exposure are:
 
-\[\text{odds}(D | E^c) = \frac{\mathbb{P}(D | E^c)}{1 - \mathbb{P}(D | E^c)}\]
+\[\text{odds}(D | E^{c}) = \frac{\mathbb{P}(D | E^{c})}{1 - \mathbb{P}(D | E^{c})}\]
 
 The \textbf{odds ratio} is defined to be
 
-\[\psi = \frac{\text{odds}(D | E)}{\text{odds}(D | E^c)}\]
+\[\psi = \frac{\text{odds}(D | E)}{\text{odds}(D | E^{c})}\]
 
 If \(\psi = 1\) then the disease probability is the same for exposed and
 unexposed; this implies these events are independent. Recall that the
@@ -186,9 +186,9 @@ Consider this table of probabilities:
 
 \[
 \begin{array}{c|cc|c} 
-      & D^c    & D      & \\
+      & D^{c}    & D      & \\
 \hline
-E^c   & p_{00} & p_{01} & p_{0\text{·}}\\
+E^{c}   & p_{00} & p_{01} & p_{0\text{·}}\\
 E     & p_{10} & p_{11} & p_{1\text{·}}\\
  \hline
       & p_{\text{·}0} & p_{\text{·}1} & 1
@@ -199,9 +199,9 @@ Denote the data by
 
 \[
 \begin{array}{c|cc|c} 
-      & D^c    & D      & \\
+      & D^{c}    & D      & \\
 \hline
-E^c   & X_{00} & X_{01} & X_{0\text{·}}\\
+E^{c}   & X_{00} & X_{01} & X_{0\text{·}}\\
 E     & X_{10} & X_{11} & X_{1\text{·}}\\
  \hline
       & X_{\text{·}0} & X_{\text{·}1} & X_{\text{··}}
@@ -213,7 +213,7 @@ Now
 \[
 \mathbb{P}(D | E) = \frac{p_{11}}{p_{10} + p_{11}}
 \quad \text{and} \quad
-\mathbb{P}(D | E^c) = \frac{p_{01}}{p_{00} + p_{01}}
+\mathbb{P}(D | E^{c}) = \frac{p_{01}}{p_{00} + p_{01}}
 \]
 
 and so
@@ -221,7 +221,7 @@ and so
 \[
 \text{odds}(D | E) = \frac{p_{11}}{p_{10}}
 \quad \text{and} \quad
-\text{odds}(D | E^c) = \frac{p_{01}}{p_{00}}
+\text{odds}(D | E^{c}) = \frac{p_{01}}{p_{00}}
 \]
 
 and therefore
@@ -231,36 +231,36 @@ and therefore
 To estimate the parameters, we have to consider how the data were
 collected. There are three methods.
 
-\textbf{Multinomial Sampling}. We draw a sample from the population and,
-for each sample, record their exposure and disease status. In this case,
-\(X = (X_{00}, X_{01}, X_{10}, X_{11}) \sim \text{Multinomial}(n, p)\).
-We then estimates the probabilities in the table by \(\hat{p}_{ij\) =
-X\_\{ij\} / n\$ and
-
-\[ \hat{\psi} = \frac{\hat{p}_{11} \hat{p}_{00}}{\hat{p}_{01} \hat{p}_{10}} = \frac{X_{11} X_{00}}{X_{01} X_{10}}\]
+\textbf{Multinomial Sampling}. We draw a sample from the population and, for each sample, record their exposure and disease status. In this case, 
+\(X = (X_{00}, X_{01}, X_{10}, X_{11}) \sim \text{Multinomial}(n, p)\). 
+We then estimates the probabilities in the table by 
+\(\hat{p}_{ij} = X_{ij} / n\) and
+\[
+\hat{\psi} = \frac{\hat{p}_{11} \hat{p}_{00}}{\hat{p}_{01} \hat{p}_{10}} = \frac{X_{11} X_{00}}{X_{01} X_{10}}
+\]
 
 \textbf{Prospective Sampling (Cohort Sampling)}. We get some exposed and
 unexposed people and count the number with disease within each group.
 Thus,
 
 \[
-X_{01} \sim \text{Binomial}(X_{0\text{·}}, \mathbb{P}(D | E^c))
+X_{01} \sim \text{Binomial}(X_{0\text{·}}, \mathbb{P}(D | E^{c}))
 \quad \text{and} \quad
 X_{11} \sim \text{Binomial}(X_{1\text{·}}, \mathbb{P}(D | E))
 \]
 
 In this case we should write small letters
-\(x_{0\text{·}},  x_{1\text{·}}\) instead of capital letters \$
-X\_\{0\text{·}\}, X\_\{1\text{·}\}\$ since they are fixed and not
+\(x_{0\text{·}},  x_{1\text{·}}\) instead of capital letters $
+X\_\{0\text{·}\}, X\_\{1\text{·}\}$ since they are fixed and not
 random, but we'll keep using capital letters for notational simplicity.
 
-We can estimate \(\mathbb{P}(D | E))\) and \(\mathbb{P}(D | E^c)\) but
+We can estimate \(\mathbb{P}(D | E))\) and \(\mathbb{P}(D | E^{c})\) but
 we cannot estimate all probabilities in the table. Still, we can
 estimate \(\psi\). Now:
 
 \[\hat{\mathbb{P}}(D | E) = \frac{X_{11}}{X_{1\text{·}}}
 \quad \text{and} \quad
-\hat{\mathbb{P}}(D | E^c) = \frac{X_{01}}{X_{0\text{·}}}
+\hat{\mathbb{P}}(D | E^{c}) = \frac{X_{01}}{X_{0\text{·}}}
 \]
 
 Thus,
@@ -274,13 +274,13 @@ diseased and non-diseased people and we observe how many are exposed.
 This is much more efficient if the disease is rare. Hence,
 
 \[
-X_{10} \sim \text{Binomial}(X_{\text{·}0}, \mathbb{P}(E | D^c))
+X_{10} \sim \text{Binomial}(X_{\text{·}0}, \mathbb{P}(E | D^{c}))
 \quad \text{and} \quad
 X_{11} \sim \text{Binomial}(X_{\text{·}1}, \mathbb{P}(E | D))
 \]
 
 From this data we can estimate \(\mathbb{P}(E | D)\) and
-\(\mathbb{P}(E | D^c)\). Surprisingly, we can still estimate \(\psi\).
+\(\mathbb{P}(E | D^{c})\). Surprisingly, we can still estimate \(\psi\).
 To understand why, note that
 
 \[
@@ -291,11 +291,11 @@ To understand why, note that
 
 By a similar argument,
 
-\[\text{odds}(E | D^c) = \frac{p_{10}}{p_{00}}\]
+\[\text{odds}(E | D^{c}) = \frac{p_{10}}{p_{00}}\]
 
 Hence,
 
-\[\frac{\text{odds}(E | D)}{\text{odds}(E | D^c)} = \frac{p_{11} p_{00}}{p_{01} p_{10}} = \psi\]
+\[\frac{\text{odds}(E | D)}{\text{odds}(E | D^{c})} = \frac{p_{11} p_{00}}{p_{01} p_{10}} = \psi\]
 
 Therefore,
 
@@ -304,21 +304,21 @@ Therefore,
 In all three methods, the estimate of \(\psi\) turns out to be the same.
 
 It is tempting to try to estimate
-\(\mathbb{P}(D | E) - \mathbb{P}(D | E^c)\). In a case-control design,
-this quantity is not estimable. To see this, we apply Bayes' theorem to
+\(\mathbb{P}(D | E) - \mathbb{P}(D | E^{c})\). In a case-control design,
+this quantity is not estimable. To see this, we apply Bayes' Theorem to
 get
 
-\[\mathbb{P}(D | E) - \mathbb{P}(D | E^c) = \frac{\mathbb{P}(E | D) \mathbb{P}(D))}{\mathbb{P}(E)} - \frac{\mathbb{P}(E^c | D) \mathbb{P}(D)}{\mathbb{P}(E^c)}\]
+\[\mathbb{P}(D | E) - \mathbb{P}(D | E^{c}) = \frac{\mathbb{P}(E | D) \mathbb{P}(D))}{\mathbb{P}(E)} - \frac{\mathbb{P}(E^{c} | D) \mathbb{P}(D)}{\mathbb{P}(E^{c})}\]
 
 Because of the way we obtained the data, \(\mathbb{P}(D)\) is not
 estimable from the data.
 
 However, we can estimate
-\(\xi = \mathbb{P}(D | E) / \mathbb{P}(D | E^c)\), which is called the
+\(\xi = \mathbb{P}(D | E) / \mathbb{P}(D | E^{c})\), which is called the
 \textbf{relative risk}, under the \textbf{rare disease assumption}.
 
 \textbf{Theorem 16.9}. Let
-\(\xi = \mathbb{P}(D | E) / \mathbb{P}(D | E^c)\). Then
+\(\xi = \mathbb{P}(D | E) / \mathbb{P}(D | E^{c})\). Then
 
 \[ \frac{\psi}{\xi} \rightarrow 1\]
 
@@ -333,7 +333,7 @@ is \(\psi \neq 1\), as a causal relationship. In an observational
 \textbf{confounding} variables. We'll discuss causation in more detail
 later.
 
-\subsection{16.3 Two Discrete
+\subsection*{16.3 Two Discrete
 Variables}\label{two-discrete-variables}
 
 Now suppose that \(Y \in \{ 1, \dots, I \}\) and
@@ -358,9 +358,9 @@ Z = I & X_{I1}  & X_{I2} & \cdots & X_{Ij} & \cdots & X_{IJ} & X_{I\text{·}}\\
 Consider testing
 
 \[
-H_0: Y \text{ ⫫ } Z
+H_{0}: Y \text{ ⫫ } Z
 \quad \text{versus} \quad
-H_1: \text{not } H_0
+H_{1}: \text{not } H_{0}
 \]
 
 \textbf{Theorem 16.10}. Let
@@ -368,13 +368,13 @@ H_1: \text{not } H_0
 \[ T = 2 \sum_{i=1}^I \sum_{j=1}^J X_{ij} \log \left( \frac{X_{ij} X_{\text{··}}}{X_{i\text{·}} X_{\text{·}j}} \right) \]
 
 The limiting distribution of \(T\) under the null hypothesis of
-independence is \(\chi^2_\nu\) where \(\nu = (I - 1)(J - 1)\).
+independence is \(\chi^{2}_\nu\) where \(\nu = (I - 1)(J - 1)\).
 
-Pearson's \(\chi^2\) test statistic is
+Pearson's \(\chi^{2}\) test statistic is
 
-\[ U = \sum_{i=1}^I \sum_{j=1}^J \frac{(n_{ij} - E_{ij})^2}{E_{ij}}\]
+\[ U = \sum_{i=1}^I \sum_{j=1}^J \frac{(n_{ij} - E_{ij})^{2}}{E_{ij}}\]
 
-Asymptotically, under \(H_0\), \(U\) has a \(\chi^2_\nu\) distribution
+Asymptotically, under \(H_{0}\), \(U\) has a \(\chi^{2}_\nu\) distribution
 where \(\nu = (I - 1)(J - 1)\).
 
 There are a variety of ways to quantify the strength of dependence
@@ -394,9 +394,9 @@ originally stated as}
 \[\delta(Y, Z) = \max_{A, B} \Big|\; \mathbb{P}_{Y, Z}(Y \in A, Z \in B) - \mathbb{P}_Y(Y \in A) - \mathbb{P}_Z(Z \in B) \;\Big|\]
 
 \emph{For more context, this is a specific case of the ``total variation
-distance'' \(\delta(P_1, P_2)\) between the probability metrics
-\(P_1(Y, Z) = \mathbb{P}_{Y, Z}(Y \in A, Z \in B)\) and
-\(P_2(Y, Z) = \mathbb{P}_Y(Y \in A)\mathbb{P}_Z(Z \in B)\).}
+distance'' \(\delta(P_{1}, P_{2})\) between the probability metrics
+\(P_{1}(Y, Z) = \mathbb{P}_{Y, Z}(Y \in A, Z \in B)\) and
+\(P_{2}(Y, Z) = \mathbb{P}_Y(Y \in A)\mathbb{P}_Z(Z \in B)\).}
 
 \textbf{Theorem 16.12}. Properties of \(\delta(Y, Z)\):
 
@@ -429,21 +429,19 @@ where
 The interpretation of \(\delta\) is this: if one person makes
 probability statements assuming independence and another person makes
 probability statements without assuming independence, their probability
-statements may differ by as much as \(\delta\). Here's a suggested scale
+statements may differ by as much as \(\delta\). Here is a suggested scale
 for interpreting \(\delta\):
 
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
+\begin{tabular}{@{}ll@{}}
+\toprule
 range & interpretation \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
+\midrule
 0 to 0.01 & negligible association \\
 0.01 to 0.05 & non-negligible association \\
 0.05 to 0.1 & substantial association \\
 over 0.1 & very strong association \\
-\end{longtable}
+\bottomrule
+\end{tabular}
 
 A confidence interval for \(\delta\) can be obtained by bootstrapping.
 The steps are:
@@ -452,7 +450,7 @@ The steps are:
 \item
   Draw \(X^* \sim \text{Multinomial}(n, \hat{p})\);
 \item
-  Compute \(\hat{p}_ij, \hat{p}_{i\text{·}}, \hat{p}_{\text{·}j}\);
+  Compute \(\hat{p}_{ij}, \hat{p}_{i\text{·}}, \hat{p}_{\text{·}j}\);
 \item
   Compute \(\delta^*\);
 \item
@@ -465,7 +463,7 @@ interval in this case. The reason is that if \(Y\) and \(Z\) are
 independent then \(\delta = 0\) and we are on the boundary of the
 parameter space. In this case, the Wald method is not valid.
 
-\subsection{16.4 Two Continuous
+\subsection*{16.4 Two Continuous
 Variables}\label{two-continuous-variables}
 
 Now suppose that \(Y\) and \(Z\) are both continuous. If we assume that
@@ -478,11 +476,11 @@ method for asserting dependence.
 
 Recall that the correlation is
 
-\[\rho = \frac{\mathbb{E}((X_1 - \mu_1)(X_2 - \mu_2))}{\sigma_1 \sigma_2} \]
+\[\rho = \frac{\mathbb{E}((X_{1} - \mu_{1})(X_{2} - \mu_{2}))}{\sigma_{1} \sigma_{2}} \]
 
 A nonparametric estimator of \(\rho\) is the plug-in estimator which is:
 
-\[\hat{\rho} = \frac{\sum_{i=1}^n (X_{1i} - \overline{X}_1)(X_{2i} - \overline{X}_2)}{\sqrt{\sum_{i=1}^n (X_{1i} - \overline{X}_1)^2 \sum_{i=1}^n (X_{2i} - \overline{X}_2)^2}} \]
+\[\hat{\rho} = \frac{\sum_{i=1}^{n} (X_{1i} - \overline{X}_{1})(X_{2i} - \overline{X}_{2})}{\sqrt{\sum_{i=1}^{n} (X_{1i} - \overline{X}_{1})^{2} \sum_{i=1}^{n} (X_{2i} - \overline{X}_{2})^{2}}} \]
 
 which is just the sample correlation. A confidence interval can be
 constructed using the bootstrap. A test for \(\rho = 0\) can be based on
@@ -500,56 +498,56 @@ obtained by simulation. We fix the ranks of the first variable as
 \(1, 2, \dots, n\). The ranks of the second variable are chosen at
 random from the set of \(n!\) possible orderings, then we compute the
 correlation. This is repeated many times, and the resulting distribution
-\(\mathbb{P}_0\) is the null distribution of \(\hat{\rho}_S\). The
-p-value for the test is \(\mathbb{P}_0(|R| > |\hat{\rho}_S|)\) where
-\(R\) is drawn from the null distribution \(\mathbb{P}_0\).
+\(\mathbb{P}_{0}\) is the null distribution of \(\hat{\rho}_S\). The
+p-value for the test is \(\mathbb{P}_{0}(|R| > |\hat{\rho}_S|)\) where
+\(R\) is drawn from the null distribution \(\mathbb{P}_{0}\).
 
-\subsection{16.5 One Continuous Variable and One
+\subsection*{16.5 One Continuous Variable and One
 Discrete}\label{one-continuous-variable-and-one-discrete}
 
 Suppose that \(Y \in \{ 1, \dots, I \}\) is discrete and \(Z\) is
-continuous. Let \(F_i(z) = \mathbb{P}(Z \leq z | Y = i)\) denote the CDF
+continuous. Let \(F_{i}(z) = \mathbb{P}(Z \leq z | Y = i)\) denote the CDF
 of \(Z\) conditional on \(Y = i\).
 
 \textbf{Theorem 16.15}. When \(Y \in \{ 1, 2, \dots, I \}\) is discrete
 and \(Z\) is continuous, then \(Y \text{ ⫫ } Z\) if and only if
-\(F_1 = F_2 = \dots = F_I\).
+\(F_{1} = F_{2} = \dots = F_I\).
 
 It follows that to test for independence, we need to test
 
 \[ 
-H_0: F_1 = \dots = F_I
+H_{0}: F_{1} = \dots = F_I
 \quad \text{versus} \quad
-H_1: \text{not } H_0
+H_{1}: \text{not } H_{0}
 \]
 
 For simplicity, we consider the case where \(I = 2\). To test the null
-hypothesis that \(F_1 = F_2\) we will use the \textbf{two sample
+hypothesis that \(F_{1} = F_{2}\) we will use the \textbf{two sample
 Kolmogorov-Smirnov test}.
 
-Let \(n_k\) denote the number of observations for which \(Y_i = k\). Let
+Let \(n_{k}\) denote the number of observations for which \(Y_{i} = k\). Let
 
-\[\hat{F}_k(z) = \frac{1}{n_k} \sum_{i=1}^n I(Z_i \leq z) I(Y_i = k)\]
+\[\hat{F}_{k}(z) = \frac{1}{n_{k}} \sum_{i=1}^{n} I(Z_{i} \leq z) I(Y_{i} = k)\]
 
 denote the empirical distribution function of \(Z\) given \(Y = k\).
 Define the test statistic
 
-\[ D = \sup_x | \hat{F}_1(x) - \hat{F}_2(x) |\]
+\[ D = \sup_x | \hat{F}_{1}(x) - \hat{F}_{2}(x) |\]
 
 \textbf{Theorem 16.16}. Let
 
-\[ H(t) = 1 - 2 \sum_{j=1}^\infty (-1)^{j-1} e^{-2j^2t^2} \]
+\[ H(t) = 1 - 2 \sum_{j=1}^{\infty} (-1)^{j-1} e^{-2j^{2}t^{2}} \]
 
-Under the null hypothesis that \(F_1 = F_2\),
+Under the null hypothesis that \(F_{1} = F_{2}\),
 
-\[ \lim_{n \rightarrow \infty} \mathbb{P} \left( \sqrt{\frac{n_1 n_2}{n_1 + n_2}} D \leq t \right) = H(t) \]
+\[ \lim_{n \rightarrow \infty} \mathbb{P} \left( \sqrt{\frac{n_{1} n_{2}}{n_{1} + n_{2}}} D \leq t \right) = H(t) \]
 
-It follows from the theorem than an approximate level \(\alpha\) test is
-obtained by rejecting \(H_0\) when
+It follows from the Theorem than an approximate level \(\alpha\) test is
+obtained by rejecting \(H_{0}\) when
 
-\[ \sqrt{\frac{n_1 n_2}{n_1 + n_2}} D > H^{-1}(1 - \alpha) \]
+\[ \sqrt{\frac{n_{1} n_{2}}{n_{1} + n_{2}}} D > H^{-1}(1 - \alpha) \]
 
-\subsection{16.7 Exercises}\label{exercises}
+\subsection*{16.7 Exercises}
 
 \textbf{Exercise 16.7.1}. Prove Theorem 16.2.
 
@@ -576,13 +574,13 @@ all \(i\) and \(j\), so (1) and (4) are equivalent.
 
 Finally,
 
-\begin{align}
+\begin{align*}
 &\psi = 1\\
 &\Leftrightarrow \frac{\text{odds}(Y | Z = 1)}{\text{odds}(Y | Z = 0)} = 1 \\
 &\Leftrightarrow \text{odds}(Y | Z = 1) = \text{odds}(Y | Z = 0) \\
 &\Leftrightarrow \mathbb{P}(Y | Z = 1) = \mathbb{P}(Y | Z = 0) \\
 &\Leftrightarrow Y \text{ ⫫ } Z
-\end{align}
+\end{align*}
 
 so (1) and (2) are equivalent.
 
@@ -592,11 +590,11 @@ Therefore, all statements are equivalent.
 
 Let
 
-\[ T = 2 \sum_{i=0}^1 \sum_{j=0}^1 X_{ij} \log \left( \frac{X_{ij} X_{\text{··}}}{X_{i\text{·}} X_{\text{·}j}} \right)\]
+\[ T = 2 \sum_{i=0}^{1} \sum_{j=0}^{1} X_{ij} \log \left( \frac{X_{ij} X_{\text{··}}}{X_{i\text{·}} X_{\text{·}j}} \right)\]
 
-Under \(H_0\), \(T \leadsto \chi_1^2\). Thus, an approximate level
-\(\alpha\) test is obtained by rejecting \(H_0\) when
-\(T > \chi_{1, \alpha}^2\).
+Under \(H_{0}\), \(T \leadsto \chi_{1}^{2}\). Thus, an approximate level
+\(\alpha\) test is obtained by rejecting \(H_{0}\) when
+\(T > \chi_{1, \alpha}^{2}\).
 
 \textbf{Solution}. Let
 \(E_{ij} = \frac{X_{i\text{·}} X_{\text{·}j}}{X_\text{··}}\). We can
@@ -605,24 +603,24 @@ rewrite the test statistic as
 \[ T = 2 \sum_{i, j} X_{ij} \log \frac{X_{ij}}{E_{ij}} \]
 
 The interpretation of \(E_{ij}\) is that it is the expected count in
-cell \((i, j)\) under \(H_0\):
+cell \((i, j)\) under \(H_{0}\):
 
-\begin{align}
-\mathbb{E}_{H_0}(Y = i, Z = j) &= n \mathbb{P}_{H_0}(Y = i, Z = j) \\
+\begin{align*}
+\mathbb{E}_{H_{0}}(Y = i, Z = j) &= n \mathbb{P}_{H_{0}}(Y = i, Z = j) \\
 &= n \mathbb{P}(Y = i) \mathbb{P}(Z = j) \\
 &= n \hat{p}_{i\text{·}} \hat{p}_{\text{·}j} \\
 &= X_{\text{··}} \frac{X_{i\text{·}}}{X_{\text{··}}} \frac{X_{\text{·}j}}{X_{\text{··}}} \\
 &= E_{ij}
-\end{align}
+\end{align*}
 
 Now, the result will follow by applying the log-likelihood test between
-\(H_0\) and \(H_1\). The test statistic is:
+\(H_{0}\) and \(H_{1}\). The test statistic is:
 
 \[ 2 \log \frac{\mathcal{L}(\tilde{p} | X)}{\mathcal{L}(\hat{p} | X)} 
 = 2 \log \frac{\prod_{i, j} \tilde{p}_{ij}^{X_{ij}}}{\prod_{i, j} \hat{p}_{ij}^{X_{ij}}}\]
 
-where \(\tilde{p}\) is the MLE under \(H_1\) and \(\hat{p}\) is the MLE
-under \(H_0\). But we have:
+where \(\tilde{p}\) is the MLE under \(H_{1}\) and \(\hat{p}\) is the MLE
+under \(H_{0}\). But we have:
 
 \[
 \tilde{p}_{ij} = \frac{X_{ij}}{n}
@@ -645,7 +643,7 @@ en.wikipedia.org/w/index.php?title=G-test\&oldid=914538756}
 
 \textbf{Exercise 16.7.3}. Prove Theorem 16.9.
 
-Let \(\xi = \mathbb{P}(D | E) / \mathbb{P}(D | E^c)\). Then
+Let \(\xi = \mathbb{P}(D | E) / \mathbb{P}(D | E^{c})\). Then
 
 \[ \frac{\psi}{\xi} \rightarrow 1\]
 
@@ -655,13 +653,13 @@ as \(\mathbb{P}(D) \rightarrow 0\).
 
 \[ \mathbb{P}(D | E) = \frac{\mathbb{P}(D \land E)}{\mathbb{P}(E)} = \frac{p_{11}}{p_{01} + p_{11}}
 \quad
-\mathbb{P}(D | E^c) = \frac{\mathbb{P}(D \land E^c)}{\mathbb{P}(E^c)} = \frac{p_{10}}{p_{00} + p_{10}}
+\mathbb{P}(D | E^{c}) = \frac{\mathbb{P}(D \land E^{c})}{\mathbb{P}(E^{c})} = \frac{p_{10}}{p_{00} + p_{10}}
 \]
 
 and so
 
 \[
-\xi = \frac{\mathbb{P}(D | E)}{\mathbb{P}(D | E^c)}
+\xi = \frac{\mathbb{P}(D | E)}{\mathbb{P}(D | E^{c})}
 = \frac{p_{11} (p_{00} + p_{10})}{p_{10} (p_{01} + p_{11})}
 \]
 
@@ -693,23 +691,23 @@ is equivalent to
 
 As noted when the definition was introduced, this definition of
 \(\delta(X, Y)\) is a particular case of the total variation distance
-between metrics \(P_1(X, Y) = \mathbb{P}_{X, Y}(X \in A, Y \in B)\) and
-\(P_2(X, Y) = \mathbb{P}_X(X \in A) \mathbb{P}_Y(Y \in B)\), where
+between metrics \(P_{1}(X, Y) = \mathbb{P}_{X, Y}(X \in A, Y \in B)\) and
+\(P_{2}(X, Y) = \mathbb{P}_X(X \in A) \mathbb{P}_Y(Y \in B)\), where
 
 \[ \delta(P, Q) = \sup_{A \in \mathcal{F}} |P(A) - Q(A)| \]
 
 and \(P, Q\) are two probability measures on a sigma-algebra
 \(\mathcal{F}\) of subsets from the sample space \(\Omega\).
 
-(Note that \(P_1(X = i, Y = j) = p_{ij}\) and
-\(P_2(X = i, Y = j) =  p_{i\text{·}} p_{\text{·}j}\)).
+(Note that \(P_{1}(X = i, Y = j) = p_{ij}\) and
+\(P_{2}(X = i, Y = j) =  p_{i\text{·}} p_{\text{·}j}\)).
 
 It is a known property of the total variation distance in countable
 spaces that
 
-\[ \delta(P, Q) = \max_{A \in \mathcal{F}} |P(A) - Q(A)| = \frac{1}{2} \Vert P - Q \Vert_1 = \frac{1}{2} \sum_{\omega \in \Omega} \vert P(\omega) - Q(\omega) \vert\]
+\[ \delta(P, Q) = \max_{A \in \mathcal{F}} |P(A) - Q(A)| = \frac{1}{2} \Vert P - Q \Vert_{1} = \frac{1}{2} \sum_{\omega \in \Omega} \vert P(\omega) - Q(\omega) \vert\]
 
-Let's demonstrate it, following the steps in the reference below.
+Demonstrate it, following the steps in the reference below.
 
 Let \(\mathcal{F}^+ \subset \mathcal{F}\) be the set of states
 \(\omega\) such that \(P(\omega) \geq Q(\omega)\), and let
@@ -737,12 +735,12 @@ hence
 Finally, since
 
 \[ 
-\vert P(\mathcal{F}^+) - Q(\mathcal{F}^+) \vert + \vert Q(\mathcal{F}^-) - P(\mathcal{F}^-) \vert = \sum_{\omega \in \Omega} | P(\omega) - Q(\omega) | = \Vert P - Q \Vert_1
+\vert P(\mathcal{F}^+) - Q(\mathcal{F}^+) \vert + \vert Q(\mathcal{F}^-) - P(\mathcal{F}^-) \vert = \sum_{\omega \in \Omega} | P(\omega) - Q(\omega) | = \Vert P - Q \Vert_{1}
 \]
 
 we have that
 
-\[ \max_{A \in \mathcal{F}} |P(A) - Q(A)| = \frac{1}{2} \Vert P - Q \Vert_1 \]
+\[ \max_{A \in \mathcal{F}} |P(A) - Q(A)| = \frac{1}{2} \Vert P - Q \Vert_{1} \]
 
 which completes the proof.
 
@@ -753,19 +751,17 @@ computing.'' (2005). Lemma 11.1, pg. 272-273.}
 reported the following data on death sentencing and rance, from a study
 in Maryland:
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule\noalign{}
+\begin{tabular}{@{}lll@{}}
+\toprule
 & Death Sentence & No Death Sentence \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
+\midrule
 Black Victim & 14 & 641 \\
 White Victim & 62 & 594 \\
-\end{longtable}
+\bottomrule
+\end{tabular}
 
 Analyse the data using the tools from this Chapter. Interpret the
-results. Explain why, based only on this information, you can't make
+results. Explain why, based only on this information, you cannot make
 causal conclusions. (The authors of the study did use much more
 information in their full report).
 
@@ -775,9 +771,9 @@ The statistic for the log-likelihood test for independence is is:
 
 \[ T = 2 \sum_{i, j} X_{ij} \log \frac{X_{ij} X_{\text{··}}}{X_{i\text{·}} X_{\text{·}j}} \]
 
-The statistic for Pearson's \(\chi^2\) test is:
+The statistic for Pearson's \(\chi^{2}\) test is:
 
-\[ U = \sum_{i, j} \frac{(X_{ij} - E_{ij})^2}{E_{ij}}\]
+\[ U = \sum_{i, j} \frac{(X_{ij} - E_{ij})^{2}}{E_{ij}}\]
 
 \begin{python}
 import numpy as np
@@ -794,7 +790,7 @@ E_ij = X_idot @ X_dotj / n
 # Log-likelihood test statistic
 T = 2 * (X_ij * np.log(X_ij / E_ij)).sum()
 
-# Pearson's \chi^2 test statistic
+# Pearson's \chi^{2} test statistic
 U = ((X_ij - E_ij)**2 / E_ij).sum()
 \end{python}
 
@@ -805,7 +801,7 @@ p_value_log_likelihood = 1 - chi2.cdf(T, 1)
 p_value_pearson = 1 - chi2.cdf(U, 1)
 
 print('T test statistic: \t\t%.3f'% T)
-print('Pearson chi^2 statistic: \t%.3f'% U)
+print('Pearson chi^{2} statistic: \t%.3f'% U)
 
 print('p-value log likelihood:\t\t %.3f' % p_value_log_likelihood)
 print('p-value Pearson: \t\t %.3f' % p_value_pearson)
@@ -813,7 +809,7 @@ print('p-value Pearson: \t\t %.3f' % p_value_pearson)
 
 \begin{console}
 T test statistic:               34.534
-Pearson chi\^{}2 statistic:        32.104
+Pearson chi^{2} statistic:        32.104
 p-value log likelihood:          0.000
 p-value Pearson:                 0.000
 \end{console}
@@ -828,7 +824,8 @@ p = X_ij / n
 p_idot = X_idot / n
 p_dotj = X_dotj / n
 
-delta = sum([abs(p[i, j] - p_idot[i, :] * p_dotj[:, j]) for (i, j) in product(range(2), range(2))]) / 2
+delta = sum([abs(p[i, j] - p_idot[i, :] * p_dotj[:, j]) 
+            for (i, j) in product(range(2), range(2))]) / 2
 
 print('delta(X, Y): %.3f' % delta)
 \end{python}
@@ -843,7 +840,7 @@ association.
 \textbf{Exercise 16.7.6}. Analyse the data on the variables Age and
 Financial Status from:
 
-http://lib.stat.cmu.edu/DASL/Datafiles/montanadat.html
+\url{http://lib.stat.cmu.edu/DASL/Datafiles/montanadat.html}
 
 \textbf{Solution}.
 
@@ -881,7 +878,7 @@ E_ij = X_idot @ X_dotj / n
 # Log-likelihood test statistic
 T = 2 * (X_ij * np.log(X_ij / E_ij)).sum()
 
-# Pearson's \chi^2 test statistic
+# Pearson's \chi^{2} test statistic
 U = ((X_ij - E_ij)**2 / E_ij).sum()
 \end{python}
 
@@ -892,7 +889,7 @@ p_value_log_likelihood = 1 - chi2.cdf(T, 4)
 p_value_pearson = 1 - chi2.cdf(U, 4)
 
 print('T test statistic: \t\t%.3f'% T)
-print('Pearson chi^2 statistic: \t%.3f'% U)
+print('Pearson chi^{2} statistic: \t%.3f'% U)
 
 print('p-value log likelihood:\t\t %.3f' % p_value_log_likelihood)
 print('p-value Pearson: \t\t %.3f' % p_value_pearson)
@@ -900,7 +897,7 @@ print('p-value Pearson: \t\t %.3f' % p_value_pearson)
 
 \begin{console}
 T test statistic:               22.064
-Pearson chi\^{}2 statistic:        20.679
+Pearson chi^{2} statistic:        20.679
 p-value log likelihood:          0.000
 p-value Pearson:                 0.000
 \end{console}
@@ -914,7 +911,8 @@ p = X_ij / n
 p_idot = X_idot / n
 p_dotj = X_dotj / n
 
-delta = sum([abs(p[i, j] - p_idot[i, :] * p_dotj[:, j]) for (i, j) in product(range(3), range(3))]) / 2
+delta = sum([abs(p[i, j] - p_idot[i, :] * p_dotj[:, j]) 
+            for (i, j) in product(range(3), range(3))]) / 2
 
 print('delta(X, Y): %.3f' % delta)
 \end{python}
@@ -929,7 +927,7 @@ variables.
 \textbf{Exercise 16.7.7}. Estimate the correlation between temperature
 and latitude using the data from
 
-http://lib.stat.cmu.edu/DASL/Datafiles/USTemperatures.html
+\url{http://lib.stat.cmu.edu/DASL/Datafiles/USTemperatures.html}
 
 Use the correlation coefficient and Spearman rank correlation. Provide
 estimates, tests, and confidence intervals.
@@ -948,15 +946,15 @@ X, Y = filtered_data['lat'], filtered_data['JanTF']
 
 \begin{python}
 from scipy.stats import rankdata
-from tqdm import tqdm_notebook
+from tqdm import tqdm_{n}otebook
 
 def get_pearson_correlation(xx, yy):
-    mu_1 = xx.mean()
-    mu_2 = yy.mean()
-    sigma2_1 = ((xx - mu_1)**2).mean()
-    sigma2_2 = ((yy - mu_2)**2).mean()
+    mu_{1} = xx.mean()
+    mu_{2} = yy.mean()
+    sigma2_{1} = ((xx - mu_{1})**2).mean()
+    sigma2_{2} = ((yy - mu_{2})**2).mean()
     
-    return ((xx - mu_1) * (yy - mu_2)).mean() / math.sqrt(sigma2_1 * sigma2_2)
+    return ((xx - mu_{1}) * (yy - mu_{2})).mean() / math.sqrt(sigma2_{1} * sigma2_{2})
 
 def get_spearman_correlation(xx, yy):
     return get_pearson_correlation(rankdata(xx), rankdata(yy))
@@ -966,7 +964,7 @@ def bootstrap_correlation(xx, yy, corr_fun, B=10000, alpha=0.05):
     assert len(yy) == n, 'Sequences must have same length'
     
     t_boot = np.empty(B)
-    for i in tqdm_notebook(range(B)):
+    for i in tqdm_{n}otebook(range(B)):
         indexes = np.random.randint(0, n, size=n)
         xx_selected, yy_selected = xx.iloc[indexes], yy.iloc[indexes]
         t_boot[i] = corr_fun(xx_selected, yy_selected)
@@ -1002,7 +1000,7 @@ Spearman confidence:     -0.834
 \textbf{Exercise 16.7.8}. Test whether calcium intake and drop in blood
 pressure are associated. Use the data in
 
-http://lib.stat.cmu.edu/DASL/Datafiles/Calcium.html
+\url{http://lib.stat.cmu.edu/DASL/Datafiles/Calcium.html}
 
 \textbf{Solution}.
 
@@ -1010,20 +1008,20 @@ We intend to use Theorem 16.16 here:
 
 Let
 
-\[ H(t) = 1 - 2 \sum_{j=1}^\infty (-1)^{j-1} e^{-2j^2t^2} \]
+\[ H(t) = 1 - 2 \sum_{j=1}^{\infty} (-1)^{j-1} e^{-2j^{2}t^{2}} \]
 
-Under the null hypothesis that \(F_1 = F_2\),
+Under the null hypothesis that \(F_{1} = F_{2}\),
 
-\[ \lim_{n \rightarrow \infty} \mathbb{P} \left( \sqrt{\frac{n_1 n_2}{n_1 + n_2}} D \leq t \right) = H(t) \]
+\[ \lim_{n \rightarrow \infty} \mathbb{P} \left( \sqrt{\frac{n_{1} n_{2}}{n_{1} + n_{2}}} D \leq t \right) = H(t) \]
 
 where
 
-\[ D = \sup_x | \hat{F}_1(x) - \hat{F}_2(x) |\]
+\[ D = \sup_x | \hat{F}_{1}(x) - \hat{F}_{2}(x) |\]
 
-It follows from the theorem than an approximate level \(\alpha\) test is
-obtained by rejecting \(H_0\) when
+It follows from the Theorem than an approximate level \(\alpha\) test is
+obtained by rejecting \(H_{0}\) when
 
-\[ \sqrt{\frac{n_1 n_2}{n_1 + n_2}} D > H^{-1}(1 - \alpha) \]
+\[ \sqrt{\frac{n_{1} n_{2}}{n_{1} + n_{2}}} D > H^{-1}(1 - \alpha) \]
 
 \begin{python}
 import pandas as pd
@@ -1044,16 +1042,17 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-16-01}
+\centering
+\includegraphics{Figure-16-01}
 \end{figure}
 
-First, let's calculate D -- creating the empirical CDFs \(\hat{F}_1\)
-and \(\hat{F}_2\), and then testing the value of \(D\) for each possible
+First,  calculate D -- creating the empirical CDFs \(\hat{F}_{1}\)
+and \(\hat{F}_{2}\), and then testing the value of \(D\) for each possible
 \(x\) in the empirical distributions:
 
 \begin{python}
-f1 = data[data['Treatment'] == 'Placebo']['Decrease'].to_numpy()
-f2 = data[data['Treatment'] == 'Calcium']['Decrease'].to_numpy()
+f1 = data[data['Treatment'] == 'Placebo']['Decrease'].to_{n}umpy()
+f2 = data[data['Treatment'] == 'Calcium']['Decrease'].to_{n}umpy()
 
 def f1_hat(x):
     return sum(f1 <= x) / len(f1)
@@ -1092,14 +1091,14 @@ Test statistic: 0.936
 
 Given that
 
-\begin{align}
-H(t) &= 1 - 2 \sum_{j=1}^\infty (-1)^{j-1} e^{-2j^2t^2}
-\end{align}
+\begin{align*}
+H(t) &= 1 - 2 \sum_{j=1}^{\infty} (-1)^{j-1} e^{-2j^{2}t^{2}}
+\end{align*}
 
-let's create an approximation for \(H^{-1}(1 - \alpha)\) -- so that we
-may find the p-value for \(\alpha\) such that \$
-\sqrt{\frac{n_1 n_2}{n_1 + n_2}} D \textgreater{} H\^{}\{-1\}(1 -
-\alpha) \$.
+ create an approximation for \(H^{-1}(1 - \alpha)\) -- so that we
+may find the p-value for \(\alpha\) such that $
+\sqrt{\frac{n_{1} n_{2}}{n_{1} + n_{2}}} D > H^{-1}(1 -
+\alpha) $.
 
 \begin{python}
 def H(t, xtol=1e-8):
@@ -1112,7 +1111,7 @@ def H(t, xtol=1e-8):
 \end{python}
 
 \begin{python}
-# Let's plot some values for H(t)
+# Plot some values for H(t)
 
 tt = np.logspace(-3, 0.25, 100)
 ht = [H(t) for t in tt]
@@ -1124,7 +1123,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-16-03}
+\centering
+\includegraphics{Figure-16-03}
 \end{figure}
 
 \begin{python}
@@ -1139,7 +1139,7 @@ def H_inv(q):
 \end{python}
 
 \begin{python}
-# Let's plot some values for H_inv(q)
+# Plot some values for H_inv(q)
 
 qq = np.linspace(1e-5, 1 - 1e-5, 200)
 xx = [H_inv(q) for q in qq]
@@ -1151,7 +1151,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-16-04}
+\centering
+\includegraphics{Figure-16-04}
 \end{figure}
 
 \begin{python}
@@ -1163,7 +1164,7 @@ print('H^{-1}(test_statistic): \t%.3f' % h_inv_test_statistic)
 
 \begin{console}
 Test statistic:                 0.936
-H\^{}\{-1\}(test\_statistic):         1.313
+H^{-1}(test\_statistic):         1.313
 \end{console}
 
 Given that the inverse of the test statistic is greater than 1, we have

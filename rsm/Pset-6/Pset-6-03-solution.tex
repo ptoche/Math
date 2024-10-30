@@ -1,44 +1,38 @@
+In base $9$, the number of trailing zeros is given by the greatest power of $9$ that divides the given number. Since $9=3^{2}$, one power of $9$ requires two powers of $3$, so we count the powers of $3$ and divide by $2$.
 
-\begin{boxinbox}{Related question:}
-Find the number of ending zeros of $21!$ in base $9$. 
-Count the number of times $3$ appears as a factor in $21!$
-\begin{itemize}[label={}]
-\item $1$ from $3$
-\item $1$ from $6$
-\item $2$ from $9$
-\item $1$ from $12$
-\item $1$ from $15$
-\item $2$ from $18$
-\item $1$ from $21$
-\end{itemize}
-There are a total of $9$ factors, so $21!$ is divisible by $3^9=3 \mult 9^4$. It is divisible by $9$ at most $4$ times, so it ends with four zeroes in base $9$.
-\end{boxinbox}
+\begin{align*}
+\floor*{\frac{2018}{3^{1}}} 
+& = 672
+\\
+\floor*{\frac{2018}{3^{2}}} 
+& = 224
+\\
+\floor*{\frac{2018}{3^{3}}} 
+& = 74
+\\
+\floor*{\frac{2018}{3^{4}}} 
+& = 24
+\\
+\floor*{\frac{2018}{3^{5}}} 
+& = 8
+\\
+\floor*{\frac{2018}{3^{6}}} 
+& = 2
+\\
+\floor*{\frac{2018}{3^{7}}} 
+& = 0
+\end{align*}
 
-We count the number of times $3$ appears as a factor in $2018!$.
-\begin{itemize}[label={}]
-\item $1$ from $3$
-\item $1$ from $6$
-\item $2$ from $9$
-\item $1$ from $12$
-\item $1$ from $15$
-\item $2$ from $18$
-\item $1$ from $21$
-\item $\ldots$
-\end{itemize}
-The total count is incremented by $1$ for the number of times $3$ goes into $2018$; by $1$ for the number of times $6$ goes into $2018$, by $2$ for the number of times $9$ goes into $2018$, and the cycle repeats.
-\begin{itemize}[label={}]
-\item $1 \mult 224$ from $3$, $12$, $\ldots$, $2001$, $2010$.
-\item $2 \mult 224$ from $6$, $18$, $\ldots$, $2004$, $2013$.
-\item $1 \mult 224$ from $9$, $21$, $\ldots$, $2007$, $2016$.
-\end{itemize}
-There are a total of $4 \mult 224 = 896$ factors, so $218!$ is divisible by $3^{896}$. Since $896=3\mult298+2$, we have $3^{896}=3^{3\mult298+2}=9^{298}\mult3^{2}=9^{299}$. It is divisible by $9$ exactly $299$ times, so it ends in $299$ zeros in base $9$.
+The total number of powers of $3$ that go into $2018!$ is 
+\begin{align*}
+\floor*{\frac{2018}{3^{1}}} 
+672 + 224 + 74 + 24 + 8 + 2 = 1004
+\end{align*}
+and thus the total number of powers of $9$ is $1004/2=502$. Now convert to base $9$: 
+\begin{align*}
+\floor*{\frac{2018}{3^{1}}} 
+502 = 55 \mult 9 + 7
+    = 6 \mult 9^2 + 1 \mult 9^1 + 7 \mult 9^0
+\end{align*}
 
-Solution: \fbox{$299$.}
-
-
-%for k in [3, 6, 9]:
-%    print(list(range(k, 2019, 9)))
-%for k in [3, 6, 9]:
-%    len(list(range(k, 2019, 9)))
-
-
+Solution: \fbox{$617|_{9}$.}

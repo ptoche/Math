@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{p\PYGZus{}hat} \PYG{o}{=} \PYG{n}{X} \PYG{o}{/} \PYG{n}{X}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{p\PYGZus{}hat}
+\end{MintedVerbatim}

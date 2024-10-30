@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+SVC misclassification rate: 0.073
+SVC confusion matrix:
+[[1603  124]
+ [ 210 2664]]
+\end{MintedVerbatim}

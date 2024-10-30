@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Permutation test using random shuffling}
+
+\PYG{n}{B} \PYG{o}{=} \PYG{l+m+mi}{1000000}
+\PYG{n}{full\PYGZus{}series} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{nx} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+\PYG{n}{diff\PYGZus{}boot\PYGZus{}count} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{tqdm\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{otebook}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{full\PYGZus{}series}\PYG{p}{)}
+    \PYG{n}{xx}\PYG{p}{,} \PYG{n}{yy} \PYG{o}{=} \PYG{n}{full\PYGZus{}series}\PYG{p}{[}\PYG{p}{:}\PYG{n}{nx}\PYG{p}{]}\PYG{p}{,} \PYG{n}{full\PYGZus{}series}\PYG{p}{[}\PYG{n}{nx}\PYG{p}{:}\PYG{p}{]}
+    \PYG{n}{diff\PYGZus{}boot} \PYG{o}{=} \PYG{n}{xx}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{yy}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{diff\PYGZus{}boot} \PYG{o}{\PYGZgt{}} \PYG{n}{diff\PYGZus{}hat}\PYG{p}{:}
+        \PYG{n}{diff\PYGZus{}boot\PYGZus{}count} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
+
+\PYG{n}{p\PYGZus{}value\PYGZus{}perm} \PYG{o}{=} \PYG{n}{diff\PYGZus{}boot\PYGZus{}count} \PYG{o}{/} \PYG{n}{B}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Permutation test p\PYGZhy{}value: }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZpc{}.4f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{p\PYGZus{}value\PYGZus{}perm}\PYG{p}{)}
+\end{MintedVerbatim}

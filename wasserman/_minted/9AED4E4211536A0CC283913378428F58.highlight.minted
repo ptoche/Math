@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{classifier\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ame} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{LDA}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{classifier} \PYG{o}{=} \PYG{n}{LinearDiscriminantAnalysis}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{accuracy} \PYG{o}{=} \PYG{n}{run\PYGZus{}classifier\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{k}\PYG{p}{\PYGZcb{}}\PYG{n}{fold}\PYG{p}{(}\PYG{n}{classifier}\PYG{p}{,} \PYG{n}{X\PYGZus{}filtered}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{n\PYGZus{}splits}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{ accuracy (5\PYGZhy{}fold): }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{classifier\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ame}\PYG{p}{,} \PYG{n}{accuracy}\PYG{p}{)}\PYG{p}{)}
+\end{MintedVerbatim}

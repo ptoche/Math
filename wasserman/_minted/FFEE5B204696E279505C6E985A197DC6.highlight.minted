@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}0\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}0\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 1.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}0\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: \PYGZhy{}0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}0\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}0\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: \PYGZhy{}0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}0\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}4\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 1.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: \PYGZhy{}0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}1\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}4\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: \PYGZhy{}0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 1.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: \PYGZhy{}0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}2\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}4\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 1.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}4\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: \PYGZhy{}0.000
+\PYGZlt{}phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}4\PYG{n+nb}{\PYGZcb{}}, phi\PYG{k}{\PYGZbs{}\PYGZus{}}\PYG{n+nb}{\PYGZob{}}4\PYG{n+nb}{\PYGZcb{}}\PYGZgt{}: 1.000
+\end{MintedVerbatim}

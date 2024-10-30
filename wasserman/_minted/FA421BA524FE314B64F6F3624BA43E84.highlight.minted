@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{1000}
+\PYG{n}{values} \PYG{o}{=} \PYG{p}{[}
+    \PYG{n}{generate\PYGZus{}chain}\PYG{p}{(}\PYG{n}{b}\PYG{o}{=}\PYG{l+m+mf}{0.1}\PYG{p}{,} \PYG{n}{N}\PYG{o}{=}\PYG{n}{N}\PYG{p}{,} \PYG{n}{seed}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,}
+    \PYG{n}{generate\PYGZus{}chain}\PYG{p}{(}\PYG{n}{b}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{N}\PYG{o}{=}\PYG{n}{N}\PYG{p}{,} \PYG{n}{seed}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,}
+    \PYG{n}{generate\PYGZus{}chain}\PYG{p}{(}\PYG{n}{b}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{n}{N}\PYG{o}{=}\PYG{n}{N}\PYG{p}{,} \PYG{n}{seed}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{p}{]}
+\end{MintedVerbatim}

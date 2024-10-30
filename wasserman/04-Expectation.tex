@@ -1,6 +1,6 @@
-\section{4. Expectation}\label{expectation}
+\section*{4. Expectation}\label{expectation}
 
-\subsection{4.1 Expectation of a Random
+\subsection*{4.1 Expectation of a Random
 Variable}\label{expectation-of-a-random-variable}
 
 The \textbf{expected value}, \textbf{mean} or \textbf{first moment} of
@@ -18,9 +18,9 @@ following notation to denote the expected value of \(X\):
 
 The expectation is a one-number summary of the distribution. Think of
 \(\mathbb{E}(X)\) as the average value you'd obtain if you computed the
-numeric average \(n^{-1} \sum_{i=1}^n X_i\) for a large number of IID
-draws \(X_1, \dots, X_n\). The fact that
-\(\mathbb{E}(X) \approx n^{-1} \sum_{i=1}^n X_i\) is a theorem called
+numeric average \(n^{-1} \sum_{i=1}^{n} X_{i}\) for a large number of IID
+draws \(X_{1}, \dots, X_{n}\). The fact that
+\(\mathbb{E}(X) \approx n^{-1} \sum_{i=1}^{n} X_{i}\) is a Theorem called
 the law of large numbers which we will discuss later. We use
 \(\int x \; dF(x)\) as a convenient unifying notation between the
 discrete case \(\sum_x x f(x)\) and the continuous case
@@ -50,33 +50,33 @@ Functions of several variables are handled in a similar way. If
 \[ \mathbb{E}(Z) = \mathbb{E}(r(X, Y)) = \int \int r(x, y) \; dF(x, y) \]
 
 The \textbf{\(k\)-th moment} of \(X\) is defined to be
-\(\mathbb{E}(X^k)\), assuming that \(\mathbb{E}(|X|^k) < \infty\). We
+\(\mathbb{E}(X^{k})\), assuming that \(\mathbb{E}(|X|^{k}) < \infty\). We
 shall rarely make much use of moments beyond \(k = 2\).
 
-\subsection{4.2 Properties of
+\subsection*{4.2 Properties of
 Expectations}\label{properties-of-expectations}
 
-\textbf{Theorem 4.10}. If \(X_1, \dots, X_n\) are random variables and
-\(a_1, \dots, a_n\) are constants, then
+\textbf{Theorem 4.10}. If \(X_{1}, \dots, X_{n}\) are random variables and
+\(a_{1}, \dots, a_{n}\) are constants, then
 
-\[ \mathbb{E}\left( \sum_i a_i X_i \right) = \sum_i a_i \mathbb{E}(X_i) \]
+\[ \mathbb{E}\left( \sum_{i} a_{i} X_{i} \right) = \sum_{i} a_{i} \mathbb{E}(X_{i}) \]
 
-\textbf{Theorem 4.12}. Let \(X_1, \dots, X_n\) be independent random
+\textbf{Theorem 4.12}. Let \(X_{1}, \dots, X_{n}\) be independent random
 variables. Then,
 
-\[ \mathbb{E}\left(\prod_i X_i \right) = \prod_i \mathbb{E}(X_i) \]
+\[ \mathbb{E}\left(\prod_{i} X_{i} \right) = \prod_{i} \mathbb{E}(X_{i}) \]
 
 Notice that the summation rule does not require independence but the
 product does.
 
-\subsection{4.3 Variance and
-Covariance}\label{variance-and-covariance}
+\subsection*{4.3 Variance and
+Covariance}\label{variance:covariance}
 
 Let \(X\) be a random variable with mean \(\mu\). The \textbf{variance}
-of \(X\) -- denoted by \(\sigma^2\) or \(\sigma_X^2\) or
+of \(X\) -- denoted by \(\sigma^{2}\) or \(\sigma_X^{2}\) or
 \(\mathbb{V}(X)\) or \(\mathbb{V}X\) -- is defined by
 
-\[ \sigma^2 = \mathbb{E}(X - \mu)^2 = \int (x - \mu)^2\; dF(x) \]
+\[ \sigma^{2} = \mathbb{E}(X - \mu)^{2} = \int (x - \mu)^{2}\; dF(x) \]
 
 assuming this expectation exists. The \textbf{standard deviation} is
 \(\text{sd}(X) = \sqrt{\mathbb{V}(X)}\) and is also denoted by
@@ -87,35 +87,35 @@ following properties:
 
 \begin{enumerate}[label={\arabic*.}]
 \item
-  \(\mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2\)
+  \(\mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}\)
 \item
   If \(a\) and \(b\) are constants then
-  \(\mathbb{V}(aX + b) = a^2 \mathbb{V}(X)\)
+  \(\mathbb{V}(aX + b) = a^{2} \mathbb{V}(X)\)
 \item
-  If \(X_1, \dots, X_n\) are independent and \(a_1, \dots, a_n\) are
+  If \(X_{1}, \dots, X_{n}\) are independent and \(a_{1}, \dots, a_{n}\) are
   constants then
 
-  \[ \mathbb{V}\left( \sum_{i=1}^n a_iX_i \right) = \sum_{i=1}^n a_i^2 \mathbb{V}(X_i) \]
+  \[ \mathbb{V}\left( \sum_{i=1}^{n} a_{i}X_{i} \right) = \sum_{i=1}^{n} a_{i}^{2} \mathbb{V}(X_{i}) \]
 \end{enumerate}
 
-If \(X_1, \dots, X_n\) are random variables then we define the
+If \(X_{1}, \dots, X_{n}\) are random variables then we define the
 \textbf{sample mean} to be
 
-\[ \overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i  \]
+\[ \overline{X}_{n} = \frac{1}{n} \sum_{i=1}^{n} X_{i}  \]
 
 and the \textbf{sample variance} to be
 
-\[ S_n^2 = \frac{1}{n - 1} \sum_{i=1}^n \left(X_i - \overline{X}_n\right)^2 \]
+\[ S_{n}^{2} = \frac{1}{n - 1} \sum_{i=1}^{n} \left(X_{i} - \overline{X}_{n}\right)^{2} \]
 
-\textbf{Theorem 4.16}. Let \(X_1, \dots, X_n\) be IID and let
-\(\mu = \mathbb{E}(X_i)\), \(\sigma^2 = \mathbb{V}(X_i)\). Then
+\textbf{Theorem 4.16}. Let \(X_{1}, \dots, X_{n}\) be IID and let
+\(\mu = \mathbb{E}(X_{i})\), \(\sigma^{2} = \mathbb{V}(X_{i})\). Then
 
 \[ 
-\mathbb{E}\left(\overline{X}_n\right) = \mu,
+\mathbb{E}\left(\overline{X}_{n}\right) = \mu,
 \quad
-\mathbb{V}\left(\overline{X}_n\right) = \frac{\sigma^2}{n},
+\mathbb{V}\left(\overline{X}_{n}\right) = \frac{\sigma^{2}}{n},
 \quad \text{and} \quad
-\mathbb{E}\left(S_n^2\right) = \sigma^2
+\mathbb{E}\left(S_{n}^{2}\right) = \sigma^{2}
 \]
 
 If \(X\) and \(Y\) are random variables, then the covariance and
@@ -153,11 +153,11 @@ The converse is not true in general.
 \mathbb{V}(X - Y) = \mathbb{V}(X) + \mathbb{V}(Y) - 2 \text{Cov}(X, Y)
 \]
 
-More generally, for random variables \(X_1, \dots, X_n\),
+More generally, for random variables \(X_{1}, \dots, X_{n}\),
 
-\[ \mathbb{V}\left( \sum_i a_i X_i \right) = \sum_i a_i^2 \mathbb{V}(X_i) + 2 \sum \sum_{i < j} a_i a_j \text{Cov}(X_i, X_j) \]
+\[ \mathbb{V}\left( \sum_{i} a_{i} X_{i} \right) = \sum_{i} a_{i}^{2} \mathbb{V}(X_{i}) + 2 \sum \sum_{i < j} a_{i} a_{j} \text{Cov}(X_{i}, X_{j}) \]
 
-\subsection{4.4 Expectation and Variance of Important Random
+\subsection*{4.4 Expectation and Variance of Important Random
 Variables}\label{expectation-and-variance-of-important-random-variables}
 
 \[
@@ -167,15 +167,15 @@ Variables}\label{expectation-and-variance-of-important-random-variables}
 \text{Point mass at } p      & a             & 0              \\
 \text{Bernoulli}(p)          & p             & p(1-p)         \\
 \text{Binomial}(n, p)        & np            & np(1-p)        \\
-\text{Geometric}(p)          & 1/p           & (1 - p)/p^2    \\
+\text{Geometric}(p)          & 1/p           & (1 - p)/p^{2}    \\
 \text{Poisson}(\lambda)      & \lambda       & \lambda        \\
-\text{Uniform}(a, b)         & (a + b) / 2   & (b - a)^2 / 12 \\
-\text{Normal}(\mu, \sigma^2) & \mu           & \sigma^2       \\
-\text{Exponential}(\beta)    & \beta         & \beta^2        \\
-\text{Gamma}(\alpha, \beta)  & \alpha \beta  & \alpha \beta^2 \\
-\text{Beta}(\alpha, \beta)   & \alpha / (\alpha + \beta) & \alpha \beta / ((\alpha + \beta)^2 (\alpha + \beta + 1)) \\
+\text{Uniform}(a, b)         & (a + b) / 2   & (b - a)^{2} / 12 \\
+\text{Normal}(\mu, \sigma^{2}) & \mu           & \sigma^{2}       \\
+\text{Exponential}(\beta)    & \beta         & \beta^{2}        \\
+\text{Gamma}(\alpha, \beta)  & \alpha \beta  & \alpha \beta^{2} \\
+\text{Beta}(\alpha, \beta)   & \alpha / (\alpha + \beta) & \alpha \beta / ((\alpha + \beta)^{2} (\alpha + \beta + 1)) \\
 t_\nu                        & 0 \text{ (if } \nu > 1 \text{)} & \nu / (\nu - 2) \text{ (if } \nu > 2 \text{)} \\
-\chi^2_p                     & p             & 2p             \\
+\chi^{2}_{p}                     & p             & 2p             \\
 \text{Multinomial}(n, p)     & np            & \text{see below} \\
 \text{Multivariate Nornal}(\mu, \Sigma) & \mu & \Sigma \\
 \end{array}
@@ -184,31 +184,31 @@ t_\nu                        & 0 \text{ (if } \nu > 1 \text{)} & \nu / (\nu - 2)
 The last two entries in the table are multivariate models which involve
 a random vector \(X\) of the form
 
-\[ X = \begin{pmatrix} X_1 \\ \vdots \\ X_k \end{pmatrix} \]
+\[ X = \begin{pmatrix} X_{1} \\ \vdots \\ X_{k} \end{pmatrix} \]
 
 The mean of a random vector \(X\) is defined by
 
-\[ \mu = \begin{pmatrix} \mu_1 \\ \vdots \\ \mu_k \end{pmatrix} = \begin{pmatrix} \mathbb{E}(X_1) \\ \vdots \\ \mathbb{E}(X_k) \end{pmatrix} \]
+\[ \mu = \begin{pmatrix} \mu_{1} \\ \vdots \\ \mu_{k} \end{pmatrix} = \begin{pmatrix} \mathbb{E}(X_{1}) \\ \vdots \\ \mathbb{E}(X_{k}) \end{pmatrix} \]
 
-The \textbf{variance-covariance matrix} \(\Sigma\) is defined to be
+The \textbf{Variance-Covariance Matrix} \(\Sigma\) is defined to be
 
 \[ \Sigma = \begin{pmatrix}
-\mathbb{V}(X_1) & \text{Cov}(X_1, X_2) & \cdots & \text{Cov}(X_1, X_k) \\
-\text{Cov}(X_2, X_1) & \mathbb{V}(X_2) & \cdots & \text{Cov}(X_2, X_k) \\
+\mathbb{V}(X_{1}) & \text{Cov}(X_{1}, X_{2}) & \cdots & \text{Cov}(X_{1}, X_{k}) \\
+\text{Cov}(X_{2}, X_{1}) & \mathbb{V}(X_{2}) & \cdots & \text{Cov}(X_{2}, X_{k}) \\
 \vdots & \vdots & \ddots & \vdots \\
-\text{Cov}(X_k, X_1) & \text{Cov}(X_k, X_2) & \cdots & \mathbb{V}(X_k)
+\text{Cov}(X_{k}, X_{1}) & \text{Cov}(X_{k}, X_{2}) & \cdots & \mathbb{V}(X_{k})
 \end{pmatrix} \]
 
 If \(X \sim \text{Multinomial}(n, p)\) then
 
 \[ 
-\mathbb{E}(X) = np = n(p_1, \dots, p_k)
+\mathbb{E}(X) = np = n(p_{1}, \dots, p_{k})
 \quad \text{and} \quad
 \mathbb{V}(X) = \begin{pmatrix}
-np_1(1 - p_1) & -np_1p_2 & \cdots & -np_1p_k \\
--np_2p_1 & np_2(1 - p_2) & \cdots & -np_2p_k \\
+np_{1}(1 - p_{1}) & -np_{1}p_{2} & \cdots & -np_{1}p_{k} \\
+-np_{2}p_{1} & np_{2}(1 - p_{2}) & \cdots & -np_{2}p_{k} \\
 \vdots & \vdots & \ddots & \vdots \\
--np_kp_1 & -np_kp_2 & \cdots & np_k(1 - p_k)
+-np_{k}p_{1} & -np_{k}p_{2} & \cdots & np_{k}(1 - p_{k})
 \end{pmatrix} \]
 
 To see this:
@@ -216,22 +216,22 @@ To see this:
 \begin{itemize}[tightlist]
 \item
   Note that the marginal distribution of any one component is
-  \(X_i \sim \text{Binomial}(n, p_i)\), so \(\mathbb{E}(X_i) = np_i\)
-  and \(\mathbb{V}(X_i) = np_i(1 - p_i)\).\\
+  \(X_{i} \sim \text{Binomial}(n, p_{i})\), so \(\mathbb{E}(X_{i}) = np_{i}\)
+  and \(\mathbb{V}(X_{i}) = np_{i}(1 - p_{i})\).\\
 \item
   Note that, for \(i \neq j\),
-  \(X_i + X_j \sim \text{Binomial}(n, p_i + p_j)\), so
-  \(\mathbb{V}(X_i + X_j) = n(p_i + p_j)(1 - (p_i + p_j))\).
+  \(X_{i} + X_{j} \sim \text{Binomial}(n, p_{i} + p_{j})\), so
+  \(\mathbb{V}(X_{i} + X_{j}) = n(p_{i} + p_{j})(1 - (p_{i} + p_{j}))\).
 \item
   Using the formula for the covariance of a sum, for \(i \neq j\),
 \end{itemize}
 
-\[ \mathbb{V}(X_i + X_j) = \mathbb{V}(X_i) + \mathbb{V}(X_j) + 2 \text{Cov}(X_i, X_j) =  np_i(1 - p_i) + np_j(1 - p_j) + 2 \text{Cov}(X_i, X_j) \]
+\[ \mathbb{V}(X_{i} + X_{j}) = \mathbb{V}(X_{i}) + \mathbb{V}(X_{j}) + 2 \text{Cov}(X_{i}, X_{j}) =  np_{i}(1 - p_{i}) + np_{j}(1 - p_{j}) + 2 \text{Cov}(X_{i}, X_{j}) \]
 
 Equating the last two formulas we get a formula for the covariance,
-\(\text{Cov}(X_i, X_j) = -np_ip_j\).
+\(\text{Cov}(X_{i}, X_{j}) = -np_{i}p_{j}\).
 
-Finally, here's a lemma that can be useful for finding means and
+Finally, here is a lemma that can be useful for finding means and
 variances of linear combinations of multivariate random vectors.
 
 \textbf{Lemma 4.20}. If \(a\) is a vector and \(X\) is a random vector
@@ -247,7 +247,7 @@ If \(A\) is a matrix then
 \quad \text{and} \quad
 \mathbb{V}(AX) = A \Sigma A^T \]
 
-\subsection{4.5 Conditional
+\subsection*{4.5 Conditional
 Expectation}\label{conditional-expectation}
 
 The conditional expectation of \(X\) given \(Y = y\) is
@@ -267,7 +267,7 @@ If \(r\) is a function of \(x\) and \(y\) then
 \]
 
 While \(\mathbb{E}(X)\) is a number, \(\mathbb{E}(X | Y = y)\) is a
-function of \(y\). Before we observe \(Y\), we don't know the value of
+function of \(y\). Before we observe \(Y\), we do not know the value of
 \(\mathbb{E}(X | Y = y)\) so it is a random variable which we denote
 \(\mathbb{E}(X | Y)\). In other words, \(\mathbb{E}(X | Y)\) is the
 random variable whose value is \(\mathbb{E}(X | Y = y)\) when \(Y\) is
@@ -290,14 +290,14 @@ More generally, for any function \(r(x, y)\) we have
 
 \textbf{Proof}. We will prove the first equation.
 
-\begin{align}
+\begin{align*}
 \mathbb{E}[\mathbb{E}(Y | X)] &= \int \mathbb{E}(Y | X = x) f_X(x) dx = \int \int y f(y | x) dy f(x) dx \\
 &= \int \int y f(y|x) f(x) dx dy = \int \int y f(x, y) dx dy = \mathbb{E}(Y)
-\end{align}
+\end{align*}
 
 The \textbf{conditional variance} is defined as
 
-\[ \mathbb{V}(Y | X = x) = \int (y - \mu(x))^2 f(y | x) dx \]
+\[ \mathbb{V}(Y | X = x) = \int (y - \mu(x))^{2} f(y | x) dx \]
 
 where \(\mu(x) = \mathbb{E}(Y | X = x)\).
 
@@ -305,19 +305,19 @@ where \(\mu(x) = \mathbb{E}(Y | X = x)\).
 
 \[ \mathbb{V}(Y) = \mathbb{E}\mathbb{V}(Y | X) + \mathbb{V} \mathbb{E} (Y | X)\]
 
-\subsection{4.6 Technical Appendix}\label{technical-appendix}
+\subsection*{4.6 Technical Appendix}
 
 \paragraph{4.6.1 Expectation as an
 Integral}\label{expectation-as-an-integral}
 
 The integral of a measurable function \(r(x)\) is defined as follows.
 First suppose that \(r\) is simple, meaning that it takes finitely many
-values \(a_1, \dots, a_k\) over a partition \(A_1, \dots, A_k\). Then
-\(\int r(x) dF(x) = \sum_{i=1}^k a_i \mathbb{P}(r(X) \in A_i)\). The
+values \(a_{1}, \dots, a_{k}\) over a partition \(A_{1}, \dots, A_{k}\). Then
+\(\int r(x) dF(x) = \sum_{i=1}^{k} a_{i} \mathbb{P}(r(X) \in A_{i})\). The
 integral of a positive measurable function \(r\) is defined by
-\(\int r(x) dF(x) = \lim_i \int r_i(x) dF(x)\), where \(r_i\) is a
-sequence of simple functions such that \(r_i(x) \leq r(x)\) and
-\(r_i(x) \rightarrow r(x)\) as \(i \rightarrow \infty\). This does not
+\(\int r(x) dF(x) = \lim_{i} \int r_{i}(x) dF(x)\), where \(r_{i}\) is a
+sequence of simple functions such that \(r_{i}(x) \leq r(x)\) and
+\(r_{i}(x) \rightarrow r(x)\) as \(i \rightarrow \infty\). This does not
 depend on the particular sequence. The integral of a measurable function
 \(r\) is defined to be
 \(\int r(x) dF(x) = \int r^+(x) dF(x) - \int r^-(x) dF(x)\) assuming
@@ -340,7 +340,7 @@ function, defined by \(\mathbb{E}(e^{itX})\) where \(i = \sqrt{-1}\).
 This function is always defined for all \(t\). The mgf is useful for
 several reasons. First, it helps us compute the moments of a
 distribution. Second, it helps us find the distribution of sums of
-random variables. Third, it is used to prove the central limit theorem.
+random variables. Third, it is used to prove the central limit Theorem.
 
 When the mgf is well defined, it can be shown that we can interchange
 the operations of differentiation and ``taking expectation''. This leads
@@ -351,18 +351,18 @@ to
 \]
 
 By taking further derivatives we conclude that
-\(\psi^{(k)}(0) = \mathbb{E}(X^k)\). This gives us a method for
+\(\psi^{(k)}(0) = \mathbb{E}(X^{k})\). This gives us a method for
 computing the moments of a distribution.
 
 \textbf{Lemma 4.30}. Properties of the mgf.
 
 \begin{enumerate}[tightlist,label={\arabic*.}]
 \item
-  If \(Y = aX + b\) then \$\psi\_Y(t) = e\^{}\{bt\} \psi\_X(at) \$
+  If \(Y = aX + b\) then \(\psi_{Y(t)} = e^{bt} \psi_{X(at)}\)
 \item
-  if \(X_1, \dots, X_n\) are independent and \(Y = \sum_i X_i\) then
-  \(\psi_Y(t) = \prod_i \psi_{i}(t)\), where \(\psi_i\) is the mgf of
-  \(X_i\).
+  if \(X_{1}, \dots, X_{n}\) are independent and \(Y = \sum_{i} X_{i}\) then
+  \(\psi_Y(t) = \prod_{i} \psi_{i}(t)\), where \(\psi_{i}\) is the mgf of
+  \(X_{i}\).
 \end{enumerate}
 
 \textbf{Theorem 4.32}. Let \(X\) and \(Y\) be random variables. If
@@ -376,33 +376,33 @@ then \(X \overset{d}= Y\).
 \text{Distribution} & \text{mgf} \\
 \hline
 \text{Bernoulli}(p)   & pe^t + (1 - p)         \\
-\text{Binomial}(n, p) & (pe^t + (1 - p))^n     \\
+\text{Binomial}(n, p) & (pe^t + (1 - p))^{n}     \\
 \text{Poisson}(\lambda) & e^{\lambda(e^t - 1)} \\
-\text{Normal}(\mu, \sigma^2) & \exp\left\{\mu t + \frac{\sigma^2 t^2}{2} \right\} \\
+\text{Normal}(\mu, \sigma^{2}) & \exp\left\{\mu t + \frac{\sigma^{2} t^{2}}{2} \right\} \\
 \text{Gamma}(\alpha, \beta) & \left( \frac{\beta}{\beta - t} \right)^\alpha \text{ for } t < \beta
 \end{array}
 \]
 
-\subsection{4.7 Exercises}\label{exercises}
+\subsection*{4.7 Exercises}
 
 \textbf{Exercise 4.7.1}. Suppose we play a game where we start with
 \(c\) dollars. On each play of the game you either double your money or
 half your money, with equal probability. What is your expected fortune
 after \(n\) trials?
 
-\textbf{Solution}. Let the random variables \(X_i\) be the fortune after
-the \(i\)-th trial, \(X_0 = c\) always taking the value \(c\). Then:
+\textbf{Solution}. Let the random variables \(X_{i}\) be the fortune after
+the \(i\)-th trial, \(X_{0} = c\) always taking the value \(c\). Then:
 
-\[ \mathbb{E}[X_{i + 1} | X_i = x] = 2x \cdot \frac{1}{2} + \frac{x}{2} \cdot \frac{1}{2} = \frac{5}{4}x \]
+\[ \mathbb{E}[X_{i + 1} | X_{i} = x] = 2x \cdot \frac{1}{2} + \frac{x}{2} \cdot \frac{1}{2} = \frac{5}{4}x \]
 
-Taking the expectation on \(X_i\) on both sides (i.e.~integrating over
-\(F_{X_i}(x)\)),
+Taking the expectation on \(X_{i}\) on both sides (i.e.~integrating over
+\(F_{X_{i}}(x)\)),
 
-\[ \mathbb{E}(\mathbb{E}[X_{i + 1} | X_i = x]) = \frac{5}{4} \mathbb{E}(X_i) \Longrightarrow \mathbb{E}(X_{i+1}) = \frac{5}{4}  \mathbb{E}(X_i)\]
+\[ \mathbb{E}(\mathbb{E}[X_{i + 1} | X_{i} = x]) = \frac{5}{4} \mathbb{E}(X_{i}) \Longrightarrow \mathbb{E}(X_{i+1}) = \frac{5}{4}  \mathbb{E}(X_{i})\]
 
 Therefore, by induction,
 
-\[ \mathbb{E}(X_n) = \left(\frac{5}{4}\right)^n c \]
+\[ \mathbb{E}(X_{n}) = \left(\frac{5}{4}\right)^{n} c \]
 
 Note that this is \textbf{not} a martingale, as in the traditional
 double-or-nothing formulation -- the expected value goes up at each
@@ -412,70 +412,70 @@ iteration.
 there is a constant \(c\) such that \(\mathbb{P}(X = c) = 1\).
 
 \textbf{Solution}. We have
-\(\mathbb{V}(X) = \mathbb{E}[(X - \mathbb{E}(X))^2]\):
+\(\mathbb{V}(X) = \mathbb{E}[(X - \mathbb{E}(X))^{2}]\):
 
-\[ \mathbb{V}(X) = \int (x - \mu_X)^2 dF_X(x) \]
+\[ \mathbb{V}(X) = \int (x - \mu_X)^{2} dF_X(x) \]
 
-Since \((x - \mu_X)^2 \geq 0\), in order for the variance to be 0 we
+Since \((x - \mu_X)^{2} \geq 0\), in order for the variance to be 0 we
 must have the integrand be zero with probability 1,
 i.e.~\(\mathbb{P}(X = \mu_X) = 1\).
 
 \textbf{Exercise 4.7.3}. Let
-\(X_1, \dots, X_n \sim \text{Uniform}(0, 1)\) and let
-\(Y_n = \max \{ X_1, \dots, X_n \}\). Find \(\mathbb{E}(Y_n)\).
+\(X_{1}, \dots, X_{n} \sim \text{Uniform}(0, 1)\) and let
+\(Y_{n} = \max \{ X_{1}, \dots, X_{n} \}\). Find \(\mathbb{E}(Y_{n})\).
 
-\textbf{Solution}. The CDF of \(Y_n\), for \(0 \leq y \leq 1\), is:
+\textbf{Solution}. The CDF of \(Y_{n}\), for \(0 \leq y \leq 1\), is:
 
-\[ F_{Y_n}(y) = \mathbb{P}(Y_n \leq y) = \prod_{i=1}^n \mathbb{P}(X_i \leq y) = y^n \]
+\[ F_{Y_{n}}(y) = \mathbb{P}(Y_{n} \leq y) = \prod_{i=1}^{n} \mathbb{P}(X_{i} \leq y) = y^{n} \]
 
-so its PDF is \(f_{Y_n}(y) = F'_{Y_n}(y) = n y^{n-1}\) for
+so its PDF is \(f_{Y_{n}}(y) = F'_{Y_{n}}(y) = n y^{n-1}\) for
 \(0 \leq y \leq 1\).
 
-The expected value of \(Y_n\) then is
+The expected value of \(Y_{n}\) then is
 
-\[ \mathbb{E}(Y_n) = \int_0^1 y f_{Y_n}(y) dy = \int_0^1 n y^n dy = \frac{n}{n+1} \]
+\[ \mathbb{E}(Y_{n}) = \int_{0}^{1} y f_{Y_{n}}(y) dy = \int_{0}^{1} n y^{n} dy = \frac{n}{n+1} \]
 
 \textbf{Exercise 4.7.4}. A particle starts at the origin of the real
 line and moves along the line in jumps of one unit. For each jump the
 probability is \(p\) that the particle will move one unit to the left
 and the probability is \(1 - p\) that the particle will jump one unit to
-the right. Let \(X_n\) be the position of the particle after \(n\)
-units. Find \(\mathbb{E}(X_n)\) and \(\mathbb{V}(X_n)\). (This is known
+the right. Let \(X_{n}\) be the position of the particle after \(n\)
+units. Find \(\mathbb{E}(X_{n})\) and \(\mathbb{V}(X_{n})\). (This is known
 as a random walk.)
 
 \textbf{Solution}.
 
-We can define \(X_n = \sum_{i=1}^n (1 - 2Y_i)\), where
-\(Y_i \sim \text{Bernoulli}(p)\) and the \(Y_i\)'s are independent
+We can define \(X_{n} = \sum_{i=1}^{n} (1 - 2Y_{i})\), where
+\(Y_{i} \sim \text{Bernoulli}(p)\) and the \(Y_{i}\)s are independent
 random variables representing the direction of each jump.
 
 We then have:
 
-\[ \mathbb{E}(X_n) = \sum_{i=1}^n \mathbb{E}(1 - 2Y_i) = \sum_{i=1}^n (1 - 2p) = n(1 - 2p) \]
+\[ \mathbb{E}(X_{n}) = \sum_{i=1}^{n} \mathbb{E}(1 - 2Y_{i}) = \sum_{i=1}^{n} (1 - 2p) = n(1 - 2p) \]
 
 and
 
-\[ \mathbb{V}(X_n) = \sum_{i=1}^n \mathbb{V}(1 - 2Y_i) \sum_{i=1}^n 4\mathbb{V}(Y_i) = 4np(1 - p) \]
+\[ \mathbb{V}(X_{n}) = \sum_{i=1}^{n} \mathbb{V}(1 - 2Y_{i}) \sum_{i=1}^{n} 4\mathbb{V}(Y_{i}) = 4np(1 - p) \]
 
 \textbf{Exercise 4.7.5}. A fair coin is tossed until a head is obtained.
 What is the expected number of tosses that will be required?
 
 \textbf{Solution}. The number of tosses follows a geometric
 distribution, \(X \sim \text{Geom}(p)\), where \(p\) is the probability
-of heads. Let's deduce its expected value, rather than use it as a known
+of heads. Deduce its expected value, rather than use it as a known
 fact (\(\mathbb{E}(X) = 1/p\)). The PDF is
 
 \[ f_X(k) = p (1 - p)^{k - 1}, \quad k > 0 \]
 
 The expected value for \(X\) is
 
-\begin{align}
-\mathbb{E}(X) &= \sum_{k=1}^\infty k p (1 - p)^{k - 1}  \\
-&= \sum_{k=1}^\infty p(1-p)^{k-1} + \sum_{k=2}^\infty (k - 1) p(1-p)^{k - 1} \\
-&= p \left( 1 + (1 - p) + (1 - p)^2 + \dots \right) + \sum_{k=1}^\infty k p(1-p)^k \\
-&= p \left(\frac{1}{1 - (1 - p)}\right) + (1 - p) \sum_{k=1}^\infty k p(1-p)^{k - 1} \\
+\begin{align*}
+\mathbb{E}(X) &= \sum_{k=1}^{\infty} k p (1 - p)^{k - 1}  \\
+&= \sum_{k=1}^{\infty} p(1-p)^{k-1} + \sum_{k=2}^{\infty} (k - 1) p(1-p)^{k - 1} \\
+&= p \left( 1 + (1 - p) + (1 - p)^{2} + \dots \right) + \sum_{k=1}^{\infty} k p(1-p)^{k} \\
+&= p \left(\frac{1}{1 - (1 - p)}\right) + (1 - p) \sum_{k=1}^{\infty} k p(1-p)^{k - 1} \\
 &= 1 + (1 - p) \mathbb{E}(X)
-\end{align}
+\end{align*}
 
 from where we get \(\mathbb{E}(X) = 1 / p\).
 
@@ -498,81 +498,81 @@ and so
 \textbf{Exercise 4.7.7}. Let \(X\) be a continuous random variable with
 CDF \(F\). Suppose that \(\mathbb{P}(X > 0) = 1\) and that
 \(\mathbb{E}(X)\) exists. Show that
-\(\mathbb{E}(X) = \int_0^\infty \mathbb{P}(X > x) dx\).
+\(\mathbb{E}(X) = \int_{0}^{\infty} \mathbb{P}(X > x) dx\).
 
 Hint: Consider integrating by parts. The following fact is helpful: if
 \(\mathbb{E}(X)\) exists then
 \(\lim_{x \rightarrow +\infty} x | 1 - F(x) | = 0\).
 
-\textbf{Solution}. Let's prove the following, slightly more general,
+\textbf{Solution}. Prove the following, slightly more general,
 lemma.
 
 Lemma: For every continuous random variable \(X\),
 
-\[ \mathbb{E}(X) = \int_0^\infty (1 - F_X(y)) dy - \int_{-\infty}^0 F_X(y) dy \]
+\[ \mathbb{E}(X) = \int_{0}^{\infty} (1 - F_X(y)) dy - \int_{-\infty}^{0} F_X(y) dy \]
 
 Proof:
 
-\begin{align}
-\mathbb{E}(X) &= \int_{-\infty}^\infty x f_X(x) dx \\
-&= \int_{-\infty}^0 \int_x^0 -f_X(x) dy dx + \int_0^\infty \int_0^x f_X(x) dy dx \\
-&= -\int_{-\infty}^0 \int_{-\infty}^y f_X(x) dx dy + \int_0^\infty \int_y^\infty f_X(x) dx dy \\
-&= -\int_{\infty}^0 \mathbb{P}(X \leq y) dy + \int_0^\infty \mathbb{P}(X \geq y) dy \\
-&= \int_0^\infty (1 - F_X(y)) dy - \int_{-\infty}^0 F_X(y) dy
-\end{align}
+\begin{align*}
+\mathbb{E}(X) &= \int_{-\infty}^{\infty} x f_X(x) dx \\
+&= \int_{-\infty}^{0} \int_x^{0} -f_X(x) dy dx + \int_{0}^{\infty} \int_{0}^x f_X(x) dy dx \\
+&= -\int_{-\infty}^{0} \int_{-\infty}^y f_X(x) dx dy + \int_{0}^{\infty} \int_y^{\infty} f_X(x) dx dy \\
+&= -\int_{\infty}^{0} \mathbb{P}(X \leq y) dy + \int_{0}^{\infty} \mathbb{P}(X \geq y) dy \\
+&= \int_{0}^{\infty} (1 - F_X(y)) dy - \int_{-\infty}^{0} F_X(y) dy
+\end{align*}
 
 The result follows by imposing \(\mathbb{P}(X > 0) = 1\), which implies
-\(\int_{-\infty}^0 F_X(y) dy = 0\).
+\(\int_{-\infty}^{0} F_X(y) dy = 0\).
 
 \textbf{Exercise 4.7.8}. Prove Theorem 4.16.
 
-Let \(X_1, \dots, X_n\) be IID and let \(\mu = \mathbb{E}(X_i)\),
-\(\sigma^2 = \mathbb{V}(X_i)\). Then
+Let \(X_{1}, \dots, X_{n}\) be IID and let \(\mu = \mathbb{E}(X_{i})\),
+\(\sigma^{2} = \mathbb{V}(X_{i})\). Then
 
 \[ 
-\mathbb{E}\left(\overline{X}_n\right) = \mu,
+\mathbb{E}\left(\overline{X}_{n}\right) = \mu,
 \quad
-\mathbb{V}\left(\overline{X}_n\right) = \frac{\sigma^2}{n},
+\mathbb{V}\left(\overline{X}_{n}\right) = \frac{\sigma^{2}}{n},
 \quad \text{and} \quad
-\mathbb{E}\left(S_n^2\right) = \sigma^2
+\mathbb{E}\left(S_{n}^{2}\right) = \sigma^{2}
 \]
 
 \textbf{Solution}.
 
 For the expected value of sample mean:
 
-\[ \mathbb{E}\left(\overline{X}_n\right) 
-= \mathbb{E}\left( \frac{1}{n} \sum_{i=1}^n X_i \right)
-= \frac{1}{n} \sum_{i=1}^n \mathbb{E}(X_i)
+\[ \mathbb{E}\left(\overline{X}_{n}\right) 
+= \mathbb{E}\left( \frac{1}{n} \sum_{i=1}^{n} X_{i} \right)
+= \frac{1}{n} \sum_{i=1}^{n} \mathbb{E}(X_{i})
 = \frac{1}{n} n\mu = \mu \]
 
 For the variance of sample mean:
 
-\[ \mathbb{V}\left(\overline{X}_n\right) 
-= \mathbb{V}\left( \frac{1}{n} \sum_{i=1}^n X_i \right)
-= \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}(X_i)
-= \frac{1}{n^2} n \sigma^2 = \frac{\sigma^2}{n} \]
+\[ \mathbb{V}\left(\overline{X}_{n}\right) 
+= \mathbb{V}\left( \frac{1}{n} \sum_{i=1}^{n} X_{i} \right)
+= \frac{1}{n^{2}} \sum_{i=1}^{n} \mathbb{V}(X_{i})
+= \frac{1}{n^{2}} n \sigma^{2} = \frac{\sigma^{2}}{n} \]
 
 For the expected value of sample variance:
 
-\begin{align}
-\mathbb{E}(S_n^2) &= \mathbb{E}\left(\frac{1}{n - 1} \sum_{i=1}^n \left(X_i - \overline{X}_n\right)^2 \right) \\
-&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^n \left(X_i - \overline{X}_n\right)^2 \right) \\
-&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^n X_i^2 - 2 X_i \overline{X}_n + \overline{X}_n^2 \right) \\
-&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^n X_i^2 - 2 \overline{X}_n \sum_{i=1}^n X_i + n \overline{X}_n^2 \right) \\
-&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^n X_i^2 - 2 \overline{X}_n \cdot n \overline{X}_n  + n \overline{X}_n^2 \right) \\
-&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^n X_i^2 - n \overline{X}_n^2 \right) \\
-&= \frac{1}{n - 1} \left( \sum_{i=1}^n  \mathbb{E}(X_i^2) - n \mathbb{E}\left( \overline{X}_n^2 \right) \right) \\
-&= \frac{1}{n - 1} \left( \sum_{i=1}^n \left(\mathbb{V}(X_i) + \mathbb{E}(X_i)^2 \right) - n \left(\mathbb{V}\left( \overline{X}_n \right) + \mathbb{E}\left(\overline{X}_n\right)^2 \right)\right) \\
-&= \frac{1}{n -1} \left( n \left( \sigma^2 + \mu^2\right) - n \left(\frac{\sigma^2}{n} + \mu^2 \right) \right) \\
-&= \sigma^2
-\end{align}
+\begin{align*}
+\mathbb{E}(S_{n}^{2}) &= \mathbb{E}\left(\frac{1}{n - 1} \sum_{i=1}^{n} \left(X_{i} - \overline{X}_{n}\right)^{2} \right) \\
+&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^{n} \left(X_{i} - \overline{X}_{n}\right)^{2} \right) \\
+&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^{n} X_{i}^{2} - 2 X_{i} \overline{X}_{n} + \overline{X}_{n}^{2} \right) \\
+&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^{n} X_{i}^{2} - 2 \overline{X}_{n} \sum_{i=1}^{n} X_{i} + n \overline{X}_{n}^{2} \right) \\
+&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^{n} X_{i}^{2} - 2 \overline{X}_{n} \cdot n \overline{X}_{n}  + n \overline{X}_{n}^{2} \right) \\
+&= \frac{1}{n - 1} \mathbb{E} \left( \sum_{i=1}^{n} X_{i}^{2} - n \overline{X}_{n}^{2} \right) \\
+&= \frac{1}{n - 1} \left( \sum_{i=1}^{n}  \mathbb{E}(X_{i}^{2}) - n \mathbb{E}\left( \overline{X}_{n}^{2} \right) \right) \\
+&= \frac{1}{n - 1} \left( \sum_{i=1}^{n} \left(\mathbb{V}(X_{i}) + \mathbb{E}(X_{i})^{2} \right) - n \left(\mathbb{V}\left( \overline{X}_{n} \right) + \mathbb{E}\left(\overline{X}_{n}\right)^{2} \right)\right) \\
+&= \frac{1}{n -1} \left( n \left( \sigma^{2} + \mu^{2}\right) - n \left(\frac{\sigma^{2}}{n} + \mu^{2} \right) \right) \\
+&= \sigma^{2}
+\end{align*}
 
-\textbf{Exercise 4.7.9 (Computer Experiment)}. Let \(X_1, \dots, X_n\)
+\textbf{Exercise 4.7.9 (Computer Experiment)}. Let \(X_{1}, \dots, X_{n}\)
 be \(N(0, 1)\) random variables and let
-\(\overline{X}_n = n^{-1} \sum_{i=1}^n X_i\). Plot \(\overline{X}_n\)
+\(\overline{X}_{n} = n^{-1} \sum_{i=1}^{n} X_{i}\). Plot \(\overline{X}_{n}\)
 versus \(n\) for \(n = 1, \dots, 10,000\). Repeat for
-\(X_1, \dots, X_n \sim \text{Cauchy}\). Explain why there is such a
+\(X_{1}, \dots, X_{n} \sim \text{Cauchy}\). Explain why there is such a
 difference.
 
 \begin{python}
@@ -597,20 +597,21 @@ ax = plt.subplot(2, 1, 1)
 ax.plot(nn, np.cumsum(X) / nn)
 ax.set_title('N(0, 1)')
 ax.set_xlabel('n')
-ax.set_ylabel(r'$\overline{X}_n$')
+ax.set_ylabel(r'$\overline{X}_{n}$')
 
 ax = plt.subplot(2, 1, 2)
 ax.plot(nn, np.cumsum(Y) / nn)
 ax.set_title('Cauchy')
 ax.set_xlabel('n')
-ax.set_ylabel(r'$\overline{X}_n$')
+ax.set_ylabel(r'$\overline{X}_{n}$')
 
 plt.tight_layout()
 plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-04-01}
+\centering
+\includegraphics{Figure-04-01}
 \end{figure}
 
 The mean on the Cauchy distribution is famously undefined:
@@ -631,28 +632,28 @@ and so the PDF is
 
 The expected value is
 
-\[ \mathbb{E}(Y) = \int y f_Y(y) dy = \int_0^\infty y \frac{\phi(\log y)}{y} dy = \int_0^\infty \phi(\log y)\; dy = \sqrt{e}\]
+\[ \mathbb{E}(Y) = \int y f_Y(y) dy = \int_{0}^{\infty} y \frac{\phi(\log y)}{y} dy = \int_{0}^{\infty} \phi(\log y)\; dy = \sqrt{e}\]
 
-The expected value of \(Y^2\) is
+The expected value of \(Y^{2}\) is
 
-\[ \mathbb{E}(Y^2) = \int y^2 f_Y(y) dy = \int_0^\infty y^2 \frac{\phi(\log y)}{y} dy = \int_0^\infty y \phi(\log y)\; dy = e^2\]
+\[ \mathbb{E}(Y^{2}) = \int y^{2} f_Y(y) dy = \int_{0}^{\infty} y^{2} \frac{\phi(\log y)}{y} dy = \int_{0}^{\infty} y \phi(\log y)\; dy = e^{2}\]
 
 and so the variance is
 
-\[ \mathbb{V}(Y) = \mathbb{E}(Y^2) - \mathbb{E}(Y)^2 = e(e - 1) \]
+\[ \mathbb{V}(Y) = \mathbb{E}(Y^{2}) - \mathbb{E}(Y)^{2} = e(e - 1) \]
 
 \textbf{Exercise 4.7.11 (Computer Experiment: Simulating the Stock
-Market)}. Let \(Y_1, Y_2, \dots\) be independent random variables such
-that \(\mathbb{P}(Y_i = 1) = \mathbb{P}(Y_i = -1) = 1/2\). Let
-\(X_n = \sum_{i=1}^n Y_i\). Think of \(Y_i = 1\) as ``the stock price
-increased by one dollar'' \(Y_i = -1\) as ``the stock price decreased by
-one dollar'' and \(X_n\) as the value of the stock on day \(n\).
+Market)}. Let \(Y_{1}, Y_{2}, \dots\) be independent random variables such
+that \(\mathbb{P}(Y_{i} = 1) = \mathbb{P}(Y_{i} = -1) = 1/2\). Let
+\(X_{n} = \sum_{i=1}^{n} Y_{i}\). Think of \(Y_{i} = 1\) as ``the stock price
+increased by one dollar'' \(Y_{i} = -1\) as ``the stock price decreased by
+one dollar'' and \(X_{n}\) as the value of the stock on day \(n\).
 
-\textbf{(a)} Find \(\mathbb{E}(X_n)\) and \(\mathbb{V}(X_n)\).
+\textbf{(a)} Find \(\mathbb{E}(X_{n})\) and \(\mathbb{V}(X_{n})\).
 
-\textbf{(b)} Simulate \(X_n\) and plot \(X_n\) versus \(n\) for
+\textbf{(b)} Simulate \(X_{n}\) and plot \(X_{n}\) versus \(n\) for
 \(n = 1, 2, \dots, 10,000\). Repeat the whole simulation several times.
-Notice two things. First, it's easy to ``see'' patterns in the sequence
+Notice two things. First, it is easy to ``see'' patterns in the sequence
 even though it is random. Second, you will find that the runs look very
 different even though they were generated the same way. How do the
 calculations in (a) explain the second observation?
@@ -661,21 +662,21 @@ calculations in (a) explain the second observation?
 
 \textbf{(a)} We have:
 
-\[ \mathbb{E}(X_n) = \mathbb{E}\left( \sum_{i=1}^n Y_i \right) = \sum_{i=1}^n \mathbb{E}(Y_i) = 0 \]
+\[ \mathbb{E}(X_{n}) = \mathbb{E}\left( \sum_{i=1}^{n} Y_{i} \right) = \sum_{i=1}^{n} \mathbb{E}(Y_{i}) = 0 \]
 
 and
 
-\begin{align}
-\mathbb{E}(X_n^2) &= \mathbb{E}\left( \left( \sum_{i=1}^n Y_i \right)^2 \right) \\
-&= \mathbb{E}\left( \sum_{i=1}^n Y_i^2 + \sum_{i=1}^n \sum_{j = 1, j \neq i}^n Y_i Y_j \right) \\
-&= \sum_{i=1}^n \mathbb{E}(Y_i^2) + \sum_{i=1}^n \sum_{j = 1, j \neq i}^n \mathbb{E}(Y_i Y_j) \\
-&= \sum_{i=1}^n 1 + \sum_{i=1}^n \sum_{j = 1, j \neq i}^n 0 \\
+\begin{align*}
+\mathbb{E}(X_{n}^{2}) &= \mathbb{E}\left( \left( \sum_{i=1}^{n} Y_{i} \right)^{2} \right) \\
+&= \mathbb{E}\left( \sum_{i=1}^{n} Y_{i}^{2} + \sum_{i=1}^{n} \sum_{j = 1, j \neq i}^{n} Y_{i} Y_{j} \right) \\
+&= \sum_{i=1}^{n} \mathbb{E}(Y_{i}^{2}) + \sum_{i=1}^{n} \sum_{j = 1, j \neq i}^{n} \mathbb{E}(Y_{i} Y_{j}) \\
+&= \sum_{i=1}^{n} 1 + \sum_{i=1}^{n} \sum_{j = 1, j \neq i}^{n} 0 \\
 &= n
-\end{align}
+\end{align*}
 
 so
 
-\[\mathbb{V}(X_n) = \mathbb{E}(X_n^2) - \mathbb{E}(X_n)^2 = n\]
+\[\mathbb{V}(X_{n}) = \mathbb{E}(X_{n}^{2}) - \mathbb{E}(X_{n})^{2} = n\]
 
 \textbf{(b)}
 
@@ -709,7 +710,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-04-02}
+\centering
+\includegraphics{Figure-04-02}
 \end{figure}
 
 The standard deviation is \(\sqrt{n}\) -- it scales up with the square
@@ -720,7 +722,7 @@ most of the randomly generated path.
 \textbf{Exercise 4.7.12}. Prove the formulas given in the table at the
 beginning of Section 4.4 for the Bernoulli, Poisson, Uniform,
 Exponential, Gamma, and Beta. Here are some hints. For the mean of the
-Poisson, use the fact that \(e^a = \sum_{x=0}^a a^x / x!\). To compute
+Poisson, use the fact that \(e^{a} = \sum_{x=0}^{a} a^x / x!\). To compute
 the variance, first compute \(\mathbb{E}(X(X - 1))\). For the mean of
 the Gamma, it will help to multiply and divide by
 \(\Gamma(\alpha + 1) / \beta^{\alpha + 1}\) and use the fact that a
@@ -739,139 +741,152 @@ Then:
 \item
   \(\mathbb{E}(X) = p \cdot 1 = p\)
 \item
-  \(\mathbb{E}(X^2) = p^2 \cdot 1 = p^2\)
+  \(\mathbb{E}(X^{2}) = p^{2} \cdot 1 = p^{2}\)
 \item
-  \(\mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = p^2 - p^2 = 0\)
+  \(\mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = p^{2} - p^{2} = 0\)
 \end{itemize}
 
 \textbf{Bernoulli}. Let \(X \sim \text{Bernoulli}(p)\). Then:
 
 \begin{itemize}[tightlist]
 \item
-  \$\mathbb{E}(X) = 1 \cdot p + 0 \cdot (1 - p) = p \$
+  \(\mathbb{E}(X) = 1 \cdot p + 0 \cdot (1 - p) = p \)
 \item
-  \(\mathbb{E}(X^2) = 1 \cdot p + 0 \cdot (1 - p) = p\)
+  \(\mathbb{E}(X^{2}) = 1 \cdot p + 0 \cdot (1 - p) = p\)
 \item
-  \(\mathbb{V}(X^2) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = p(1 - p)\)
+  \(\mathbb{V}(X^{2}) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = p(1 - p)\)
 \end{itemize}
 
 \textbf{Binomial}. Let \(X \sim \text{Binomial}(n, p)\). Then
-\(X = \sum_{i=1}^n Y_i\), where \(Y_i \sim \text{Bernoulli}(p)\) are IID
+\(X = \sum_{i=1}^{n} Y_{i}\), where \(Y_{i} \sim \text{Bernoulli}(p)\) are IID
 random variables.
 
 \begin{itemize}[tightlist]
 \item
-  \$\mathbb{E}(X) = \mathbb{E}\left( \sum\emph{\{i=1\}\^{}n Y\_i \right)
-  = \sum}\{i=1\}\^{}n \mathbb{E}(Y\_i) = np \$
+  \(\mathbb{E}(X) = \mathbb{E}\left( \sum_{i=1}^{n} Y\_{i} \right)
+  = \sum_{i=1}^{n} \mathbb{E}(Y\_{i}) = np\)
 \item
-  \$\mathbb{V}(X) = \mathbb{V}\left(\sum\emph{\{i=1\}\^{}n Y\_i \right)
-  = \sum}\{i=1\}\^{}n \mathbb{V}(Y\_i) = np(1-p) \$
+  \(\mathbb{V}(X) = \mathbb{V}\left(\sum_{i=1}^{n} Y\_{i} \right)
+  = \sum_{i=1}^{n} \mathbb{V}(Y\_{i}) = np(1-p)\)
 \end{itemize}
 
 \textbf{Geometric}. Let \(X \sim \text{Geometric}(p)\). Then:
 
-\begin{align}
-\mathbb{E}(X) &= \sum_{k=1}^\infty k p (1 - p)^{k - 1}  \\
-&= \sum_{k=1}^\infty p(1-p)^{k-1} + \sum_{k=2}^\infty (k - 1) p(1-p)^{k - 1} \\
-&= p \left( 1 + (1 - p) + (1 - p)^2 + \dots \right) + \sum_{k=1}^\infty k p(1-p)^k \\
-&= p \left(\frac{1}{1 - (1 - p)}\right) + (1 - p) \sum_{k=1}^\infty k p(1-p)^{k - 1} \\
+\begin{align*}
+\mathbb{E}(X) &= \sum_{k=1}^{\infty} k p (1 - p)^{k - 1}  \\
+&= \sum_{k=1}^{\infty} p(1-p)^{k-1} + \sum_{k=2}^{\infty} (k - 1) p(1-p)^{k - 1} \\
+&= p \left( 1 + (1 - p) + (1 - p)^{2} + \dots \right) + \sum_{k=1}^{\infty} k p(1-p)^{k} \\
+&= p \left(\frac{1}{1 - (1 - p)}\right) + (1 - p) \sum_{k=1}^{\infty} k p(1-p)^{k - 1} \\
 &= 1 + (1 - p) \mathbb{E}(X)
-\end{align}
+\end{align*}
 
 Solving for the expectation, we get \(\mathbb{E}(X) = 1/p\).
 
 We also have:
 
-\begin{align}
-\mathbb{E}(X^2) &= \sum_{k=1}^\infty k^2 p (1 - p)^{k - 1}  \\
-&= \sum_{k=1}^\infty k p(1-p)^{k-1} + \sum_{k=2}^\infty (k^2 - k) p(1-p)^{k - 1} \\
-&= \mathbb{E}(X) + (1 - p) \sum_{k=1}^\infty (k^2 + k) p(1-p)^{k - 1} \\
-&= \mathbb{E}(X) + (1 - p) \mathbb{E}(X) + (1 - p) \sum_{k=1}^\infty k^2 p(1-p)^{k-1} \\
-&= \frac{2 - p}{p} + (1 - p) \mathbb{E}(X^2)
-\end{align}
+\begin{align*}
+\mathbb{E}(X^{2}) &= \sum_{k=1}^{\infty} k^{2} p (1 - p)^{k - 1}  \\
+&= \sum_{k=1}^{\infty} k p(1-p)^{k-1} + \sum_{k=2}^{\infty} (k^{2} - k) p(1-p)^{k - 1} \\
+&= \mathbb{E}(X) + (1 - p) \sum_{k=1}^{\infty} (k^{2} + k) p(1-p)^{k - 1} \\
+&= \mathbb{E}(X) + (1 - p) \mathbb{E}(X) + (1 - p) \sum_{k=1}^{\infty} k^{2} p(1-p)^{k-1} \\
+&= \frac{2 - p}{p} + (1 - p) \mathbb{E}(X^{2})
+\end{align*}
 
-Solving for the expectation, we get \(\mathbb{E}(X^2) = (2 - p) / p^2\).
+Solving for the expectation, we get \(\mathbb{E}(X^{2}) = (2 - p) / p^{2}\).
 
 Finally,
 
-\[ \mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = \frac{2 - p}{p^2} - \frac{1}{p^2} = \frac{1 - p}{p^2} \]
+\[ \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = \frac{2 - p}{p^{2}} - \frac{1}{p^{2}} = \frac{1 - p}{p^{2}} \]
 
 \textbf{Poisson}. Let \(X \sim \text{Poisson}(\lambda)\). Then:
 
 \begin{itemize}
 \item
-  \$ \mathbb{E}(X) = \sum\emph{\{k=0\}\^{}\infty k
-  \frac{\lambda^k e^{-\lambda}}{k!} = \lambda e\^{}\{-\lambda\}
-  \sum}\{k=1\}\^{}\infty \frac{\lambda^{k - 1} }{(k - 1)!} =
-  \lambda e\^{}\{-\lambda\} \sum\_\{k=0\}\^{}\infty \frac{\lambda^k}{k!}
-  = \lambda e\^{}\{-\lambda\} e\^{}\{\lambda\} = \lambda \$
+  \( \mathbb{E}(X) = \sum_{k=0}^{\infty} k
+  \frac{\lambda^{k} e^{-\lambda}}{k!} = \lambda e^{-\lambda}
+  \sum_{k=1}^{\infty} \frac{\lambda^{k - 1} }{(k - 1)!} =
+  \lambda e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k!}
+  = \lambda e^{-\lambda} e^{\lambda} = \lambda \)
 \item
-  \$ \mathbb{E}(X\^{}2) = \sum\emph{\{k=0\}\textsuperscript{\infty k}2
-  \frac{\lambda^k e^{-\lambda}}{k!} = \lambda \sum}\{k=1\}\^{}\infty k
+  \( \mathbb{E}(X^{2}) = \sum_{k=0}^{\infty}k^{2}
+  \frac{\lambda^{k} e^{-\lambda}}{k!} = \lambda \sum_{k=1}^{\infty} k
   \frac{\lambda^{k-1} e^{-\lambda} }{(k-1)!} =
-  \lambda \sum\_\{k=0\}\^{}\infty (k + 1)
+  \lambda \sum_{k=0}^{\infty} (k + 1)
   \frac{\lambda^{k} e^{-\lambda} }{k!} = \lambda \mathbb{E}(X + 1) =
-  \lambda(\lambda + 1) \$
+  \lambda(\lambda + 1) \)
 \item
-  \$ \mathbb{V}(X) = \mathbb{E}(X\^{}2) - \mathbb{E}(X)\^{}2 =
-  \lambda\^{}2 + \lambda - \lambda\^{}2 = \lambda \$
+  \( \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} =
+  \lambda^{2} + \lambda - \lambda^{2} = \lambda \)
 \end{itemize}
 
 \textbf{Uniform}. Let \(X \sim \text{Uniform}(a, b)\). Then:
 
 \begin{itemize}[tightlist]
 \item
-  \(\mathbb{E}(X) = \int_a^b x \frac{1}{b - a} dx = \frac{a + b}{2}\)
+  \(\mathbb{E}(X) = \int_a^{b} x \frac{1}{b - a} dx = \frac{a + b}{2}\)
 \item
-  \(\mathbb{E}(X^2) = \int_a^b x^2 \frac{1}{b - a} dx = \frac{a^2 + ab + b}{3}\)
+  \(\mathbb{E}(X^{2}) = \int_a^{b} x^{2} \frac{1}{b - a} dx = \frac{a^{2} + ab + b}{3}\)
 \item
-  \(\mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = \frac{a^2 + ab + b}{3} - \frac{a^2 + 2ab + b^2}{4} = \frac{(b - a)^2}{12}\)
+  \(\mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = \frac{a^{2} + ab + b}{3} - \frac{a^{2} + 2ab + b^{2}}{4} = \frac{(b - a)^{2}}{12}\)
 \end{itemize}
 
-\textbf{Normal}. Let \(X \sim N(\mu, \sigma^2)\). Converting into a
+\textbf{Normal}. Let \(X \sim N(\mu, \sigma^{2})\). Converting into a
 standard normal, we get \(Z = (X - \mu) / \sigma \sim N(0, 1)\). Then:
 
 \begin{itemize}[tightlist]
 \item
-  \$ \mathbb{E}(X) = \mathbb{E}(\sigma Z + \mu) = \sigma \mathbb{E}(Z) +
-  \mu = \mu\$
+  $ \mathbb{E}(X) = \mathbb{E}(\sigma Z + \mu) = \sigma \mathbb{E}(Z) +
+  \mu = \mu$
 \item
-  \$ \mathbb{V}(X) = \mathbb{V}(\sigma Z + \mu) = \sigma\^{}2
-  \mathbb{V}(Z) = \sigma\^{}2\$
+  $ \mathbb{V}(X) = \mathbb{V}(\sigma Z + \mu) = \sigma^{2}
+  \mathbb{V}(Z) = \sigma^{2}$
 \end{itemize}
 
 To prove that the expected value \(Z\) is 0, note that the PDF of \(Z\)
 is even, \(\phi(z) = \phi(-z)\), so
 
-\[ \mathbb{E}(Z) = \int_{-\infty}^\infty z \phi(z) dz = \int_{-\infty}^0 z \phi(z) dz + \int_0^\infty z \phi(z) dz = 
-\int_0^\infty -z \phi(-z) dz + \int_0^\infty z \phi(z) dz = \int_0^\infty (-z + z)\phi(z) = 0 \]
+\begin{align*}
+\mathbb{E}(Z) 
+  = \int_{-\infty}^{\infty} z \phi(z) dz 
+& = \int_{-\infty}^{0} z \phi(z) dz + \int_{0}^{\infty} z \phi(z) dz 
+\\
+& = \int_{0}^{\infty} -z \phi(-z) dz + \int_{0}^{\infty} z \phi(z) dz 
+\\
+& = \int_{0}^{\infty} (-z + z)\phi(z) = 0 
+\end{align*}
 
 To prove that the variance of \(Z\) is 0, write out the integral
-explicitly for the expectation of \(Z^2\),
+explicitly for the expectation of \(Z^{2}\),
 
-\[ \mathbb{E}(Z^2) = \int_{-\infty}^\infty z^2 \phi(z) dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty z^2 e^{-z^2/2} dz
-= \left[ \Phi(z) - \frac{1}{\sqrt{2 \pi}}  z e^{-z^2/2} \right]_{-\infty}^\infty = \lim_{x \rightarrow +\infty} \Phi(x) - \lim_{x \rightarrow -\infty} \Phi(x) = 1 - 0 = 1
-\]
+\begin{align*}
+\mathbb{E}(Z^{2}) 
+& = \int_{-\infty}^{\infty} z^{2} \phi(z) dz 
+  = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z^{2} e^{-z^{2}/2} dz
+  = \left[ \Phi(z) - \frac{1}{\sqrt{2 \pi}}  z e^{-z^{2}/2} \right]_{-\infty}^{\infty} 
+\\
+& = \lim_{x \rightarrow +\infty} \Phi(x) - \lim_{x \rightarrow -\infty} \Phi(x) 
+  = 1 - 0 
+  = 1
+\end{align*}
 
 and so
 
-\[\mathbb{V}(Z) = \mathbb{E}(Z^2) - \mathbb{E}(Z)^2 = 1 - 0 = 1\]
+\[\mathbb{V}(Z) = \mathbb{E}(Z^{2}) - \mathbb{E}(Z)^{2} = 1 - 0 = 1\]
 
 \textbf{Exponential}. Let \(X \sim \text{Exponential}(\beta)\). Then:
 
 \begin{itemize}[tightlist]
 \item
-  \$ \mathbb{E}(X) = \int\_0\^{}\infty x \frac{1}{\beta} e\^{}\{-x /
-  \beta\} dx = \frac{1}{\beta} \int\_0\^{}\infty x e\^{}\{-x / \beta\}
-  dx = \frac{1}{\beta} \beta\^{}2 = \beta\$
+  \( \mathbb{E}(X) = \int_{0}^{\infty} x \frac{1}{\beta} e^{-x / \beta} dx = \frac{1}{\beta} \int_{0}^{\infty} x e^{-x / \beta}
+  dx = \frac{1}{\beta} \beta^{2} = \beta \)
 \item
-  \$\mathbb{E}(X\^{}2) = \int\_0\textsuperscript{\infty x}2
-  \frac{1}{\beta} e\^{}\{-x / \beta\} dx = \frac{1}{\beta}
-  \int\_0\textsuperscript{\infty x}2 e\^{}\{-x / \beta\} dx =
-  \frac{1}{\beta} 2\beta\^{}3 = 2 \beta\^{}2 \$
+  \( \mathbb{E}(X^{2}) = \int_{0}^{\infty} x2
+  \frac{1}{\beta} e^{-x / \beta} dx = \frac{1}{\beta}
+  \int_{0}^{\infty} x2 e^{-x / \beta} dx =
+  \frac{1}{\beta} 2\beta^{3} = 2 \beta^{2} \)
 \item
-  \$ \mathbb{V}(X) = \mathbb{E}(X\^{}2) - \mathbb{E}(X)\^{}2 =
-  2\beta\^{}2 - \beta\^{}2 = \beta\^{}2\$
+  \( \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} =
+  2\beta^{2} - \beta^{2} = \beta^{2} \)
 \end{itemize}
 
 \textbf{Gamma}. Let \(X \sim \text{Gamma}(\alpha, \beta)\). The PDF is
@@ -880,13 +895,13 @@ and so
 
 We have:
 
-\begin{align}
+\begin{align*}
 \mathbb{E}(X) 
 &= \int x f_X(x) dx \\
-&= \int_0^\infty x \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\beta x} dx \\
-&= \frac{\alpha}{\beta} \int_0^\infty\frac{\beta^{\alpha + 1}}{\Gamma(\alpha + 1)} x^\alpha e^{-\beta x} dx \\
+&= \int_{0}^{\infty} x \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\beta x} dx \\
+&= \frac{\alpha}{\beta} \int_{0}^{\infty}\frac{\beta^{\alpha + 1}}{\Gamma(\alpha + 1)} x^\alpha e^{-\beta x} dx \\
 &= \frac{\alpha}{\beta}
-\end{align}
+\end{align*}
 
 where we used that
 
@@ -900,13 +915,13 @@ where we used that
 
 We also have:
 
-\begin{align}
-\mathbb{E}(X^2) 
-&= \int x^2 f_X(x) dx \\
-&= \int_0^\infty x^2 \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\beta x} dx \\
-&= \frac{\alpha (\alpha + 1)}{\beta^2} \int_0^\infty\frac{\beta^{\alpha + 2}}{\Gamma(\alpha + 2)} x^{\alpha + 1} e^{-\beta x} dx \\
-&= \frac{\alpha (\alpha + 1)}{\beta^2}
-\end{align}
+\begin{align*}
+\mathbb{E}(X^{2}) 
+&= \int x^{2} f_X(x) dx \\
+&= \int_{0}^{\infty} x^{2} \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha - 1} e^{-\beta x} dx \\
+&= \frac{\alpha (\alpha + 1)}{\beta^{2}} \int_{0}^{\infty}\frac{\beta^{\alpha + 2}}{\Gamma(\alpha + 2)} x^{\alpha + 1} e^{-\beta x} dx \\
+&= \frac{\alpha (\alpha + 1)}{\beta^{2}}
+\end{align*}
 
 \begin{itemize}[tightlist]
 \item
@@ -918,7 +933,7 @@ We also have:
 
 Therefore,
 
-\[ \mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = \frac{\alpha (\alpha + 1)}{\beta^2} - \frac{\alpha^2}{\beta^2} = \frac{\alpha}{\beta^2} \]
+\[ \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = \frac{\alpha (\alpha + 1)}{\beta^{2}} - \frac{\alpha^{2}}{\beta^{2}} = \frac{\alpha}{\beta^{2}} \]
 
 \textbf{Beta}. Let \(X \sim \text{Beta}(\alpha, \beta)\). The PDF is
 
@@ -926,13 +941,13 @@ Therefore,
 
 We have:
 
-\begin{align}
+\begin{align*}
 \mathbb{E}(X) 
 &= \int x f_X(x) dx \\
-&= \int_0^\infty x \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1}(1 - x)^{\beta - 1} dx \\
-&= \frac{\alpha}{\alpha + \beta} \int_0^\infty \frac{\Gamma(\alpha + \beta + 1)}{\Gamma(\alpha + 1) \Gamma(\beta)} x^{\alpha}(1 - x)^{\beta - 1} dx \\
+&= \int_{0}^{\infty} x \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1}(1 - x)^{\beta - 1} dx \\
+&= \frac{\alpha}{\alpha + \beta} \int_{0}^{\infty} \frac{\Gamma(\alpha + \beta + 1)}{\Gamma(\alpha + 1) \Gamma(\beta)} x^{\alpha}(1 - x)^{\beta - 1} dx \\
 &= \frac{\alpha}{\alpha + \beta}
-\end{align}
+\end{align*}
 
 where we used that
 
@@ -948,13 +963,13 @@ where we used that
 
 We also have:
 
-\begin{align}
-\mathbb{E}(X^2) 
-&= \int x^2 f_X(x) dx \\
-&= \int_0^\infty x^2 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1}(1 - x)^{\beta - 1} dx \\
-&= \frac{\alpha (\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)} \int_0^\infty \frac{\Gamma(\alpha + \beta + 2)}{\Gamma(\alpha + 2) \Gamma(\beta)} x^{\alpha + 1}(1 - x)^{\beta - 1} dx \\
+\begin{align*}
+\mathbb{E}(X^{2}) 
+&= \int x^{2} f_X(x) dx \\
+&= \int_{0}^{\infty} x^{2} \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha - 1}(1 - x)^{\beta - 1} dx \\
+&= \frac{\alpha (\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)} \int_{0}^{\infty} \frac{\Gamma(\alpha + \beta + 2)}{\Gamma(\alpha + 2) \Gamma(\beta)} x^{\alpha + 1}(1 - x)^{\beta - 1} dx \\
 &= \frac{\alpha (\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)}
-\end{align}
+\end{align*}
 
 where we used that
 
@@ -970,41 +985,48 @@ where we used that
 
 Therefore,
 
-\[ \mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = \frac{\alpha (\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)} - \frac{\alpha^2}{(\alpha + \beta)^2} = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)} \]
+\[ \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = \frac{\alpha (\alpha + 1)}{(\alpha + \beta)(\alpha + \beta + 1)} - \frac{\alpha^{2}}{(\alpha + \beta)^{2}} = \frac{\alpha \beta}{(\alpha + \beta)^{2} (\alpha + \beta + 1)} \]
 
 \textbf{t-student}. Let \(X \sim t_\nu\). The PDF for the t-student
 distribution is
 
-\[ f_X(x) = \frac{1}{\sqrt{v \pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \frac{1}{\left(1 + \frac{x^2}{\nu} \right)^{(\nu + 1)/2}} \]
+\[ f_X(x) = \frac{1}{\sqrt{v \pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \frac{1}{\left(1 + \frac{x^{2}}{\nu} \right)^{(\nu + 1)/2}} \]
 
 Since the PDF is even, \(f_X(x) = f_X(-x)\), the expectation will be 0
 when it is defined:
 
-\[ \mathbb{E}(X) = \int_{-\infty}^\infty x f_X(x) dx = \int_{-\infty}^0 x f_X(x) dx + \int_0^\infty x f_X(x) dx = 
-\int_0^\infty -x f_X(-x) dx + \int_0^\infty x f_X(x) dx = \int_0^\infty (-x + x)f_X(x) dx = 0 \]
+\begin{align*}
+\mathbb{E}(X) 
+& = \int_{-\infty}^{\infty} x f_X(x) dx 
+  = \int_{-\infty}^{0} x f_X(x) dx + \int_{0}^{\infty} x f_X(x) dx 
+\\
+& = \int_{0}^{\infty} -x f_X(-x) dx + \int_{0}^{\infty} x f_X(x) dx 
+\\
+& = \int_{0}^{\infty} (-x + x)f_X(x) dx = 0
+\end{align*}
 
 But
 
-\[ \mathbb{E}(X) = \int_{-\infty}^\infty x f_X(x) dx = \frac{1}{\sqrt{v \pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \int_{-\infty}^\infty x  \left(1 + \frac{x^2}{\nu} \right)^{-(\nu + 1)/2} dx \]
+\[ \mathbb{E}(X) = \int_{-\infty}^{\infty} x f_X(x) dx = \frac{1}{\sqrt{v \pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \int_{-\infty}^{\infty} x  \left(1 + \frac{x^{2}}{\nu} \right)^{-(\nu + 1)/2} dx \]
 
-For the expectation of \(X^2\), assuming it is defined, we have:
+For the expectation of \(X^{2}\), assuming it is defined, we have:
 
-\begin{align}
-\mathbb{E}(X^2) &= \int_{-\infty}^\infty x^2 f_X(x) dx \\
-&= \frac{1}{\sqrt{v \pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \int_{-\infty}^\infty x^2 \left( 1 + \frac{x^2}{\nu}\right)^{-(\nu + 1) / 2} dx \\
-&= \frac{\nu}{\sqrt{\pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \int_0^1 y^{\nu /2 - 2} \left( 1 - y \right)^{1 / 2} dy \\
+\begin{align*}
+\mathbb{E}(X^{2}) &= \int_{-\infty}^{\infty} x^{2} f_X(x) dx \\
+&= \frac{1}{\sqrt{v \pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \int_{-\infty}^{\infty} x^{2} \left( 1 + \frac{x^{2}}{\nu}\right)^{-(\nu + 1) / 2} dx \\
+&= \frac{\nu}{\sqrt{\pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \int_{0}^{1} y^{\nu /2 - 2} \left( 1 - y \right)^{1 / 2} dy \\
 &= \frac{\nu}{\sqrt{\pi}} \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right)} \frac{\Gamma\left(\frac{\nu}{2} - 1\right) \Gamma\left(\frac{3}{2}\right)}{\Gamma\left(\frac{\nu + 1}{2}\right)} \\
 &= \frac{\nu}{\nu - 2}
-\end{align}
+\end{align*}
 
 where we used:
 
 \begin{itemize}[tightlist]
 \item
-  A variable replacement \(y = \left( 1 + \frac{x^2}{\nu} \right)^{-1}\)
+  A variable replacement \(y = \left( 1 + \frac{x^{2}}{\nu} \right)^{-1}\)
 \item
   The property that
-  \(\int_0^1 y^{p - 1} (1 - y)^{q - 1} dy = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p + q)}\),
+  \(\int_{0}^{1} y^{p - 1} (1 - y)^{q - 1} dy = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p + q)}\),
   since this is the integral of the PDF of \(\Gamma(p, q)\) scaled by a
   factor of \(\frac{\Gamma(p) \Gamma(q)}{\Gamma(p + q)}\), with
   \(p = \nu / 2 - 1\), \(q = 3/2\)
@@ -1014,50 +1036,50 @@ where we used:
 
 Finally,
 
-\[ \mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = \frac{\nu}{\nu - 2} \]
+\[ \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = \frac{\nu}{\nu - 2} \]
 
-\emph{Reference: https://math.stackexchange.com/a/1502519}
+Reference: \url{https://math.stackexchange.com/a/1502519}
 
-\textbf{\(\chi^2\) distribution}. Let \(X \sim \chi^2_k\). Then \(X\)
+\textbf{\(\chi^{2}\) distribution}. Let \(X \sim \chi^{2}_{k}\). Then \(X\)
 has the same distributions as the sum of squares of \(k\) IID standard
-Normal random variables, \(X = \sum_{i=1}^k Z_i^2\),
-\(Z_i \sim N(0, 1)\).
+Normal random variables, \(X = \sum_{i=1}^{k} Z_{i}^{2}\),
+\(Z_{i} \sim N(0, 1)\).
 
 The expectation of \(X\) can then be computed:
 
-\[ \mathbb{E}(X) = \mathbb{E}\left( \sum_{i=1}^k Z_i^2 \right) = \sum_{i=1}^k \mathbb{E}(Z_i^2) = \sum_{i=1}^k (\mathbb{V}(Z_i) + \mathbb{E}(Z_i)^2) = \sum_{i=1}^k (1 + 0) = k \]
+\[ \mathbb{E}(X) = \mathbb{E}\left( \sum_{i=1}^{k} Z_{i}^{2} \right) = \sum_{i=1}^{k} \mathbb{E}(Z_{i}^{2}) = \sum_{i=1}^{k} (\mathbb{V}(Z_{i}) + \mathbb{E}(Z_{i})^{2}) = \sum_{i=1}^{k} (1 + 0) = k \]
 
-The expectation of \(X^2\) is:
+The expectation of \(X^{2}\) is:
 
-\begin{align}
-\mathbb{E}(X^2) &= \mathbb{E}\left( \left( \sum_{i=1}^k Z_i^2 \right)^2 \right) \\
-&= \mathbb{E}\left( \sum_{i=1}^k Z_i^4 + \sum_{i=1}^k \sum_{j=1; j \neq i}^k Z_i^2 Z_j^2 \right) \\
-&= \sum_{i=1}^k \mathbb{E}(Z_i^4) + \sum_{i=1}^k \sum_{j=1; j \neq i}^k \mathbb{E}(Z_i^2) \mathbb{E}(Z_j^2)
-\end{align}
+\begin{align*}
+\mathbb{E}(X^{2}) &= \mathbb{E}\left( \left( \sum_{i=1}^{k} Z_{i}^{2} \right)^{2} \right) \\
+&= \mathbb{E}\left( \sum_{i=1}^{k} Z_{i}^{4} + \sum_{i=1}^{k} \sum_{j=1; j \neq i}^{k} Z_{i}^{2} Z_{j}^{2} \right) \\
+&= \sum_{i=1}^{k} \mathbb{E}(Z_{i}^{4}) + \sum_{i=1}^{k} \sum_{j=1; j \neq i}^{k} \mathbb{E}(Z_{i}^{2}) \mathbb{E}(Z_{j}^{2})
+\end{align*}
 
 But we have:
 
-\[ \mathbb{E}(Z_i^2) = \mathbb{V}(Z_i) + \mathbb{E}(Z_i)^2 = 1 + 0 = 1 \]
+\[ \mathbb{E}(Z_{i}^{2}) = \mathbb{V}(Z_{i}) + \mathbb{E}(Z_{i})^{2} = 1 + 0 = 1 \]
 
 and, using moment generating functions,
 
-\[M_Z(t) = e^{t^2 / 2}\]
+\[M_Z(t) = e^{t^{2} / 2}\]
 
 and taking the fourth derivative,
 
 \[ M_Z^{(4)}(t) = 3 M_Z^{(2)}(t) + t M_Z^{(3)}(t)\]
 
-Setting \(t = 0\) gives us \(\mathbb{E}(Z_i^4) = 3\).
+Setting \(t = 0\) gives us \(\mathbb{E}(Z_{i}^{4}) = 3\).
 
-Replacing it back on the expectation expression for \(X^2\),
+Replacing it back on the expectation expression for \(X^{2}\),
 
 \[
-\mathbb{E}(X^2) = \sum_{i=1}^k 3 + \sum_{i=1}^k \sum_{j=1; j \neq i}^k 1 \cdot 1 = 3k + k(k-1) = k^2 + 2k
+\mathbb{E}(X^{2}) = \sum_{i=1}^{k} 3 + \sum_{i=1}^{k} \sum_{j=1; j \neq i}^{k} 1 \cdot 1 = 3k + k(k-1) = k^{2} + 2k
 \]
 
 Therefore,
 
-\[ \mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = k^2 + 2k - k^2 = 2k \]
+\[ \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = k^{2} + 2k - k^{2} = 2k \]
 
 \emph{The proofs for the multinomial and mutivariate normal distribution
 expressions are provided in the book text (and there are notes above).}
@@ -1071,52 +1093,52 @@ tails, take \(X\) to have a \(\text{Uniform}(3, 4)\) distribution.
 
 \textbf{(b)} Find the standard deviation of \(X\).
 
-\textbf{Solution}. We have \(X = C U_1 + (1 - C)U_2\), where
-\(C \sim \text{Bernoulli}(1/2)\), \(U_1 \sim \text{Uniform}(0, 1)\) and
-\(U_2 \sim \text{Uniform}(3, 4)\) are all independent.
+\textbf{Solution}. We have \(X = C U_{1} + (1 - C)U_{2}\), where
+\(C \sim \text{Bernoulli}(1/2)\), \(U_{1} \sim \text{Uniform}(0, 1)\) and
+\(U_{2} \sim \text{Uniform}(3, 4)\) are all independent.
 
 \textbf{(a)}
 
-\[\mathbb{E}(X) = \mathbb{E}(CU_1 + (1 - C)U_2) = \mathbb{E}(C)\mathbb{E}(U_1) + (1 - \mathbb{E}(C))\mathbb{E}(U_2) = \frac{1}{2} \left(\frac{1}{2} + \frac{7}{2}\right) = 2\]
+\[\mathbb{E}(X) = \mathbb{E}(CU_{1} + (1 - C)U_{2}) = \mathbb{E}(C)\mathbb{E}(U_{1}) + (1 - \mathbb{E}(C))\mathbb{E}(U_{2}) = \frac{1}{2} \left(\frac{1}{2} + \frac{7}{2}\right) = 2\]
 
 \textbf{(b)}
 
-\[ X^2 = (CU_1 + (1 - C)U_2)^2 = C^2U_1^2 + (1 - C)^2 U_2^2 + 2C(1 - C)U_1U_2 = C^2U_1^2 + (1 - C)^2 U_2^2 \]
+\[ X^{2} = (CU_{1} + (1 - C)U_{2})^{2} = C^{2}U_{1}^{2} + (1 - C)^{2} U_{2}^{2} + 2C(1 - C)U_{1}U_{2} = C^{2}U_{1}^{2} + (1 - C)^{2} U_{2}^{2} \]
 
 so
 
-\begin{align}
-\mathbb{E}(X^2) &= \mathbb{E}(C^2)\mathbb{E}(U_1^2) + \mathbb{E}((1 - C)^2) \mathbb{E}(U_2^2) \\
-&= \mathbb{E}(C) \mathbb{E}(U_1^2) + \mathbb{E}(1 - C) \mathbb{E}(U_2^2) \\
+\begin{align*}
+\mathbb{E}(X^{2}) &= \mathbb{E}(C^{2})\mathbb{E}(U_{1}^{2}) + \mathbb{E}((1 - C)^{2}) \mathbb{E}(U_{2}^{2}) \\
+&= \mathbb{E}(C) \mathbb{E}(U_{1}^{2}) + \mathbb{E}(1 - C) \mathbb{E}(U_{2}^{2}) \\
 &= \frac{1}{2} \left( \frac{1}{3} + \frac{37}{3} \right) = \frac{19}{3}
-\end{align}
+\end{align*}
 
 and then
 
-\[ \mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = \frac{19}{3} - 2^2 = \frac{7}{3} \]
+\[ \mathbb{V}(X) = \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2} = \frac{19}{3} - 2^{2} = \frac{7}{3} \]
 
 and so the standard deviation is \(\sqrt{\mathbb{V}(X)} = \sqrt{7/3}\).
 
-\textbf{Exercise 4.17.14}. Let \(X_1, \dots, X_m\) and
-\(Y_1, \dots, Y_n\) be random variables and let \(a_1, \dots, a_m\) and
-\(b_1, \dots, b_n\) be constants. Show that
+\textbf{Exercise 4.17.14}. Let \(X_{1}, \dots, X_m\) and
+\(Y_{1}, \dots, Y_{n}\) be random variables and let \(a_{1}, \dots, a_m\) and
+\(b_{1}, \dots, b_{n}\) be constants. Show that
 
-\[ \text{Cov}\left( \sum_{i=1}^m a_i X_i , \sum_{j=1}^n b_j Y_j \right) = \sum_{i=1}^m \sum_{j=1}^n a_i b_j \text{Cov}(X_i, Y_j) \]
+\[ \text{Cov}\left( \sum_{i=1}^m a_{i} X_{i} , \sum_{j=1}^{n} b_{j} Y_{j} \right) = \sum_{i=1}^m \sum_{j=1}^{n} a_{i} b_{j} \text{Cov}(X_{i}, Y_{j}) \]
 
 \textbf{Solution}. We have:
 
-\begin{align}
-\text{Cov}\left(\sum_{i=1}^m a_i X_i, Y\right) &= \mathbb{E}\left(\left( \sum_{i=1}^m a_i X_i \right) Y\right) - \mathbb{E}\left( \sum_{i=1}^m a_i X_i \right) \mathbb{E}(Y) \\
-&= \sum_{i=1}^m \mathbb{E}(a_i X_i Y) - \left( \sum_{i=1}^m a_i \mathbb{E}(X_i) \right) \mathbb{E}(Y) \\
-&= \sum_{i=1}^m \mathbb{E}(a_i X_i Y) -  a_i \mathbb{E}(X_i) \mathbb{E}(Y) \\
-&= \sum_{i=1}^m a_i \text{Cov}(X_i, Y)
-\end{align}
+\begin{align*}
+\text{Cov}\left(\sum_{i=1}^m a_{i} X_{i}, Y\right) &= \mathbb{E}\left(\left( \sum_{i=1}^m a_{i} X_{i} \right) Y\right) - \mathbb{E}\left( \sum_{i=1}^m a_{i} X_{i} \right) \mathbb{E}(Y) \\
+&= \sum_{i=1}^m \mathbb{E}(a_{i} X_{i} Y) - \left( \sum_{i=1}^m a_{i} \mathbb{E}(X_{i}) \right) \mathbb{E}(Y) \\
+&= \sum_{i=1}^m \mathbb{E}(a_{i} X_{i} Y) -  a_{i} \mathbb{E}(X_{i}) \mathbb{E}(Y) \\
+&= \sum_{i=1}^m a_{i} \text{Cov}(X_{i}, Y)
+\end{align*}
 
 and, since \(\text{Cov}(A, B) = \text{Cov}(B, A)\),
 
-\[ \text{Cov}\left(X, \sum_{j=1}^n b_j Y_j \right) = \sum_{j=1}^n b_i \text{Cov}(X, Y_j) \]
+\[ \text{Cov}\left(X, \sum_{j=1}^{n} b_{j} Y_{j} \right) = \sum_{j=1}^{n} b_{i} \text{Cov}(X, Y_{j}) \]
 
-Applying this for each \(X_i\), we get the result.
+Applying this for each \(X_{i}\), we get the result.
 
 \textbf{Exercise 4.17.15}. Let
 
@@ -1131,19 +1153,31 @@ Find \(\mathbb{V}(2X - 3Y + 8)\).
 
 \[ \mathbb{V}(2X - 3Y + 8) = \mathbb{V}(2X - 3Y) = \mathbb{V}(r(X, Y)) \]
 
-Calculating the expectation of \(r(X, Y)\) and \(r(X, Y)^2\):
+Calculating the expectation of \(r(X, Y)\) and \(r(X, Y)^{2}\):
 
-\[ \mathbb{E}(r(X, Y)) = \int_0^1 \int_0^2 r(x, y) f(x, y) dy dx = \int_0^1 \int_0^2 \frac{1}{3}(2x - 3y)(x + y) dy dx 
-= \int_0^1 \frac{2}{3}(2x^2 - x - 4) dx = -\frac{23}{9} \]
+\begin{align*}
+\mathbb{E}(r(X, Y)) 
+& = \int_{0}^{1} \int_{0}^{2} r(x, y) f(x, y) dy dx 
+  = \int_{0}^{1} \int_{0}^{2} \frac{1}{3}(2x - 3y)(x + y) dy dx 
+\\
+& = \int_{0}^{1} \frac{2}{3}(2x^{2} - x - 4) dx 
+& = -\frac{23}{9}
+\end{align*}
 
 and
 
-\[ \mathbb{E}(r(X, Y)^2) = \int_0^1 \int_0^2 r(x, y)^2 f(x, y) dy dx = \int_0^1 \int_0^2 \frac{1}{3}(2x - 3y)^2(x + y) dy dx 
-= \int_0^1 \frac{4}{3}(2x^3 - 4x^2 - 2x + 9) dx = \frac{86}{9} \]
+\begin{align*}
+\mathbb{E}(r(X, Y)^{2}) 
+& = \int_{0}^{1} \int_{0}^{2} r(x, y)^{2} f(x, y) dy dx 
+  = \int_{0}^{1} \int_{0}^{2} \frac{1}{3}(2x - 3y)^{2}(x + y) dy dx 
+\\
+& = \int_{0}^{1} \frac{4}{3}(2x^{3} - 4x^{2} - 2x + 9) dx
+  = \frac{86}{9}
+\end{align*}
 
 and so
 
-\[ \mathbb{V}(r(X, Y)) = \mathbb{E}(r(X, Y)^2) - \mathbb{E}(r(X, Y))^2 = \frac{86}{9} - \frac{23^2}{9^2} = \frac{245}{81} \]
+\[ \mathbb{V}(r(X, Y)) = \mathbb{E}(r(X, Y)^{2}) - \mathbb{E}(r(X, Y))^{2} = \frac{86}{9} - \frac{23^{2}}{9^{2}} = \frac{245}{81} \]
 
 \textbf{Exercise 4.17.16}. Let \(r(x)\) be a function of \(x\) and let
 \(s(y)\) be a function of \(y\). Show that
@@ -1172,7 +1206,7 @@ Hint: Let \(m = \mathbb{E}(Y)\) and let
 \(\mathbb{E}(b(X)) = \mathbb{E} \mathbb{E}(Y | X) = \mathbb{E}(Y) = m\).
 Bear in mind that \(b\) is a function of \(x\). Now write
 
-\[\mathbb{V}(Y) = \mathbb{E}((Y - m)^2) = \mathbb{E}(((Y - b(X)) + (b(X) - m))^2)\]
+\[\mathbb{V}(Y) = \mathbb{E}((Y - m)^{2}) = \mathbb{E}(((Y - b(X)) + (b(X) - m))^{2})\]
 
 Expand the square and take the expectation. You then have to take the
 expectation of three terms. In each case, use the rule of iterated
@@ -1181,16 +1215,16 @@ i.e.~\(\mathbb{E}(\text{stuff}) = \mathbb{E}(\mathbb{E}(\text{stuff} | X))\).
 
 \textbf{Solution}. We have:
 
-\begin{align}
-\mathbb{V}(Y) &= \mathbb{E}(Y^2) - \mathbb{E}(Y)^2 \\
-&= \mathbb{E}(\mathbb{E}(Y^2 | X)) - \mathbb{E}(\mathbb{E}(Y | X))^2 \\
-&= \mathbb{E}\left( \mathbb{V}(Y | X) + \mathbb{E}(Y | X)^2 \right) - \mathbb{E}(\mathbb{E}(Y | X))^2 \\
-&= \mathbb{E}(\mathbb{V}(Y | X)) + \left( \mathbb{E}(\mathbb{E}(Y | X)^2) - \mathbb{E}(\mathbb{E}(Y | X))^2 \right) \\
+\begin{align*}
+\mathbb{V}(Y) &= \mathbb{E}(Y^{2}) - \mathbb{E}(Y)^{2} \\
+&= \mathbb{E}(\mathbb{E}(Y^{2} | X)) - \mathbb{E}(\mathbb{E}(Y | X))^{2} \\
+&= \mathbb{E}\left( \mathbb{V}(Y | X) + \mathbb{E}(Y | X)^{2} \right) - \mathbb{E}(\mathbb{E}(Y | X))^{2} \\
+&= \mathbb{E}(\mathbb{V}(Y | X)) + \left( \mathbb{E}(\mathbb{E}(Y | X)^{2}) - \mathbb{E}(\mathbb{E}(Y | X))^{2} \right) \\
 &= \mathbb{E} (\mathbb{V}(Y | X) + \mathbb{V}(\mathbb{E}(Y | X))
-\end{align}
+\end{align*}
 
-\textbf{Exercise 4.17.18}. Show that if \$\mathbb{E}(X \textbar{} Y = y)
-= c \$ for some constant \(c\) then \(X\) and \(Y\) are uncorrelated.
+\textbf{Exercise 4.17.18}. Show that if $\mathbb{E}(X |{} Y = y)
+= c $ for some constant \(c\) then \(X\) and \(Y\) are uncorrelated.
 
 \textbf{Solution}. We have:
 
@@ -1204,34 +1238,34 @@ so \(\mathbb{E}(XY) = \mathbb{E}(X) \mathbb{E}(Y)\), and so
 \(\text{Cov}(X, Y) = 0\), and so \(X\) and \(Y\) are uncorrelated.
 
 \textbf{Exercise 4.17.19}. This question is to help you understand the
-idea of \textbf{sampling distribution}. Let \(X_1, \dots, X_n\) be IID
-with mean \(\mu\) and variance \(\sigma^2\). Let
-\(\overline{X}_n  = n^{-1}\sum_{i=1}^n X_i\). Then \(\overline{X}_n\) is
+idea of \textbf{sampling distribution}. Let \(X_{1}, \dots, X_{n}\) be IID
+with mean \(\mu\) and variance \(\sigma^{2}\). Let
+\(\overline{X}_{n}  = n^{-1}\sum_{i=1}^{n} X_{i}\). Then \(\overline{X}_{n}\) is
 a \textbf{statistic}, that is, a function of the data. Since
-\(\overline{X}_n\) is a random variable, it has a distribution. This
+\(\overline{X}_{n}\) is a random variable, it has a distribution. This
 distribution is called the \emph{sampling distribution of the
 statistic}. Recall from Theorem 4.16 that
-\(\mathbb{E}(\overline{X}_n) = \mu\) and
-\(\mathbb{V}(\overline{X}_n) = \sigma^2 / n\). Don't confuse the
+\(\mathbb{E}(\overline{X}_{n}) = \mu\) and
+\(\mathbb{V}(\overline{X}_{n}) = \sigma^{2} / n\). Do not confuse the
 distribution of the data \(f_X\) and the distribution of the statistic
-\(f_{\overline{X}_n}\). To make this clear, let
-\(X_1, \dots, X_n \sim \text{Uniform}(0, 1)\). Let \(f_X\) be the
+\(f_{\overline{X}_{n}}\). To make this clear, let
+\(X_{1}, \dots, X_{n} \sim \text{Uniform}(0, 1)\). Let \(f_X\) be the
 density of the \(\text{Uniform}(0, 1)\). Plot \(f_X\). Now let
-\(\overline{X}_n = n^{-1} \sum_{i=1}^n X_i\). Find
-\(\mathbb{E}(\overline{X}_n)\) and \(\mathbb{V}(\overline{X}_n)\). Plot
+\(\overline{X}_{n} = n^{-1} \sum_{i=1}^{n} X_{i}\). Find
+\(\mathbb{E}(\overline{X}_{n})\) and \(\mathbb{V}(\overline{X}_{n})\). Plot
 them as a function of \(n\). Comment. Now simulate the distribution of
-\(\overline{X}_n\) for \(n = 1, 5, 25, 100\). Check the simulated values
-of \(\mathbb{E}(\overline{X}_n)\) and \(\mathbb{V}(\overline{X}_n)\)
+\(\overline{X}_{n}\) for \(n = 1, 5, 25, 100\). Check the simulated values
+of \(\mathbb{E}(\overline{X}_{n})\) and \(\mathbb{V}(\overline{X}_{n})\)
 agree with your theoretical calculations. What do you notice about the
-sampling distribution of \(\overline{X}_n\) as it increases?
+sampling distribution of \(\overline{X}_{n}\) as it increases?
 
 \textbf{Solution}.
 
-\[ \mathbb{E}\left(\overline{X}_n\right) = \mathbb{E}\left(n^{-1} \sum_{i=1}^n X_i \right) = n^{-1} \sum_{i=1}^n \mathbb{E}(X_i) = \frac{1}{2} \]
+\[ \mathbb{E}\left(\overline{X}_{n}\right) = \mathbb{E}\left(n^{-1} \sum_{i=1}^{n} X_{i} \right) = n^{-1} \sum_{i=1}^{n} \mathbb{E}(X_{i}) = \frac{1}{2} \]
 
 and
 
-\[ \mathbb{V}\left(\overline{X}_n\right) = \mathbb{V}\left(n^{-1} \sum_{i=1}^n X_i \right) = n^{-2} \sum_{i=1}^n \mathbb{V}(X_i) = \frac{1}{12 n} \]
+\[ \mathbb{V}\left(\overline{X}_{n}\right) = \mathbb{V}\left(n^{-1} \sum_{i=1}^{n} X_{i} \right) = n^{-2} \sum_{i=1}^{n} \mathbb{V}(X_{i}) = \frac{1}{12 n} \]
 
 \begin{python}
 import numpy as np
@@ -1244,9 +1278,9 @@ E_overline_X = np.empty(100)
 V_overline_X = np.empty(100)
 
 for n in range(1, 101):
-    X_n = np.random.uniform(low=0, high=1, size=(B, n)).mean(axis=1)
-    E_overline_X[n - 1] = X_n.mean()
-    V_overline_X[n - 1] = X_n.var()
+    X_{n} = np.random.uniform(low=0, high=1, size=(B, n)).mean(axis=1)
+    E_overline_X[n - 1] = X_{n}.mean()
+    V_overline_X[n - 1] = X_{n}.var()
 \end{python}
 
 \begin{python}
@@ -1269,7 +1303,7 @@ ax = plt.subplot(221)
 ax.plot(nn, 1/2 * np.ones(100), label='Calculated')
 ax.plot(nn, E_overline_X, label='Measured')
 ax.set_xlabel('n')
-ax.set_ylabel(r'$\mathbb{E}(\overline{X}_n)$')
+ax.set_ylabel(r'$\mathbb{E}(\overline{X}_{n})$')
 ax.set_title('Sampling distribution mean')
 ax.legend(loc='lower right')
 
@@ -1278,7 +1312,7 @@ ax.plot(nn, 1 / (12 * nn), label='Calculated')
 ax.plot(nn, V_overline_X, label='Measured')
 ax.set_xlabel('n')
 ax.set_yscale('log')
-ax.set_ylabel(r'$\mathbb{V}(\overline{X}_n)$')
+ax.set_ylabel(r'$\mathbb{V}(\overline{X}_{n})$')
 ax.set_title('Sampling distribution variance')
 ax.legend(loc='upper right')
 
@@ -1287,7 +1321,8 @@ plt.show()
 \end{python}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\linewidth,height=0.2\textheight,keepaspectratio]{Figure-04-03}
+\centering
+\includegraphics{Figure-04-03}
 \end{figure}
 
 Calculated and simulated values agree.
@@ -1312,15 +1347,15 @@ If \(A\) is a matrix then
 We have:
 
 \[ \mathbb{E}(a^T X) = \begin{pmatrix}
-\mathbb{E}(a_1 X_1) \\
-\mathbb{E}(a_2 X_2) \\
+\mathbb{E}(a_{1} X_{1}) \\
+\mathbb{E}(a_{2} X_{2}) \\
 \cdots \\
-\mathbb{E}(a_k X_k)
+\mathbb{E}(a_{k} X_{k})
 \end{pmatrix} = \begin{pmatrix}
-a_1 \mathbb{E}(X_1) \\
-\mathbb{E}(X_2) \\
+a_{1} \mathbb{E}(X_{1}) \\
+\mathbb{E}(X_{2}) \\
 \cdots \\
-\mathbb{E}(X_k)
+\mathbb{E}(X_{k})
 \end{pmatrix} = a^T \mu \]
 
 and
@@ -1330,15 +1365,15 @@ and
 Similarly, for the matrix case,
 
 \[ \mathbb{E}(AX) = \begin{pmatrix}
-\mathbb{E}\left( \sum_{j=1}^k a_{1, j} X_j \right) \\
-\mathbb{E}\left( \sum_{j=1}^k a_{2, j} X_j \right) \\
+\mathbb{E}\left( \sum_{j=1}^{k} a_{1, j} X_{j} \right) \\
+\mathbb{E}\left( \sum_{j=1}^{k} a_{2, j} X_{j} \right) \\
 \cdots \\
-\mathbb{E}\left( \sum_{j=1}^k a_{k, j} X_j \right) \\
+\mathbb{E}\left( \sum_{j=1}^{k} a_{k, j} X_{j} \right) \\
 \end{pmatrix} = \begin{pmatrix}
-\sum_{j=1}^k a_{1, j} \mathbb{E}(X_j) \\
-\sum_{j=1}^k a_{2, j} \mathbb{E}(X_j) \\
+\sum_{j=1}^{k} a_{1, j} \mathbb{E}(X_{j}) \\
+\sum_{j=1}^{k} a_{2, j} \mathbb{E}(X_{j}) \\
 \cdots \\
-\sum_{j=1}^k a_{k, j} \mathbb{E}(X_j) \\
+\sum_{j=1}^{k} a_{k, j} \mathbb{E}(X_{j}) \\
 \end{pmatrix} = A \mu \]
 
 and

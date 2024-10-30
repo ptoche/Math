@@ -1,0 +1,29 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}bic}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{S}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{S}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{n}{X} \PYG{o}{=} \PYG{n}{X}\PYG{p}{[}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{S}\PYG{p}{)}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{} Create new column with all 1s for intercept at start}
+        \PYG{n}{X}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{const}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{X} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{const}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones\PYGZus{}like}\PYG{p}{(}\PYG{n}{Y}\PYG{p}{)}\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Least squares solution}
+    \PYG{n}{beta\PYGZus{}hat} \PYG{o}{=} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{inv}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{X}\PYG{p}{)} \PYG{o}{@} \PYG{n}{X}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{Y}\PYG{p}{)}\PYG{o}{.}\PYG{n}{to\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{umpy}\PYG{p}{(}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Predicted solutions}
+    \PYG{n}{Y\PYGZus{}pred} \PYG{o}{=} \PYG{n}{X} \PYG{o}{@} \PYG{n}{beta\PYGZus{}hat}
+
+    \PYG{c+c1}{\PYGZsh{} Prediction errors}
+    \PYG{n}{epsilon\PYGZus{}hat} \PYG{o}{=} \PYG{n}{Y\PYGZus{}pred} \PYG{o}{\PYGZhy{}} \PYG{n}{Y}
+
+    \PYG{c+c1}{\PYGZsh{} Error on training data}
+    \PYG{n}{rss} \PYG{o}{=} \PYG{n}{epsilon\PYGZus{}hat}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{epsilon\PYGZus{}hat}
+
+    \PYG{n}{n} \PYG{o}{=} \PYG{n}{Y}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{k} \PYG{o}{=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+
+    \PYG{k}{return} \PYG{n}{n} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{rss} \PYG{o}{/} \PYG{n}{n}\PYG{p}{)} \PYG{o}{+} \PYG{n}{k} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{score\PYGZus{}bic}\PYG{p}{(}\PYG{n}{S}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{get\PYGZus{}bic}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{S}\PYG{p}{)}
+\end{MintedVerbatim}

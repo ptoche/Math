@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+Decision Tree Classifier misclassification rate: 0.001
+Decision Tree Classifier confusion matrix:
+[[1810    0]
+ [   3 2788]]
+\end{MintedVerbatim}

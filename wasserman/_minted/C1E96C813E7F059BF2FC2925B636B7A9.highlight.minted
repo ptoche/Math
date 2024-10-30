@@ -1,0 +1,15 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{alpha} \PYG{o}{=} \PYG{l+m+mi}{0}
+
+\PYG{k}{def} \PYG{n+nf}{beta}\PYG{p}{(}\PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{p}{(}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*}  \PYGZbs{}
+            \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi} \PYG{o}{*} \PYG{n}{k} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{)} \PYG{o}{+} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi} \PYG{o}{*} \PYG{p}{(}\PYG{n}{k} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{)} \PYGZbs{}
+             \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi} \PYG{o}{*} \PYG{p}{(}\PYG{n}{k} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{p}{)} \PYG{p}{)}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{partial\PYGZus{}sum}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{result} \PYG{o}{=} \PYG{n}{alpha} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones\PYGZus{}like}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{B}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{o}{*}\PYG{n}{j}\PYG{p}{)}\PYG{p}{:}
+            \PYG{n}{result} \PYG{o}{+}\PYG{o}{=} \PYG{n}{beta}\PYG{p}{(}\PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)} \PYG{o}{*} \PYG{n}{psi\PYGZus{}wavelet}\PYG{p}{(}\PYG{n}{j}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{result}
+\end{MintedVerbatim}
