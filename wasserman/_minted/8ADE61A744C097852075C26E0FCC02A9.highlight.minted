@@ -1,6 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{n}{full\PYGZus{}model\PYGZus{}variance} \PYG{o}{=} \PYG{n}{get\PYGZus{}model\PYGZus{}variance}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
-
-\PYG{k}{def} \PYG{n+nf}{score\PYGZus{}mallow\PYGZus{}cp}\PYG{p}{(}\PYG{n}{S}\PYG{p}{)}\PYG{p}{:}
-    \PYG{k}{return} \PYG{n}{get\PYGZus{}mallow\PYGZus{}cp}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{S}\PYG{p}{,} \PYG{n}{full\PYGZus{}model\PYGZus{}variance}\PYG{p}{)}
-\end{MintedVerbatim}

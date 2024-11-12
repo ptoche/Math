@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{f\PYGZus{}hat} \PYG{o}{=} \PYG{n}{haar\PYGZus{}histogram}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{B}\PYG{o}{=}\PYG{n}{selected\PYGZus{}B}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{,} \PYG{n}{f\PYGZus{}hat}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{)}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{purple}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{B = }\PYG{l+s+si}{\PYGZpc{}i}\PYG{l+s+s1}{ (min risk)}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{selected\PYGZus{}B}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Risk score \PYGZdl{}}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{hat}\PYG{l+s+si}{\PYGZob{}J\PYGZcb{}}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

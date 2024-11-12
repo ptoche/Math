@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Explicitly compute risk score for multiple B values}
+\PYG{n}{max\PYGZus{}B} \PYG{o}{=} \PYG{l+m+mi}{8}
+\PYG{n}{risk\PYGZus{}B} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{n}{max\PYGZus{}B}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{B} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{max\PYGZus{}B} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{risk\PYGZus{}B}\PYG{p}{[}\PYG{n}{B} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{leave\PYGZus{}one\PYGZus{}out\PYGZus{}risk\PYGZus{}score}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{B}\PYG{p}{)}
+\PYG{n}{selected\PYGZus{}B} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argmin}\PYG{p}{(}\PYG{n}{risk\PYGZus{}B}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{1}
+\PYG{n}{selected\PYGZus{}B\PYGZus{}score} \PYG{o}{=} \PYG{n}{risk\PYGZus{}B}\PYG{p}{[}\PYG{n}{selected\PYGZus{}B} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]}
+\end{MintedVerbatim}

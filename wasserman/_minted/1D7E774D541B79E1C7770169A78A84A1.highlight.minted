@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{current\PYGZus{}subset} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+\PYG{n}{current\PYGZus{}score} \PYG{o}{=} \PYG{n}{score\PYGZus{}mallow\PYGZus{}cp}\PYG{p}{(}\PYG{n}{current\PYGZus{}subset}\PYG{p}{)}
+\PYG{k}{while} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{current\PYGZus{}subset}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{features}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{best\PYGZus{}score}\PYG{p}{,} \PYG{n}{best\PYGZus{}subset} \PYG{o}{=} \PYG{n}{current\PYGZus{}score}\PYG{p}{,} \PYG{n}{current\PYGZus{}subset}
+    \PYG{n}{updated} \PYG{o}{=} \PYG{k+kc}{False}
+    \PYG{k}{for} \PYG{n}{f} \PYG{o+ow}{in} \PYG{n}{features}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{f} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n}{current\PYGZus{}subset}\PYG{p}{:}
+            \PYG{n}{candidate\PYGZus{}subset} \PYG{o}{=} \PYG{n}{current\PYGZus{}subset} \PYG{o}{+} \PYG{p}{[}\PYG{n}{f}\PYG{p}{]}
+            \PYG{n}{candidate\PYGZus{}score} \PYG{o}{=} \PYG{n}{score\PYGZus{}mallow\PYGZus{}cp}\PYG{p}{(}\PYG{n}{candidate\PYGZus{}subset}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{candidate\PYGZus{}score} \PYG{o}{\PYGZlt{}} \PYG{n}{best\PYGZus{}score}\PYG{p}{:}
+                \PYG{n}{best\PYGZus{}score}\PYG{p}{,} \PYG{n}{best\PYGZus{}subset} \PYG{o}{=} \PYG{n}{candidate\PYGZus{}score}\PYG{p}{,} \PYG{n}{candidate\PYGZus{}subset}
+                \PYG{n}{updated} \PYG{o}{=} \PYG{k+kc}{True}
+    \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{updated}\PYG{p}{:}
+        \PYG{k}{break}
+    \PYG{n}{current\PYGZus{}score}\PYG{p}{,} \PYG{n}{current\PYGZus{}subset} \PYG{o}{=} \PYG{n}{best\PYGZus{}score}\PYG{p}{,} \PYG{n}{best\PYGZus{}subset}
+\PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n+nb}{tuple}\PYG{p}{(}\PYG{n}{current\PYGZus{}subset}\PYG{p}{)}\PYG{p}{,} \PYG{n}{current\PYGZus{}score}\PYG{p}{]}\PYG{p}{]}\PYG{p}{,} \PYG{n}{columns}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{score}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\end{MintedVerbatim}

@@ -1,5 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
-
-\PYG{n}{X\PYGZus{}ij} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{l+m+mi}{14}\PYG{p}{,} \PYG{l+m+mi}{641}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+m+mi}{62}\PYG{p}{,} \PYG{l+m+mi}{594}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
-\end{MintedVerbatim}

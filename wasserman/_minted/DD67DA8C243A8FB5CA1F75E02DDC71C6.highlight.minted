@@ -1,9 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{svm} \PYG{k+kn}{import} \PYG{n}{LinearSVC}
-\PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{preprocessing} \PYG{k+kn}{import} \PYG{n}{StandardScaler}
-
-\PYG{n}{classifier\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ame} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{SVC}\PYG{l+s+s1}{\PYGZsq{}}
-\PYG{n}{classifier} \PYG{o}{=} \PYG{n}{LinearSVC}\PYG{p}{(}\PYG{n}{max\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{ter}\PYG{o}{=}\PYG{l+m+mi}{100000}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
-\PYG{n}{results} \PYG{o}{=} \PYG{n}{run\PYGZus{}classifier}\PYG{p}{(}\PYG{n}{classifier}\PYG{p}{,} \PYG{n}{StandardScaler}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fit\PYGZus{}transform}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
-\PYG{n}{print\PYGZus{}results}\PYG{p}{(}\PYG{n}{classifier\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{n}\PYG{p}{\PYGZcb{}}\PYG{n}{ame}\PYG{p}{,} \PYG{n}{results}\PYG{p}{)}
-\end{MintedVerbatim}

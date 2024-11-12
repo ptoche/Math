@@ -10,10 +10,8 @@
 \title{Larry Wasserman, All of Statistics}
 \author{Telmo Correa | edited by Patrick Toche}
 \date{Revised:~\today}
-
 % options for figures | includegraphics
-\setkeys{Gin}{width=0.9\linewidth,height=0.35\textheight,keepaspectratio}
-
+\setkeys{Gin}{width=0.95\linewidth,height=0.40\textheight,keepaspectratio}
 % commands and packages not already included in preamble.sty
 \setlist[itemize,1]{label={--},
     align=left,
@@ -29,14 +27,12 @@
     listparindent=\parindent,
     labelwidth=0pt,
     itemindent=!}
-
 % typesetting
 \usepackage{textcomp}% needed for double quotes
 \usepackage[scaled=.83]{beramono}% mono font, fixes caret ^ symbol (default .9)
 \usepackage{underscore}
 \usepackage{float}
 \usepackage{unicode-math}
-
 %\usepackage{tcolorbox}% aready loaded
 \tcbuselibrary{listings}
 %\usepackage{listings}
@@ -57,7 +53,6 @@
        },
     codebox/.default={},% first argument default: No title
 }
-
 \tcbuselibrary{minted}% default options: tabsize=2,fontsize=\small,breaklines,autogobble
 \NewTCBListing{python}{ !O{} }{
     codebox,
@@ -76,7 +71,6 @@
     },
     #1
 }
-
 \NewTCBListing{pythonlisting}{ !O{} }{
     codebox,
     listing only,
@@ -91,7 +85,6 @@
     },
     #1
 }
-
 \NewTCBListing{console}{ !O{} }{
     codebox,
     listing only,
@@ -109,13 +102,10 @@
     title = output,
     #1
 }
-
-
 % play around with delimiters
 \usepackage{mleftright}% better \left and \right
 \let\left\relax \let\right\relax
   \let\left\mleft \let\right\mright
-
 \begin{document}
 \maketitle
 \begin{abstract}\setlength{\parindent}{0pt}%
@@ -123,84 +113,58 @@ Telmo Correa's Jupyter notebooks were downloaded from his Github repository, con
 Source: \url{https://github.com/telmo-correa/all-of-statistics}
  Larry Wasserman, All of Statistics: A Concise Course in Statistical Inference (Springer Texts in Statistics). 
 \end{abstract}
-
 \thispagestyle{empty}
 \clearpage
-
-
 % Chapter 2
 \input{02-Probability}
-
 % Chapter 3
 \input{03-RVs}
-
 % Chapter 4
 \input{04-Expectation}
-
 % Chapter 5
 \input{05-Inequalities}
-
 % Chapter 6
 \input{06-Convergence}
-
 % Chapter 7
 \input{07-Inference}
-
 % Chapter 8
 \input{08-Estimation}
-
 % Chapter 9
 \input{09-Bootstrap}
-
 % Chapter 10
 \input{10-Parametric}
-
 % Chapter 11
 \input{11-Testing}
-
 % Chapter 12
 \input{12-Bayesian}
-
 % Chapter 13
 \input{13-Decision}
-
 % Chapter 14
 \input{14-Regression}
-
 % Chapter 15
 \input{15-Multivariate}
-
 % Chapter 16
 \input{16-Independence}
-
 % Chapter 17
+\setkeys{Gin}{height=0.20\textheight}
 \input{17-Undirected-Graphs}
-
 % Chapter 18
 \input{18-Loglinear}
-
 % Chapter 19
 \input{19-Causality}
-
 % Chapter 20
 \input{20-Directed-Graphs}
-
 % Chapter 21
+\setkeys{Gin}{height=0.40\textheight}
 \input{21-Nonparametric}
-
 % Chapter 22
 \input{22-Smoothing}
-
 % Chapter 23
 \input{23-Classification}
-
 % Chapter 24
 \input{24-Processes}
-
 % Chapter 25
 \input{25-Simulations}
-
 %\begin{comment}
 %\end{comment}
-
 \end{document}

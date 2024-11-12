@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{h\PYGZus{}inv\PYGZus{}test\PYGZus{}statistic} \PYG{o}{=} \PYG{n}{H\PYGZus{}inv}\PYG{p}{(}\PYG{n}{test\PYGZus{}statistic}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Test statistic: }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{test\PYGZus{}statistic}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{H\PYGZca{}}\PYG{l+s+s1}{\PYGZob{}}\PYG{l+s+s1}{\PYGZhy{}1\PYGZcb{}(test\PYGZus{}statistic): }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{h\PYGZus{}inv\PYGZus{}test\PYGZus{}statistic}\PYG{p}{)}
+\end{MintedVerbatim}

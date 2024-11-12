@@ -1,7 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Optimize cross validation risk over penalties}
-\PYG{n}{best\PYGZus{}penalty\PYGZus{}res} \PYG{o}{=} \PYG{n}{optimize\PYGZus{}l1\PYGZus{}penalty}\PYG{p}{(}\PYG{n}{X\PYGZus{}c}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
-\PYG{n}{selected\PYGZus{}l1\PYGZus{}penalty} \PYG{o}{=} \PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{best\PYGZus{}penalty\PYGZus{}res}\PYG{o}{.}\PYG{n}{x}\PYG{p}{)}
-
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Selected penalty: }\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{selected\PYGZus{}l1\PYGZus{}penalty}\PYG{p}{)}
-\end{MintedVerbatim}

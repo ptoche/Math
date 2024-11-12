@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{tqdm} \PYG{k+kn}{import} \PYG{n}{tqdm\PYGZus{}notebook}
+\PYG{n}{accuracy\PYGZus{}results} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+\PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n}{tqdm\PYGZus{}notebook}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{121}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{accuracy\PYGZus{}results}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n}{get\PYGZus{}accuracy}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}
+\PYG{n}{accuracy\PYGZus{}results} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)} \PYG{k}{for} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b} \PYG{o+ow}{in} \PYG{n}{accuracy\PYGZus{}results}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}
+\end{MintedVerbatim}

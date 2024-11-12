@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+\PYG{n}{p\PYGZus{}hat\PYGZus{}1} \PYG{o}{=} \PYG{l+m+mf}{0.9}
+\PYG{n}{p\PYGZus{}hat\PYGZus{}2} \PYG{o}{=} \PYG{l+m+mf}{0.85}
+\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{100}
+\PYG{n}{theta\PYGZus{}hat} \PYG{o}{=} \PYG{n}{p\PYGZus{}hat\PYGZus{}1} \PYG{o}{\PYGZhy{}} \PYG{n}{p\PYGZus{}hat\PYGZus{}2}
+\PYG{n}{se\PYGZus{}theta\PYGZus{}hat} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{p}{(}\PYG{n}{p\PYGZus{}hat\PYGZus{}1} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{p\PYGZus{}hat\PYGZus{}1}\PYG{p}{)} \PYG{o}{+} \PYG{n}{p\PYGZus{}hat\PYGZus{}2} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{p\PYGZus{}hat\PYGZus{}2}\PYG{p}{)}\PYG{p}{)} \PYG{o}{/} \PYG{n}{n}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Estimated mean: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{theta\PYGZus{}hat}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Estimated SE: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}}   \PYG{o}{\PYGZpc{}} \PYG{n}{se\PYGZus{}theta\PYGZus{}hat}\PYG{p}{)}
+\end{MintedVerbatim}

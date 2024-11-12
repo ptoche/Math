@@ -1,8 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} posterior is proportional to likelihood times f(\PYGZbs{}mu)}
-\PYG{c+c1}{\PYGZsh{} likelihood is \PYGZbs{}prod\PYGZus{}\PYGZob{}i\PYGZcb{} f(X\PYGZus{}\PYGZob{}i\PYGZcb{}; \PYGZbs{}mu)}
-\PYG{c+c1}{\PYGZsh{} pdf is f(x; (\PYGZbs{}mu, \PYGZbs{}sigma\PYGZca{}\PYGZob{}2\PYGZcb{})), the density of the normal function}
-
-\PYG{n}{mu\PYGZus{}hat} \PYG{o}{=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
-\PYG{n}{mu\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{100}\PYG{p}{)}
-\end{MintedVerbatim}

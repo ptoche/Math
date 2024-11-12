@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Selected hyperparameter by minimizing sum of square errors}
+\PYG{n}{error\PYGZus{}EZ} \PYG{o}{=} \PYG{n}{EZs} \PYG{o}{\PYGZhy{}} \PYG{n}{true\PYGZus{}EZ}
+\PYG{n}{error\PYGZus{}E\PYGZus{}InvZ} \PYG{o}{=} \PYG{n}{E\PYGZus{}invZs} \PYG{o}{\PYGZhy{}} \PYG{n}{true\PYGZus{}E\PYGZus{}invZ}
+\PYG{n}{MSE} \PYG{o}{=} \PYG{n}{error\PYGZus{}EZ}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{error\PYGZus{}E\PYGZus{}InvZ}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}
+\PYG{n}{selected\PYGZus{}gamma\PYGZus{}a} \PYG{o}{=} \PYG{n}{gamma\PYGZus{}as}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{argmin}\PYG{p}{(}\PYG{n}{MSE}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{Z} \PYG{o}{=} \PYG{n}{independence\PYGZus{}metropolis\PYGZus{}hastings}\PYG{p}{(}\PYG{n}{N}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{o}{*}\PYG{n}{N}\PYG{p}{,} \PYG{n}{theta1}\PYG{o}{=}\PYG{n}{theta1}\PYG{p}{,} \PYG{n}{theta2}\PYG{o}{=}\PYG{n}{theta2}\PYG{p}{,}
+    \PYG{n}{gamma\PYGZus{}a}\PYG{o}{=}\PYG{n}{selected\PYGZus{}gamma\PYGZus{}a}\PYG{p}{,} \PYG{n}{seed}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\end{MintedVerbatim}

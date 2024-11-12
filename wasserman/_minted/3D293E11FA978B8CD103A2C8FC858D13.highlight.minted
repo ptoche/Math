@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{norm}
+\PYG{n}{df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Treatment}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Placebo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Chlorpromazine}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Dimenhydrate}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+                  \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pentobarbital (100 mg)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Pentobarbital (150 mg)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Number of patients}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+m+mi}{80}\PYG{p}{,} \PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mi}{85}\PYG{p}{,} \PYG{l+m+mi}{67}\PYG{p}{,} \PYG{l+m+mi}{85}\PYG{p}{]}\PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Incidents of Nausea}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+m+mi}{45}\PYG{p}{,} \PYG{l+m+mi}{26}\PYG{p}{,} \PYG{l+m+mi}{52}\PYG{p}{,} \PYG{l+m+mi}{35}\PYG{p}{,} \PYG{l+m+mi}{37}\PYG{p}{]}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\end{MintedVerbatim}

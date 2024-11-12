@@ -1,0 +1,21 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{run\PYGZus{}classifier}\PYG{p}{(}\PYG{n}{classifier}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{classifier}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
+    \PYG{n}{Y\PYGZus{}pred} \PYG{o}{=} \PYG{n}{classifier}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{Y}\PYG{p}{)}
+
+    \PYG{n}{true\PYGZus{}positives} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{(}\PYG{n}{Y\PYGZus{}pred} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{n}{Y} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{false\PYGZus{}positives} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{(}\PYG{n}{Y\PYGZus{}pred} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{n}{Y} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{false\PYGZus{}negatives} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{(}\PYG{n}{Y\PYGZus{}pred} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{n}{Y} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{true\PYGZus{}negatives} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{(}\PYG{n}{Y\PYGZus{}pred} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{n}{Y} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}
+    \PYG{k}{return} \PYG{p}{\PYGZob{}}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{misclassification\PYGZus{}rate}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{(}\PYG{n}{false\PYGZus{}positives} \PYG{o}{+} \PYG{n}{false\PYGZus{}negatives}\PYG{p}{)} \PYG{o}{/} \PYG{n}{n}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{confusion\PYGZus{}matrix}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{true\PYGZus{}positives}\PYG{p}{,} \PYG{n}{false\PYGZus{}positives}\PYG{p}{]}\PYG{p}{,}
+                                      \PYG{p}{[}\PYG{n}{false\PYGZus{}negatives}\PYG{p}{,} \PYG{n}{true\PYGZus{}negatives}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+\PYG{k}{def} \PYG{n+nf}{print\PYGZus{}results}\PYG{p}{(}\PYG{n}{classifier\PYGZus{}name}\PYG{p}{,} \PYG{n}{results}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{ misclassification rate: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{classifier\PYGZus{}name}\PYG{p}{,}
+        \PYG{n}{results}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{misclassification\PYGZus{}rate}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s1}{ confusion matrix:}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{classifier\PYGZus{}name}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{results}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{confusion\PYGZus{}matrix}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\end{MintedVerbatim}

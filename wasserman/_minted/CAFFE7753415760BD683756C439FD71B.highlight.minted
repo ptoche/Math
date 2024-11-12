@@ -1,9 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{norm}
-
-\PYG{n}{z\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{}}\PYG{l+m+mi}{25} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{ppf}\PYG{p}{(}\PYG{l+m+mf}{0.025}\PYG{p}{)}
-\PYG{n}{z\PYGZus{}975} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{ppf}\PYG{p}{(}\PYG{l+m+mf}{0.975}\PYG{p}{)}
-
-\PYG{n}{posterior\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{nterval\PYGZus{}analytic} \PYG{o}{=} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{z\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{}}\PYG{l+m+mi}{25} \PYG{o}{+} \PYG{n}{mu\PYGZus{}hat}\PYG{p}{)}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{z\PYGZus{}975} \PYG{o}{+} \PYG{n}{mu\PYGZus{}hat}\PYG{p}{)}\PYG{p}{)}
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{95}\PYG{l+s+si}{\PYGZpc{}\PYGZpc{}}\PYG{l+s+s2}{ posterior interval (analytic):  }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{posterior\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{nterval\PYGZus{}analytic}\PYG{p}{)}
-\end{MintedVerbatim}

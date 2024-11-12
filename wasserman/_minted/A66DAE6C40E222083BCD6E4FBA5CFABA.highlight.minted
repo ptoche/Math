@@ -1,0 +1,30 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{tqdm} \PYG{k+kn}{import} \PYG{n}{tqdm\PYGZus{}notebook}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{norm}
+\PYG{k}{def} \PYG{n+nf}{create\PYGZus{}data}\PYG{p}{(}\PYG{n}{n}\PYG{o}{=}\PYG{l+m+mi}{50}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{y} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{n}{n}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{skewness}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{mu} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{/} \PYG{n}{n}
+    \PYG{n}{var} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{mu}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{n}
+    \PYG{k}{return} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{mu}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{3} \PYG{o}{/} \PYG{p}{(}\PYG{n}{n} \PYG{o}{*} \PYG{n}{var}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{bootstrap\PYGZus{}values}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{B}\PYG{o}{=}\PYG{l+m+mi}{10000}\PYG{p}{,} \PYG{n}{show\PYGZus{}progress}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{t\PYGZus{}boot} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}
+    \PYG{n}{iterable} \PYG{o}{=} \PYG{n}{tqdm\PYGZus{}notebook}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}\PYG{p}{)} \PYG{k}{if} \PYG{n}{show\PYGZus{}progress} \PYG{k}{else} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{iterable}\PYG{p}{:}
+        \PYG{n}{xx} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{n}\PYG{p}{,} \PYG{n}{replace}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+        \PYG{n}{t\PYGZus{}boot}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{skewness}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{t\PYGZus{}boot}
+\PYG{k}{def} \PYG{n+nf}{bootstrap\PYGZus{}intervals}\PYG{p}{(}\PYG{n}{theta\PYGZus{}hat}\PYG{p}{,} \PYG{n}{t\PYGZus{}boot}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.05}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{se} \PYG{o}{=} \PYG{n}{t\PYGZus{}boot}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{z} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{ppf}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{n}{q\PYGZus{}half\PYGZus{}alpha} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{n}{t\PYGZus{}boot}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{n}{q\PYGZus{}c\PYGZus{}half\PYGZus{}alpha} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{n}{t\PYGZus{}boot}\PYG{p}{,} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{n}{normal\PYGZus{}conf} \PYG{o}{=} \PYG{p}{(}\PYG{n}{theta\PYGZus{}hat} \PYG{o}{\PYGZhy{}} \PYG{n}{z} \PYG{o}{*} \PYG{n}{se}\PYG{p}{,} \PYG{n}{theta\PYGZus{}hat} \PYG{o}{+} \PYG{n}{z} \PYG{o}{*} \PYG{n}{se}\PYG{p}{)}
+    \PYG{n}{percentile\PYGZus{}conf} \PYG{o}{=} \PYG{p}{(}\PYG{n}{q\PYGZus{}half\PYGZus{}alpha}\PYG{p}{,} \PYG{n}{q\PYGZus{}c\PYGZus{}half\PYGZus{}alpha}\PYG{p}{)}
+    \PYG{n}{pivotal\PYGZus{}conf} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{theta\PYGZus{}hat} \PYG{o}{\PYGZhy{}} \PYG{n}{q\PYGZus{}c\PYGZus{}half\PYGZus{}alpha}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{theta\PYGZus{}hat} \PYG{o}{\PYGZhy{}} \PYG{n}{q\PYGZus{}half\PYGZus{}alpha}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{normal\PYGZus{}conf}\PYG{p}{,} \PYG{n}{percentile\PYGZus{}conf}\PYG{p}{,} \PYG{n}{pivotal\PYGZus{}conf}
+\end{MintedVerbatim}

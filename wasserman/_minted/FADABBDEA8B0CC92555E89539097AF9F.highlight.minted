@@ -1,7 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
-
-\PYG{c+c1}{\PYGZsh{} Calculate and plot estimated risk for various bandwidths}
-\PYG{n}{h\PYGZus{}values} \PYG{o}{=} \PYG{p}{[}\PYG{n}{m} \PYG{o}{/} \PYG{l+m+mi}{20} \PYG{k}{for} \PYG{n}{m} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{21}\PYG{p}{)}\PYG{p}{]}
-\PYG{n}{j\PYGZus{}hat} \PYG{o}{=} \PYG{p}{[}\PYG{n}{j\PYGZus{}hat\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{k}\PYG{p}{\PYGZcb{}}\PYG{n}{de}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{h}\PYG{p}{)} \PYG{k}{for} \PYG{n}{h} \PYG{o+ow}{in} \PYG{n}{h\PYGZus{}values}\PYG{p}{]}
-\end{MintedVerbatim}

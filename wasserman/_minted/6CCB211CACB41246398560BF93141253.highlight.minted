@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{accuracy\PYGZus{}results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{accuracy\PYGZus{}results}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{n\PYGZus{}estimators}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Accuracy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{selected\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{ndex} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argmax}\PYG{p}{(}\PYG{n}{accuracy\PYGZus{}results}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{selected\PYGZus{}n} \PYG{o}{=} \PYG{n}{accuracy\PYGZus{}results}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{selected\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{ndex}\PYG{p}{]}
+\PYG{n}{selected\PYGZus{}accuracy} \PYG{o}{=} \PYG{n}{accuracy\PYGZus{}results}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{selected\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{n}{ndex}\PYG{p}{]}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Selected hyperparameter n\PYGZus{}estimators: }\PYG{l+s+si}{\PYGZpc{}i}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{selected\PYGZus{}n}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Cross\PYGZhy{}validation accuracy: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{selected\PYGZus{}accuracy}\PYG{p}{)}
+\end{MintedVerbatim}

@@ -8,7 +8,6 @@
 \def\PYG@do#1{\PYG@bc{\PYG@tc{\PYG@ul{%
     \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
 \def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
-
 \@namedef{PYG@tok@w}{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
 \@namedef{PYG@tok@c}{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
 \@namedef{PYG@tok@cp}{\def\PYG@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
@@ -77,7 +76,6 @@
 \@namedef{PYG@tok@cpf}{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
 \@namedef{PYG@tok@c1}{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
 \@namedef{PYG@tok@cs}{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
-
 \def\PYGZbs{\char`\\}
 \def\PYGZus{\char`\_}
 \def\PYGZob{\char`\{}

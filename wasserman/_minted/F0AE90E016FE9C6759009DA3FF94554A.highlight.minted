@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Estimate the mean waiting time and give a standard error for the estimate.}
+\PYG{n}{theta} \PYG{o}{=} \PYG{n}{r}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{se} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{n}{r}\PYG{p}{,} \PYG{n}{ddof}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} Alternatively:}
+\PYG{c+c1}{\PYGZsh{} from scipy.stats import sem}
+\PYG{c+c1}{\PYGZsh{} se = sem(r)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Estimated mean: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{theta}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Estimated SE: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{se}\PYG{p}{)}
+\end{MintedVerbatim}

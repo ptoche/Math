@@ -53,6 +53,7 @@
 \renewcommand{\emptyset}{\varnothing}% empty set
 \newcommand{\intersect}{\cap}% intersection
 \newcommand{\union}{\cup}% union
+\newcommand{\ci}{\perp\!\!\!\perp}% conditional independence
 
 % number sets
 \newcommand{\N}{\ensuremath{\mathbb{N}} }% set of natural numbers
@@ -66,6 +67,12 @@
 \let\Real\R
 \let\Complex\Cx
 
+% better notation for sets
+\let\union\cup
+\let\Union\bigcup
+\let\inter\cap
+\let\Inter\bigcap
+
 % mathematical symbols
 \newcommand{\e}{\mathrm{e}}% exponential
 \newcommand{\diff}{\mathop{}\!\mathrm{d}}% differential symbol
@@ -75,6 +82,15 @@
 \DeclareMathOperator*{\freq}{freq}% freq
 \DeclareMathOperator*{\indep}{\perp \!\!\! \perp}% independence symbol
 \DeclareMathOperator{\trace}{Tr}
+
+% statistical symbols
+\DeclareMathOperator{\PROB}{\mathbb{P}}% probability
+\DeclareMathOperator{\EXP}{\mathbb{E}}% expectation
+\DeclareMathOperator{\VAR}{\mathbb{V}}% variance
+\DeclareMathOperator{\COV}{\mathbb{C}}% covariance
+\DeclareMathOperator{\SE}{\mathrm{SE}}% standard error
+\DeclareMathOperator{\SD}{\mathrm{SD}}% standard deviation
+\DeclareMathOperator{\MSE}{\mathrm{MSE}}% mean squared error
 
 % trigonometric operators
 \DeclareMathOperator{\arcsec}{arcsec}

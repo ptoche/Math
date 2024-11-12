@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{seed}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{true\PYGZus{}p} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{15}\PYG{p}{,} \PYG{n}{step}\PYG{o}{=}\PYG{l+m+mf}{0.25}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{20}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{true\PYGZus{}p}\PYG{p}{)}
+\PYG{n}{Y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{binomial}\PYG{p}{(}\PYG{l+m+mi}{20}\PYG{p}{,} \PYG{n}{true\PYGZus{}p}\PYG{p}{)}
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{1000}
+\PYG{n}{results} \PYG{o}{=} \PYG{n}{gibbs}\PYG{p}{(}\PYG{n}{Y}\PYG{p}{,} \PYG{l+m+mi}{20}\PYG{p}{,} \PYG{n}{N}\PYG{p}{)}
+\end{MintedVerbatim}

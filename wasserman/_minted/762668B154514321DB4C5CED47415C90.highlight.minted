@@ -1,8 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} Brute\PYGZhy{}force solution: explicitly compute the PDF for each sample, and multiply everything}
-\PYG{c+c1}{\PYGZsh{} (or take logs, add, and exponentiate):}
-\PYG{n}{likelihood} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{vectorize}\PYG{p}{(}\PYG{k}{lambda} \PYG{n}{mu\PYGZus{}hat}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{norm}\PYG{o}{.}\PYG{n}{pdf}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{loc}\PYG{o}{=}\PYG{n}{mu\PYGZus{}hat}\PYG{p}{,} \PYG{n}{scale}\PYG{o}{=}\PYG{n}{sigma}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
-\PYG{n}{L\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}} \PYG{o}{=} \PYG{n}{likelihood}\PYG{p}{(}\PYG{n}{mu\PYGZus{}values}\PYG{p}{)}
-
-\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{mu\PYGZus{}values}\PYG{p}{,} \PYG{n}{L\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}} \PYG{o}{/} \PYG{n}{L\PYGZus{}}\PYG{p}{\PYGZob{}}\PYG{n}{i}\PYG{p}{\PYGZcb{}}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
-\end{MintedVerbatim}

@@ -1,0 +1,22 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Plot in separate boxes for ease of visualization}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\PYG{o}{\PYGZpc{}}\PYG{n}{matplotlib} \PYG{n}{inline}
+\PYG{n}{step} \PYG{o}{=} \PYG{l+m+mf}{1e\PYGZhy{}4}
+\PYG{n}{epsilon} \PYG{o}{=} \PYG{l+m+mf}{1e\PYGZhy{}12}  \PYG{c+c1}{\PYGZsh{} small shift to avoid spikes}
+\PYG{n}{xx} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{step}\PYG{p}{)} \PYG{o}{+} \PYG{n}{epsilon}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{12}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{do\PYGZus{}subplot}\PYG{p}{(}\PYG{n}{index}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{,} \PYG{n}{yy}\PYG{p}{,} \PYG{n}{label}\PYG{p}{,} \PYG{n}{color}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplot}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{index}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{,} \PYG{n}{yy}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{n}{label}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{n}{color}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{do\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{,} \PYG{n}{partial\PYGZus{}sum}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}B = }\PYG{l+s+si}{\PYGZpc{}i}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{C0}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{do\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{,} \PYG{n}{partial\PYGZus{}sum}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}B = }\PYG{l+s+si}{\PYGZpc{}i}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{C1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{do\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{,} \PYG{n}{partial\PYGZus{}sum}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{)}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}B = }\PYG{l+s+si}{\PYGZpc{}i}\PYG{l+s+s1}{\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{C2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{do\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{n}{xx}\PYG{p}{,} \PYG{n}{f}\PYG{p}{(}\PYG{n}{xx}\PYG{p}{)}\PYG{p}{,}
+    \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}f(x) = }\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{sqrt}\PYG{l+s+s1}{\PYGZob{}}\PYG{l+s+s1}{x (1 \PYGZhy{} x)\PYGZcb{} }\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{sin }\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{left( }\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{frac}\PYG{l+s+s1}{\PYGZob{}}\PYG{l+s+s1}{2.1 }\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{pi\PYGZcb{}}\PYG{l+s+s1}{\PYGZob{}}\PYG{l+s+s1}{(x + .05)\PYGZcb{} }\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{right)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{C3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

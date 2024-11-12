@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+\PYG{n}{data} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data/montana.csv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Select wanted columns and remove missing data}
+\PYG{n}{data} \PYG{o}{=} \PYG{n}{data}\PYG{p}{[}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{AGE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{FIN}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{]}\PYG{o}{.}\PYG{n}{replace}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{*}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{nan}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dropna}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{)}
+\end{MintedVerbatim}

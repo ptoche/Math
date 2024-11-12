@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{norm}
+\PYG{k+kn}{from} \PYG{n+nn}{tqdm} \PYG{k+kn}{import} \PYG{n}{tqdm\PYGZus{}notebook}
+\PYG{n}{X} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{loc}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{n}{scale}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{)}
+\end{MintedVerbatim}

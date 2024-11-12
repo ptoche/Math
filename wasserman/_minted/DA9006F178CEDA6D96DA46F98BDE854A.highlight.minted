@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Find bandwidth that minimizes risk}
+\PYG{c+c1}{\PYGZsh{} Using scipy rather than extensive search, since we are looking over a continuous interval}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{optimize} \PYG{k+kn}{import} \PYG{n}{minimize}
+\PYG{n}{res} \PYG{o}{=} \PYG{n}{minimize}\PYG{p}{(}\PYG{n}{fun} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{h}\PYG{p}{:} \PYG{n}{j\PYGZus{}hat\PYGZus{}kde}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{h}\PYG{p}{)}\PYG{p}{,} \PYG{n}{x0} \PYG{o}{=} \PYG{l+m+mf}{0.2}\PYG{p}{,} \PYG{n}{options}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{maxiter}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+m+mi}{10}\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\PYG{n}{best\PYGZus{}h} \PYG{o}{=} \PYG{n}{res}\PYG{o}{.}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n}{best\PYGZus{}risk} \PYG{o}{=} \PYG{n}{res}\PYG{o}{.}\PYG{n}{fun}
+\end{MintedVerbatim}

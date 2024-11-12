@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\PYG{c+c1}{\PYGZsh{} Calculate and plot estimated risk for various numbers of bins}
+\PYG{n}{m\PYGZus{}values} \PYG{o}{=} \PYG{p}{[}\PYG{n}{m} \PYG{k}{for} \PYG{n}{m} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{101}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{j\PYGZus{}hat} \PYG{o}{=} \PYG{p}{[}\PYG{n}{j\PYGZus{}hat\PYGZus{}histogram}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{m}\PYG{p}{)} \PYG{k}{for} \PYG{n}{m} \PYG{o+ow}{in} \PYG{n}{m\PYGZus{}values}\PYG{p}{]}
+\PYG{n}{best\PYGZus{}m} \PYG{o}{=} \PYG{n}{m\PYGZus{}values}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{argmin}\PYG{p}{(}\PYG{n}{j\PYGZus{}hat}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{best\PYGZus{}risk} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{j\PYGZus{}hat}\PYG{p}{)}
+\end{MintedVerbatim}

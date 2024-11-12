@@ -1,34 +1,27 @@
 \section*{11. Hypothesis Testing and p-values}\label{hypothesis-testing-and-p-values}
-
 Suppose we partition the parameters space \(\Theta\) into two disjoint
 sets \(\Theta_{0}\) and \(\Theta_{1}\) and we wish to test
-
 \[
 H_{0}: \theta \in \Theta_{0}
 \quad \text{versus} \quad
 H_{1}: \theta \in \Theta_{1}
 \]
-
 We call \(H_{0}\) the \textbf{null hypothesis} and \(H_{1}\) the
 \textbf{alternative hypothesis}.
-
 Let \(X\) be a random variable and let \(\mathcal{X}\) be the range of
 \(X\). We test a hypothesis by finding an appropriate subset of outcomes
 \(R \subset \mathcal{X}\) called the \textbf{rejection region}.
-
 \begin{align*}
 X \in R & \Longrightarrow  \text{reject } H_{0} \\
 X \notin R & \Longrightarrow  \text{retain (do not reject) } H_{0}
 \end{align*}
-
 Usually the rejection region is of form
-
-\[ R = \bigg\{x: T(x) > c \bigg\}\]
-
+\[
+R = \bigg\{x: T(x) > c \bigg\}
+\]
 where \(T\) is a \textbf{test statistic} and \(c\) is a \textbf{critical
 value}. The problem in hypothesis testing is to find an appropriate test
 statistic \(T\) and and appropriate cutoff value \(c\).
-
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}lll@{}}
@@ -42,19 +35,17 @@ statistic \(T\) and and appropriate cutoff value \(c\).
 \bottomrule
 \end{tabular}
 \end{table}
-
 The \textbf{power function} of a test with rejection region \(R\) is
 defined by
-
-\[\beta(\theta) = \mathbb{P}_\theta(X \in R)\]
-
+\[
+\beta(\theta) = \PROB_\theta(X \in R)
+\]
 The \textbf{size} of a test is defined to be
-
-\[\alpha = \sup_{\theta \in \Theta_{0}} \beta(\theta)\]
-
+\[
+\alpha = \sup_{\theta \in \Theta_{0}} \beta(\theta)
+\]
 A test is said to have \textbf{level \(\alpha\)} if its size is less
 than or equal to \(\alpha\).
-
 \begin{itemize}[tightlist]
 \item
   A hypothesis of the form \(\theta = \theta_{0}\) is called a
@@ -70,83 +61,76 @@ than or equal to \(\alpha\).
   \(H_{1}: \theta > \theta_{0}\) or \(H_{0}: \theta \geq \theta_{0}\) versus
   \(H_{1}: \theta < \theta_{0}\) is called a \textbf{one-sided test}.
 \end{itemize}
-
 The most common tests are two-sided.
-
 Finding most powerful tests is hard and, in many cases, most powerful
 tests do not even exist. We will just consider three widely used tests:
 the Wald test, the \(\chi^{2}\) test, and the permutation test. A fourth
 test, the likelihood ratio test, is discussed in the appendix.
 
 \subsection*{11.1 The Wald Test}\label{the-wald-test}
-
 Consider testing
-
-\[ H_{0}: \theta = \theta_{0}
+\[
+H_{0}: \theta = \theta_{0}
 \quad \text{versus} \quad
-H_{1}: \theta \neq \theta_{0}\]
-
+H_{1}: \theta \neq \theta_{0}
+\]
 Assume that \(\hat{\theta}\) is asymptotically Normal:
-
-\[ \frac{\sqrt{n}(\hat{\theta} - \theta_{0})}{\hat{\text{se}}} \leadsto N(0, 1) \]
-
+\[
+\frac{\sqrt{n}(\hat{\theta} - \theta_{0})}{\widehat{\SE}} \leadsto N(0, 1)
+\]
 The size \(\alpha\) \textbf{Wald test} is: reject \(H_{0}\) when
 \(|W| > z_{\alpha/2}\), where
-
-\[ W = \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}}\]
+\[
+W = \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}}
+\]
 
 \textbf{Theorem 11.4}. Asymptotically, the Wald test has size
 \(\alpha\), that is,
-
-\[ \mathbb{P}_{\theta_{0}} \left(|Z| > z_{\alpha/2} \right) \rightarrow \alpha\]
-
+\[
+\PROB_{\theta_{0}} \left(|Z| > z_{\alpha/2} \right) \rightarrow \alpha
+\]
 as \(n \rightarrow \infty\).
-
 \textbf{Proof}. Under \(\theta = \theta_{0}\),
-\((\hat{\theta} - \theta) / \text{se} \leadsto N(0, 1)\), so the
+\((\hat{\theta} - \theta) / \SE \leadsto N(0, 1)\), so the
 probability of rejecting when the null hypothesis \(\theta = \theta_{0}\)
 is true is
-
 \begin{align*}
-\mathbb{P}_{\theta_{0}}(|W| > z_{\alpha / 2}) &= \mathbb{P}_{\theta_{0}} \left(\frac{|\hat{\theta} - \theta_{0}|}{\text{se}} > z_{\alpha/2} \right) \\
-& \rightarrow \mathbb{P}_{\theta_{0}}(| N(0, 1) | > z_{\alpha/2}) \\
+\PROB_{\theta_{0}}(|W| > z_{\alpha / 2}) &= \PROB_{\theta_{0}} \left(\frac{|\hat{\theta} - \theta_{0}|}{\SE } > z_{\alpha/2} \right) \\
+& \rightarrow \PROB_{\theta_{0}}(| N(0, 1) | > z_{\alpha/2}) \\
 & = \alpha
 \end{align*}
-
 Most texts define the Wald test with the standard error computed at
 \(\theta = \theta_{0}\) rather than at the estimated value
 \(\hat{\theta}\). Both versions are valid.
 
 \textbf{Theorem 11.6}. Suppose that the true value of \(\theta\) is
-\(\theta_* \neq \theta_{0}\). The power \(\beta(\theta_*)\), the
+\(\theta_{*} \neq \theta_{0}\). The power \(\beta(\theta_{*})\), the
 probability of correctly rejecting the null hypothesis, is given
 (approximately) by
-
-\[ 1 - \Phi \left(\frac{\theta_{0} - \theta_*}{\hat{\text{se}}} + z_{\alpha/2} \right) + \Phi \left(\frac{\theta_{0} - \theta_*}{\hat{\text{se}}} - z_{\alpha/2} \right) \]
+\[
+1 - \Phi \left(\frac{\theta_{0} - \theta_{*}}{\widehat{\SE}} + z_{\alpha/2} \right) + \Phi \left(\frac{\theta_{0} - \theta_{*}}{\widehat{\SE}} - z_{\alpha/2} \right)
+\]
 
 \textbf{Theorem 11.10}. The size \(\alpha\) Wald test rejects
 \(H_{0}: \theta = \theta_{0}\) versus \(H_{1}: \theta \neq \theta_{0}\) if and
 only if \(\theta_{0} \notin C\) where
-
-\[ C = \left(\hat{\theta} - \hat{\text{se}} z_{\alpha/2}, \; \hat{\theta} + \hat{\text{se}} z_{\alpha / 2} \right) \]
-
+\[
+C = \left(\hat{\theta} - \widehat{\SE} z_{\alpha/2}, \; \hat{\theta} + \widehat{\SE} z_{\alpha / 2} \right)
+\]
 Thus, testing the hypothesis is equivalent to checking whether the null
 value is in the confidence interval.
 
 \subsection*{11.2 p-values}\label{p-values}
-
 Suppose that for every \(\alpha \in (0, 1)\) we have a size \(\alpha\)
 test with rejection region \(R_\alpha\). Then,
-
-\[ \text{p-value} = \inf \Big\{ \alpha : T(X^{n}) \in R_\alpha \Big\} \]
-
+\[
+\text{p-value} = \inf \Big\{ \alpha : T(X^{n}) \in R_\alpha \Big\}
+\]
 That is, the p-value is the smallest level at which we can reject
 \(H_{0}\).
-
 Informally, the p-value is a measure of the evidence against \(H_{0}\):
 the smaller the p-value, the stronger the evidence against \(H_{0}\).
 Typically, researchers use the following evidence scale:
-
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}ll@{}}
@@ -160,35 +144,32 @@ over 10\% & little or no evidence against \(H_{0}\) \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 \textbf{Warning}: a large p-value is not strong evidence in favor of
 \(H_{0}\). A large p-value can occur for two reasons: - \(H_{0}\) is true,
 or - \(H_{0}\) is false but the test has low power
-
 \textbf{The p-value is not the probability that the null hypothesis is
-true}. We discuss quantities like \(\mathbb{P}(H_{0} | \text{Data})\) in
+true}. We discuss quantities like \(\PROB(H_{0} | \text{Data})\) in
 the chapter on Bayesian inference.
 
 \textbf{Theorem 11.12}. Suppose that the size \(\alpha\) test is of the
 form
-
-\[ \text{reject } H_{0} \text{ if and only if } T(X^{n}) \geq c_\alpha\]
-
+\[
+\text{reject } H_{0} \text{ if and only if } T(X^{n}) \geq c_\alpha
+\]
 Then,
-
-\[ \text{p-value} = \sup_{\theta \in \Theta_{0}} \mathbb{P}_\theta \left(T(X^{n}) \geq T(x^{n}) \right)\]
-
+\[
+\text{p-value} = \sup_{\theta \in \Theta_{0}} \PROB_\theta \left(T(X^{n}) \geq T(x^{n}) \right)
+\]
 In words, the p-value is the probability (under \(H_{0}\)) of observing a
 value of the test statistic as or more extreme than what was actually
 observed.
-
 For a Wald test, \(W\) has an approximate \(N(0, 1)\) distribution under
 \(H_{0}\). Hence, the p-value is
-
-\[ \text{p-value} \approx \mathbb{P}(|Z| > |w|) = 2\mathbb{P}(Z < -|w|) = 2 \Phi(Z < -|w|) \]
-
+\[
+\text{p-value} \approx \PROB(|Z| > |w|) = 2\PROB(Z < -|w|) = 2 \Phi(Z < -|w|)
+\]
 where \(Z \sim N(0, 1)\) and
-\(w = (\hat{\theta} - \theta_{0}) / \hat{\text{se}}\) is the observed
+\(w = (\hat{\theta} - \theta_{0}) / \widehat{\SE}\) is the observed
 value of the test statistic.
 
 \textbf{Theorem 11.13}. If the test statistic has a continuous
@@ -197,32 +178,29 @@ distribution, then under \(H_{0}: \theta = \theta_{0}\) the p-value has an
 
 \subsection*{\texorpdfstring{11.3 The \(\chi^{2}\)
 distribution}{11.3 The \textbackslash chi^{2} distribution}}\label{chi2:dist}
-
 Let \(Z_{1}, \dots, Z_{k}\) be independent, standard normals. Let
 \(V = \sum_{i=1}^{k} Z_{i}^{2}\). Then we say that \(V\) has a \(\chi^{2}\)
 distribution with \(k\) degrees of freedom, written \(V \sim \chi^{2}_{k}\).
 The probability density of \(V\) is
-
-\[ f(v) = \frac{v^{(k/2) - 1}e^{-v/2}}{2^{k/2} \Gamma(k / 2)} \]
-
-for \(v > 0\). It can be shown that \(\mathbb{E}(V) = k\) and
-\(\mathbb{V}(k) = 2k\). We define the upper \(\alpha\) quantile
+\[
+f(v) = \frac{v^{(k/2) - 1}e^{-v/2}}{2^{k/2} \Gamma(k / 2)}
+\]
+for \(v > 0\). It can be shown that \(\EXP(V) = k\) and
+\(\VAR(k) = 2k\). We define the upper \(\alpha\) quantile
 \(\chi^{2}_{k, \alpha} = F^{-1}(1 - alpha)\) where \(F\) is the CDF. That
-is, \(\mathbb{P}(\chi^{2}_{k} > \chi^{2}_{k, \alpha}) = \alpha\).
+is, \(\PROB(\chi^{2}_{k} > \chi^{2}_{k, \alpha}) = \alpha\).
 
 \subsection*{\texorpdfstring{11.4 Pearson's \(\chi^{2}\) Test for
 Multinomial
 Data}{11.4 Pearson's \textbackslash chi^{2} Test for Multinomial Data}}\label{pearsons-chi2-test-for-multinomial-data}
-
 Recall that \(X = (X_{1}, \dots, X_{n})\) has a multinomial distribution if
-
-\[ f(x_{1}, \dots, x_{k}; p) = \begin{pmatrix}
+\[
+f(x_{1}, \dots, x_{k}; p) = \begin{pmatrix}
 n \\
 x_{1} \dots x_{k}
-\end{pmatrix} p_{1}^{x_{1}} \dots p_{k}^{x_{k}}\]
-
+\end{pmatrix} p_{1}^{x_{1}} \dots p_{k}^{x_{k}}
+\]
 where
-
 \[
 \begin{pmatrix}
 n \\
@@ -230,44 +208,41 @@ x_{1} \dots x_{k}
 \end{pmatrix} = 
 \frac{n!}{x_{1}! \dots x_{k}!}
 \]
-
 The MLE of \(p\) is
-\(\hat{p} = (\hat{p_{1}}, \dots, \hat{p_{k}}) = \left(X_{1} / n, \dots, X_{k} / n\right)\).
-
+\(\hat{p} = (\hat{p}_{1}, \dots, \hat{p}_{k}) = \left(X_{1} / n, \dots, X_{k} / n\right)\).
 Let \((p_{01}, \dots, p_{0k})\) be some fixed test of probabilities and
 suppose we want to test
-
-\[ H_{0}: (p_{1}, \dots, p_{k}) = (p_{01}, \dots, p_{0k})
+\[
+H_{0}: (p_{1}, \dots, p_{k}) = (p_{01}, \dots, p_{0k})
 \quad \text{versus} \quad
-H_{1}: (p_{1}, \dots, p_{k}) \neq (p_{01}, \dots, p_{0k})\]
-
+H_{1}: (p_{1}, \dots, p_{k}) \neq (p_{01}, \dots, p_{0k})
+\]
 \textbf{Pearson's \(\chi^{2}\) statistic} is
-
-\[ T = \sum_{j=1}^{k} \frac{(X_{j} - np_{0j})^{2}}{np_{0j}} = \sum_{j=1}^{k} \frac{(O_{j} - E_{j})^{2}}{E_{j}}\]
-
+\[
+T = \sum_{j=1}^{k} \frac{(X_{j} - np_{0j})^{2}}{np_{0j}} = \sum_{j=1}^{k} \frac{(O_{j} - E_{j})^{2}}{E_{j}}
+\]
 where \(O_{j} = X_{j}\) is the observed data and
-\(E_{j} = \mathbb{E}(X_{j}) = np_{0j}\) is the expected value of \(X_{j}\)
+\(E_{j} = \EXP(X_{j}) = np_{0j}\) is the expected value of \(X_{j}\)
 under \(H_{0}\).
 
 \textbf{Theorem 11.15}. Under \(H_{0}\), \(T \leadsto \chi^{2}_{k - 1}\).
 Hence the test: reject \(H_{0}\) if \(T > \chi^{2}_{k - 1, \alpha}\) has
-asymptotic level \(\alpha\). The p-value is \(\mathbb{P}(\chi^{2}_{k} > t)\)
+asymptotic level \(\alpha\). The p-value is \(\PROB(\chi^{2}_{k} > t)\)
 where \(t\) is the observed value of the test statistic.
 
 \subsection*{11.5 The Permutation Test}\label{the-permutation-test}
-
 Suppose that \(X_{1}, \dots, X_m \sim F_X\) and
 \(Y_{1}, \dots, Y_{n} \sim F_Y\) are two independent samples and \(H_{0}\) is
 the hypothesis that both samples are identically distributed. More
 precisely we are testing
-
-\[ H_{0}: F_X = F_Y \quad \text{versus} \quad F_{1}: F_X \neq F_Y\]
-
+\[
+H_{0}: F_X = F_Y \quad \text{versus} \quad F_{1}: F_X \neq F_Y
+\]
 Let \(T(x_{1}, \dots, x_m, y_{1}, \dots, y_{n})\) be some test statistic, for
 example
-
-\[ T(X_{1}, \dots, X_m, Y_{1}, \dots, Y_{n}) = | \overline{X}_m - \overline{Y}_{n} |\]
-
+\[
+T(X_{1}, \dots, X_m, Y_{1}, \dots, Y_{n}) = | \bar{X}_m - \bar{Y}_{n} |
+\]
 Let \(N = m + n\) and consider forming all \(N!\) permutations of the
 data \(X_{1}, \dots, X_m, Y_{1}, \dots, Y_{n}\). For exach permutation,
 compute the test statistic \(T\). Denote these values by
@@ -276,16 +251,14 @@ is equally likely. The distribution \(P_{0}\) that puts mass \(1 / N!\) on
 each \(T_{j}\) is called the \textbf{permutation distribution} of \(T\).
 Let \(t_\text{obs}\) be the observed value of the test statistic.
 Assuming we reject when \(T\) is large, the p-value is
-
-\[ \text{p-value} = \mathbb{P}_{0}(T > t_\text{obs}) = \frac{1}{N!} \sum_{i=1}^{N!} I(T_{j} > t_\text{obs}) \]
-
+\[
+\text{p-value} = \PROB_{0}(T > t_\text{obs}) = \frac{1}{N!} \sum_{i=1}^{N!} I(T_{j} > t_\text{obs})
+\]
 Usually it is not practical to evaluate all \(N!\) permutations. We can
 approximate the p-value by sampling randomly from the set of
 permutations. The fraction of times \(T > t_\text{obs}\) among these
 samples approximates the p-value.
-
 \textbf{Algorithm for the Permutation Test}
-
 \begin{enumerate}[label={\arabic*.}]
 \item
   Compute the observed value of the test statistic
@@ -299,43 +272,39 @@ samples approximates the p-value.
 \item
   The approximate p-value is
 \end{enumerate}
-
-\[ \frac{1}{B} \sum_{i=1}^B I(T_{j} > t_\text{obs}) \]
-
+\[
+\frac{1}{B} \sum_{i=1}^B I(T_{j} > t_\text{obs})
+\]
 In large samples, the permutation test usually gives similar results to
 a test that is based on large sample theory. The permutation test is
 thus most useful for small samples.
 
 \subsection*{11.6 Multiple Testing}\label{multiple-testing}
-
 Consider \(m\) hypothesis tests:
-
-\[ H_{0i} \quad \text{versus} \quad H_{1i}, \quad i = 1, \dots, m\]
-
+\[
+H_{0i} \quad \text{versus} \quad H_{1i}, \quad i = 1, \dots, m
+\]
 and let \(P_{1}, \dots, P_m\) denote \(m\) p-values for these tests.
-
 \textbf{The Bonferroni Method}: Given p-values \(P_{1}, \dots, P_m\),
 reject null hypothesis \(H_{0i}\) if \(P_{i} < \alpha / m\).
 
 \textbf{Theorem 11.19}. Using the Bonferroni method, the probability of
 falsely rejecting any null hypothesis is less than or equal to
 \(\alpha\).
-
 \textbf{Proof}. Let \(R\) be the event that at least one null hypothesis
 is falsely rejected. Let \(R_{i}\) be the event that the \(i\)-th null
 hypothesis is falsely rejected. Recall that if \(A_{1}, \dots, A_{k}\) are
 events then
-\(\mathbb{P} \left( \bigcup_{i=1}^{k} A_{i} \right) \leq \sum_{i=1}^{k} \mathbb{P}(A_{i})\).
+\(\PROB \left( \bigcup_{i=1}^{k} A_{i} \right) \leq \sum_{i=1}^{k} \PROB(A_{i})\).
 Hence,
-
-\[\mathbb{P}(R) = \mathbb{P}\left( \bigcup_{i=1}^{k} R_{i} \right) \leq \sum_{i=1}^{k} \mathbb{P}(R_{i}) = \sum_{i=1}^{k} \frac{\alpha}{m} = \alpha\]
-
+\[
+\PROB(R) = \PROB\left( \bigcup_{i=1}^{k} R_{i} \right) \leq \sum_{i=1}^{k} \PROB(R_{i}) = \sum_{i=1}^{k} \frac{\alpha}{m} = \alpha
+\]
 The Bonferroni Method is very conservative because it is trying to make
 it unlikely that you would make even one false rejection. Sometimes, a
 more reasonable idea is to control the \textbf{false discovery rate}
 (FDR) which is defined as the mean number of false rejections divided by
 the number of rejections.
-
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}llll@{}}
@@ -348,33 +317,29 @@ Total & \(m - R\) & \(R\) & \(m\) \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 Define the \textbf{false discovery proportion} (FDP):
-
-\[ \text{FDP} = \begin{cases}
+\[
+\text{FDP} = \begin{cases}
 V / R & \text{if } R > 0\\
 0     & \text{if}  R = 0
-\end{cases}\]
-
+\end{cases}
+\]
 The FDP is the proportion of rejections that are incorrect. Next define
-\(\text{FDR} = \mathbb{E}(\text{FDP})\).
-
+\(\text{FDR} = \EXP(\text{FDP})\).
 \textbf{The Benjamini-Hochberg (BH) Method}
-
 \begin{enumerate}[label={\arabic*.}]
 \item
   Let \(P_{(1)} < \cdots < P_{(m)}\) denote the ordered p-values.
 \item
   Define
-
-\[\ell_{i} = \frac{i \alpha}{C_m m},
+\[
+\ell_{i} = \frac{i \alpha}{C_m m},
 \quad \text{and} \quad
-R = \max \bigg\{ i: P_{(i)} < \ell_{i} \bigg\}\]
-
+R = \max \bigg\{ i: P_{(i)} < \ell_{i} \bigg\}
+\]
 where \(C_m\) is defined to be 1 if the p-values are independent and
 \(C_m = \sum_{i=1}^m (1/i)\) otherwise.
 \end{enumerate}
-
 \begin{enumerate}[label={\arabic*.}]
 \setcounter{enumi}{2}
 \item
@@ -387,185 +352,163 @@ where \(C_m\) is defined to be 1 if the p-values are independent and
 \textbf{Theorem 11.21 (Benjamini and Hocheberg)}. If the procedure above
 is applied, then regardless of how many nulls are true and regardless of
 the distribution of p-values when the null hypothesis is false,
-
-\[\text{FDR} = \mathbb{E}(\text{FDP}) \leq \frac{m_{0}}{m} \alpha \leq \alpha \].
+\[
+\text{FDR} = \EXP(\text{FDP}) \leq \frac{m_{0}}{m} \alpha \leq \alpha
+\].
 
 \subsection*{11.7 Technical Appendix}
-
 \paragraph{11.7.1 The Neyman-Pearson
 Lemma}\label{the-neyman-pearson-lemma}
 
 \textbf{Theorem 11.23 (Neyman-Pearson)}. Suppose we test
 \(H_{0}: \theta = \theta_{0}\) versus \(H_{1}: \theta = \theta_{1}\). Let
-
-\[ T = \frac{\mathcal{L}(\theta_{1})}{\mathcal{L}(\theta_{0})} = \frac{\prod_{i=1}^{n} f(x_{i}; \theta_{1})}{\prod_{i=1}^{n} f(x_{i}; \theta_{0})}\]
-
+\[
+T = \frac{\mathcal{L}(\theta_{1})}{\mathcal{L}(\theta_{0})} = \frac{\prod_{i=1}^{n} f(x_{i}; \theta_{1})}{\prod_{i=1}^{n} f(x_{i}; \theta_{0})}
+\]
 Suppose we reject \(H_{0}\) when \(T > k\). If we choose \(k\) so that
-\(\mathbb{P}_{\theta_{0}}(T > k) = \alpha\) then this test is the most
+\(\PROB_{\theta_{0}}(T > k) = \alpha\) then this test is the most
 powerful, size \(\alpha\) test. That is, among all tests with size
 \(\alpha\), this test maximizes power \(\beta(\theta_{1})\).
-
 \paragraph{11.7.2 Power of the Wald Test}\label{power-of-the-wald-test}
-
 \textbf{Proof of Theorem 11.6}.
-
 Let \(Z \sim N(0, 1)\). Then,
-
 \begin{align*}
-\text{Power} &= \beta(\theta_*) \\
-&= \mathbb{P}_{\theta_*}(\text{Reject } H_{0}) \\
-&= \mathbb{P}_{\theta_*}\left( \frac{|\hat{\theta} - \theta_{0}|}{\hat{\text{se}}} > z_{\alpha/2} \right) \\
-&= \mathbb{P}_{\theta_*}\left( \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} > z_{\alpha/2} \right) 
-+ \mathbb{P}_{\theta_*}\left( \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} < -z_{\alpha/2} \right) \\
-&= \mathbb{P}_{\theta_*}(\hat{\theta} > \theta_{0} + \hat{\text{se}} z_{\alpha/2})
-+ \mathbb{P}_{\theta_*}(\hat{\theta} < \theta_{0} - \hat{\text{se}} z_{\alpha/2}) \\
-&= \mathbb{P}_{\theta_*}\left( \frac{\hat{\theta} - \theta_*}{\hat{\text{se}}} > \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} + z_{\alpha/2} \right) 
-+ \mathbb{P}_{\theta_*}\left( \frac{\hat{\theta} - \theta_*}{\hat{\text{se}}} < \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} - z_{\alpha/2} \right) \\
-& \approx \mathbb{P}\left(Z > \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} + z_{\alpha/2} \right) 
-+ \mathbb{P}\left(Z < \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} - z_{\alpha/2} \right) \\
-&= 1 - \Phi\left( \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} + z_{\alpha/2} \right) 
-+ \Phi\left( \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} - z_{\alpha/2} \right)
+\text{Power} &= \beta(\theta_{*}) \\
+&= \PROB_{\theta_{*}}(\text{Reject } H_{0}) \\
+&= \PROB_{\theta_{*}}\left( \frac{|\hat{\theta} - \theta_{0}|}{\widehat{\SE}} > z_{\alpha/2} \right) \\
+&= \PROB_{\theta_{*}}\left( \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} > z_{\alpha/2} \right) 
++ \PROB_{\theta_{*}}\left( \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} < -z_{\alpha/2} \right) \\
+&= \PROB_{\theta_{*}}(\hat{\theta} > \theta_{0} + \widehat{\SE} z_{\alpha/2})
++ \PROB_{\theta_{*}}(\hat{\theta} < \theta_{0} - \widehat{\SE} z_{\alpha/2}) \\
+&= \PROB_{\theta_{*}}\left( \frac{\hat{\theta} - \theta_{*}}{\widehat{\SE}} > \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} + z_{\alpha/2} \right) 
++ \PROB_{\theta_{*}}\left( \frac{\hat{\theta} - \theta_{*}}{\widehat{\SE}} < \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} - z_{\alpha/2} \right) \\
+& \approx \PROB\left(Z > \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} + z_{\alpha/2} \right) 
++ \PROB\left(Z < \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} - z_{\alpha/2} \right) \\
+&= 1 - \Phi\left( \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} + z_{\alpha/2} \right) 
++ \Phi\left( \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} - z_{\alpha/2} \right)
 \end{align*}
-
 \paragraph{11.7.3 The t-test}\label{the-t-test}
-
 To test \(H_{0}: \mu = \mu_{0}\) where \(\mu\) is the mean, we can use the
 Wald test. When the data is assumed to be Normal and the sample size is
 small, it is common instead to use the \textbf{t-test}. A random
 variable \(T\) as a \emph{t-distribution with \(k\) degrees of freedom}
 if it has density
-
-\[ f(t) = \frac{\Gamma\left(\frac{k+1}{2}\right)}{\sqrt{k \pi} \Gamma\left(\frac{k}{2}\right) \left(1 + \frac{t^{2}}{k}\right)^{(k+1)/2}}\]
-
+\[
+f(t) = \frac{\Gamma\left(\frac{k+1}{2}\right)}{\sqrt{k \pi} \Gamma\left(\frac{k}{2}\right) \left(1 + \frac{t^{2}}{k}\right)^{(k+1)/2}}
+\]
 When the degrees of freedom \(k \rightarrow \infty\), this tends to a
 Normal distribution. When \(k = 1\) it reduces to a Cauchy distribution.
-
 Let \(X_{1}, \dots, X_{n} \sim N(\mu, \sigma^{2})\) where
 \(\theta = (\mu, \sigma^{2})\) are both unknown. Suppose we want to test
 \(\mu = \mu_{0}\) versus \(\mu \neq \mu_{0}\). Let
-
-\[T = \frac{\sqrt{n}(\overline{X}_{n} - \mu_{0})}{S_{n}}\]
-
+\[
+T = \frac{\sqrt{n}(\bar{X}_{n} - \mu_{0})}{S_{n}}
+\]
 where \(S_{n}^{2}\) is the sample variance. For large samples
 \(T \approx N(0, 1)\) under \(H_{0}\). The exact distribution of \(T\)
 under \(H_{0}\) is \(t_{n-1}\). Hence if we reject when
 \(|T| > t_{n-1, \alpha/2}\) then we get a size \(\alpha\) test.
-
 \paragraph{11.7.4 The Likelihood Ratio
 Test}\label{the-likelihood-ratio-test}
-
 Let
 \(\theta = (\theta_{1}, \dots, \theta_q, \theta_{q+1}, \dots, \theta_r)\)
 and suppose that \(\Theta_{0}\) consists of all parameter values
 \(\theta\) such that
 \((\theta_{q+1}, \dots, \theta_r) = (\theta_{0, q+1}, \dots, \theta_{0, r})\).
-
 Define the \textbf{likelihood ratio statistic} by
-
-\[ \lambda 
+\[
+\lambda 
 = 2 \log \left(  \frac{\sup_{\theta \in \Theta} \mathcal{L}(\theta)}{\sup_{\theta \in \Theta_{0}} \mathcal{L}(\theta)} \right) 
-= 2 \log \left(  \frac{\mathcal{L}(\hat{\theta})}{\mathcal{L}(\hat{\theta_{0}})} \right) \]
-
+= 2 \log \left(  \frac{\mathcal{L}(\hat{\theta})}{\mathcal{L}(\hat{\theta_{0}})} \right)
+\]
 where \(\hat{\theta}\) is the MLE and \(\hat{\theta_{0}}\) is the MLE when
 \(\theta\) is restricted to lie in \(\Theta_{0}\).
-
 The \textbf{likelihood ratio test} is: reject \(H_{0}\) when
 \(\lambda(x^{n}) > \chi^{2}_{r-q, \alpha}\).
 
 \textbf{Theorem 11.25}. Under \(H_{0}\),
-
-\[ 2 \log \lambda (x^{n}) \leadsto \chi^{2}_{r - q}\]
-
+\[
+2 \log \lambda (x^{n}) \leadsto \chi^{2}_{r - q}
+\]
 Hence, asymptotically, the LR test level is \(\alpha\).
 
 \subsection*{11.9 Exercises}
 
 \textbf{Exercise 11.9.1}. Prove Theorem 11.13.
-
 If the test statistic has a continuous distribution, then under
 \(H_{0}: \theta = \theta_{0}\) the p-value has an \(\text{Uniform}(0, 1)\)
 distribution.
 
 \textbf{Solution}. Let \(T\) be the test statistic, and \(F_T\) be its
 CDF under \(H_{0}\). Then
-
-\[ F_\text{p-value}(p) = \mathbb{P}(\text{p-value} < p) = \mathbb{P}(F(T) < p) = \mathbb{P}(T < F^{-1}(p)) = F(F^{-1}(p)) = p\]
-
+\[
+F_\text{p-value}(p) = \PROB(\text{p-value} < p) = \PROB(F(T) < p) = \PROB(T < F^{-1}(p)) = F(F^{-1}(p)) = p
+\]
 so the CDF for the p-value is the same as the CDF for the
 \(\text{Uniform}(0, 1)\) distribution, therefore the p-value follows a
 \(\text{Uniform}(0, 1)\) distribution.
 
 \textbf{Exercise 11.9.2}. Prove Theorem 11.10.
-
 The size \(\alpha\) Wald test rejects \(H_{0}: \theta = \theta_{0}\) versus
 \(H_{1}: \theta \neq \theta_{0}\) if and only if \(\theta_{0} \notin C\) where
-
-\[ C = \left(\hat{\theta} - \hat{\text{se}} z_{\alpha/2}, \; \hat{\theta} + \hat{\text{se}} z_{\alpha / 2} \right) \]
-
-\textbf{Solution}.
-
-\(\theta_{0} \in C\) if and only if
-
 \[
-\hat{\theta} - \hat{\text{se}} z_{\alpha/2} < \theta_{0} < \hat{\theta} + \hat{\text{se}} z_{\alpha/2} \\
-\frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} - z_{\alpha/2} < 0 < \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} +  z_{\alpha/2} \\
-- z_{\alpha/2} < \frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} < z_{\alpha/2} \\
-|Z| > z_{\alpha/2}
+C = \left(\hat{\theta} - \widehat{\SE} z_{\alpha/2}, \; \hat{\theta} + \widehat{\SE} z_{\alpha / 2} \right)
 \]
 
+\textbf{Solution}.
+\(\theta_{0} \in C\) if and only if
+\[
+\hat{\theta} - \widehat{\SE} z_{\alpha/2} < \theta_{0} < \hat{\theta} + \widehat{\SE} z_{\alpha/2} \\
+\frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} - z_{\alpha/2} < 0 < \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} +  z_{\alpha/2} \\
+- z_{\alpha/2} < \frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} < z_{\alpha/2} \\
+|Z| > z_{\alpha/2}
+\]
 which is the criteria for the Wald test.
 
 \textbf{Exercise 11.9.3}. Let
 \(X_{1}, \dots, X_{n} \sim \text{Uniform}(0, \theta)\) and let
 \(Y = \max \{ X_{1}, \dots, X_{n} \}\). We want to test
-
-\[ H_{0}: \theta = 1/2 \quad \text{versus} \quad H_{1}: \theta > 1/2 \]
-
+\[
+H_{0}: \theta = 1/2 \quad \text{versus} \quad H_{1}: \theta > 1/2
+\]
 The Wald test is not appropriate since \(Y\) does not converge to a
 Normal. Suppose we decide to test this hypothesis by rejecting \(H_{0}\)
 when \(Y > c\).
-
 \textbf{(a)} Find the power function.
-
 \textbf{(b)} What choice of \(c\) will make the size of the test 0.05?
-
 \textbf{(c)} In a sample of size \(n = 20\) with \(Y = 0.48\) what is
 the p-value? What conclusion about \(H_{0}\) would you make?
-
 \textbf{(d)} In a sample of size \(n = 20\) with \(Y = 0.52\) what is
 the p-value? What conclusion about \(H_{0}\) would you make?
 
 \textbf{Solution}
-
 \textbf{(a)} The power function for this test is
-
-\[\beta(\theta) = \mathbb{P}_\theta(X \in R) = \mathbb{P}_\theta(Y > c) = 1 - \mathbb{P}_\theta(Y \leq c) = 1 - \prod_{i=1}^{n} \mathbb{P}_\theta(X_{i} \leq c) = 1 - \left(\text{clip}\left(\frac{c}{\theta}\right)\right)^{n}\]
-
+\[
+\beta(\theta) = \PROB_\theta(X \in R) = \PROB_\theta(Y > c) = 1 - \PROB_\theta(Y \leq c) = 1 - \prod_{i=1}^{n} \PROB_\theta(X_{i} \leq c) = 1 - \left(\text{clip}\left(\frac{c}{\theta}\right)\right)^{n}
+\]
 where we limit \(c/\theta\) to the \([0, 1]\) interval,
-\[\text{clip}(t) = \begin{cases} 1 & \text{if } t > 1 \\ t & \text{if } 0 \leq t \leq 1 \\ 0 & \text{otherwise} \end{cases}\]
-
+\[
+\text{clip}(t) = \begin{cases} 1 & \text{if } t > 1 \\ t & \text{if } 0 \leq t \leq 1 \\ 0 & \text{otherwise} \end{cases}
+\]
 \textbf{(b)} There is only one value in \(\Theta_{0}\), \(\theta = 1/2\).
 The size of the test then is
 \(\beta(1/2) = 1 - \left(\text{clip}\left(2c\right)\right)^{n}\). Equating
 it to 0.05 and solving, we get \(c = 0.5 \cdot 0.95^{1/n}\).
-
 \textbf{(c)} The test has size \(\alpha\) when $ 1 -
 \left(\text{clip}\left(2c\right)\right)^{n} = \alpha$, or
 \(c = 0.5 \cdot (1 - \alpha)^{1/n}\). The p-value occurs on the
 threshold of the rejection region, that is, the infimal \(\alpha\) such
 that \(Y > c\), so \(Y > 0.5 \cdot (1 - \alpha)^{1/n}\), or
 \(\alpha > 1 - (2Y)^{n}\).
-
 For \(n = 20\), \(Y = 0.48\), that reduces to
 \(\alpha > 1 - (2\cdot 0.48)^{20} \approx 0.557\). This means that the
 test provides little or no evidence against \(H_{0}\).
-
 \textbf{(d)} For \(n = 20\), \(Y = 0.52\), the clipping function gets
 stuck at its maximum -- even for \(\alpha = 0\) we get \(Y > c = 0.05\),
 so the p-value is 0, and the test almost surely rejects the null
 hypothesis. This is in agreement with the observation that, since
 \(Y > \theta_{0}\), the maximum sample was generated with value greater
-than \(\theta_{0}\), so it is certain that \(\theta_* > \theta_{0}\).
+than \(\theta_{0}\), so it is certain that \(\theta_{*} > \theta_{0}\).
 
 \textbf{Exercise 11.9.4}. There is a theory that people can postpone
 their death until after an important event. To test the theory, Phillips
@@ -574,7 +517,6 @@ Passover. Of 1919 deaths, 922 died the week before the holiday and 997
 died the week after. Think of this as a binomial and test the null
 hypothesis that \(\theta = 1/2\). Report and interpret the p-value. Also
 construct a confidence interval for \(\theta\).
-
 Reference: Philips, D.P and King, E.W. (1988). \emph{Death takes a
 holiday: Mortality surrounding major social occasions.} The Lancet, 2,
 728-732.
@@ -582,36 +524,31 @@ holiday: Mortality surrounding major social occasions.} The Lancet, 2,
 \textbf{Solution}. Let the number of deaths be
 \(X \sim \text{Binomial}(n, \theta)\), with \(n = 1919\). We have a
 measurement for \(X = 922\), and we want to test the null hypothesis:
-
-\[H_{0}:  \theta = 1/2 \quad \text{versus} \quad H_{1}: \theta \neq 1/2\]
-
+\[
+H_{0}:  \theta = 1/2 \quad \text{versus} \quad H_{1}: \theta \neq 1/2
+\]
 The MLE is \(\hat{\theta} = X / n = 922 / 1919\); the estimated standard
 error is \(\sqrt{\hat{\theta}(1 - \hat{\theta})/n}\). The Wald test
-statistic is \(W = (\hat{\theta} - \theta_{0}) / \hat{\text{se}}\), and
-the p-value is \(\mathbb{P}(|Z| > |W|) = 2(1 - \Phi(|W|))\).
+statistic is \(W = (\hat{\theta} - \theta_{0}) / \widehat{\SE}\), and
+the p-value is \(\PROB(|Z| > |W|) = 2(1 - \Phi(|W|))\).
 
 \begin{python}
 import math
 from scipy.stats import norm
-
 n = 1919
 X = 922
 theta_hat = 922 / 1919
 se_hat = math.sqrt(theta_hat * (1 - theta_hat) / n)
-
-z_{0}5 = norm.ppf(0.975)
-confidence_{i}nterval = (theta_hat - z_{0}5 * se_hat, theta_hat + z_{0}5 * se_hat)
-
+z_05 = norm.ppf(0.975)
+confidence_interval = (theta_hat - z_05 * se_hat, theta_hat + z_05 * se_hat)
 w = (theta_hat - 0.5) / se_hat
 p_value = 2 * (1 - norm.cdf(abs(w)))
-
 print('Estimated theta: \t %.3f' % theta_hat)
 print('Estimated SE: \t\t %.3f' % se_hat)
-print('95%% confidence interval: (%.3f, %.3f)' % confidence_{i}nterval)
+print('95%% confidence interval: (%.3f, %.3f)' % confidence_interval)
 print('Wald statistic: \t %.3f' % w)
 print('p-value: \t\t %.3f' % p_value)
 \end{python}
-
 \begin{console}
 Estimated theta:         0.480
 Estimated SE:            0.011
@@ -619,10 +556,8 @@ Estimated SE:            0.011
 Wald statistic:          -1.713
 p-value:                 0.087
 \end{console}
-
 A 95\% confidence interval can be built based on the estimated value for
 \(\theta\) and its estimated standard error, from 45.8\% to 50.3\%.
-
 The Wald test produces a p-value of 8.7\%, which represents only weak
 evidence against the null hypothesis -- inconclusive results.
 
@@ -631,24 +566,17 @@ Daily Crescent. They were signed ``Quintus Curtuis Snodgrass'' and some
 people suspected they were actually written by Mark Twain. To
 investigate this, we will investigate the proportion of three letter
 words found in an author's work.
-
 From eight Twain essays we have:
-
-\[ 
+\[
 0.225 \quad 0.262 \quad 0.217 \quad 0.240 \quad 0.230 \quad 0.229 \quad 0.235 \quad 0.217
 \]
-
 From 10 Snodgrass essays we have:
-
 \[
 0.209 \quad 0.205 \quad 0.196 \quad 0.210 \quad 0.202 \quad 0.207 \quad 0.224 \quad 0.223 \quad 0.220 \quad 0.201
 \]
-
-
 \textbf{(a)} Perform a Wald test for equality of the means. Use the
 nonparametric plug-in estimator. Report the p-value and a 95\%
 confidence interval for the difference of means. What do you conclude?
-
 \textbf{(b)} Now use a permutation test to avoid the use of large sample
 methods. What is your conclusion?
 
@@ -658,36 +586,28 @@ Y = [0.209, 0.205, 0.196, 0.210, 0.202, 0.207, 0.224, 0.223, 0.220, 0.201]
 \end{python}
 
 \textbf{Solution}.
-
 \textbf{(a)}
 
 \begin{python}
 import numpy as np
 from scipy.stats import norm
-from tqdm import tqdm_{n}otebook
-
+from tqdm import tqdm_notebook
 X = np.array(X)
 Y = np.array(Y)
-
 x_hat = X.mean()
 y_hat = Y.mean()
-
 diff_hat = x_hat - y_hat
 se_hat = np.sqrt(X.var(ddof=1)/len(X) + Y.var(ddof=1)/len(Y))
-
-z_{0}5 = norm.ppf(0.975)
-confidence_{i}nterval = (diff_hat - z_{0}5 * se_hat, diff_hat + z_{0}5 * se_hat)
-
+z_05 = norm.ppf(0.975)
+confidence_interval = (diff_hat - z_05 * se_hat, diff_hat + z_05 * se_hat)
 w = diff_hat / se_hat
 p_value = 2 * (1 - norm.cdf(abs(w)))
-
 print('Estimated difference of means:\t %.3f' % diff_hat)
 print('Estimated SE: \t\t\t %.3f' % se_hat)
-print('95%% confidence interval:\t (%.3f, %.3f)' % confidence_{i}nterval)
+print('95%% confidence interval:\t (%.3f, %.3f)' % confidence_interval)
 print('Wald statistic: \t\t %.3f' % w)
 print('Wald test p-value: \t\t %.4f' % p_value)
 \end{python}
-
 \begin{console}
 Estimated difference of means:   0.022
 Estimated SE:                    0.006
@@ -695,22 +615,19 @@ Estimated SE:                    0.006
 Wald statistic:                  3.704
 Wald test p-value:               0.0002
 \end{console}
-
 Such a small p-value (0.02\%) offers very strong evidence to reject the
 null hypothesis -- that is, that the series follow distributions with
 different means. The writing styles are different according to this
 metric, even if the same writer is responsible for both.
-
 \textbf{(b)}
 
 \begin{python}
 # Permutation test using random shuffling
-
 B = 1000000
 full_series = np.concatenate([X, Y])
 nx = len(X)
 diff_boot_count = 0
-for i in tqdm_{n}otebook(range(B)):
+for i in tqdm_notebook(range(B)):
     np.random.shuffle(full_series)
     xx, yy = full_series[:nx], full_series[nx:]
     diff_boot = xx.mean() - yy.mean()
@@ -718,85 +635,71 @@ for i in tqdm_{n}otebook(range(B)):
         diff_boot_count += 1
         
 p_value_perm = diff_boot_count / B
-
 print('Permutation test p-value: \t\t %.4f' % p_value_perm)
 \end{python}
-
-
 \begin{console}
 Permutation test p-value:                0.0005
 \end{console}
-
 This small p-value (0.05\%) also offers very strong evidence that the
 two samples come from series with different means.
 
 \textbf{Exercise 11.9.6}. Let \(X_{1}, \dots, X_{n} \sim N(\theta, 1)\).
 Consider testing
-
-\[ H_{0}: \theta = 0 \quad \text{versus} \quad H_{1}: \theta = 1\]
-
+\[
+H_{0}: \theta = 0 \quad \text{versus} \quad H_{1}: \theta = 1
+\]
 Let the rejection region be \(R = \{ x^{n} : T(x^{n}) > c \}\) where
 \(T(x^{n}) = n^{-1} \sum_{i=1}^{n} X_{i}\).
-
 \textbf{(a)} Find \(c\) so that the test has size \(\alpha\).
-
 \textbf{(b)} Find the power under \(H_{1}\), i.e., find \(\beta(1)\).
-
 \textbf{(c)} Show that \(\beta(1) \rightarrow 1\) as
 \(n \rightarrow \infty\).
 
 \textbf{Solution}.
-
 \textbf{(a)} The size of the rejection region is
-
-\[\mathbb{P}_{\theta = 0}(T > c) = \mathbb{P}_{\theta = 0}(\sqrt{n}T / 1 > \sqrt{n}c) = \mathbb{P}(Z > \sqrt{n} c) = 1 - \Phi(\sqrt{n}c)\]
-
+\[
+\PROB_{\theta = 0}(T > c) = \PROB_{\theta = 0}(\sqrt{n}T / 1 > \sqrt{n}c) = \PROB(Z > \sqrt{n} c) = 1 - \Phi(\sqrt{n}c)
+\]
 If this value is \(\alpha\), then
-
 \begin{align*}
 \alpha &= 1 - \Phi(\sqrt{n}c) \\
 \Phi(\sqrt{n}c) &= 1 - \alpha \\
 \sqrt{n}c &= z_{\alpha} \\
 c &= z_{\alpha} / \sqrt{n}
 \end{align*}
-
 \textbf{(b)} We have
-\(\beta(1) = \mathbb{P}_{\theta = 1}(T > c) = \mathbb{\theta = 1}(\sqrt{n}(T - 1)/1 > \sqrt{n}(c - 1)) = \mathbb{P}(Z > \sqrt{n}(c - 1)) = 1 - \Phi(\sqrt{n}(c - 1)) = 1 - \Phi(z_\alpha - \sqrt{n})\)
-
+\(\beta(1) = \PROB_{\theta = 1}(T > c) = \PROB_{\theta = 1}(\sqrt{n}(T - 1)/1 > \sqrt{n}(c - 1)) = \PROB(Z > \sqrt{n}(c - 1)) = 1 - \Phi(\sqrt{n}(c - 1)) = 1 - \Phi(z_\alpha - \sqrt{n})\)
 \textbf{(c)} As \(n \rightarrow \infty\),
 \(\beta(1) \rightarrow 1 - \Phi(-\infty) = 1\).
 
 \textbf{Exercise 11.9.7}. Let \(\hat{\theta}\) be the MLE of a parameter
-theta and let \(\hat{\text{se}} = \{ n I(\hat{\theta})\}^{-1/2}\) where
+theta and let \(\widehat{\SE} = \{ n I(\hat{\theta})\}^{-1/2}\) where
 \(I(\hat{\theta})\) is the Fisher information. Consider testing
-
-\[H_{0}: \theta = \theta_{0} \quad \text{versus} \quad H_{1}: \theta \neq \theta_{0}\]
-
+\[
+H_{0}: \theta = \theta_{0} \quad \text{versus} \quad H_{1}: \theta \neq \theta_{0}
+\]
 Consider the Wald test with rejection region
 \(R = \{ x^{n}: |Z| > z_{\alpha/2} \}\) where
-\(Z = (\hat{\theta} - \theta_{0}) / \hat{\text{se}}\). Let
+\(Z = (\hat{\theta} - \theta_{0}) / \widehat{\SE}\). Let
 \(\theta_{1} > \theta_{0}\) be some alternative. Show that
 \(\beta(\theta_{1}) \rightarrow 1\).
 
 \textbf{Solution}.
-
 We have
-
 \begin{align*}
-\beta(\theta_{1}) &= \mathbb{P}_{\theta_{1}}(|Z| > z_{\alpha/2}) \\
-&= \mathbb{P}_{\theta_{1}}(Z > z_{\alpha/2}) + \mathbb{P}_{\theta_{1}}(Z < - z_{\alpha/2})\\
-&= \mathbb{P}_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} > z_{\alpha/2}\right)
-+ \mathbb{P}_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{0}}{\hat{\text{se}}} < -z_{\alpha/2}\right) \\
-&= \mathbb{P}_{\theta_{1}}\left(\hat{\theta} > \hat{\text{se}} z_{\alpha/2} + \theta_{0} \right)
-+ \mathbb{P}_{\theta_{1}}\left(\hat{\theta} < -\hat{\text{se}} z_{\alpha/2} + \theta_{0} \right) \\
-&= \mathbb{P}_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{1}}{\hat{\text{se}}} >  z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\hat{\text{se}}} \right)
-+ \mathbb{P}_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{1}}{\hat{\text{se}}} <  -z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\hat{\text{se}}} \right) \\
-&= \mathbb{P}_{\theta_{1}}\left(W >  z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\hat{\text{se}}} \right)
-+ \mathbb{P}_{\theta_{1}}\left(W <  -z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\hat{\text{se}}} \right) \\
-& \geq \mathbb{P}_{\theta_{1}}\left(W >  z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\hat{\text{se}}} \right)
+\beta(\theta_{1}) &= \PROB_{\theta_{1}}(|Z| > z_{\alpha/2}) \\
+&= \PROB_{\theta_{1}}(Z > z_{\alpha/2}) + \PROB_{\theta_{1}}(Z < - z_{\alpha/2})\\
+&= \PROB_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} > z_{\alpha/2}\right)
++ \PROB_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{0}}{\widehat{\SE}} < -z_{\alpha/2}\right) \\
+&= \PROB_{\theta_{1}}\left(\hat{\theta} > \widehat{\SE} z_{\alpha/2} + \theta_{0} \right)
++ \PROB_{\theta_{1}}\left(\hat{\theta} < -\widehat{\SE} z_{\alpha/2} + \theta_{0} \right) \\
+&= \PROB_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{1}}{\widehat{\SE}} >  z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\widehat{\SE}} \right)
++ \PROB_{\theta_{1}}\left(\frac{\hat{\theta} - \theta_{1}}{\widehat{\SE}} <  -z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\widehat{\SE}} \right) \\
+&= \PROB_{\theta_{1}}\left(W >  z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\widehat{\SE}} \right)
++ \PROB_{\theta_{1}}\left(W <  -z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\widehat{\SE}} \right) \\
+& \geq \PROB_{\theta_{1}}\left(W >  z_{\alpha/2} + \frac{\theta_{0} - \theta_{1}}{\widehat{\SE}} \right)
 \end{align*}
-
-When \(n \rightarrow \infty\), \(\hat{\text{se}} \rightarrow 0\). Since
+When \(n \rightarrow \infty\), \(\widehat{\SE} \rightarrow 0\). Since
 \(\theta_{1} > \theta_{0}\), the right hand side of the inequality goes to
 \(-\infty\), and so the lower bound probability goes to 1. Therefore
 \(\beta(\theta_{1}) \rightarrow 1\).
@@ -804,7 +707,6 @@ When \(n \rightarrow \infty\), \(\hat{\text{se}} \rightarrow 0\). Since
 \textbf{Exercise 11.9.8}. Here are the number of elderly Jewish and
 Chinese women who died just before and after the Chinese Harvest Moon
 Festival.
-
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}lll@{}}
@@ -818,43 +720,34 @@ Week & Chinese & Jewish \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 Compare the two mortality patterns.
 
 \textbf{Solution}.
 
 \begin{python}
 import pandas as pd
-
 df = pd.DataFrame({
     'Chinese': [55, 33, 70, 49],
     'Jewish':  [141, 145, 139, 161]
 }, index=[-2, -1, 1, 2])
 \end{python}
-
 Use a few different approaches.
-
 First: \(\chi^{2}\) tests comparing, separately, Chinese and Jewish
 mortalities before and after the Chinese Harvest Moon Festival.
 
 \begin{python}
 from scipy.stats import chi2
-
 chinese_before = df['Chinese'].loc[-2:-1].sum()
 chinese_after = df['Chinese'].loc[1:2].sum()
-
 mu_chinese_hat = (chinese_before + chinese_after) / 2
 t_pearson_chinese = (chinese_before - mu_chinese_hat)**2/mu_chinese_hat \
     + (chinese_after - mu_chinese_hat)**2/mu_chinese_hat
-
 chi2_95 = chi2.ppf(0.95, 1)
 p_value_chinese = 1 - chi2.cdf(t_pearson_chinese, 1)
-
 print('Test statistic:\t\t\t\t%.3f ' % t_pearson_chinese)
 print('95%% percentile chi squared with 1 df:\t%.3f' % chi2_95)
 print('p-value for different distributions:\t%.3f' % p_value_chinese)
 \end{python}
-
 \begin{console}
 Test statistic:                         4.643
 95\% percentile chi squared with 1 df:   3.841
@@ -864,33 +757,26 @@ p-value for different distributions:    0.031
 \begin{python}
 jewish_before = df['Jewish'].loc[-2:-1].sum()
 jewish_after = df['Jewish'].loc[1:2].sum()
-
-mu_{j}ewish_hat = (jewish_before + jewish_after) / 2
-t_pearson_{j}ewish = (jewish_before - mu_{j}ewish_hat)**2/mu_{j}ewish_hat \
-    + (jewish_after - mu_{j}ewish_hat)**2/mu_{j}ewish_hat
-
+mu_jewish_hat = (jewish_before + jewish_after) / 2
+t_pearson_jewish = (jewish_before - mu_jewish_hat)**2/mu_jewish_hat \
+    + (jewish_after - mu_jewish_hat)**2/mu_jewish_hat
 chi2_95 = chi2.ppf(0.95, 1)
-p_value_{j}ewish = 1 - chi2.cdf(t_pearson_{j}ewish, 1)
-
-print('Test statistic:\t\t\t\t%.3f ' % t_pearson_{j}ewish)
+p_value_jewish = 1 - chi2.cdf(t_pearson_jewish, 1)
+print('Test statistic:\t\t\t\t%.3f ' % t_pearson_jewish)
 print('95%% percentile chi squared with 1 df:\t%.3f' % chi2_95)
-print('p-value for different distributions:\t%.3f' % p_value_{j}ewish)
+print('p-value for different distributions:\t%.3f' % p_value_jewish)
 \end{python}
-
 \begin{console}
 Test statistic:                         0.334
 95\% percentile chi squared with 1 df:   3.841
 p-value for different distributions:    0.563
 \end{console}
-
 The \(\chi^{2}\) test statistics for the Chinese population \emph{do}
 suggest, with a p-value of 3.1\%, that the mortality rates are distinct
 before and after the event, while the statistics for the Jewish
 population do not suggest so (with a no-evidence p-value of 56.3\%.
-
 Using the likelihood test to compare mortality in each group before and
 after the event:
-
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}lll@{}}
@@ -902,47 +788,41 @@ After & 119 & 300 \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 MLE under alternate hypothesis:
-\[\hat{\theta} = \left( \frac{88}{793}, \frac{119}{793}, \frac{286}{793}, \frac{300}{793} \right)\]
-
+\[
+\hat{\theta} = \left( \frac{88}{793}, \frac{119}{793}, \frac{286}{793}, \frac{300}{793} \right)
+\]
 MLE under null hypothesis:
-\[\hat{\theta_{0}} =\left( \frac{103.5}{793}, \frac{103.5}{793}, \frac{293}{793}, \frac{293}{793} \right)\]
-
+\[
+\hat{\theta_{0}} =\left( \frac{103.5}{793}, \frac{103.5}{793}, \frac{293}{793}, \frac{293}{793} \right)
+\]
 Log-likelihood ratio statistic:
-
-\[ \lambda = 2 \log \left( \frac{\mathcal{L}(\hat{\theta})}{\mathcal{L}(\hat{\theta_{0}})} \right)
+\[
+\lambda = 2 \log \left( \frac{\mathcal{L}(\hat{\theta})}{\mathcal{L}(\hat{\theta_{0}})} \right)
 = 2 \left( 88 \log \frac{88}{103.5} + 119 \log \frac{119}{103.5} + 286 \log \frac{286}{293} + 300 \log \frac{300}{293} \right) \approx 2.497
 \]
-
 The 95\% percentile value for the \(\chi^{2}\) distribution with 1 degree
 of freedom is \(\approx 3.841\), so the likelihood test does not reject
 the null hypothesis at this confidence level. The p-value for this test
 is 0.114, suggesting little or no evidence that, for both groups, the
 mortality rates are distinct.
-
 Finally, consider 4 distinct sample binomial tests, one for each week:
 
 \begin{python}
 import pandas as pd
 from scipy.stats import binom_test
-
 theta_week1 = 55 / (55 + 141)
 theta_week2 = 33 / (33 + 145)
 theta_week3 = 70 / (70 + 139)
 theta_week4 = 49 / (49 + 161)
-
-theta_{n}ull = (55 + 33 + 70 + 49) / (55 + 33 + 70 + 49 + 141 + 145 + 139 + 161)
-
-p1 = binom_test(55, 55 + 141, theta_{n}ull, alternative="two-sided")
-p2 = binom_test(33, 33 + 145, theta_{n}ull, alternative="two-sided")
-p3 = binom_test(70, 70 + 139, theta_{n}ull, alternative="two-sided")
-p4 = binom_test(49, 49 + 161, theta_{n}ull, alternative="two-sided")
-
+theta_null = (55 + 33 + 70 + 49) / (55 + 33 + 70 + 49 + 141 + 145 + 139 + 161)
+p1 = binom_test(55, 55 + 141, theta_null, alternative="two-sided")
+p2 = binom_test(33, 33 + 145, theta_null, alternative="two-sided")
+p3 = binom_test(70, 70 + 139, theta_null, alternative="two-sided")
+p4 = binom_test(49, 49 + 161, theta_null, alternative="two-sided")
 results = pd.DataFrame({'p-value': [p1, p2, p3, p4]}, index=[-2, -1, 1, 2])
 results
 \end{python}
-
 \begin{console}
      p-value
 -2  0.516380
@@ -950,7 +830,6 @@ results
  1  0.017937
  2  0.388072
 \end{console}
-
 The tests suggest that there \emph{is} strong evidence for distinct
 mortality rates between the Chinese and Jewish populations on the weeks
 immediately preceding and following the event (p-values of 2.1\% and
@@ -960,7 +839,6 @@ immediately preceding and following the event (p-values of 2.1\% and
 \textbf{Exercise 11.9.9}. A randomized, double-blind experiment was
 conducted to assess the effectiveness of several drugs for reducing
 post-operative nausea. The data are as follows.
-
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}lll@{}}
@@ -975,22 +853,18 @@ Pentobarbital (150 mg) & 85 & 37 \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 \textbf{(a)} Test each drug versus the placebo at the 5\% level. Also,
 report the estimated odds-ratios. Summarize your findings.
-
 \textbf{(b)} Use the Bonferroni and the FDR method to adjust for
 multiple testing.
 
 \textbf{Solution}.
-
 \textbf{(a)}
 
 \begin{python}
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
-
 df = pd.DataFrame({
     'Treatment': ['Placebo', 'Chlorpromazine', 'Dimenhydrate', 
                   'Pentobarbital (100 mg)', 'Pentobarbital (150 mg)'],
@@ -1007,21 +881,18 @@ df['variance'] = df['p_hat'] * (1 - df['p_hat']) / df['Number of patients']
 \begin{python}
 p_hat_placebo = df[df['Treatment'] == 'Placebo']['p_hat'][0]
 variance_placebo = df[df['Treatment'] == 'Placebo']['variance'][0]
-
 # odds = affected / normal = p / (1 - p)
 df['Odds'] = df['p_hat'] / (1 - df['p_hat'])
-
 # odds ratio = odds_placebo / odds_treatment
 df['Odds ratio'] = df[df['Treatment'] == 'Placebo']['Odds'][0] / df['Odds']
-
-df['Wald statistic'] = (df['p_hat'] - p_hat_placebo) / np.sqrt(df['variance'] + variance_placebo)
+df['Wald statistic'] = (df['p_hat'] - p_hat_placebo) \
+                        / np.sqrt(df['variance'] + variance_placebo)
 df['p-value'] = 2 * (1 - norm.cdf(abs(df['Wald statistic'])))
 \end{python}
 
 \begin{python}
 df[['Treatment', 'Odds ratio', 'Wald statistic', 'p-value']][df['Treatment'] != 'Placebo']
 \end{python}
-
 \begin{console}
                 Treatment  Odds ratio  Wald statistic   p-value
 1          Chlorpromazine    2.423077       -2.764364  0.005703
@@ -1032,11 +903,9 @@ df[['Treatment', 'Odds ratio', 'Wald statistic', 'p-value']][df['Treatment'] != 
         
     At the 5\% significance level, only Chlorpromazine changes the Nausea
 incidence, with an odds ratio of 2.42.
-
 \textbf{(b)} There are 4 tests, so the significance ratio for the
 Bonferroni method will be \(0.05 / 4 = 0.0125\). Again, only
 Chlorpromazine rejects the null hypothesis.
-
 For the Benjamini-Hochfield method, the ordered p-values are
 \(0.0057 < 0.0996 < 0.5202 < 0.6266\);
 \(\ell_{i} = i \alpha / m = 0.0125 \cdot i\), and
@@ -1045,12 +914,11 @@ again only rejects the null hypothesis for the first treatment.
 
 \textbf{Exercise 11.9.10}. Let
 \(X_{1}, \dots, X_{n} \sim \text{Poisson}(\lambda)\).
-
 \textbf{(a)} Let \(\lambda_{0} > 0\). Find the size \(\alpha\) Wald test
 for
-
-\[ H_{0}: \lambda = \lambda_{0} \quad \text{versus} \quad H_{1}: \lambda \neq \lambda_{0}\]
-
+\[
+H_{0}: \lambda = \lambda_{0} \quad \text{versus} \quad H_{1}: \lambda \neq \lambda_{0}
+\]
 \textbf{(b)} (Computer Experiment) Let \(\lambda_{0} = 1\), \(n = 20\) and
 \(\alpha = 0.05\). Simulate
 \(X_{1}, \dots, X_{n} \sim \text{Poisson}(\lambda_{0})\) and perform the Wald
@@ -1058,45 +926,37 @@ test. Repeat many times and count how often you reject the null. How
 close is the type I error rate to 0.05?
 
 \textbf{Solution}.
-
 \textbf{(a)}
-
 \begin{align*}
-\beta(\lambda_{0}) &= \mathbb{P}_{\lambda_{0}}\left( |W| > z_{\alpha/2} \right)  \\
-&= \mathbb{P}_{\lambda_{0}}\left( \Bigg| \frac{\hat{\lambda} - \lambda_{0}}{\hat{\text{se}}} \Bigg| > z_{\alpha/2} \right)
+\beta(\lambda_{0}) &= \PROB_{\lambda_{0}}\left( |W| > z_{\alpha/2} \right)  \\
+&= \PROB_{\lambda_{0}}\left( \Bigg| \frac{\hat{\lambda} - \lambda_{0}}{\widehat{\SE}} \Bigg| > z_{\alpha/2} \right)
 \end{align*}
-
 The MLE for the parameter is the mean of the data,
-\(\hat{\lambda} = \overline{X}\), while the estimate of the SE is
-\(\sqrt{1 / I_{n}(\hat{\lambda})} = 1 / \sqrt{n\overline{X}}\). Replacing
+\(\hat{\lambda} = \bar{X}\), while the estimate of the SE is
+\(\sqrt{1 / I_{n}(\hat{\lambda})} = 1 / \sqrt{n\bar{X}}\). Replacing
 these, we get
-
 \[
-\mathbb{P}_{\lambda_{0}}\left( \big| (\overline{X} - \lambda_{0})\sqrt{n \overline{X}} \big| > z_{\alpha/2} \right)
+\PROB_{\lambda_{0}}\left( \big| (\bar{X} - \lambda_{0})\sqrt{n \bar{X}} \big| > z_{\alpha/2} \right)
 \]
-
 \textbf{(b)}
 
 \begin{python}
 import numpy as np
 from scipy.stats import norm, poisson
-from tqdm import tqdm_{n}otebook
-
-lambda_{0} = 1
+from tqdm import tqdm_notebook
+lambda_0 = 1
 n = 20
 alpha = 0.05
-
 z = norm.ppf(1 - alpha / 2)
 \end{python}
 
 \begin{python}
 # Perform process once
-X = poisson.rvs(lambda_{0}, size=n)
+X = poisson.rvs(lambda_0, size=n)
 lambda_hat = X.mean()
-rejection = ((lambda_hat - lambda_{0})**2) * (n * lambda_hat) > z**2
+rejection = ((lambda_hat - lambda_0)**2) * (n * lambda_hat) > z**2
 print('Rejection: ', rejection)
 \end{python}
-
 \begin{console}
 Rejection:  False
 \end{console}
@@ -1105,20 +965,17 @@ Rejection:  False
 # Perform process many times
 B = 1000000
 num_rejections = 0
-for i in tqdm_{n}otebook(range(B)):
-    X = poisson.rvs(lambda_{0}, size=n)
+for i in tqdm_notebook(range(B)):
+    X = poisson.rvs(lambda_0, size=n)
     lambda_hat = X.mean()
-    if ((lambda_hat - lambda_{0})**2) * (n * lambda_hat) > z**2:
+    if ((lambda_hat - lambda_0)**2) * (n * lambda_hat) > z**2:
         num_rejections += 1
         
 fraction_rejections = num_rejections / B
-
 print('Fraction of rejections: %.3f' % fraction_rejections)
 \end{python}
-
 \begin{console}
 Fraction of rejections: 0.052
 \end{console}
-
 The measured fraction of rejections of the null hypothesis is \(0.052\),
 which is very close to \(\alpha = 0.05\).

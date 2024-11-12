@@ -1,0 +1,30 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{forward\PYGZus{}selection}\PYG{p}{(}\PYG{n}{score\PYGZus{}func}\PYG{p}{,} \PYG{n}{S}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Uses forward selection to select a subset A of S, in a search to maximize score\PYGZus{}func(A).}
+\PYG{l+s+sd}{    Args:}
+\PYG{l+s+sd}{       score\PYGZus{}func:  (A) =\PYGZgt{} score, a function to score subsets}
+\PYG{l+s+sd}{       S:           iterable to select a subset from}
+\PYG{l+s+sd}{    Returns:}
+\PYG{l+s+sd}{       A:           a subset of S resulting from forward selection}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{all\PYGZus{}subsets} \PYG{o}{=} \PYG{p}{[}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)} \PYG{k}{for} \PYG{n}{s} \PYG{o+ow}{in} \PYG{n}{powerset}\PYG{p}{(}\PYG{n}{S}\PYG{p}{)}\PYG{p}{]}
+    \PYG{n}{current\PYGZus{}subset} \PYG{o}{=} \PYG{p}{[}\PYG{p}{[}\PYG{p}{]}\PYG{p}{]}
+    \PYG{n}{current\PYGZus{}score} \PYG{o}{=} \PYG{n}{score\PYGZus{}func}\PYG{p}{(}\PYG{n}{current\PYGZus{}subset}\PYG{p}{)}
+    \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+        \PYG{n}{best\PYGZus{}subset}\PYG{p}{,} \PYG{n}{best\PYGZus{}score} \PYG{o}{=} \PYG{n}{current\PYGZus{}subset}\PYG{p}{,} \PYG{n}{current\PYGZus{}score}
+        \PYG{n}{improved} \PYG{o}{=} \PYG{k+kc}{False}
+        \PYG{k}{for} \PYG{n}{s} \PYG{o+ow}{in} \PYG{n}{all\PYGZus{}subsets}\PYG{p}{:}
+            \PYG{k}{if} \PYG{n}{s} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n}{current\PYGZus{}subset}\PYG{p}{:}
+                \PYG{n}{candidate\PYGZus{}subset} \PYG{o}{=} \PYG{n}{current\PYGZus{}subset}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+                \PYG{n}{candidate\PYGZus{}subset}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)}
+                \PYG{n}{candidate\PYGZus{}subset}\PYG{o}{.}\PYG{n}{sort}\PYG{p}{(}\PYG{p}{)}
+                \PYG{n}{candidate\PYGZus{}score} \PYG{o}{=} \PYG{n}{score\PYGZus{}func}\PYG{p}{(}\PYG{n}{candidate\PYGZus{}subset}\PYG{p}{)}
+                \PYG{k}{if} \PYG{n}{candidate\PYGZus{}score} \PYG{o}{\PYGZgt{}} \PYG{n}{best\PYGZus{}score}\PYG{p}{:}
+                    \PYG{n}{improved} \PYG{o}{=} \PYG{k+kc}{True}
+                    \PYG{n}{best\PYGZus{}subset}\PYG{p}{,} \PYG{n}{best\PYGZus{}score} \PYG{o}{=} \PYG{n}{candidate\PYGZus{}subset}\PYG{p}{,} \PYG{n}{candidate\PYGZus{}score}
+        \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{improved}\PYG{p}{:}
+            \PYG{k}{break}
+        \PYG{n}{current\PYGZus{}subset}\PYG{p}{,} \PYG{n}{current\PYGZus{}score} \PYG{o}{=} \PYG{n}{best\PYGZus{}subset}\PYG{p}{,} \PYG{n}{best\PYGZus{}score}
+    \PYG{k}{return} \PYG{n}{current\PYGZus{}subset}
+\end{MintedVerbatim}

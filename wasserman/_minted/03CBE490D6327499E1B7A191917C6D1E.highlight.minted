@@ -1,0 +1,28 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}regression}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{X} \PYG{o}{=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Create new column with all 1s for intercept at start}
+    \PYG{n}{X}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{const}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Least squares solution}
+    \PYG{n}{beta\PYGZus{}hat} \PYG{o}{=} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{inv}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{X}\PYG{p}{)} \PYG{o}{@} \PYG{n}{X}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{Y}\PYG{p}{)}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Predicted solutions}
+    \PYG{n}{Y\PYGZus{}pred} \PYG{o}{=} \PYG{n}{X} \PYG{o}{@} \PYG{n}{beta\PYGZus{}hat}
+    \PYG{c+c1}{\PYGZsh{} Prediction errors}
+    \PYG{n}{epsilon\PYGZus{}hat} \PYG{o}{=} \PYG{n}{Y\PYGZus{}pred} \PYG{o}{\PYGZhy{}} \PYG{n}{Y}
+    \PYG{c+c1}{\PYGZsh{} Error on training data}
+    \PYG{n}{training\PYGZus{}error} \PYG{o}{=} \PYG{n}{epsilon\PYGZus{}hat}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{epsilon\PYGZus{}hat}
+    \PYG{c+c1}{\PYGZsh{} Estimated error variance}
+    \PYG{n}{sigma2\PYGZus{}hat} \PYG{o}{=} \PYG{p}{(}\PYG{n}{training\PYGZus{}error} \PYG{o}{/} \PYG{p}{(}\PYG{n}{Y}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{X}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Parameter estimated standard errors}
+    \PYG{n}{se\PYGZus{}beta\PYGZus{}hat} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{sigma2\PYGZus{}hat} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{diag}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{inv}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{X}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}
+    \PYG{c+c1}{\PYGZsh{} t statistic for estimated parameters being non\PYGZhy{}zero}
+    \PYG{n}{t\PYGZus{}values} \PYG{o}{=} \PYG{n}{beta\PYGZus{}hat}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{/} \PYG{n}{se\PYGZus{}beta\PYGZus{}hat}
+    \PYG{c+c1}{\PYGZsh{} p\PYGZhy{}values for estimated parameters being non\PYGZhy{}zero}
+    \PYG{n}{p\PYGZus{}values} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{t}\PYG{o}{.}\PYG{n}{cdf}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{t\PYGZus{}values}\PYG{p}{)}\PYG{p}{,} \PYG{n}{X}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{coef}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{beta\PYGZus{}hat}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{std err}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{se\PYGZus{}beta\PYGZus{}hat}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{t\PYGZus{}values}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,}
+        \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{P \PYGZgt{} |t|}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{p\PYGZus{}values}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{p}{\PYGZcb{}}\PYG{p}{,} \PYG{n}{index}\PYG{o}{=}\PYG{n}{X}\PYG{o}{.}\PYG{n}{columns}\PYG{p}{)}
+\end{MintedVerbatim}

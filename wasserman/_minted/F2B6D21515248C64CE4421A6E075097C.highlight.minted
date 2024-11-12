@@ -1,9 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
-
-\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{1}
-\PYG{n}{b} \PYG{o}{=} \PYG{l+m+mi}{3}
-\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{10}
-
-\PYG{n}{X} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{n}{low}\PYG{o}{=}\PYG{n}{a}\PYG{p}{,} \PYG{n}{high}\PYG{o}{=}\PYG{n}{b}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{n}\PYG{p}{)}
-\end{MintedVerbatim}

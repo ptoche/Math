@@ -1,0 +1,27 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                    MPG   R\PYGZhy{}squared:                       0.624
+Model:                            OLS   Adj. R\PYGZhy{}squared:                  0.619
+Method:                 Least Squares   F\PYGZhy{}statistic:                     132.7
+Date:                Sun, 15 Mar 2020   Prob (F\PYGZhy{}statistic):           1.15e\PYGZhy{}18
+Time:                        17:06:26   Log\PYGZhy{}Likelihood:                \PYGZhy{}264.61
+No. Observations:                  82   AIC:                             533.2
+Df Residuals:                      80   BIC:                             538.0
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P\PYGZgt{}|t|      [0.025      0.975]
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+const         50.0661      1.569     31.900      0.000      46.943      53.189
+HP            \PYGZhy{}0.1390      0.012    \PYGZhy{}11.519      0.000      \PYGZhy{}0.163      \PYGZhy{}0.115
+==============================================================================
+Omnibus:                       22.759   Durbin\PYGZhy{}Watson:                   0.721
+Prob(Omnibus):                  0.000   Jarque\PYGZhy{}Bera (JB):               31.329
+Skew:                           1.246   Prob(JB):                     1.57e\PYGZhy{}07
+Kurtosis:                       4.722   Cond. No.                         299.
+==============================================================================
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly
+specified.
+\end{MintedVerbatim}

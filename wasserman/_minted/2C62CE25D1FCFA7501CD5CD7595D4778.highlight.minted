@@ -5,6 +5,5 @@
         \PYG{c+c1}{\PYGZsh{} Help numpy handle fractional powers for negative numbers}
         \PYG{n}{a} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{x} \PYG{o}{@} \PYG{n}{y}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)}
         \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sign}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{n}{p}
-
     \PYG{k}{return} \PYG{n}{f}
 \end{MintedVerbatim}

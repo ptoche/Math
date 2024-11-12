@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+X\PYG{n+nb}{\PYGZus{}}1 ⫫ X\PYG{n+nb}{\PYGZus{}}2 | X\PYG{n+nb}{\PYGZus{}}3:  0.030
+X\PYG{n+nb}{\PYGZus{}}1 ⫫ X\PYG{n+nb}{\PYGZus{}}3 | X\PYG{n+nb}{\PYGZus{}}2:  0.882
+X\PYG{n+nb}{\PYGZus{}}2 ⫫ X\PYG{n+nb}{\PYGZus{}}3 | X\PYG{n+nb}{\PYGZus{}}1:  0.262
+\end{MintedVerbatim}

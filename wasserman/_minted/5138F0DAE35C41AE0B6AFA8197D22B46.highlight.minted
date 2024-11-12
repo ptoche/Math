@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{beta}
+\PYG{n}{B} \PYG{o}{=} \PYG{l+m+mi}{100000}
+\PYG{n}{n1} \PYG{o}{=} \PYG{l+m+mi}{50}
+\PYG{n}{n2} \PYG{o}{=} \PYG{l+m+mi}{50}
+\PYG{n}{X1} \PYG{o}{=} \PYG{l+m+mi}{30}
+\PYG{n}{X2} \PYG{o}{=} \PYG{l+m+mi}{40}
+\PYG{n}{p1\PYGZus{}boot} \PYG{o}{=} \PYG{n}{beta}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{X1} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n1} \PYG{o}{\PYGZhy{}} \PYG{n}{X1} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{B}\PYG{p}{)}
+\PYG{n}{p2\PYGZus{}boot} \PYG{o}{=} \PYG{n}{beta}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{X2} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n2} \PYG{o}{\PYGZhy{}} \PYG{n}{X2} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{B}\PYG{p}{)}
+\PYG{n}{tau\PYGZus{}boot} \PYG{o}{=} \PYG{n}{p2\PYGZus{}boot} \PYG{o}{\PYGZhy{}} \PYG{n}{p1\PYGZus{}boot}
+\PYG{n}{tau\PYGZus{}boot\PYGZus{}hat} \PYG{o}{=} \PYG{n}{tau\PYGZus{}boot}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{q\PYGZus{}05} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{n}{tau\PYGZus{}boot}\PYG{p}{,} \PYG{l+m+mf}{0.05}\PYG{p}{)}
+\PYG{n}{q\PYGZus{}95} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{n}{tau\PYGZus{}boot}\PYG{p}{,} \PYG{l+m+mf}{0.95}\PYG{p}{)}
+\PYG{n}{boot\PYGZus{}confidence\PYGZus{}interval} \PYG{o}{=} \PYG{p}{(}\PYG{n}{q\PYGZus{}05}\PYG{p}{,} \PYG{n}{q\PYGZus{}95}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Estimated posterior mean: }\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{tau\PYGZus{}boot\PYGZus{}hat}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Estimated 90}\PYG{l+s+si}{\PYGZpc{}\PYGZpc{}}\PYG{l+s+s1}{ confidence interval:}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{ }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{, }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZpc{}} \PYG{n}{boot\PYGZus{}confidence\PYGZus{}interval}\PYG{p}{)}
+\end{MintedVerbatim}

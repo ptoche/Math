@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{special} \PYG{k+kn}{import} \PYG{n}{gamma}
+\PYG{k}{def} \PYG{n+nf}{v}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZsq{}\PYGZsq{}\PYGZsq{} Returns the d\PYGZhy{}volume of a d\PYGZhy{}sphere of radius 1. \PYGZsq{}\PYGZsq{}\PYGZsq{}}
+    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{n}{d} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{gamma}\PYG{p}{(}\PYG{n}{d}\PYG{o}{/}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{F}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{d}\PYG{p}{,} \PYG{n}{n}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{v}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)} \PYG{o}{*} \PYG{n}{x}\PYG{o}{*}\PYG{o}{*}\PYG{n}{d}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{n}{n}
+\end{MintedVerbatim}

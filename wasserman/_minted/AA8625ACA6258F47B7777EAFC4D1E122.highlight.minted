@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{pearson\PYGZus{}rho} \PYG{o}{=} \PYG{n}{get\PYGZus{}pearson\PYGZus{}correlation}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
+\PYG{n}{pearson\PYGZus{}rho\PYGZus{}confidence} \PYG{o}{=} \PYG{n}{bootstrap\PYGZus{}correlation}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,}
+    \PYG{n}{corr\PYGZus{}fun} \PYG{o}{=} \PYG{n}{get\PYGZus{}pearson\PYGZus{}correlation}\PYG{p}{,} \PYG{n}{B} \PYG{o}{=} \PYG{l+m+mi}{10000}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.05}\PYG{p}{)}
+\PYG{n}{spearman\PYGZus{}rho} \PYG{o}{=} \PYG{n}{get\PYGZus{}spearman\PYGZus{}correlation}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
+\PYG{n}{spearman\PYGZus{}rho\PYGZus{}confidence} \PYG{o}{=} \PYG{n}{bootstrap\PYGZus{}correlation}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,}
+    \PYG{n}{corr\PYGZus{}fun} \PYG{o}{=} \PYG{n}{get\PYGZus{}spearman\PYGZus{}correlation}\PYG{p}{,} \PYG{n}{B} \PYG{o}{=} \PYG{l+m+mi}{10000}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.05}\PYG{p}{)}
+\end{MintedVerbatim}

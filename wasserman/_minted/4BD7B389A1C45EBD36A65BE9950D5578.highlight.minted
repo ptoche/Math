@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+\PYG{n}{data} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data/spam.txt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{header}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{,} \PYG{n}{delim\PYGZus{}whitespace}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y} \PYG{o}{=} \PYG{n}{data}\PYG{o}{.}\PYG{n}{loc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{n}{data}\PYG{o}{.}\PYG{n}{columns} \PYG{o}{!=} \PYG{l+m+mi}{57}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{data}\PYG{o}{.}\PYG{n}{loc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{l+m+mi}{57}\PYG{p}{]}\PYG{o}{.}\PYG{n}{to\PYGZus{}numpy}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

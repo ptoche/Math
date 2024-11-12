@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{posterior\PYGZus{}density}\PYG{p}{(}\PYG{n}{z}\PYG{p}{)}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} Suppress warnings about log(z) when z \PYGZlt{} 0 and division by zero}
+    \PYG{c+c1}{\PYGZsh{} np.where will filter out invalid values}
+    \PYG{k}{with} \PYG{n}{np}\PYG{o}{.}\PYG{n}{errstate}\PYG{p}{(}\PYG{n}{divide}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ignore}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{invalid}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ignore}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{z} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{pdf}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{n}{z}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{mu\PYGZus{}hat}\PYG{p}{)} \PYG{o}{/} \PYG{n}{z}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{z\PYGZus{}values} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{500}\PYG{p}{,} \PYG{l+m+mi}{100}\PYG{p}{)}
+\PYG{n}{f\PYGZus{}values} \PYG{o}{=} \PYG{n}{posterior\PYGZus{}density}\PYG{p}{(}\PYG{n}{z\PYGZus{}values}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{z\PYGZus{}values}\PYG{p}{,} \PYG{n}{f\PYGZus{}values}\PYG{p}{)}
+\end{MintedVerbatim}

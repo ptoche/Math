@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Plotting results}
+\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{sm}\PYG{o}{.}\PYG{n}{graphics}\PYG{o}{.}\PYG{n}{plot\PYGZus{}fit}\PYG{p}{(}\PYG{n}{results}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{ax}\PYG{o}{=}\PYG{n}{ax}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{plot\PYGZus{}range}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,} \PYG{n}{B}\PYG{o}{=}\PYG{l+m+mi}{100000}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{error\PYGZus{}mle} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}
+    \PYG{n}{error\PYGZus{}js} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{tqdm\PYGZus{}notebook}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{theta} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}
+        \PYG{n}{X} \PYG{o}{=} \PYG{n}{norm}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{loc}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{scale}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{k}\PYG{p}{)}
+        \PYG{n}{theta\PYGZus{}hat\PYGZus{}mle} \PYG{o}{=} \PYG{n}{mle}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+        \PYG{n}{theta\PYGZus{}hat\PYGZus{}js} \PYG{o}{=} \PYG{n}{james\PYGZus{}stein}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+        \PYG{n}{error\PYGZus{}mle}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{mse}\PYG{p}{(}\PYG{n}{theta\PYGZus{}hat\PYGZus{}mle}\PYG{p}{,} \PYG{n}{theta}\PYG{p}{)}
+        \PYG{n}{error\PYGZus{}js}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{mse}\PYG{p}{(}\PYG{n}{theta\PYGZus{}hat\PYGZus{}js}\PYG{p}{,} \PYG{n}{theta}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{hist}\PYG{p}{(}\PYG{n}{error\PYGZus{}mle}\PYG{p}{,} \PYG{n}{density}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{bins}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,} \PYG{n}{histtype}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{step}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+             \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{blue}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{MLE, k = }\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{hist}\PYG{p}{(}\PYG{n}{error\PYGZus{}js}\PYG{p}{,} \PYG{n}{density}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{bins}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,} \PYG{n}{histtype}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{step}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+             \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{red}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{James\PYGZhy{}Stein, k = }\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{upper right}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{MintedVerbatim}

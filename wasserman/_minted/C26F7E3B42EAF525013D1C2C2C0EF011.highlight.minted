@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{n}{X} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{n}{low}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{high}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{50}\PYG{p}{)}
+\end{MintedVerbatim}

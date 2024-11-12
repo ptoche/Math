@@ -1,0 +1,16 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{bernoulli}
+\PYG{k+kn}{from} \PYG{n+nn}{tqdm} \PYG{k+kn}{import} \PYG{n}{tqdm\PYGZus{}notebook}
+\PYG{n}{alpha} \PYG{o}{=} \PYG{l+m+mf}{0.05}
+\PYG{n}{p} \PYG{o}{=} \PYG{l+m+mf}{0.4}
+\PYG{n}{B} \PYG{o}{=} \PYG{l+m+mi}{50000}
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{10000}
+\PYG{n}{nn} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{epsilon\PYGZus{}n} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{/} \PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{nn}\PYG{p}{)}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{/} \PYG{n}{alpha}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{p\PYGZus{}hat} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{p}{(}\PYG{n}{B}\PYG{p}{,} \PYG{n}{N}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{tqdm\PYGZus{}notebook}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{B}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{X} \PYG{o}{=} \PYG{n}{bernoulli}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,} \PYG{n}{size}\PYG{o}{=}\PYG{n}{N}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{n}{i}\PYG{p}{)}
+    \PYG{n}{p\PYGZus{}hat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cumsum}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)} \PYG{o}{/} \PYG{n}{nn}
+\PYG{n}{coverage} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{p}{(}\PYG{n}{p\PYGZus{}hat} \PYG{o}{+} \PYG{n}{epsilon\PYGZus{}n} \PYG{o}{\PYGZgt{}}\PYG{o}{=} \PYG{n}{p}\PYG{p}{)} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{n}{p\PYGZus{}hat} \PYG{o}{\PYGZhy{}} \PYG{n}{epsilon\PYGZus{}n} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{p}\PYG{p}{)}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\end{MintedVerbatim}

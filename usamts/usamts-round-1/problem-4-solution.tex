@@ -1,0 +1,16 @@
+% !TEX root = usamts-round-1-solutions.tex
+
+%The conditions can be expressed mathematically as follows. Let $[0,t]$ denote the interval of time on which the lecture is given. There exists an open interval $(\alpha, \beta)\subset[0,t]$ on which all $26$ mathematicians have been asleep for a duration of at least $\delta$ units of time each. 
+
+Let $A$ and $B$ denote the following statements:
+\begin{enumerate}[label=\Alph*]
+\item \quad There exist a subset of $6$ mathematicians such that all $6$ were asleep simultaneously at some time. 
+\item \quad There exist a subset of $6$ mathematicians such that no two were asleep at the same time.
+\end{enumerate}
+
+We prove the statement "\textsc{$A$ is true or $B$ is true}" by contradiction. We suppose "\textsc{$A$ is false and $B$ is false}" and derive a contradiction from the premises. 
+
+\subsubsection*{Proof:}
+We suppose "\textsc{$A$ is false and $B$ is false}". If "\textsc{$A$ is false}", then there does not exist a subset of $6$ mathematicians such that all $6$ were asleep at the same time. At most, there could be $5$ mathematicians asleep at the same time. To ensure that requires at least $6$ non-overlapping intervals ($5$ intervals would guarantee $6$ clashes, but we can have at most $5$). During each one of these $6$ non-overlapping intervals, a different mathematician is asleep: in other words, there exist a subset of $6$ mathematicians such that no two are asleep at the same time: "\textsc{$B$ is true}". 
+
+"\textsc{$A$ is false}" implies "\textsc{$B$ is true}" and therefore contradicts the premise "\textsc{$A$ is false and $B$ is false}". Since  statements $A$ and $B$ cannot be both false, one of them must be true. Conclusion: "\textsc{A or B is true}", as claimed. 

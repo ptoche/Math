@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{discriminant\PYGZus{}analysis} \PYG{k+kn}{import} \PYG{n}{LinearDiscriminantAnalysis}
+\PYG{n}{classifier\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{LDA}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{classifier} \PYG{o}{=} \PYG{n}{LinearDiscriminantAnalysis}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{results} \PYG{o}{=} \PYG{n}{run\PYGZus{}classifier}\PYG{p}{(}\PYG{n}{classifier}\PYG{p}{,} \PYG{n}{X\PYGZus{}filtered}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{)}
+\PYG{n}{print\PYGZus{}results}\PYG{p}{(}\PYG{n}{classifier\PYGZus{}name}\PYG{p}{,} \PYG{n}{results}\PYG{p}{)}
+\end{MintedVerbatim}

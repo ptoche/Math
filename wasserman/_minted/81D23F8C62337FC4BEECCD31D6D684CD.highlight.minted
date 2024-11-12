@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{stats} \PYG{k+kn}{import} \PYG{n}{chi2\PYGZus{}contingency}
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}p\PYGZus{}value}\PYG{p}{(}\PYG{n}{table}\PYG{p}{)}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} Implement Pearson\PYGZsq{}s chi squared independence test}
+    \PYG{n}{chi2}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{n}{dof}\PYG{p}{,} \PYG{n}{expected} \PYG{o}{=} \PYG{n}{chi2\PYGZus{}contingency}\PYG{p}{(}\PYG{n}{table}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{p}
+\end{MintedVerbatim}

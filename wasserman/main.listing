@@ -1,10 +1,8 @@
 B_freq = res.x
-
 import matplotlib.pyplot as plt
 %matplotlib inline
-
 plt.figure(figsize=(12, 8))
 plt.bar(np.arange(10), B_freq)
 plt.xlabel('i')
-plt.ylabel(r'$\overline{\beta}_{i}$')
+plt.ylabel(r'$\bar{\beta}_{i}$')
 plt.show()
