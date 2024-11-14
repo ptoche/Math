@@ -23,6 +23,20 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% biber
+\usepackage[
+    backend=biber,
+    url=false, 
+    doi=false,
+    eprint=false
+]{biblatex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TABLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % pretty tables
@@ -49,11 +63,12 @@
 %% MATHEMATICS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % number sets
-\newcommand{\N}{\ensuremath{\mathbb{N}} }% set of natural numbers
-\newcommand{\Z}{\ensuremath{\mathbb{Z}} }% set of integers
-\newcommand{\Q}{\ensuremath{\mathbb{Q}} }% set of rational numbers
-\newcommand{\R}{\ensuremath{\mathbb{R}} }% set of real numbers
-\newcommand{\Cx}{\ensuremath{\mathbb{C}} }% set of complex numbers
+\newcommand{\N}{\ensuremath{\mathbb{N}}}% set of natural numbers
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}% set of integers
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}% set of rational numbers
+\newcommand{\R}{\ensuremath{\mathbb{R}}}% set of real numbers
+\newcommand{\Cx}{\ensuremath{\mathbb{C}}}% set of complex numbers
+\newcommand{\Ix}{\ensuremath{\mathbb{R}/\mathbb{Q}}}% set of irrational numbers
 \let\Natural\N
 \let\Integer\Z
 \let\Rational\Q
@@ -93,13 +108,49 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Proof | based on theorem environment
 \RequirePackage{amssymb}% required
-\RequirePackage[thmmarks]{ntheorem}
-\theoremheaderfont{\bfseries}
-\theorembodyfont{\normalfont}
-\theoremseparator{:}
-%\theoremsymbol{$\blacksquare$}
-\newtheorem*{proof}{Proof}
-\AtEndEnvironment{proof}{\hfill$\blacksquare$}
+% \RequirePackage[thmmarks]{ntheorem}
+% \theoremheaderfont{\bfseries}
+% \theorembodyfont{\normalfont}
+% \theoremseparator{:}
+% \theoremsymbol{$\blacksquare$}
+% \newtheorem*{proof}{Proof}
+% \AtEndEnvironment{proof}{\hfill$\blacksquare$}
+\RequirePackage{amsthm}
+\newtheoremstyle{mytheoremstyle}% name of the style to be used
+  {\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+  {\itshape}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {:}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
+\theoremstyle{mytheoremstyle}
+\newtheorem{lemma}{Lemma}
+
+% customized proof styles
+\usepackage{xpatch}
+\xpatchcmd{\proof}{\itshape}{\bfseries}{}{}
+\xpatchcmd{\proof}{.}{:}{}{}
+
+% create a thicker \qed symbol
+% https://tex.stackexchange.com/questions/665169/
+\newcommand{\openboxthickness}{0.4pt} % default
+\renewcommand{\openbox}{\leavevmode
+  \hbox to.77778em{%
+    \hfil\vrule width \openboxthickness
+    \vbox to.675em{%
+      \hrule width \dimexpr.675em-2\dimexpr\openboxthickness height \openboxthickness
+      \vfil
+      \hrule height\openboxthickness
+    }%
+    \vrule width \openboxthickness
+    \hfil
+  }%
+}
+\renewcommand{\qedsymbol}{}% suppress white symbol at end of proof environment
+\renewcommand{\openboxthickness}{1pt}% set thickness of new symbol
+\AtEndEnvironment{proof}{$\openbox$}% set new symbol at end of environment
 
 % Question | based on tcolorbox
 \RequirePackage[many]{tcolorbox}
