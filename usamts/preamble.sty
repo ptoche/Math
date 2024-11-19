@@ -92,6 +92,17 @@
 \DeclareMathOperator*{\indep}{\perp \!\!\! \perp}% independence symbol
 \DeclareMathOperator{\trace}{Tr}
 
+% statistics symbols
+\newcommand\mean[1]{\mathop{\overline{#1}}\nolimits}% mean
+\let\P\relax\DeclareMathOperator{\P}{\mathbb{P}}% probability
+\let\E\relax\DeclareMathOperator{\E}{\mathbb{E}}% expectation
+\let\V\relax\DeclareMathOperator{\V}{\mathbb{V}}% variance
+\let\C\relax\DeclareMathOperator{\C}{\mathbb{C}}% covariance
+
+% Indicator variable that works with PDFLaTeX
+\DeclareMathAlphabet{\mymathbb}{U}{bbold}{m}{n}
+\newcommand\I{\,\mymathbb{1}}
+
 % delimiter commands | must load the mathtools package
 % use a star to scale to the size of the argument, e.g. \abs*{x}
 \RequirePackage{mathtools}% required

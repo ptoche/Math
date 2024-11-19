@@ -1,0 +1,59 @@
+This appears as 2014 AIME II Problems/Problem 5.
+
+First, derive conditions on $r$ and $s$ from the stated restrictions on polynomial $P(x)$.
+\begin{align*}
+\left\{\begin{aligned}
+r^{3} + ar + b & = 0
+\\
+s^{3} + as + b & = 0
+\end{aligned}\right.
+\implies
+r^{3} - s^{3} + a (r-s) = 0
+\implies
+(r - s) (r^{2} + rs + s^{2} + a) = 0
+\end{align*}
+A similar relation can be derived from $Q(x)$:
+\begin{align*}
+(r - s + 7) \bigl((r+4)^{2} + (r+4)(s-3) + (s-3)^{2} + a\bigr) = 0
+\end{align*}
+Assuming $r \ne s$ and $r \ne s-7$, subtract the two equalities and simplify:
+\begin{align*}
+5r - 2s + 13 = 0
+\implies 
+s = \frac{13+5r}{2}
+\end{align*}
+Let $r$, $s$, and $t$ be the three roots of $P(x)$. Applying Vieta's formula for the product and sum of the three roots:
+\begin{align*}
+\begin{aligned}
+rst & = -b
+\\ 
+r+s+t & = 0
+\end{aligned}
+\implies
+rs(r+s) = b
+\end{align*}
+Applying the same logic to $Q(x)$ and substituting $b=rs(r+s)$ to eliminate $b$:
+\begin{align*}
+(r+4)(s-3)(r+s+1) = b+240 = rs(r+s) + 240
+\end{align*}
+Substituting $s$ in terms of $r$ into the above yields:
+\begin{align*}
+(r+4) \biggl(\frac{13+5r}{2}-3\biggr)\biggl(r+\frac{13+5r}{2}+1\biggr) 
+& = r \biggl(\frac{13+5r}{2}\biggr)\biggl(r+\frac{13+5r}{2}\biggr) + 240
+\\[1ex]
+(r+4) (5r+7) (7r+15)
+& = r (5r+13) (7r+13) + 960
+\\[1ex]
+108 (r+5) (r-1)
+% solve (r+4)*(5*r+7)*(7*r+15)-r*(5*r+13)*(7*r+13)-960
+% r = -5, r = 1
+\end{align*}
+The roots are $r=1$ and $r=-5$. Using $s=(13+5r)/2$ gives $s=9$, $s=-6$. The root pairs $(r,s)$ are $(1,9)$ and $(-5,-6)$. It follows that
+\begin{align*}
+b = rs(r+s) 
+\to 90, -330
+\to |90|+|-330|=420.
+\end{align*}
+
+
+\fbox{$|b|=420$.}

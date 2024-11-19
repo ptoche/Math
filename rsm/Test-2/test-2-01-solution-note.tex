@@ -1,0 +1,73 @@
+Information below borrowed from \url{stackexchange.com}
+
+\subsection*{Number of triangles formed using the vertices of a regular $n$-gon}
+\subsection*{Number of triangles formed using the vertices of an $n$-gon}
+
+Consider a regular polygon with $n$ number of vertices $A_1,A_2,A_3,A_3,\ldots,A_{n-1},A_{n}$.
+
+The total number of triangles formed by joining the vertices of an $n$-sided regular polygon is: 
+\begin{align*}
+N & = \text{number of ways of selecting $3$ vertices from $n$}
+\\
+  & = \binom{n}{3}
+    = \frac{n(n-1)(n-2)}{6}
+    \quad \forall \ n \geq 3
+\end{align*}
+Consider a side $A_1A_2$ of a regular $n$-polygon. Join the vertices $A_1A_2$ to any of $(n-4)$ vertices i.e. $A_4,A_5,A_6,\ldots,A_{n-1}$ to get triangles with only one side in common. Thus there are $(n-4)$ different triangles with only one side $A_1A_2$ common. Similarly, there are $(n-4)$ different triangles with only one side $A_2A_3$ in common, and so on. There are $(n-4)$ different triangles with each of $n$ sides common. Therefore, the number of triangles $N_1$ that have only one side common with that of the polygon 
+\begin{align*}
+N_1 = \text{(No. of triangles corresponding to one side)}\text{(No. of sides)}
+    = (n-4)n
+\end{align*}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,height=0.25\textheight,keepaspectratio]%
+{test-2-01-figure-01}
+\end{figure}
+
+Now, join the alternate vertices $A_1$ and $A_3$ by a straight (blue) line to get a triangle $A_1A_2A_3$ with two sides $A_1A_2$ and $A_2A_3$ common. Similarly, join alternate vertices $A_2$ and $A_4$ to get another triangle $A_2A_3A_4$ with two sides $A_2A_3$ and $A_3A_4$ common, and so on. There are $n$ pairs of alternate and consecutive vertices to get $n$ different triangles with two sides common. Therefore, the number of triangles $N_2$ that have two sides common with that of the polygon $N_2=n$. 
+
+If $N_0$ is the number of triangles having no side common with that of the polygon then we have 
+\begin{align*}
+N  = N_0 + N_1 + N_2 
+\implies 
+N_0 = N - N_1 - N_2 
+\end{align*}
+And therefore
+\begin{align*}
+N_0 = \binom{n}{3} -(n-4)n -n 
+    = \frac{n(n-1)(n-2)}{6}-n^2+3n 
+    = \frac{n(n-4)(n-5)}{6}
+\end{align*}
+The above formula $(N_0)$ is valid for polygon having $n$ no. of the sides such that $n\geq6$
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,height=0.30\textheight,keepaspectratio]%
+{test-2-01-figure-02}
+\end{figure}
+
+\section*{Number of triangles formed using the vertices but not using any side of an $n$-gon}
+
+Apply the principle of inclusion-exclusion (PIE) to count the triangles that avoid the $n$ properties that the triangle uses side $k\in\{1,\dots,n\}$.  
+
+\begin{enumerate}
+\item Choose $0$ properties and then all triangles: 
+$\binom{n}{0}\binom{n}{3}=\binom{n}{3}$
+\item Choose $1$ property and then all triangles that use (at least) that side: 
+$\binom{n}{1}\binom{n-2}{1}=n(n-2)$
+\item Choose $2$ properties (which must correspond to two adjacent sides) and then the unique triangle that uses both sides: $n\cdot 1=n$
+\end{enumerate}
+
+For $n \ge 4$, no triangle can satisfy more than $2$ properties.
+
+Applying PIE by adding and subtracting the three terms yields:
+\begin{align*}
+\binom{n}{3} - n(n-2)+n 
+  = \binom{n}{3} - n^2 + 3n
+\end{align*}
+
+Another approach is to subtract the number of triangles that use exactly one side and the number that use exactly two sides. Exactly one side: $n(n-4)$. Exactly two sides: $n$.  Now subtract both:
+\begin{align*}
+\binom{n}{3} -n(n-4) - n
+  = \binom{n}{3} - n^2 + 3n
+\end{align*}
