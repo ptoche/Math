@@ -5,12 +5,12 @@
 \RequirePackage{colortbl}
 %\colorlet{themecolor}{CornflowerBlue}
 \colorlet{themecolor}{black}
-\RequirePackage{enumitem}
 \RequirePackage{xurl}
 \RequirePackage{float}% option [H] to figure
 \RequirePackage{graphicx}
 \RequirePackage{caption}
 \captionsetup{format=plain, font=small, labelfont=bf}
+\captionsetup{labelformat=empty}% suppress numbering
 \RequirePackage{subcaption}
 \captionsetup{format=plain, font=small, labelfont=bf}
 \RequirePackage[autostyle=false, style=english]{csquotes}% pretty quotes
@@ -80,6 +80,10 @@
 \newcommand{\intersect}{\cap}% intersection
 \newcommand{\union}{\cup}% union
 
+% degree symbol
+\newcommand*{\degree}{\textup{°}}
+%\usepackage{gensymb}% substitute for the above
+
 % mathematical symbols
 %\RequirePackage{amsmath}% required
 \RequirePackage[fleqn]{amsmath}% align all equations left
@@ -91,6 +95,7 @@
 \DeclareMathOperator*{\freq}{freq}% freq
 \DeclareMathOperator*{\indep}{\perp \!\!\! \perp}% independence symbol
 \DeclareMathOperator{\trace}{Tr}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
 
 % statistics symbols
 \newcommand\mean[1]{\mathop{\overline{#1}}\nolimits}% mean
@@ -137,6 +142,8 @@
   { }% space after theorem head; " " = normal interword space
   {\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
 \theoremstyle{mytheoremstyle}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
 \newtheorem{lemma}{Lemma}
 
 % customized proof styles
@@ -162,6 +169,12 @@
 \renewcommand{\qedsymbol}{}% suppress white symbol at end of proof environment
 \renewcommand{\openboxthickness}{1pt}% set thickness of new symbol
 \AtEndEnvironment{proof}{$\openbox$}% set new symbol at end of environment
+\newcommand{\Qed}{\ensuremath{\openbox}}% new qed symbol
+
+% set up lists
+\RequirePackage{enumitem}
+\setlist[itemize]{leftmargin=1em, label={$\succ$}}
+
 
 % Question | based on tcolorbox
 \RequirePackage[many]{tcolorbox}

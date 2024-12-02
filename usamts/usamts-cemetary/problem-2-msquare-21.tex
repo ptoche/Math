@@ -1,0 +1,51 @@
+\documentclass[tikz,border=2mm]{standalone}
+
+\tikzset{every picture/.append style={scale=1}}
+
+\begin{document}
+
+% 7 in the center + 1 and 2 in different positions
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(1+0.5,1+0.5){$7$};
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(1+0.5,2+0.5){$2$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(1+0.5,1+0.5){$7$};
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(2+0.5,1+0.5){$2$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(1+0.5,1+0.5){$7$};
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(2+0.5,2+0.5){$2$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(1+0.5,1+0.5){$7$};
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(2+0.5,0+0.5){$2$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(1+0.5,1+0.5){$7$};
+  \node at(1+0.5,2+0.5){$1$};
+  \node at(0+0.5,2+0.5){$2$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(1+0.5,1+0.5){$7$};
+  \node at(2+0.5,1+0.5){$1$};
+  \node at(0+0.5,2+0.5){$2$};
+\end{tikzpicture}
+
+\end{document}

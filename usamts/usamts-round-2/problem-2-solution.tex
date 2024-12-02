@@ -1,3 +1,410 @@
-% !TEX root = usamts-round-2-solutions.tex
+% !TEX root = ../usamts-round-2-solutions.tex
 
-TO DO
+\subsubsection*{Aside On The Luo Shu Magic Square}
+It is well known that the "Luo Shu" magic square is the only $3 \times 3$ magic square that uses all integers $1$ to $9$ and that its magic sum is $15$. The Luo Shu magic square uses $9$ distinct values and, therefore, violates condition~(b). 
+\begin{figure}[H]
+  \centering
+  \includegraphics[page=1, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-luo-shu}
+  \caption{The Luo-Shu magic square violates condition (b).}
+\end{figure}
+
+\textbf{Solution:}
+\fbox{THREE magic square satisfy all of the stated conditions.}
+
+The following magic squares use $1$ and $2$ and contains at most $8$ values from $1$ to $12$. They satisfy conditions (a), (b) and (c).
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=7, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-06}
+  \caption{$M=6$ | $3$ values.}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=7, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-09}
+  \caption{$M=9$ | $5$ values.}
+\end{subfigure}
+\hfill%
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=7, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-12}
+  \caption{$M=12$ | $7$ values.}
+  \end{subfigure}
+\caption{\textbf{Solution:} These magic squares satisfy conditions (a), (b) and (c).}
+\end{figure}
+
+
+\subsubsection*{Proof:}
+A generic $3 \times 3$ magic square will be denoted with letters from $a$ to $i$ as follows:
+\begin{figure}[H]
+  \centering
+  \includegraphics[page=1, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-generic}
+  \caption{generic notation for the values (not necessarily distinct).}
+\end{figure}
+
+Let $M$ denote the magic constant. By construction, $M\in\N$. Summing across the three rows, the three columns, and the two diagonals yields:
+\begin{align*}
+\text{rows}:\quad &
+a + b + c = M, 
+\quad
+d + e + f = M,
+\quad
+g + h + i = M,
+\\
+\text{columns}:\quad &
+a + d + g = M,
+\quad
+b + e + h = M,
+\quad
+c + f + i = M,
+\\
+\text{diagonals}:\quad &
+a + e + i = M,
+\quad
+c + e + g = M.
+\end{align*}
+This yields $8$ independent equations with $10$ unknowns. 
+
+Let $S$ denote the sum of all the integers used in the square. $S$ must be a multiple of $3$, because
+\begin{align*}
+S = a + b + c + d + g + h + i = 3 M
+\end{align*}
+
+Consider now the other constraints of the problem. 
+
+The integers $\{a,b,\ldots,i\}$ are in $\{1,2,\ldots,12\}$, with at most $8$ distinct value, and with values $1$ and $2$ occurring at least once. It follows that a candidate for the largest possible sum $S$ is
+\begin{align*}
+1 + 2 + 7 \times 12
+= 87
+% 1 + 2 + 7 * 12
+\end{align*}
+This candidate is a multiple of $3$, which gives $M\le29$. 
+
+A candidate for the smallest possible sum $S$ is
+\begin{align*}
+1 + 2 + 7 \times 1
+= 10
+% 1 + 2 + 7 * 1
+\end{align*}
+The nearest multiple of $3$ is $12$, which gives $M\ge4$. 
+
+Taking both conditions together implies that candidate values for the magic constant are in $M\in\{4,5,\ldots,29\}$. 
+
+Further considerations imply that $M$ must be a multiple of $3$.
+
+Add all lines that go through the center:
+\begin{align*}
+\text{middle row | column}& :\quad
+d + e + f = M,
+\quad
+b + e + h = M,
+\\
+\text{both diagonals}& :\quad
+a + e + i = M,
+\quad
+c + e + g = M.
+\end{align*}
+Adding these sums, rearranging, and using the previous calculations gives
+\begin{align*}
+4M& = (d + e + f) + (b + e + h) + (a + e + i) + (c + e + g)
+\\
+  & = (a + b + c) + (d + e + f) + (g + h + i) + 3e
+\\
+  & = 3M + 3e
+\\
+\implies
+M & = 3e
+\end{align*}
+Thus, $M$ must be a multiple of $3$ and, furthermore, the central value $e$ must equal one-third of the magic constant $e=M/3$. 
+
+Further considerations imply $M\le18$. The central value associated with $M=21$ is $e=7$. The other two cells in a row/column/diagonal alignment must therefore add up to $14$. One of these cells must be at least $1$, since $1$ and $2$ are required values in the grid, which would require a $13$ to be placed in the alignment. But $13$ is not an admissible value in the grid. Therefore no magic square with $M=21$ can satisfy the stated conditions. A similar argument applies to larger values of $M$. And therefore $M\le18$. 
+
+We have shown that $M\in\{6,9,12,15,18\}$, with corresponding central value $e\in\{2,3,4,5,6\}$. As we have reduced the number of candidate magic sums to a manageable level, we conduct an exhaustive search for each case. 
+
+
+%\newpage% tweak
+
+
+\subsubsection*{Case $M=6$}
+\textit{There is exactly one magic squares with magic sum $M=6$ that satisfies the stated conditions.}
+
+We have already established that the central value must be $e=2$. Since $1$ and $2$ must be used, there are only two possible starting grids: $1$ at a corner and $1$ at an edge. Consider first the case where $1$ is at a corner. The magic square can be filled in terms of the parameter $b$. To ensure the values are admissible, we must have $b-2>0$ and $4-b>0$ and therefore $b=3$. This is a magic square that satisfies conditions (a), (b) and (c).
+
+\begin{figure}[H]
+\raggedright
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=3, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-06}
+  \caption{Generic pattern}
+\end{subfigure}%
+\tikz[baseline=-\baselineskip]\draw[thick,->] (0,1)-- node[midway,above,yshift={5pt}]{$b=3$} (1,1);
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=4, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-06}
+  \caption{Unique solution}
+\end{subfigure}%
+\caption{$M=6$: One magic squares satisfies the stated conditions.}
+\end{figure}
+
+Consider next the case where $1$ is at an edge. The magic square can be filled in terms of $a$ and $d$ as follows. Only the value $(a,d)=(2,3)$ and $(a,d)=(3,1)$ are consistent with the admissible values. Each of these yields a magic square that satisfies conditions (a), (b) and (c).
+
+\begin{figure}[H]
+\raggedright
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=5, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-06}
+  \caption{Generic pattern}
+\end{subfigure}%
+\tikz[baseline=-\baselineskip]\draw[thick,->] (0,1)-- node[midway,above,yshift={5pt}]{$a=2$}node[midway,below,yshift={-5pt}]{$d=3$} (1,1);
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=6, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-06}
+  \caption{One solution}
+\end{subfigure}%
+\tikz[baseline=-\baselineskip]\draw[thick,->] (0,1)-- node[midway,above,yshift={5pt}]{$a=3$}node[midway,below,yshift={-5pt}]{$d=1$} (1,1);
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=7, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-06}
+  \caption{Only other solution}
+\end{subfigure}%
+\caption{$M=6$: Two magic squares that satisfy the stated conditions.}
+\end{figure}
+
+These squares can be obtained from each other by reflection/rotation, so count as one. 
+
+
+\newpage% tweak
+
+
+\subsubsection*{Case $M=9$}
+\textit{There is exactly one magic squares with magic sum $M=9$ that satisfies the stated conditions.}
+
+We have already established that the central value must be $e=3$. Since $1$ and $2$ must be used, the only possible starting grids would be: 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=1, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-09}
+  \caption{First, $c\to6$ and $i\to5$, which makes the sum along column $cfi$ too large.\Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=2, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-09}
+  \caption{First, $d\to4$ and $i\to5$. Next, $g\to4$, which makes the sum in row $ghi$ too large.\Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=3, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-09}
+  \caption{First, $g\to4$ and $i\to5$, which makes the sum in row $ghi$ too large. \Qed}
+\end{subfigure}%
+\par%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=4, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-09}
+  \caption{This position is a non-starter since the sum along the diagonal is not $9$. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=5, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-09}
+  \caption{First, $i\to4$ and $c\to6$, which makes the sum in the third column too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=6, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-09}
+  \caption{First, $d\to5$ and $i\to4$. Next, $g\to2$ and $c\to4$. Last, $h\to3$ and $b\to3$. Eureka! \Qed}
+\end{subfigure}%
+\caption{$M=9$: Ruling out all but one magic square for the stated conditions.}
+\end{figure}
+
+
+\newpage% tweak
+
+
+\subsubsection*{Case $M=12$}
+\textit{There is exactly one magic squares with magic sum $M=12$ that satisfies the stated conditions.}
+
+We have already established that the central value must be $e=4$. Since $1$ and $2$ must be used, the only possible starting grids would be: 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=1, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-12}
+  \caption{First, $c\to9$ and $i\to7$, which makes the sum along column $cfi$ too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=2, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-12}
+  \caption{First, $d\to6$ and $i\to7$. Next, $g\to5$, which makes the sum along row $ghi$ too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=3, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-12}
+  \caption{First, $b\to9$, which makes the sum along the middle column too large. \Qed}
+\end{subfigure}%
+\par%
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=4, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-12}
+  \caption{This position is a non-starter since the sum along the diagonal is not equal to $12$. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=5, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-12}
+  \caption{First, $c\to9$ and $i\to6$, which makes the sum along column $cfi$ too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{0.26\linewidth}
+  \centering
+  \includegraphics[page=6, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-12}
+  \caption{First, $d\to7$ and $i\to6$. Next, $g\to3$ and $c\to5$. Last, $b\to5$ and $h\to3$. Eureka! \Qed}
+\end{subfigure}%
+\caption{$M=12$: Ruling out all but one magic square for the stated conditions.}
+\end{figure}
+
+
+\newpage% tweak
+
+
+\subsubsection*{Case $M=15$}
+\textit{No magic squares with magic sum $M=15$ satisfies the stated conditions.} 
+
+We have already established that the central value must be $e=5$. Since $1$ and $2$ must be used, the only possible starting grids would be: 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=1, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-15}
+  \caption{$c\to12$, which makes the sum along the diagonal too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=2, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-15}
+  \caption{First, $d\to8$ and $i\to9$. Next $g\to6$, which makes the sum along row $ghi$ too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=3, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-15}
+  \caption{$b\to12$, which makes the sum in the middle column too large. \Qed}
+\end{subfigure}%
+\par%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=4, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-15}
+  \caption{This position is a non-starter since the sum along the diagonal is not equal to $15$. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=5, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-15}
+  \caption{$c\to12$, which makes the sum along the diagonal too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=6, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-15}
+  \caption{This yields the Luo Shu magic square, which uses more than $8$ distinct values. \Qed}
+\end{subfigure}%
+\caption{$M=15$: Ruling out all magic square for the stated conditions.}
+\end{figure}
+
+
+\newpage% tweak
+
+
+\subsubsection*{Case $M=18$}
+\textit{No magic squares with magic sum $M=18$ satisfies the stated conditions.} 
+
+We have already established that the central value must be $e=6$. Since $1$ and $2$ must be used, the only possible starting grids would be: 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=1, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-18}
+  \caption{$c\to15$, but $15$ is not admissible. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=2, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-18}
+  \caption{First, $d\to10$ and $i\to11$. Next, $g\to7$, which makes the sum along the row $ghi$ too large. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=3, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-18}
+  \caption{$b\to15$, but $15$ is not admissible. \Qed}
+\end{subfigure}%
+\par%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=4, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-18}
+  \caption{This position is a non-starter since the sum along the diagonal is not equal to $18$. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=5, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-18}
+  \caption{$c\to15$, but $15$ is not admissible. \Qed}
+\end{subfigure}%
+\hfill%
+\begin{subfigure}[t]{.26\linewidth}
+  \centering
+  \includegraphics[page=6, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-18}
+  \caption{A magic square exists (see below), but it uses more than $8$ distinct values. \Qed}
+\end{subfigure}%
+\caption{$M=18$: Ruling out all magic square for the stated conditions.}
+\end{figure}
+
+A strong candidate emerges from panel (f): a magic square that uses both $1$ and $2$; but it uses $9$ distinct values. Thus conditions (a) and (c) are satisfied, but condition (b) is violated.
+\begin{figure}[H]
+\centering
+  \includegraphics[page=7, width=\linewidth, height=0.18\textheight, keepaspectratio]%
+  {problem-2-msquare-18}
+  \caption{This magic square with magic sum $M=18$ satisfies conditions (a) and (c), but violates condition (b).}
+\end{figure}
+
+We have exhausted all cases up to reflection/rotation. \Qed

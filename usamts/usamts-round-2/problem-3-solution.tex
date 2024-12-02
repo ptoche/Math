@@ -1,8 +1,346 @@
-% !TEX root = usamts-round-2-solutions.tex
+% !TEX root = ../usamts-round-2-solutions.tex
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth,height=0.60\textheight,keepaspectratio]%
-{problem-3-circumcenters}%
-%\caption{\label{pb-3-fig-1}}
+\begin{subfigure}[t]{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth,height=0.70\textheight,keepaspectratio]%
+  {problem-3-circumcenters-special}%
+  \caption{$AB \perp CE \implies \overline{QE}=\overline{QP}=\overline{EP}$.}
+\end{subfigure}
+\hfill%
+\begin{subfigure}[t]{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth,height=0.70\textheight,keepaspectratio]%
+  {problem-3-circumcenters-general}%
+  \caption{$CE \not\perp AB \implies \overline{QE}\ne\overline{QP}$.}
+\end{subfigure}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,height=0.50\textheight,keepaspectratio]%
+{problem-3-circumcenters-coordinates}%
+\end{figure}
+
+We assume $D \ne A$ to ensure the circumcenters $P$ and $Q$ are unique. We associate Cartesian coordinates to the points $A$, $B$, $C$, $D$, $E$, $P$, and $Q$. We associate equations to the lines $AC$, $AE$, and $BE$. We then calculate the distances $EP$, $EQ$, and $PQ$ in this coordinate system and use them to prove the theorem.
+
+\begin{theorem*}
+$\overline{QE}=\overline{QP}=\overline{EP} \iff AB \perp CE$.
+\end{theorem*}
+
+We split the proof into three parts:
+
+\begin{theorem*}[Part I]
+$AB \perp CE \implies \overline{QE}=\overline{QP}$.
+\end{theorem*}
+
+\begin{theorem*}[Part II]
+$AB \perp CE \implies d(Q,EP)=\frac{\sqrt{3}}{2}\,\overline{EP}$.
+\end{theorem*}
+
+Taken together, Part I and Part II are equivalent to $AB \perp CE \implies \overline{QE}=\overline{QP}=\overline{EP}$. The equivalence follows from the property that the height of an equilateral triangle (here $d(Q,EP)$) is $\frac{\sqrt{3}}{2}$ times the base (here $\overline{EP}$). 
+
+\begin{theorem*}[Part III]
+$CE \not\perp AB \implies \overline{QE}\ne\overline{EP}$.
+\end{theorem*}
+
+Useful coordinates and equations summarized in the table are proved below.
+\begin{table}[H]
+\centering
+\begin{tblr}{
+  width = \linewidth,
+  rows = {rowsep=1ex},
+  row{1} = {font=\normalfont},
+  colspec = {*{3}{Q[c,$$]}}
+}
+\toprule 
+\text{Point}
+  & x
+    & y
+\\
+\midrule
+A
+  & 0
+    & 0
+\\
+B
+  & 1
+    & 0
+\\
+C
+  & \frac{1}{2}
+    & \frac{\sqrt{3}}{2}
+\\
+D
+  & \frac{\tan(\alpha)}{\sqrt{3}+\tan(\alpha)}
+    & \frac{\sqrt{3}\tan(\alpha)}{\sqrt{3}+\tan(\alpha)}
+\\
+E
+  & \frac{1}{2} \cdot \frac{2\tan(\alpha)+\cot(\theta)-\sqrt{3}}{\cot(\theta)+\tan(\alpha)}
+    & \frac{1}{2} \cdot \frac{\tan(\alpha)(\cot(\theta)+\sqrt{3})}{\cot(\theta)+\tan(\alpha)}
+\\
+P
+  & \frac{1}{2}
+    & \frac{1}{2} \cdot \frac{\sqrt{3}\tan(\alpha)-1}{\sqrt{3}+\tan(\alpha)}
+\\
+Q
+  & x_{Q}
+    & y_{Q}
+\\
+\bottomrule
+\end{tblr}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tblr}{
+  width = \linewidth,
+  row{1} = {font=\normalfont},
+  colspec = {*{2}{Q[l,$]}}
+}
+\toprule 
+\text{Line}
+  & \text{Equation}
+\\
+\midrule
+AD 
+  & y = \sqrt{3} x
+\\
+BE
+  & y = \tan(\alpha) (1-x)
+\\
+CE
+  & y = \cot(\theta) (x-1/2) + \sqrt{3}/2
+\\
+\bottomrule
+\end{tblr}
+\end{table}
+
+Setting the coordinates of point $B$ as $(1,0)$ is without loss of generality: The units can be redefined to represent any length $AB$, while the $AB$ line can be rotated to represent any triangle $ABC$. 
+
+\subsubsection*{Equations of $AD$, $BE$ and $CE$}
+The coordinate system gives $A:(0,0)$, $B:(1,0)$, and $C:(1/2,\sqrt{3}/2)$. The coordinates of $C$ follow from the well-known result that the height of triangle $ABC$ has length $\sqrt{3}/2$, which is an application of the Pythagoras triangle equality. 
+\begin{itemize}
+\item The equation of line $AD=AC$ is $y=\sqrt{3}\,x$. This follows from $\tan60\degree=\sqrt{3}$. One can verify that $A:(0,0)$ and $C:(1/2,\sqrt{3}/2)$ satisfy the equation. 
+\item The equation of line $BE=BD$ is $y=\tan(\alpha)(1-x)$. This follows from a generic $y-y_{B}=\tan(\pi-\alpha)(x-x_{B})$ by substituting the $B$ coordinates $(1,0)$ and noting that $\tan(\pi-\alpha)=-\tan(\alpha)$. 
+\item The equation of line $CE$ is $y=\cot(\theta)(x-1/2)+\sqrt{3}/2$. This follows from a generic $y-y_{C}=\tan(\pi/2-\theta)(x-x_{C})$ by substituting the $C$ coordinates $(1/2,\sqrt{3}/2)$ and noting that $\tan(\pi/2-\theta)=\cot(\theta)$. 
+\end{itemize}
+
+
+\subsubsection*{Coordinates of $A$, $B$, $C$, $D$, $E$, $P$, $Q$}
+\begin{itemize}
+\item The coordinates of $D$ can be found by solving the $AD \cap BE$ system:
+\begin{align*}
+AD:\quad 
+y_{D} & = \sqrt{3}\,x_{D}
+\\
+BE:\quad 
+y_{D} & = \tan(\alpha) (1-x_{D})
+\end{align*}
+which yields
+\begin{align*}
+x_{D} & = \frac{\tan(\alpha)}{\sqrt{3}+\tan(\alpha)}
+\\
+y_{D} & = \frac{\sqrt{3}\tan(\alpha)}{\sqrt{3}+\tan(\alpha)}
+\end{align*}
+
+\item The coordinates of $E$ can be found by solving the $BE \cap CE$ system:
+\begin{align*}
+BE:\quad
+y_{E} & = \tan(\alpha) (1-x_{E})
+\\
+CE:\quad
+y_{E} & = \cot(\theta) (x_{E}-1/2) + \sqrt{3}/2
+\end{align*}
+which yields
+\begin{align*}
+x_{E} & = \frac{1}{2} \cdot \frac{2\tan(\alpha)+\cot(\theta)-\sqrt{3}}{\cot(\theta)+\tan(\alpha)}
+\\
+y_{E} & = \frac{1}{2} \cdot \frac{\tan(\alpha)(\cot(\theta)+\sqrt{3})}{\cot(\theta)+\tan(\alpha)}
+\end{align*}
+where $-\pi/2<\theta<\pi/2$ implies $\cot(\theta)\ne0$.
+
+In the limit, where $CP \perp AB$, as $\theta\to0$ implies $\cot(\theta)\to\infty$, and the coordinates simplify to
+\begin{align*}
+\theta \to 0: \quad
+x_{E} & = \frac{1}{2}
+\\
+\theta \to 0: \quad
+y_{E} & = \frac{1}{2} \cdot \tan(\alpha)
+\end{align*}
+In the limit where $\theta=0$, $E$ lies on $CP$: See panel (a) of the figure.
+
+\item The coordinates of $P$ can be found by solving $\overline{PA}=\overline{PB}=\overline{PD}$. Coordinate $x_{P}$ can be found directly by a simple geometric argument: The point $P$ is the circumcenter of the circle going through $A$ and $B$, so it satisfies $\overline{PA}=\overline{PB}$. The point $C$ is the vertex of the equilateral triangle $ABC$, so it satisfies $\overline{CA}=\overline{CB}$. It follows that $CP \perp AB$ and therefore
+\begin{align*}
+x_{P} = \frac{1}{2}
+\end{align*}
+Coordinate $y_{P}$ can be found from $\overline{PA}=\overline{PD}$:
+\begin{align*}
+& (x_{P}-x_{A})^{2} + (y_{P}-y_{A})^{2} 
+  = (x_{P}-x_{D})^{2} + (y_{P}-y_{D})^{2} 
+\\
+& \implies
+2(x_{D}\, x_{P} + y_{D}\, y_{P})
+  = x_{D}^{2} + y_{D}^{2}
+\\[1ex]
+& \implies
+y_{P}
+  = \frac{x_{D}^{2} + y_{D}^{2} - x_{D}}{2y_{D}}
+  = \frac{4x_{D}-1}{2\sqrt{3}}
+  = \frac{1}{2} \cdot \frac{\sqrt{3}\tan(\alpha)-1}{\sqrt{3}+\tan(\alpha)}
+\end{align*}
+where we have substituted $x_{A}=y_{A}=0$, $y_{D}^{2}=3x_{D}^{2}$, $y_{D}=\sqrt{3}\,x_{D}$, and $x_{D}=\tan(\alpha)/(\sqrt{3}+\tan(\alpha))$, for $\alpha\ne0$ (i.e. $D \ne A$, as assumed).
+
+\item The coordinates of $Q$ can be found by solving $\overline{QA}=\overline{QD}=\overline{QE}$. The first few steps are similar to the calculations above. 
+\begin{align*}
+& \scriptscriptstyle
+\begin{cases}
+& (x_{Q}-x_{A})^{2} + (y_{Q}-y_{A})^{2} 
+  = (x_{Q}-x_{D})^{2} + (y_{Q}-y_{D})^{2} 
+\\
+& (x_{Q}-x_{A})^{2} + (y_{Q}-y_{A})^{2} 
+  = (x_{Q}-x_{E})^{2} + (y_{Q}-y_{E})^{2} 
+\end{cases}
+\\ \implies
+& \scriptscriptstyle
+\begin{cases}
+& x_{D} \, x_{Q} + y_{D} \, y_{Q} = \frac{1}{2} (x_{D}^{2}+y_{D}^{2})
+\\
+& x_{E} \, x_{Q} + y_{E} \, y_{Q} = \frac{1}{2} (x_{E}^{2}+y_{E}^{2})
+\end{cases}
+\end{align*}
+Solving the system in terms of the coordinates of $D$ and $E$ yields:
+\begin{align*}
+x_{Q} & = 
+\frac{1}{2} \cdot \frac{(x_{E}^{2}+y_{E}^{2}) \, y_{D} - (x_{D}^{2}+y_{D}^{2}) \, y_{E}}{x_{E} \, y_{D} - y_{E} \, x_{D}}
+\\
+y_{Q} & = 
+\frac{1}{2} \cdot \frac{(x_{D}^{2}+y_{D}^{2}) \, x_{E} - (x_{E}^{2}+y_{E}^{2}) \, x_{D}}{x_{E} \, y_{D} - y_{E} \, x_{D}}
+\end{align*}
+
+\end{itemize}
+
+
+\begin{proof}[Theorem (Part I)]
+To prove $\overline{QE}=\overline{QP}$, we show that:
+\begin{align*}
+(x_{Q}-x_{E})^{2} + (y_{Q}-y_{E})^{2}
+  = (x_{Q}-x_{P})^{2} + (y_{Q}-y_{P})^{2}
+\end{align*}
+To show the equality, we use the condition $CP \perp AB$ and substitute the values of the coordinates:
+\begin{itemize}
+\item Simplify and rewrite the equality:
+\begin{align*}
+(x_{P}-x_{E}) (x_{P}+x_{E}-2x_{Q})
++ (y_{P}-y_{E}) (y_{P}+y_{E}-2y_{Q})
+= 0
+\end{align*}
+\item $CP \perp AB \implies \theta=0 \implies x_{P}=x_{E}$, and $\alpha>0 \implies y_{P}<y_{E}$.
+\item With $x_{P}=x_{E}$ and $y_{P}<y_{E}$, the equality simplifies to:
+\begin{align*}
+y_{P} + y_{E} - 2y_{Q} = 0
+\implies 
+y_{Q} = \frac{1}{2} \, (y_{P} + y_{E})
+\end{align*}
+This condition on the $y$ coordinates of $Q$, $P$, and $E$ states that point $Q$ is the vertex of the isosceles triangle $\triangle EQP$. This is proved below in two steps. 1.~Write $y_{Q}$ in terms of $\tan(\alpha)$. 2.~Write $\frac{1}{2}(y_{P}+y_{E})$ in terms of $\tan(\alpha)$. Apply Lemma~\ref{pb3:lemma:1} to prove equality between the two expressions. 
+\item $\theta=0 \implies x_{E}=\frac{1}{2}, \ y_{E}=\frac{1}{2}\tan(\alpha), \ x_{E}^{2}+y_{E}^{2}=\frac{1}{4}(1+\tan^{2}(\alpha))$.
+\item Step~1. $x_{D}^{2}+y_{D}^{2}=4x_{D}^{2}=4\tan^{2}(\alpha)/(\sqrt{3}+\tan(\alpha))^{2}$.
+\item Substitute $y_{D}=\sqrt{3}\,x_{D}$ and $x_{D}^{2}+y_{D}^{2}=4x_{D}^{2}$ into $y_{Q}$, cancel out $x_{D}$ from numerator and denominator, substitute the values calculated above:
+\begin{align*}
+y_{Q} & = \frac{1}{2} \cdot \frac{(x_{D}^{2}+y_{D}^{2}) \, x_{E} - (x_{E}^{2}+y_{E}^{2}) \, x_{D}}{x_{E} \, y_{D} - y_{E} \, x_{D}}
+\\[1ex]
+& = \frac{1}{2} \cdot \frac{4x_{D} \, \frac{1}{2} - \frac{1}{4} (1+\tan^{2}(\alpha))}{\frac{1}{2}\sqrt{3}-\frac{1}{2}\tan(\alpha)}
+\\[1ex]
+& = \frac{1}{4} \cdot \frac{8\tan(\alpha)-(1+\tan^{2}(\alpha))(\sqrt{3}+\tan(\alpha))}{3 - \tan^{2}(\alpha)}
+\end{align*}
+\item Step~2. Substitute the values of $y_{P}$ and $y_{E}$:
+\begin{align*}
+y_{P} + y_{E}
+= \frac{1}{2} \cdot \tan(\alpha) + \frac{1}{2} \cdot \frac{\sqrt{3}\tan(\alpha)-1}{\sqrt{3}+\tan(\alpha)}
+\end{align*}
+\item The equality that remains to be proved reduces to
+\begin{align*}
+\frac{8\tan(\alpha)-(1+\tan^{2}(\alpha))(\sqrt{3}+\tan(\alpha))}{3 - \tan^{2}(\alpha)}
+= \tan(\alpha) + \frac{\sqrt{3}\tan(\alpha)-1}{\sqrt{3}+\tan(\alpha)}
+\end{align*}
+\item Lemma~\ref{pb3:lemma:1} proves the above equality and therefore $y_{Q}=\frac{1}{2} \, (y_{P} + y_{E})$.
+\end{itemize}
+\end{proof}
+
+\begin{lemma}\label{pb3:lemma:1}
+The following equality holds for all $x\ne\pm\sqrt{3}$:
+\begin{align*}
+\frac{8x-(1+x^{2})(\sqrt{3}+x)}{3-x^{2}} 
+= x + \frac{\sqrt{3}\,x-1}{\sqrt{3}+x}
+\end{align*}
+\end{lemma}
+\begin{proof}
+% wolfram alpha check:
+% ( 8*x-(1+x^2)*(sqrt(3)+x) ) / (3-x^2) = x + (sqrt(3)*x-1)/(x+sqrt(3))
+Multiplying the right-hand side of the equality by $(\sqrt{3}-x)$, so that the denominator on both sides is equal to $3-x^{2}=(\sqrt{3}\,x-1)(\sqrt{3}-x)$, gives:
+\begin{align*}
+x(\sqrt{3}-x)(\sqrt{3}+x)+(\sqrt{3}\,x-1)(\sqrt{3}-x)
+= 7x-\sqrt{3}-\sqrt{3}\,x^{2}-x^{3}
+\end{align*}
+Expanding the numerator on the left-hand side of the equality gives:
+\begin{align*}
+7x-\sqrt{3}-\sqrt{3}\,x^{2}-x^{3}
+\end{align*}
+\end{proof}
+
+
+\begin{proof}[Theorem (Part II)]
+To prove $AB \perp CE \implies d(Q,EP)=\frac{\sqrt{3}}{2}\,\overline{EP}$, we show $\theta=0 \implies x_{P}-x_{Q}=\frac{\sqrt{3}}{2} (y_{E}-y_{P})$.
+\begin{itemize}
+\item Substitute the values of the coordinates $y_{E}$, $y_{P}$ into the right-hand side:
+\begin{align*}
+y_{E} - y_{P} 
+  = \frac{1}{2} \cdot \tan(\alpha) - \frac{1}{2} \cdot \frac{\sqrt{3}\tan(\alpha)-1}{\sqrt{3}+\tan(\alpha)}
+  = \frac{1}{2} \cdot \frac{1 + \tan^{2}(\alpha)}{\sqrt{3}+\tan(\alpha)}
+\end{align*}
+\item Substitute the values of the coordinates $x_{P}$, $x_{Q}$ into the left-hand side:
+\begin{align*}
+x_{P} - x_{Q} 
+  = \frac{1}{2} - \frac{1}{2} \cdot \frac{(x_{E}^{2}+y_{E}^{2}) \, y_{D} - (x_{D}^{2}+y_{D}^{2}) \, y_{E}}{x_{E} \, y_{D} - y_{E} \, x_{D}}
+\end{align*}
+\item Substitute $x_{E}^{2}+y_{E}^{2}=\frac{1}{4}(1+\tan^{2}(\alpha))$, $y_{D}=\sqrt{3}\,x_{D}$, $x_{D}^{2}+y_{D}^{2}=4x_{D}^{2}$, $x_{E}=\frac{1}{2}$, $y_{E}=\frac{1}{2}\tan(\alpha)$ into the above and simplify:
+\begin{align*}
+x_{P} - x_{Q} 
+& = \frac{1}{2} - \frac{1}{2} \cdot \frac{\frac{\sqrt{3}}{4}\,(1+\tan^{2}(\alpha))-4\,\frac{\tan(\alpha)}{\sqrt{3}+\tan(\alpha)}\,\frac{1}{2}\tan(\alpha)}{\frac{1}{2}\,(\sqrt{3}-\tan(\alpha))}
+\\[1ex]
+& = \frac{1}{2} + \frac{1}{4} \cdot \frac{8\tan^{2}(\alpha)-\sqrt{3}(1+\tan^{2}(\alpha))(\sqrt{3}+\tan(\alpha))}{3-\tan^{2}(\alpha)}
+\\[1ex]
+& = \frac{1}{4} \cdot \frac{3+3\tan^{2}(\alpha)-\sqrt{3}\tan(\alpha)-\sqrt{3}\tan^{3}(\alpha)}{3-\tan^{2}(\alpha)}
+\end{align*}
+\item The equality that remains to be proved reduces to
+\begin{align*}
+\frac{1}{4} \cdot \frac{3+3\tan^{2}(\alpha)-\sqrt{3}\tan(\alpha)-\sqrt{3}\tan^{3}(\alpha)}{3-\tan^{2}(\alpha)}
+= \frac{\sqrt{3}}{4} \cdot \frac{1 + \tan^{2}(\alpha)}{\sqrt{3}+\tan(\alpha)}
+\end{align*}
+From $\alpha>0 \implies \tan(\alpha)\ne\pm\sqrt{3}$. Multiply the right-hand side by $\sqrt{3}-\tan(\alpha)$ to get common denominators on both sides. The numerators on both sides must be equal:
+\begin{align*}
+3+3\tan^{2}(\alpha)-\sqrt{3}\tan(\alpha)-\sqrt{3}\tan^{3}(\alpha)
+= \sqrt{3} (1+\tan^{2}(\alpha))(\sqrt{3}-\tan(\alpha))
+\end{align*}
+Expanding the right-hand side shows that the equality holds.
+\end{itemize}
+\end{proof}
+
+To recap, Part~I of the Theorem proves that if $AB \perp CE$, then triangle $\triangle PQE$ is isosceles, $\overline{QE}=\overline{QP}$. Part~II of the Theorem proves that if $AB \perp CE$, then the height of the triangle $\triangle PQE$ is equal to $\sqrt{3}/2$ times the length of the base $\overline{EP}$. Taken together, the Theorem proves that if $AB \perp CE$, then triangle $\triangle PQE$ is equilateral. 
+
+We now turn to the converse of the Theorem. Refer to the figure.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,height=0.50\textheight,keepaspectratio]%
+{problem-3-circumcenters-geometry}%
+\end{figure}
+
+\begin{proof}[Theorem (Part III)]
+$CE \not\perp AB \implies \overline{QE}\ne\overline{EP}$
+We give a geometric proof. Since Point $P$ is the circumcenter of $ABD$, it is fixed for a given value of $\alpha$ and independent of $\theta$. Starting from $\theta=0$ and $\triangle EPQ$ equilateral, let $\theta$ increase. While $P$ remains unchanged, distances $\overline{EP}$ and $\overline{QP}$ both increase: $E$ moves towards $D$ along line $BD$, while $Q$ moves towards the midpoint of $AD$ along the perpendicular to $AD$. For any angle other than $\pi/6=30\degree$, $E$ and $Q$ are moving along different directions and must therefore cover different distances. It follows that $\triangle EPQ$ is not equilateral for $\theta>0$. In the special case where $\alpha=\pi/6$, the distance between $Q$ and $E$ remains unchanged as $\theta$ is increased, but since distances $EP$ and $QP$ are increased, the triangle cannot be equilateral in this special case. 
+\end{proof}
+
+The only configuration in which $\triangle EPQ$ is equilateral is when $AB \perp CE$. 

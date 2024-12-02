@@ -1,0 +1,103 @@
+\documentclass[tikz,border=2mm]{standalone}
+
+\tikzset{every picture/.append style={scale=1}}
+
+\begin{document}
+
+% 4 in the center + 1 and 2 in different positions
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(1+0.5,2+0.5){$2$};
+  \node at(2+0.5,2+0.5){\textcolor{gray}{$c$}};
+  \node at(0+0.5,1+0.5){\textcolor{gray}{$d$}};
+  \node at(1+0.5,1+0.5){$4$};
+  \node at(2+0.5,1+0.5){\textcolor{gray}{$f$}};
+  \node at(0+0.5,0+0.5){\textcolor{gray}{$g$}};
+  \node at(1+0.5,0+0.5){\textcolor{gray}{$h$}};
+  \node at(2+0.5,0+0.5){\textcolor{gray}{$i$}};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(1+0.5,2+0.5){\textcolor{gray}{$b$}};
+  \node at(2+0.5,2+0.5){\textcolor{gray}{$c$}};
+  \node at(0+0.5,1+0.5){\textcolor{gray}{$d$}};
+  \node at(1+0.5,1+0.5){$4$};
+  \node at(2+0.5,1+0.5){$2$};
+  \node at(0+0.5,0+0.5){\textcolor{gray}{$g$}};
+  \node at(1+0.5,0+0.5){\textcolor{gray}{$h$}};
+  \node at(2+0.5,0+0.5){\textcolor{gray}{$i$}};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(1+0.5,2+0.5){\textcolor{gray}{$b$}};
+  \node at(2+0.5,2+0.5){$2$};
+  \node at(0+0.5,1+0.5){\textcolor{gray}{$d$}};
+  \node at(1+0.5,1+0.5){$4$};
+  \node at(2+0.5,1+0.5){\textcolor{gray}{$f$}};
+  \node at(0+0.5,0+0.5){\textcolor{gray}{$g$}};
+  \node at(1+0.5,0+0.5){\textcolor{gray}{$h$}};
+  \node at(2+0.5,0+0.5){\textcolor{gray}{$i$}};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(0+0.5,2+0.5){$1$};
+  \node at(1+0.5,2+0.5){\textcolor{gray}{$b$}};
+  \node at(2+0.5,2+0.5){\textcolor{gray}{$c$}};
+  \node at(0+0.5,1+0.5){\textcolor{gray}{$d$}};
+  \node at(1+0.5,1+0.5){$4$};
+  \node at(2+0.5,1+0.5){\textcolor{gray}{$f$}};
+  \node at(0+0.5,0+0.5){\textcolor{gray}{$g$}};
+  \node at(1+0.5,0+0.5){\textcolor{gray}{$h$}};
+  \node at(2+0.5,0+0.5){$2$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(0+0.5,2+0.5){$2$};
+  \node at(1+0.5,2+0.5){$1$};
+  \node at(2+0.5,2+0.5){\textcolor{gray}{$c$}};
+  \node at(0+0.5,1+0.5){\textcolor{gray}{$d$}};
+  \node at(1+0.5,1+0.5){$4$};
+  \node at(2+0.5,1+0.5){\textcolor{gray}{$f$}};
+  \node at(0+0.5,0+0.5){\textcolor{gray}{$g$}};
+  \node at(1+0.5,0+0.5){\textcolor{gray}{$h$}};
+  \node at(2+0.5,0+0.5){\textcolor{gray}{$i$}};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(0+0.5,2+0.5){$2$};
+  \node at(1+0.5,2+0.5){\textcolor{gray}{$b$}};
+  \node at(2+0.5,2+0.5){\textcolor{gray}{$c$}};
+  \node at(0+0.5,1+0.5){\textcolor{gray}{$d$}};
+  \node at(1+0.5,1+0.5){$4$};
+  \node at(2+0.5,1+0.5){$1$};
+  \node at(0+0.5,0+0.5){\textcolor{gray}{$g$}};
+  \node at(1+0.5,0+0.5){\textcolor{gray}{$h$}};
+  \node at(2+0.5,0+0.5){\textcolor{gray}{$i$}};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[line cap=rect, thick] grid(3, 3);
+  \node at(1+0.5,1+0.5){$4$};
+  \node at(2+0.5,1+0.5){$1$};
+  \node at(0+0.5,2+0.5){$2$};
+  \node at(0+0.5,0+0.5){$3$};
+  \node at(1+0.5,0+0.5){$3$};
+  \node at(1+0.5,2+0.5){$5$};
+  \node at(2+0.5,2+0.5){$5$};
+  \node at(2+0.5,0+0.5){$6$};
+  \node at(0+0.5,1+0.5){$7$};
+\end{tikzpicture}
+
+\end{document}

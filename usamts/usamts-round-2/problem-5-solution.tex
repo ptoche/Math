@@ -1,4 +1,4 @@
-% !TEX root = usamts-round-2-solutions.tex
+% !TEX root = ../usamts-round-2-solutions.tex
 
 The proof is adapted from \cite{j23:2013}. The proof is by contradiction. We suppose a polynomial $P(x)$ exists and derive a contradiction.
 
@@ -86,19 +86,23 @@ a \bigl(\sqrt[3]{25} + 10 + 5\sqrt[3]{5}\bigr)
 + b (\sqrt[3]{5}+\sqrt[3]{25}) + c
 & = 2\sqrt[3]{5} + 3\sqrt[3]{25}
 \\
+\implies \quad
+{\scriptscriptstyle
+\begin{cases}
+\quad
 a + b
 & = 3
-\\ 
-\implies \quad
+\\\quad
 5a + b
 & = 2
-\quad \implies 
-a = -\frac{1}{4}, 
-b = \frac{13}{4}, 
-c = \frac{5}{2}.
-\\ 
+\\\quad
 10a + c
 & = 0
+\end{cases}}
+& \quad \implies 
+a = -\frac{1}{4}, \
+b = \frac{13}{4}, \
+c = \frac{5}{2}.
 \end{align*}
 The desired degree-$2$ polynomial $w(x)$ is: $w(x)=-(1/4)x^{2}+(13/4)x+5/24$. No other coefficients satisfy $w(\alpha)=\beta$.
 \end{proof}

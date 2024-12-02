@@ -13,15 +13,19 @@
     
     % find the intersection of AB with perpendicular line from C
     \tkzDefPointBy[projection=onto A--B](C)\tkzGetPoint{H}
-    \tkzDrawLines[add=0 and 0.1](C,H)
-    \tkzDrawPoints(H)
+    \tkzDrawLines[add=0 and 0.2,RoyalBlue](C,H)
+    %\tkzDrawPoints(H)
     %\tkzMarkRightAngle[size=.2, fill=gray!20, opacity=.3](B,H,C)
     % to mark angle on the outside, get point C' symmetric wrt H
     % suspend the bounding box
     \begin{pgfinterruptboundingbox}
-    \tkzDefPointBy[symmetry=center H](C) \tkzGetPoint{C'}
+    \tkzDefPointBy[symmetry=center H](C)\tkzGetPoint{C'}
     \tkzMarkRightAngle[size=.2, fill=gray!20, opacity=.3](C',H,B)
     \end{pgfinterruptboundingbox}
+
+    % get a point H' on AB | case where CH is not perpendicular to AB
+    \tkzDefPointOnLine[pos=0.3](A,B)\tkzGetPoint{H'}
+    \tkzDrawLines[add=0 and 0.1](C,H')\tkzDrawPoints(H')
     
     % get a point D on line AC
     \tkzDefPointOnLine[pos=0.3](A,C)\tkzGetPoint{D}
@@ -29,9 +33,9 @@
     \tkzDrawLines[add=0 and 0.1](B,D)
     
     % get intersection of line BD and CH
-    \tkzInterLL(B,D)(C,H)\tkzGetPoint{E}
+    \tkzInterLL(B,D)(C,H')\tkzGetPoint{E}
     \tkzDrawPoints(E)
-    \tkzDrawLines[add=0 and 0.1](A,E)
+    %\tkzDrawLines[add=0 and 0.1](A,E)
     
     % first circumcircle
     \tkzDefCircle[circum](A,B,D)\tkzGetPoint{P}
@@ -48,7 +52,7 @@
     \tkzLabelPoints[above right](E)
     \tkzLabelPoints[above left](D)
     \tkzLabelPoints[right,RoyalBlue](P)
-    \tkzLabelPoints[below,Tomato](Q)
+    \tkzLabelPoints[above,Tomato](Q)
     
    % draw EPQ triangle
    \tkzDrawPolygon[LimeGreen,thin](E,P,Q)

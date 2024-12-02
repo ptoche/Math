@@ -1,29 +1,31 @@
-% !TEX root = usamts-round-2-solutions.tex
+% !TEX root = ../usamts-round-2-solutions.tex
 
+\textbf{Solution:}
+The expected value is $\sum_{T \subseteq S_{n}} \mathcal{I} (T) = 0$.
+
+\textbf{Proof:}
 \begin{align*}
-\E[\mathcal{I}(S_{n})]
-= \sum_{T \subseteq S_{n}} \mathcal{I} (T)
+\sum_{T \subseteq S_{n}} \mathcal{I} (T)
 & 
-= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1} \\[0.5ex] x_{n} \notin T}}} \mathcal{I} (T)
+= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
 \ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} \mathcal{I} (T)
 \\[1ex]
 &
-= \ \E[\mathcal{I}(S_{n-1})]
-\ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} (-1)^{n+1}(n)-\mathcal{I} (T\setminus\{x_{n}\}))
-\end{align*}
-
-\begin{align*}
-\sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} (-1)^{n+1}(n)-\mathcal{I} (T\setminus\{x_{n}\}))
+= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
+\ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} (-1)^{n+1}(n)T[n]-\mathcal{I} (T\setminus\{x_{n}\}))
+\\[1ex]
 &
-= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} (-1)^{n+1}(n)-\mathcal{I} (T))
+= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
+\ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} (-1)^{n+1}(n)T[n]
+\ -\ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T))
 \\[1ex]
-& 
-= \ (-1)^{n+1}n2^{n-1} - \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}}\mathcal{I} (T))
+&
+= \ \sum_{k=0}^{n} (-1)^{k+1}\binom{n}{k}
 \\[1ex]
-& 
-= \ (-2)^{n-1}n - \E[\mathcal{I}(S_{n-1})]
+&
+= \ 0
 \end{align*}
-
+To prove the last step, set $a=1,b=-1$ in the Binomial expansion formula
 \begin{align*}
-\E[\mathcal{I}(S_{n})] = (-2)^{n-1}n
+(a+b)^{n} = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^{k}
 \end{align*}
