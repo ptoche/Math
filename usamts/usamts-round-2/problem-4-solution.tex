@@ -1,31 +1,34 @@
 % !TEX root = ../usamts-round-2-solutions.tex
 
 \textbf{Solution:}
-The expected value is $\sum_{T \subseteq S_{n}} \mathcal{I} (T) = 0$.
+The expected value is $\sum_{T \subseteq S_{n}} \mathcal{I} (T) = (-1)^{n+1}\,n\,2^{n-1}\,x_{n}$.
 
-\textbf{Proof:}
-\begin{align*}
+\begin{proof}
+Let $S_{n}$ denote the given set $S$ where the subscript denotes the number of elements in the set (the cardinal). Let $S_{n-1}$ denote the set $S\setminus\{x_{n}\}$.
+\begin{align}
 \sum_{T \subseteq S_{n}} \mathcal{I} (T)
-& 
-= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
+& = \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
 \ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} \mathcal{I} (T)
 \\[1ex]
-&
-= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
-\ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} (-1)^{n+1}(n)T[n]-\mathcal{I} (T\setminus\{x_{n}\}))
+& = \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
+\ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} \left[(-1)^{n+1}(n)T[n]-\mathcal{I} (T\setminus\{x_{n}\})\right]
 \\[1ex]
-&
-= \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
-\ +\ \sum_{\mathclap{\substack{T \subseteq S_{n} \\[0.5ex] x_{n} \in T}}} (-1)^{n+1}(n)T[n]
-\ -\ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T))
+& = \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
+\ +\ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} (-1)^{n+1}(n)T[n]
+\ -\ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} \mathcal{I} (T)
 \\[1ex]
-&
-= \ \sum_{k=0}^{n} (-1)^{k+1}\binom{n}{k}
+& = \ \sum_{\mathclap{\substack{T \subseteq S_{n-1}}}} (-1)^{n+1} \, n \, x_{n}
 \\[1ex]
-&
-= \ 0
-\end{align*}
-To prove the last step, set $a=1,b=-1$ in the Binomial expansion formula
-\begin{align*}
-(a+b)^{n} = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^{k}
-\end{align*}
+& = \ (-1)^{n+1} \, n \, x_{n} \cdot 2^{n-1}
+\end{align}
+\end{proof}
+
+\subsubsection*{Explanation}
+The proof is adapted from \cite{aops:1983}. 
+\begin{itemize}
+\item Step~(1): Split the expected value into two terms: one term is the expected value when the $n$th element is excluded from every subset; the other term is the expected value when the $n$th element is included in every subset.
+\item Step~(2): Substitute the formula for the index and separate the $n$th term from the rest of the alternating sum.
+\item Step~(3): The index of the middle sum is lowered to $n-1$, because the inner term amounts to $1-1$. 
+\item Step~(4): The terms up to $n-1$ cancel out. Substitute $T[n]=x_{n}$.
+\item Step~(5): There are $2^{n-1}$ subsets of $S_{n-1}$.
+\end{itemize}

@@ -123,8 +123,8 @@ Setting the coordinates of point $B$ as $(1,0)$ is without loss of generality: T
 \subsubsection*{Equations of $AD$, $BE$ and $CE$}
 The coordinate system gives $A:(0,0)$, $B:(1,0)$, and $C:(1/2,\sqrt{3}/2)$. The coordinates of $C$ follow from the well-known result that the height of triangle $ABC$ has length $\sqrt{3}/2$, which is an application of the Pythagoras triangle equality. 
 \begin{itemize}
-\item The equation of line $AD=AC$ is $y=\sqrt{3}\,x$. This follows from $\tan60\degree=\sqrt{3}$. One can verify that $A:(0,0)$ and $C:(1/2,\sqrt{3}/2)$ satisfy the equation. 
-\item The equation of line $BE=BD$ is $y=\tan(\alpha)(1-x)$. This follows from a generic $y-y_{B}=\tan(\pi-\alpha)(x-x_{B})$ by substituting the $B$ coordinates $(1,0)$ and noting that $\tan(\pi-\alpha)=-\tan(\alpha)$. 
+\item The equation of line $AD$ (equivalently $AC$) is $y=\sqrt{3}\,x$. This follows from $\tan60\degree=\sqrt{3}$. One can verify that $A:(0,0)$ and $C:(1/2,\sqrt{3}/2)$ satisfy the equation. 
+\item The equation of line $BE$ (equivalently $BD$) is $y=\tan(\alpha)(1-x)$. This follows from a generic $y-y_{B}=\tan(\pi-\alpha)(x-x_{B})$ by substituting the $B$ coordinates $(1,0)$ and noting that $\tan(\pi-\alpha)=-\tan(\alpha)$. 
 \item The equation of line $CE$ is $y=\cot(\theta)(x-1/2)+\sqrt{3}/2$. This follows from a generic $y-y_{C}=\tan(\pi/2-\theta)(x-x_{C})$ by substituting the $C$ coordinates $(1/2,\sqrt{3}/2)$ and noting that $\tan(\pi/2-\theta)=\cot(\theta)$. 
 \end{itemize}
 
@@ -162,7 +162,7 @@ y_{E} & = \frac{1}{2} \cdot \frac{\tan(\alpha)(\cot(\theta)+\sqrt{3})}{\cot(\the
 \end{align*}
 where $-\pi/2<\theta<\pi/2$ implies $\cot(\theta)\ne0$.
 
-In the limit, where $CP \perp AB$, as $\theta\to0$ implies $\cot(\theta)\to\infty$, and the coordinates simplify to
+In the limit, as $\theta\to0$ ($CP \perp AB$), $\cot(\theta)\to\infty$, and the coordinates simplify to:
 \begin{align*}
 \theta \to 0: \quad
 x_{E} & = \frac{1}{2}
@@ -191,7 +191,7 @@ y_{P}
   = \frac{4x_{D}-1}{2\sqrt{3}}
   = \frac{1}{2} \cdot \frac{\sqrt{3}\tan(\alpha)-1}{\sqrt{3}+\tan(\alpha)}
 \end{align*}
-where we have substituted $x_{A}=y_{A}=0$, $y_{D}^{2}=3x_{D}^{2}$, $y_{D}=\sqrt{3}\,x_{D}$, and $x_{D}=\tan(\alpha)/(\sqrt{3}+\tan(\alpha))$, for $\alpha\ne0$ (i.e. $D \ne A$, as assumed).
+where we have substituted $x_{A}=y_{A}=0$, $y_{D}=\sqrt{3}\,x_{D}$, $y_{D}^{2}=3x_{D}^{2}$, and $x_{D}=\tan(\alpha)/(\sqrt{3}+\tan(\alpha))$, for $\alpha\ne0$ (i.e. $D \ne A$, as assumed).
 
 \item The coordinates of $Q$ can be found by solving $\overline{QA}=\overline{QD}=\overline{QE}$. The first few steps are similar to the calculations above. 
 \begin{align*}
@@ -246,8 +246,8 @@ y_{Q} = \frac{1}{2} \, (y_{P} + y_{E})
 \end{align*}
 This condition on the $y$ coordinates of $Q$, $P$, and $E$ states that point $Q$ is the vertex of the isosceles triangle $\triangle EQP$. This is proved below in two steps. 1.~Write $y_{Q}$ in terms of $\tan(\alpha)$. 2.~Write $\frac{1}{2}(y_{P}+y_{E})$ in terms of $\tan(\alpha)$. Apply Lemma~\ref{pb3:lemma:1} to prove equality between the two expressions. 
 \item $\theta=0 \implies x_{E}=\frac{1}{2}, \ y_{E}=\frac{1}{2}\tan(\alpha), \ x_{E}^{2}+y_{E}^{2}=\frac{1}{4}(1+\tan^{2}(\alpha))$.
-\item Step~1. $x_{D}^{2}+y_{D}^{2}=4x_{D}^{2}=4\tan^{2}(\alpha)/(\sqrt{3}+\tan(\alpha))^{2}$.
-\item Substitute $y_{D}=\sqrt{3}\,x_{D}$ and $x_{D}^{2}+y_{D}^{2}=4x_{D}^{2}$ into $y_{Q}$, cancel out $x_{D}$ from numerator and denominator, substitute the values calculated above:
+\item $x_{D}^{2}+y_{D}^{2}=4x_{D}^{2}=4\tan^{2}(\alpha)/(\sqrt{3}+\tan(\alpha))^{2}$.
+\item Step~1. Substitute $y_{D}=\sqrt{3}\,x_{D}$ and $x_{D}^{2}+y_{D}^{2}=4x_{D}^{2}$ into $y_{Q}$, cancel out $x_{D}$ from numerator and denominator, substitute the values calculated above:
 \begin{align*}
 y_{Q} & = \frac{1}{2} \cdot \frac{(x_{D}^{2}+y_{D}^{2}) \, x_{E} - (x_{E}^{2}+y_{E}^{2}) \, x_{D}}{x_{E} \, y_{D} - y_{E} \, x_{D}}
 \\[1ex]
@@ -269,6 +269,7 @@ y_{P} + y_{E}
 \end{itemize}
 \end{proof}
 
+\setcounter{lemma}{0}
 \begin{lemma}\label{pb3:lemma:1}
 The following equality holds for all $x\ne\pm\sqrt{3}$:
 \begin{align*}
@@ -279,20 +280,20 @@ The following equality holds for all $x\ne\pm\sqrt{3}$:
 \begin{proof}
 % wolfram alpha check:
 % ( 8*x-(1+x^2)*(sqrt(3)+x) ) / (3-x^2) = x + (sqrt(3)*x-1)/(x+sqrt(3))
-Multiplying the right-hand side of the equality by $(\sqrt{3}-x)$, so that the denominator on both sides is equal to $3-x^{2}=(\sqrt{3}\,x-1)(\sqrt{3}-x)$, gives:
+Expand the numerator on the left-hand side of the equality:
+\begin{align*}
+7x-\sqrt{3}-\sqrt{3}\,x^{2}-x^{3}
+\end{align*}
+Multiply the right-hand side of the equality by $(\sqrt{3}-x)$, to set the denominator on both sides to the common value, $3-x^{2}=(\sqrt{3}+x)(\sqrt{3}-x)$, then expand:
 \begin{align*}
 x(\sqrt{3}-x)(\sqrt{3}+x)+(\sqrt{3}\,x-1)(\sqrt{3}-x)
 = 7x-\sqrt{3}-\sqrt{3}\,x^{2}-x^{3}
-\end{align*}
-Expanding the numerator on the left-hand side of the equality gives:
-\begin{align*}
-7x-\sqrt{3}-\sqrt{3}\,x^{2}-x^{3}
 \end{align*}
 \end{proof}
 
 
 \begin{proof}[Theorem (Part II)]
-To prove $AB \perp CE \implies d(Q,EP)=\frac{\sqrt{3}}{2}\,\overline{EP}$, we show $\theta=0 \implies x_{P}-x_{Q}=\frac{\sqrt{3}}{2} (y_{E}-y_{P})$.
+To prove $AB \perp CE \implies d(Q,EP)=\frac{\sqrt{3}}{2}\,\overline{EP}$, we take the limit $\theta=0$ and show that $x_{P}-x_{Q}=\frac{\sqrt{3}}{2} (y_{E}-y_{P})$.
 \begin{itemize}
 \item Substitute the values of the coordinates $y_{E}$, $y_{P}$ into the right-hand side:
 \begin{align*}
@@ -328,9 +329,9 @@ Expanding the right-hand side shows that the equality holds.
 \end{itemize}
 \end{proof}
 
-To recap, Part~I of the Theorem proves that if $AB \perp CE$, then triangle $\triangle PQE$ is isosceles, $\overline{QE}=\overline{QP}$. Part~II of the Theorem proves that if $AB \perp CE$, then the height of the triangle $\triangle PQE$ is equal to $\sqrt{3}/2$ times the length of the base $\overline{EP}$. Taken together, the Theorem proves that if $AB \perp CE$, then triangle $\triangle PQE$ is equilateral. 
+To recap, Part~I of the Theorem proves that if $AB \perp CE$, then triangle $\triangle PQE$ is isosceles, $\overline{QE}=\overline{QP}$. Part~II of the Theorem proves that if $AB \perp CE$, then the height of the triangle $\triangle PQE$ is equal to $\sqrt{3}/2$ times the base $\overline{EP}$. Taken together, the Theorem proves that if $AB \perp CE$, then triangle $\triangle PQE$ is equilateral. 
 
-We now turn to the converse of the Theorem. Refer to the figure.
+We now turn to the converse of the Theorem. Refer to the figure. The idea of the proof is that increasing angle $\theta$ by rotating line $CE$ around $C$ displaces points $E$ and $Q$ in such a way that the distances $QE$ and $QP$ are changed by different ratios. 
 
 \begin{figure}[H]
 \centering
@@ -339,8 +340,8 @@ We now turn to the converse of the Theorem. Refer to the figure.
 \end{figure}
 
 \begin{proof}[Theorem (Part III)]
-$CE \not\perp AB \implies \overline{QE}\ne\overline{EP}$
-We give a geometric proof. Since Point $P$ is the circumcenter of $ABD$, it is fixed for a given value of $\alpha$ and independent of $\theta$. Starting from $\theta=0$ and $\triangle EPQ$ equilateral, let $\theta$ increase. While $P$ remains unchanged, distances $\overline{EP}$ and $\overline{QP}$ both increase: $E$ moves towards $D$ along line $BD$, while $Q$ moves towards the midpoint of $AD$ along the perpendicular to $AD$. For any angle other than $\pi/6=30\degree$, $E$ and $Q$ are moving along different directions and must therefore cover different distances. It follows that $\triangle EPQ$ is not equilateral for $\theta>0$. In the special case where $\alpha=\pi/6$, the distance between $Q$ and $E$ remains unchanged as $\theta$ is increased, but since distances $EP$ and $QP$ are increased, the triangle cannot be equilateral in this special case. 
+$CE \not\perp AB \implies \overline{QE}\ne\overline{EP}$. 
+We give a geometric proof. Since Point $P$ is the circumcenter of $ABD$, it is fixed for a given value of $\alpha$ and independent of $\theta$. Starting from $\theta=0$ and $\triangle EPQ$ equilateral, let $\theta$ increase. While $P$ remains unchanged, distances $\overline{EP}$ and $\overline{QP}$ both increase: $E$ moves towards $D$ along line $BD$, while $Q$ moves towards the midpoint of $AD$ along the perpendicular to $AD$. For any angle other than $\pi/6=30\degree$, $E$ and $Q$ are pushed out along different directions and must therefore cover different distances. It follows that $\triangle EPQ$ is not equilateral for $\theta>0$. In the special case where $\alpha=\pi/6$ ($BD \perp AC$), the distance between $Q$ and $E$ remains unchanged as $\theta$ is increased, but since distances $EP$ and $QP$ are increased, the triangle cannot be equilateral. 
 \end{proof}
 
 The only configuration in which $\triangle EPQ$ is equilateral is when $AB \perp CE$. 

@@ -20,6 +20,7 @@ P(\alpha)
 Thus, if $P(x)$ exists, $P(\alpha)=\beta$ implies $w(\alpha)=\beta$, a contradiction with lemma~\ref{lemma:1} and lemma~\ref{lemma:2}, since the coefficients of $w(x)$ are in $\Q$ but not in $\N$. Conclusion: $P(x)$ does not exist.
 \end{proof}
 
+\setcounter{lemma}{0}
 \begin{lemma}\label{lemma:1}
 There exists no polynomial $w(x)$ of degree $1$, with integer coefficients, such that $w(\sqrt[3]{5}+\sqrt[3]{25})=2\sqrt[3]{5}+3\sqrt[3]{25}$.
 \end{lemma}
@@ -48,14 +49,14 @@ a (\sqrt[3]{5}+\sqrt[3]{25}) + b
 \in \Q
 \\
 & \implies
-(a-2)^{2}\sqrt[3]{25} + (a-3)^{2}\sqrt[3]{25^{2}} + 2(a-2)(a-3)\sqrt[3]{5^{3}} 
+(a-2)^{2}\sqrt[3]{5^{2}} + (a-3)^{2}\sqrt[3]{25^{2}} + 2(a-2)(a-3)\sqrt[3]{5^{3}} 
 \in \Q
 \\
 & \implies
 (a-2)^{2}\sqrt[3]{25} + 5(a-3)^{2}\sqrt[3]{5} 
 \in \Q
 \end{align*}
-A weighted average of the second and last expressions, with rational weights, is also in $\Q$. Select weights so that the $\sqrt[3]{5}$ term is eliminated:
+A weighted average of the second and last expressions, with rational weights, is also in $\Q$. Next, select weights so that the $\sqrt[3]{5}$ term is eliminated:
 \begin{align*}
 &
 5(a-3)^{2} \times 
@@ -91,15 +92,15 @@ a \bigl(\sqrt[3]{25} + 10 + 5\sqrt[3]{5}\bigr)
 \begin{cases}
 \quad
 a + b
-& = 3
+& = \ 3
 \\\quad
 5a + b
-& = 2
+& = \ 2
 \\\quad
 10a + c
-& = 0
+& = \ 0
 \end{cases}}
-& \quad \implies 
+\quad \implies \quad & 
 a = -\frac{1}{4}, \
 b = \frac{13}{4}, \
 c = \frac{5}{2}.
