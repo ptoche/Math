@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>usamts-round-2-solutions.bcf</file>
+      <file>usamts-round-3-solutions.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>usamts-round-2-solutions.bbl</file>
+      <file>usamts-round-3-solutions.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -65,22 +65,22 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>usamts-round-2-solutions</infile>
+      <infile>usamts-round-3-solutions</infile>
     </cmdline>
     <input>
-      <file>usamts-round-2-solutions.bcf</file>
+      <file>usamts-round-3-solutions.bcf</file>
     </input>
     <output>
-      <file>usamts-round-2-solutions.bbl</file>
+      <file>usamts-round-3-solutions.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>usamts-round-2-solutions.bbl</file>
+      <file>usamts-round-3-solutions.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>usamts-round-2-solutions.bcf</file>
+      <file>usamts-round-3-solutions.bcf</file>
     </requires>
     <requires type="editable">
-      <file>usamts-round-2/references.bib</file>
+      <file>usamts-round-3/references.bib</file>
     </requires>
   </external>
 </requests>
