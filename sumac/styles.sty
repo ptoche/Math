@@ -1,0 +1,31 @@
+% set paragraph skip
+\setlength{\parskip}{1ex}
+% set paragraph indentation
+\setlength{\parindent}{0pt}
+% set line spacing
+\linespread{1.2}
+
+% load standard packages
+\usepackage{graphicx} % insert images
+\usepackage{amsmath}% special math commands
+\usepackage{mathtools}% more special math commands
+\usepackage{enumitem}% conveniently set up lists
+\usepackage{float}% option [H] to figure
+\usepackage{tabularray}% flexible tables
+%\UseTblrLibrary{diagbox}% slash cell from diagbox package
+\UseTblrLibrary{booktabs}% booktabs options to tables
+\usepackage{subcaption}% flexible captions
+\usepackage{tikz}% fancy pictures
+
+% set up lists with enumitem package
+\setlist[enumerate,1]{label={\arabic*.},wide, labelwidth=!, labelindent=0pt}
+\setlist[enumerate,2]{label={(\alph*)},wide, labelwidth=!, labelindent=0pt}
+
+% convenient command for gcd
+%\let\gcd\relax\DeclareMathOperator{\gcd}{gcd}%
+
+% degree symbol
+\newcommand*{\degree}{\textup{°}}
+
+\usepackage[autostyle=false, style=english]{csquotes}% pretty quotes
+\MakeOuterQuote{"}

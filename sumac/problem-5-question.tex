@@ -1,0 +1,13 @@
+A sequence of $k$ distinct positive integers between $1$ and $n$ is a $(k,n)$-tour if the sequence begins with $n$ ends with $n-1$, and every number in the sequence is the difference of a pair of numbers that occur earlier in the sequence. More precisely, $(a_{1},a_{2},\ldots,a_{k})$ is a $(k,n)$-tour if
+\begin{itemize}
+\item $1 \le a_{i} \le n$ for $i=1,\ldots,k$.
+\item $a_{1}=n$, and $a_{k}=n-1$,
+\item $a_{i} \ne a_{j}$ whenever $i \ne j$,
+\item For $\ell \ge 3$, $a_{\ell}=a_{i}-a_{j}$ for some $i,j<\ell$ such that $i \ne j$.
+\end{itemize}
+For example, $(10, 1, 9)$ is a $(3,10)$-tour, $(10, 3, 7, 4, 1, 9)$ is a $(6,10)$-tour, and $(10, 7, 3, 4, 6, 2, 8, 1, 5, 9)$ is a $(10,10)$-tour. Notice that the last example is an $(k,n)$-tour where $n=k$, and any $(n,n)$-tour must include all of the integers from $1$ up to $n$.
+\begin{enumerate}
+\item How many $(10,10)$-tours can you find?
+\item How many $(16,16)$-tours can you find?
+\item For what $n$ does there exist an $(n, n)$-tour, and when one exists, what are the restrictions on $a_{2}$? (For example, $a_{2}$ cannot be even in any $(10,10)$-tour of $\{1,2,\ldots,10\}$.)
+\end{enumerate}

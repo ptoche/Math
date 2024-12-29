@@ -1,0 +1,239 @@
+\subsubsection*{Notation:}
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\linewidth}
+\centering
+\includegraphics[page=1,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\caption*{Absolute Node Positions}
+\end{subfigure}
+\begin{subfigure}{0.48\linewidth}
+\centering
+\includegraphics[page=2,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\caption*{Starting Position}
+\end{subfigure}
+\end{figure}
+
+Let $a$, $b$, $c$, $d$, $e$ denote the vertices associated with the starting position, so that we can identify the position of a coin as a label/position pair. For instance, move $X$ results in $(A,a) \to (A,d)$, $(D,d) \to (D,c)$, $(C,c) \to (C,a)$. 
+
+\begin{enumerate}
+
+\item Position (a) may be reached by the following sequence of moves: $YXXYYXYXY$.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.40\linewidth}
+\centering
+\includegraphics[page=2,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\end{subfigure}
+\tikz[baseline=-\baselineskip]\draw[thick,->] (0,1)-- node[midway,above,yshift={10pt}]{$YXXYYXYXY$} (3,1);
+\begin{subfigure}{0.40\linewidth}
+\centering
+\includegraphics[page=3,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\end{subfigure}
+\end{figure}
+
+The effect of the moves is summarized in the table:
+\begin{table}[H]
+\centering
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,25pt,$]*{19}{Q[c,11pt,$]}},
+}
+\toprule  
+\text{coin} ~\backslash~\text{rot}
+&   & Y && X && X && Y && Y && X && Y && X && Y \\
+\midrule 
+A & a & \to 
+  & a & \to 
+  & d & \to 
+  & c & \to 
+  & c & \to 
+  & c & \to 
+  & a & \to 
+  & a & \to 
+  & d & \to 
+  & b & \\
+B & b & \to 
+  & e & \to 
+  & e & \to 
+  & e & \to 
+  & d & \to 
+  & b & \to 
+  & b & \to 
+  & e & \to 
+  & e & \to 
+  & d & \\
+C & c & \to 
+  & c & \to 
+  & a & \to 
+  & d & \to 
+  & b & \to 
+  & e & \to 
+  & e & \to 
+  & d & \to 
+  & c & \to 
+  & c & \\
+D & d & \to 
+  & b & \to 
+  & b & \to 
+  & b & \to 
+  & e & \to 
+  & d & \to 
+  & c & \to 
+  & c & \to 
+  & a & \to 
+  & a & \\
+E & e & \to 
+  & d & \to 
+  & c & \to 
+  & a & \to 
+  & a & \to 
+  & a & \to 
+  & d & \to 
+  & b & \to 
+  & b & \to 
+  & e & \\
+\bottomrule
+\end{tblr}
+\end{table}
+
+\item Position (b) cannot be reached from the starting position. It may be approached by the sequence $XYYXX$, where only $E$ and $A$ are out of position. We then show that no adjacent vertices such as $E$ and $A$ can be exchanged without causing other vertices to be displaced, completing the proof. 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.40\linewidth}
+\centering
+\includegraphics[page=2,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\end{subfigure}
+\tikz[baseline=-\baselineskip]\draw[thick,->] (0,1)-- node[midway,above,yshift={10pt}]{$XYYXX$} (3,1);
+\begin{subfigure}{0.40\linewidth}
+\centering
+\includegraphics[page=4,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\end{subfigure}
+\end{figure}
+
+The effect of the moves is summarized in the table:
+\begin{table}[H]
+\centering
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,25pt,$]*{11}{Q[c,11pt,$]}},
+}
+\toprule  
+\text{coin} ~\backslash~\text{rot}
+&   & X && Y && Y && X && X \\
+\midrule 
+A & e & \to 
+  & d & \to 
+  & c & \to 
+  & c & \to 
+  & c & \to 
+  & b & \\
+B & a & \to 
+  & a & \to 
+  & d & \to 
+  & b & \to 
+  & e & \to 
+  & d & \\
+C & c & \to 
+  & c & \to 
+  & a & \to 
+  & a & \to 
+  & a & \to 
+  & c & \\
+D & d & \to 
+  & b & \to 
+  & b & \to 
+  & e & \to 
+  & d & \to 
+  & a & \\
+E & b & \to 
+  & e & \to 
+  & e & \to 
+  & d & \to 
+  & b & \to 
+  & e & \\
+\bottomrule
+\end{tblr}
+\end{table}
+
+
+Any attempt to swap the $A$ and $E$ coins forces a swap elsewhere, e.g. a swap of $B$ and $D$.
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.40\linewidth}
+\centering
+\includegraphics[page=3,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\end{subfigure}
+\tikz[baseline=-\baselineskip]\draw[thick,->] (0,1)-- node[midway,above,yshift={10pt}]{$YXXYYXYXY$} (3,1);
+\begin{subfigure}{0.40\linewidth}
+\centering
+\includegraphics[page=4,height=3cm]%
+{Figures/problem-3-solution-figure-1}
+\end{subfigure}
+\end{figure}
+
+
+The effect of the moves is summarized in the table:
+\begin{table}[H]
+\centering
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[l,25pt,$]*{15}{Q[c,11pt,$]}},
+}
+\toprule  
+\text{coin} ~\backslash~\text{rot}
+&   & Y && X && Y && Y && X && X && Y \\
+\midrule 
+A & e & \to 
+  & d & \to 
+  & c & \to 
+  & c & \to 
+  & c & \to 
+  & a & \to 
+  & d & \to 
+  & b & \\
+B & a & \to 
+  & a & \to 
+  & d & \to 
+  & b & \to 
+  & e & \to 
+  & e & \to 
+  & e & \to 
+  & d & \\
+C & c & \to 
+  & c & \to 
+  & a & \to 
+  & a & \to 
+  & a & \to 
+  & d & \to 
+  & c & \to 
+  & c & \\
+D & d & \to 
+  & b & \to 
+  & b & \to 
+  & e & \to 
+  & d & \to 
+  & c & \to 
+  & a & \to 
+  & a & \\
+E & b & \to 
+  & e & \to 
+  & e & \to 
+  & d & \to 
+  & b & \to 
+  & b & \to 
+  & b & \to 
+  & e & \\
+\bottomrule
+\end{tblr}
+\end{table}
+
+\end{enumerate}
